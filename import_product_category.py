@@ -4,7 +4,7 @@ import sys
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 server_url = 'http://mogth.work:8069'
-database = 'Test_Module'
+database = 'Pre_Test'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -28,13 +28,22 @@ except Exception as e:
     print("Error creating XML-RPC models proxy:", e)
     sys.exit(1)
 
-# --- อ่านข้อมูลจากไฟล์ CSV ---
-csv_file = 'product_category_import.csv'
+# --- อ่านข้อมูลจากไฟล์ Excel ---
+excel_file = 'Data_file/product_category_import.xlsx'
 try:
-    df = pd.read_csv(csv_file, encoding='utf-8')
-    print(f"CSV file '{csv_file}' read successfully. Number of rows = {len(df)}")
+    # ตรวจสอบชื่อ sheet ทั้งหมดในไฟล์ Excel
+    with pd.ExcelFile(excel_file) as xls:
+        sheet_names = xls.sheet_names
+        print(f"Available sheets in the Excel file: {sheet_names}")
+        if 'Sheet1' not in sheet_names:
+            print("Sheet named 'Sheet1' not found. Please check the sheet name.")
+            sys.exit(1)
+    
+    df = pd.read_excel(excel_file, sheet_name='Sheet1')  # ระบุชื่อ sheet ที่ต้องการอ่าน
+    print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
+    print(f"Columns in the Excel file: {df.columns.tolist()}")
 except Exception as e:
-    print("Failed to read CSV file:", e)
+    print("Failed to read Excel file:", e)
     sys.exit(1)
 
 def search_category(category_name):
@@ -56,10 +65,10 @@ def search_parent_category(parent_name):
     )
     return parent_ids[0] if parent_ids else None
 
-# --- วนลูปประมวลผลแต่ละแถวใน CSV ---
+# --- วนลูปประมวลผลแต่ละแถวใน Excel ---
 for index, row in df.iterrows():
-    category_name = str(row['Name']).strip() if pd.notna(row['Name']) else ""
-    parent_category_name = row.get('Parent Category', '')
+    category_name = str(row['product_category_import']).strip() if pd.notna(row['product_category_import']) else ""
+    parent_category_name = row.get('Unnamed: 1', '')
 
     if not category_name:
         print(f"Row {index}: ชื่อ Category ว่างเปล่า. ข้ามแถวนี้ไป")
