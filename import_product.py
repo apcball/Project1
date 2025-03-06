@@ -124,13 +124,17 @@ for index, row in df.iterrows():
 
         # Clean up barcode data
         barcode = str(row['barcode']) if pd.notna(row['barcode']) else False
-        if barcode:
+        if barcode and barcode.strip():  # ตรวจสอบว่า barcode มีค่าและไม่ใช่ string ว่าง
             # Remove decimal point and zeros if present
             barcode = str(float(barcode)).rstrip('0').rstrip('.')
+        else:
+            barcode = False  # ถ้า barcode ว่างหรือเป็น NaN ให้กำหนดเป็น False
 
-        # ตรวจสอบว่ามีสินค้าอยู่แล้วหรือไม่ (ทั้ง default_code และ barcode)
+        # ตรวจสอบว่ามีสินค้าอยู่แล้วหรือไม่ (ทั้ง default_code และ barcode ที่ไม่ว่าง)
         domain = ['|',
                  ['default_code', '=', default_code],
+                 '&',
+                 ['barcode', '!=', False],
                  ['barcode', '=', barcode]]
         existing_products = models.execute_kw(
             database, uid, password, 'product.template', 'search',
