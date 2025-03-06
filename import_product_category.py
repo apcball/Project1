@@ -28,6 +28,19 @@ except Exception as e:
     print("Error creating XML-RPC models proxy:", e)
     sys.exit(1)
 
+def get_cost_method(value):
+    """แปลงค่า Costing Method ให้ตรงกับที่ Odoo ต้องการ"""
+    if pd.isna(value):
+        return 'standard'  # ค่าเริ่มต้น
+    
+    value = str(value).strip().lower()
+    if 'fifo' in value or 'first' in value:
+        return 'fifo'
+    elif 'average' in value or 'moving' in value or 'เฉลี่ย' in value:
+        return 'average'
+    else:
+        return 'standard'
+
 # --- อ่านข้อมูลจากไฟล์ Excel ---
 excel_file = 'Data_file/product_category_import.xlsx'
 try:
@@ -67,6 +80,11 @@ def search_parent_category(parent_name):
 
 # --- วนลูปประมวลผลแต่ละแถวใน Excel ---
 for index, row in df.iterrows():
+    # ข้ามแถวแรกที่เป็นหัวตาราง
+    if index == 0:
+        print("ข้ามแถวที่เป็นหัวตาราง")
+        continue
+
     category_name = str(row['product_category_import']).strip() if pd.notna(row['product_category_import']) else ""
     parent_category_name = row.get('Unnamed: 1', '')
 
@@ -94,5 +112,49 @@ for index, row in df.iterrows():
             database, uid, password, 'product.category', 'create', [category_data]
         )
         print(f"Row {index}: สร้าง Product Category '{category_name}' สำเร็จ (ID: {new_category_id})")
+        
+        # เพิ่มการอัพเดท Costing Method, Income Account และ Expense Account
+        update_data = {}
+        
+        # Costing Method - ใช้ค่าจากคอลัมน์ที่ 3 (index 2)
+        if pd.notna(row.get('Unnamed: 2')):
+            cost_method = str(row['Unnamed: 2']).strip()
+            if cost_method.lower() not in ['', 'costingmethod']:  # ข้ามค่าว่างและหัวตาราง
+                cost_method_value = get_cost_method(cost_method)
+                update_data['property_cost_method'] = cost_method_value
+                print(f"Row {index}: กำหนด Costing Method '{cost_method}' -> '{cost_method_value}'")
+        
+        # Income Account - ใช้ค่าจากคอลัมน์ที่ 4 (index 3)
+        if pd.notna(row.get('Unnamed: 3')):
+            income_account = str(row['Unnamed: 3']).strip()
+            if income_account and income_account.lower() != 'income account':  # ข้ามค่าว่างและหัวตาราง
+                income_ids = models.execute_kw(
+                    database, uid, password, 'account.account', 'search',
+                    [[['code', '=', income_account], ['deprecated', '=', False]]]
+                )
+                if income_ids:
+                    update_data['property_account_income_categ_id'] = income_ids[0]
+                    print(f"Row {index}: กำหนดบัญชีรายได้ '{income_account}'")
+        
+        # Expense Account - ใช้ค่าจากคอลัมน์ที่ 5 (index 4)
+        if pd.notna(row.get('Unnamed: 4')):
+            expense_account = str(row['Unnamed: 4']).strip()
+            if expense_account and expense_account.lower() != 'expense account':  # ข้ามค่าว่างและหัวตาราง
+                expense_ids = models.execute_kw(
+                    database, uid, password, 'account.account', 'search',
+                    [[['code', '=', expense_account], ['deprecated', '=', False]]]
+                )
+                if expense_ids:
+                    update_data['property_account_expense_categ_id'] = expense_ids[0]
+                    print(f"Row {index}: กำหนดบัญชีค่าใช้จ่าย '{expense_account}'")
+        
+        # อัพเดทข้อมูลถ้ามีการเปลี่ยนแปลง
+        if update_data:
+            models.execute_kw(
+                database, uid, password, 'product.category', 'write',
+                [[new_category_id], update_data]
+            )
+            print(f"Row {index}: อัพเดทข้อมูลเพิ่มเติมสำเร็จ")
+            
     except Exception as e:
-        print(f"Row {index}: ไม่สามารถสร้าง Product Category '{category_name}': {e}")
+        print(f"Row {index}: ไม่สามารถสร้าง Category '{category_name}': {e}")
