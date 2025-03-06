@@ -144,7 +144,7 @@ for index, row in df.iterrows():
             'type': 'product',  # กำหนดเป็น storable product
             'categ_id': search_category(row['categ_id']) if pd.notna(row['categ_id']) else False,
             'uom_id': search_uom(row['uom_name']) if pd.notna(row['uom_name']) else False,
-            'uom_po_id': search_uom(row['uom_name']) if pd.notna(row['uom_name']) else False,
+            'location': 
             'list_price': float(str(row['list_price']).replace(',', '')) if pd.notna(row['list_price']) else 0.0,
             'standard_price': float(str(row['standard_price']).replace(',', '')) if pd.notna(row['standard_price']) else 0.0,
             'sale_ok': row['sale_ok'] if pd.notna(row['sale_ok']) else True,
@@ -160,7 +160,6 @@ for index, row in df.iterrows():
             'box_height': float(str(row['box_height']).replace(',', '')) if pd.notna(row['box_height']) else 0.0,
             'box_weight': float(str(row['box_weight']).replace(',', '')) if pd.notna(row['box_weight']) else 0.0,
             'cost_method': str(row['cost_method']).strip() if pd.notna(row['cost_method']) else '',
-            'weight_uom_name': str(row['weight_uom_name']).strip() if pd.notna(row['weight_uom_name']) else '',
             'qty_available': float(str(row['qty_available']).replace(',', '')) if pd.notna(row['qty_available']) else 0.0,
             'taxes_id': search_tax(row['taxes_id']) if pd.notna(row['taxes_id']) else False,
         }
@@ -169,7 +168,6 @@ for index, row in df.iterrows():
         image_data = get_image_data(row['Image']) if pd.notna(row['Image']) else False
         if image_data:
             product_data['image_1920'] = image_data
-
         # สร้างสินค้าใน Odoo
         try:
             new_product_id = models.execute_kw(
