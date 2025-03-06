@@ -93,6 +93,9 @@ def get_customer_tax():
     print("Warning: Customer VAT 7% tax not found")
     return False
 
+# สร้าง list เก็บข้อมูลสินค้าที่ import ไม่สำเร็จ
+failed_imports = []
+
 # --- อ่านข้อมูลจากไฟล์ Excel ---
 excel_file = 'Project1/Data_file/import_product.xlsx'
 try:
@@ -139,11 +142,21 @@ for index, row in df.iterrows():
                 database, uid, password, 'product.template', 'read',
                 [existing_products[0]], {'fields': ['name', 'default_code', 'barcode']}
             )[0]
+            error_msg = f"สินค้ามีอยู่แล้วในระบบ - Default Code: {existing_product['default_code']}, Barcode: {existing_product['barcode']}, Name: {existing_product['name']}"
             print(f"Row {index}: Product already exists with:")
             print(f"  - Default Code: {existing_product['default_code']}")
             print(f"  - Barcode: {existing_product['barcode']}")
             print(f"  - Name: {existing_product['name']}")
             print("  Skipping.")
+            
+            # เก็บข้อมูลสินค้าที่ import ไม่สำเร็จ
+            failed_imports.append({
+                'Row': index + 3,  # +3 เพราะมีการข้ามแถวแรก 2 แถว และ index เริ่มที่ 0
+                'Default Code': default_code,
+                'Name': row['name'] if pd.notna(row['name']) else '',
+                'Barcode': barcode,
+                'Error': error_msg
+            })
             continue
 
         # เตรียมข้อมูลสินค้า
@@ -190,7 +203,15 @@ for index, row in df.iterrows():
                     [[['barcode', '=', product_data['barcode']]]]
                 )
                 if barcode_exists:
-                    print(f"  ไม่สามารถเพิ่มสินค้าได้: บาร์โค้ด {product_data['barcode']} มีอยู่แล้วในระบบ")
+                    error_msg = f"บาร์โค้ด {product_data['barcode']} มีอยู่แล้วในระบบ"
+                    print(f"  ไม่สามารถเพิ่มสินค้าได้: {error_msg}")
+                    failed_imports.append({
+                        'Row': index + 3,
+                        'Default Code': default_code,
+                        'Name': product_data['name'],
+                        'Barcode': barcode,
+                        'Error': error_msg
+                    })
                     continue
 
             new_product_id = models.execute_kw(
@@ -199,11 +220,45 @@ for index, row in df.iterrows():
             print(f"  ✓ เพิ่มสินค้าสำเร็จ (ID: {new_product_id})")
         except Exception as e:
             print(f"  ✗ ไม่สามารถเพิ่มสินค้าได้: {str(e)}")
+            error_msg = str(e)
             # แสดงข้อมูลเพิ่มเติมเพื่อการแก้ไข
             if "Barcode" in str(e):
                 print("    โปรดตรวจสอบ: บาร์โค้ดอาจซ้ำกับสินค้าที่มีอยู่แล้ว")
             
+            # เก็บข้อมูลสินค้าที่ import ไม่สำเร็จ
+            failed_imports.append({
+                'Row': index + 3,
+                'Default Code': default_code,
+                'Name': product_data['name'],
+                'Barcode': barcode,
+                'Error': error_msg
+            })
+            
     except Exception as e:
-        print(f"Row {index}: Error processing row: {e}")
+        error_msg = f"Error processing row: {str(e)}"
+        print(f"Row {index}: {error_msg}")
         # แสดงชื่อคอลัมน์ทั้งหมดเมื่อเกิดข้อผิดพลาด
         print("Available columns:", df.columns.tolist())
+        
+        # เก็บข้อมูลสินค้าที่ import ไม่สำเร็จ
+        failed_imports.append({
+            'Row': index + 3,
+            'Default Code': default_code if 'default_code' in locals() else 'N/A',
+            'Name': row['name'] if pd.notna(row['name']) else 'N/A',
+            'Barcode': barcode if 'barcode' in locals() else 'N/A',
+            'Error': error_msg
+        })
+
+# บันทึกข้อมูลสินค้าที่ import ไม่สำเร็จลงไฟล์ Excel
+if failed_imports:
+    # สร้าง DataFrame จากข้อมูลที่ import ไม่สำเร็จ
+    failed_df = pd.DataFrame(failed_imports)
+    
+    # กำหนดชื่อไฟล์ Excel ที่จะบันทึก
+    timestamp = pd.Timestamp.now().strftime("%Y%m%d_%H%M%S")
+    failed_excel_file = f'Project1/Data_file/failed_imports_{timestamp}.xlsx'
+    
+    # บันทึกไฟล์ Excel
+    failed_df.to_excel(failed_excel_file, index=False, engine='openpyxl')
+    print(f"\nบันทึกรายการสินค้าที่ import ไม่สำเร็จไว้ที่: {failed_excel_file}")
+    print(f"จำนวนรายการที่ import ไม่สำเร็จ: {len(failed_imports)} รายการ")
