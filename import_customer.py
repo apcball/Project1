@@ -60,108 +60,6 @@ def read_excel_file(file_path: str) -> pd.DataFrame:
         logger.error(f"Error reading Excel file: {e}")
         sys.exit(1)
 
-def process_customer(customer_data: Dict[str, Any], contact_name: str, models: Any, uid: int) -> Optional[int]:
-    """
-    Process customer data - create or update in Odoo
-    Args:
-        customer_data: Dictionary containing customer data
-        contact_name: Contact name for creating child contact
-        models: Odoo models proxy
-        uid: User ID
-    Returns:
-        int: ID of created/updated customer or None if failed
-    """
-    try:
-        # Check if customer exists
-        existing_customer_id = models.execute_kw(
-            CONFIG['db'], uid, CONFIG['password'],
-            'res.partner', 'search',
-            [[['partner_code', '=', customer_data['partner_code']]]]
-        )
-
-        customer_id = None
-        if existing_customer_id:
-            # Update existing customer
-            models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'res.partner', 'write',
-                [existing_customer_id, customer_data]
-            )
-            customer_id = existing_customer_id[0]
-            logger.info(f"Updated customer: {customer_data['name']}")
-        else:
-            # Create new customer
-            customer_id = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'res.partner', 'create',
-                [customer_data]
-            )
-            logger.info(f"Created new customer: {customer_data['name']}, ID: {customer_id}")
-
-        # Create contact if provided
-        if contact_name and customer_id:
-            contact_data = {
-                'name': contact_name,
-                'parent_id': customer_id,
-                'type': 'contact',
-                'company_type': 'person',
-                'is_company': False,
-            }
-            
-            # Check if contact already exists
-            existing_contact = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'res.partner', 'search',
-                [[['name', '=', contact_name], ['parent_id', '=', customer_id]]]
-            )
-            
-            if not existing_contact:
-                contact_id = models.execute_kw(
-                    CONFIG['db'], uid, CONFIG['password'],
-                    'res.partner', 'create',
-                    [contact_data]
-                )
-                logger.info(f"Created contact: {contact_name} for customer {customer_data['name']}")
-
-        # Create "Other Address" entry
-        if customer_id:
-            other_address_data = {
-                'name': f"{customer_data['name']} (Other Address)",
-                'parent_id': customer_id,
-                'type': 'other',
-                'company_type': 'person',
-                'is_company': False,
-                'street': customer_data.get('street', False),
-                'street2': customer_data.get('street2', False),
-                'city': customer_data.get('city', False),
-                'state_id': customer_data.get('state_id', False),
-                'zip': customer_data.get('zip', False),
-                'country_id': customer_data.get('country_id', False),
-                'phone': customer_data.get('phone', False),
-                'mobile': customer_data.get('mobile', False),
-            }
-            
-            # Check if other address already exists
-            existing_other_address = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'res.partner', 'search',
-                [[['name', '=', other_address_data['name']], ['parent_id', '=', customer_id], ['type', '=', 'other']]]
-            )
-            
-            if not existing_other_address:
-                other_address_id = models.execute_kw(
-                    CONFIG['db'], uid, CONFIG['password'],
-                    'res.partner', 'create',
-                    [other_address_data]
-                )
-                logger.info(f"Created other address for customer {customer_data['name']}")
-
-        return customer_id
-    
-    except Exception as e:
-        logger.error(f"Error processing customer {customer_data['name']}: {e}")
-        return None
-
 def clean_customer_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     """
     Clean and validate customer data from Excel row
@@ -221,21 +119,6 @@ def clean_customer_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]
         except Exception as e:
             logger.warning(f"Error looking up country code '{country_code}': {e}")
 
-    # Verify if numeric country_id exists in database
-    if country_id and isinstance(country_id, (int, float)):
-        try:
-            country_exists = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'res.country', 'search',
-                [[['id', '=', int(country_id)]]]
-            )
-            if not country_exists:
-                logger.warning(f"Country ID {country_id} not found in database")
-                country_id = False
-        except Exception as e:
-            logger.warning(f"Error verifying country_id {country_id}: {e}")
-            country_id = False
-
     # Clean zip code
     zip_code = row.get('zip', False)
     if pd.isna(zip_code):
@@ -263,93 +146,90 @@ def clean_customer_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]
     elif isinstance(mobile, str):
         mobile = mobile.strip()
 
-    # Handle customer payment term ID
-    payment_term = row.get('property_payment_term_id', False)
+    # Handle payment terms for property_payment_term_id (Customer Payment Terms)
+    payment_term = row.get('property_supplier_payment_term_id', False)  # Changed to match Excel column name
     property_payment_term_id = False
-    if not pd.isna(payment_term):
+    
+    if not pd.isna(payment_term) and payment_term:
         try:
-            if isinstance(payment_term, (int, float)):
-                property_payment_term_id = int(payment_term)
-            elif isinstance(payment_term, str):
-                # Try to find payment term by name
-                payment_terms = models.execute_kw(
-                    CONFIG['db'], uid, CONFIG['password'],
-                    'account.payment.term', 'search',
-                    [[['name', '=', payment_term]]]
-                )
-                if payment_terms:
-                    property_payment_term_id = payment_terms[0]
-                else:
-                    logger.warning(f"Could not find payment term: {payment_term}")
+            # Convert to string and clean up
+            payment_term = str(payment_term).strip()
+            
+            # Try to find payment term by name
+            payment_terms = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'account.payment.term', 'search_read',
+                [[['name', 'ilike', payment_term]]],
+                {'fields': ['id', 'name']}
+            )
+            
+            if payment_terms:
+                property_payment_term_id = payment_terms[0]['id']
+                logger.info(f"Found payment term: {payment_terms[0]['name']} (ID: {property_payment_term_id})")
+            else:
+                logger.warning(f"Payment term not found: {payment_term}")
         except Exception as e:
             logger.warning(f"Error handling payment term '{payment_term}': {e}")
+            property_payment_term_id = False
+            
+    # Debug log
+    if property_payment_term_id:
+        logger.info(f"Setting payment term ID: {property_payment_term_id}")
 
-    # Handle supplier payment term ID
-    supplier_payment_term = row.get('property_supplier_payment_term_id', False)
-    property_supplier_payment_term_id = False
-    if not pd.isna(supplier_payment_term):
-        try:
-            if isinstance(supplier_payment_term, (int, float)):
-                property_supplier_payment_term_id = int(supplier_payment_term)
-            elif isinstance(supplier_payment_term, str):
-                # Try to find supplier payment term by name
-                supplier_payment_terms = models.execute_kw(
-                    CONFIG['db'], uid, CONFIG['password'],
-                    'account.payment.term', 'search',
-                    [[['name', '=', supplier_payment_term]]]
-                )
-                if supplier_payment_terms:
-                    property_supplier_payment_term_id = supplier_payment_terms[0]
-                else:
-                    logger.warning(f"Could not find supplier payment term: {supplier_payment_term}")
-        except Exception as e:
-            logger.warning(f"Error handling supplier payment term '{supplier_payment_term}': {e}")
+    # Clean and validate data
+    # Handle company_type field - must be either 'person' or 'company'
+    company_type = row.get('company_type', 'person')
+    if pd.isna(company_type):
+        company_type = 'person'
+    else:
+        company_type = str(company_type).lower().strip()
+        if company_type not in ['person', 'company']:
+            company_type = 'company' if row.get('is_company', False) else 'person'
 
     # Clean and validate data
     customer_data = {
-        'old_code_partner': str(row.get('old_code_partner', '')) if row.get('old_code_partner') else False,
-        'partner_code': str(row.get('partner_code', '')) if row.get('partner_code') else False,
-        'name': str(row.get('name', '')) if row.get('name') else False,
-        'company_type': row.get('company_type', 'person'),
-        'is_company': bool(row.get('is_company', False)),
-        'street': str(row.get('street', '')) if row.get('street') else False,
-        'street2': str(row.get('street2', '')) if row.get('street2') else False,
-        'city': str(row.get('city', '')) if row.get('city') else False,
+        'old_code_partner': str(row.get('old_code_partner', '')) if not pd.isna(row.get('old_code_partner')) else False,
+        'partner_code': str(row.get('partner_code', '')) if not pd.isna(row.get('partner_code')) else False,
+        'name': str(row.get('name', '')) if not pd.isna(row.get('name')) else False,
+        'company_type': company_type,
+        'is_company': bool(row.get('is_company', False)) if not pd.isna(row.get('is_company')) else False,
+        'street': str(row.get('street', '')) if not pd.isna(row.get('street')) else False,
+        'street2': str(row.get('street2', '')) if not pd.isna(row.get('street2')) else False,
+        'city': str(row.get('city', '')) if not pd.isna(row.get('city')) else False,
         'state_id': state_id,
         'country_id': country_id,
         'zip': zip_code if zip_code else False,
-        'country_code': str(row.get('country_code', '')) if row.get('country_code') else False,
-        'vat': str(row.get('vat', '')) if row.get('vat') else False,
+        'country_code': str(row.get('country_code', '')) if not pd.isna(row.get('country_code')) else False,
+        'vat': str(row.get('vat', '')) if not pd.isna(row.get('vat')) else False,
         'phone': phone if phone else False,
         'mobile': mobile if mobile else False,
         'customer_rank': 1,
-        'active': bool(row.get('active', True))
+        'active': bool(row.get('active', True)) if not pd.isna(row.get('active')) else True,
+        'property_payment_term_id': property_payment_term_id
     }
-
-    # Only add payment terms if they were found
-    if property_payment_term_id:
-        customer_data['property_payment_term_id'] = property_payment_term_id
-    if property_supplier_payment_term_id:
-        customer_data['property_supplier_payment_term_id'] = property_supplier_payment_term_id
 
     return customer_data
 
-def main():
-    """Main execution function"""
-    # Connect to Odoo
-    uid, models = connect_to_odoo()
-
-    # Read Excel file
-    df = read_excel_file(CONFIG['excel_path'])
-
-    # Process each customer
-    for index, row in df.iterrows():
-        customer_data = clean_customer_data(row, models, uid)
-        contact_name = row.get('Contact Name', False)
-        logger.debug(f"Processing customer data: {customer_data}")
-        process_customer(customer_data, contact_name, models, uid)
-
-    logger.info("Customer import completed successfully")
+def check_duplicate_partner(models: Any, uid: int, name: str) -> bool:
+    """
+    Check if partner with the same name already exists
+    Args:
+        models: Odoo models proxy
+        uid: User ID
+        name: Partner name to check
+    Returns:
+        bool: True if partner exists, False otherwise
+    """
+    try:
+        existing_partners = models.execute_kw(
+            CONFIG['db'], uid, CONFIG['password'],
+            'res.partner', 'search_count',
+            [[['name', '=', name]]]
+        )
+        return existing_partners > 0
+    except Exception as e:
+        logger.error(f"Error checking duplicate partner {name}: {e}")
+        return False
 
 def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> None:
     """
@@ -360,12 +240,15 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
         uid: User ID
     """
     try:
-        # Check if customer exists
+        # Check if customer exists by partner_code
         existing_customer_id = models.execute_kw(
             CONFIG['db'], uid, CONFIG['password'],
             'res.partner', 'search',
             [[['partner_code', '=', customer_data['partner_code']]]]
         )
+
+        # Check for duplicate name
+        is_duplicate = check_duplicate_partner(models, uid, customer_data['name'])
 
         if existing_customer_id:
             # Update existing customer
@@ -375,6 +258,22 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
                 [existing_customer_id, customer_data]
             )
             logger.info(f"Updated customer: {customer_data['name']}")
+            
+            # Verify payment term was set
+            if customer_data.get('property_payment_term_id'):
+                partner_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.partner', 'read',
+                    [existing_customer_id[0]],
+                    {'fields': ['property_payment_term_id']}
+                )
+                if partner_data and partner_data[0]['property_payment_term_id'] == customer_data['property_payment_term_id']:
+                    logger.info(f"Payment term verified for customer {customer_data['name']}")
+                else:
+                    logger.warning(f"Payment term may not have been set correctly for {customer_data['name']}")
+        elif is_duplicate:
+            # Skip creating new customer if name already exists
+            logger.warning(f"Skipping creation of duplicate customer: {customer_data['name']}")
         else:
             # Create new customer
             new_customer_id = models.execute_kw(
@@ -383,6 +282,19 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
                 [customer_data]
             )
             logger.info(f"Created new customer: {customer_data['name']}, ID: {new_customer_id}")
+            
+            # Verify payment term was set
+            if customer_data.get('property_payment_term_id'):
+                partner_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.partner', 'read',
+                    [new_customer_id],
+                    {'fields': ['property_payment_term_id']}
+                )
+                if partner_data and partner_data[0]['property_payment_term_id'] == customer_data['property_payment_term_id']:
+                    logger.info(f"Payment term verified for new customer {customer_data['name']}")
+                else:
+                    logger.warning(f"Payment term may not have been set correctly for {customer_data['name']}")
     
     except Exception as e:
         logger.error(f"Error processing customer {customer_data['name']}: {e}")
