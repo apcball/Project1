@@ -1,7 +1,6 @@
-import xmlrpc.client
+cldimport xmlrpc.client
 import pandas as pd
 import sys
-import re
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
@@ -40,42 +39,75 @@ except Exception as e:
 
 # --- Import customers ---
 for index, row in df.iterrows():
+    # Get state_id from the state name
+    state_name = row.get('state_id', False)
+    state_id = False
+    if state_name:
+        state_id = models.execute_kw(db, uid, password, 'res.country.state', 'search', [[['name', '=', state_name]]])
+        state_id = state_id[0] if state_id else False  # Get the first matching state ID
+
+    # Validate and clean data
+    zip_code = row.get('zip', False)
+    if isinstance(zip_code, (int, float)):
+        zip_code = str(int(zip_code))  # Convert to string to avoid integer out of range error
+    if isinstance(zip_code, str):
+        zip_code = zip_code.strip()  # Remove leading and trailing spaces
+
+    # Additional validation and logging for zip_code
+    if not zip_code.isdigit():
+        print(f"Invalid zip code for customer {row.get('name', 'Unknown')}: {zip_code}")
+        continue
+
+    phone = row.get('phone', '')
+    mobile = row.get('mobile', '')
+
+    # Ensure phone and mobile are strings
+    if isinstance(phone, (int, float)):
+        phone = str(phone)
+    if isinstance(mobile, (int, float)):
+        mobile = str(mobile)
+
+    # Validate property_payment_term_id
+    property_payment_term_id = row.get('property_payment_term_id', False)
+    if isinstance(property_payment_term_id, float):
+        property_payment_term_id = int(property_payment_term_id)  # Convert to integer if it's a float
+
     customer_data = {
-        'old_code_partner ': row.get('Old Code Partner', False),
-        'partner_code': row.get('Partner Code', False),
-        'name': row.get('Name', False),  # Use get to avoid KeyError
-        'company_type': row.get('Company Type', 'person'),
-        'is_company': row.get('Is Company', False),
-        'parent_id': row.get('Parent ID', False),
-        'street': row.get('Street', False),
-        'street2': row.get('Street2', False),
-        'city': row.get('City', False),
-        'state_id': row.get('State ID', False),
-        'zip': row.get('Zip', False),
-        'country_code': row.get('Country Code', False),
-        'vat': row.get('VAT', False),
-        'phone': row.get('Phone', False),
-        'mobile': row.get('Mobile', False),
-        'user_id': row.get('User ID', False),
-        'property_payment_term_id': row.get('Payment Term ID', False),
-        'lang': row.get('Language', False),
+        'partner_code': row.get('partner_code', False),
+        'name': row.get('name', False),
+        'company_type': row.get('company_type', 'person'),
+        'is_company': bool(row.get('is_company', False)),  # Ensure this is a boolean
+        'parent_id': row.get('parent_id/id', False),
+        'street': row.get('street', False),
+        'street2': row.get('street2', False),
+        'city': row.get('city', False),
+        'state_id': state_id,  # Use the resolved state ID
+        'zip': zip_code,  # Use the validated zip code as a string
+        'country_code': row.get('country_code', False),
+        'vat': row.get('vat', False),
+        'phone': phone,  # Ensure phone is a string
+        'mobile': mobile,  # Ensure mobile is a string
+        'property_payment_term_id': property_payment_term_id,  # Use the validated payment term ID
         'customer_rank': 1,  # Set customer rank to 1 to mark as a customer
-        'active': row.get('Active', True),
+        'active': bool(row.get('active', True)),  # Ensure this is a boolean
     }
 
+    # Debugging: Print customer_data to check values
+    print(f"Processing customer data: {customer_data}")
+
     try:
-        # Check if the customer already exists by email
-        existing_customer_id = models.execute_kw(db, uid, password, 'res.partner', 'search', [[['email', '=', row.get('Email', False)]]])
-        
+        # Check if the customer already exists by partner_code
+        existing_customer_id = models.execute_kw(db, uid, password, 'res.partner', 'search', [[['partner_code', '=', row.get('partner_code', False)]]])
+
         if existing_customer_id:
             # Update existing customer
             models.execute_kw(db, uid, password, 'res.partner', 'write', [existing_customer_id, customer_data])
-            print(f"Updated customer: {row.get('Name', 'Unknown')}")
+            print(f"Updated customer: {row.get('name', 'Unknown')}")
         else:
             # Create new customer
             new_customer_id = models.execute_kw(db, uid, password, 'res.partner', 'create', [customer_data])
-            print(f"Created new customer: {row.get('Name', 'Unknown')}, ID: {new_customer_id}")
+            print(f"Created new customer: {row.get('name', 'Unknown')}, ID: {new_customer_id}")
     except Exception as e:
-        print(f"Error processing customer {row.get('Name', 'Unknown')}: {e}")
+        print(f"Error processing customer {row.get('name', 'Unknown')}: {e}")
 
 print("Customer import completed.")
