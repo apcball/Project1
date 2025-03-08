@@ -1,0 +1,20 @@
+name,manufacture_steps,delivery_steps,code
+คลังวัตถุดิบ 1,Manufacture (1 step),Deliver goods directly (1 step),RM01
+คลังวัตถุดิบ 2,Manufacture (1 step),Deliver goods directly (1 step),RM02
+รอเคลม ในประเทศ,Manufacture (1 step),Deliver goods directly (1 step),RM11
+รอเคลม ต่างประเทศ,Manufacture (1 step),Deliver goods directly (1 step),RM12
+วัตถุดิบ Supplier,Manufacture (1 step),Deliver goods directly (1 step),RM03
+สิ้นเปลืองโรงงาน,Manufacture (1 step),Deliver goods directly (1 step),ST01
+สิ้นเปลืองสำนักงาน,Manufacture (1 step),Deliver goods directly (1 step),ST02
+ทรัพย์สิน,Manufacture (1 step),Deliver goods directly (1 step),AS01
+สินค้ากึ่งสำเร็จรูป,Manufacture (1 step),Deliver goods directly (1 step),SM01
+ผลิต,Manufacture (1 step),Deliver goods directly (1 step),PD01
+สินค้าสำเร็จรูป 1,Manufacture (1 step),Deliver goods directly (1 step),FG10
+SCG,Manufacture (1 step),Deliver goods directly (1 step),FG11
+Dynasty,Manufacture (1 step),Deliver goods directly (1 step),FG12
+สินค้าสำเร็จรูป 2,Manufacture (1 step),Deliver goods directly (1 step),FG20
+สินค้าโชว์,Manufacture (1 step),Deliver goods directly (1 step),FG30
+คลังสินค้า NC,Manufacture (1 step),Deliver goods directly (1 step),FG40
+สินค้าชำรุด,Manufacture (1 step),Deliver goods directly (1 step),FG50
+คลังโครงการ,Manufacture (1 step),Deliver goods directly (1 step),PJ01
+Dead Stock,Manufacture (1 step),Deliver goods directly (1 step),DS01

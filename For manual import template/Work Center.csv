@@ -1,0 +1,41 @@
+id,active,default_capacity,code,costs_hour,oee_target,sequence,time_efficiency,name
+__export__.mrp_workcenter_1_4cd964cd,TRUE,1.0,PD1-11,0.0,95.0,1,100.0,QC ประกอบสุขภัณฑ์
+__export__.mrp_workcenter_2_47a51565,TRUE,1.0,PD1-12,0.0,95.0,1,100.0,QC ประกอบอ่างล้างหน้า
+__export__.mrp_workcenter_3_c60dc9ca,TRUE,1.0,PD1-13,0.0,95.0,1,100.0,QC ประกอบอ่างอาบน้ำ
+__export__.mrp_workcenter_4_b40f30e2,TRUE,1.0,PD1-14,0.0,90.0,1,100.0,QC ประกอบอ่างอาบน้ำ ระบบ
+__export__.mrp_workcenter_5_4e705a6c,TRUE,1.0,PD1-15,0.0,90.0,1,100.0,La - Fur
+__export__.mrp_workcenter_6_10386a86,TRUE,1.0,PD2 -01,0.0,90.0,1,100.0,Vendor ปิดผิว
+__export__.mrp_workcenter_7_ca14cffa,TRUE,1.0,PD2 -11,0.0,90.0,1,100.0,ตัด 1
+__export__.mrp_workcenter_8_5878f80c,TRUE,1.0,PD2 -12,0.0,90.0,1,100.0,ตัด 2
+__export__.mrp_workcenter_9_0578b8b2,TRUE,1.0,PD2 -21,0.0,50.0,1,100.0,ปิดขอบตรง 1
+__export__.mrp_workcenter_10_f4b28a10,TRUE,1.0,PD2 -22,0.0,90.0,1,100.0,ปิดขอบตรง 2
+__export__.mrp_workcenter_11_9d6bece3,TRUE,1.0,PD2 -23,0.0,90.0,1,100.0,ปิดขอบโค้ง
+__export__.mrp_workcenter_12_c5cc3bbb,TRUE,1.0,PD2-31,0.0,90.0,1,100.0,เจาะ CNC
+__export__.mrp_workcenter_14_32b1d83a,TRUE,1.0,PD2-32,0.0,90.0,1,100.0,เจาะ Manual
+__export__.mrp_workcenter_15_ba542f67,TRUE,1.0,PD2-41,0.0,90.0,1,100.0,ประกอบชิ้นส่วน
+__export__.mrp_workcenter_16_407ddd01,TRUE,1.0,PD2 -03,0.0,90.0,1,100.0,Vendor ทำสี
+__export__.mrp_workcenter_17_7e25f92b,TRUE,1.0,PD2-51,0.0,90.0,1,100.0,พ่นสี
+__export__.mrp_workcenter_19_dc9c7e6a,TRUE,1.0,PD2-61,0.0,90.0,1,100.0,แต่งสี
+__export__.mrp_workcenter_20_461f1285,TRUE,1.0,PD2-71,0.0,90.0,1,100.0,ประกอบเฟอร์
+__export__.mrp_workcenter_21_4227fdd0,TRUE,1.0,PD2-81,0.0,90.0,1,100.0,Pack
+__export__.mrp_workcenter_22_a8fcd03a,TRUE,1.0,PD2-02,0.0,95.0,1,100.0,Vendorดัด
+__export__.mrp_workcenter_24_b6f68490,TRUE,1.0,PD2 -13,0.0,90.0,1,100.0,ตัดตรง
+__export__.mrp_workcenter_25_56178409,TRUE,1.0,PD2-14,0.0,90.0,1,100.0,ตัดองศา
+__export__.mrp_workcenter_26_0fbc1c46,TRUE,1.0,PD2-04,0.0,90.0,1,100.0,Vendorเชื่อม
+__export__.mrp_workcenter_27_6230ff0c,TRUE,1.0,PD2-52,0.0,90.0,1,100.0,พ่นสีฝุ่น
+__export__.mrp_workcenter_28_d9bef902,TRUE,1.0,PD2-42,0.0,90.0,1,100.0,ขึ้นรูปไม้ครอบราว
+__export__.mrp_workcenter_29_a4f006b0,TRUE,1.0,PD2-52,0.0,90.0,1,100.0,ทำสีไม้
+__export__.mrp_workcenter_30_aa8488a9,TRUE,1.0,PD2-72,0.0,90.0,1,100.0,ประกอบ ราว
+__export__.mrp_workcenter_31_40098f0b,TRUE,1.0,PD2-82,0.0,95.0,1,100.0,Packing ราว
+__export__.mrp_workcenter_32_2f49a2f6,TRUE,1.0,PD2-05,0.0,95.0,1,100.0,Vendor เชื่อมโครง
+__export__.mrp_workcenter_33_3f829e6e,TRUE,1.0,PD2-82,0.0,95.0,1,100.0,Packing โครง
+__export__.mrp_workcenter_34_b0effd35,TRUE,1.0,PD2-73,0.0,90.0,1,100.0,ประกอบ บันได
+__export__.mrp_workcenter_35_2f61506e,TRUE,1.0,PD2-24,0.0,90.0,1,100.0,ปิดขอบงานบันได
+__export__.mrp_workcenter_36_58a5d4a9,TRUE,1.0,PD2-62,0.0,90.0,1,100.0,แต่งสีงานบันได
+__export__.mrp_workcenter_37_bbc5b114,TRUE,1.0,PD2-15,0.0,90.0,1,100.0,ตัด SLIDE
+__export__.mrp_workcenter_38_8322c627,TRUE,1.0,PD2-06,0.0,90.0,1,100.0,Vendor ทำสี
+__export__.mrp_workcenter_39_6e6c958b,TRUE,1.0,PD2-01,0.0,90.0,1,100.0,Vendor ปิดผิว
+__export__.mrp_workcenter_40_de05d5c4,TRUE,1.0,PD2-33,0.0,90.0,1,100.0,เจาะเล็ก
+__export__.mrp_workcenter_41_2782209a,TRUE,1.0,PD2-43,0.0,90.0,1,100.0,ขึ้นรูปเพลาตั้ง
+__export__.mrp_workcenter_42_c6b4758f,TRUE,1.0,PD2-24,0.0,90.0,1,100.0,แลปปิ้ง
+__export__.mrp_workcenter_43_47644e71,TRUE,1.0,PD2-16,0.0,90.0,1,100.0,ตัด 45
