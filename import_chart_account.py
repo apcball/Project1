@@ -1,23 +1,43 @@
 import xmlrpc.client
 import pandas as pd
-from datetime import datetime
 import sys
-import os
+import logging
 from pathlib import Path
 
+# ตั้งค่า logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('chart_accounts_import.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
 # Odoo connection parameters
-server_url = 'http://mogth.work:8069'
-database = 'Test_Import'
+url = 'http://mogth.work:8069'
+db = 'Test_Import'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
-# Connect to Odoo
-common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
-uid = common.authenticate(db, username, password, {})
-models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+def connect_to_odoo():
+    """เชื่อมต่อกับ Odoo"""
+    try:
+        common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
+        uid = common.authenticate(db, username, password, {})
+        if not uid:
+            logger.error("การเชื่อมต่อล้มเหลว: ไม่สามารถยืนยันตัวตนได้")
+            return None, None
+        
+        models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
+        return uid, models
+    except Exception as e:
+        logger.error(f"การเชื่อมต่อล้มเหลว: {str(e)}")
+        return None, None
 
 def get_account_type(account_type):
-    # Map account types to Odoo's internal types
+    """แปลงประเภทบัญชีให้ตรงกับ Odoo"""
     type_mapping = {
         'receivable': 'asset_receivable',
         'payable': 'liability_payable',
@@ -37,91 +57,115 @@ def get_account_type(account_type):
         'other expenses': 'expense_other',
         'cost of revenue': 'expense_direct_cost',
     }
-    account_type = str(account_type).lower().strip()
-    return type_mapping.get(account_type, 'asset_current')  # default to asset_current if type not found
+    if not account_type or pd.isna(account_type):
+        return 'asset_current'
+    return type_mapping.get(str(account_type).lower().strip(), 'asset_current')
 
-def import_chart_of_accounts():
+def prepare_account_data(row):
+    """เตรียมข้อมูลบัญชีสำหรับสร้างหรืออัพเดท"""
+    account_data = {
+        'code': str(row['code']).strip(),
+        'name': str(row['name']).strip() if pd.notna(row['name']) else '',
+        'account_type': get_account_type(row['account_type']),
+    }
+
+    # เพิ่มข้อมูล reconcile ถ้ามี
+    if 'reconcile' in row and pd.notna(row['reconcile']):
+        account_data['reconcile'] = bool(row['reconcile'])
+
+    # เพิ่มข้อมูล currency_id ถ้ามี
+    if 'currency_id' in row and pd.notna(row['currency_id']):
+        currency_id = int(row['currency_id']) if str(row['currency_id']).isdigit() else None
+        if currency_id:
+            account_data['currency_id'] = currency_id
+
+    return account_data
+
+def import_or_update_accounts():
+    """นำเข้าหรืออัพเดทข้อมูลบัญชี"""
     try:
-        # Get the current directory
-        current_dir = Path(__file__).parent
+        # เชื่อมต่อกับ Odoo
+        uid, models = connect_to_odoo()
+        if not uid or not models:
+            return
+
+        # อ่านไฟล์ Excel
+        file_path = Path(r"C:\Users\Ball\Documents\Git_apcball\Project1\Data_file\Chart_Of_Account.xlsx")
+        logger.info(f"กำลังอ่านไฟล์ Excel: {file_path}")
         
-        # Construct the file path
-        file_path = current_dir / "For manual import template" / "Chart_Of_Account.xlsx"
-        
-        print(f"Reading Excel file from: {file_path}")
-        
-        # Read the Excel file
         df = pd.read_excel(file_path)
+        logger.info(f"พบคอลัมน์ในไฟล์: {', '.join(df.columns.tolist())}")
+
+        # สถิติการนำเข้า
+        stats = {'total': 0, 'created': 0, 'updated': 0, 'errors': 0}
+
+        # ดึงข้อมูลบัญชีทั้งหมดที่มีในระบบ
+        existing_accounts = models.execute_kw(db, uid, password,
+            'account.account', 'search_read',
+            [[]], {'fields': ['code', 'id']}
+        )
         
-        # Counter for successful imports
-        created_count = 0
-        updated_count = 0
-        error_count = 0
-        
-        total_records = len(df)
-        print(f"Found {total_records} accounts to process")
-        
-        # Process each row in the Excel file
+        # สร้าง dictionary ของบัญชีที่มีอยู่
+        existing_account_dict = {acc['code']: acc['id'] for acc in existing_accounts}
+
+        # ประมวลผลแต่ละรายการในไฟล์ Excel
         for index, row in df.iterrows():
             try:
-                # Convert account code to string and ensure it's not empty
-                account_code = str(row['Code']).strip()
-                if not account_code:
-                    print(f"Skipping row {index + 2}: Empty account code")
-                    error_count += 1
+                stats['total'] += 1
+                
+                # ข้ามแถวที่ว่าง
+                if row.isna().all():
                     continue
 
-                # Check if account already exists
-                existing_account = models.execute_kw(db, uid, password,
-                    'account.account', 'search',
-                    [[['code', '=', account_code]]])
+                # อ่านรหัสบัญชี
+                if not pd.notna(row['code']):
+                    logger.warning(f"ข้ามแถวที่ {index + 2}: ไม่มีรหัสบัญชี")
+                    stats['errors'] += 1
+                    continue
 
-                # Prepare account data
-                account_data = {
-                    'code': account_code,
-                    'name': str(row['Name']).strip(),
-                    'account_type': get_account_type(row['Account Type']),
-                    'reconcile': bool(row.get('Reconcile', False)),
-                    'deprecated': bool(row.get('Deprecated', False)),
-                }
+                account_code = str(row['code']).strip()
+                account_data = prepare_account_data(row)
 
-                if existing_account:
-                    # Get existing account data
-                    old_data = models.execute_kw(db, uid, password,
-                        'account.account', 'read',
-                        [existing_account[0]], {'fields': ['name', 'account_type', 'reconcile', 'deprecated']})
-                    
-                    # Update existing account
-                    models.execute_kw(db, uid, password, 'account.account', 'write', [
-                        existing_account, account_data])
-                    
-                    print(f"Updated account: {account_code} - {account_data['name']}")
-                    print(f"  Old values: {old_data[0]}")
-                    print(f"  New values: {account_data}")
-                    updated_count += 1
-                else:
-                    # Create new account
-                    new_id = models.execute_kw(db, uid, password, 'account.account', 'create',
-                        [account_data])
-                    print(f"Created new account: {account_code} - {account_data['name']}")
-                    created_count += 1
-                
+                try:
+                    # ตรวจสอบว่ามีบัญชีนี้ในระบบหรือไม่
+                    if account_code in existing_account_dict:
+                        # อัพเดทบัญชีที่มีอยู่
+                        models.execute_kw(db, uid, password, 'account.account', 'write', [
+                            [existing_account_dict[account_code]], account_data
+                        ])
+                        logger.info(f"อัพเดทบัญชี: {account_code} - {account_data['name']}")
+                        stats['updated'] += 1
+                    else:
+                        # สร้างบัญชีใหม่
+                        new_account_id = models.execute_kw(db, uid, password, 'account.account', 'create', [account_data])
+                        logger.info(f"สร้างบัญชีใหม่: {account_code} - {account_data['name']}")
+                        stats['created'] += 1
+
+                except Exception as e:
+                    logger.error(f"เกิดข้อผิดพลาดในการบันทึกบัญชี {account_code}: {str(e)}")
+                    stats['errors'] += 1
+
             except Exception as e:
-                print(f"Error processing account {row.get('Code', 'Unknown')}: {str(e)}")
-                error_count += 1
-                continue
-        
-        print("\n=== Import Summary ===")
-        print(f"Total records processed: {total_records}")
-        print(f"New accounts created: {created_count}")
-        print(f"Existing accounts updated: {updated_count}")
-        print(f"Errors encountered: {error_count}")
-        print("===================")
-        
+                logger.error(f"เกิดข้อผิดพลาดในการประมวลผลแถวที่ {index + 2}: {str(e)}")
+                stats['errors'] += 1
+
+        # แสดงสรุปผล
+        logger.info("\n=== สรุปผลการนำเข้า ===")
+        logger.info(f"จำนวนรายการทั้งหมด: {stats['total']}")
+        logger.info(f"สร้างบัญชีใหม่: {stats['created']}")
+        logger.info(f"อัพเดทบัญชี: {stats['updated']}")
+        logger.info(f"เกิดข้อผิดพลาด: {stats['errors']}")
+        logger.info("=====================")
+
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
-        sys.exit(1)
+        logger.error(f"เกิดข้อผิดพลาดในการนำเข้า: {str(e)}")
+        raise
 
 if __name__ == "__main__":
-    print("Starting Chart of Accounts import...")
-    import_chart_of_accounts()
+    try:
+        logger.info("เริ่มต้นการนำเข้าและอัพเดทผังบัญชี...")
+        import_or_update_accounts()
+        logger.info("การนำเข้าและอัพเดทเสร็จสมบูรณ์")
+    except Exception as e:
+        logger.error(f"เกิดข้อผิดพลาด: {str(e)}")
+        sys.exit(1)
