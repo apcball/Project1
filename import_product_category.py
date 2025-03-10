@@ -4,7 +4,7 @@ import sys
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 server_url = 'http://mogth.work:8069'
-database = 'Pre_Test'
+database = 'MOG_Traning'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -42,7 +42,7 @@ def get_cost_method(value):
         return 'standard'
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Project1/Data_file/product_category_import.xlsx'
+excel_file = 'Data_file/product_category_import.xlsx'
 try:
     # ตรวจสอบชื่อ sheet ทั้งหมดในไฟล์ Excel
     with pd.ExcelFile(excel_file) as xls:

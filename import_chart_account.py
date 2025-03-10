@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 # Odoo connection parameters
 url = 'http://mogth.work:8069'
-db = 'Test_Import'
+db = 'MOG_Traning'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
