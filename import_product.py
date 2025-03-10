@@ -142,7 +142,7 @@ def process_image(image_path):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_product.xlsx'
+excel_file = 'Data_file/import_product1.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -161,8 +161,16 @@ customer_tax_id = get_customer_tax()
 # --- วนลูปประมวลผลแต่ละแถวใน Excel ---
 for index, row in df.iterrows():
     try:
-        # ตรวจสอบ default_code
-        default_code = str(row['default_code']).strip() if pd.notna(row['default_code']) else ''
+        # ตรวจสอบและแปลง default_code
+        if pd.notna(row['default_code']):
+            # ถ้าเป็นตัวเลข ให้แปลงเป็นจำนวนเต็ม
+            if str(row['default_code']).replace('.', '').isdigit():
+                default_code = str(int(float(row['default_code'])))
+            else:
+                default_code = str(row['default_code']).strip()
+        else:
+            default_code = ''
+
         if not default_code:
             print(f"Row {index}: Missing default_code. Skipping.")
             continue
@@ -208,10 +216,10 @@ for index, row in df.iterrows():
             print(f"  - Name: {existing_product['name']}")
             print("  กำลังอัพเดทข้อมูล...")
 
-            # อ่านค่า sale_ok, purchase_ok, active
-            sale_ok_value = parse_boolean_field(row.get('sale_ok'), default=True)
-            purchase_ok_value = parse_boolean_field(row.get('purchase_ok'), default=True)
-            active_value = parse_boolean_field(row.get('active'), default=True)
+            # อ่านค่า sale_ok, purchase_ok, active (default เป็น False ถ้าไม่ระบุค่า)
+            sale_ok_value = parse_boolean_field(row.get('sale_ok'), default=False)
+            purchase_ok_value = parse_boolean_field(row.get('purchase_ok'), default=False)
+            active_value = parse_boolean_field(row.get('active'), default=False)
 
             # เตรียมข้อมูลสำหรับอัพเดท
             update_data = {
@@ -268,8 +276,8 @@ for index, row in df.iterrows():
             continue
 
         # ฟังก์ชันสำหรับตรวจสอบค่าบูลีน
-        def parse_boolean_field(value, default=True):
-            if pd.isna(value):
+        def parse_boolean_field(value, default=False):
+            if pd.isna(value) or str(value).strip() == '':
                 return default
             str_value = str(value).strip().lower()
             # ถ้าเป็นตัวเลข
@@ -278,9 +286,10 @@ for index, row in df.iterrows():
             # ถ้าเป็นข้อความ
             return str_value in ('yes', 'true', '1', 'y', 't')
 
-        # อ่านค่า sale_ok, purchase_ok, active
-        sale_ok_value = parse_boolean_field(row.get('sale_ok'), default=True)
-        purchase_ok_value = parse_boolean_field(row.get('purchase_ok'), default=True)
+        # อ่านค่า sale_ok, purchase_ok (default เป็น False ถ้าไม่ระบุค่า)
+        # และ active (default เป็น True ถ้าไม่ระบุค่า)
+        sale_ok_value = parse_boolean_field(row.get('sale_ok'), default=False)
+        purchase_ok_value = parse_boolean_field(row.get('purchase_ok'), default=False)
         active_value = parse_boolean_field(row.get('active'), default=True)
 
         print(f"\nกำลังตรวจสอบค่าสถานะสินค้า (Row {index}):")
