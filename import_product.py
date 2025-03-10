@@ -142,7 +142,7 @@ def process_image(image_path):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_product1.xlsx'
+excel_file = 'Data_file/import_product.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -186,26 +186,107 @@ for index, row in df.iterrows():
             [domain]
         )
         
+        # ฟังก์ชันสำหรับตรวจสอบค่าบูลีน
+        def parse_boolean_field(value, default=True):
+            if pd.isna(value):
+                return default
+            str_value = str(value).strip().lower()
+            # ถ้าเป็นตัวเลข
+            if str_value.replace('.', '').isdigit():
+                return bool(float(str_value))
+            # ถ้าเป็นข้อความ
+            return str_value in ('yes', 'true', '1', 'y', 't')
+
         if existing_products:
             existing_product = models.execute_kw(
                 database, uid, password, 'product.template', 'read',
                 [existing_products[0]], {'fields': ['name', 'default_code', 'barcode']}
             )[0]
-            error_msg = f"สินค้ามีอยู่แล้วในระบบ - Default Code: {existing_product['default_code']}, Barcode: {existing_product['barcode']}, Name: {existing_product['name']}"
-            print(f"Row {index}: Product already exists with:")
+            print(f"\nพบสินค้าในระบบ (Row {index}):")
             print(f"  - Default Code: {existing_product['default_code']}")
             print(f"  - Barcode: {existing_product['barcode']}")
             print(f"  - Name: {existing_product['name']}")
-            print("  Skipping.")
-            
-            failed_imports.append({
-                'Row': index + 3,
-                'Default Code': default_code,
-                'Name': row['name'] if pd.notna(row['name']) else '',
-                'Barcode': barcode,
-                'Error': error_msg
-            })
+            print("  กำลังอัพเดทข้อมูล...")
+
+            # อ่านค่า sale_ok, purchase_ok, active
+            sale_ok_value = parse_boolean_field(row.get('sale_ok'), default=True)
+            purchase_ok_value = parse_boolean_field(row.get('purchase_ok'), default=True)
+            active_value = parse_boolean_field(row.get('active'), default=True)
+
+            # เตรียมข้อมูลสำหรับอัพเดท
+            update_data = {
+                'name': str(row['name']).strip() if pd.notna(row['name']) else existing_product['name'],
+                'name_eng': str(row['name_eng']).strip() if pd.notna(row['name_eng']) else '',
+                'sku': str(row['sku']).strip() if pd.notna(row['sku']) else '',
+                'barcode': barcode if barcode else existing_product.get('barcode', False),
+                'categ_id': search_category(row['categ_id']) if pd.notna(row['categ_id']) else False,
+                'uom_id': search_uom(row['uom_id']) if pd.notna(row['uom_id']) else False,
+                'list_price': float(str(row['list_price']).replace(',', '')) if pd.notna(row['list_price']) else 0.0,
+                'standard_price': float(str(row['standard_price']).replace(',', '')) if pd.notna(row['standard_price']) else 0.0,
+                'sale_ok': sale_ok_value,
+                'purchase_ok': purchase_ok_value,
+                'active': active_value,
+                'description': str(row['description']).strip() if pd.notna(row['description']) else '',
+                'gross_width': float(str(row['gross_width']).replace(',', '')) if pd.notna(row['gross_width']) else 0.0,
+                'gross_depth': float(str(row['gross_depth']).replace(',', '')) if pd.notna(row['gross_depth']) else 0.0,
+                'gross_height': float(str(row['gross_height']).replace(',', '')) if pd.notna(row['gross_height']) else 0.0,
+                'weight': float(str(row['weight']).replace(',', '')) if pd.notna(row['weight']) else 0.0,
+                'box_width': float(str(row['box_width']).replace(',', '')) if pd.notna(row['box_width']) else 0.0,
+                'box_depth': float(str(row['box_depth']).replace(',', '')) if pd.notna(row['box_depth']) else 0.0,
+                'box_height': float(str(row['box_height']).replace(',', '')) if pd.notna(row['box_height']) else 0.0,
+                'box_weight': float(str(row['box_weight']).replace(',', '')) if pd.notna(row['box_weight']) else 0.0,
+                'taxes_id': [(6, 0, [customer_tax_id])] if customer_tax_id else [(6, 0, [])],
+            }
+
+            # ตรวจสอบและอัพเดทรูปภาพ
+            if pd.notna(row.get('image')):
+                print(f"  กำลังอัพเดทรูปภาพ: {row['image']}")
+                image_data, error_msg = process_image(row['image'])
+                if image_data:
+                    update_data['image_1920'] = image_data
+                    print("  ✓ ประมวลผลรูปภาพสำเร็จ")
+                else:
+                    print(f"  ⚠ ไม่สามารถประมวลผลรูปภาพ: {error_msg}")
+
+            try:
+                # อัพเดทข้อมูลสินค้า
+                models.execute_kw(
+                    database, uid, password, 'product.template', 'write',
+                    [existing_products[0], update_data]
+                )
+                print("  ✓ อัพเดทข้อมูลสำเร็จ")
+            except Exception as e:
+                error_msg = f"ไม่สามารถอัพเดทข้อมูลได้: {str(e)}"
+                print(f"  ✗ {error_msg}")
+                failed_imports.append({
+                    'Row': index + 3,
+                    'Default Code': default_code,
+                    'Name': row['name'] if pd.notna(row['name']) else '',
+                    'Barcode': barcode,
+                    'Error': error_msg
+                })
             continue
+
+        # ฟังก์ชันสำหรับตรวจสอบค่าบูลีน
+        def parse_boolean_field(value, default=True):
+            if pd.isna(value):
+                return default
+            str_value = str(value).strip().lower()
+            # ถ้าเป็นตัวเลข
+            if str_value.replace('.', '').isdigit():
+                return bool(float(str_value))
+            # ถ้าเป็นข้อความ
+            return str_value in ('yes', 'true', '1', 'y', 't')
+
+        # อ่านค่า sale_ok, purchase_ok, active
+        sale_ok_value = parse_boolean_field(row.get('sale_ok'), default=True)
+        purchase_ok_value = parse_boolean_field(row.get('purchase_ok'), default=True)
+        active_value = parse_boolean_field(row.get('active'), default=True)
+
+        print(f"\nกำลังตรวจสอบค่าสถานะสินค้า (Row {index}):")
+        print(f"  sale_ok: {row.get('sale_ok')} -> {sale_ok_value}")
+        print(f"  purchase_ok: {row.get('purchase_ok')} -> {purchase_ok_value}")
+        print(f"  active: {row.get('active')} -> {active_value}")
 
         # เตรียมข้อมูลสินค้า
         product_data = {
@@ -219,14 +300,10 @@ for index, row in df.iterrows():
             'uom_id': search_uom(row['uom_id']) if pd.notna(row['uom_id']) else False,
             'list_price': float(str(row['list_price']).replace(',', '')) if pd.notna(row['list_price']) else 0.0,
             'standard_price': float(str(row['standard_price']).replace(',', '')) if pd.notna(row['standard_price']) else 0.0,
-            # ตรวจสอบค่า sale_ok
-            'sale_ok': True if pd.notna(row['sale_ok']) and str(row['sale_ok']).strip().lower() in ('yes', 'true', '1', 'y', 't') else False,
-            
-            # ตรวจสอบค่า purchase_ok
-            'purchase_ok': True if pd.notna(row['purchase_ok']) and str(row['purchase_ok']).strip().lower() in ('yes', 'true', '1', 'y', 't') else False,
-            
-            # ตรวจสอบค่า active (default = True ถ้าไม่ได้ระบุเป็น no/false/0/n/f)
-            'active': False if pd.notna(row['active']) and str(row['active']).strip().lower() in ('no', 'false', '0', 'n', 'f') else True,
+            # กำหนดค่าที่ผ่านการตรวจสอบแล้ว
+            'sale_ok': sale_ok_value,
+            'purchase_ok': purchase_ok_value,
+            'active': active_value,
             'description': str(row['description']).strip() if pd.notna(row['description']) else '',
             'gross_width': float(str(row['gross_width']).replace(',', '')) if pd.notna(row['gross_width']) else 0.0,
             'gross_depth': float(str(row['gross_depth']).replace(',', '')) if pd.notna(row['gross_depth']) else 0.0,
