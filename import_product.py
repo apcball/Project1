@@ -31,7 +31,6 @@ except Exception as e:
     print("Error creating XML-RPC models proxy:", e)
     sys.exit(1)
 
-
 def search_category(category_path):
     """ค้นหาหรือสร้าง category จาก path"""
     if pd.isna(category_path):
@@ -93,11 +92,57 @@ def get_customer_tax():
     print("Warning: Customer VAT 7% tax not found")
     return False
 
+def process_image(image_path):
+    """แปลงไฟล์รูปภาพเป็น base64"""
+    if pd.isna(image_path):
+        return False, "No image path provided"
+    
+    image_path = str(image_path).strip()
+    if not image_path:
+        return False, "Empty image path"
+    
+    try:
+        # ถ้าเป็น URL
+        if image_path.startswith(('http://', 'https://')):
+            try:
+                response = requests.get(image_path, timeout=10)
+                if response.status_code == 200:
+                    image_data = base64.b64encode(response.content)
+                    return image_data.decode('utf-8'), None
+                return False, f"Failed to download image. Status code: {response.status_code}"
+            except requests.exceptions.RequestException as e:
+                return False, f"Error downloading image: {str(e)}"
+        else:
+            # ถ้าเป็นไฟล์ในเครื่อง
+            # กำหนด base path สำหรับรูปภาพ
+            base_image_path = r"C:\Users\Ball\Pictures\image"
+            
+            # ถ้าเป็น relative path ให้ต่อกับ base path
+            if not os.path.isabs(image_path):
+                image_path = os.path.join(base_image_path, image_path)
+            
+            print(f"กำลังอ่านรูปภาพจาก: {image_path}")
+            
+            if not os.path.exists(image_path):
+                return False, f"ไม่พบไฟล์รูปภาพ: {image_path}"
+            
+            try:
+                with open(image_path, 'rb') as image_file:
+                    image_data = base64.b64encode(image_file.read())
+                    if not image_data:
+                        return False, "ไม่สามารถอ่านข้อมูลรูปภาพได้"
+                    return image_data.decode('utf-8'), None
+            except IOError as e:
+                return False, f"เกิดข้อผิดพลาดในการอ่านไฟล์: {str(e)}"
+    
+    except Exception as e:
+        return False, f"เกิดข้อผิดพลาดที่ไม่คาดคิด: {str(e)}"
+
 # สร้าง list เก็บข้อมูลสินค้าที่ import ไม่สำเร็จ
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Project1/Data_file/import_product.xlsx'
+excel_file = 'Data_file/import_product.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -153,9 +198,8 @@ for index, row in df.iterrows():
             print(f"  - Name: {existing_product['name']}")
             print("  Skipping.")
             
-            # เก็บข้อมูลสินค้าที่ import ไม่สำเร็จ
             failed_imports.append({
-                'Row': index + 3,  # +3 เพราะมีการข้ามแถวแรก 2 แถว และ index เริ่มที่ 0
+                'Row': index + 3,
                 'Default Code': default_code,
                 'Name': row['name'] if pd.notna(row['name']) else '',
                 'Barcode': barcode,
@@ -168,6 +212,7 @@ for index, row in df.iterrows():
             'name': str(row['name']).strip() if pd.notna(row['name']) else '',
             'name_eng': str(row['name_eng']).strip() if pd.notna(row['name_eng']) else '',
             'default_code': default_code,
+            'sku': str(row['sku']).strip() if pd.notna(row['sku']) else '',  # เพิ่ม field sku
             'barcode': barcode,
             'type': 'product',  # กำหนดเป็น storable product
             'categ_id': search_category(row['categ_id']) if pd.notna(row['categ_id']) else False,
@@ -189,7 +234,6 @@ for index, row in df.iterrows():
             'taxes_id': [(6, 0, [customer_tax_id])] if customer_tax_id else [(6, 0, [])],
         }
 
-
         # แสดงข้อมูลที่จะเพิ่ม
         print(f"\nกำลังเพิ่มสินค้าใหม่ (Row {index}):")
         print(f"  ชื่อสินค้า: {product_data['name']}")
@@ -198,6 +242,18 @@ for index, row in df.iterrows():
         print(f"  ราคาขาย: {product_data['list_price']}")
         print(f"  ราคาทุน: {product_data['standard_price']}")
         
+        # ตรวจสอบและแสดงข้อมูลรูปภาพ
+        if pd.notna(row.get('image')):
+            print(f"  รูปภาพ: {row['image']}")
+            image_data, error_msg = process_image(row['image'])
+            if image_data:
+                product_data['image_1920'] = image_data
+                print("  ✓ ประมวลผลรูปภาพสำเร็จ")
+            else:
+                print(f"  ⚠ ไม่สามารถประมวลผลรูปภาพ: {error_msg}")
+        else:
+            print("  ไม่มีรูปภาพ")
+
         # สร้างสินค้าใน Odoo
         try:
             # ตรวจสอบ barcode อีกครั้ง
@@ -222,6 +278,23 @@ for index, row in df.iterrows():
                 database, uid, password, 'product.template', 'create', [product_data]
             )
             print(f"  ✓ เพิ่มสินค้าสำเร็จ (ID: {new_product_id})")
+
+            # ตรวจสอบการอัพโหลดรูปภาพ
+            if 'image_1920' in product_data:
+                product_info = models.execute_kw(
+                    database, uid, password, 'product.template', 'read',
+                    [new_product_id], {'fields': ['image_1920']}
+                )
+                if product_info and product_info[0].get('image_1920'):
+                    print("  ✓ อัพโหลดรูปภาพสำเร็จ")
+                else:
+                    print("  ⚠ อัพโหลดรูปภาพไม่สำเร็จ ลองอัพเดทอีกครั้ง...")
+                    models.execute_kw(
+                        database, uid, password, 'product.template', 'write',
+                        [[new_product_id], {'image_1920': product_data['image_1920']}]
+                    )
+                    print("  ✓ อัพเดทรูปภาพสำเร็จ")
+
         except Exception as e:
             print(f"  ✗ ไม่สามารถเพิ่มสินค้าได้: {str(e)}")
             error_msg = str(e)
@@ -229,7 +302,6 @@ for index, row in df.iterrows():
             if "Barcode" in str(e):
                 print("    โปรดตรวจสอบ: บาร์โค้ดอาจซ้ำกับสินค้าที่มีอยู่แล้ว")
             
-            # เก็บข้อมูลสินค้าที่ import ไม่สำเร็จ
             failed_imports.append({
                 'Row': index + 3,
                 'Default Code': default_code,
@@ -241,10 +313,8 @@ for index, row in df.iterrows():
     except Exception as e:
         error_msg = f"Error processing row: {str(e)}"
         print(f"Row {index}: {error_msg}")
-        # แสดงชื่อคอลัมน์ทั้งหมดเมื่อเกิดข้อผิดพลาด
         print("Available columns:", df.columns.tolist())
         
-        # เก็บข้อมูลสินค้าที่ import ไม่สำเร็จ
         failed_imports.append({
             'Row': index + 3,
             'Default Code': default_code if 'default_code' in locals() else 'N/A',
@@ -260,7 +330,7 @@ if failed_imports:
     
     # กำหนดชื่อไฟล์ Excel ที่จะบันทึก
     timestamp = pd.Timestamp.now().strftime("%Y%m%d_%H%M%S")
-    failed_excel_file = f'Project1/Data_file/failed_imports_{timestamp}.xlsx'
+    failed_excel_file = f'Data_file/failed_imports_{timestamp}.xlsx'
     
     # บันทึกไฟล์ Excel
     failed_df.to_excel(failed_excel_file, index=False, engine='openpyxl')
