@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import xmlrpc.client
 import pandas as pd
 from datetime import datetime
@@ -7,10 +6,10 @@ import os
 from pathlib import Path
 
 # Odoo connection parameters
-url = "http://localhost:8069"
-db = "odoo17"
-username = "admin"
-password = "admin"
+server_url = 'http://mogth.work:8069'
+database = 'Test_Import'
+username = 'apichart@mogen.co.th'
+password = '471109538'
 
 # Connect to Odoo
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
