@@ -219,9 +219,14 @@ for index, row in df.iterrows():
             'uom_id': search_uom(row['uom_id']) if pd.notna(row['uom_id']) else False,
             'list_price': float(str(row['list_price']).replace(',', '')) if pd.notna(row['list_price']) else 0.0,
             'standard_price': float(str(row['standard_price']).replace(',', '')) if pd.notna(row['standard_price']) else 0.0,
-            'sale_ok': True if pd.notna(row['sale_ok']) and str(row['sale_ok']).strip().lower() == 'yes' else False,
-            'purchase_ok': True if pd.notna(row['purchase_ok']) and str(row['purchase_ok']).strip().lower() == 'yes' else False,
-            'active': True,  # Set active status to True by default
+            # ตรวจสอบค่า sale_ok
+            'sale_ok': True if pd.notna(row['sale_ok']) and str(row['sale_ok']).strip().lower() in ('yes', 'true', '1', 'y', 't') else False,
+            
+            # ตรวจสอบค่า purchase_ok
+            'purchase_ok': True if pd.notna(row['purchase_ok']) and str(row['purchase_ok']).strip().lower() in ('yes', 'true', '1', 'y', 't') else False,
+            
+            # ตรวจสอบค่า active (default = True ถ้าไม่ได้ระบุเป็น no/false/0/n/f)
+            'active': False if pd.notna(row['active']) and str(row['active']).strip().lower() in ('no', 'false', '0', 'n', 'f') else True,
             'description': str(row['description']).strip() if pd.notna(row['description']) else '',
             'gross_width': float(str(row['gross_width']).replace(',', '')) if pd.notna(row['gross_width']) else 0.0,
             'gross_depth': float(str(row['gross_depth']).replace(',', '')) if pd.notna(row['gross_depth']) else 0.0,
