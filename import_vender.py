@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'url': 'http://mogth.work:8069',
-    'db': 'Pre_Test',
+    'db': 'MOG_Traning',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'excel_path': 'Data_file/vender_import.xlsx'
@@ -290,18 +290,101 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     return vendor_data
 
 def process_vendor(vendor_data: Dict[str, Any], models: Any, uid: int) -> None:
-    """Process vendor data - create or update in Odoo"""
+    """
+    Process vendor data - create or update in Odoo based on partner_code
+    Args:
+        vendor_data: Dictionary containing vendor data
+        models: Odoo models proxy
+        uid: User ID
+    """
     try:
-        # Create new vendor
-        new_vendor_id = models.execute_kw(
+        partner_code = vendor_data.get('partner_code')
+        if not partner_code:
+            logger.warning(f"Skipping vendor {vendor_data['name']} - No partner_code provided")
+            return
+
+        # Search for existing vendor by partner_code
+        existing_vendor = models.execute_kw(
             CONFIG['db'], uid, CONFIG['password'],
-            'res.partner', 'create',
-            [vendor_data]
+            'res.partner', 'search_read',
+            [[['partner_code', '=', partner_code]]],
+            {'fields': ['id', 'name', 'partner_code']}
         )
-        logger.info(f"Created vendor: {vendor_data['name']}, ID: {new_vendor_id}")
-    
+
+        if existing_vendor:
+            # Vendor exists - Update the record
+            existing_id = existing_vendor[0]['id']
+            try:
+                # Handle bank account update
+                if vendor_data.get('bank_ids'):
+                    # Get existing bank accounts
+                    existing_banks = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'res.partner.bank', 'search',
+                        [[['partner_id', '=', existing_id]]]
+                    )
+                    # Remove existing bank accounts if any
+                    if existing_banks:
+                        models.execute_kw(
+                            CONFIG['db'], uid, CONFIG['password'],
+                            'res.partner.bank', 'unlink',
+                            [existing_banks]
+                        )
+
+                # Update vendor data
+                models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.partner', 'write',
+                    [existing_id, vendor_data]
+                )
+                logger.info(f"Updated existing vendor - Partner Code: {partner_code}, Name: {vendor_data['name']}")
+
+                # Verify the update
+                updated_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.partner', 'read',
+                    [existing_id],
+                    {'fields': ['name', 'partner_code', 'property_supplier_payment_term_id']}
+                )
+                
+                # Verify payment term if it was set
+                if vendor_data.get('property_supplier_payment_term_id'):
+                    if updated_data[0]['property_supplier_payment_term_id'] == vendor_data['property_supplier_payment_term_id']:
+                        logger.info(f"Payment term verified for vendor {vendor_data['name']}")
+                    else:
+                        logger.warning(f"Payment term may not have been set correctly for {vendor_data['name']}")
+
+            except Exception as update_error:
+                logger.error(f"Error updating vendor {partner_code}: {update_error}")
+                
+        else:
+            # No existing vendor with this partner_code - Create new
+            try:
+                new_vendor_id = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.partner', 'create',
+                    [vendor_data]
+                )
+                logger.info(f"Created new vendor - Partner Code: {partner_code}, Name: {vendor_data['name']}, ID: {new_vendor_id}")
+
+                # Verify the creation and payment term
+                if vendor_data.get('property_supplier_payment_term_id'):
+                    new_data = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'res.partner', 'read',
+                        [new_vendor_id],
+                        {'fields': ['property_supplier_payment_term_id']}
+                    )
+                    if new_data and new_data[0]['property_supplier_payment_term_id'] == vendor_data['property_supplier_payment_term_id']:
+                        logger.info(f"Payment term verified for new vendor {vendor_data['name']}")
+                    else:
+                        logger.warning(f"Payment term may not have been set correctly for {vendor_data['name']}")
+
+            except Exception as create_error:
+                logger.error(f"Error creating new vendor {partner_code}: {create_error}")
+
     except Exception as e:
-        logger.error(f"Error processing vendor {vendor_data['name']}: {e}")
+        logger.error(f"Error processing vendor {vendor_data.get('name', 'Unknown')}: {e}")
 
 def main():
     """Main execution function"""

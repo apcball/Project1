@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'url': 'http://mogth.work:8069',
-    'db': 'Pre_Test',
+    'db': 'MOG_Traning',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'excel_path': 'Data_file/customer_import.xlsx'
@@ -240,64 +240,76 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
         uid: User ID
     """
     try:
-        # Check if customer exists by partner_code
-        existing_customer_id = models.execute_kw(
+        partner_code = customer_data.get('partner_code')
+        if not partner_code:
+            logger.warning(f"Skipping customer {customer_data['name']} - No partner_code provided")
+            return
+
+        # Search for existing customer by partner_code
+        existing_customer = models.execute_kw(
             CONFIG['db'], uid, CONFIG['password'],
-            'res.partner', 'search',
-            [[['partner_code', '=', customer_data['partner_code']]]]
+            'res.partner', 'search_read',
+            [[['partner_code', '=', partner_code]]],
+            {'fields': ['id', 'name', 'partner_code']}
         )
 
-        # Check for duplicate name
-        is_duplicate = check_duplicate_partner(models, uid, customer_data['name'])
+        if existing_customer:
+            # Customer exists - Update the record
+            existing_id = existing_customer[0]['id']
+            try:
+                models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.partner', 'write',
+                    [existing_id, customer_data]
+                )
+                logger.info(f"Updated existing customer - Partner Code: {partner_code}, Name: {customer_data['name']}")
 
-        if existing_customer_id:
-            # Update existing customer
-            models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'res.partner', 'write',
-                [existing_customer_id, customer_data]
-            )
-            logger.info(f"Updated customer: {customer_data['name']}")
-            
-            # Verify payment term was set
-            if customer_data.get('property_payment_term_id'):
-                partner_data = models.execute_kw(
+                # Verify the update
+                updated_data = models.execute_kw(
                     CONFIG['db'], uid, CONFIG['password'],
                     'res.partner', 'read',
-                    [existing_customer_id[0]],
-                    {'fields': ['property_payment_term_id']}
+                    [existing_id],
+                    {'fields': ['name', 'partner_code', 'property_payment_term_id']}
                 )
-                if partner_data and partner_data[0]['property_payment_term_id'] == customer_data['property_payment_term_id']:
-                    logger.info(f"Payment term verified for customer {customer_data['name']}")
-                else:
-                    logger.warning(f"Payment term may not have been set correctly for {customer_data['name']}")
-        elif is_duplicate:
-            # Skip creating new customer if name already exists
-            logger.warning(f"Skipping creation of duplicate customer: {customer_data['name']}")
+                
+                # Verify payment term if it was set
+                if customer_data.get('property_payment_term_id'):
+                    if updated_data[0]['property_payment_term_id'] == customer_data['property_payment_term_id']:
+                        logger.info(f"Payment term verified for customer {customer_data['name']}")
+                    else:
+                        logger.warning(f"Payment term may not have been set correctly for {customer_data['name']}")
+
+            except Exception as update_error:
+                logger.error(f"Error updating customer {partner_code}: {update_error}")
+                
         else:
-            # Create new customer
-            new_customer_id = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'res.partner', 'create',
-                [customer_data]
-            )
-            logger.info(f"Created new customer: {customer_data['name']}, ID: {new_customer_id}")
-            
-            # Verify payment term was set
-            if customer_data.get('property_payment_term_id'):
-                partner_data = models.execute_kw(
+            # No existing customer with this partner_code - Create new
+            try:
+                new_customer_id = models.execute_kw(
                     CONFIG['db'], uid, CONFIG['password'],
-                    'res.partner', 'read',
-                    [new_customer_id],
-                    {'fields': ['property_payment_term_id']}
+                    'res.partner', 'create',
+                    [customer_data]
                 )
-                if partner_data and partner_data[0]['property_payment_term_id'] == customer_data['property_payment_term_id']:
-                    logger.info(f"Payment term verified for new customer {customer_data['name']}")
-                else:
-                    logger.warning(f"Payment term may not have been set correctly for {customer_data['name']}")
-    
+                logger.info(f"Created new customer - Partner Code: {partner_code}, Name: {customer_data['name']}, ID: {new_customer_id}")
+
+                # Verify the creation and payment term
+                if customer_data.get('property_payment_term_id'):
+                    new_data = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'res.partner', 'read',
+                        [new_customer_id],
+                        {'fields': ['property_payment_term_id']}
+                    )
+                    if new_data and new_data[0]['property_payment_term_id'] == customer_data['property_payment_term_id']:
+                        logger.info(f"Payment term verified for new customer {customer_data['name']}")
+                    else:
+                        logger.warning(f"Payment term may not have been set correctly for {customer_data['name']}")
+
+            except Exception as create_error:
+                logger.error(f"Error creating new customer {partner_code}: {create_error}")
+
     except Exception as e:
-        logger.error(f"Error processing customer {customer_data['name']}: {e}")
+        logger.error(f"Error processing customer {customer_data.get('name', 'Unknown')}: {e}")
 
 def main():
     """Main execution function"""
