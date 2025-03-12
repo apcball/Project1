@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 # Odoo connection parameters
 server_url = 'http://mogth.work:8069'
-database = 'Test_Import'
+database = 'MOG_Training'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -36,6 +36,49 @@ try:
 except Exception as e:
     print("Error creating XML-RPC models proxy:", e)
     sys.exit(1)
+
+def find_user_by_email(email):
+    """ค้นหา User จากอีเมล์"""
+    if not email or pd.isna(email):
+        return False
+    
+    try:
+        email = str(email).strip()
+        user = models.execute_kw(database, uid, password,
+            'res.users', 'search_read',
+            [[['login', '=', email]]],
+            {'fields': ['id', 'name']})
+        
+        if user:
+            logger.info(f"Found existing user for email {email}: {user[0]['name']}")
+            return user[0]['id']
+        return False
+    except Exception as e:
+        logger.error(f"Error searching for user with email {email}: {str(e)}")
+        return False
+
+def link_employee_to_user(employee_id, email):
+    """เชื่อมโยงพนักงานกับ User"""
+    if not email or pd.isna(email):
+        return False
+    
+    try:
+        # ค้นหา User จากอีเมล์
+        user_id = find_user_by_email(email)
+        if not user_id:
+            logger.info(f"No user found for email: {email}")
+            return False
+        
+        # อัพเดทข้อมูลพนักงานให้เชื่อมกับ User
+        models.execute_kw(database, uid, password,
+            'hr.employee', 'write',
+            [[employee_id], {'user_id': user_id}])
+        
+        logger.info(f"Linked employee to user with email: {email}")
+        return True
+    except Exception as e:
+        logger.error(f"Error linking employee to user: {str(e)}")
+        return False
 
 def get_or_create_department(department_name, parent_department_name=None):
     """ค้นหาหรือสร้างแผนก โดยรองรับการมีแผนกแม่"""
@@ -119,16 +162,30 @@ def get_or_create_job(job_title):
         logger.error(f"Error processing job {job_title}: {str(e)}")
         return False
 
-def find_existing_employee(name):
-    """ค้นหาพนักงานที่มีอยู่แล้วโดยใช้ชื่อ"""
+def find_existing_employee(name, email=None):
+    """ค้นหาพนักงานที่มีอยู่แล้วโดยใช้ชื่อหรืออีเมล์"""
     try:
+        domain = []
+        if email and not pd.isna(email):
+            domain.append('|')
+            domain.append(['work_email', '=', str(email).strip()])
         if name and not pd.isna(name):
-            employee = models.execute_kw(database, uid, password,
-                'hr.employee', 'search_read',
-                [[['name', '=', str(name).strip()]]],
-                {'fields': ['id']})
-            if employee:
-                return employee[0]['id']
+            if domain:  # ถ้ามีเงื่อนไขอีเมล์แล้ว
+                domain.append(['name', '=', str(name).strip()])
+            else:  # ถ้ายังไม่มีเงื่อนไขใดๆ
+                domain = [['name', '=', str(name).strip()]]
+        
+        if not domain:  # ถ้าไม่มีเงื่อนไขใดๆ
+            return False
+        
+        employee = models.execute_kw(database, uid, password,
+            'hr.employee', 'search_read',
+            [domain],
+            {'fields': ['id', 'name', 'work_email']})
+        
+        if employee:
+            logger.info(f"Found existing employee: {employee[0]['name']} ({employee[0].get('work_email', 'no email')})")
+            return employee[0]['id']
         return False
     except Exception as e:
         logger.error(f"Error searching for employee: {str(e)}")
@@ -164,10 +221,13 @@ for index, row in df.iterrows():
             })
             continue
 
+        # Clean email
+        work_email = str(row['work_email']).strip().replace(' ', '') if pd.notna(row['work_email']) else False
+
         # Prepare employee data
         employee_data = {
             'name': str(row['name']).strip(),
-            'work_email': str(row['work_email']).strip() if pd.notna(row['work_email']) else False,
+            'work_email': work_email,
             'department_id': False,
             'job_id': False,
             'parent_id': False,
@@ -197,7 +257,10 @@ for index, row in df.iterrows():
                 employee_data['parent_id'] = parent_employee[0]['id']
 
         # Find existing employee
-        existing_employee_id = find_existing_employee(employee_data['name'])
+        existing_employee_id = find_existing_employee(
+            employee_data['name'],
+            employee_data['work_email']
+        )
 
         if existing_employee_id:
             print(f"\nUpdating existing employee (Row {index + 2}):")
@@ -208,6 +271,14 @@ for index, row in df.iterrows():
                     'hr.employee', 'write',
                     [[existing_employee_id], employee_data])
                 print("  ✓ Updated successfully")
+                
+                # เชื่อมโยงกับ User ถ้ามีอีเมล์
+                if employee_data['work_email']:
+                    if link_employee_to_user(existing_employee_id, employee_data['work_email']):
+                        print("  ✓ Linked to user account")
+                    else:
+                        print("  ℹ No matching user account found")
+                
             except Exception as e:
                 error_msg = f"Failed to update: {str(e)}"
                 print(f"  ✗ {error_msg}")
@@ -221,10 +292,18 @@ for index, row in df.iterrows():
             print(f"  Name: {employee_data['name']}")
             print(f"  Email: {employee_data['work_email']}")
             try:
-                models.execute_kw(database, uid, password,
+                new_employee_id = models.execute_kw(database, uid, password,
                     'hr.employee', 'create',
                     [employee_data])
                 print("  ✓ Created successfully")
+                
+                # เชื่อมโยงกับ User ถ้ามีอีเมล์
+                if employee_data['work_email']:
+                    if link_employee_to_user(new_employee_id, employee_data['work_email']):
+                        print("  ✓ Linked to user account")
+                    else:
+                        print("  ℹ No matching user account found")
+                
             except Exception as e:
                 error_msg = f"Failed to create: {str(e)}"
                 print(f"  ✗ {error_msg}")
