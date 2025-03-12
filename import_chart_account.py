@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 # Odoo connection parameters
 url = 'http://mogth.work:8069'
-db = 'MOG_Traning'
+db = 'MOG_Training'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -61,7 +61,32 @@ def get_account_type(account_type):
         return 'asset_current'
     return type_mapping.get(str(account_type).lower().strip(), 'asset_current')
 
-def prepare_account_data(row):
+def get_currency_id(currency_value, models, uid):
+    """ค้นหา currency_id จากค่าที่ระบุ (สามารถเป็นได้ทั้ง ID หรือรหัสสกุลเงิน)"""
+    try:
+        # พยายามแปลงเป็นตัวเลขก่อน (กรณีระบุเป็น ID)
+        currency_id = float(currency_value)
+        if currency_id.is_integer():
+            currency_id = int(currency_id)
+            # ตรวจสอบว่า ID มีอยู่ในระบบ
+            currency_exists = models.execute_kw(db, uid, password,
+                'res.currency', 'search_count',
+                [[['id', '=', currency_id]]]
+            )
+            if currency_exists:
+                return currency_id
+    except (ValueError, TypeError):
+        # กรณีไม่สามารถแปลงเป็นตัวเลขได้ ให้ค้นหาจากรหัสสกุลเงิน
+        currency_code = str(currency_value).strip().upper()
+        currency_ids = models.execute_kw(db, uid, password,
+            'res.currency', 'search',
+            [[['name', '=', currency_code]]]
+        )
+        if currency_ids:
+            return currency_ids[0]
+    return None
+
+def prepare_account_data(row, models, uid):
     """เตรียมข้อมูลบัญชีสำหรับสร้างหรืออัพเดท"""
     account_data = {
         'code': str(row['code']).strip(),
@@ -75,9 +100,12 @@ def prepare_account_data(row):
 
     # เพิ่มข้อมูล currency_id ถ้ามี
     if 'currency_id' in row and pd.notna(row['currency_id']):
-        currency_id = int(row['currency_id']) if str(row['currency_id']).isdigit() else None
+        currency_id = get_currency_id(row['currency_id'], models, uid)
         if currency_id:
             account_data['currency_id'] = currency_id
+            logger.info(f"กำหนด currency_id {currency_id} สำหรับบัญชี {row['code']}")
+        else:
+            logger.warning(f"ไม่พบสกุลเงิน '{row['currency_id']}' ในระบบสำหรับบัญชี {row['code']}")
 
     return account_data
 
@@ -124,7 +152,7 @@ def import_or_update_accounts():
                     continue
 
                 account_code = str(row['code']).strip()
-                account_data = prepare_account_data(row)
+                account_data = prepare_account_data(row, models, uid)
 
                 try:
                     # ตรวจสอบว่ามีบัญชีนี้ในระบบหรือไม่
