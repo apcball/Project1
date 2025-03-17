@@ -259,6 +259,52 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     elif isinstance(acc_number, str):
         acc_number = acc_number.strip()
 
+    # Handle account receivable and payable
+    property_account_receivable_id = False
+    property_account_payable_id = False
+    
+    # Get receivable account
+    raw_receivable = row.get('property_account_receivable_id', False)
+    if not pd.isna(raw_receivable):
+        try:
+            if isinstance(raw_receivable, (int, float)):
+                property_account_receivable_id = int(raw_receivable)
+            elif isinstance(raw_receivable, str):
+                # Search by account code or name
+                receivable_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[['code', '=', raw_receivable.strip()], '|', ['name', '=', raw_receivable.strip()]]]
+                )
+                if receivable_ids:
+                    property_account_receivable_id = receivable_ids[0]
+                    logger.info(f"Found receivable account: {raw_receivable}")
+                else:
+                    logger.warning(f"Receivable account not found: {raw_receivable}")
+        except Exception as e:
+            logger.warning(f"Error handling receivable account '{raw_receivable}': {e}")
+
+    # Get payable account
+    raw_payable = row.get('property_account_payable_id', False)
+    if not pd.isna(raw_payable):
+        try:
+            if isinstance(raw_payable, (int, float)):
+                property_account_payable_id = int(raw_payable)
+            elif isinstance(raw_payable, str):
+                # Search by account code or name
+                payable_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[['code', '=', raw_payable.strip()], '|', ['name', '=', raw_payable.strip()]]]
+                )
+                if payable_ids:
+                    property_account_payable_id = payable_ids[0]
+                    logger.info(f"Found payable account: {raw_payable}")
+                else:
+                    logger.warning(f"Payable account not found: {raw_payable}")
+        except Exception as e:
+            logger.warning(f"Error handling payable account '{raw_payable}': {e}")
+
     # Prepare vendor data
     vendor_data = {
         'name': str(row.get('name', '')).strip() if not pd.isna(row.get('name')) else False,
@@ -284,7 +330,9 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
             'bank_id': bank_id,
             'acc_number': acc_number,
             'currency_id': currency_id
-        })] if bank_id and acc_number else False
+        })] if bank_id and acc_number else False,
+        'property_account_receivable_id': property_account_receivable_id,
+        'property_account_payable_id': property_account_payable_id
     }
 
     return vendor_data
