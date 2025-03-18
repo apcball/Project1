@@ -13,7 +13,7 @@ def read_excel_template():
     """Read and validate the Excel template"""
     try:
         # Read the Excel file
-        df = pd.read_excel('Data_file/import_bom.xlsx')
+        df = pd.read_excel('Data_file/import_bom_2.xlsx')
         
         # Clean up the data
         df = df.fillna('')  # Replace NaN with empty string
@@ -45,20 +45,30 @@ def connect_odoo():
         return None, None
 
 def search_product_by_code(models, uid, default_code):
-    """Search for a product using default_code"""
+    """Search for a product using default_code or old_product_code"""
     if not default_code or not str(default_code).strip():
         return False
     
     try:
         default_code = str(default_code).strip()
+        
+        # First try to find by default_code
         product_ids = models.execute_kw(DB, uid, PASSWORD,
             'product.product', 'search',
             [[['default_code', '=', default_code]]])
         
         if product_ids:
             return product_ids[0]
+        
+        # If not found, try to find by old_product_code
+        product_ids = models.execute_kw(DB, uid, PASSWORD,
+            'product.product', 'search',
+            [[['old_product_code', '=', default_code]]])
+        
+        if product_ids:
+            return product_ids[0]
         else:
-            print(f"Product not found: {default_code}")
+            print(f"Product not found by default_code or old_product_code: {default_code}")
     except Exception as e:
         print(f"Error searching product {default_code}: {str(e)}")
     return False
