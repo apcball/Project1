@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'url': 'http://mogth.work:8069',
-    'db': 'MOG_Test',
+    'db': 'MOG_Training',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'excel_path': 'Data_file/customer_import.xlsx'
@@ -235,50 +235,156 @@ def get_account_id(models, uid, account_identifier, account_type):
 def get_payment_term_id(models, uid, payment_term):
     """Get payment term ID with better matching and verification"""
     if pd.isna(payment_term) or not payment_term:
+        logger.info("Payment term is empty")
         return False
 
     try:
-        payment_term = str(payment_term).strip()
-        
-        # First try exact match
+        # Convert to string and clean
+        if isinstance(payment_term, (int, float)):
+            payment_term = str(int(payment_term))
+        else:
+            payment_term = str(payment_term).strip()
+
+        logger.info(f"Processing payment term: {payment_term}")
+
+        # List all available payment terms for debugging
+        all_terms = models.execute_kw(
+            CONFIG['db'], uid, CONFIG['password'],
+            'account.payment.term', 'search_read',
+            [[]], {'fields': ['id', 'name', 'code']}
+        )
+        logger.info(f"Available payment terms: {all_terms}")
+
+        # First try direct ID if it's a number
+        if payment_term.isdigit():
+            try:
+                term_id = int(payment_term)
+                term_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.payment.term', 'read',
+                    [term_id],
+                    {'fields': ['name', 'code']}
+                )
+                if term_data:
+                    logger.info(f"Found payment term by ID: {term_data[0]['name']}")
+                    return term_id
+            except Exception as e:
+                logger.warning(f"Could not find payment term by ID {payment_term}: {e}")
+
+        # Try exact match with code
         payment_terms = models.execute_kw(
             CONFIG['db'], uid, CONFIG['password'],
             'account.payment.term', 'search',
-            [[['name', '=', payment_term]]]
+            [[['code', '=', payment_term]]]
         )
+        logger.info(f"Search by code result: {payment_terms}")
         
-        # If not found, try case-insensitive partial match
+        # If not found by code, try exact match with name
+        if not payment_terms:
+            payment_terms = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'account.payment.term', 'search',
+                [[['name', '=', payment_term]]]
+            )
+            logger.info(f"Search by exact name result: {payment_terms}")
+        
+        # If still not found, try partial match with name
         if not payment_terms:
             payment_terms = models.execute_kw(
                 CONFIG['db'], uid, CONFIG['password'],
                 'account.payment.term', 'search',
                 [[['name', 'ilike', payment_term]]]
             )
-        
+            logger.info(f"Search by partial name result: {payment_terms}")
+
+        # If still not found, try to extract number of days and search
+        if not payment_terms:
+            import re
+            days_match = re.search(r'(\d+)\s*(?:day|days|d)', payment_term.lower())
+            if days_match:
+                days = days_match.group(1)
+                payment_terms = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.payment.term', 'search',
+                    [[['name', 'ilike', f"{days} day"]]]
+                )
+                logger.info(f"Search by days result: {payment_terms}")
+
+        # If found any payment term, verify and return
         if payment_terms:
-            # Verify the payment term
             term_data = models.execute_kw(
                 CONFIG['db'], uid, CONFIG['password'],
                 'account.payment.term', 'read',
                 [payment_terms[0]],
-                {'fields': ['name']}
+                {'fields': ['name', 'code']}
             )
             if term_data:
-                logger.info(f"Found payment term: {term_data[0]['name']} (ID: {payment_terms[0]})")
+                term_info = f"{term_data[0]['name']}"
+                if term_data[0].get('code'):
+                    term_info += f" (Code: {term_data[0]['code']})"
+                logger.info(f"Found payment term: {term_info}")
                 return payment_terms[0]
             else:
                 logger.warning(f"Could not verify payment term: {payment_term}")
                 return False
         else:
+            # Try to find default payment term
+            default_terms = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'account.payment.term', 'search',
+                [[['name', 'ilike', '30 days']]], 
+                {'limit': 1}
+            )
+            if default_terms:
+                term_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.payment.term', 'read',
+                    [default_terms[0]],
+                    {'fields': ['name', 'code']}
+                )
+                if term_data:
+                    term_info = f"{term_data[0]['name']}"
+                    if term_data[0].get('code'):
+                        term_info += f" (Code: {term_data[0]['code']})"
+                    logger.info(f"Using default payment term: {term_info}")
+                    return default_terms[0]
+            
             logger.warning(f"Payment term not found: {payment_term}")
             return False
             
     except Exception as e:
-        logger.warning(f"Error handling payment term '{payment_term}': {e}")
+        logger.error(f"Error handling payment term '{payment_term}': {e}")
+        # Try to get default payment term as fallback
+        try:
+            default_terms = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'account.payment.term', 'search',
+                [[['name', 'ilike', '30 days']]], 
+                {'limit': 1}
+            )
+            if default_terms:
+                term_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.payment.term', 'read',
+                    [default_terms[0]],
+                    {'fields': ['name', 'code']}
+                )
+                if term_data:
+                    term_info = f"{term_data[0]['name']}"
+                    if term_data[0].get('code'):
+                        term_info += f" (Code: {term_data[0]['code']})"
+                    logger.info(f"Using default payment term after error: {term_info}")
+                    return default_terms[0]
+        except Exception as e2:
+            logger.error(f"Error getting default payment term: {e2}")
         return False
 
 def clean_customer_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     """Clean and prepare customer data"""
+    # Debug payment term data from Excel
+    raw_payment_term = row.get('property_supplier_payment_term_id')
+    if not pd.isna(raw_payment_term):
+        logger.info(f"Raw payment term from Excel: {raw_payment_term}")
     
     # Handle company_type and is_company fields
     is_company_value = row.get('is_company', True)
@@ -474,7 +580,105 @@ def clean_customer_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]
         phone = phone.strip()
 
     # Get payment term ID
-    property_payment_term_id = get_payment_term_id(models, uid, row.get('property_payment_term_id'))
+    property_payment_term_id = False
+    raw_payment_term = row.get('property_payment_term_id')
+    
+    if not pd.isna(raw_payment_term):
+        try:
+            # Convert to string and clean
+            if isinstance(raw_payment_term, (int, float)):
+                payment_term = str(int(raw_payment_term))
+            else:
+                payment_term = str(raw_payment_term).strip()
+
+            logger.info(f"Looking for payment term: {payment_term}")
+
+            # First try direct ID lookup if it's a number
+            if payment_term.isdigit():
+                try:
+                    term_id = int(payment_term)
+                    term_data = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.payment.term', 'read',
+                        [term_id],
+                        {'fields': ['name']}
+                    )
+                    if term_data:
+                        logger.info(f"Found payment term by ID: {term_data[0]['name']}")
+                        property_payment_term_id = term_id
+                except Exception as e:
+                    logger.debug(f"Could not find payment term by ID {payment_term}: {e}")
+
+            # If not found by ID, try name search
+            if not property_payment_term_id:
+                # Try exact match first
+                payment_terms = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.payment.term', 'search',
+                    [[['name', '=', payment_term]]]
+                )
+
+                # If not found, try case-insensitive partial match
+                if not payment_terms:
+                    payment_terms = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.payment.term', 'search',
+                        [[['name', 'ilike', payment_term]]]
+                    )
+
+                # If still not found, try to extract and match number of days
+                if not payment_terms:
+                    import re
+                    days_match = re.search(r'(\d+)\s*(?:day|days|d)', payment_term.lower())
+                    if days_match:
+                        days = days_match.group(1)
+                        payment_terms = models.execute_kw(
+                            CONFIG['db'], uid, CONFIG['password'],
+                            'account.payment.term', 'search',
+                            [[['name', 'ilike', f"{days} day"]]]
+                        )
+
+                if payment_terms:
+                    property_payment_term_id = payment_terms[0]
+                    term_data = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.payment.term', 'read',
+                        [property_payment_term_id],
+                        {'fields': ['name']}
+                    )
+                    if term_data:
+                        logger.info(f"Found payment term: {term_data[0]['name']}")
+                    else:
+                        logger.warning(f"Could not verify payment term: {payment_term}")
+                        property_payment_term_id = False
+                else:
+                    logger.warning(f"No payment term found for: {payment_term}")
+
+            # If still not found, try to get default payment term
+            if not property_payment_term_id:
+                default_terms = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.payment.term', 'search',
+                    [[['name', 'ilike', '30 days']]], 
+                    {'limit': 1}
+                )
+                if default_terms:
+                    property_payment_term_id = default_terms[0]
+                    term_data = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.payment.term', 'read',
+                        [property_payment_term_id],
+                        {'fields': ['name']}
+                    )
+                    if term_data:
+                        logger.info(f"Using default payment term: {term_data[0]['name']}")
+                    else:
+                        property_payment_term_id = False
+                        logger.warning("Could not verify default payment term")
+
+        except Exception as e:
+            logger.warning(f"Error handling payment term: {e}")
+            property_payment_term_id = False
 
     # Get bank account info
     bank_id = get_bank_id(models, uid, row.get('bank_id'))
