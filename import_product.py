@@ -7,7 +7,7 @@ import requests
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 server_url = 'http://mogth.work:8069'
-database = 'MOG_Traning'
+database = 'MOG_DEV'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -142,7 +142,7 @@ def process_image(image_path):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_product2fg.xlsx'
+excel_file = 'Data_file/import_product1.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -225,6 +225,7 @@ for index, row in df.iterrows():
             update_data = {
                 'name': str(row['name']).strip() if pd.notna(row['name']) else existing_product['name'],
                 'name_eng': str(row['name_eng']).strip() if pd.notna(row['name_eng']) else '',
+                'old_product_code': str(row['old_product_code']).strip() if pd.notna(row['old_product_code']) else '',
                 'sku': str(row['sku']).strip() if pd.notna(row['sku']) else '',
                 'barcode': barcode if barcode else existing_product.get('barcode', False),
                 'categ_id': search_category(row['categ_id']) if pd.notna(row['categ_id']) else False,
@@ -244,6 +245,7 @@ for index, row in df.iterrows():
                 'box_height': float(str(row['box_height']).replace(',', '')) if pd.notna(row['box_height']) else 0.0,
                 'box_weight': float(str(row['box_weight']).replace(',', '')) if pd.notna(row['box_weight']) else 0.0,
                 'taxes_id': [(6, 0, [customer_tax_id])] if customer_tax_id else [(6, 0, [])],
+                'supplier_taxes_id': [(6, 0, [])],
             }
 
             # ตรวจสอบและอัพเดทรูปภาพ
@@ -301,6 +303,7 @@ for index, row in df.iterrows():
         product_data = {
             'name': str(row['name']).strip() if pd.notna(row['name']) else '',
             'name_eng': str(row['name_eng']).strip() if pd.notna(row['name_eng']) else '',
+            'old_product_code': str(row['old_product_code']).strip() if pd.notna(row['old_product_code']) else '',
             'default_code': default_code,
             'sku': str(row['sku']).strip() if pd.notna(row['sku']) else '',  # เพิ่ม field sku
             'barcode': barcode,
@@ -323,6 +326,7 @@ for index, row in df.iterrows():
             'box_height': float(str(row['box_height']).replace(',', '')) if pd.notna(row['box_height']) else 0.0,
             'box_weight': float(str(row['box_weight']).replace(',', '')) if pd.notna(row['box_weight']) else 0.0,
             'taxes_id': [(6, 0, [customer_tax_id])] if customer_tax_id else [(6, 0, [])],
+            'supplier_taxes_id': [(6, 0, [])],
         }
 
         # แสดงข้อมูลที่จะเพิ่ม
