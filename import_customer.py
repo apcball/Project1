@@ -2,7 +2,7 @@ import xmlrpc.client
 import pandas as pd
 import sys
 import logging
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 # Configure logging
 logging.basicConfig(
@@ -14,44 +14,32 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'url': 'http://mogth.work:8069',
-    'db': 'MOG_DEV',
+    'db': 'MOG_Test',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'excel_path': 'Data_file/customer_import.xlsx'
 }
 
-def connect_to_odoo() -> tuple[Any, Any]:
-    """
-    Establish connection to Odoo server and authenticate
-    Returns:
-        tuple: (uid, models) - User ID and models proxy object
-    """
+def connect_to_odoo():
+    """Establish connection to Odoo server"""
     try:
         common = xmlrpc.client.ServerProxy(f'{CONFIG["url"]}/xmlrpc/2/common')
         uid = common.authenticate(CONFIG['db'], CONFIG['username'], CONFIG['password'], {})
         
         if not uid:
-            logger.error("Authentication failed: invalid credentials or insufficient permissions.")
+            logger.error("Authentication failed")
             sys.exit(1)
         
         logger.info(f"Authentication successful, uid = {uid}")
-        
-        # Create XML-RPC models proxy
         models = xmlrpc.client.ServerProxy(f'{CONFIG["url"]}/xmlrpc/2/object')
         return uid, models
     
     except Exception as e:
-        logger.error(f"Error during connection/authentication: {e}")
+        logger.error(f"Connection error: {e}")
         sys.exit(1)
 
 def read_excel_file(file_path: str) -> pd.DataFrame:
-    """
-    Read and validate the Excel file
-    Args:
-        file_path: Path to the Excel file
-    Returns:
-        pd.DataFrame: DataFrame containing customer data
-    """
+    """Read Excel file"""
     try:
         df = pd.read_excel(file_path)
         logger.info(f"Excel file read successfully. Columns: {df.columns.tolist()}")
@@ -60,67 +48,415 @@ def read_excel_file(file_path: str) -> pd.DataFrame:
         logger.error(f"Error reading Excel file: {e}")
         sys.exit(1)
 
+def get_bank_id(models, uid, bank_name):
+    """Get or create bank ID"""
+    if pd.isna(bank_name) or not bank_name:
+        return False
+
+    try:
+        bank_ids = models.execute_kw(
+            CONFIG['db'], uid, CONFIG['password'],
+            'res.bank', 'search',
+            [[['name', '=', str(bank_name)]]]
+        )
+        
+        if bank_ids:
+            return bank_ids[0]
+        else:
+            new_bank_id = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'res.bank', 'create',
+                [{'name': str(bank_name)}]
+            )
+            return new_bank_id
+    except Exception as e:
+        logger.warning(f"Error handling bank '{bank_name}': {e}")
+        return False
+
+def get_account_id(models, uid, account_identifier, account_type):
+    """Get account ID by code or name with proper account type"""
+    try:
+        # Convert account identifier to string if it's a number
+        if isinstance(account_identifier, (int, float)):
+            account_identifier = str(int(account_identifier))
+        elif isinstance(account_identifier, str):
+            account_identifier = account_identifier.strip()
+        
+        # If no account identifier provided, get default account
+        if pd.isna(account_identifier) or not account_identifier:
+            # Get default account based on type
+            if account_type == 'asset_receivable':
+                account_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[
+                        ['account_type', '=', 'asset_receivable'],
+                        ['deprecated', '=', False],
+                        ['company_id', '=', 1]
+                    ]], {'limit': 1}
+                )
+            else:  # liability_payable
+                account_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[
+                        ['account_type', '=', 'liability_payable'],
+                        ['deprecated', '=', False],
+                        ['company_id', '=', 1]
+                    ]], {'limit': 1}
+                )
+            
+            if account_ids:
+                account_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'read',
+                    [account_ids[0]],
+                    {'fields': ['code', 'name']}
+                )
+                if account_data:
+                    logger.info(f"Using default {account_type} account: {account_data[0]['name']} ({account_data[0]['code']})")
+                    return account_ids[0]
+            
+            logger.warning(f"No default {account_type} account found")
+            return False
+
+        # First try to find by account code
+        account_ids = models.execute_kw(
+            CONFIG['db'], uid, CONFIG['password'],
+            'account.account', 'search',
+            [[
+                ['code', '=', account_identifier],
+                ['account_type', '=', account_type],
+                ['deprecated', '=', False]
+            ]]
+        )
+        
+        if not account_ids:
+            # Try to find by account name
+            account_ids = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'account.account', 'search',
+                [[
+                    ['name', '=', account_identifier],
+                    ['account_type', '=', account_type],
+                    ['deprecated', '=', False]
+                ]]
+            )
+            
+        if account_ids:
+            # Verify the account
+            account_data = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'account.account', 'read',
+                [account_ids[0]],
+                {'fields': ['code', 'name', 'account_type']}
+            )
+            if account_data:
+                logger.info(f"Found {account_type} account: {account_data[0]['name']} ({account_data[0]['code']})")
+                return account_ids[0]
+            else:
+                logger.warning(f"Could not verify account {account_identifier}")
+                return False
+        else:
+            logger.warning(f"Account not found for identifier: {account_identifier}")
+            # Try to get default account
+            if account_type == 'asset_receivable':
+                account_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[
+                        ['account_type', '=', 'asset_receivable'],
+                        ['deprecated', '=', False],
+                        ['company_id', '=', 1]
+                    ]], {'limit': 1}
+                )
+            else:  # liability_payable
+                account_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[
+                        ['account_type', '=', 'liability_payable'],
+                        ['deprecated', '=', False],
+                        ['company_id', '=', 1]
+                    ]], {'limit': 1}
+                )
+            
+            if account_ids:
+                account_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'read',
+                    [account_ids[0]],
+                    {'fields': ['code', 'name']}
+                )
+                if account_data:
+                    logger.info(f"Using default {account_type} account: {account_data[0]['name']} ({account_data[0]['code']})")
+                    return account_ids[0]
+            return False
+            
+    except Exception as e:
+        logger.warning(f"Error getting account for '{account_identifier}': {e}")
+        # Try to get default account as fallback
+        try:
+            if account_type == 'asset_receivable':
+                account_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[
+                        ['account_type', '=', 'asset_receivable'],
+                        ['deprecated', '=', False],
+                        ['company_id', '=', 1]
+                    ]], {'limit': 1}
+                )
+            else:  # liability_payable
+                account_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[
+                        ['account_type', '=', 'liability_payable'],
+                        ['deprecated', '=', False],
+                        ['company_id', '=', 1]
+                    ]], {'limit': 1}
+                )
+            
+            if account_ids:
+                account_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'read',
+                    [account_ids[0]],
+                    {'fields': ['code', 'name']}
+                )
+                if account_data:
+                    logger.info(f"Using default {account_type} account after error: {account_data[0]['name']} ({account_data[0]['code']})")
+                    return account_ids[0]
+        except:
+            pass
+        return False
+
+def get_payment_term_id(models, uid, payment_term):
+    """Get payment term ID with better matching and verification"""
+    if pd.isna(payment_term) or not payment_term:
+        return False
+
+    try:
+        payment_term = str(payment_term).strip()
+        
+        # First try exact match
+        payment_terms = models.execute_kw(
+            CONFIG['db'], uid, CONFIG['password'],
+            'account.payment.term', 'search',
+            [[['name', '=', payment_term]]]
+        )
+        
+        # If not found, try case-insensitive partial match
+        if not payment_terms:
+            payment_terms = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'account.payment.term', 'search',
+                [[['name', 'ilike', payment_term]]]
+            )
+        
+        if payment_terms:
+            # Verify the payment term
+            term_data = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'account.payment.term', 'read',
+                [payment_terms[0]],
+                {'fields': ['name']}
+            )
+            if term_data:
+                logger.info(f"Found payment term: {term_data[0]['name']} (ID: {payment_terms[0]})")
+                return payment_terms[0]
+            else:
+                logger.warning(f"Could not verify payment term: {payment_term}")
+                return False
+        else:
+            logger.warning(f"Payment term not found: {payment_term}")
+            return False
+            
+    except Exception as e:
+        logger.warning(f"Error handling payment term '{payment_term}': {e}")
+        return False
+
 def clean_customer_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
-    """
-    Clean and validate customer data from Excel row
-    Args:
-        row: pandas Series containing customer data
-        models: Odoo models proxy
-        uid: User ID
-    Returns:
-        dict: Cleaned customer data
-    """
-    # Get state_id from the state name
-    state_name = row.get('state_id', False)
-    state_id = False
-    if not pd.isna(state_name) and state_name:
-        state_id = models.execute_kw(CONFIG['db'], uid, CONFIG['password'], 
-                                   'res.country.state', 'search', 
-                                   [[['name', '=', state_name]]])
-        state_id = state_id[0] if state_id else False
+    """Clean and prepare customer data"""
+    
+    # Handle company_type and is_company fields
+    is_company_value = row.get('is_company', True)
+    
+    if pd.isna(is_company_value):
+        is_company = True
+    elif isinstance(is_company_value, str):
+        is_company_value = is_company_value.lower().strip()
+        is_company = is_company_value in ['true', '1', 'yes', 'y', 't']
+    elif isinstance(is_company_value, (int, float)):
+        is_company = bool(int(is_company_value))
+    else:
+        is_company = True
 
-    # Get country_id from either country_id or country_code
-    country_code = row.get('country_code', False)
-    raw_country_id = row.get('country_id', False)
+    company_type = 'company' if is_company else 'person'
+
+    # Get partner group, type, and office
+    partner_group = str(row.get('Customer Group', '')).strip() if not pd.isna(row.get('Customer Group')) else ''
+    partner_type = str(row.get('Customer Type', '')).strip() if not pd.isna(row.get('Customer Type')) else ''
+    office = str(row.get('office', '')).strip() if not pd.isna(row.get('office')) else ''
+
+    # Get VAT from id tax field
+    vat = str(row.get('id tax', '')).strip() if not pd.isna(row.get('id tax')) else False
+
+    # Get partner codes
+    partner_code = row.get('partner_code', False)
+    old_partner_code = row.get('old_partner_code', False)
+
+    # Clean partner codes
+    if not pd.isna(partner_code):
+        if isinstance(partner_code, (int, float)):
+            partner_code = str(int(partner_code))
+        elif isinstance(partner_code, str):
+            partner_code = partner_code.strip()
+    else:
+        partner_code = False
+
+    if not pd.isna(old_partner_code):
+        if isinstance(old_partner_code, (int, float)):
+            old_partner_code = str(int(old_partner_code))
+        elif isinstance(old_partner_code, str):
+            old_partner_code = old_partner_code.strip()
+    else:
+        old_partner_code = False
+
+    # Get currency_id - Default to THB if not specified
+    currency_id = False
+    raw_currency = row.get('currency_id', 'THB')  # Default to THB
+    
+    if pd.isna(raw_currency):
+        # If currency is NA, use THB
+        raw_currency = 'THB'
+    
+    try:
+        if isinstance(raw_currency, str):
+            # Search by currency code/name
+            currency_ids = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'res.currency', 'search',
+                [[['name', '=', raw_currency.strip().upper()]]]
+            )
+            if not currency_ids:
+                # Try searching by currency name
+                currency_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.currency', 'search',
+                    [[['name', 'ilike', raw_currency.strip()]]]
+                )
+            if not currency_ids:
+                # If still not found, try to get THB
+                currency_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.currency', 'search',
+                    [[['name', '=', 'THB']]]
+                )
+            if currency_ids:
+                currency_id = currency_ids[0]
+        elif isinstance(raw_currency, (int, float)):
+            currency_id = int(raw_currency)
+        
+        if currency_id:
+            # Verify currency exists
+            currency_data = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'res.currency', 'read',
+                [currency_id],
+                {'fields': ['name']}
+            )
+            if currency_data:
+                logger.info(f"Using currency: {currency_data[0]['name']}")
+            else:
+                # If verification fails, try to get THB
+                currency_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.currency', 'search',
+                    [[['name', '=', 'THB']]]
+                )
+                if currency_ids:
+                    currency_id = currency_ids[0]
+                    logger.info("Using default currency: THB")
+                else:
+                    currency_id = False
+                    logger.warning("Could not find default THB currency")
+        else:
+            # If no currency found, try to get THB
+            currency_ids = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'res.currency', 'search',
+                [[['name', '=', 'THB']]]
+            )
+            if currency_ids:
+                currency_id = currency_ids[0]
+                logger.info("Using default currency: THB")
+            else:
+                logger.warning("Could not find default THB currency")
+    except Exception as e:
+        logger.warning(f"Error handling currency '{raw_currency}': {e}")
+        # Try to get THB as a last resort
+        try:
+            currency_ids = models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'res.currency', 'search',
+                [[['name', '=', 'THB']]]
+            )
+            if currency_ids:
+                currency_id = currency_ids[0]
+                logger.info("Using default currency: THB after error")
+        except:
+            currency_id = False
+
+    # Get country_id
     country_id = False
-
-    # Try to get country from either field
+    raw_country_id = row.get('country_id', False)
+    
     if not pd.isna(raw_country_id):
-        # If country_id is actually a country code (like 'TH')
-        if isinstance(raw_country_id, str):
-            try:
+        try:
+            if isinstance(raw_country_id, str):
+                # Search by country code
                 country_ids = models.execute_kw(
                     CONFIG['db'], uid, CONFIG['password'],
                     'res.country', 'search',
-                    [[['code', '=', raw_country_id]]]
+                    [[['code', '=', raw_country_id.strip().upper()]]]
                 )
                 if country_ids:
                     country_id = country_ids[0]
                 else:
-                    logger.warning(f"Could not find country with code: {raw_country_id}")
-            except Exception as e:
-                logger.warning(f"Error looking up country code '{raw_country_id}': {e}")
-        # If it's a numeric ID
-        elif isinstance(raw_country_id, (int, float)):
-            country_id = int(raw_country_id)
-    
-    # If no country_id found yet, try country_code
-    if not country_id and not pd.isna(country_code) and country_code:
-        try:
-            country_ids = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'res.country', 'search',
-                [[['code', '=', country_code]]]
-            )
-            if country_ids:
-                country_id = country_ids[0]
+                    # Try searching by name
+                    country_ids = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'res.country', 'search',
+                        [[['name', 'ilike', raw_country_id.strip()]]]
+                    )
+                    if country_ids:
+                        country_id = country_ids[0]
+            elif isinstance(raw_country_id, (int, float)):
+                country_id = int(raw_country_id)
+            
+            if country_id:
+                # Verify country exists
+                country_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.country', 'read',
+                    [country_id],
+                    {'fields': ['name']}
+                )
+                if country_data:
+                    logger.info(f"Found country: {country_data[0]['name']}")
+                else:
+                    country_id = False
+                    logger.warning(f"Country ID {raw_country_id} not found")
             else:
-                logger.warning(f"Could not find country with code: {country_code}")
+                logger.warning(f"Could not find country: {raw_country_id}")
         except Exception as e:
-            logger.warning(f"Error looking up country code '{country_code}': {e}")
+            logger.warning(f"Error handling country '{raw_country_id}': {e}")
+            country_id = False
 
     # Clean zip code
-    zip_code = row.get('zip', False)
+    zip_code = row.get('zip_code', False)
     if pd.isna(zip_code):
         zip_code = False
     elif isinstance(zip_code, (int, float)):
@@ -128,10 +464,8 @@ def clean_customer_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]
     elif isinstance(zip_code, str):
         zip_code = zip_code.strip()
 
-    # Clean phone numbers
+    # Clean phone
     phone = row.get('phone', '')
-    mobile = row.get('mobile', '')
-    
     if pd.isna(phone):
         phone = False
     elif isinstance(phone, (int, float)):
@@ -139,154 +473,75 @@ def clean_customer_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]
     elif isinstance(phone, str):
         phone = phone.strip()
 
-    if pd.isna(mobile):
-        mobile = False
-    elif isinstance(mobile, (int, float)):
-        mobile = str(int(mobile))
-    elif isinstance(mobile, str):
-        mobile = mobile.strip()
+    # Get payment term ID
+    property_payment_term_id = get_payment_term_id(models, uid, row.get('property_payment_term_id'))
 
-    # Handle payment terms for property_payment_term_id (Customer Payment Terms)
-    payment_term = row.get('property_supplier_payment_term_id', False)  # Changed to match Excel column name
-    property_payment_term_id = False
+    # Get bank account info
+    bank_id = get_bank_id(models, uid, row.get('bank_id'))
+    acc_number = row.get('acc_number', False)
+    if pd.isna(acc_number):
+        acc_number = False
+    elif isinstance(acc_number, (int, float)):
+        acc_number = str(int(acc_number))
+    elif isinstance(acc_number, str):
+        acc_number = acc_number.strip()
+
+    # Get receivable and payable accounts
+    property_account_receivable_id = get_account_id(
+        models, uid,
+        row.get('property_account_receivable_id'),
+        'asset_receivable'
+    )
     
-    if not pd.isna(payment_term) and payment_term:
-        try:
-            # Convert to string and clean up
-            payment_term = str(payment_term).strip()
-            
-            # Try to find payment term by name
-            payment_terms = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'account.payment.term', 'search_read',
-                [[['name', 'ilike', payment_term]]],
-                {'fields': ['id', 'name']}
-            )
-            
-            if payment_terms:
-                property_payment_term_id = payment_terms[0]['id']
-                logger.info(f"Found payment term: {payment_terms[0]['name']} (ID: {property_payment_term_id})")
-            else:
-                logger.warning(f"Payment term not found: {payment_term}")
-        except Exception as e:
-            logger.warning(f"Error handling payment term '{payment_term}': {e}")
-            property_payment_term_id = False
-            
-    # Debug log
-    if property_payment_term_id:
-        logger.info(f"Setting payment term ID: {property_payment_term_id}")
+    property_account_payable_id = get_account_id(
+        models, uid,
+        row.get('property_account_payable_id'),
+        'liability_payable'
+    )
 
-    # Handle account receivable and payable
-    property_account_receivable_id = False
-    property_account_payable_id = False
-    
-    # Get receivable account
-    raw_receivable = row.get('property_account_receivable_id', False)
-    if not pd.isna(raw_receivable):
-        try:
-            if isinstance(raw_receivable, (int, float)):
-                property_account_receivable_id = int(raw_receivable)
-            elif isinstance(raw_receivable, str):
-                # Search by account code or name
-                receivable_ids = models.execute_kw(
-                    CONFIG['db'], uid, CONFIG['password'],
-                    'account.account', 'search',
-                    [[['code', '=', raw_receivable.strip()], '|', ['name', '=', raw_receivable.strip()]]]
-                )
-                if receivable_ids:
-                    property_account_receivable_id = receivable_ids[0]
-                    logger.info(f"Found receivable account: {raw_receivable}")
-                else:
-                    logger.warning(f"Receivable account not found: {raw_receivable}")
-        except Exception as e:
-            logger.warning(f"Error handling receivable account '{raw_receivable}': {e}")
-
-    # Get payable account
-    raw_payable = row.get('property_account_payable_id', False)
-    if not pd.isna(raw_payable):
-        try:
-            if isinstance(raw_payable, (int, float)):
-                property_account_payable_id = int(raw_payable)
-            elif isinstance(raw_payable, str):
-                # Search by account code or name
-                payable_ids = models.execute_kw(
-                    CONFIG['db'], uid, CONFIG['password'],
-                    'account.account', 'search',
-                    [[['code', '=', raw_payable.strip()], '|', ['name', '=', raw_payable.strip()]]]
-                )
-                if payable_ids:
-                    property_account_payable_id = payable_ids[0]
-                    logger.info(f"Found payable account: {raw_payable}")
-                else:
-                    logger.warning(f"Payable account not found: {raw_payable}")
-        except Exception as e:
-            logger.warning(f"Error handling payable account '{raw_payable}': {e}")
-
-    # Clean and validate data
-    # Handle company_type field - must be either 'person' or 'company'
-    company_type = row.get('company_type', 'person')
-    if pd.isna(company_type):
-        company_type = 'person'
-    else:
-        company_type = str(company_type).lower().strip()
-        if company_type not in ['person', 'company']:
-            company_type = 'company' if row.get('is_company', False) else 'person'
-
-    # Clean and validate data
+    # Prepare customer data
     customer_data = {
-        'old_code_partner': str(row.get('old_code_partner', '')) if not pd.isna(row.get('old_code_partner')) else False,
-        'partner_code': str(row.get('partner_code', '')) if not pd.isna(row.get('partner_code')) else False,
-        'name': str(row.get('name', '')) if not pd.isna(row.get('name')) else False,
+        'name': str(row.get('name', '')).strip() if not pd.isna(row.get('name')) else False,
+        'partner_code': partner_code,
+        'old_code_partner': old_partner_code,
         'company_type': company_type,
-        'is_company': bool(row.get('is_company', False)) if not pd.isna(row.get('is_company')) else False,
-        'street': str(row.get('street', '')) if not pd.isna(row.get('street')) else False,
-        'street2': str(row.get('street2', '')) if not pd.isna(row.get('street2')) else False,
-        'city': str(row.get('city', '')) if not pd.isna(row.get('city')) else False,
-        'state_id': state_id,
+        'is_company': is_company,
+        'street': str(row.get('street', '')).strip() if not pd.isna(row.get('street')) else False,
+        'street2': str(row.get('street2', '')).strip() if not pd.isna(row.get('street2')) else False,
+        'city': str(row.get('city', '')).strip() if not pd.isna(row.get('city')) else False,
+        'zip': zip_code,
         'country_id': country_id,
-        'zip': zip_code if zip_code else False,
-        'country_code': str(row.get('country_code', '')) if not pd.isna(row.get('country_code')) else False,
-        'vat': str(row.get('vat', '')) if not pd.isna(row.get('vat')) else False,
-        'phone': phone if phone else False,
-        'mobile': mobile if mobile else False,
+        'phone': phone,
+        'email': str(row.get('email', '')).strip() if not pd.isna(row.get('email')) else False,
+        'vat': vat,
         'customer_rank': 1,
-        'active': bool(row.get('active', True)) if not pd.isna(row.get('active')) else True,
         'property_payment_term_id': property_payment_term_id,
+        'partner_group': partner_group,
+        'partner_type': partner_type,
+        'office': office,
+        'currency_id': currency_id,
+        'bank_ids': [(0, 0, {
+            'bank_id': bank_id,
+            'acc_number': acc_number,
+            'currency_id': currency_id
+        })] if bank_id and acc_number else False,
         'property_account_receivable_id': property_account_receivable_id,
         'property_account_payable_id': property_account_payable_id
     }
 
     return customer_data
 
-def check_duplicate_partner(models: Any, uid: int, name: str) -> bool:
-    """
-    Check if partner with the same name already exists
-    Args:
-        models: Odoo models proxy
-        uid: User ID
-        name: Partner name to check
-    Returns:
-        bool: True if partner exists, False otherwise
-    """
-    try:
-        existing_partners = models.execute_kw(
-            CONFIG['db'], uid, CONFIG['password'],
-            'res.partner', 'search_count',
-            [[['name', '=', name]]]
-        )
-        return existing_partners > 0
-    except Exception as e:
-        logger.error(f"Error checking duplicate partner {name}: {e}")
-        return False
-
 def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> None:
     """
-    Process customer data - create or update in Odoo
+    Process customer data - create or update in Odoo based on partner_code
     Args:
         customer_data: Dictionary containing customer data
         models: Odoo models proxy
         uid: User ID
     """
+    # Ensure customer name is not truncated
+    if customer_data.get('name'):
+        customer_data['name'] = str(customer_data['name']).strip()
     try:
         partner_code = customer_data.get('partner_code')
         if not partner_code:
@@ -305,6 +560,23 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
             # Customer exists - Update the record
             existing_id = existing_customer[0]['id']
             try:
+                # Handle bank account update
+                if customer_data.get('bank_ids'):
+                    # Get existing bank accounts
+                    existing_banks = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'res.partner.bank', 'search',
+                        [[['partner_id', '=', existing_id]]]
+                    )
+                    # Remove existing bank accounts if any
+                    if existing_banks:
+                        models.execute_kw(
+                            CONFIG['db'], uid, CONFIG['password'],
+                            'res.partner.bank', 'unlink',
+                            [existing_banks]
+                        )
+
+                # Update customer data
                 models.execute_kw(
                     CONFIG['db'], uid, CONFIG['password'],
                     'res.partner', 'write',
@@ -317,7 +589,7 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
                     CONFIG['db'], uid, CONFIG['password'],
                     'res.partner', 'read',
                     [existing_id],
-                    {'fields': ['name', 'partner_code', 'property_payment_term_id']}
+                    {'fields': ['name', 'partner_code', 'property_payment_term_id', 'property_account_receivable_id', 'property_account_payable_id']}
                 )
                 
                 # Verify payment term if it was set
@@ -326,6 +598,19 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
                         logger.info(f"Payment term verified for customer {customer_data['name']}")
                     else:
                         logger.warning(f"Payment term may not have been set correctly for {customer_data['name']}")
+
+                # Verify accounts
+                if customer_data.get('property_account_receivable_id'):
+                    if updated_data[0]['property_account_receivable_id'] == customer_data['property_account_receivable_id']:
+                        logger.info(f"Receivable account verified for customer {customer_data['name']}")
+                    else:
+                        logger.warning(f"Receivable account may not have been set correctly for {customer_data['name']}")
+
+                if customer_data.get('property_account_payable_id'):
+                    if updated_data[0]['property_account_payable_id'] == customer_data['property_account_payable_id']:
+                        logger.info(f"Payable account verified for customer {customer_data['name']}")
+                    else:
+                        logger.warning(f"Payable account may not have been set correctly for {customer_data['name']}")
 
             except Exception as update_error:
                 logger.error(f"Error updating customer {partner_code}: {update_error}")
@@ -340,18 +625,33 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
                 )
                 logger.info(f"Created new customer - Partner Code: {partner_code}, Name: {customer_data['name']}, ID: {new_customer_id}")
 
-                # Verify the creation and payment term
+                # Verify the creation
+                new_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'res.partner', 'read',
+                    [new_customer_id],
+                    {'fields': ['name', 'partner_code', 'property_payment_term_id', 'property_account_receivable_id', 'property_account_payable_id']}
+                )
+                
+                # Verify payment term if it was set
                 if customer_data.get('property_payment_term_id'):
-                    new_data = models.execute_kw(
-                        CONFIG['db'], uid, CONFIG['password'],
-                        'res.partner', 'read',
-                        [new_customer_id],
-                        {'fields': ['property_payment_term_id']}
-                    )
-                    if new_data and new_data[0]['property_payment_term_id'] == customer_data['property_payment_term_id']:
+                    if new_data[0]['property_payment_term_id'] == customer_data['property_payment_term_id']:
                         logger.info(f"Payment term verified for new customer {customer_data['name']}")
                     else:
                         logger.warning(f"Payment term may not have been set correctly for {customer_data['name']}")
+
+                # Verify accounts
+                if customer_data.get('property_account_receivable_id'):
+                    if new_data[0]['property_account_receivable_id'] == customer_data['property_account_receivable_id']:
+                        logger.info(f"Receivable account verified for new customer {customer_data['name']}")
+                    else:
+                        logger.warning(f"Receivable account may not have been set correctly for {customer_data['name']}")
+
+                if customer_data.get('property_account_payable_id'):
+                    if new_data[0]['property_account_payable_id'] == customer_data['property_account_payable_id']:
+                        logger.info(f"Payable account verified for new customer {customer_data['name']}")
+                    else:
+                        logger.warning(f"Payable account may not have been set correctly for {customer_data['name']}")
 
             except Exception as create_error:
                 logger.error(f"Error creating new customer {partner_code}: {create_error}")
@@ -361,19 +661,14 @@ def process_customer(customer_data: Dict[str, Any], models: Any, uid: int) -> No
 
 def main():
     """Main execution function"""
-    # Connect to Odoo
     uid, models = connect_to_odoo()
-
-    # Read Excel file
     df = read_excel_file(CONFIG['excel_path'])
 
-    # Process each customer
     for index, row in df.iterrows():
         customer_data = clean_customer_data(row, models, uid)
-        logger.debug(f"Processing customer data: {customer_data}")
         process_customer(customer_data, models, uid)
 
-    logger.info("Customer import completed successfully")
+    logger.info("Import completed successfully")
 
 if __name__ == "__main__":
     main()
