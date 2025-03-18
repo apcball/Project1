@@ -73,66 +73,6 @@ def get_bank_id(models, uid, bank_name):
         logger.warning(f"Error handling bank '{bank_name}': {e}")
         return False
 
-def get_account_id(models, uid, account_identifier, account_type):
-    """Get account ID by code or name with proper account type"""
-    if pd.isna(account_identifier) or not account_identifier:
-        return False
-
-    try:
-        # Convert to string and strip whitespace
-        account_identifier = str(account_identifier).strip()
-        
-        # First try to find by account code
-        account_ids = models.execute_kw(
-            CONFIG['db'], uid, CONFIG['password'],
-            'account.account', 'search',
-            [[
-                ['code', '=', account_identifier],
-                ['account_type', '=', account_type],
-                ['deprecated', '=', False]
-            ]]
-        )
-        
-        if not account_ids:
-            # Try to find by account name
-            account_ids = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'account.account', 'search',
-                [[
-                    ['name', '=', account_identifier],
-                    ['account_type', '=', account_type],
-                    ['deprecated', '=', False]
-                ]]
-            )
-            
-        if account_ids:
-            return account_ids[0]
-        else:
-            # If no account found, try to get default from company settings
-            property_name = 'property_account_receivable_id' if account_type == 'asset_receivable' else 'property_account_payable_id'
-            company_property = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'ir.property', 'search_read',
-                [[
-                    ['name', '=', property_name],
-                    ['company_id', '=', 1]  # Assuming company_id = 1
-                ]],
-                {'fields': ['value_reference']}
-            )
-            
-            if company_property and company_property[0]['value_reference']:
-                # Extract account ID from value_reference (format: 'account.account,ID')
-                default_account_id = int(company_property[0]['value_reference'].split(',')[1])
-                logger.info(f"Using default company {account_type} account")
-                return default_account_id
-            
-            logger.warning(f"Account not found for identifier: {account_identifier}")
-            return False
-            
-    except Exception as e:
-        logger.warning(f"Error getting account for '{account_identifier}': {e}")
-        return False
-
 def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     """Clean and prepare vendor data"""
     
@@ -294,20 +234,98 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     
     if not pd.isna(payment_term) and payment_term:
         try:
-            payment_term = str(payment_term).strip()
-            payment_terms = models.execute_kw(
-                CONFIG['db'], uid, CONFIG['password'],
-                'account.payment.term', 'search',
-                [[['name', '=', payment_term]]]
-            )
-            
-            if payment_terms:
-                property_supplier_payment_term_id = payment_terms[0]
-                logger.info(f"Found payment term: {payment_term}")
+            if isinstance(payment_term, (int, float)):
+                # If payment_term is numeric, use it directly as ID
+                property_supplier_payment_term_id = int(payment_term)
+                # Verify the payment term exists
+                term_data = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.payment.term', 'read',
+                    [property_supplier_payment_term_id],
+                    {'fields': ['name']}
+                )
+                if term_data:
+                    logger.info(f"Found payment term by ID: {term_data[0]['name']}")
+                else:
+                    property_supplier_payment_term_id = False
+                    logger.warning(f"Payment term ID {payment_term} not found")
             else:
-                logger.warning(f"Payment term not found: {payment_term}")
+                # Clean and standardize payment term string
+                payment_term = str(payment_term).strip()
+                search_terms = [
+                    payment_term,  # Original term
+                    payment_term.upper(),  # Uppercase
+                    payment_term.lower(),  # Lowercase
+                    payment_term.replace(' ', ''),  # No spaces
+                    payment_term.replace('Days', 'Day'),  # Standardize Days/Day
+                    payment_term.replace('days', 'day'),
+                    payment_term.replace('DAYS', 'DAY')
+                ]
+                
+                # Try exact matches first
+                payment_terms = []
+                for term in search_terms:
+                    payment_terms = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.payment.term', 'search',
+                        [[['name', '=', term]]]
+                    )
+                    if payment_terms:
+                        break
+                
+                # If no exact match, try pattern matching
+                if not payment_terms:
+                    # Extract number if present (e.g., "30" from "30 Days")
+                    import re
+                    number_match = re.search(r'\d+', payment_term)
+                    if number_match:
+                        number = number_match.group()
+                        # Search for any payment term containing this number
+                        payment_terms = models.execute_kw(
+                            CONFIG['db'], uid, CONFIG['password'],
+                            'account.payment.term', 'search',
+                            [[['name', 'ilike', number]]]
+                        )
+                        
+                        if payment_terms:
+                            # Verify the found terms contain "day" or "days"
+                            term_data = models.execute_kw(
+                                CONFIG['db'], uid, CONFIG['password'],
+                                'account.payment.term', 'read',
+                                [payment_terms[0]],
+                                {'fields': ['name']}
+                            )
+                            if term_data:
+                                term_name = term_data[0]['name'].lower()
+                                if 'day' not in term_name:
+                                    payment_terms = []
+                
+                if payment_terms:
+                    property_supplier_payment_term_id = payment_terms[0]
+                    # Get the actual name for logging
+                    term_data = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.payment.term', 'read',
+                        [property_supplier_payment_term_id],
+                        {'fields': ['name']}
+                    )
+                    if term_data:
+                        logger.info(f"Found payment term: {term_data[0]['name']} (matched with {payment_term})")
+                else:
+                    logger.warning(f"Payment term not found: {payment_term}")
+                    
+                    # Log available payment terms for debugging
+                    all_terms = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.payment.term', 'search_read',
+                        [[]],
+                        {'fields': ['name']}
+                    )
+                    logger.debug(f"Available payment terms: {[t['name'] for t in all_terms]}")
+                    
         except Exception as e:
             logger.warning(f"Error handling payment term: {e}")
+            property_supplier_payment_term_id = False
 
     # Get bank account info
     bank_id = get_bank_id(models, uid, row.get('bank_id'))
@@ -319,18 +337,67 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     elif isinstance(acc_number, str):
         acc_number = acc_number.strip()
 
-    # Get receivable and payable accounts
-    property_account_receivable_id = get_account_id(
-        models, uid,
-        row.get('property_account_receivable_id'),
-        'asset_receivable'
-    )
+    # Handle account receivable and payable
+    property_account_receivable_id = False
+    property_account_payable_id = False
     
-    property_account_payable_id = get_account_id(
-        models, uid,
-        row.get('property_account_payable_id'),
-        'liability_payable'
-    )
+    # Get receivable account
+    raw_receivable = row.get('property_account_receivable_id', False)
+    if not pd.isna(raw_receivable):
+        try:
+            if isinstance(raw_receivable, (int, float)):
+                property_account_receivable_id = int(raw_receivable)
+            elif isinstance(raw_receivable, str):
+                raw_receivable = raw_receivable.strip()
+                # First try to search by account code
+                receivable_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[['code', '=', raw_receivable]]]
+                )
+                if not receivable_ids:
+                    # If not found by code, try searching by name
+                    receivable_ids = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.account', 'search',
+                        [[['name', '=', raw_receivable]]]
+                    )
+                if receivable_ids:
+                    property_account_receivable_id = receivable_ids[0]
+                    logger.info(f"Found receivable account: {raw_receivable}")
+                else:
+                    logger.warning(f"Receivable account not found: {raw_receivable}")
+        except Exception as e:
+            logger.warning(f"Error handling receivable account '{raw_receivable}': {e}")
+
+    # Get payable account
+    raw_payable = row.get('property_account_payable_id', False)
+    if not pd.isna(raw_payable):
+        try:
+            if isinstance(raw_payable, (int, float)):
+                property_account_payable_id = int(raw_payable)
+            elif isinstance(raw_payable, str):
+                raw_payable = raw_payable.strip()
+                # First try to search by account code
+                payable_ids = models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'account.account', 'search',
+                    [[['code', '=', raw_payable]]]
+                )
+                if not payable_ids:
+                    # If not found by code, try searching by name
+                    payable_ids = models.execute_kw(
+                        CONFIG['db'], uid, CONFIG['password'],
+                        'account.account', 'search',
+                        [[['name', '=', raw_payable]]]
+                    )
+                if payable_ids:
+                    property_account_payable_id = payable_ids[0]
+                    logger.info(f"Found payable account: {raw_payable}")
+                else:
+                    logger.warning(f"Payable account not found: {raw_payable}")
+        except Exception as e:
+            logger.warning(f"Error handling payable account '{raw_payable}': {e}")
 
     # Prepare vendor data
     vendor_data = {
