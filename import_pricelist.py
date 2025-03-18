@@ -400,7 +400,7 @@ class PricelistImporter:
 def main():
     # --- ตั้งค่าการเชื่อมต่อ Odoo ---
     HOST = 'http://mogth.work:8069'
-    DB = 'MOG_DEV'
+    DB = 'MOG_Training'
     USERNAME = 'apichart@mogen.co.th'
     PASSWORD = '471109538'
 

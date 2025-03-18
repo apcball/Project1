@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Odoo connection parameters
 HOST = 'http://mogth.work:8069'
-DB = 'MOG_DEV'
+DB = 'MOG_Training'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
@@ -13,7 +13,7 @@ def read_excel_template():
     """Read and validate the Excel template"""
     try:
         # Read the Excel file
-        df = pd.read_excel('Data_file/import_bom_2.xlsx')
+        df = pd.read_excel('Data_file/import_bom.xlsx')
         
         # Clean up the data
         df = df.fillna('')  # Replace NaN with empty string
