@@ -4,7 +4,7 @@ import sys
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 server_url = 'http://mogth.work:8069'
-database = 'MOG_DEV'
+database = 'MOG_Training'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -41,23 +41,18 @@ def get_cost_method(value):
     else:
         return 'standard'
 
-# --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/product_category_import.xlsx'
-try:
-    # ตรวจสอบชื่อ sheet ทั้งหมดในไฟล์ Excel
-    with pd.ExcelFile(excel_file) as xls:
-        sheet_names = xls.sheet_names
-        print(f"Available sheets in the Excel file: {sheet_names}")
-        if 'Sheet1' not in sheet_names:
-            print("Sheet named 'Sheet1' not found. Please check the sheet name.")
-            sys.exit(1)
-    
-    df = pd.read_excel(excel_file, sheet_name='Sheet1')  # ระบุชื่อ sheet ที่ต้องการอ่าน
-    print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
-    print(f"Columns in the Excel file: {df.columns.tolist()}")
-except Exception as e:
-    print("Failed to read Excel file:", e)
-    sys.exit(1)
+def search_account(account_code):
+    """
+    ค้นหาบัญชีจากรหัสบัญชี
+    """
+    if pd.isna(account_code) or str(account_code).strip() == "":
+        return None
+    account_code = str(account_code).strip()
+    account_ids = models.execute_kw(
+        database, uid, password, 'account.account', 'search',
+        [[['code', '=', account_code], ['deprecated', '=', False]]]
+    )
+    return account_ids[0] if account_ids else None
 
 def search_category(category_name):
     """
@@ -78,24 +73,87 @@ def search_parent_category(parent_name):
     )
     return parent_ids[0] if parent_ids else None
 
+def update_category_accounts(category_id, income_account_code, expense_account_code):
+    """
+    อัพเดทบัญชีรายได้และค่าใช้จ่ายของ Product Category
+    """
+    update_data = {}
+    
+    # Income Account
+    if income_account_code:
+        income_account_id = search_account(income_account_code)
+        if income_account_id:
+            update_data['property_account_income_categ_id'] = income_account_id
+            print(f"กำหนดบัญชีรายได้ '{income_account_code}'")
+        else:
+            print(f"ไม่พบบัญชีรายได้รหัส '{income_account_code}'")
+    
+    # Expense Account
+    if expense_account_code:
+        expense_account_id = search_account(expense_account_code)
+        if expense_account_id:
+            update_data['property_account_expense_categ_id'] = expense_account_id
+            print(f"กำหนดบัญชีค่าใช้จ่าย '{expense_account_code}'")
+        else:
+            print(f"ไม่พบบัญชีค่าใช้จ่ายรหัส '{expense_account_code}'")
+    
+    if update_data:
+        try:
+            models.execute_kw(
+                database, uid, password, 'product.category', 'write',
+                [[category_id], update_data]
+            )
+            print("อัพเดทข้อมูลบัญชีสำเร็จ")
+            return True
+        except Exception as e:
+            print(f"ไม่สามารถอัพเดทข้อมูลบัญชี: {e}")
+            return False
+    return True
+
+# --- อ่านข้อมูลจากไฟล์ Excel ---
+excel_file = 'Data_file/product_category_import.xlsx'
+try:
+    # ตรวจสอบชื่อ sheet ทั้งหมดในไฟล์ Excel
+    with pd.ExcelFile(excel_file) as xls:
+        sheet_names = xls.sheet_names
+        print(f"Available sheets in the Excel file: {sheet_names}")
+        if 'Sheet1' not in sheet_names:
+            print("Sheet named 'Sheet1' not found. Please check the sheet name.")
+            sys.exit(1)
+    
+    df = pd.read_excel(excel_file, sheet_name='Sheet1')
+    print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
+    print(f"Columns in the Excel file: {df.columns.tolist()}")
+except Exception as e:
+    print("Failed to read Excel file:", e)
+    sys.exit(1)
+
 # --- วนลูปประมวลผลแต่ละแถวใน Excel ---
 for index, row in df.iterrows():
     # ข้ามแถวแรกที่เป็นหัวตาราง
     if index == 0:
-        print("ข้ามแถวที่เป็นหัวตาราง")
+        print("\nข้ามแถวที่เป็นหัวตาราง")
         continue
 
     category_name = str(row['product_category_import']).strip() if pd.notna(row['product_category_import']) else ""
     parent_category_name = row.get('Unnamed: 1', '')
+    income_account = str(row.get('Unnamed: 3', '')).strip() if pd.notna(row.get('Unnamed: 3')) else None
+    expense_account = str(row.get('Unnamed: 4', '')).strip() if pd.notna(row.get('Unnamed: 4')) else None
 
     if not category_name:
-        print(f"Row {index}: ชื่อ Category ว่างเปล่า. ข้ามแถวนี้ไป")
+        print(f"\nRow {index}: ชื่อ Category ว่างเปล่า. ข้ามแถวนี้ไป")
         continue
+
+    print(f"\nกำลังประมวลผล Row {index}: Category '{category_name}'")
 
     # ตรวจสอบว่ามี Category นี้อยู่ในระบบหรือไม่
     existing_ids = search_category(category_name)
+    
     if existing_ids:
-        print(f"Row {index}: Product Category '{category_name}' มีอยู่แล้ว. ข้ามการสร้าง")
+        print(f"Product Category '{category_name}' มีอยู่แล้ว")
+        # อัพเดทข้อมูลบัญชีสำหรับ Category ที่มีอยู่แล้ว
+        if income_account or expense_account:
+            update_category_accounts(existing_ids[0], income_account, expense_account)
         continue
 
     # ค้นหา Parent Category หากระบุไว้
@@ -111,42 +169,18 @@ for index, row in df.iterrows():
         new_category_id = models.execute_kw(
             database, uid, password, 'product.category', 'create', [category_data]
         )
-        print(f"Row {index}: สร้าง Product Category '{category_name}' สำเร็จ (ID: {new_category_id})")
+        print(f"สร้าง Product Category '{category_name}' สำเร็จ (ID: {new_category_id})")
         
-        # เพิ่มการอัพเดท Costing Method, Income Account และ Expense Account
+        # อัพเดทข้อมูลเพิ่มเติม
         update_data = {}
         
-        # Costing Method - ใช้ค่าจากคอลัมน์ที่ 3 (index 2)
+        # Costing Method
         if pd.notna(row.get('Unnamed: 2')):
             cost_method = str(row['Unnamed: 2']).strip()
-            if cost_method.lower() not in ['', 'costingmethod']:  # ข้ามค่าว่างและหัวตาราง
+            if cost_method.lower() not in ['', 'costingmethod']:
                 cost_method_value = get_cost_method(cost_method)
                 update_data['property_cost_method'] = cost_method_value
-                print(f"Row {index}: กำหนด Costing Method '{cost_method}' -> '{cost_method_value}'")
-        
-        # Income Account - ใช้ค่าจากคอลัมน์ที่ 4 (index 3)
-        if pd.notna(row.get('Unnamed: 3')):
-            income_account = str(row['Unnamed: 3']).strip()
-            if income_account and income_account.lower() != 'income account':  # ข้ามค่าว่างและหัวตาราง
-                income_ids = models.execute_kw(
-                    database, uid, password, 'account.account', 'search',
-                    [[['code', '=', income_account], ['deprecated', '=', False]]]
-                )
-                if income_ids:
-                    update_data['property_account_income_categ_id'] = income_ids[0]
-                    print(f"Row {index}: กำหนดบัญชีรายได้ '{income_account}'")
-        
-        # Expense Account - ใช้ค่าจากคอลัมน์ที่ 5 (index 4)
-        if pd.notna(row.get('Unnamed: 4')):
-            expense_account = str(row['Unnamed: 4']).strip()
-            if expense_account and expense_account.lower() != 'expense account':  # ข้ามค่าว่างและหัวตาราง
-                expense_ids = models.execute_kw(
-                    database, uid, password, 'account.account', 'search',
-                    [[['code', '=', expense_account], ['deprecated', '=', False]]]
-                )
-                if expense_ids:
-                    update_data['property_account_expense_categ_id'] = expense_ids[0]
-                    print(f"Row {index}: กำหนดบัญชีค่าใช้จ่าย '{expense_account}'")
+                print(f"กำหนด Costing Method '{cost_method}' -> '{cost_method_value}'")
         
         # อัพเดทข้อมูลถ้ามีการเปลี่ยนแปลง
         if update_data:
@@ -154,7 +188,12 @@ for index, row in df.iterrows():
                 database, uid, password, 'product.category', 'write',
                 [[new_category_id], update_data]
             )
-            print(f"Row {index}: อัพเดทข้อมูลเพิ่มเติมสำเร็จ")
+            print("อัพเดท Costing Method สำเร็จ")
+        
+        # อัพเดทข้อมูลบัญชี
+        update_category_accounts(new_category_id, income_account, expense_account)
             
     except Exception as e:
-        print(f"Row {index}: ไม่สามารถสร้าง Category '{category_name}': {e}")
+        print(f"ไม่สามารถสร้าง Category '{category_name}': {e}")
+
+print("\nเสร็จสิ้นการประมวลผลทั้งหมด")
