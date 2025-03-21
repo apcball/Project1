@@ -7,7 +7,7 @@ import requests
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 server_url = 'http://mogth.work:8069'
-database = 'MOG_Training'
+database = 'MOG_DEV'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
