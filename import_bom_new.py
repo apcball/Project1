@@ -13,7 +13,7 @@ def read_excel_template():
     """Read and validate the Excel template"""
     try:
         # Read the Excel file
-        df = pd.read_excel('Data_file/import_bom_2.xlsx')
+        df = pd.read_excel('Data_file/import_bom_bu2_บันใด.xlsx')
         
         # Clean up the data
         df = df.fillna('')  # Replace NaN with empty string
@@ -91,7 +91,7 @@ def get_bom_type(type_value):
     
     return type_mapping.get(type_value, 'normal')
 
-def create_bom(models, uid, product_tmpl_id, bom_lines, bom_name, bom_type='normal'):
+def create_bom(models, uid, product_tmpl_id, product_id, bom_lines, bom_name, bom_type='normal'):
     """Create a Bill of Materials"""
     if not bom_lines:
         print(f"No BOM lines to create for {bom_name}")
@@ -99,6 +99,7 @@ def create_bom(models, uid, product_tmpl_id, bom_lines, bom_name, bom_type='norm
 
     bom_vals = {
         'product_tmpl_id': product_tmpl_id,
+        'product_id': product_id,
         'product_qty': 1.0,
         'type': bom_type,
         'code': bom_name,
@@ -188,7 +189,7 @@ def process_bom_group(group, uid, models):
             print(f"Added component {component_code} (qty: {quantity})")
         
         if bom_lines:
-            create_bom(models, uid, product_tmpl_id, bom_lines, main_product_code, bom_type)
+            create_bom(models, uid, product_tmpl_id, product_id, bom_lines, main_product_code, bom_type)
             return True
         
     except Exception as e:
