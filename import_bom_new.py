@@ -140,7 +140,7 @@ def clean_code(code):
 def process_bom_group(group, uid, models):
     """Process a group of rows that belong to the same BOM"""
     if not group:
-        return False
+        return False, None
     
     try:
         # First row contains the main product
@@ -149,7 +149,7 @@ def process_bom_group(group, uid, models):
         bom_type = get_bom_type(main_row.get('type', ''))
         
         if not main_product_code:
-            return False
+            return False, {"error": "Missing main product code", "rows": group}
         
         print(f"\nProcessing BOM for {main_product_code} (type: {bom_type})")
         
@@ -157,7 +157,7 @@ def process_bom_group(group, uid, models):
         product_id = search_product_by_code(models, uid, main_product_code)
         if not product_id:
             print(f"Main product not found: {main_product_code}")
-            return False
+            return False, {"error": f"Main product not found: {main_product_code}", "rows": group}
         
         product_data = models.execute_kw(DB, uid, PASSWORD,
             'product.product', 'read',
@@ -190,12 +190,13 @@ def process_bom_group(group, uid, models):
         
         if bom_lines:
             create_bom(models, uid, product_tmpl_id, product_id, bom_lines, main_product_code, bom_type)
-            return True
+            return True, None
         
     except Exception as e:
         print(f"Error processing BOM group: {str(e)}")
+        return False, {"error": str(e), "rows": group}
     
-    return False
+    return False, {"error": "No valid components found", "rows": group}
 
 def process_bom_data(df, uid, models):
     """Process BOM data from dataframe"""
@@ -204,6 +205,7 @@ def process_bom_data(df, uid, models):
 
     processed_count = 0
     error_count = 0
+    failed_entries = []
     
     print("\nProcessing BOMs...")
     
@@ -223,11 +225,13 @@ def process_bom_data(df, uid, models):
             if default_code:
                 # Process previous group if exists
                 if current_group:
-                    success = process_bom_group(current_group, uid, models)
+                    success, error_info = process_bom_group(current_group, uid, models)
                     if success:
                         processed_count += 1
                     else:
                         error_count += 1
+                        if error_info:
+                            failed_entries.append(error_info)
                     current_group = []
                 
                 # Start new group
@@ -240,16 +244,44 @@ def process_bom_data(df, uid, models):
         except Exception as e:
             print(f"Error processing row {index + 2}: {str(e)}")
             error_count += 1
+            failed_entries.append({
+                "error": str(e),
+                "rows": [row]
+            })
     
     # Process last group
     if current_group:
-        success = process_bom_group(current_group, uid, models)
+        success, error_info = process_bom_group(current_group, uid, models)
         if success:
             processed_count += 1
         else:
             error_count += 1
+            if error_info:
+                failed_entries.append(error_info)
     
-    return processed_count, error_count, len(df)
+    return processed_count, error_count, len(df), failed_entries
+
+def write_failed_entries(failed_entries):
+    """Write failed BOM entries to Excel file"""
+    if not failed_entries:
+        return
+    
+    # Create a list to store all rows for the Excel file
+    rows = []
+    for entry in failed_entries:
+        error = entry["error"]
+        for row in entry["rows"]:
+            # Convert row to dict and add error message
+            row_dict = row.to_dict()
+            row_dict["Error Message"] = error
+            rows.append(row_dict)
+    
+    # Create DataFrame and write to Excel
+    df_failed = pd.DataFrame(rows)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = f'Data_file/failed_bom_updates_{timestamp}.xlsx'
+    df_failed.to_excel(output_file, index=False)
+    print(f"\nFailed entries have been written to: {output_file}")
 
 def main():
     print("Starting BOM import process...")
@@ -265,7 +297,11 @@ def main():
         return
     
     # Process BOM data
-    processed_count, error_count, total_rows = process_bom_data(df, uid, models)
+    processed_count, error_count, total_rows, failed_entries = process_bom_data(df, uid, models)
+    
+    # Write failed entries to Excel if any
+    if failed_entries:
+        write_failed_entries(failed_entries)
     
     # Print summary
     print("\nImport Summary:")
