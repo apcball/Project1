@@ -49,8 +49,8 @@ def read_excel_file(file_path):
         print(f"Error reading Excel file: {e}")
         return None
 
-def update_product_cbm(uid, models, default_code, cubic_meter):
-    """Update cubic_meter for a product"""
+def update_product_volume(uid, models, default_code, volume):
+    """Update volume for a product"""
     try:
         # Search for product by default_code
         product_ids = models.execute_kw(
@@ -64,29 +64,29 @@ def update_product_cbm(uid, models, default_code, cubic_meter):
             product_data = models.execute_kw(
                 DATABASE, uid, PASSWORD,
                 'product.template', 'read',
-                [product_ids[0]], {'fields': ['name', 'default_code', 'cubic_meter']}
+                [product_ids[0]], {'fields': ['name', 'default_code', 'volume']}
             )[0]
             
             print(f"\nProduct found: {default_code}")
             print(f"Current name: {product_data.get('name')}")
-            print(f"Current cubic meter: {product_data.get('cubic_meter')}")
-            print(f"New cubic meter to set: {cubic_meter}")
+            print(f"Current volume: {product_data.get('volume')}")
+            print(f"New volume to set: {volume}")
             
-            # Update the cubic_meter field
+            # Update the volume field
             models.execute_kw(
                 DATABASE, uid, PASSWORD,
                 'product.template', 'write',
-                [product_ids, {'cubic_meter': cubic_meter}]
+                [product_ids, {'volume': volume}]
             )
             
             # Verify the update
             updated_data = models.execute_kw(
                 DATABASE, uid, PASSWORD,
                 'product.template', 'read',
-                [product_ids[0]], {'fields': ['cubic_meter']}
+                [product_ids[0]], {'fields': ['volume']}
             )[0]
             
-            print(f"Updated cubic meter value: {updated_data.get('cubic_meter')}")
+            print(f"Updated volume value: {updated_data.get('volume')}")
             return True
         else:
             print(f"\nProduct not found: {default_code}")
@@ -106,7 +106,7 @@ def main():
 
     # Read Excel file
     print("\nReading Excel file...")
-    file_path = Path('Data_file/Prd_CBM.xls')
+    file_path = Path('Data_file/Prd_CBM.xlsx')
     df = read_excel_file(file_path)
     if df is None:
         return
@@ -122,14 +122,13 @@ def main():
             print(f"\nProcessing row {index + 1}:")
             print(row)
             
-            # Get default_code and cubic_meter from the correct column names
-            # Adjust these column names to match your Excel file
+            # Get default_code and volume from the correct column names
             default_code = str(row['Default Code']).strip() if 'Default Code' in row else str(row['default_code']).strip()
-            cubic_meter = float(row['Cubic Meter']) if 'Cubic Meter' in row else float(row['cubic_meter'])
+            volume = float(row['Cubic Meter']) if 'Cubic Meter' in row else float(row['volume'])
             
-            print(f"Processing: Default Code = {default_code}, Cubic Meter = {cubic_meter}")
+            print(f"Processing: Default Code = {default_code}, Volume = {volume}")
             
-            if update_product_cbm(uid, models, default_code, cubic_meter):
+            if update_product_volume(uid, models, default_code, volume):
                 success_count += 1
             else:
                 error_count += 1
