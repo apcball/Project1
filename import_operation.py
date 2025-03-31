@@ -174,7 +174,7 @@ def main():
     print("Connected to Odoo successfully")
     
     # Read Excel file
-    excel_file = "Data_file/operation_import_bu2.xlsx"
+    excel_file = "Data_file/operation_bu2_น่น_2803.xlsx"
     print(f"Reading Excel file: {excel_file}")
     data = read_excel_file(excel_file)
     
