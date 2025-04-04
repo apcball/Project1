@@ -177,6 +177,42 @@ def convert_date(pd_timestamp):
         return pd_timestamp.strftime('%Y-%m-%d %H:%M:%S')
     return False
 
+def search_picking_type(picking_type_value):
+    """
+    Search for a picking type in Odoo using the value from Excel
+    """
+    if not picking_type_value or pd.isna(picking_type_value):
+        return False
+
+    picking_type_value = str(picking_type_value).strip()
+    
+    try:
+        # Try to find by ID if the value is numeric
+        if str(picking_type_value).isdigit():
+            picking_type_ids = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search',
+                [[['id', '=', int(picking_type_value)]]]
+            )
+            if picking_type_ids:
+                print(f"Found picking type by ID: {picking_type_value}")
+                return picking_type_ids[0]
+
+        # Try to find by name
+        picking_type_ids = models.execute_kw(
+            db, uid, password, 'stock.picking.type', 'search',
+            [[['name', '=', picking_type_value]]]
+        )
+        if picking_type_ids:
+            print(f"Found picking type by name: {picking_type_value}")
+            return picking_type_ids[0]
+
+        print(f"Picking type not found: {picking_type_value}")
+        return False
+    except Exception as e:
+        error_msg = str(e)
+        print(f"Error searching picking type: {error_msg}")
+        return False
+
 def check_existing_po(po_name):
     """Check if PO exists and return its ID"""
     try:
@@ -270,19 +306,18 @@ try:
     
     # Create mapping based on position
     column_mapping = {
-        'name': 'name',  # PO Number
-        'date_order': 'date_order',  # Order Date
-        'partner_code': 'partner_code',  # Vendor Code
-        'partner_id': 'partner_id',  # Vendor Name
-        'date_planned': 'date_planned',  # Planned Date
-        'old_product_code': 'old_product_code',  # Product Code
-        'product_id': 'product_id',  # Product Name
-        'price_unit': 'price_unit',  # Unit Price
-        'product_qty': 'product_qty',  # Quantity
-        'quantity': 'quantity',  # Additional Quantity
-        'location_dest_id': 'location_dest_id',  # Location
-        'texs_id': 'tax_id',  # VAT
-        'notes': 'notes'  # Notes
+        'Document No.': 'name',  # PO Number
+        'Document Date': 'date_order',  # Order Date
+        'Vendor Code': 'partner_code',  # Vendor Code
+        'Vendor Name': 'partner_id',  # Vendor Name
+        'Due Date': 'date_planned',  # Planned Date
+        'Item No.': 'old_product_code',  # Product Code
+        'Description': 'product_id',  # Product Name
+        'Unit Price': 'price_unit',  # Unit Price
+        'Quantity': 'product_qty',  # Quantity
+        'Operation Type': 'picking_type_id',  # Picking Type
+        'VAT': 'tax_id',  # VAT
+        'Remark': 'notes'  # Notes
     }
     
     # Rename the columns
@@ -316,13 +351,18 @@ for index, row in df.iterrows():
             notes = str(row['notes']) if pd.notnull(row['notes']) else ''
             notes = notes.split('\n')[0].strip() if notes else ''
             
+            # Get picking type from the first row of this PO
+            picking_type = str(row['picking_type_id']).strip() if pd.notnull(row['picking_type_id']) else None
+            picking_type_id = search_picking_type(picking_type) if picking_type else False
+            
             po_headers[po_name] = {
                 'vendor_name': str(row['partner_id']).strip() if pd.notnull(row['partner_id']) else None,
                 'vendor_code': str(row['partner_code']).strip() if pd.notnull(row['partner_code']) else None,
                 'order_date': convert_date(row['date_order']),
                 'planned_date': convert_date(row['date_planned']),
                 'first_row_index': index,
-                'notes': notes
+                'notes': notes,
+                'picking_type_id': picking_type_id
             }
     except Exception as e:
         error_msg = str(e)
@@ -413,6 +453,11 @@ for po_name in po_headers.keys():
                 'state': 'draft',
                 'notes': header_data.get('notes', ''),
             }
+
+            # Add picking type if found
+            if header_data.get('picking_type_id'):
+                po_vals['picking_type_id'] = header_data['picking_type_id']
+                print(f"Setting picking type ID: {header_data['picking_type_id']} for PO: {po_name}")
             
             try:
                 print(f"Creating Purchase Order: {po_name}")
