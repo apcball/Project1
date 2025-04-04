@@ -179,15 +179,33 @@ def convert_date(pd_timestamp):
 
 def search_picking_type(picking_type_value):
     """
-    Search for a picking type in Odoo using multiple search strategies
+    Search for a picking type in Odoo using multiple search strategies:
+    1. Search by ID if numeric
+    2. Search by exact name match
+    3. Search by code
+    4. Search by warehouse name
+    5. Search by Thai keywords
+    6. If not found, return default Purchase picking type
     """
-    if not picking_type_value or pd.isna(picking_type_value):
+    def get_default_picking_type():
+        """Get default incoming picking type"""
+        picking_type_ids = models.execute_kw(
+            db, uid, password, 'stock.picking.type', 'search',
+            [[['code', '=', 'incoming'], ['warehouse_id', '!=', False]]],
+            {'limit': 1}
+        )
+        if picking_type_ids:
+            print("Using default Purchase picking type")
+            return picking_type_ids[0]
         return False
+
+    if not picking_type_value or pd.isna(picking_type_value):
+        return get_default_picking_type()
 
     picking_type_value = str(picking_type_value).strip()
     
     try:
-        # Try to find by ID if the value is numeric
+        # 1. Try to find by ID if the value is numeric
         if str(picking_type_value).isdigit():
             picking_type_ids = models.execute_kw(
                 db, uid, password, 'stock.picking.type', 'search',
@@ -197,25 +215,25 @@ def search_picking_type(picking_type_value):
                 print(f"Found picking type by ID: {picking_type_value}")
                 return picking_type_ids[0]
 
-        # Try to find by exact name match
+        # 2. Try to find by exact name match
         picking_type_ids = models.execute_kw(
             db, uid, password, 'stock.picking.type', 'search',
             [[['name', '=', picking_type_value]]]
         )
         if picking_type_ids:
-            print(f"Found picking type by exact name: {picking_type_value}")
+            print(f"Found picking type by name: {picking_type_value}")
             return picking_type_ids[0]
 
-        # Try to find by partial name match using ilike
+        # 3. Try to find by code
         picking_type_ids = models.execute_kw(
             db, uid, password, 'stock.picking.type', 'search',
-            [[['name', 'ilike', picking_type_value]]]
+            [[['code', '=', picking_type_value]]]
         )
         if picking_type_ids:
-            print(f"Found picking type by partial name: {picking_type_value}")
+            print(f"Found picking type by code: {picking_type_value}")
             return picking_type_ids[0]
 
-        # Try to find by warehouse name
+        # 4. Try to find by warehouse name
         picking_type_ids = models.execute_kw(
             db, uid, password, 'stock.picking.type', 'search',
             [[['warehouse_id.name', 'ilike', picking_type_value]]]
@@ -224,16 +242,7 @@ def search_picking_type(picking_type_value):
             print(f"Found picking type by warehouse name: {picking_type_value}")
             return picking_type_ids[0]
 
-        # Try to find by code
-        picking_type_ids = models.execute_kw(
-            db, uid, password, 'stock.picking.type', 'search',
-            [[['sequence_code', 'ilike', picking_type_value]]]
-        )
-        if picking_type_ids:
-            print(f"Found picking type by code: {picking_type_value}")
-            return picking_type_ids[0]
-
-        # Try to find by common warehouse keywords in Thai
+        # 5. Try to find by common warehouse keywords in Thai
         thai_keywords = ['คลัง', 'วัตถุดิบ', 'สินค้า', 'ผลิต', 'สำเร็จรูป', 'รับเข้า', 'จ่ายออก']
         for keyword in thai_keywords:
             if keyword in picking_type_value:
@@ -245,59 +254,41 @@ def search_picking_type(picking_type_value):
                     print(f"Found picking type containing keyword '{keyword}': {picking_type_value}")
                     return picking_type_ids[0]
 
-        # If still not found, get all picking types and try fuzzy matching
-        all_picking_types = models.execute_kw(
-            db, uid, password, 'stock.picking.type', 'search_read',
-            [[]], {'fields': ['name', 'warehouse_id', 'sequence_code']}
-        )
-                # Print available picking types for debugging        print("\nAvailable picking types:")
-        for pt in all_picking_types:
-            print(f"- {pt.get('name', '')} (Code: {pt.get('sequence_code', '')}, Warehouse: {pt.get('warehouse_id', [False, ''])[1] if pt.get('warehouse_id') else 'N/A'})")
-
-        print(f"\nPicking type not found: {picking_type_value}")
-        return False
+        # 6. If not found, return default picking type
+        return get_default_picking_type()
+        
     except Exception as e:
         error_msg = str(e)
-        print(f"Error searching picking type: {error_msg}")
-        log_error('N/A', 'N/A', 'N/A', f"Picking Type Search Error: {error_msg}")
-        return False
+        print(f"Error in search_picking_type: {error_msg}")
+        return get_default_picking_type()
 
-def search_taxes(tax_value):
-    """
-    Search for taxes in Odoo using the value from Excel
-    """
+def get_tax_id(tax_value):
+    """Get tax ID from value"""
     if not tax_value or pd.isna(tax_value):
-        return [(6, 0, [])]
+        return False
 
-    tax_value = str(tax_value).strip()
-    
     try:
-        # Try to find by ID if the value is numeric
-        if str(tax_value).isdigit():
-            tax_ids = models.execute_kw(
-                db, uid, password, 'account.tax', 'search',
-                [[['id', '=', int(tax_value)]]]
-            )
-            if tax_ids:
-                print(f"Found tax by ID: {tax_value}")
-                return [(6, 0, tax_ids)]
-
-        # Try to find by name
-        tax_ids = models.execute_kw(
-            db, uid, password, 'account.tax', 'search',
-            [[['name', '=', tax_value]]]
+        # Get all purchase taxes first
+        all_taxes = models.execute_kw(
+            db, uid, password, 'account.tax', 'search_read',
+            [[['type_tax_use', 'in', ['purchase', 'all']], ['active', '=', True]]],
+            {'fields': ['id', 'name', 'amount', 'type_tax_use']}
         )
-        if tax_ids:
-            print(f"Found tax by name: {tax_value}")
-            return [(6, 0, tax_ids)]
-        else:
-            print(f"Tax not found: {tax_value}")
-            return [(6, 0, [])]
+        print(f"Available purchase taxes: {all_taxes}")
+
+        tax_percentage = float(tax_value) * 100
+        # Search for purchase tax with this amount
+        matching_taxes = [tax for tax in all_taxes if abs(tax['amount'] - tax_percentage) < 0.01]
+        if matching_taxes:
+            tax_id = matching_taxes[0]['id']
+            print(f"Found purchase tax {tax_percentage}% with ID: {tax_id}")
+            return tax_id
+
+        print(f"Tax not found: {tax_value}")
+        return False
     except Exception as e:
-        error_msg = str(e)
-        print(f"Error searching tax: {error_msg}")
-        log_error('N/A', 'N/A', 'N/A', f"Tax Search Error: {error_msg}")
-        return [(6, 0, [])]
+        print(f"Error getting tax ID: {e}")
+        return False
 
 def create_or_update_po(po_data):
     """
@@ -320,8 +311,9 @@ def create_or_update_po(po_data):
             existing_lines = models.execute_kw(
                 db, uid, password, 'purchase.order.line', 'search_read',
                 [[['order_id', '=', po_id]]],
-                {'fields': ['product_id', 'product_qty', 'price_unit']}
+                {'fields': ['id', 'product_id', 'product_qty', 'price_unit', 'taxes_id']}
             )
+            print(f"Existing lines: {existing_lines}")
             
             # Update PO header
             models.execute_kw(
@@ -343,6 +335,7 @@ def create_or_update_po(po_data):
                 if matching_lines:
                     # Update existing line
                     line_id = matching_lines[0]['id']
+                    print(f"Updating line {line_id} with data: {line[2]}")
                     models.execute_kw(
                         db, uid, password, 'purchase.order.line', 'write',
                         [line_id, line[2]]
@@ -350,16 +343,19 @@ def create_or_update_po(po_data):
                 else:
                     # Create new line
                     line[2]['order_id'] = po_id
-                    models.execute_kw(
+                    print(f"Creating new line with data: {line[2]}")
+                    new_line_id = models.execute_kw(
                         db, uid, password, 'purchase.order.line', 'create',
                         [line[2]]
                     )
+                    print(f"Created new line with ID: {new_line_id}")
             
             print(f"Successfully updated PO lines: {po_name}")
             return po_id
         else:
             # Create new PO
             print(f"Creating new PO: {po_name}")
+            print(f"PO Data: {po_data}")
             po_id = models.execute_kw(
                 db, uid, password, 'purchase.order', 'create',
                 [po_data]
@@ -423,13 +419,19 @@ def main():
                 log_error(po_name, 'N/A', 'N/A', "Vendor not found or could not be created")
                 continue
             
+            # Get picking type
+            picking_type_id = search_picking_type(first_row['picking_type_id'] if pd.notna(first_row.get('picking_type_id')) else None)
+            if not picking_type_id:
+                log_error(po_name, 'N/A', 'N/A', "Could not find or create picking type")
+                continue
+                
             # Prepare PO data
             po_data = {
                 'name': po_name,
                 'partner_id': vendor_id,
                 'date_order': convert_date(first_row['date_order']) if pd.notna(first_row['date_order']) else False,
                 'date_planned': convert_date(first_row['date_planned']) if pd.notna(first_row['date_planned']) else False,
-                'picking_type_id': search_picking_type(first_row['picking_type_id']) if pd.notna(first_row['picking_type_id']) else False,
+                'picking_type_id': picking_type_id,
                 'notes': str(first_row['notes']) if pd.notna(first_row['notes']) else '',
                 'order_line': []
             }
@@ -442,15 +444,20 @@ def main():
                     log_error(po_name, line.name, line['old_product_code'], "Product not found")
                     continue
                 
-                # Prepare line data
+                # Prepare line data with taxes
                 line_data = {
                     'product_id': product_ids[0],
                     'name': line['old_product_code'],  # You might want to get the actual product name
                     'product_qty': float(line['product_qty']) if pd.notna(line['product_qty']) else 0.0,
                     'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
                     'date_planned': convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False,
-                    'taxes_id': search_taxes(line['texs_id']) if pd.notna(line['texs_id']) else [(6, 0, [])],
                 }
+                
+                # Add taxes using command 6 (replace entire list)
+                tax_id = get_tax_id(line['texs_id']) if pd.notna(line['texs_id']) else False
+                if tax_id:
+                    line_data['taxes_id'] = [(6, 0, [tax_id])]
+                    print(f"Adding tax {tax_id} to line")
                 
                 po_data['order_line'].append((0, 0, line_data))
             
