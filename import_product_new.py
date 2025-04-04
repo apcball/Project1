@@ -7,7 +7,7 @@ import requests
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 server_url = 'http://mogth.work:8069'
-database = 'MOG_UAT'
+database = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -142,14 +142,22 @@ def process_image(image_path):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_product_bu1.xlsx'
+excel_file = 'Data_file/import_product_expens.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
     
+    # Print column names to check structure
+    print("\nAvailable columns in Excel:", df.columns.tolist())
+    
     # ข้ามแถวแรกที่เป็นหัวข้อภาษาไทย
     df = df.iloc[2:]
     df = df.reset_index(drop=True)
+    
+    # Print first row to check data
+    print("\nFirst row data:")
+    for col in df.columns:
+        print(f"{col}: {df.iloc[0][col]}")
     
 except Exception as e:
     print("Failed to read Excel file:", e)
@@ -235,6 +243,7 @@ for index, row in df.iterrows():
                 'sale_ok': sale_ok_value,
                 'purchase_ok': purchase_ok_value,
                 'active': active_value,
+                'can_be_expensed': True if pd.notna(row.get('can_be_expensed')) and str(row.get('can_be_expensed')).strip().lower() in ('yes', 'true', '1', 'y', 't', '1.0') else False,
                 'description': str(row['description']).strip() if pd.notna(row['description']) else '',
                 'gross_width': float(str(row['gross_width']).replace(',', '')) if pd.notna(row['gross_width']) else 0.0,
                 'gross_depth': float(str(row['gross_depth']).replace(',', '')) if pd.notna(row['gross_depth']) else 0.0,
@@ -277,17 +286,6 @@ for index, row in df.iterrows():
                 })
             continue
 
-        # ฟังก์ชันสำหรับตรวจสอบค่าบูลีน
-        def parse_boolean_field(value, default=False):
-            if pd.isna(value) or str(value).strip() == '':
-                return default
-            str_value = str(value).strip().lower()
-            # ถ้าเป็นตัวเลข
-            if str_value.replace('.', '').isdigit():
-                return bool(float(str_value))
-            # ถ้าเป็นข้อความ
-            return str_value in ('yes', 'true', '1', 'y', 't')
-
         # อ่านค่า sale_ok, purchase_ok (default เป็น False ถ้าไม่ระบุค่า)
         # และ active (default เป็น True ถ้าไม่ระบุค่า)
         sale_ok_value = parse_boolean_field(row.get('sale_ok'), default=False)
@@ -305,17 +303,17 @@ for index, row in df.iterrows():
             'name_eng': str(row['name_eng']).strip() if pd.notna(row['name_eng']) else '',
             'old_product_code': str(row['old_product_code']).strip() if pd.notna(row['old_product_code']) and str(row['old_product_code']).strip() else False,
             'default_code': default_code,
-            'sku': str(row['sku']).strip() if pd.notna(row['sku']) else '',  # เพิ่ม field sku
+            'sku': str(row['sku']).strip() if pd.notna(row['sku']) else '',
             'barcode': barcode,
-            'type': 'product',  # กำหนดเป็น storable product
+            'type': 'product',
             'categ_id': search_category(row['categ_id']) if pd.notna(row['categ_id']) else False,
             'uom_id': search_uom(row['uom_id']) if pd.notna(row['uom_id']) else False,
             'list_price': float(str(row['list_price']).replace(',', '')) if pd.notna(row['list_price']) else 0.0,
             'standard_price': float(str(row['standard_price']).replace(',', '')) if pd.notna(row['standard_price']) else 0.0,
-            # กำหนดค่าที่ผ่านการตรวจสอบแล้ว
             'sale_ok': sale_ok_value,
             'purchase_ok': purchase_ok_value,
             'active': active_value,
+            'can_be_expensed': True if pd.notna(row.get('can_be_expensed')) and str(row.get('can_be_expensed')).strip().lower() in ('yes', 'true', '1', 'y', 't', '1.0') else False,
             'description': str(row['description']).strip() if pd.notna(row['description']) else '',
             'gross_width': float(str(row['gross_width']).replace(',', '')) if pd.notna(row['gross_width']) else 0.0,
             'gross_depth': float(str(row['gross_depth']).replace(',', '')) if pd.notna(row['gross_depth']) else 0.0,

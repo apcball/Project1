@@ -5,7 +5,7 @@ import re
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 url = 'http://mogth.work:8069'
-db = 'Test_Module'
+db = 'Test_UAT'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
