@@ -46,7 +46,7 @@ def save_error_log():
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+db = 'MOG_Training'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -127,46 +127,41 @@ def search_product(product_value):
     ค้นหาผลิตภัณฑ์ใน Odoo โดย:
     1. ค้นหาจาก default_code (รหัสสินค้า)
     2. ค้นหาจาก old_product_code
+    หากไม่พบสินค้า จะ return [] และบันทึกในlog
     """
     if not isinstance(product_value, str):
         product_value = str(product_value)
     
     product_value = product_value.strip()
     
-    # 1. ค้นหาด้วย default_code
-    product_ids = models.execute_kw(
-        db, uid, password, 'product.product', 'search',
-        [[['default_code', '=', product_value]]]
-    )
-    if product_ids:
-        return product_ids
-
-    # 2. ค้นหาจาก old_product_code
-    product_ids = models.execute_kw(
-        db, uid, password, 'product.product', 'search',
-        [[['old_product_code', '=', product_value]]]
-    )
-    if product_ids:
-        return product_ids
-    
-    # If not found, create a new product
     try:
-        product_data = {
-            'name': f"Product {product_value}",
-            'default_code': product_value,
-            'type': 'product',
-            'purchase_ok': True,
-        }
-        
-        new_product_id = models.execute_kw(
-            db, uid, password, 'product.product', 'create', [product_data]
+        # 1. ค้นหาด้วย default_code
+        product_ids = models.execute_kw(
+            db, uid, password, 'product.product', 'search',
+            [[['default_code', '=', product_value]]]
         )
-        print(f"Created new product with code: {product_value}")
-        return [new_product_id]
+        if product_ids:
+            print(f"Found product with default_code: {product_value}")
+            return product_ids
+
+        # 2. ค้นหาจาก old_product_code
+        product_ids = models.execute_kw(
+            db, uid, password, 'product.product', 'search',
+            [[['old_product_code', '=', product_value]]]
+        )
+        if product_ids:
+            print(f"Found product with old_product_code: {product_value}")
+            return product_ids
+        
+        # If product not found, log it and return empty list
+        print(f"Product not found: {product_value}")
+        log_error('N/A', 'N/A', product_value, f"Product not found in system: {product_value}")
+        return []
+        
     except Exception as e:
         error_msg = str(e)
-        print(f"Error creating product: {error_msg}")
-        log_error('N/A', 'N/A', product_value, f"Product Creation Error: {error_msg}")
+        print(f"Error searching product: {error_msg}")
+        log_error('N/A', 'N/A', product_value, f"Product Search Error: {error_msg}")
         return []
 
 def convert_date(pd_timestamp):
@@ -274,9 +269,17 @@ def get_tax_id(tax_value):
             [[['type_tax_use', 'in', ['purchase', 'all']], ['active', '=', True]]],
             {'fields': ['id', 'name', 'amount', 'type_tax_use']}
         )
-        print(f"Available purchase taxes: {all_taxes}")
 
-        tax_percentage = float(tax_value) * 100
+        # Convert tax_value to float, handling percentage sign
+        if isinstance(tax_value, str):
+            tax_value = tax_value.strip()
+            if tax_value.endswith('%'):
+                tax_percentage = float(tax_value.rstrip('%'))
+            else:
+                tax_percentage = float(tax_value) * 100
+        else:
+            tax_percentage = float(tax_value) * 100
+
         # Search for purchase tax with this amount
         matching_taxes = [tax for tax in all_taxes if abs(tax['amount'] - tax_percentage) < 0.01]
         if matching_taxes:
@@ -371,7 +374,7 @@ def create_or_update_po(po_data):
 def main():
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_PO.xlsx'
+        excel_file = 'Data_file/import_PO1.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -437,17 +440,21 @@ def main():
             }
             
             # Process PO lines
+            all_products_found = True
+            po_lines = []
+            
+            # First check if all products exist
             for _, line in po_group.iterrows():
-                # Find product
                 product_ids = search_product(line['old_product_code'])
                 if not product_ids:
-                    log_error(po_name, line.name, line['old_product_code'], "Product not found")
-                    continue
+                    all_products_found = False
+                    log_error(po_name, line.name, line['old_product_code'], "Product not found - Skipping entire PO")
+                    break
                 
                 # Prepare line data with taxes
                 line_data = {
                     'product_id': product_ids[0],
-                    'name': line['old_product_code'],  # You might want to get the actual product name
+                    'name': line['old_product_code'],
                     'product_qty': float(line['product_qty']) if pd.notna(line['product_qty']) else 0.0,
                     'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
                     'date_planned': convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False,
@@ -459,10 +466,14 @@ def main():
                     line_data['taxes_id'] = [(6, 0, [tax_id])]
                     print(f"Adding tax {tax_id} to line")
                 
-                po_data['order_line'].append((0, 0, line_data))
+                po_lines.append((0, 0, line_data))
             
-            # Create or update PO
-            create_or_update_po(po_data)
+            # Only create/update PO if all products were found
+            if all_products_found:
+                po_data['order_line'] = po_lines
+                create_or_update_po(po_data)
+            else:
+                print(f"Skipping PO {po_name} due to missing products")
         
         # Save error log if there were any errors
         save_error_log()
