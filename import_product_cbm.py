@@ -2,30 +2,34 @@ import xmlrpc.client
 import sys
 from pathlib import Path
 
-# Check and install required packages
-def install_required_packages():
+def check_required_packages():
+    missing_packages = []
     try:
         import pandas as pd
     except ImportError:
-        print("Installing pandas...")
-        import subprocess
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas"])
-        import pandas as pd
+        missing_packages.append("pandas")
     
     try:
         import xlrd
     except ImportError:
-        print("Installing xlrd...")
-        import subprocess
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "xlrd==2.0.1"])
-        import xlrd
+        missing_packages.append("xlrd==2.0.1")
+    
+    if missing_packages:
+        print("\nRequired packages are missing:", ", ".join(missing_packages))
+        print("\nPlease set up a virtual environment and install the required packages using:")
+        print("\npython3 -m venv myenv")
+        print("source myenv/bin/activate  # On Unix/macOS")
+        print("# OR")
+        print("myenv\\Scripts\\activate  # On Windows")
+        print("\npip install " + " ".join(missing_packages))
+        sys.exit(1)
 
-install_required_packages()
+check_required_packages()
 import pandas as pd
 
 # Odoo connection settings
 SERVER_URL = 'http://mogth.work:8069'
-DATABASE = 'MOG_Training'
+DATABASE = 'MOG_LIVE'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
