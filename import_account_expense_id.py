@@ -19,7 +19,7 @@ logging.getLogger().addHandler(console_handler)
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
-db = 'MOG_Training'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
