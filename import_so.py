@@ -5,7 +5,7 @@ from datetime import datetime
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 url = 'http://mogth.work:8069'
-db = 'MOG_Training'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -238,7 +238,7 @@ def get_product_data(product_code):
     return None
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_SO1.xlsx'
+excel_file = 'Data_file/import_SO.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
