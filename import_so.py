@@ -2,6 +2,41 @@ import xmlrpc.client
 import pandas as pd
 import sys
 from datetime import datetime
+import os
+
+# Initialize list to store error logs
+error_logs = []
+
+def log_error(so_name, row_number, error_type, error_message, row_data=None):
+    """บันทึก error log"""
+    error_logs.append({
+        'SO Number': so_name,
+        'Row Number': row_number,
+        'Error Type': error_type,
+        'Error Message': error_message,
+        'Row Data': str(row_data) if row_data is not None else ''
+    })
+
+def export_error_logs():
+    """Export error logs to Excel file"""
+    if error_logs:
+        try:
+            # Create logs directory if it doesn't exist
+            log_dir = 'logs'
+            if not os.path.exists(log_dir):
+                os.makedirs(log_dir)
+            
+            # Create filename with timestamp
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            log_file = os.path.join(log_dir, f'import_errors_{timestamp}.xlsx')
+            
+            # Convert logs to DataFrame and export
+            df_errors = pd.DataFrame(error_logs)
+            df_errors.to_excel(log_file, index=False)
+            print(f"\nError log exported to: {log_file}")
+            print(f"Total errors logged: {len(error_logs)}")
+        except Exception as e:
+            print(f"Failed to export error log: {e}")
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 url = 'http://mogth.work:8069'
@@ -79,7 +114,7 @@ def get_partner_data(partner_name):
             partner_data = models.execute_kw(
                 db, uid, password, 'res.partner', 'read',
                 [partner_ids[0]], 
-                {'fields': ['id', 'name']}
+                {'fields': ['id', 'name', 'property_product_pricelist']}
             )[0]
             return partner_data
             
@@ -116,7 +151,6 @@ def get_shipping_address(address_name, parent_id):
             db, uid, password, 'res.partner', 'search',
             [[
                 ['name', '=', address_name],
-                ['parent_id', '=', parent_id],
                 ['type', '=', 'delivery']
             ]]
         )
@@ -129,7 +163,7 @@ def get_shipping_address(address_name, parent_id):
             )[0]
             return address_data
             
-        # Create new shipping address
+        # Create new shipping address if not found
         address_id = models.execute_kw(
             db, uid, password, 'res.partner', 'create',
             [{
@@ -202,6 +236,56 @@ def get_team_data(team_name):
         print(f"Error finding sales team {team_name}: {e}")
         return None
 
+def get_pricelist_data(pricelist_name):
+    """ค้นหา Pricelist จากชื่อ"""
+    if pd.isna(pricelist_name):
+        return None
+    
+    try:
+        pricelist_name = str(pricelist_name).strip()
+        # Search for pricelist by name
+        pricelist_ids = models.execute_kw(
+            db, uid, password, 'product.pricelist', 'search',
+            [[['name', '=', pricelist_name]]]
+        )
+        
+        if pricelist_ids:
+            pricelist_data = models.execute_kw(
+                db, uid, password, 'product.pricelist', 'read',
+                [pricelist_ids[0]], 
+                {'fields': ['id', 'name']}
+            )[0]
+            return pricelist_data
+        return None
+    except Exception as e:
+        print(f"Error finding pricelist {pricelist_name}: {e}")
+        return None
+
+def get_warehouse_data(warehouse_name):
+    """ค้นหา Warehouse จากชื่อ"""
+    if pd.isna(warehouse_name):
+        return None
+    
+    try:
+        warehouse_name = str(warehouse_name).strip()
+        # Search for warehouse by name
+        warehouse_ids = models.execute_kw(
+            db, uid, password, 'stock.warehouse', 'search',
+            [[['name', '=', warehouse_name]]]
+        )
+        
+        if warehouse_ids:
+            warehouse_data = models.execute_kw(
+                db, uid, password, 'stock.warehouse', 'read',
+                [warehouse_ids[0]], 
+                {'fields': ['id', 'name']}
+            )[0]
+            return warehouse_data
+        return None
+    except Exception as e:
+        print(f"Error finding warehouse {warehouse_name}: {e}")
+        return None
+
 def get_existing_so(so_name):
     """ค้นหา SO ที่มีอยู่ในระบบ"""
     so_ids = models.execute_kw(
@@ -232,10 +316,59 @@ def get_product_data(product_code):
         product_data = models.execute_kw(
             db, uid, password, 'product.product', 'read',
             [product_ids[0]], 
-            {'fields': ['id', 'name', 'uom_id', 'list_price']}
+            {'fields': ['id', 'name', 'uom_id', 'list_price', 'description_sale', 'taxes_id']}
         )[0]
         return product_data
     return None
+
+def create_order_line(row, product_data, index, so_name):
+    """สร้าง Order Line จากข้อมูล"""
+    try:
+        quantity = float(row['product_uom_qty'])
+        price_unit = float(row['price_unit']) if pd.notna(row.get('price_unit')) else product_data['list_price']
+        
+        order_line = {
+            'product_id': product_data['id'],
+            'product_uom_qty': quantity,
+            'price_unit': price_unit,
+            'product_uom': product_data['uom_id'][0],
+            'name': product_data.get('description_sale') or product_data['name'],
+        }
+
+        # Add taxes from product if available
+        if product_data.get('taxes_id'):
+            order_line['tax_id'] = [(6, 0, product_data['taxes_id'])]
+        else:
+            order_line['tax_id'] = [(6, 0, [])]
+
+        # Add discount if present
+        if pd.notna(row.get('discount')):
+            try:
+                discount = float(row['discount'])
+                order_line['discount'] = discount
+            except (ValueError, TypeError):
+                print(f"Invalid discount value at row {index + 2}")
+
+        # Override taxes if specified in Excel
+        if pd.notna(row.get('tax_id')):
+            try:
+                tax_name = str(row['tax_id']).strip()
+                tax_ids = models.execute_kw(
+                    db, uid, password, 'account.tax',
+                    'search',
+                    [[['name', '=', tax_name], ['type_tax_use', '=', 'sale']]]
+                )
+                if tax_ids:
+                    order_line['tax_id'] = [(6, 0, tax_ids)]
+                else:
+                    print(f"Tax not found for line in SO {so_name}: {tax_name}")
+            except Exception as e:
+                print(f"Error processing tax at row {index + 2}: {e}")
+
+        return (0, 0, order_line)
+    except (ValueError, TypeError) as e:
+        print(f"Error processing quantity or price at row {index + 2}: {e}")
+        return None
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
 excel_file = 'Data_file/import_SO.xlsx'
@@ -311,6 +444,8 @@ for index, row in df.iterrows():
                 # ค้นหาข้อมูลลูกค้า
                 partner_data = get_partner_data(row['partner_id'])
                 if not partner_data:
+                    log_error(so_name, index + 2, 'Partner Error', 
+                            f"Partner not found: {row['partner_id']}", row['partner_id'])
                     print(f"Partner not found for SO {so_name}")
                     current_so = None
                     continue
@@ -321,18 +456,47 @@ for index, row in df.iterrows():
                     'partner_id': partner_data['id'],
                     'date_order': format_date(row['date_order']) or datetime.now().strftime('%Y-%m-%d'),
                     'validity_date': format_date(row.get('validity_date')),
-                    'state': 'draft'
+                    'state': 'draft',
+                    'user_id': False  # Set default empty salesperson
                 }
+                
+                # ถ้ามี pricelist_id
+                if pd.notna(row.get('pricelist_id')):
+                    pricelist_data = get_pricelist_data(row['pricelist_id'])
+                    if pricelist_data:
+                        current_order_data['pricelist_id'] = pricelist_data['id']
+                    else:
+                        log_error(so_name, index + 2, 'Pricelist Error',
+                                f"Pricelist not found: {row['pricelist_id']}", row['pricelist_id'])
+                        print(f"Warning: Pricelist not found for SO {so_name}: {row['pricelist_id']}")
+                elif partner_data.get('property_product_pricelist'):
+                    current_order_data['pricelist_id'] = partner_data['property_product_pricelist'][0]
+                
+                # ถ้ามี warehouse_id
+                if pd.notna(row.get('warehouse_id')):
+                    warehouse_data = get_warehouse_data(row['warehouse_id'])
+                    if warehouse_data:
+                        current_order_data['warehouse_id'] = warehouse_data['id']
+                    else:
+                        log_error(so_name, index + 2, 'Warehouse Error',
+                                f"Warehouse not found: {row['warehouse_id']}", row['warehouse_id'])
+                        print(f"Warning: Warehouse not found for SO {so_name}: {row['warehouse_id']}")
                 
                 # ถ้ามี partner_shipping_id
                 if pd.notna(row.get('partner_shipping_id')):
-                    shipping_partner = get_shipping_address(row['partner_shipping_id'], partner_data['id'])
+                    shipping_address = str(row['partner_shipping_id']).strip()
+                    shipping_partner = get_shipping_address(shipping_address, partner_data['id'])
                     if shipping_partner:
                         current_order_data['partner_shipping_id'] = shipping_partner['id']
+                        # Set delivery address
+                        current_order_data['delivery_address'] = shipping_address
                     else:
-                        print(f"Warning: Could not process shipping address for SO {so_name}")
+                        print(f"Warning: Could not process shipping address for SO {so_name}: {shipping_address}")
+                else:
+                    # If no shipping address specified, use the partner's address
+                    current_order_data['partner_shipping_id'] = partner_data['id']
                 
-                # ถ้ามี user_id (Salesperson)
+                # ถ้ามี user_id (Salesperson) และไม่ใช่ค่าว่าง
                 if pd.notna(row.get('user_id')):
                     user_data = get_user_data(row['user_id'])
                     if user_data:
@@ -361,23 +525,10 @@ for index, row in df.iterrows():
                 continue
 
             # สร้าง order line
-            try:
-                quantity = float(row['product_uom_qty'])
-                price_unit = float(row['price_unit']) if pd.notna(row.get('price_unit')) else product_data['list_price']
-                
-                order_line = {
-                    'product_id': product_data['id'],
-                    'name': product_data['name'],
-                    'product_uom': product_data['uom_id'][0],
-                    'product_uom_qty': quantity,
-                    'price_unit': price_unit
-                }
-                current_order_lines.append((0, 0, order_line))
-                print(f"Added product {row['product_id']} to order")
-                
-            except (ValueError, TypeError) as e:
-                print(f"Error processing quantity or price at row {index + 2}: {e}")
-                continue
+            order_line = create_order_line(row, product_data, index, current_so)
+            if order_line:
+                current_order_lines.append(order_line)
+                print(f"Added product {row['product_id']} to order {current_so}")
 
     except Exception as e:
         print(f"Error processing row {index + 2}: {e}")
@@ -423,6 +574,8 @@ if current_order_data and current_order_lines and current_so not in processed_so
         
         processed_sos.add(current_so)
     except Exception as e:
-        print(f"Failed to process Sale Order {current_so}: {e}")
+        log_error(current_so, 'Final SO', 'Processing Error', f"Failed to process final Sale Order: {str(e)}")
+        print(f"Failed to process final Sale Order {current_so}: {e}")
 
-print("Import process completed.")
+# Export error logs if any
+export_error_logs()
