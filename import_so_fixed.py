@@ -115,6 +115,8 @@ def format_date(date_str):
     except Exception:
         return False
 
+
+
 def get_partner_data(partner_name):
     """ค้นหาข้อมูลลูกค้าจากชื่อ"""
     if pd.isna(partner_name):
@@ -132,18 +134,20 @@ def get_partner_data(partner_name):
             partner_data = models.execute_kw(
                 db, uid, password, 'res.partner', 'read',
                 [partner_ids[0]], 
-                {'fields': ['id', 'name', 'property_product_pricelist']}
+                {'fields': ['id', 'name']}
             )[0]
+            
             return partner_data
             
         # If not found, try creating new partner
+        partner_vals = {
+            'name': partner_name,
+            'company_type': 'company',
+            'is_company': True
+        }
         partner_id = models.execute_kw(
             db, uid, password, 'res.partner', 'create',
-            [{
-                'name': partner_name,
-                'company_type': 'company',
-                'is_company': True
-            }]
+            [partner_vals]
         )
         
         if partner_id:
@@ -311,31 +315,7 @@ def get_warehouse_data(warehouse_name):
         print(f"Error processing warehouse {warehouse_name}: {e}")
         return None
 
-def get_pricelist_data(pricelist_name):
-    """ค้นหา Pricelist จากชื่อ"""
-    if pd.isna(pricelist_name):
-        return None
-    
-    try:
-        pricelist_name = str(pricelist_name).strip()
-        # Search for pricelist by name
-        pricelist_ids = models.execute_kw(
-            db, uid, password, 'product.pricelist', 'search',
-            [[['name', 'ilike', pricelist_name]]]
-        )
-        
-        if pricelist_ids:
-            pricelist_data = models.execute_kw(
-                db, uid, password, 'product.pricelist', 'read',
-                [pricelist_ids[0]], 
-                {'fields': ['id', 'name']}
-            )[0]
-            return pricelist_data
-            
-        return None
-    except Exception as e:
-        print(f"Error processing pricelist {pricelist_name}: {e}")
-        return None
+
 
 def create_sale_order(row, row_number):
     """สร้าง Sale Order จากข้อมูลในแถว Excel"""
@@ -353,12 +333,6 @@ def create_sale_order(row, row_number):
                      f"Shipping address not found: {row['partner_shipping_id']}", row)
             return None
         
-        # Get pricelist data
-        pricelist_data = get_pricelist_data(row['pricelist_id'])
-        if not pricelist_data:
-            print(f"Warning: Pricelist not found for SO {row['name']}: {row['pricelist_id']}")
-            # Continue without pricelist
-        
         # Get warehouse data
         warehouse_data = get_warehouse_data(row['warehouse_id'])
         if not warehouse_data:
@@ -366,19 +340,15 @@ def create_sale_order(row, row_number):
                      f"Warehouse not found: {row['warehouse_id']}", row)
             return None
         
-        # Get user data
+        # Get user data (optional)
         user_data = get_user_data(row['user_id'])
         if not user_data:
-            log_error(row['name'], row_number, 'User Error', 
-                     f"User not found: {row['user_id']}", row)
-            return None
+            print(f"Warning: User not found for SO {row['name']}: {row['user_id']}")
         
-        # Get team data
+        # Get team data (optional)
         team_data = get_team_data(row['team_id'])
         if not team_data:
-            log_error(row['name'], row_number, 'Team Error', 
-                     f"Team not found: {row['team_id']}", row)
-            return None
+            print(f"Warning: Team not found for SO {row['name']}: {row['team_id']}")
         
         # Get product data
         product_data = get_product_data(row['product_id'], row['product_name'] if not pd.isna(row['product_name']) else None)
@@ -393,10 +363,7 @@ def create_sale_order(row, row_number):
             'date_order': format_date(row['date_order']),
             'partner_id': partner_data['id'],
             'partner_shipping_id': shipping_data['id'],
-            'pricelist_id': pricelist_data['id'] if pricelist_data else False,
             'warehouse_id': warehouse_data['id'],
-            'user_id': user_data['id'],
-            'team_id': team_data['id'],
             'note': row['note'] if not pd.isna(row['note']) else False,
             'order_line': [(0, 0, {
                 'product_id': product_data['id'],
@@ -407,6 +374,14 @@ def create_sale_order(row, row_number):
             })]
         }
         
+        # Add user_id if found
+        if user_data:
+            so_vals['user_id'] = user_data['id']
+            
+        # Add team_id if found
+        if team_data:
+            so_vals['team_id'] = team_data['id']
+        
         # Search for existing SO
         existing_so = models.execute_kw(
             db, uid, password, 'sale.order', 'search',
@@ -414,15 +389,35 @@ def create_sale_order(row, row_number):
         )
         
         if existing_so:
-            # Update existing SO by adding a new line
-            print(f"Added product {row['product_id']} to order {row['name']}")
             # Get existing order lines
             so_data = models.execute_kw(
                 db, uid, password, 'sale.order', 'read',
                 [existing_so[0]], {'fields': ['order_line']}
             )[0]
             
-            # Add new line to existing order
+            # Get all order line details to check for duplicates
+            if so_data['order_line']:
+                order_lines = models.execute_kw(
+                    db, uid, password, 'sale.order.line', 'read',
+                    [so_data['order_line']],
+                    {'fields': ['id', 'product_id']}
+                )
+                
+                # Find and remove lines with the same product
+                lines_to_remove = []
+                for line in order_lines:
+                    if line['product_id'][0] == product_data['id']:
+                        lines_to_remove.append((2, line['id'], 0))  # (2, id, 0) is the command to remove a line
+                
+                if lines_to_remove:
+                    # Remove duplicate lines first
+                    models.execute_kw(
+                        db, uid, password, 'sale.order', 'write',
+                        [existing_so[0], {'order_line': lines_to_remove}]
+                    )
+            
+            # Add new line
+            print(f"Updated product {row['product_id']} in order {row['name']}")
             return models.execute_kw(
                 db, uid, password, 'sale.order', 'write',
                 [existing_so[0], {
@@ -461,8 +456,31 @@ except Exception as e:
     sys.exit(1)
 
 # --- Process each row ---
+total_rows = len(df)
+processed = 0
+success = 0
+errors = 0
+
+print("\nStarting import process...")
 for index, row in df.iterrows():
-    create_sale_order(row, index + 2)  # +2 because Excel rows start at 1 and header is row 1
+    processed += 1
+    if processed % 100 == 0:  # Show progress every 100 rows
+        print(f"Progress: {processed}/{total_rows} rows ({(processed/total_rows*100):.1f}%)")
+    
+    try:
+        result = create_sale_order(row, index + 2)  # +2 because Excel rows start at 1 and header is row 1
+        if result is not None:
+            success += 1
+        else:
+            errors += 1
+    except Exception as e:
+        errors += 1
+        print(f"Unexpected error processing row {index + 2}: {e}")
+
+print(f"\nImport completed:")
+print(f"Total rows processed: {processed}")
+print(f"Successful imports: {success}")
+print(f"Errors: {errors}")
 
 # Export error logs at the end
 export_error_logs()
