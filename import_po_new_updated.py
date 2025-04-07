@@ -330,28 +330,24 @@ def create_or_update_po(po_data):
                 }]
             )
             
-            # Update or create PO lines
+            # Delete existing PO lines
+            if existing_lines:
+                existing_line_ids = [line['id'] for line in existing_lines]
+                models.execute_kw(
+                    db, uid, password, 'purchase.order.line', 'unlink',
+                    [existing_line_ids]
+                )
+                print(f"Deleted existing lines: {existing_line_ids}")
+
+            # Create new PO lines
             for line in po_data['order_line']:
-                # Check if line exists
-                matching_lines = [l for l in existing_lines if l['product_id'][0] == line[2]['product_id']]
-                
-                if matching_lines:
-                    # Update existing line
-                    line_id = matching_lines[0]['id']
-                    print(f"Updating line {line_id} with data: {line[2]}")
-                    models.execute_kw(
-                        db, uid, password, 'purchase.order.line', 'write',
-                        [line_id, line[2]]
-                    )
-                else:
-                    # Create new line
-                    line[2]['order_id'] = po_id
-                    print(f"Creating new line with data: {line[2]}")
-                    new_line_id = models.execute_kw(
-                        db, uid, password, 'purchase.order.line', 'create',
-                        [line[2]]
-                    )
-                    print(f"Created new line with ID: {new_line_id}")
+                line[2]['order_id'] = po_id
+                print(f"Creating new line with data: {line[2]}")
+                new_line_id = models.execute_kw(
+                    db, uid, password, 'purchase.order.line', 'create',
+                    [line[2]]
+                )
+                print(f"Created new line with ID: {new_line_id}")
             
             print(f"Successfully updated PO lines: {po_name}")
             return po_id
@@ -389,8 +385,7 @@ def main():
             'old_product_code': 'old_product_code',
             'product_id': 'product_id',
             'price_unit': 'price_unit',
-            'product_qty': 'product_qty',
-            'quantity': 'quantity',
+            'product_qty': 'product_qty',  # Using exact column name from Excel
             'picking_type_id': 'picking_type_id',
             'texs_id': 'texs_id',
             'notes': 'notes',
@@ -451,11 +446,25 @@ def main():
                     log_error(po_name, line.name, line['old_product_code'], "Product not found - Skipping entire PO")
                     break
                 
+                # Get quantity value and validate
+                try:
+                    # Get the quantity value directly from the product_qty column
+                    quantity_str = str(line['product_qty']).strip()
+                    # Remove any non-numeric characters except decimal point
+                    quantity_str = ''.join(c for c in quantity_str if c.isdigit() or c == '.')
+                    quantity = float(quantity_str) if quantity_str else 0.0
+                    
+                    if quantity <= 0:
+                        print(f"Warning: Zero or negative quantity ({quantity}) for product {line['old_product_code']}")
+                except (ValueError, TypeError, AttributeError) as e:
+                    print(f"Error converting quantity value: {line['product_qty']} for product {line['old_product_code']}")
+                    quantity = 0.0
+                
                 # Prepare line data with taxes
                 line_data = {
                     'product_id': product_ids[0],
                     'name': line['old_product_code'],
-                    'product_qty': float(line['product_qty']) if pd.notna(line['product_qty']) else 0.0,
+                    'product_qty': quantity,
                     'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
                     'date_planned': convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False,
                 }
