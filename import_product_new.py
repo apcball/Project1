@@ -142,7 +142,7 @@ def process_image(image_path):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_product_bu1.xlsx'
+excel_file = 'Data_file/import_product_PO.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -423,7 +423,7 @@ if failed_imports:
     
     # กำหนดชื่อไฟล์ Excel ที่จะบันทึก
     timestamp = pd.Timestamp.now().strftime("%Y%m%d_%H%M%S")
-    failed_excel_file = f'Data_file/failed_imports_{timestamp}.xlsx'
+    failed_excel_file = f'Project1/Data_file/failed_imports_{timestamp}.xlsx'
     
     # บันทึกไฟล์ Excel
     failed_df.to_excel(failed_excel_file, index=False, engine='openpyxl')
