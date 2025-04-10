@@ -444,7 +444,7 @@ def create_sale_order(row, row_number):
 
 # --- อ่านไฟล์ Excel ---
 try:
-    excel_file = 'Data_file/import_SO.xlsx'
+    excel_file = 'Data_file/import_SO1.xlsx'
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
     print("Excel columns:", list(df.columns))
