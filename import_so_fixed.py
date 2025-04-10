@@ -341,9 +341,9 @@ def create_sale_order(row, row_number):
             return None
         
         # Get user data (optional)
-        user_data = get_user_data(row['user_id'])
-        if not user_data:
-            print(f"Warning: User not found for SO {row['name']}: {row['user_id']}")
+        user_data = None
+        if not pd.isna(row.get('user_id')):
+            user_data = get_user_data(row['user_id'])
         
         # Get team data (optional)
         team_data = get_team_data(row['team_id'])
@@ -361,9 +361,12 @@ def create_sale_order(row, row_number):
         so_vals = {
             'name': row['name'],
             'date_order': format_date(row['date_order']),
+            'commitment_date': format_date(row['commitment_date']) if not pd.isna(row.get('commitment_date')) else False,
+            'client_order_ref': row['client_order_ref'] if not pd.isna(row.get('client_order_ref')) else False,
             'partner_id': partner_data['id'],
             'partner_shipping_id': shipping_data['id'],
             'warehouse_id': warehouse_data['id'],
+            'user_id': user_data['id'] if user_data else False,
             'note': row['note'] if not pd.isna(row['note']) else False,
             'order_line': [(0, 0, {
                 'product_id': product_data['id'],
@@ -374,10 +377,6 @@ def create_sale_order(row, row_number):
             })]
         }
         
-        # Add user_id if found
-        if user_data:
-            so_vals['user_id'] = user_data['id']
-            
         # Add team_id if found
         if team_data:
             so_vals['team_id'] = team_data['id']
