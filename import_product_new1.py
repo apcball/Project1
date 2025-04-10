@@ -370,7 +370,7 @@ def process_batch(batch_data):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_product_bu2.xlsx'
+excel_file = 'Data_file/import_product2fg.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")

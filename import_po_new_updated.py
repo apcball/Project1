@@ -5,6 +5,7 @@ import re
 from datetime import datetime
 import csv
 import os
+import time
 
 # Create log directory if it doesn't exist
 if not os.path.exists('logs'):
@@ -71,14 +72,8 @@ except Exception as e:
     sys.exit(1)
 
 def search_vendor(partner_name=None, partner_code=None, partner_id=None):
-    """
-    ค้นหา vendor ตามลำดับ:
-    1. ค้นหาจาก partner_name ในระบบ (ชื่อ vendor)
-    2. ค้นหาจาก partner_code
-    3. ถ้าไม่พบ สร้าง vendor ใหม่โดยใช้ชื่อจาก partner_id
-    """
+    """Search for vendor in Odoo"""
     try:
-        # 1. ค้นหาจากชื่อ vendor (partner_name)
         if partner_name and not pd.isna(partner_name):
             vendor_ids = models.execute_kw(
                 db, uid, password, 'res.partner', 'search',
@@ -88,7 +83,6 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
                 print(f"Found existing vendor with name: {partner_name}")
                 return vendor_ids[0]
 
-        # 2. ค้นหาจาก partner_code
         if partner_code and not pd.isna(partner_code):
             vendor_ids = models.execute_kw(
                 db, uid, password, 'res.partner', 'search',
@@ -98,7 +92,6 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
                 print(f"Found existing vendor with code: {partner_code}")
                 return vendor_ids[0]
 
-        # 3. สร้าง vendor ใหม่ถ้าไม่พบ โดยใช้ partner_id
         if partner_id and not pd.isna(partner_id):
             vendor_data = {
                 'name': str(partner_id).strip(),
@@ -123,19 +116,13 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
         return None
 
 def search_product(product_value):
-    """
-    ค้นหาผลิตภัณฑ์ใน Odoo โดย:
-    1. ค้นหาจาก default_code (รหัสสินค้า)
-    2. ค้นหาจาก old_product_code
-    หากไม่พบสินค้า จะ return [] และบันทึกในlog
-    """
+    """Search for product in Odoo"""
     if not isinstance(product_value, str):
         product_value = str(product_value)
     
     product_value = product_value.strip()
     
     try:
-        # 1. ค้นหาด้วย default_code
         product_ids = models.execute_kw(
             db, uid, password, 'product.product', 'search',
             [[['default_code', '=', product_value]]]
@@ -144,7 +131,6 @@ def search_product(product_value):
             print(f"Found product with default_code: {product_value}")
             return product_ids
 
-        # 2. ค้นหาจาก old_product_code
         product_ids = models.execute_kw(
             db, uid, password, 'product.product', 'search',
             [[['old_product_code', '=', product_value]]]
@@ -153,7 +139,6 @@ def search_product(product_value):
             print(f"Found product with old_product_code: {product_value}")
             return product_ids
         
-        # If product not found, log it and return empty list
         print(f"Product not found: {product_value}")
         log_error('N/A', 'N/A', product_value, f"Product not found in system: {product_value}")
         return []
@@ -172,18 +157,42 @@ def convert_date(pd_timestamp):
         return pd_timestamp.strftime('%Y-%m-%d %H:%M:%S')
     return False
 
+def get_tax_id(tax_value):
+    """Get tax ID from value"""
+    if not tax_value or pd.isna(tax_value):
+        return False
+
+    try:
+        all_taxes = models.execute_kw(
+            db, uid, password, 'account.tax', 'search_read',
+            [[['type_tax_use', 'in', ['purchase', 'all']], ['active', '=', True]]],
+            {'fields': ['id', 'name', 'amount', 'type_tax_use']}
+        )
+
+        if isinstance(tax_value, str):
+            tax_value = tax_value.strip()
+            if tax_value.endswith('%'):
+                tax_percentage = float(tax_value.rstrip('%'))
+            else:
+                tax_percentage = float(tax_value) * 100
+        else:
+            tax_percentage = float(tax_value) * 100
+
+        matching_taxes = [tax for tax in all_taxes if abs(tax['amount'] - tax_percentage) < 0.01]
+        if matching_taxes:
+            tax_id = matching_taxes[0]['id']
+            print(f"Found purchase tax {tax_percentage}% with ID: {tax_id}")
+            return tax_id
+
+        print(f"Tax not found: {tax_value}")
+        return False
+    except Exception as e:
+        print(f"Error getting tax ID: {e}")
+        return False
+
 def search_picking_type(picking_type_value):
-    """
-    Search for a picking type in Odoo using multiple search strategies:
-    1. Search by ID if numeric
-    2. Search by exact name match
-    3. Search by code
-    4. Search by warehouse name
-    5. Search by Thai keywords
-    6. If not found, return default Purchase picking type
-    """
+    """Search for picking type in Odoo"""
     def get_default_picking_type():
-        """Get default incoming picking type"""
         picking_type_ids = models.execute_kw(
             db, uid, password, 'stock.picking.type', 'search',
             [[['code', '=', 'incoming'], ['warehouse_id', '!=', False]]],
@@ -200,7 +209,6 @@ def search_picking_type(picking_type_value):
     picking_type_value = str(picking_type_value).strip()
     
     try:
-        # 1. Try to find by ID if the value is numeric
         if str(picking_type_value).isdigit():
             picking_type_ids = models.execute_kw(
                 db, uid, password, 'stock.picking.type', 'search',
@@ -210,7 +218,6 @@ def search_picking_type(picking_type_value):
                 print(f"Found picking type by ID: {picking_type_value}")
                 return picking_type_ids[0]
 
-        # 2. Try to find by exact name match
         picking_type_ids = models.execute_kw(
             db, uid, password, 'stock.picking.type', 'search',
             [[['name', '=', picking_type_value]]]
@@ -219,7 +226,6 @@ def search_picking_type(picking_type_value):
             print(f"Found picking type by name: {picking_type_value}")
             return picking_type_ids[0]
 
-        # 3. Try to find by code
         picking_type_ids = models.execute_kw(
             db, uid, password, 'stock.picking.type', 'search',
             [[['code', '=', picking_type_value]]]
@@ -228,28 +234,6 @@ def search_picking_type(picking_type_value):
             print(f"Found picking type by code: {picking_type_value}")
             return picking_type_ids[0]
 
-        # 4. Try to find by warehouse name
-        picking_type_ids = models.execute_kw(
-            db, uid, password, 'stock.picking.type', 'search',
-            [[['warehouse_id.name', 'ilike', picking_type_value]]]
-        )
-        if picking_type_ids:
-            print(f"Found picking type by warehouse name: {picking_type_value}")
-            return picking_type_ids[0]
-
-        # 5. Try to find by common warehouse keywords in Thai
-        thai_keywords = ['คลัง', 'วัตถุดิบ', 'สินค้า', 'ผลิต', 'สำเร็จรูป', 'รับเข้า', 'จ่ายออก']
-        for keyword in thai_keywords:
-            if keyword in picking_type_value:
-                picking_type_ids = models.execute_kw(
-                    db, uid, password, 'stock.picking.type', 'search',
-                    [[['name', 'ilike', keyword]]]
-                )
-                if picking_type_ids:
-                    print(f"Found picking type containing keyword '{keyword}': {picking_type_value}")
-                    return picking_type_ids[0]
-
-        # 6. If not found, return default picking type
         return get_default_picking_type()
         
     except Exception as e:
@@ -257,48 +241,9 @@ def search_picking_type(picking_type_value):
         print(f"Error in search_picking_type: {error_msg}")
         return get_default_picking_type()
 
-def get_tax_id(tax_value):
-    """Get tax ID from value"""
-    if not tax_value or pd.isna(tax_value):
-        return False
-
-    try:
-        # Get all purchase taxes first
-        all_taxes = models.execute_kw(
-            db, uid, password, 'account.tax', 'search_read',
-            [[['type_tax_use', 'in', ['purchase', 'all']], ['active', '=', True]]],
-            {'fields': ['id', 'name', 'amount', 'type_tax_use']}
-        )
-
-        # Convert tax_value to float, handling percentage sign
-        if isinstance(tax_value, str):
-            tax_value = tax_value.strip()
-            if tax_value.endswith('%'):
-                tax_percentage = float(tax_value.rstrip('%'))
-            else:
-                tax_percentage = float(tax_value) * 100
-        else:
-            tax_percentage = float(tax_value) * 100
-
-        # Search for purchase tax with this amount
-        matching_taxes = [tax for tax in all_taxes if abs(tax['amount'] - tax_percentage) < 0.01]
-        if matching_taxes:
-            tax_id = matching_taxes[0]['id']
-            print(f"Found purchase tax {tax_percentage}% with ID: {tax_id}")
-            return tax_id
-
-        print(f"Tax not found: {tax_value}")
-        return False
-    except Exception as e:
-        print(f"Error getting tax ID: {e}")
-        return False
-
 def create_or_update_po(po_data):
-    """
-    Create or update a purchase order in Odoo
-    """
+    """Create or update a purchase order in Odoo"""
     try:
-        # Check if PO already exists
         po_name = po_data['name']
         po_ids = models.execute_kw(
             db, uid, password, 'purchase.order', 'search',
@@ -306,19 +251,15 @@ def create_or_update_po(po_data):
         )
 
         if po_ids:
-            # Update existing PO
             print(f"Updating existing PO: {po_name}")
             po_id = po_ids[0]
             
-            # Get existing PO lines
             existing_lines = models.execute_kw(
                 db, uid, password, 'purchase.order.line', 'search_read',
                 [[['order_id', '=', po_id]]],
                 {'fields': ['id', 'product_id', 'product_qty', 'price_unit', 'taxes_id']}
             )
-            print(f"Existing lines: {existing_lines}")
             
-            # Update PO header
             models.execute_kw(
                 db, uid, password, 'purchase.order', 'write',
                 [po_id, {
@@ -330,77 +271,46 @@ def create_or_update_po(po_data):
                 }]
             )
             
-            # Delete existing PO lines
             if existing_lines:
                 existing_line_ids = [line['id'] for line in existing_lines]
                 models.execute_kw(
                     db, uid, password, 'purchase.order.line', 'unlink',
                     [existing_line_ids]
                 )
-                print(f"Deleted existing lines: {existing_line_ids}")
 
-            # Create new PO lines
             for line in po_data['order_line']:
                 line[2]['order_id'] = po_id
-                print(f"Creating new line with data: {line[2]}")
                 new_line_id = models.execute_kw(
                     db, uid, password, 'purchase.order.line', 'create',
                     [line[2]]
                 )
-                print(f"Created new line with ID: {new_line_id}")
             
-            print(f"Successfully updated PO lines: {po_name}")
-            return po_id
+            print(f"Successfully updated PO: {po_name}")
+            return True
         else:
-            # Create new PO
             print(f"Creating new PO: {po_name}")
-            print(f"PO Data: {po_data}")
             po_id = models.execute_kw(
                 db, uid, password, 'purchase.order', 'create',
                 [po_data]
             )
             print(f"Successfully created PO: {po_name}")
-            return po_id
+            return True
     except Exception as e:
         error_msg = str(e)
         print(f"Error creating/updating PO: {error_msg}")
         log_error(po_data.get('name', 'N/A'), 'N/A', 'N/A', f"PO Creation/Update Error: {error_msg}")
         return False
 
-def main():
-    try:
-        # Read Excel file
-        excel_file = 'Data_file/import_PO.xlsx'
-        df = pd.read_excel(excel_file)
-        print(f"\nOriginal Excel columns: {df.columns.tolist()}")
-        print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
-        
-        # Map Excel columns to Odoo fields
-        column_mapping = {
-            'name': 'name',
-            'date_order': 'date_order',
-            'partner_code': 'partner_code',
-            'partner_id': 'partner_id',
-            'date_planned': 'date_planned',
-            'old_product_code': 'old_product_code',
-            'product_id': 'product_id',
-            'price_unit': 'price_unit',
-            'product_qty': 'product_qty',  # Using exact column name from Excel
-            'picking_type_id': 'picking_type_id',
-            'texs_id': 'texs_id',
-            'notes': 'notes',
-        }
-        
-        # Rename columns based on mapping
-        df = df.rename(columns=column_mapping)
-        print(f"\nExcel columns after mapping: {df.columns.tolist()}")
-        
-        # Print first few rows with notes for verification
-        print("\nFirst few rows with notes:")
-        print(df[['name', 'partner_code', 'old_product_code', 'product_qty', 'notes']].head())
-        
-        # Group by PO number
-        for po_name, po_group in df.groupby('name'):
+def process_po_batch(batch_df, batch_num, total_batches):
+    """Process a batch of purchase orders"""
+    print(f"\nProcessing batch {batch_num}/{total_batches} ({len(batch_df)} rows)")
+    
+    success_count = 0
+    error_count = 0
+    
+    # Group by PO number within the batch
+    for po_name, po_group in batch_df.groupby('name'):
+        try:
             print(f"\nProcessing PO: {po_name}")
             
             # Get first row for PO header data
@@ -414,12 +324,14 @@ def main():
             )
             
             if not vendor_id:
+                error_count += 1
                 log_error(po_name, 'N/A', 'N/A', "Vendor not found or could not be created")
                 continue
             
             # Get picking type
             picking_type_id = search_picking_type(first_row['picking_type_id'] if pd.notna(first_row.get('picking_type_id')) else None)
             if not picking_type_id:
+                error_count += 1
                 log_error(po_name, 'N/A', 'N/A', "Could not find or create picking type")
                 continue
                 
@@ -443,14 +355,12 @@ def main():
                 product_ids = search_product(line['old_product_code'])
                 if not product_ids:
                     all_products_found = False
+                    error_count += 1
                     log_error(po_name, line.name, line['old_product_code'], "Product not found - Skipping entire PO")
                     break
                 
-                # Get quantity value and validate
                 try:
-                    # Get the quantity value directly from the product_qty column
                     quantity_str = str(line['product_qty']).strip()
-                    # Remove any non-numeric characters except decimal point
                     quantity_str = ''.join(c for c in quantity_str if c.isdigit() or c == '.')
                     quantity = float(quantity_str) if quantity_str else 0.0
                     
@@ -460,16 +370,14 @@ def main():
                     print(f"Error converting quantity value: {line['product_qty']} for product {line['old_product_code']}")
                     quantity = 0.0
                 
-                # Prepare line data with taxes
                 line_data = {
                     'product_id': product_ids[0],
-                    'name': line['old_product_code'],
+                    'name': str(line['description']) if pd.notna(line.get('description')) else line['old_product_code'],
                     'product_qty': quantity,
                     'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
                     'date_planned': convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False,
                 }
                 
-                # Add taxes using command 6 (replace entire list)
                 tax_id = get_tax_id(line['texs_id']) if pd.notna(line['texs_id']) else False
                 if tax_id:
                     line_data['taxes_id'] = [(6, 0, [tax_id])]
@@ -477,20 +385,99 @@ def main():
                 
                 po_lines.append((0, 0, line_data))
             
-            # Only create/update PO if all products were found
             if all_products_found:
                 po_data['order_line'] = po_lines
-                create_or_update_po(po_data)
+                if create_or_update_po(po_data):
+                    success_count += 1
+                else:
+                    error_count += 1
             else:
+                error_count += 1
                 print(f"Skipping PO {po_name} due to missing products")
+                
+        except Exception as e:
+            error_count += 1
+            print(f"Error processing PO {po_name}: {str(e)}")
+            log_error(po_name, 'N/A', 'N/A', f"Processing Error: {str(e)}")
+    
+    return success_count, error_count
+
+def main():
+    total_success = 0
+    total_errors = 0
+    
+    try:
+        # Read Excel file
+        excel_file = 'Data_file/import_PO1.xlsx'
+        df = pd.read_excel(excel_file)
+        print(f"\nOriginal Excel columns: {df.columns.tolist()}")
+        print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
         
-        # Save error log if there were any errors
-        save_error_log()
+        # Map Excel columns to Odoo fields
+        column_mapping = {
+            'name': 'name',
+            'date_order': 'date_order',
+            'partner_code': 'partner_code',
+            'partner_id': 'partner_id',
+            'date_planned': 'date_planned',
+            'old_product_code': 'old_product_code',
+            'product_id': 'product_id',
+            'price_unit': 'price_unit',
+            'product_qty': 'product_qty',
+            'picking_type_id': 'picking_type_id',
+            'texs_id': 'texs_id',
+            'notes': 'notes',
+            'description': 'description',
+        }
+        
+        # Rename columns based on mapping
+        df = df.rename(columns=column_mapping)
+        print(f"\nExcel columns after mapping: {df.columns.tolist()}")
+        
+        # Print first few rows with notes for verification
+        print("\nFirst few rows with notes:")
+        print(df[['name', 'partner_code', 'old_product_code', 'product_qty', 'notes']].head())
+        
+        # Process in batches
+        batch_size = 50  # Number of rows per batch
+        total_rows = len(df)
+        total_batches = (total_rows + batch_size - 1) // batch_size
+        
+        print(f"\nProcessing {total_rows} rows in {total_batches} batches (batch size: {batch_size})")
+        
+        # Process each batch
+        for batch_num in range(total_batches):
+            start_idx = batch_num * batch_size
+            end_idx = min(start_idx + batch_size, total_rows)
+            batch_df = df.iloc[start_idx:end_idx]
+            
+            success_count, error_count = process_po_batch(batch_df, batch_num + 1, total_batches)
+            total_success += success_count
+            total_errors += error_count
+            
+            # Print batch summary
+            print(f"\nBatch {batch_num + 1} Summary:")
+            print(f"Successful POs: {success_count}")
+            print(f"Failed POs: {error_count}")
+            
+            # Optional: Add a small delay between batches to prevent overloading
+            if batch_num < total_batches - 1:
+                time.sleep(1)  # 1 second delay between batches
+        
+        # Print final summary
+        print("\nFinal Import Summary:")
+        print(f"Total Successful POs: {total_success}")
+        print(f"Total Failed POs: {total_errors}")
+        print(f"Total Processed: {total_success + total_errors}")
         
     except Exception as e:
         print(f"Error in main function: {e}")
         log_error('N/A', 'N/A', 'N/A', f"Main Function Error: {str(e)}")
+    
+    finally:
+        # Save error log if there were any errors
         save_error_log()
+        print("\nImport process completed.")
 
 if __name__ == "__main__":
     main()
