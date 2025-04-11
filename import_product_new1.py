@@ -254,8 +254,8 @@ def process_product_row(row, index):
             'list_price': float(row['list_price']) if pd.notna(row['list_price']) else 0.0,
             'standard_price': float(row['standard_price']) if pd.notna(row['standard_price']) else 0.0,
             'taxes_id': [(6, 0, [customer_tax_id])] if customer_tax_id else False,
-            'sale_ok': True,
-            'purchase_ok': True,
+            'sale_ok': bool(row['sale_ok']) if pd.notna(row['sale_ok']) else False,
+            'purchase_ok': bool(row['purchase_ok']) if pd.notna(row['purchase_ok']) else False,
             'active': True,
             'detailed_type': 'product',
             'invoice_policy': 'order',
@@ -370,7 +370,7 @@ def process_batch(batch_data):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_product2fg.xlsx'
+excel_file = 'Data_file/import_product_110425.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -379,7 +379,7 @@ try:
     print("\nAvailable columns in Excel:", df.columns.tolist())
     
     # ข้ามแถวแรกที่เป็นหัวข้อภาษาไทย
-    df = df.iloc[2:]
+    df = df.iloc[1:]
     df = df.reset_index(drop=True)
     
     # Print first row to check data
