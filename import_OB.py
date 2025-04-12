@@ -51,24 +51,95 @@ db = 'MOG_Training'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
-# --- Authenticate with Odoo ---
-try:
-    common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
-    uid = common.authenticate(db, username, password, {})
-    if not uid:
-        print("Authentication failed: invalid credentials or insufficient permissions.")
-        sys.exit(1)
-    else:
-        print("Authentication successful, uid =", uid)
-except Exception as e:
-    print("Error during connection/authentication:", e)
-    sys.exit(1)
+def connect_to_odoo():
+    """Create a new connection to Odoo with timeout handling"""
+    try:
+        # Create custom transport class with timeout
+        class TimeoutTransport(xmlrpc.client.Transport):
+            def make_connection(self, host):
+                connection = super().make_connection(host)
+                connection.timeout = 30  # timeout in seconds
+                return connection
 
-# --- Create XML-RPC models proxy ---
-try:
-    models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
-except Exception as e:
-    print("Error creating XML-RPC models proxy:", e)
+        # Create connection with custom transport
+        common = xmlrpc.client.ServerProxy(
+            f'{url}/xmlrpc/2/common',
+            transport=TimeoutTransport()
+        )
+        
+        # Test connection before authentication
+        try:
+            common.version()
+        except Exception as e:
+            print(f"Server connection test failed: {e}")
+            return None, None
+        
+        # Authenticate
+        try:
+            uid = common.authenticate(db, username, password, {})
+            if not uid:
+                print("Authentication failed: Check credentials or permissions")
+                return None, None
+        except Exception as e:
+            print(f"Authentication error: {e}")
+            return None, None
+        
+        # Create models proxy with timeout
+        models = xmlrpc.client.ServerProxy(
+            f'{url}/xmlrpc/2/object',
+            transport=TimeoutTransport()
+        )
+        
+        print("Connection successful, uid =", uid)
+        return uid, models
+        
+    except ConnectionRefusedError:
+        print("Connection refused: Server not responding")
+        return None, None
+    except xmlrpc.client.ProtocolError as e:
+        print(f"Protocol error: {e}")
+        return None, None
+    except Exception as e:
+        print(f"Unexpected connection error: {e}")
+        return None, None
+
+def ensure_connection():
+    """Ensure connection is active, attempt to reconnect if needed"""
+    global uid, models
+    max_retries = 5
+    initial_retry_delay = 5  # seconds
+    max_retry_delay = 60  # maximum delay in seconds
+    
+    for attempt in range(max_retries):
+        if attempt > 0:
+            # Use exponential backoff for retry delay
+            retry_delay = min(initial_retry_delay * (2 ** (attempt - 1)), max_retry_delay)
+            print(f"Attempting to reconnect... (Attempt {attempt + 1}/{max_retries}, waiting {retry_delay} seconds)")
+            time.sleep(retry_delay)
+        
+        try:
+            new_uid, new_models = connect_to_odoo()
+            if new_uid and new_models:
+                uid = new_uid
+                models = new_models
+                # Test connection with a simple command
+                try:
+                    models.execute_kw(db, uid, password, 'res.users', 'search_count', [[]])
+                    return True
+                except Exception as e:
+                    print(f"Connection test failed: {e}")
+                    continue
+        except Exception as e:
+            print(f"Connection attempt failed: {e}")
+            continue
+    
+    print("Failed to establish a stable connection after multiple attempts")
+    return False
+
+# Initial connection
+uid, models = connect_to_odoo()
+if not uid or not models:
+    print("Initial connection failed")
     sys.exit(1)
 
 def search_vendor(partner_name=None, partner_code=None, partner_id=None):
@@ -81,10 +152,16 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
         vendor_name = str(partner_id).strip()
         
         # Search for existing vendor
-        vendor_ids = models.execute_kw(
-            db, uid, password, 'res.partner', 'search',
-            [[['name', '=', vendor_name]]]
-        )
+        try:
+            vendor_ids = models.execute_kw(
+                db, uid, password, 'res.partner', 'search',
+                [[['name', '=', vendor_name]]]
+            )
+        except Exception as e:
+            print(f"Error searching vendor: {e}")
+            if not ensure_connection():
+                return False
+            return False
         
         if vendor_ids:
             print(f"Found existing vendor: {vendor_name}")
@@ -106,11 +183,11 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
             )
             print(f"Successfully created new vendor: {vendor_name} (ID: {new_vendor_id})")
             return new_vendor_id
-            
         except Exception as create_error:
             print(f"Failed to create vendor: {vendor_name}")
             print(f"Creation error: {str(create_error)}")
-            log_error('N/A', 'N/A', 'N/A', f"Vendor Creation Error: {str(create_error)}")
+            if not ensure_connection():
+                return False
             return False
         
     except Exception as e:
@@ -127,21 +204,33 @@ def search_product(product_value):
     product_value = product_value.strip()
     
     try:
-        product_ids = models.execute_kw(
-            db, uid, password, 'product.product', 'search',
-            [[['default_code', '=', product_value]]]
-        )
-        if product_ids:
-            print(f"Found product with default_code: {product_value}")
-            return product_ids
+        try:
+            product_ids = models.execute_kw(
+                db, uid, password, 'product.product', 'search',
+                [[['default_code', '=', product_value]]]
+            )
+            if product_ids:
+                print(f"Found product with default_code: {product_value}")
+                return product_ids
+        except Exception as e:
+            print(f"Error searching product by default_code: {e}")
+            if not ensure_connection():
+                return []
+            return []
 
-        product_ids = models.execute_kw(
-            db, uid, password, 'product.product', 'search',
-            [[['old_product_code', '=', product_value]]]
-        )
-        if product_ids:
-            print(f"Found product with old_product_code: {product_value}")
-            return product_ids
+        try:
+            product_ids = models.execute_kw(
+                db, uid, password, 'product.product', 'search',
+                [[['old_product_code', '=', product_value]]]
+            )
+            if product_ids:
+                print(f"Found product with old_product_code: {product_value}")
+                return product_ids
+        except Exception as e:
+            print(f"Error searching product by old_product_code: {e}")
+            if not ensure_connection():
+                return []
+            return []
         
         print(f"Product not found: {product_value}")
         log_error('N/A', 'N/A', product_value, f"Product not found in system: {product_value}")
@@ -151,6 +240,8 @@ def search_product(product_value):
         error_msg = str(e)
         print(f"Error searching product: {error_msg}")
         log_error('N/A', 'N/A', product_value, f"Product Search Error: {error_msg}")
+        if not ensure_connection():
+            return []
         return []
 
 def convert_date(pd_timestamp):
@@ -197,20 +288,28 @@ def get_tax_id(tax_value):
         return False
     except Exception as e:
         print(f"Error getting tax ID: {e}")
+        if not ensure_connection():
+            return False
         return False
 
 def search_picking_type(picking_type_value):
     """Search for picking type in Odoo"""
     def get_default_picking_type():
-        picking_type_ids = models.execute_kw(
-            db, uid, password, 'stock.picking.type', 'search',
-            [[['code', '=', 'incoming'], ['warehouse_id', '!=', False]]],
-            {'limit': 1}
-        )
-        if picking_type_ids:
-            print("Using default Purchase picking type")
-            return picking_type_ids[0]
-        return False
+        try:
+            picking_type_ids = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search',
+                [[['code', '=', 'incoming'], ['warehouse_id', '!=', False]]],
+                {'limit': 1}
+            )
+            if picking_type_ids:
+                print("Using default Purchase picking type")
+                return picking_type_ids[0]
+            return False
+        except Exception as e:
+            print(f"Error getting default picking type: {e}")
+            if not ensure_connection():
+                return False
+            return False
 
     if not picking_type_value or pd.isna(picking_type_value):
         return get_default_picking_type()
@@ -219,41 +318,61 @@ def search_picking_type(picking_type_value):
     
     try:
         # First try to find by exact name match
-        picking_type_ids = models.execute_kw(
-            db, uid, password, 'stock.picking.type', 'search',
-            [[['name', '=', picking_type_value], ['code', '=', 'incoming']]]
-        )
-        if picking_type_ids:
-            print(f"Found picking type by exact name: {picking_type_value}")
-            return picking_type_ids[0]
+        try:
+            picking_type_ids = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search',
+                [[['name', '=', picking_type_value], ['code', '=', 'incoming']]]
+            )
+            if picking_type_ids:
+                print(f"Found picking type by exact name: {picking_type_value}")
+                return picking_type_ids[0]
+        except Exception as e:
+            print(f"Error searching picking type by name: {e}")
+            if not ensure_connection():
+                return False
 
         # Try to find by partial name match
-        picking_type_ids = models.execute_kw(
-            db, uid, password, 'stock.picking.type', 'search',
-            [[['name', 'ilike', picking_type_value], ['code', '=', 'incoming']]]
-        )
-        if picking_type_ids:
-            print(f"Found picking type by partial name: {picking_type_value}")
-            return picking_type_ids[0]
+        try:
+            picking_type_ids = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search',
+                [[['name', 'ilike', picking_type_value], ['code', '=', 'incoming']]]
+            )
+            if picking_type_ids:
+                print(f"Found picking type by partial name: {picking_type_value}")
+                return picking_type_ids[0]
+        except Exception as e:
+            print(f"Error searching picking type by partial name: {e}")
+            if not ensure_connection():
+                return False
 
         # Try to find by warehouse name
-        picking_type_ids = models.execute_kw(
-            db, uid, password, 'stock.picking.type', 'search',
-            [[['warehouse_id.name', 'ilike', picking_type_value], ['code', '=', 'incoming']]]
-        )
-        if picking_type_ids:
-            print(f"Found picking type by warehouse name: {picking_type_value}")
-            return picking_type_ids[0]
+        try:
+            picking_type_ids = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search',
+                [[['warehouse_id.name', 'ilike', picking_type_value], ['code', '=', 'incoming']]]
+            )
+            if picking_type_ids:
+                print(f"Found picking type by warehouse name: {picking_type_value}")
+                return picking_type_ids[0]
+        except Exception as e:
+            print(f"Error searching picking type by warehouse: {e}")
+            if not ensure_connection():
+                return False
 
         # If no match found, get all picking types and print them for debugging
-        all_picking_types = models.execute_kw(
-            db, uid, password, 'stock.picking.type', 'search_read',
-            [[['code', '=', 'incoming']]],
-            {'fields': ['name', 'warehouse_id']}
-        )
-        print(f"\nAvailable picking types:")
-        for pt in all_picking_types:
-            print(f"- {pt['name']} (ID: {pt['id']})")
+        try:
+            all_picking_types = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search_read',
+                [[['code', '=', 'incoming']]],
+                {'fields': ['name', 'warehouse_id']}
+            )
+            print(f"\nAvailable picking types:")
+            for pt in all_picking_types:
+                print(f"- {pt['name']} (ID: {pt['id']})")
+        except Exception as e:
+            print(f"Error getting all picking types: {e}")
+            if not ensure_connection():
+                return False
 
         print(f"\nCould not find picking type for value: {picking_type_value}")
         return get_default_picking_type()
@@ -267,57 +386,93 @@ def create_or_update_po(po_data):
     """Create or update a purchase order in Odoo"""
     try:
         po_name = po_data['name']
-        po_ids = models.execute_kw(
-            db, uid, password, 'purchase.order', 'search',
-            [[['name', '=', po_name]]]
-        )
+        try:
+            po_ids = models.execute_kw(
+                db, uid, password, 'purchase.order', 'search',
+                [[['name', '=', po_name]]]
+            )
+        except Exception as e:
+            print(f"Error searching PO {po_name}: {e}")
+            if not ensure_connection():
+                return False
+            return False
 
         if po_ids:
             print(f"Updating existing PO: {po_name}")
             po_id = po_ids[0]
             
-            existing_lines = models.execute_kw(
-                db, uid, password, 'purchase.order.line', 'search_read',
-                [[['order_id', '=', po_id]]],
-                {'fields': ['id', 'product_id', 'product_qty', 'price_unit', 'taxes_id']}
-            )
+            try:
+                existing_lines = models.execute_kw(
+                    db, uid, password, 'purchase.order.line', 'search_read',
+                    [[['order_id', '=', po_id]]],
+                    {'fields': ['id', 'product_id', 'product_qty', 'price_unit', 'taxes_id']}
+                )
+            except Exception as e:
+                print(f"Error reading PO lines for {po_name}: {e}")
+                if not ensure_connection():
+                    return False
+                return False
             
-            models.execute_kw(
-                db, uid, password, 'purchase.order', 'write',
-                [po_id, {
-                    'partner_id': po_data['partner_id'],
-                    'partner_ref': po_data['partner_ref'],  # Add Vendor Reference
-                    'date_order': po_data['date_order'],
-                    'date_planned': po_data['date_planned'],
-                    'picking_type_id': po_data['picking_type_id'],
-                    'notes': po_data['notes'],
-                }]
-            )
+            try:
+                models.execute_kw(
+                    db, uid, password, 'purchase.order', 'write',
+                    [po_id, {
+                        'partner_id': po_data['partner_id'],
+                        'partner_ref': po_data.get('partner_ref', ''),
+                        'date_order': po_data['date_order'],
+                        'date_planned': po_data['date_planned'],
+                        'picking_type_id': po_data['picking_type_id'],
+                        'notes': po_data.get('notes', ''),
+                    }]
+                )
+            except Exception as e:
+                print(f"Error updating PO {po_name}: {e}")
+                if not ensure_connection():
+                    return False
+                return False
             
             if existing_lines:
-                existing_line_ids = [line['id'] for line in existing_lines]
-                models.execute_kw(
-                    db, uid, password, 'purchase.order.line', 'unlink',
-                    [existing_line_ids]
-                )
+                try:
+                    existing_line_ids = [line['id'] for line in existing_lines]
+                    models.execute_kw(
+                        db, uid, password, 'purchase.order.line', 'unlink',
+                        [existing_line_ids]
+                    )
+                except Exception as e:
+                    print(f"Error removing existing lines for PO {po_name}: {e}")
+                    if not ensure_connection():
+                        return False
+                    return False
 
             for line in po_data['order_line']:
-                line[2]['order_id'] = po_id
-                new_line_id = models.execute_kw(
-                    db, uid, password, 'purchase.order.line', 'create',
-                    [line[2]]
-                )
+                try:
+                    line[2]['order_id'] = po_id
+                    new_line_id = models.execute_kw(
+                        db, uid, password, 'purchase.order.line', 'create',
+                        [line[2]]
+                    )
+                except Exception as e:
+                    print(f"Error creating line for PO {po_name}: {e}")
+                    if not ensure_connection():
+                        return False
+                    continue
             
             print(f"Successfully updated PO: {po_name}")
             return True
         else:
             print(f"Creating new PO: {po_name}")
-            po_id = models.execute_kw(
-                db, uid, password, 'purchase.order', 'create',
-                [po_data]
-            )
-            print(f"Successfully created PO: {po_name}")
-            return True
+            try:
+                po_id = models.execute_kw(
+                    db, uid, password, 'purchase.order', 'create',
+                    [po_data]
+                )
+                print(f"Successfully created PO: {po_name}")
+                return True
+            except Exception as e:
+                print(f"Error creating PO {po_name}: {e}")
+                if not ensure_connection():
+                    return False
+                return False
     except Exception as e:
         error_msg = str(e)
         print(f"Error creating/updating PO: {error_msg}")
@@ -362,9 +517,9 @@ def process_po_batch(batch_df, batch_num, total_batches):
             po_data = {
                 'name': po_name,
                 'partner_id': vendor_id,
-                'partner_ref': first_row.get('partner_ref', ''),  # Add Vendor Reference
-                'date_order': convert_date(first_row['date_order']),  # Always provide a date
-                'date_planned': convert_date(first_row['date_planned']),  # Always provide a date
+                'partner_ref': first_row.get('partner_ref', ''),  # Add partner_ref field
+                'date_order': convert_date(first_row['date_order']),
+                'date_planned': convert_date(first_row['date_planned']),
                 'picking_type_id': picking_type_id,
                 'order_line': []
             }
@@ -438,29 +593,6 @@ def main():
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
         
-        # Map Excel columns to Odoo fields
-        column_mapping = {
-            'name': 'name',
-            'date_order': 'date_order',
-            'partner_ref': 'partner_ref',
-            'partner_id': 'partner_id',
-            'date_planned': 'date_planned',
-            'old_product_code': 'old_product_code',
-            'default_code': 'default_code',
-            'description': 'description',
-            'price_unit': 'price_unit',
-            'product_qty': 'product_qty',
-            'picking_type_id': 'picking_type_id'
-        }
-        
-        # Rename columns based on mapping
-        df = df.rename(columns=column_mapping)
-        print(f"\nExcel columns after mapping: {df.columns.tolist()}")
-        
-        # Print first few rows for verification
-        print("\nFirst few rows:")
-        print(df[['name', 'partner_id', 'old_product_code', 'product_qty', 'default_code']].head())
-        
         # Process in batches
         batch_size = 50  # Number of rows per batch
         total_rows = len(df)
@@ -504,4 +636,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
