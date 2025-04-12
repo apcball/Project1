@@ -47,7 +47,7 @@ def save_error_log():
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
-db = 'MOG_Training'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -197,40 +197,84 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
         return False
 
 def search_product(product_value):
-    """Search for product in Odoo"""
+    """Search for product in Odoo using multiple search strategies"""
     if not isinstance(product_value, str):
         product_value = str(product_value)
     
     product_value = product_value.strip()
     
     try:
-        try:
-            product_ids = models.execute_kw(
-                db, uid, password, 'product.product', 'search',
-                [[['default_code', '=', product_value]]]
-            )
-            if product_ids:
-                print(f"Found product with default_code: {product_value}")
-                return product_ids
-        except Exception as e:
-            print(f"Error searching product by default_code: {e}")
-            if not ensure_connection():
+        # Function to safely execute search
+        def safe_search(domain):
+            try:
+                return models.execute_kw(
+                    db, uid, password, 'product.product', 'search',
+                    [domain]
+                )
+            except Exception as e:
+                print(f"Error in product search: {e}")
+                if not ensure_connection():
+                    return []
                 return []
-            return []
 
-        try:
-            product_ids = models.execute_kw(
-                db, uid, password, 'product.product', 'search',
-                [[['old_product_code', '=', product_value]]]
-            )
+        # 1. Try exact match on default_code
+        product_ids = safe_search([['default_code', '=', product_value]])
+        if product_ids:
+            print(f"Found product with default_code: {product_value}")
+            return product_ids
+
+        # 2. Try exact match on old_product_code
+        product_ids = safe_search([['old_product_code', '=', product_value]])
+        if product_ids:
+            print(f"Found product with old_product_code: {product_value}")
+            return product_ids
+
+        # 3. Try case-insensitive match on default_code
+        product_ids = safe_search([['default_code', 'ilike', product_value]])
+        if product_ids:
+            print(f"Found product with similar default_code: {product_value}")
+            return product_ids
+
+        # 4. Try case-insensitive match on old_product_code
+        product_ids = safe_search([['old_product_code', 'ilike', product_value]])
+        if product_ids:
+            print(f"Found product with similar old_product_code: {product_value}")
+            return product_ids
+
+        # 5. For BG- codes, try searching without the prefix
+        if product_value.upper().startswith('BG-'):
+            code_without_prefix = product_value[3:]
+            product_ids = safe_search([
+                '|',
+                ['default_code', 'ilike', code_without_prefix],
+                ['old_product_code', 'ilike', code_without_prefix]
+            ])
             if product_ids:
-                print(f"Found product with old_product_code: {product_value}")
+                print(f"Found product matching code without BG- prefix: {product_value}")
                 return product_ids
-        except Exception as e:
-            print(f"Error searching product by old_product_code: {e}")
-            if not ensure_connection():
-                return []
-            return []
+
+        # 6. For MAC codes, try flexible matching
+        if 'MAC' in product_value.upper():
+            # Remove any spaces and try matching
+            clean_code = product_value.upper().replace(' ', '')
+            product_ids = safe_search([
+                '|',
+                ['default_code', 'ilike', clean_code],
+                ['old_product_code', 'ilike', clean_code]
+            ])
+            if product_ids:
+                print(f"Found product with cleaned MAC code: {product_value}")
+                return product_ids
+        
+            # 7. Try searching with wildcards for partial matches
+            product_ids = safe_search([
+                '|',
+                ['default_code', 'ilike', f"%{product_value}%"],
+                ['old_product_code', 'ilike', f"%{product_value}%"]
+            ])
+            if product_ids:
+                print(f"Found product with partial code match: {product_value}")
+                return product_ids
         
         print(f"Product not found: {product_value}")
         log_error('N/A', 'N/A', product_value, f"Product not found in system: {product_value}")
@@ -317,45 +361,45 @@ def search_picking_type(picking_type_value):
     picking_type_value = str(picking_type_value).strip()
     
     try:
-        # First try to find by exact name match
+        # Get all picking types and their warehouses
         try:
-            picking_type_ids = models.execute_kw(
-                db, uid, password, 'stock.picking.type', 'search',
-                [[['name', '=', picking_type_value], ['code', '=', 'incoming']]]
+            all_picking_types = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search_read',
+                [[['code', '=', 'incoming']]],
+                {'fields': ['name', 'warehouse_id']}
             )
-            if picking_type_ids:
-                print(f"Found picking type by exact name: {picking_type_value}")
-                return picking_type_ids[0]
-        except Exception as e:
-            print(f"Error searching picking type by name: {e}")
-            if not ensure_connection():
-                return False
 
-        # Try to find by partial name match
-        try:
-            picking_type_ids = models.execute_kw(
-                db, uid, password, 'stock.picking.type', 'search',
-                [[['name', 'ilike', picking_type_value], ['code', '=', 'incoming']]]
+            # Get warehouse details
+            warehouse_ids = list(set([pt['warehouse_id'][0] for pt in all_picking_types if pt['warehouse_id']]))
+            warehouses = models.execute_kw(
+                db, uid, password, 'stock.warehouse', 'search_read',
+                [[['id', 'in', warehouse_ids]]],
+                {'fields': ['id', 'name']}
             )
-            if picking_type_ids:
-                print(f"Found picking type by partial name: {picking_type_value}")
-                return picking_type_ids[0]
+            warehouse_dict = {w['id']: w['name'] for w in warehouses}
+            
+            # Try exact match on picking type name
+            for pt in all_picking_types:
+                if pt['name'].lower() == picking_type_value.lower():
+                    print(f"Found picking type by exact name: {picking_type_value}")
+                    return pt['id']
+                    
+            # Try partial match on picking type name
+            for pt in all_picking_types:
+                if picking_type_value.lower() in pt['name'].lower():
+                    print(f"Found picking type by partial name: {picking_type_value}")
+                    return pt['id']
+            
+            # Try warehouse name match
+            for pt in all_picking_types:
+                if pt['warehouse_id']:
+                    warehouse_name = warehouse_dict.get(pt['warehouse_id'][0], '')
+                    if picking_type_value.lower() in warehouse_name.lower():
+                        print(f"Found picking type by warehouse name: {picking_type_value}")
+                        return pt['id']
+                    
         except Exception as e:
-            print(f"Error searching picking type by partial name: {e}")
-            if not ensure_connection():
-                return False
-
-        # Try to find by warehouse name
-        try:
-            picking_type_ids = models.execute_kw(
-                db, uid, password, 'stock.picking.type', 'search',
-                [[['warehouse_id.name', 'ilike', picking_type_value], ['code', '=', 'incoming']]]
-            )
-            if picking_type_ids:
-                print(f"Found picking type by warehouse name: {picking_type_value}")
-                return picking_type_ids[0]
-        except Exception as e:
-            print(f"Error searching picking type by warehouse: {e}")
+            print(f"Error searching picking types: {e}")
             if not ensure_connection():
                 return False
 
@@ -431,31 +475,79 @@ def create_or_update_po(po_data):
                     return False
                 return False
             
-            if existing_lines:
-                try:
-                    existing_line_ids = [line['id'] for line in existing_lines]
-                    models.execute_kw(
-                        db, uid, password, 'purchase.order.line', 'unlink',
-                        [existing_line_ids]
-                    )
-                except Exception as e:
-                    print(f"Error removing existing lines for PO {po_name}: {e}")
-                    if not ensure_connection():
-                        return False
-                    return False
+            # Process existing lines more safely
+            existing_lines_dict = {
+                (line['product_id'][0] if line['product_id'] else None): line 
+                for line in existing_lines
+            }
 
+            # Track which existing lines were updated
+            updated_line_ids = set()
+
+            # Process new/updated lines
             for line in po_data['order_line']:
                 try:
-                    line[2]['order_id'] = po_id
-                    new_line_id = models.execute_kw(
-                        db, uid, password, 'purchase.order.line', 'create',
-                        [line[2]]
-                    )
+                    product_id = line[2].get('product_id')
+                    if not product_id:
+                        print(f"Warning: Missing product ID in line data for PO {po_name}")
+                        continue
+
+                    # Check if line exists for this product
+                    existing_line = existing_lines_dict.get(product_id)
+                    
+                    if existing_line:
+                        # Update existing line
+                        line_data = line[2].copy()
+                        line_data['order_id'] = po_id
+                        
+                        # Validate quantity before update
+                        if 'product_qty' in line_data:
+                            qty = safe_float_conversion(line_data['product_qty'])
+                            if qty <= 0:
+                                print(f"Warning: Invalid quantity in update: {line_data['product_qty']}")
+                                continue
+                            line_data['product_qty'] = qty
+
+                        models.execute_kw(
+                            db, uid, password, 'purchase.order.line', 'write',
+                            [existing_line['id'], line_data]
+                        )
+                        updated_line_ids.add(existing_line['id'])
+                    else:
+                        # Create new line
+                        line_data = line[2].copy()
+                        line_data['order_id'] = po_id
+                        
+                        # Validate quantity before create
+                        if 'product_qty' in line_data:
+                            qty = safe_float_conversion(line_data['product_qty'])
+                            if qty <= 0:
+                                print(f"Warning: Invalid quantity in new line: {line_data['product_qty']}")
+                                continue
+                            line_data['product_qty'] = qty
+
+                        new_line_id = models.execute_kw(
+                            db, uid, password, 'purchase.order.line', 'create',
+                            [line_data]
+                        )
                 except Exception as e:
-                    print(f"Error creating line for PO {po_name}: {e}")
+                    print(f"Error processing line for PO {po_name}: {e}")
                     if not ensure_connection():
                         return False
                     continue
+
+            # Remove lines that were not updated (optional - uncomment if needed)
+            # unused_lines = [line['id'] for line in existing_lines if line['id'] not in updated_line_ids]
+            # if unused_lines:
+            #     try:
+            #         models.execute_kw(
+            #             db, uid, password, 'purchase.order.line', 'unlink',
+            #             [unused_lines]
+            #         )
+            #     except Exception as e:
+            #         print(f"Error removing unused lines for PO {po_name}: {e}")
+            #         if not ensure_connection():
+            #             return False
             
             print(f"Successfully updated PO: {po_name}")
             return True
@@ -479,12 +571,28 @@ def create_or_update_po(po_data):
         log_error(po_data.get('name', 'N/A'), 'N/A', 'N/A', f"PO Creation/Update Error: {error_msg}")
         return False
 
+def safe_float_conversion(value):
+    """Safely convert various input formats to float"""
+    if pd.isna(value):
+        return 0.0
+    try:
+        if isinstance(value, (int, float)):
+            return float(value)
+        # Remove any currency symbols, spaces and commas
+        clean_value = str(value).strip().replace('฿', '').replace(',', '').strip()
+        if not clean_value:
+            return 0.0
+        return float(clean_value)
+    except (ValueError, TypeError):
+        return 0.0
+
 def process_po_batch(batch_df, batch_num, total_batches):
     """Process a batch of purchase orders"""
     print(f"\nProcessing batch {batch_num}/{total_batches} ({len(batch_df)} rows)")
     
     success_count = 0
     error_count = 0
+    MAX_LINES_PER_PO = 500  # Maximum lines per PO
     
     # Group by PO number within the batch
     for po_name, po_group in batch_df.groupby('name'):
@@ -512,23 +620,11 @@ def process_po_batch(batch_df, batch_num, total_batches):
                 error_count += 1
                 log_error(po_name, 'N/A', 'N/A', "Could not find or create picking type")
                 continue
-                
-            # Prepare PO data
-            po_data = {
-                'name': po_name,
-                'partner_id': vendor_id,
-                'partner_ref': first_row.get('partner_ref', ''),  # Add partner_ref field
-                'date_order': convert_date(first_row['date_order']),
-                'date_planned': convert_date(first_row['date_planned']),
-                'picking_type_id': picking_type_id,
-                'order_line': []
-            }
             
-            # Process PO lines
+            # Process all lines first to check products
+            all_lines = []
             all_products_found = True
-            po_lines = []
             
-            # First check if all products exist
             for _, line in po_group.iterrows():
                 # Try to find product by default_code first
                 product_ids = search_product(line['default_code']) if pd.notna(line.get('default_code')) else []
@@ -544,36 +640,69 @@ def process_po_batch(batch_df, batch_num, total_batches):
                     log_error(po_name, line.name, product_code, "Product not found - Skipping entire PO")
                     break
                 
-                try:
-                    quantity_str = str(line['product_qty']).strip()
-                    quantity_str = ''.join(c for c in quantity_str if c.isdigit() or c == '.')
-                    quantity = float(quantity_str) if quantity_str else 0.0
-                    
-                    if quantity <= 0:
-                        print(f"Warning: Zero or negative quantity ({quantity}) for product {line['old_product_code']}")
-                except (ValueError, TypeError, AttributeError) as e:
-                    print(f"Error converting quantity value: {line['product_qty']} for product {line['old_product_code']}")
-                    quantity = 0.0
+                # Process quantity with improved validation
+                quantity = safe_float_conversion(line['product_qty'])
+                if quantity <= 0:
+                    print(f"Warning: Zero or negative quantity ({line['product_qty']}) for product {line['old_product_code']}")
+                    error_count += 1
+                    log_error(po_name, line.name, line['old_product_code'], f"Invalid quantity: {line['product_qty']}")
+                    continue
                 
+                # Prepare the description with note and date_planned if available
+                description = str(line['description']) if 'description' in line and pd.notna(line['description']) else line['old_product_code']
+                
+                # Add date_planned to description if available
+                date_planned = convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False
+                if date_planned:
+                    description = f"{description}\nExpected Arrival: {date_planned}"
+                
+                # Add note if available
+                if 'note' in line and pd.notna(line['note']):
+                    description = f"{description}\nNote: {line['note']}"
+
                 line_data = {
                     'product_id': product_ids[0],
-                    'name': str(line['description']) if 'description' in line and pd.notna(line['description']) else line['old_product_code'],
+                    'name': description,
                     'product_qty': quantity,
                     'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
-                    'date_planned': convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False,
+                    'date_planned': date_planned,
                 }
                 
-                po_lines.append((0, 0, line_data))
+                all_lines.append((0, 0, line_data))
             
-            if all_products_found:
-                po_data['order_line'] = po_lines
-                if create_or_update_po(po_data):
-                    success_count += 1
-                else:
-                    error_count += 1
-            else:
+            if not all_products_found:
                 error_count += 1
                 print(f"Skipping PO {po_name} due to missing products")
+                continue
+            
+            # Split into multiple POs if needed
+            po_count = (len(all_lines) + MAX_LINES_PER_PO - 1) // MAX_LINES_PER_PO
+            
+            for po_index in range(po_count):
+                start_idx = po_index * MAX_LINES_PER_PO
+                end_idx = start_idx + MAX_LINES_PER_PO
+                current_lines = all_lines[start_idx:end_idx]
+                
+                # Create PO name with suffix if split
+                current_po_name = po_name if po_count == 1 else f"{po_name}-{po_index + 1}"
+                
+                # Prepare PO data
+                po_data = {
+                    'name': current_po_name,
+                    'partner_id': vendor_id,
+                    'partner_ref': first_row.get('partner_ref', ''),
+                    'date_order': convert_date(first_row['date_order']),
+                    'date_planned': convert_date(first_row['date_planned']),
+                    'picking_type_id': picking_type_id,
+                    'order_line': current_lines
+                }
+                
+                if create_or_update_po(po_data):
+                    success_count += 1
+                    print(f"Successfully created PO: {current_po_name} with {len(current_lines)} lines")
+                else:
+                    error_count += 1
+                    print(f"Failed to create PO: {current_po_name}")
                 
         except Exception as e:
             error_count += 1
@@ -588,7 +717,7 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_OB.xlsx'
+        excel_file = 'Data_file/import_OB2.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
