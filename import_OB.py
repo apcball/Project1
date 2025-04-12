@@ -72,48 +72,52 @@ except Exception as e:
     sys.exit(1)
 
 def search_vendor(partner_name=None, partner_code=None, partner_id=None):
-    """Search for vendor in Odoo"""
+    """Search for vendor in Odoo. If not found, create a new one."""
     try:
-        if partner_name and not pd.isna(partner_name):
-            vendor_ids = models.execute_kw(
-                db, uid, password, 'res.partner', 'search',
-                [[['name', '=', str(partner_name).strip()]]]
-            )
-            if vendor_ids:
-                print(f"Found existing vendor with name: {partner_name}")
-                return vendor_ids[0]
+        if not partner_id or pd.isna(partner_id):
+            print("No vendor information provided")
+            return False
 
-        if partner_code and not pd.isna(partner_code):
-            vendor_ids = models.execute_kw(
-                db, uid, password, 'res.partner', 'search',
-                [[['ref', '=', str(partner_code).strip()]]]
-            )
-            if vendor_ids:
-                print(f"Found existing vendor with code: {partner_code}")
-                return vendor_ids[0]
-
-        if partner_id and not pd.isna(partner_id):
-            vendor_data = {
-                'name': str(partner_id).strip(),
-                'ref': str(partner_code).strip() if partner_code and not pd.isna(partner_code) else None,
-                'company_type': 'company',
-                'supplier_rank': 1,
-                'customer_rank': 0,
-            }
-            
+        vendor_name = str(partner_id).strip()
+        
+        # Search for existing vendor
+        vendor_ids = models.execute_kw(
+            db, uid, password, 'res.partner', 'search',
+            [[['name', '=', vendor_name]]]
+        )
+        
+        if vendor_ids:
+            print(f"Found existing vendor: {vendor_name}")
+            return vendor_ids[0]
+        
+        # If vendor not found, create a new one
+        print(f"Vendor not found: {vendor_name}. Creating new vendor...")
+        vendor_data = {
+            'name': vendor_name,
+            'company_type': 'company',
+            'supplier_rank': 1,
+            'customer_rank': 0,
+            'is_company': True,
+        }
+        
+        try:
             new_vendor_id = models.execute_kw(
                 db, uid, password, 'res.partner', 'create', [vendor_data]
             )
-            print(f"Created new vendor from partner_id: {partner_id}" + (f" (Code: {partner_code})" if partner_code and not pd.isna(partner_code) else ""))
+            print(f"Successfully created new vendor: {vendor_name} (ID: {new_vendor_id})")
             return new_vendor_id
-        
-        return None
+            
+        except Exception as create_error:
+            print(f"Failed to create vendor: {vendor_name}")
+            print(f"Creation error: {str(create_error)}")
+            log_error('N/A', 'N/A', 'N/A', f"Vendor Creation Error: {str(create_error)}")
+            return False
         
     except Exception as e:
         error_msg = str(e)
         print(f"Error in search_vendor: {error_msg}")
         log_error('N/A', 'N/A', 'N/A', f"Vendor Search Error: {error_msg}")
-        return None
+        return False
 
 def search_product(product_value):
     """Search for product in Odoo"""
@@ -282,6 +286,7 @@ def create_or_update_po(po_data):
                 db, uid, password, 'purchase.order', 'write',
                 [po_id, {
                     'partner_id': po_data['partner_id'],
+                    'partner_ref': po_data['partner_ref'],  # Add Vendor Reference
                     'date_order': po_data['date_order'],
                     'date_planned': po_data['date_planned'],
                     'picking_type_id': po_data['picking_type_id'],
@@ -336,9 +341,9 @@ def process_po_batch(batch_df, batch_num, total_batches):
             
             # Find vendor
             vendor_id = search_vendor(
-                partner_name=first_row.get('partner_name') if 'partner_name' in first_row else None,
-                partner_code=first_row['partner_code'] if 'partner_code' in first_row and pd.notna(first_row['partner_code']) else None,
-                partner_id=first_row['partner_id'] if 'partner_id' in first_row and pd.notna(first_row['partner_id']) else None
+                partner_name=None,
+                partner_code=None,
+                partner_id=first_row['partner_id'] if pd.notna(first_row['partner_id']) else None
             )
             
             if not vendor_id:
@@ -357,6 +362,7 @@ def process_po_batch(batch_df, batch_num, total_batches):
             po_data = {
                 'name': po_name,
                 'partner_id': vendor_id,
+                'partner_ref': first_row.get('partner_ref', ''),  # Add Vendor Reference
                 'date_order': convert_date(first_row['date_order']),  # Always provide a date
                 'date_planned': convert_date(first_row['date_planned']),  # Always provide a date
                 'picking_type_id': picking_type_id,
@@ -436,12 +442,12 @@ def main():
         column_mapping = {
             'name': 'name',
             'date_order': 'date_order',
-            'partner_code': 'partner_code',
+            'partner_ref': 'partner_ref',
             'partner_id': 'partner_id',
             'date_planned': 'date_planned',
             'old_product_code': 'old_product_code',
             'default_code': 'default_code',
-            'product_id': 'product_id',
+            'description': 'description',
             'price_unit': 'price_unit',
             'product_qty': 'product_qty',
             'picking_type_id': 'picking_type_id'
@@ -453,7 +459,7 @@ def main():
         
         # Print first few rows for verification
         print("\nFirst few rows:")
-        print(df[['name', 'partner_code', 'old_product_code', 'product_qty', 'default_code']].head())
+        print(df[['name', 'partner_id', 'old_product_code', 'product_qty', 'default_code']].head())
         
         # Process in batches
         batch_size = 50  # Number of rows per batch

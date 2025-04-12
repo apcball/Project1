@@ -12,26 +12,97 @@ username = 'apichart@mogen.co.th'
 password = '471109538'
 
 # กำหนดขนาดของ batch
-BATCH_SIZE = 50
+BATCH_SIZE = 25
 
-# --- Authentication ---
-try:
-    common = xmlrpc.client.ServerProxy(f'{server_url}/xmlrpc/2/common')
-    uid = common.authenticate(database, username, password, {})
-    if not uid:
-        print("Authentication failed: ตรวจสอบ credentials หรือ permission")
-        sys.exit(1)
-    else:
-        print("Authentication successful, uid =", uid)
-except Exception as e:
-    print("Error during authentication:", e)
-    sys.exit(1)
+# --- Authentication and Connection Functions ---
+def connect_to_odoo():
+    try:
+        # สร้าง custom transport class with timeout
+        class TimeoutTransport(xmlrpc.client.Transport):
+            def make_connection(self, host):
+                connection = super().make_connection(host)
+                connection.timeout = 30  # timeout in seconds
+                return connection
 
-# --- สร้าง models proxy ---
-try:
-    models = xmlrpc.client.ServerProxy(f'{server_url}/xmlrpc/2/object')
-except Exception as e:
-    print("Error creating XML-RPC models proxy:", e)
+        # สร้าง connection with custom transport
+        common = xmlrpc.client.ServerProxy(
+            f'{server_url}/xmlrpc/2/common',
+            transport=TimeoutTransport()
+        )
+        
+        # ทดสอบการเชื่อมต่อก่อน authenticate
+        try:
+            common.version()
+        except Exception as e:
+            print(f"Server connection test failed: {e}")
+            return None, None
+        
+        # ทำการ authenticate
+        try:
+            uid = common.authenticate(database, username, password, {})
+            if not uid:
+                print("Authentication failed: ตรวจสอบ credentials หรือ permission")
+                return None, None
+        except Exception as e:
+            print(f"Authentication error: {e}")
+            return None, None
+        
+        # สร้าง models proxy with timeout
+        models = xmlrpc.client.ServerProxy(
+            f'{server_url}/xmlrpc/2/object',
+            transport=TimeoutTransport()
+        )
+        
+        print("Connection successful, uid =", uid)
+        return uid, models
+        
+    except ConnectionRefusedError:
+        print("Connection refused: เซิร์ฟเวอร์ไม่ตอบสนอง กรุณาตรวจสอบ server_url และการเชื่อมต่อเครือข่าย")
+        return None, None
+    except xmlrpc.client.ProtocolError as e:
+        print(f"Protocol error: {e}")
+        return None, None
+    except Exception as e:
+        print(f"Unexpected connection error: {e}")
+        return None, None
+
+def ensure_connection():
+    global uid, models
+    max_retries = 5  # เพิ่มจำนวนครั้งในการ retry
+    initial_retry_delay = 5  # seconds
+    max_retry_delay = 60  # maximum delay in seconds
+    
+    for attempt in range(max_retries):
+        if attempt > 0:
+            # ใช้ exponential backoff สำหรับ retry delay
+            retry_delay = min(initial_retry_delay * (2 ** (attempt - 1)), max_retry_delay)
+            print(f"Attempting to reconnect... (Attempt {attempt + 1}/{max_retries}, waiting {retry_delay} seconds)")
+            import time
+            time.sleep(retry_delay)
+        
+        try:
+            new_uid, new_models = connect_to_odoo()
+            if new_uid and new_models:
+                uid = new_uid
+                models = new_models
+                # ทดสอบการเชื่อมต่อด้วยการเรียกใช้คำสั่งง่ายๆ
+                try:
+                    models.execute_kw(database, uid, password, 'res.users', 'search_count', [[]])
+                    return True
+                except Exception as e:
+                    print(f"Connection test failed: {e}")
+                    continue
+        except Exception as e:
+            print(f"Connection attempt failed: {e}")
+            continue
+    
+    print("Failed to establish a stable connection after multiple attempts")
+    return False
+
+# Initial connection
+uid, models = connect_to_odoo()
+if not uid or not models:
+    print("Initial connection failed")
     sys.exit(1)
 
 def search_category(category_path):
@@ -283,20 +354,57 @@ def process_product_row(row, index):
 
 def process_batch(batch_data):
     """ประมวลผล batch ของสินค้า - สร้างใหม่หรืออัพเดท"""
+    # ตรวจสอบการเชื่อมต่อก่อนเริ่มประมวลผล batch
+    if not ensure_connection():
+        print("Failed to establish connection. Skipping batch.")
+        for item in batch_data:
+            failed_imports.append({
+                'row': item['index'],
+                'default_code': item['default_code'],
+                'error': "Connection failed"
+            })
+        return
+
     # รวบรวม default_codes และ barcodes ที่ไม่ซ้ำกัน
     all_default_codes = [item['default_code'] for item in batch_data if item['default_code']]
     all_barcodes = [item['barcode'] for item in batch_data if item['barcode']]
 
     # ตรวจสอบสินค้าที่มีอยู่แล้ว
-    domain = ['|',
-             ['default_code', 'in', all_default_codes],
-             '&',
-             ['barcode', '!=', False],
-             ['barcode', 'in', all_barcodes]]
-    existing_products = models.execute_kw(
-        database, uid, password, 'product.template', 'search_read',
-        [domain], {'fields': ['id', 'default_code', 'barcode']}
-    )
+    try:
+        domain = ['|',
+                ['default_code', 'in', all_default_codes],
+                '&',
+                ['barcode', '!=', False],
+                ['barcode', 'in', all_barcodes]]
+        existing_products = models.execute_kw(
+            database, uid, password, 'product.template', 'search_read',
+            [domain], {'fields': ['id', 'default_code', 'barcode']}
+        )
+    except Exception as e:
+        if not ensure_connection():
+            print(f"Connection failed during product search: {str(e)}")
+            for item in batch_data:
+                failed_imports.append({
+                    'row': item['index'],
+                    'default_code': item['default_code'],
+                    'error': f"Connection error: {str(e)}"
+                })
+            return
+        # Try one more time after reconnection
+        try:
+            existing_products = models.execute_kw(
+                database, uid, password, 'product.template', 'search_read',
+                [domain], {'fields': ['id', 'default_code', 'barcode']}
+            )
+        except Exception as e:
+            print(f"Failed to search products even after reconnection: {str(e)}")
+            for item in batch_data:
+                failed_imports.append({
+                    'row': item['index'],
+                    'default_code': item['default_code'],
+                    'error': f"Search error: {str(e)}"
+                })
+            return
 
     # สร้าง dictionary ของสินค้าที่มีอยู่แล้ว
     existing_products_dict = {}
@@ -370,7 +478,7 @@ def process_batch(batch_data):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Data_file/import_product_110425.xlsx'
+excel_file = 'Data_file/import_product_OB.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
