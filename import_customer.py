@@ -14,10 +14,10 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'url': 'http://mogth.work:8069',
-    'db': 'MOG_DEV',
+    'db': 'MOG_LIVE',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
-    'excel_path': 'Data_file/customer_import.xlsx'
+    'excel_path': 'Data_file/customer_import_rev1.xlsx'
 }
 
 def connect_to_odoo():
