@@ -25,7 +25,7 @@ try:
     # Define the account details
     accounts_to_create = [
         {
-            'code': '114300',
+            'code': '114200',
             'name': 'ลูกหนี้การค้า',
             'user_type_id': models.execute_kw(db, uid, password,
                 'account.account.type', 'search',
@@ -35,7 +35,7 @@ try:
             'internal_type': 'receivable',
         },
         {
-            'code': '211300',
+            'code': '211200',
             'name': 'เจ้าหนี้การค้า',
             'user_type_id': models.execute_kw(db, uid, password,
                 'account.account.type', 'search',
@@ -80,8 +80,8 @@ try:
 
     # Update or create property fields
     for field, account_code in [
-        ('property_account_receivable_id', '114300'),
-        ('property_account_payable_id', '211300')
+        ('property_account_receivable_id', '114200'),
+        ('property_account_payable_id', '211200')
     ]:
         # Search for existing property
         existing_property = models.execute_kw(db, uid, password,
