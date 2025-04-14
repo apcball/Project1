@@ -717,7 +717,7 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_OB2.xlsx'
+        excel_file = 'Data_file/import_OB.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
