@@ -46,10 +46,13 @@ def save_error_log():
             print(msg)
 
 # --- Connection Settings ---
-url = 'http://119.59.124.100:8069/'
+url = 'http://mogth.work:8069/'
 db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
+
+# --- Data File Settings ---
+excel_file = 'Data_file/import_OB2.xlsx'
 
 def connect_to_odoo():
     """Create a new connection to Odoo with timeout handling"""
@@ -475,16 +478,7 @@ def create_or_update_po(po_data):
                     return False
                 return False
             
-            # Process existing lines more safely
-            existing_lines_dict = {
-                (line['product_id'][0] if line['product_id'] else None): line 
-                for line in existing_lines
-            }
-
-            # Track which existing lines were updated
-            updated_line_ids = set()
-
-            # Process new/updated lines
+            # Process all lines as new lines
             for line in po_data['order_line']:
                 try:
                     product_id = line[2].get('product_id')
@@ -492,44 +486,22 @@ def create_or_update_po(po_data):
                         print(f"Warning: Missing product ID in line data for PO {po_name}")
                         continue
 
-                    # Check if line exists for this product
-                    existing_line = existing_lines_dict.get(product_id)
+                    # Create new line for each entry
+                    line_data = line[2].copy()
+                    line_data['order_id'] = po_id
                     
-                    if existing_line:
-                        # Update existing line
-                        line_data = line[2].copy()
-                        line_data['order_id'] = po_id
-                        
-                        # Validate quantity before update
-                        if 'product_qty' in line_data:
-                            qty = safe_float_conversion(line_data['product_qty'])
-                            if qty <= 0:
-                                print(f"Warning: Invalid quantity in update: {line_data['product_qty']}")
-                                continue
-                            line_data['product_qty'] = qty
+                    # Validate quantity before create
+                    if 'product_qty' in line_data:
+                        qty = safe_float_conversion(line_data['product_qty'])
+                        if qty <= 0:
+                            print(f"Warning: Invalid quantity in new line: {line_data['product_qty']}")
+                            continue
+                        line_data['product_qty'] = qty
 
-                        models.execute_kw(
-                            db, uid, password, 'purchase.order.line', 'write',
-                            [existing_line['id'], line_data]
-                        )
-                        updated_line_ids.add(existing_line['id'])
-                    else:
-                        # Create new line
-                        line_data = line[2].copy()
-                        line_data['order_id'] = po_id
-                        
-                        # Validate quantity before create
-                        if 'product_qty' in line_data:
-                            qty = safe_float_conversion(line_data['product_qty'])
-                            if qty <= 0:
-                                print(f"Warning: Invalid quantity in new line: {line_data['product_qty']}")
-                                continue
-                            line_data['product_qty'] = qty
-
-                        new_line_id = models.execute_kw(
-                            db, uid, password, 'purchase.order.line', 'create',
-                            [line_data]
-                        )
+                    new_line_id = models.execute_kw(
+                        db, uid, password, 'purchase.order.line', 'create',
+                        [line_data]
+                    )
                 except Exception as e:
                     print(f"Error processing line for PO {po_name}: {e}")
                     if not ensure_connection():
@@ -610,20 +582,18 @@ def process_po_batch(batch_df, batch_num, total_batches):
             )
             
             if not vendor_id:
-                error_count += 1
-                log_error(po_name, 'N/A', 'N/A', "Vendor not found or could not be created")
+                print(f"Warning: Vendor not found for PO {po_name}")
                 continue
             
             # Get picking type
             picking_type_id = search_picking_type(first_row['picking_type_id'] if pd.notna(first_row.get('picking_type_id')) else None)
             if not picking_type_id:
-                error_count += 1
-                log_error(po_name, 'N/A', 'N/A', "Could not find or create picking type")
+                print(f"Warning: Could not find picking type for PO {po_name}")
                 continue
             
             # Process all lines first to check products
             all_lines = []
-            all_products_found = True
+            valid_lines_count = 0
             
             for _, line in po_group.iterrows():
                 # Try to find product by default_code first
@@ -634,19 +604,16 @@ def process_po_batch(batch_df, batch_num, total_batches):
                     product_ids = search_product(line['old_product_code'])
                 
                 if not product_ids:
-                    all_products_found = False
-                    error_count += 1
-                    product_code = line.get('default_code', line['old_product_code'])
-                    log_error(po_name, line.name, product_code, "Product not found - Skipping entire PO")
-                    break
+                    print(f"Product not found: {line.get('default_code', line['old_product_code'])}")
+                    continue
                 
                 # Process quantity with improved validation
                 quantity = safe_float_conversion(line['product_qty'])
                 if quantity <= 0:
                     print(f"Warning: Zero or negative quantity ({line['product_qty']}) for product {line['old_product_code']}")
-                    error_count += 1
-                    log_error(po_name, line.name, line['old_product_code'], f"Invalid quantity: {line['product_qty']}")
                     continue
+                
+                valid_lines_count += 1
                 
                 # Prepare the description with note and date_planned if available
                 description = str(line['description']) if 'description' in line and pd.notna(line['description']) else line['old_product_code']
@@ -666,13 +633,13 @@ def process_po_batch(batch_df, batch_num, total_batches):
                     'product_qty': quantity,
                     'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
                     'date_planned': date_planned,
+                    'taxes_id': [(6, 0, [])]  # Set empty tax (VAT = 0)
                 }
                 
                 all_lines.append((0, 0, line_data))
             
-            if not all_products_found:
-                error_count += 1
-                print(f"Skipping PO {po_name} due to missing products")
+            if valid_lines_count == 0:
+                print(f"Warning: No valid lines found for PO {po_name}")
                 continue
             
             # Split into multiple POs if needed
@@ -702,7 +669,8 @@ def process_po_batch(batch_df, batch_num, total_batches):
                     print(f"Successfully created PO: {current_po_name} with {len(current_lines)} lines")
                 else:
                     error_count += 1
-                    print(f"Failed to create PO: {current_po_name}")
+                    log_error(current_po_name, 'N/A', 'N/A', f"Failed to add order lines to PO")
+                    print(f"Failed to create/update PO: {current_po_name}")
                 
         except Exception as e:
             error_count += 1
@@ -717,7 +685,6 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_OB.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
