@@ -6,44 +6,103 @@ from datetime import datetime
 import csv
 import os
 import time
+import logging
+from typing import List, Dict, Any, Tuple
+from concurrent.futures import ThreadPoolExecutor
+import threading
+from functools import lru_cache
+import gc
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Constants
+BATCH_SIZE = 100  # Number of records to process in each batch
+MAX_WORKERS = 4   # Number of concurrent threads
+CACHE_SIZE = 1000 # Size of LRU cache for vendor lookups
 
 # Create log directory if it doesn't exist
 if not os.path.exists('logs'):
     os.makedirs('logs')
 
-# Initialize lists to store successful and failed imports
+# Initialize lists to store successful and failed imports with thread safety
+failed_imports_lock = threading.Lock()
 failed_imports = []
 error_messages = []
 
+# Performance monitoring
+class PerformanceMonitor:
+    def __init__(self):
+        self.start_time = None
+        self.records_processed = 0
+        self.lock = threading.Lock()
+
+    def start(self):
+        self.start_time = time.time()
+
+    def increment(self, count=1):
+        with self.lock:
+            self.records_processed += count
+
+    def get_stats(self):
+        if self.start_time is None:
+            return "Processing not started"
+        elapsed_time = time.time() - self.start_time
+        records_per_second = self.records_processed / elapsed_time if elapsed_time > 0 else 0
+        return f"Processed {self.records_processed} records in {elapsed_time:.2f} seconds ({records_per_second:.2f} records/sec)"
+
+performance_monitor = PerformanceMonitor()
+
 def log_error(po_name, line_number, product_code, error_message):
-    """Log error details for failed imports"""
-    failed_imports.append({
-        'PO Number': po_name,
-        'Line Number': line_number,
-        'Product Code': product_code,
-        'Error Message': error_message,
-        'Date Time': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    })
-    error_messages.append(f"Error in PO {po_name}, Line {line_number}: {error_message}")
+    """Log error details for failed imports with thread safety"""
+    with failed_imports_lock:
+        failed_imports.append({
+            'PO Number': po_name,
+            'Line Number': line_number,
+            'Product Code': product_code,
+            'Error Message': error_message,
+            'Date Time': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        })
+        error_messages.append(f"Error in PO {po_name}, Line {line_number}: {error_message}")
+        logger.error(f"Import error - PO: {po_name}, Line: {line_number}, Error: {error_message}")
 
 def save_error_log():
-    """Save error log to Excel file"""
+    """Save error log to Excel file with memory optimization"""
     if failed_imports:
-        # Create DataFrame from failed imports
-        df_errors = pd.DataFrame(failed_imports)
-        
-        # Generate filename with timestamp
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        log_file = f'logs/import_errors_{timestamp}.xlsx'
-        
-        # Save to Excel
-        df_errors.to_excel(log_file, index=False)
-        print(f"\nError log saved to: {log_file}")
-        
-        # Print error summary
-        print("\nError Summary:")
-        for msg in error_messages:
-            print(msg)
+        try:
+            # Create DataFrame in chunks to optimize memory
+            chunk_size = 1000
+            chunks = [failed_imports[i:i + chunk_size] for i in range(0, len(failed_imports), chunk_size)]
+            
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            log_file = f'logs/import_errors_{timestamp}.xlsx'
+            
+            # Write first chunk with header
+            pd.DataFrame(chunks[0]).to_excel(log_file, index=False)
+            
+            # Append remaining chunks
+            if len(chunks) > 1:
+                with pd.ExcelWriter(log_file, mode='a', engine='openpyxl') as writer:
+                    for chunk in chunks[1:]:
+                        pd.DataFrame(chunk).to_excel(writer, index=False, header=False)
+            
+            logger.info(f"Error log saved to: {log_file}")
+            
+            # Print error summary
+            logger.info("\nError Summary:")
+            for msg in error_messages:
+                logger.info(msg)
+                
+        except Exception as e:
+            logger.error(f"Error saving log file: {str(e)}")
+            
+        finally:
+            # Clear memory
+            gc.collect()
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069/'
@@ -52,104 +111,135 @@ username = 'apichart@mogen.co.th'
 password = '471109538'
 
 # --- Data File Settings ---
-excel_file = 'Data_file/import_OB2.xlsx'
+excel_file = 'Data_file/import_OB3.xlsx'
 
-def connect_to_odoo():
-    """Create a new connection to Odoo with timeout handling"""
-    try:
-        # Create custom transport class with timeout
+class OdooConnection:
+    def __init__(self):
+        self.url = url
+        self.db = db
+        self.username = username
+        self.password = password
+        self.uid = None
+        self.models = None
+        self._connection_lock = threading.Lock()
+        self._last_activity = time.time()
+        self.timeout = 30
+        
+    def _create_transport(self):
+        """Create custom transport class with timeout"""
         class TimeoutTransport(xmlrpc.client.Transport):
+            def __init__(self):
+                super().__init__()
+                self.timeout = 30
+
             def make_connection(self, host):
                 connection = super().make_connection(host)
-                connection.timeout = 30  # timeout in seconds
+                if hasattr(connection, '_conn'):
+                    connection._conn.timeout = self.timeout
+                else:
+                    connection.timeout = self.timeout
                 return connection
+        return TimeoutTransport()
 
-        # Create connection with custom transport
-        common = xmlrpc.client.ServerProxy(
-            f'{url}/xmlrpc/2/common',
-            transport=TimeoutTransport()
-        )
-        
-        # Test connection before authentication
+    def connect(self):
+        """Create a new connection to Odoo with timeout handling"""
         try:
+            # Create connection with custom transport
+            common = xmlrpc.client.ServerProxy(
+                f'{self.url}/xmlrpc/2/common',
+                transport=self._create_transport()
+            )
+            
+            # Test connection
             common.version()
+            
+            # Authenticate
+            self.uid = common.authenticate(self.db, self.username, self.password, {})
+            if not self.uid:
+                print("Authentication failed")
+                return False
+            
+            # Create models proxy
+            self.models = xmlrpc.client.ServerProxy(
+                f'{self.url}/xmlrpc/2/object',
+                transport=self._create_transport()
+            )
+            
+            self._last_activity = time.time()
+            print(f"Connection successful, uid = {self.uid}")
+            return True
+            
         except Exception as e:
-            print(f"Server connection test failed: {e}")
-            return None, None
+            print(f"Connection error: {str(e)}")
+            return False
+
+    def ensure_connected(self):
+        """Ensure connection is active and fresh"""
+        with self._connection_lock:
+            # Check if connection is stale (inactive for more than 5 minutes)
+            if time.time() - self._last_activity > 300:
+                print("Connection stale, reconnecting...")
+                return self.connect()
+            return True
+
+    def execute(self, model, method, *args, **kwargs):
+        """Execute Odoo method with automatic reconnection"""
+        max_retries = 3
+        retry_delay = 1
         
-        # Authenticate
-        try:
-            uid = common.authenticate(db, username, password, {})
-            if not uid:
-                print("Authentication failed: Check credentials or permissions")
-                return None, None
-        except Exception as e:
-            print(f"Authentication error: {e}")
-            return None, None
-        
-        # Create models proxy with timeout
-        models = xmlrpc.client.ServerProxy(
-            f'{url}/xmlrpc/2/object',
-            transport=TimeoutTransport()
-        )
-        
-        print("Connection successful, uid =", uid)
+        for attempt in range(max_retries):
+            try:
+                if not self.ensure_connected():
+                    raise Exception("Connection failed")
+                    
+                result = self.models.execute_kw(
+                    self.db, self.uid, self.password,
+                    model, method, args, kwargs
+                )
+                self._last_activity = time.time()
+                return result
+                
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    print(f"Attempt {attempt + 1} failed: {str(e)}")
+                    time.sleep(retry_delay * (2 ** attempt))
+                else:
+                    raise
+
+# Initialize global connection for backward compatibility
+odoo_connection = OdooConnection()
+uid, models = None, None
+
+def connect_to_odoo():
+    """Create a new connection to Odoo with timeout handling - Legacy support"""
+    global uid, models
+    if odoo_connection.connect():
+        uid = odoo_connection.uid
+        models = odoo_connection.models
         return uid, models
-        
-    except ConnectionRefusedError:
-        print("Connection refused: Server not responding")
-        return None, None
-    except xmlrpc.client.ProtocolError as e:
-        print(f"Protocol error: {e}")
-        return None, None
-    except Exception as e:
-        print(f"Unexpected connection error: {e}")
-        return None, None
+    return None, None
 
 def ensure_connection():
-    """Ensure connection is active, attempt to reconnect if needed"""
+    """Ensure connection is active - Legacy support"""
     global uid, models
-    max_retries = 5
-    initial_retry_delay = 5  # seconds
-    max_retry_delay = 60  # maximum delay in seconds
-    
-    for attempt in range(max_retries):
-        if attempt > 0:
-            # Use exponential backoff for retry delay
-            retry_delay = min(initial_retry_delay * (2 ** (attempt - 1)), max_retry_delay)
-            print(f"Attempting to reconnect... (Attempt {attempt + 1}/{max_retries}, waiting {retry_delay} seconds)")
-            time.sleep(retry_delay)
-        
-        try:
-            new_uid, new_models = connect_to_odoo()
-            if new_uid and new_models:
-                uid = new_uid
-                models = new_models
-                # Test connection with a simple command
-                try:
-                    models.execute_kw(db, uid, password, 'res.users', 'search_count', [[]])
-                    return True
-                except Exception as e:
-                    print(f"Connection test failed: {e}")
-                    continue
-        except Exception as e:
-            print(f"Connection attempt failed: {e}")
-            continue
-    
-    print("Failed to establish a stable connection after multiple attempts")
+    if odoo_connection.ensure_connected():
+        uid = odoo_connection.uid
+        models = odoo_connection.models
+        return True
     return False
 
 # Initial connection
 uid, models = connect_to_odoo()
 if not uid or not models:
-    print("Initial connection failed")
+    logger.error("Initial connection failed")
     sys.exit(1)
 
+@lru_cache(maxsize=1000)
 def search_vendor(partner_name=None, partner_code=None, partner_id=None):
     """Search for vendor in Odoo. If not found, create a new one."""
     try:
         if not partner_id or pd.isna(partner_id):
-            print("No vendor information provided")
+            logger.warning("No vendor information provided")
             return False
 
         vendor_name = str(partner_id).strip()
@@ -161,17 +251,17 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
                 [[['name', '=', vendor_name]]]
             )
         except Exception as e:
-            print(f"Error searching vendor: {e}")
+            logger.error(f"Error searching vendor: {e}")
             if not ensure_connection():
                 return False
             return False
         
         if vendor_ids:
-            print(f"Found existing vendor: {vendor_name}")
+            logger.info(f"Found existing vendor: {vendor_name}")
             return vendor_ids[0]
         
         # If vendor not found, create a new one
-        print(f"Vendor not found: {vendor_name}. Creating new vendor...")
+        logger.info(f"Vendor not found: {vendor_name}. Creating new vendor...")
         vendor_data = {
             'name': vendor_name,
             'company_type': 'company',
@@ -184,18 +274,18 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
             new_vendor_id = models.execute_kw(
                 db, uid, password, 'res.partner', 'create', [vendor_data]
             )
-            print(f"Successfully created new vendor: {vendor_name} (ID: {new_vendor_id})")
+            logger.info(f"Successfully created new vendor: {vendor_name} (ID: {new_vendor_id})")
             return new_vendor_id
         except Exception as create_error:
-            print(f"Failed to create vendor: {vendor_name}")
-            print(f"Creation error: {str(create_error)}")
+            logger.error(f"Failed to create vendor: {vendor_name}")
+            logger.error(f"Creation error: {str(create_error)}")
             if not ensure_connection():
                 return False
             return False
         
     except Exception as e:
         error_msg = str(e)
-        print(f"Error in search_vendor: {error_msg}")
+        logger.error(f"Error in search_vendor: {error_msg}")
         log_error('N/A', 'N/A', 'N/A', f"Vendor Search Error: {error_msg}")
         return False
 
