@@ -53,7 +53,6 @@ class PerformanceMonitor:
         self.last_gc_count = 0
         self.last_check_time = time.time()
         self.processing_times = []  # Track processing time per batch
-        self.memory_usage = []      # Track memory usage
         
     def start(self):
         self.start_time = time.time()
@@ -68,10 +67,6 @@ class PerformanceMonitor:
             batch_time = current_time - self.last_check_time
             self.processing_times.append(batch_time)
             
-            # Track memory usage
-            memory_used = psutil.Process().memory_info().rss / 1024 / 1024  # MB
-            self.memory_usage.append(memory_used)
-            
             # Perform memory cleanup if needed
             if self.records_processed % 1000 == 0:
                 self._cleanup_memory()
@@ -79,10 +74,9 @@ class PerformanceMonitor:
             self.last_check_time = current_time
             
     def _cleanup_memory(self):
-        # Force garbage collection if memory usage is high
-        if len(self.memory_usage) > 2 and self.memory_usage[-1] > self.memory_usage[-2] * 1.5:
-            gc.collect()
-            self.last_gc_count = gc.get_count()[0]
+        # Force garbage collection
+        gc.collect()
+        self.last_gc_count = gc.get_count()[0]
             
     def get_stats(self):
         if self.start_time is None:
@@ -98,16 +92,10 @@ class PerformanceMonitor:
             recent_times = self.processing_times[-10:]
             recent_speed = len(recent_times) / sum(recent_times)
         
-        # Memory usage stats
-        current_memory = psutil.Process().memory_info().rss / 1024 / 1024  # MB
-        peak_memory = max(self.memory_usage) if self.memory_usage else 0
-        
         stats = (
             f"Processed {self.records_processed} records in {elapsed_time:.2f} seconds\n"
             f"Overall speed: {records_per_second:.2f} records/sec\n"
-            f"Recent speed: {recent_speed:.2f} records/sec\n"
-            f"Current memory: {current_memory:.1f} MB\n"
-            f"Peak memory: {peak_memory:.1f} MB"
+            f"Recent speed: {recent_speed:.2f} records/sec"
         )
         return stats
 
@@ -140,42 +128,70 @@ def optimize_dataframe(df):
     return df
 
 def save_error_log():
-    """Save error log to Excel file with enhanced memory optimization"""
+    """Save error log to Excel file with detailed error tracking"""
     if failed_imports:
         try:
-            # Create DataFrame in optimized chunks
-            chunk_size = CHUNK_SIZE
-            chunks = [failed_imports[i:i + chunk_size] for i in range(0, len(failed_imports), chunk_size)]
-            
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             log_file = f'logs/import_errors_{timestamp}.xlsx'
             
-            # Process first chunk with optimization
-            df = optimize_dataframe(pd.DataFrame(chunks[0]))
-            df.to_excel(log_file, index=False, engine='openpyxl')
-            del df  # Free memory explicitly
+            # อ่านไฟล์ Excel ต้นฉบับ
+            try:
+                df_original = pd.read_excel(excel_file)
+                logger.info(f"Successfully read original file: {excel_file}")
+            except Exception as e:
+                logger.error(f"Could not read original file: {str(e)}")
+                df_original = None
             
-            # Process remaining chunks
-            if len(chunks) > 1:
-                with pd.ExcelWriter(log_file, mode='a', engine='openpyxl') as writer:
-                    for chunk in chunks[1:]:
-                        df = optimize_dataframe(pd.DataFrame(chunk))
-                        df.to_excel(writer, index=False, header=False)
-                        del df  # Free memory explicitly
-                        gc.collect()  # Force garbage collection
+            with pd.ExcelWriter(log_file, engine='openpyxl') as writer:
+                # Sheet 1: Failed Records Detail
+                df_failed = pd.DataFrame(failed_imports)
+                df_failed.to_excel(writer, sheet_name='Failed Records', index=False)
+                
+                # Sheet 2: Original Data of Failed Records
+                if df_original is not None:
+                    failed_rows = []
+                    for item in failed_imports:
+                        row_str = item.get('Excel Row', '')
+                        try:
+                            # แปลง 'Row X' เป็นเลข index (ลบ 1 เพราะ Excel เริ่มที่ 1)
+                            row_num = int(row_str.replace('Row ', '')) - 1
+                            failed_rows.append(row_num)
+                        except:
+                            continue
+                    
+                    if failed_rows:
+                        # ดึงข้อมูลต้นฉบับของแถวที่ error
+                        failed_data = df_original.iloc[failed_rows].copy()
+                        # เพิ่มคอลัมน์แสดงสาเหตุ error
+                        failed_data['Error Message'] = [item['Error Message'] for item in failed_imports]
+                        failed_data['Error DateTime'] = [item['Date Time'] for item in failed_imports]
+                        failed_data.to_excel(writer, sheet_name='Original Data', index=False)
+                
+                # Sheet 3: Error Summary
+                error_types = {}
+                for item in failed_imports:
+                    error_msg = item['Error Message']
+                    error_types[error_msg] = error_types.get(error_msg, 0) + 1
+                
+                error_summary = pd.DataFrame({
+                    'Error Type': list(error_types.keys()),
+                    'Count': list(error_types.values())
+                }).sort_values('Count', ascending=False)
+                
+                error_summary.to_excel(writer, sheet_name='Error Summary', index=False)
             
-            logger.info(f"Error log saved to: {log_file}")
-            
-            # Print error summary efficiently
-            logger.info("\nError Summary:")
-            for msg in error_messages[-100:]:  # Show only last 100 errors
-                logger.info(msg)
+            # แสดงสรุปข้อผิดพลาด
+            logger.info(f"\nError Summary saved to: {log_file}")
+            logger.info(f"Total failed records: {len(failed_imports)}")
+            logger.info("\nTop 5 most common errors:")
+            for _, row in error_summary.head().iterrows():
+                logger.info(f"{row['Error Type']}: {row['Count']} records")
                 
         except Exception as e:
-            logger.error(f"Error saving log file: {str(e)}")
+            logger.error(f"Error saving detailed error log: {str(e)}")
             
         finally:
-            # Aggressive memory cleanup
+            # ล้าง memory
             gc.collect()
             gc.collect()
 
@@ -260,7 +276,15 @@ class OdooConnection:
             cls._connection_stats.pop(thread_id, None)
 
     def __init__(self):
-        super().__init__()
+        self.url = url
+        self.db = db
+        self.username = username
+        self.password = password
+        self.uid = None
+        self.models = None
+        self._connection_lock = threading.Lock()
+        self._last_activity = time.time()
+        self.timeout = CONNECTION_TIMEOUT
         self._session_start = time.time()
         self._request_count = 0
         self.max_requests = 500  # Reduced from 1000 to prevent degradation
