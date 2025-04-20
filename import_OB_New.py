@@ -21,9 +21,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constants
-BATCH_SIZE = 100  # Number of records to process in each batch
-MAX_WORKERS = 4   # Number of concurrent threads
-CACHE_SIZE = 1000 # Size of LRU cache for vendor lookups
+BATCH_SIZE = 100  # Increased from 50 to 100 for better performance
+MAX_WORKERS = 8   # Increased from 4 to 8 for more parallel processing
+CACHE_SIZE = 5000 # Size of LRU cache for vendor lookups
+MAX_RETRIES = 3   # Maximum number of retry attempts
+RETRY_DELAY = 1   # Delay between retries in seconds
+CONNECTION_TIMEOUT = 60  # Increased timeout to 60 seconds
+CONNECTION_POOL_SIZE = 10  # Size of connection pool
+KEEPALIVE_INTERVAL = 30  # Seconds between connection keepalive checks
+MAX_IDLE_TIME = 300  # Maximum idle time before reconnecting (5 minutes)
 
 # Create log directory if it doesn't exist
 if not os.path.exists('logs'):
@@ -57,18 +63,20 @@ class PerformanceMonitor:
 
 performance_monitor = PerformanceMonitor()
 
-def log_error(po_name, line_number, product_code, error_message):
+def log_error(po_name, line_number, product_code, error_message, row_index=None):
     """Log error details for failed imports with thread safety"""
     with failed_imports_lock:
-        failed_imports.append({
+        error_entry = {
             'PO Number': po_name,
             'Line Number': line_number,
             'Product Code': product_code,
             'Error Message': error_message,
-            'Date Time': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        })
-        error_messages.append(f"Error in PO {po_name}, Line {line_number}: {error_message}")
-        logger.error(f"Import error - PO: {po_name}, Line: {line_number}, Error: {error_message}")
+            'Date Time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'Excel Row': f'Row {row_index}' if row_index is not None else 'N/A'
+        }
+        failed_imports.append(error_entry)
+        error_messages.append(f"Error in PO {po_name}, Line {line_number}, Row {row_index}: {error_message}")
+        logger.error(f"Import error - PO: {po_name}, Line: {line_number}, Row: {row_index}, Error: {error_message}")
 
 def save_error_log():
     """Save error log to Excel file with memory optimization"""
@@ -111,9 +119,58 @@ username = 'apichart@mogen.co.th'
 password = '471109538'
 
 # --- Data File Settings ---
-excel_file = 'Data_file/import_OB3.xlsx'
+excel_file = 'Data_file/import_OB4.xlsx'
 
 class OdooConnection:
+    _instances = {}  # Connection pool
+    _pool_lock = threading.Lock()
+    _last_keepalive = {}  # Track last keepalive for each connection
+
+    @classmethod
+    def get_instance(cls):
+        """Get or create a connection from the pool"""
+        thread_id = threading.get_ident()
+        current_time = time.time()
+        
+        with cls._pool_lock:
+            if thread_id in cls._instances:
+                instance = cls._instances[thread_id]
+                # Check if connection needs keepalive
+                if current_time - cls._last_keepalive.get(thread_id, 0) > KEEPALIVE_INTERVAL:
+                    if instance.check_connection():
+                        cls._last_keepalive[thread_id] = current_time
+                    else:
+                        # Connection is stale, create new one
+                        instance = cls._create_new_instance(thread_id)
+                return instance
+            else:
+                return cls._create_new_instance(thread_id)
+
+    @classmethod
+    def _create_new_instance(cls, thread_id):
+        """Create a new connection instance"""
+        if len(cls._instances) >= CONNECTION_POOL_SIZE:
+            # Remove oldest connection if pool is full
+            oldest_thread = min(cls._instances.items(), key=lambda x: x[1]._last_activity)[0]
+            del cls._instances[oldest_thread]
+            del cls._last_keepalive[oldest_thread]
+        
+        instance = cls()
+        cls._instances[thread_id] = instance
+        cls._last_keepalive[thread_id] = time.time()
+        return instance
+
+    def check_connection(self):
+        """Check if connection is still valid"""
+        try:
+            if not self.uid or not self.models:
+                return False
+            # Try a lightweight operation to test connection
+            self.models.execute_kw(self.db, self.uid, self.password, 'res.users', 'search_count', [[['id', '=', self.uid]]])
+            return True
+        except:
+            return False
+
     def __init__(self):
         self.url = url
         self.db = db
@@ -123,7 +180,10 @@ class OdooConnection:
         self.models = None
         self._connection_lock = threading.Lock()
         self._last_activity = time.time()
-        self.timeout = 30
+        self.timeout = CONNECTION_TIMEOUT
+        self._session_start = time.time()
+        self._request_count = 0
+        self.max_requests = 1000  # Reset connection after this many requests
         
     def _create_transport(self):
         """Create custom transport class with timeout"""
@@ -176,18 +236,38 @@ class OdooConnection:
     def ensure_connected(self):
         """Ensure connection is active and fresh"""
         with self._connection_lock:
-            # Check if connection is stale (inactive for more than 5 minutes)
-            if time.time() - self._last_activity > 300:
-                print("Connection stale, reconnecting...")
+            current_time = time.time()
+            
+            # Check if connection is too old or has been idle too long
+            if (current_time - self._session_start > 3600 or  # 1 hour session limit
+                current_time - self._last_activity > MAX_IDLE_TIME):
+                print("Connection expired, reconnecting...")
                 return self.connect()
+                
+            # Check if too many requests have been made
+            if self._request_count > self.max_requests:
+                print("Request limit reached, reconnecting...")
+                return self.connect()
+                
+            # Verify connection is still valid
+            if not self.check_connection():
+                print("Connection check failed, reconnecting...")
+                return self.connect()
+                
             return True
 
     def execute(self, model, method, *args, **kwargs):
-        """Execute Odoo method with automatic reconnection"""
-        max_retries = 3
-        retry_delay = 1
+        """Execute Odoo method with automatic reconnection and improved retry logic"""
+        self._request_count += 1
         
-        for attempt in range(max_retries):
+        # Reset connection if too many requests or too old
+        if (self._request_count > self.max_requests or 
+            time.time() - self._session_start > 3600):  # 1 hour
+            self.connect()
+            self._request_count = 0
+            self._session_start = time.time()
+
+        for attempt in range(MAX_RETRIES):
             try:
                 if not self.ensure_connected():
                     raise Exception("Connection failed")
@@ -199,16 +279,45 @@ class OdooConnection:
                 self._last_activity = time.time()
                 return result
                 
-            except Exception as e:
-                if attempt < max_retries - 1:
-                    print(f"Attempt {attempt + 1} failed: {str(e)}")
-                    time.sleep(retry_delay * (2 ** attempt))
-                else:
+            except xmlrpc.client.Fault as e:
+                logger.error(f"XMLRPC Fault: {str(e)}")
+                if attempt == MAX_RETRIES - 1:
                     raise
+                    
+            except (ConnectionError, TimeoutError) as e:
+                logger.warning(f"Connection error (attempt {attempt + 1}/{MAX_RETRIES}): {str(e)}")
+                if attempt == MAX_RETRIES - 1:
+                    raise
+                    
+            except Exception as e:
+                logger.error(f"General error (attempt {attempt + 1}/{MAX_RETRIES}): {str(e)}")
+                if attempt == MAX_RETRIES - 1:
+                    raise
+                
+                # Exponential backoff
+                wait_time = RETRY_DELAY * (2 ** attempt)
+                time.sleep(wait_time)
+                
+                # Force reconnection on next attempt
+                self.connect()
 
-# Initialize global connection for backward compatibility
-odoo_connection = OdooConnection()
-uid, models = None, None
+def safe_float_convert(value):
+    """Safely convert value to float, handling special cases"""
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        # Handle special cases
+        value = value.strip()
+        if value in ['-', '', 'N/A', 'NA', 'None', 'null']:
+            return 0.0
+        try:
+            # Remove any thousand separators and convert
+            value = value.replace(',', '')
+            return float(value)
+        except ValueError:
+            logger.warning(f"Could not convert '{value}' to float, using 0.0")
+            return 0.0
+    return 0.0
 
 def connect_to_odoo():
     """Create a new connection to Odoo with timeout handling - Legacy support"""
@@ -227,6 +336,9 @@ def ensure_connection():
         models = odoo_connection.models
         return True
     return False
+
+# Initialize global connection
+odoo_connection = OdooConnection.get_instance()
 
 # Initial connection
 uid, models = connect_to_odoo()
@@ -387,7 +499,7 @@ def convert_date(pd_timestamp):
         if isinstance(pd_timestamp, str):
             try:
                 # Try to parse string date
-                parsed_date = pd.to_datetime(pd_timestamp)
+                parsed_date = pd.to_datetime(pd_timestamp, format='%d/%m/%Y', dayfirst=True)
                 return parsed_date.strftime('%Y-%m-%d %H:%M:%S')
             except:
                 return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -519,7 +631,7 @@ def search_picking_type(picking_type_value):
         print(f"Error in search_picking_type: {error_msg}")
         return get_default_picking_type()
 
-def create_or_update_po(po_data):
+def create_or_update_po(po_data, row_index=None):
     """Create or update a purchase order in Odoo"""
     try:
         po_name = po_data['name']
@@ -529,7 +641,8 @@ def create_or_update_po(po_data):
                 [[['name', '=', po_name]]]
             )
         except Exception as e:
-            print(f"Error searching PO {po_name}: {e}")
+            error_msg = f"Error searching PO {po_name}: {e}"
+            log_error(po_name, 'N/A', 'N/A', error_msg, row_index)
             if not ensure_connection():
                 return False
             return False
@@ -633,19 +746,43 @@ def create_or_update_po(po_data):
         log_error(po_data.get('name', 'N/A'), 'N/A', 'N/A', f"PO Creation/Update Error: {error_msg}")
         return False
 
-def safe_float_conversion(value):
+def safe_float_conversion(value, row_index=None):
     """Safely convert various input formats to float"""
-    if pd.isna(value):
-        return 0.0
     try:
+        if pd.isna(value):
+            return 0.0
+            
         if isinstance(value, (int, float)):
             return float(value)
-        # Remove any currency symbols, spaces and commas
-        clean_value = str(value).strip().replace('฿', '').replace(',', '').strip()
-        if not clean_value:
-            return 0.0
-        return float(clean_value)
-    except (ValueError, TypeError):
+            
+        if isinstance(value, str):
+            # Handle special cases
+            value = value.strip()
+            if value in ['-', '', 'N/A', 'NA', 'None', 'null']:
+                return 0.0
+                
+            # Remove any currency symbols, thousand separators and spaces
+            value = value.replace('฿', '').replace(',', '').replace(' ', '')
+            
+            if not value:  # If empty after cleaning
+                return 0.0
+                
+            try:
+                return float(value)
+            except ValueError as e:
+                error_msg = f"Could not convert '{value}' to float: {str(e)}"
+                logger.warning(error_msg)
+                if row_index is not None:
+                    log_error('N/A', 'N/A', 'N/A', f"Value conversion error: {error_msg}", row_index)
+                return 0.0
+                
+        return 0.0
+        
+    except (ValueError, TypeError) as e:
+        error_msg = f"Error converting value '{value}' to float: {str(e)}"
+        logger.warning(error_msg)
+        if row_index is not None:
+            log_error('N/A', 'N/A', 'N/A', f"Value conversion error: {error_msg}", row_index)
         return 0.0
 
 def process_po_batch(batch_df, batch_num, total_batches):
@@ -672,13 +809,17 @@ def process_po_batch(batch_df, batch_num, total_batches):
             )
             
             if not vendor_id:
-                print(f"Warning: Vendor not found for PO {po_name}")
+                error_msg = f"Vendor not found for PO {po_name}"
+                log_error(po_name, 'N/A', 'N/A', error_msg, first_row.name)
+                print(f"Warning: {error_msg}")
                 continue
             
             # Get picking type
             picking_type_id = search_picking_type(first_row['picking_type_id'] if pd.notna(first_row.get('picking_type_id')) else None)
             if not picking_type_id:
-                print(f"Warning: Could not find picking type for PO {po_name}")
+                error_msg = f"Could not find picking type for PO {po_name}"
+                log_error(po_name, 'N/A', 'N/A', error_msg, first_row.name)
+                print(f"Warning: {error_msg}")
                 continue
             
             # Process all lines first to check products
@@ -694,13 +835,17 @@ def process_po_batch(batch_df, batch_num, total_batches):
                     product_ids = search_product(line['old_product_code'])
                 
                 if not product_ids:
-                    print(f"Product not found: {line.get('default_code', line['old_product_code'])}")
+                    error_msg = f"Product not found: {line.get('default_code', line['old_product_code'])}"
+                    log_error(po_name, valid_lines_count + 1, line.get('default_code', line['old_product_code']), error_msg, line.name)
+                    print(error_msg)
                     continue
                 
                 # Process quantity with improved validation
-                quantity = safe_float_conversion(line['product_qty'])
+                quantity = safe_float_conversion(line['product_qty'], line.name)
                 if quantity <= 0:
-                    print(f"Warning: Zero or negative quantity ({line['product_qty']}) for product {line['old_product_code']}")
+                    error_msg = f"Zero or negative quantity ({line['product_qty']}) for product {line['old_product_code']}"
+                    log_error(po_name, valid_lines_count + 1, line['old_product_code'], error_msg, line.name)
+                    print(f"Warning: {error_msg}")
                     continue
                 
                 valid_lines_count += 1
@@ -780,16 +925,15 @@ def main():
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
         
         # Process in batches
-        batch_size = 50  # Number of rows per batch
         total_rows = len(df)
-        total_batches = (total_rows + batch_size - 1) // batch_size
+        total_batches = (total_rows + BATCH_SIZE - 1) // BATCH_SIZE
         
-        print(f"\nProcessing {total_rows} rows in {total_batches} batches (batch size: {batch_size})")
+        print(f"\nProcessing {total_rows} rows in {total_batches} batches (batch size: {BATCH_SIZE})")
         
         # Process each batch
         for batch_num in range(total_batches):
-            start_idx = batch_num * batch_size
-            end_idx = min(start_idx + batch_size, total_rows)
+            start_idx = batch_num * BATCH_SIZE
+            end_idx = min(start_idx + BATCH_SIZE, total_rows)
             batch_df = df.iloc[start_idx:end_idx]
             
             success_count, error_count = process_po_batch(batch_df, batch_num + 1, total_batches)
