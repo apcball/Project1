@@ -21,15 +21,19 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constants
-BATCH_SIZE = 100  # Increased from 50 to 100 for better performance
-MAX_WORKERS = 8   # Increased from 4 to 8 for more parallel processing
-CACHE_SIZE = 5000 # Size of LRU cache for vendor lookups
+BATCH_SIZE = 30   # Optimized for faster processing with smaller batches
+MAX_WORKERS = 6   # Balanced number of workers
+CACHE_SIZE = 5000 # Optimized cache size
 MAX_RETRIES = 3   # Maximum number of retry attempts
 RETRY_DELAY = 1   # Delay between retries in seconds
-CONNECTION_TIMEOUT = 60  # Increased timeout to 60 seconds
-CONNECTION_POOL_SIZE = 10  # Size of connection pool
-KEEPALIVE_INTERVAL = 30  # Seconds between connection keepalive checks
-MAX_IDLE_TIME = 300  # Maximum idle time before reconnecting (5 minutes)
+CONNECTION_TIMEOUT = 30  # Reduced connection timeout for faster response
+CONNECTION_POOL_SIZE = 8  # Optimized pool size
+KEEPALIVE_INTERVAL = 20  # Reduced interval for more responsive connections
+MAX_IDLE_TIME = 180  # Reduced idle time (3 minutes)
+
+# Memory optimization settings
+CHUNK_SIZE = 1000  # Size for reading Excel chunks
+GC_THRESHOLD = 5000  # Records processed before forcing garbage collection
 
 # Create log directory if it doesn't exist
 if not os.path.exists('logs'):
@@ -46,20 +50,66 @@ class PerformanceMonitor:
         self.start_time = None
         self.records_processed = 0
         self.lock = threading.Lock()
-
+        self.last_gc_count = 0
+        self.last_check_time = time.time()
+        self.processing_times = []  # Track processing time per batch
+        self.memory_usage = []      # Track memory usage
+        
     def start(self):
         self.start_time = time.time()
-
+        self.last_check_time = time.time()
+        
     def increment(self, count=1):
         with self.lock:
+            current_time = time.time()
             self.records_processed += count
-
+            
+            # Track processing time for this batch
+            batch_time = current_time - self.last_check_time
+            self.processing_times.append(batch_time)
+            
+            # Track memory usage
+            memory_used = psutil.Process().memory_info().rss / 1024 / 1024  # MB
+            self.memory_usage.append(memory_used)
+            
+            # Perform memory cleanup if needed
+            if self.records_processed % 1000 == 0:
+                self._cleanup_memory()
+            
+            self.last_check_time = current_time
+            
+    def _cleanup_memory(self):
+        # Force garbage collection if memory usage is high
+        if len(self.memory_usage) > 2 and self.memory_usage[-1] > self.memory_usage[-2] * 1.5:
+            gc.collect()
+            self.last_gc_count = gc.get_count()[0]
+            
     def get_stats(self):
         if self.start_time is None:
             return "Processing not started"
-        elapsed_time = time.time() - self.start_time
+            
+        current_time = time.time()
+        elapsed_time = current_time - self.start_time
         records_per_second = self.records_processed / elapsed_time if elapsed_time > 0 else 0
-        return f"Processed {self.records_processed} records in {elapsed_time:.2f} seconds ({records_per_second:.2f} records/sec)"
+        
+        # Calculate performance metrics
+        recent_speed = 0
+        if len(self.processing_times) > 10:
+            recent_times = self.processing_times[-10:]
+            recent_speed = len(recent_times) / sum(recent_times)
+        
+        # Memory usage stats
+        current_memory = psutil.Process().memory_info().rss / 1024 / 1024  # MB
+        peak_memory = max(self.memory_usage) if self.memory_usage else 0
+        
+        stats = (
+            f"Processed {self.records_processed} records in {elapsed_time:.2f} seconds\n"
+            f"Overall speed: {records_per_second:.2f} records/sec\n"
+            f"Recent speed: {recent_speed:.2f} records/sec\n"
+            f"Current memory: {current_memory:.1f} MB\n"
+            f"Peak memory: {peak_memory:.1f} MB"
+        )
+        return stats
 
 performance_monitor = PerformanceMonitor()
 
@@ -78,38 +128,55 @@ def log_error(po_name, line_number, product_code, error_message, row_index=None)
         error_messages.append(f"Error in PO {po_name}, Line {line_number}, Row {row_index}: {error_message}")
         logger.error(f"Import error - PO: {po_name}, Line: {line_number}, Row: {row_index}, Error: {error_message}")
 
+def optimize_dataframe(df):
+    """Optimize DataFrame memory usage"""
+    for col in df.columns:
+        if df[col].dtype == 'object':
+            df[col] = pd.Categorical(df[col])
+        elif df[col].dtype == 'float64':
+            df[col] = pd.to_numeric(df[col], downcast='float')
+        elif df[col].dtype == 'int64':
+            df[col] = pd.to_numeric(df[col], downcast='integer')
+    return df
+
 def save_error_log():
-    """Save error log to Excel file with memory optimization"""
+    """Save error log to Excel file with enhanced memory optimization"""
     if failed_imports:
         try:
-            # Create DataFrame in chunks to optimize memory
-            chunk_size = 1000
+            # Create DataFrame in optimized chunks
+            chunk_size = CHUNK_SIZE
             chunks = [failed_imports[i:i + chunk_size] for i in range(0, len(failed_imports), chunk_size)]
             
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             log_file = f'logs/import_errors_{timestamp}.xlsx'
             
-            # Write first chunk with header
-            pd.DataFrame(chunks[0]).to_excel(log_file, index=False)
+            # Process first chunk with optimization
+            df = optimize_dataframe(pd.DataFrame(chunks[0]))
+            df.to_excel(log_file, index=False, engine='openpyxl')
+            del df  # Free memory explicitly
             
-            # Append remaining chunks
+            # Process remaining chunks
             if len(chunks) > 1:
                 with pd.ExcelWriter(log_file, mode='a', engine='openpyxl') as writer:
                     for chunk in chunks[1:]:
-                        pd.DataFrame(chunk).to_excel(writer, index=False, header=False)
+                        df = optimize_dataframe(pd.DataFrame(chunk))
+                        df.to_excel(writer, index=False, header=False)
+                        del df  # Free memory explicitly
+                        gc.collect()  # Force garbage collection
             
             logger.info(f"Error log saved to: {log_file}")
             
-            # Print error summary
+            # Print error summary efficiently
             logger.info("\nError Summary:")
-            for msg in error_messages:
+            for msg in error_messages[-100:]:  # Show only last 100 errors
                 logger.info(msg)
                 
         except Exception as e:
             logger.error(f"Error saving log file: {str(e)}")
             
         finally:
-            # Clear memory
+            # Aggressive memory cleanup
+            gc.collect()
             gc.collect()
 
 # --- Connection Settings ---
@@ -125,26 +192,79 @@ class OdooConnection:
     _instances = {}  # Connection pool
     _pool_lock = threading.Lock()
     _last_keepalive = {}  # Track last keepalive for each connection
+    _request_counts = {}  # Track request counts per connection
+    _connection_semaphore = threading.Semaphore(CONNECTION_POOL_SIZE)
+    _connection_stats = {}  # Track connection performance
 
     @classmethod
     def get_instance(cls):
-        """Get or create a connection from the pool"""
+        """Get or create a connection from the pool with enhanced monitoring"""
         thread_id = threading.get_ident()
         current_time = time.time()
         
         with cls._pool_lock:
+            # Check if we need to clean up old connections
+            cls._cleanup_old_connections()
+            
             if thread_id in cls._instances:
                 instance = cls._instances[thread_id]
-                # Check if connection needs keepalive
-                if current_time - cls._last_keepalive.get(thread_id, 0) > KEEPALIVE_INTERVAL:
-                    if instance.check_connection():
-                        cls._last_keepalive[thread_id] = current_time
-                    else:
-                        # Connection is stale, create new one
-                        instance = cls._create_new_instance(thread_id)
+                # Check connection health
+                if not cls._is_connection_healthy(instance, thread_id):
+                    instance = cls._create_new_instance(thread_id)
                 return instance
             else:
                 return cls._create_new_instance(thread_id)
+
+    @classmethod
+    def _is_connection_healthy(cls, instance, thread_id):
+        """Check if connection is healthy and performing well"""
+        current_time = time.time()
+        
+        # Check basic connection
+        if not instance.check_connection():
+            return False
+            
+        # Check if connection is too old
+        connection_age = current_time - instance._session_start
+        if connection_age > MAX_IDLE_TIME:
+            return False
+            
+        # Check request count
+        request_count = cls._request_counts.get(thread_id, 0)
+        if request_count > instance.max_requests:
+            return False
+            
+        # Check response times
+        stats = cls._connection_stats.get(thread_id, {})
+        recent_response_times = stats.get('response_times', [])
+        if recent_response_times and sum(recent_response_times[-5:]) / 5 > 2.0:  # If avg > 2 sec
+            return False
+            
+        return True
+
+    @classmethod
+    def _cleanup_old_connections(cls):
+        """Remove old or underperforming connections"""
+        current_time = time.time()
+        to_remove = []
+        
+        for thread_id, instance in cls._instances.items():
+            if (current_time - instance._session_start > MAX_IDLE_TIME or
+                cls._request_counts.get(thread_id, 0) > instance.max_requests):
+                to_remove.append(thread_id)
+                
+        for thread_id in to_remove:
+            del cls._instances[thread_id]
+            cls._request_counts.pop(thread_id, None)
+            cls._last_keepalive.pop(thread_id, None)
+            cls._connection_stats.pop(thread_id, None)
+
+    def __init__(self):
+        super().__init__()
+        self._session_start = time.time()
+        self._request_count = 0
+        self.max_requests = 500  # Reduced from 1000 to prevent degradation
+        self._response_times = []
 
     @classmethod
     def _create_new_instance(cls, thread_id):
