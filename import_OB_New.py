@@ -111,7 +111,7 @@ username = 'apichart@mogen.co.th'
 password = '471109538'
 
 # --- Data File Settings ---
-excel_file = 'Data_file/import_OB3.xlsx'
+excel_file = 'Data_file/import_OB5.xlsx'
 
 class OdooConnection:
     def __init__(self):
