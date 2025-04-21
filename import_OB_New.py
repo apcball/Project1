@@ -526,7 +526,7 @@ username = 'apichart@mogen.co.th'
 password = '471109538'
 
 # --- Data File Settings ---
-excel_file = 'Data_file/import_OB6.xlsx'
+excel_file = 'Data_file/import_OB7.xlsx'
 
 class OdooConnection:
     _instances = {}  # Connection pool
