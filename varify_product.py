@@ -259,7 +259,7 @@ class ProductVerifier:
     def verify_products(self):
         try:
             # Read the Excel file
-            input_file = 'Data_file/import_OB2.xlsx'
+            input_file = 'Data_file/import_OB4.xlsx'
             df = pd.read_excel(input_file)
             
             total_records = len(df)
