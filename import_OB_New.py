@@ -12,6 +12,18 @@ from concurrent.futures import ThreadPoolExecutor
 import threading
 from functools import lru_cache
 import gc
+import threading
+from contextlib import contextmanager
+
+# Try to import psutil, use alternative if not available
+try:
+    import psutil
+    PSUTIL_AVAILABLE = True
+except ImportError:
+    PSUTIL_AVAILABLE = False
+    import os
+    print("Warning: psutil not installed. Using basic memory monitoring.")
+    print("To install psutil, run: pip install psutil")
 
 # Configure logging
 logging.basicConfig(
@@ -44,7 +56,133 @@ failed_imports_lock = threading.Lock()
 failed_imports = []
 error_messages = []
 
-# Performance monitoring
+# Memory and Performance Monitoring
+class MemoryMonitor:
+    def __init__(self):
+        self.initial_memory = self.get_memory_usage()
+        self.memory_samples = []
+        self.sample_interval = 5  # seconds
+        self.last_sample_time = time.time()
+        self.lock = threading.Lock()
+
+    def get_memory_usage(self):
+        """Get current memory usage in MB"""
+        try:
+            if PSUTIL_AVAILABLE:
+                process = psutil.Process()
+                return process.memory_info().rss / 1024 / 1024
+            else:
+                # Alternative method using os.getpid() if psutil is not available
+                import resource
+                return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024  # Convert KB to MB
+        except Exception as e:
+            logger.warning(f"Could not get memory usage: {str(e)}")
+            return 0
+
+    def sample_memory(self):
+        """Take a memory sample if interval has passed"""
+        current_time = time.time()
+        with self.lock:
+            if current_time - self.last_sample_time >= self.sample_interval:
+                memory_used = self.get_memory_usage()
+                self.memory_samples.append({
+                    'timestamp': current_time,
+                    'memory_mb': memory_used,
+                    'delta_mb': memory_used - self.initial_memory
+                })
+                self.last_sample_time = current_time
+
+                # Log warning if memory usage is high
+                if memory_used > 1000:  # Warning at 1GB
+                    logger.warning(f"High memory usage detected: {memory_used:.2f} MB")
+
+    def get_memory_stats(self):
+        """Get memory usage statistics"""
+        if not self.memory_samples:
+            return "No memory samples collected"
+
+        current_memory = self.get_memory_usage()
+        peak_memory = max(sample['memory_mb'] for sample in self.memory_samples)
+        avg_memory = sum(sample['memory_mb'] for sample in self.memory_samples) / len(self.memory_samples)
+
+        stats = {
+            'current_mb': round(current_memory, 2),
+            'peak_mb': round(peak_memory, 2),
+            'average_mb': round(avg_memory, 2),
+            'initial_mb': round(self.initial_memory, 2),
+            'delta_mb': round(current_memory - self.initial_memory, 2)
+        }
+
+        # Trigger garbage collection if memory usage is high
+        if current_memory > 1000:  # 1GB threshold
+            gc.collect()
+            stats['after_gc_mb'] = round(self.get_memory_usage(), 2)
+
+        return stats
+
+class ProgressTracker:
+    def __init__(self, total_records):
+        self.total_records = total_records
+        self.processed_records = 0
+        self.start_time = None
+        self.last_update_time = None
+        self.update_interval = 1  # seconds
+        self.lock = threading.Lock()
+        self.error_counts = {}
+        self.stage_timings = {}
+        self.current_stage = None
+
+    def start(self):
+        self.start_time = time.time()
+        self.last_update_time = self.start_time
+
+    def update(self, count=1, stage=None):
+        with self.lock:
+            current_time = time.time()
+            self.processed_records += count
+            
+            if stage and stage != self.current_stage:
+                if self.current_stage:
+                    stage_duration = current_time - self.stage_timings[self.current_stage]['start']
+                    self.stage_timings[self.current_stage]['duration'] = stage_duration
+                self.current_stage = stage
+                self.stage_timings[stage] = {'start': current_time, 'duration': 0}
+
+            if current_time - self.last_update_time >= self.update_interval:
+                self._report_progress()
+                self.last_update_time = current_time
+
+    def add_error(self, error_type):
+        with self.lock:
+            self.error_counts[error_type] = self.error_counts.get(error_type, 0) + 1
+
+    def _report_progress(self):
+        if not self.start_time:
+            return
+
+        current_time = time.time()
+        elapsed_time = current_time - self.start_time
+        progress = (self.processed_records / self.total_records) * 100 if self.total_records > 0 else 0
+        records_per_second = self.processed_records / elapsed_time if elapsed_time > 0 else 0
+
+        # Calculate ETA
+        if records_per_second > 0:
+            remaining_records = self.total_records - self.processed_records
+            eta_seconds = remaining_records / records_per_second
+            eta = time.strftime('%H:%M:%S', time.gmtime(eta_seconds))
+        else:
+            eta = 'Unknown'
+
+        logger.info(
+            f"\nProgress Report:\n"
+            f"Stage: {self.current_stage}\n"
+            f"Progress: {progress:.1f}% ({self.processed_records}/{self.total_records})\n"
+            f"Speed: {records_per_second:.1f} records/sec\n"
+            f"Elapsed: {time.strftime('%H:%M:%S', time.gmtime(elapsed_time))}\n"
+            f"ETA: {eta}\n"
+            f"Errors: {sum(self.error_counts.values())}"
+        )
+
 class PerformanceMonitor:
     def __init__(self):
         self.start_time = None
@@ -53,6 +191,8 @@ class PerformanceMonitor:
         self.last_gc_count = 0
         self.last_check_time = time.time()
         self.processing_times = []  # Track processing time per batch
+        self.memory_monitor = MemoryMonitor()
+        self.stage_timings = {}
         
     def start(self):
         self.start_time = time.time()
@@ -101,8 +241,8 @@ class PerformanceMonitor:
 
 performance_monitor = PerformanceMonitor()
 
-def log_error(po_name, line_number, product_code, error_message, row_index=None):
-    """Log error details for failed imports with thread safety"""
+def log_error(po_name, line_number, product_code, error_message, row_index=None, row_data=None):
+    """Log error details for failed imports with thread safety and complete row data"""
     with failed_imports_lock:
         error_entry = {
             'PO Number': po_name,
@@ -112,9 +252,20 @@ def log_error(po_name, line_number, product_code, error_message, row_index=None)
             'Date Time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             'Excel Row': f'Row {row_index}' if row_index is not None else 'N/A'
         }
+        
+        # Add complete row data if available
+        if row_data is not None and isinstance(row_data, pd.Series):
+            for column, value in row_data.items():
+                error_entry[f'Original_{column}'] = value
+                
         failed_imports.append(error_entry)
         error_messages.append(f"Error in PO {po_name}, Line {line_number}, Row {row_index}: {error_message}")
-        logger.error(f"Import error - PO: {po_name}, Line: {line_number}, Row: {row_index}, Error: {error_message}")
+        
+        # Enhanced logging with row data
+        log_message = f"Import error - PO: {po_name}, Line: {line_number}, Row: {row_index}, Error: {error_message}"
+        if row_data is not None:
+            log_message += f"\nComplete Row Data: {dict(row_data)}"
+        logger.error(log_message)
 
 def optimize_dataframe(df):
     """Optimize DataFrame memory usage"""
@@ -128,72 +279,245 @@ def optimize_dataframe(df):
     return df
 
 def save_error_log():
-    """Save error log to Excel file with detailed error tracking"""
+    """Save error log to Excel file with enhanced error tracking and complete row data"""
     if failed_imports:
         try:
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             log_file = f'logs/import_errors_{timestamp}.xlsx'
             
-            # อ่านไฟล์ Excel ต้นฉบับ
-            try:
-                df_original = pd.read_excel(excel_file)
-                logger.info(f"Successfully read original file: {excel_file}")
-            except Exception as e:
-                logger.error(f"Could not read original file: {str(e)}")
-                df_original = None
-            
             with pd.ExcelWriter(log_file, engine='openpyxl') as writer:
-                # Sheet 1: Failed Records Detail
+                # Sheet 1: Detailed Failed Records with Complete Data
                 df_failed = pd.DataFrame(failed_imports)
-                df_failed.to_excel(writer, sheet_name='Failed Records', index=False)
                 
-                # Sheet 2: Original Data of Failed Records
-                if df_original is not None:
-                    failed_rows = []
-                    for item in failed_imports:
-                        row_str = item.get('Excel Row', '')
-                        try:
-                            # แปลง 'Row X' เป็นเลข index (ลบ 1 เพราะ Excel เริ่มที่ 1)
-                            row_num = int(row_str.replace('Row ', '')) - 1
-                            failed_rows.append(row_num)
-                        except:
-                            continue
-                    
-                    if failed_rows:
-                        # ดึงข้อมูลต้นฉบับของแถวที่ error
-                        failed_data = df_original.iloc[failed_rows].copy()
-                        # เพิ่มคอลัมน์แสดงสาเหตุ error
-                        failed_data['Error Message'] = [item['Error Message'] for item in failed_imports]
-                        failed_data['Error DateTime'] = [item['Date Time'] for item in failed_imports]
-                        failed_data.to_excel(writer, sheet_name='Original Data', index=False)
+                # Separate original columns and error information
+                error_info_cols = ['PO Number', 'Line Number', 'Product Code', 'Error Message', 'Date Time', 'Excel Row']
+                original_data_cols = [col for col in df_failed.columns if col.startswith('Original_')]
                 
-                # Sheet 3: Error Summary
-                error_types = {}
+                # Reorder columns to group original data together
+                ordered_cols = error_info_cols + original_data_cols
+                df_failed = df_failed[ordered_cols]
+                
+                # Rename original data columns to remove 'Original_' prefix
+                df_failed.columns = [col.replace('Original_', '') if col.startswith('Original_') else col for col in df_failed.columns]
+                
+                # Format the worksheet
+                df_failed.to_excel(writer, sheet_name='Failed Records Detail', index=False)
+                
+                # Sheet 2: Error Summary with Categories
+                error_categories = {}
+                error_details = {}
+                
                 for item in failed_imports:
                     error_msg = item['Error Message']
-                    error_types[error_msg] = error_types.get(error_msg, 0) + 1
+                    # Extract main error category (text before ':' if exists)
+                    error_category = error_msg.split(':')[0] if ':' in error_msg else error_msg
+                    
+                    # Update category counts
+                    error_categories[error_category] = error_categories.get(error_category, 0) + 1
+                    
+                    # Store detailed information
+                    if error_category not in error_details:
+                        error_details[error_category] = {
+                            'examples': [],
+                            'affected_pos': set(),
+                            'affected_products': set()
+                        }
+                    
+                    detail = error_details[error_category]
+                    if len(detail['examples']) < 3:  # Store up to 3 examples
+                        detail['examples'].append(error_msg)
+                    detail['affected_pos'].add(item['PO Number'])
+                    detail['affected_products'].add(item['Product Code'])
                 
-                error_summary = pd.DataFrame({
-                    'Error Type': list(error_types.keys()),
-                    'Count': list(error_types.values())
-                }).sort_values('Count', ascending=False)
+                # Create summary DataFrame
+                summary_data = []
+                for category, count in error_categories.items():
+                    detail = error_details[category]
+                    summary_data.append({
+                        'Error Category': category,
+                        'Count': count,
+                        'Affected POs': len(detail['affected_pos']),
+                        'Affected Products': len(detail['affected_products']),
+                        'Example Errors': '\n'.join(detail['examples'])
+                    })
                 
+                error_summary = pd.DataFrame(summary_data)
+                error_summary = error_summary.sort_values('Count', ascending=False)
                 error_summary.to_excel(writer, sheet_name='Error Summary', index=False)
+                
+                # Sheet 3: Statistical Analysis
+                stats_data = {
+                    'Metric': [
+                        'Total Failed Records',
+                        'Total Unique POs Affected',
+                        'Total Unique Products Affected',
+                        'Most Common Error Category',
+                        'Average Errors per PO',
+                        'Timestamp Range'
+                    ],
+                    'Value': [
+                        len(failed_imports),
+                        len(set(item['PO Number'] for item in failed_imports)),
+                        len(set(item['Product Code'] for item in failed_imports)),
+                        error_summary.iloc[0]['Error Category'] if not error_summary.empty else 'N/A',
+                        len(failed_imports) / len(set(item['PO Number'] for item in failed_imports)) if failed_imports else 0,
+                        f"{min(item['Date Time'] for item in failed_imports)} to {max(item['Date Time'] for item in failed_imports)}"
+                    ]
+                }
+                
+                stats_df = pd.DataFrame(stats_data)
+                stats_df.to_excel(writer, sheet_name='Statistics', index=False)
             
-            # แสดงสรุปข้อผิดพลาด
-            logger.info(f"\nError Summary saved to: {log_file}")
+            # Log summary information
+            logger.info(f"\nDetailed Error Log saved to: {log_file}")
             logger.info(f"Total failed records: {len(failed_imports)}")
-            logger.info("\nTop 5 most common errors:")
+            logger.info("\nTop 5 most common error categories:")
             for _, row in error_summary.head().iterrows():
-                logger.info(f"{row['Error Type']}: {row['Count']} records")
+                logger.info(f"{row['Error Category']}: {row['Count']} records")
                 
         except Exception as e:
             logger.error(f"Error saving detailed error log: {str(e)}")
+            logger.exception("Full error traceback:")
             
         finally:
-            # ล้าง memory
+            # Memory cleanup
             gc.collect()
-            gc.collect()
+
+# --- Import Management Classes ---
+class TransactionManager:
+    def __init__(self, odoo_connection):
+        self.connection = odoo_connection
+        self.transaction_data = []
+        self.lock = threading.Lock()
+        self.rollback_points = []
+
+    def start_transaction(self):
+        """Start a new transaction and create a rollback point"""
+        with self.lock:
+            self.rollback_points.append(len(self.transaction_data))
+
+    def add_operation(self, operation_type, data, rollback_func):
+        """Add an operation to the current transaction"""
+        with self.lock:
+            self.transaction_data.append({
+                'type': operation_type,
+                'data': data,
+                'rollback_func': rollback_func,
+                'timestamp': time.time()
+            })
+
+    def commit(self):
+        """Commit the current transaction"""
+        with self.lock:
+            if self.rollback_points:
+                self.rollback_points.pop()
+
+    def rollback(self):
+        """Rollback to the last rollback point"""
+        with self.lock:
+            if self.rollback_points:
+                rollback_point = self.rollback_points.pop()
+                operations_to_rollback = self.transaction_data[rollback_point:]
+                
+                # Rollback operations in reverse order
+                for operation in reversed(operations_to_rollback):
+                    try:
+                        operation['rollback_func'](operation['data'])
+                    except Exception as e:
+                        logger.error(f"Error during rollback: {str(e)}")
+                
+                # Remove rolled back operations
+                self.transaction_data = self.transaction_data[:rollback_point]
+
+    @contextmanager
+    def transaction(self):
+        """Context manager for transaction handling"""
+        self.start_transaction()
+        try:
+            yield self
+            self.commit()
+        except Exception as e:
+            logger.error(f"Transaction failed: {str(e)}")
+            self.rollback()
+            raise
+
+class ImportManager:
+    def __init__(self, file_path, batch_size=BATCH_SIZE):
+        self.file_path = file_path
+        self.batch_size = batch_size
+        self.odoo_connection = OdooConnection.get_instance()
+        self.transaction_manager = TransactionManager(self.odoo_connection)
+        self.memory_monitor = MemoryMonitor()
+        self.progress_tracker = None
+        
+    def _get_total_records(self):
+        """Get total number of records in Excel file"""
+        try:
+            df = pd.read_excel(self.file_path, nrows=0)
+            return len(df)
+        except Exception as e:
+            logger.error(f"Error counting records: {str(e)}")
+            return 0
+
+    def process_file(self):
+        """Process the import file with transaction management and monitoring"""
+        total_records = self._get_total_records()
+        self.progress_tracker = ProgressTracker(total_records)
+        self.progress_tracker.start()
+
+        try:
+            for chunk in pd.read_excel(self.file_path, chunksize=self.batch_size):
+                with self.transaction_manager.transaction():
+                    self._process_chunk(chunk)
+                    
+                # Monitor memory usage
+                self.memory_monitor.sample_memory()
+                memory_stats = self.memory_monitor.get_memory_stats()
+                
+                # Log memory usage if it exceeds threshold
+                if isinstance(memory_stats, dict) and memory_stats['current_mb'] > 1000:  # 1GB threshold
+                    logger.warning(f"High memory usage detected: {memory_stats['current_mb']}MB")
+                    
+        except Exception as e:
+            logger.error(f"Error processing file: {str(e)}")
+            raise
+        finally:
+            self._cleanup()
+
+    def _process_chunk(self, chunk):
+        """Process a chunk of records with error handling"""
+        self.progress_tracker.update(stage="Processing Chunk")
+        
+        for index, row in chunk.iterrows():
+            try:
+                with self.transaction_manager.transaction():
+                    # Your existing import logic here
+                    self._import_record(row)
+                    self.progress_tracker.update(1)
+            except Exception as e:
+                error_type = type(e).__name__
+                self.progress_tracker.add_error(error_type)
+                log_error(
+                    po_name=row.get('PO Number', 'Unknown'),
+                    line_number=row.get('Line Number', 'Unknown'),
+                    product_code=row.get('Product Code', 'Unknown'),
+                    error_message=str(e),
+                    row_index=index,
+                    row_data=row
+                )
+
+    def _import_record(self, row):
+        """Import a single record with rollback support"""
+        # Implementation will be added based on your specific import logic
+        pass
+
+    def _cleanup(self):
+        """Cleanup resources after import"""
+        gc.collect()
+        memory_stats = self.memory_monitor.get_memory_stats()
+        logger.info(f"Final memory usage: {memory_stats}")
+        if self.progress_tracker:
+            self.progress_tracker._report_progress()  # Final progress report
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069/'
@@ -202,7 +526,7 @@ username = 'apichart@mogen.co.th'
 password = '471109538'
 
 # --- Data File Settings ---
-excel_file = 'Data_file/import_OB4.xlsx'
+excel_file = 'Data_file/import_OB6.xlsx'
 
 class OdooConnection:
     _instances = {}  # Connection pool
@@ -211,6 +535,92 @@ class OdooConnection:
     _request_counts = {}  # Track request counts per connection
     _connection_semaphore = threading.Semaphore(CONNECTION_POOL_SIZE)
     _connection_stats = {}  # Track connection performance
+    _memory_monitor = MemoryMonitor()  # Add memory monitoring
+
+    @classmethod
+    def get_instance(cls):
+        """Get or create a connection from the pool with enhanced monitoring"""
+        thread_id = threading.get_ident()
+        current_time = time.time()
+        
+        with cls._pool_lock:
+            # Check if we need to clean up old connections
+            cls._cleanup_old_connections()
+            
+            if thread_id in cls._instances:
+                instance = cls._instances[thread_id]
+                # Check connection health
+                if not cls._is_connection_healthy(instance, thread_id):
+                    instance = cls._create_new_instance(thread_id)
+                return instance
+            else:
+                return cls._create_new_instance(thread_id)
+
+    def execute_with_retry(self, model, method, *args, **kwargs):
+        """Execute Odoo method with retry and transaction support"""
+        for attempt in range(MAX_RETRIES):
+            try:
+                start_time = time.time()
+                
+                # Monitor memory before execution
+                self._memory_monitor.sample_memory()
+                
+                result = self.models.execute_kw(
+                    self.db, self.uid, self.password,
+                    model, method, args, kwargs
+                )
+                
+                # Track execution time
+                execution_time = time.time() - start_time
+                self._track_request_performance(execution_time)
+                
+                return result
+                
+            except Exception as e:
+                if attempt == MAX_RETRIES - 1:
+                    raise
+                    
+                wait_time = RETRY_DELAY * (2 ** attempt)  # Exponential backoff
+                logger.warning(f"Retry attempt {attempt + 1} after {wait_time}s: {str(e)}")
+                time.sleep(wait_time)
+                
+                # Check memory usage after error
+                memory_stats = self._memory_monitor.get_memory_stats()
+                if isinstance(memory_stats, dict) and memory_stats['current_mb'] > 1000:
+                    logger.warning(f"High memory usage after error: {memory_stats['current_mb']}MB")
+                    gc.collect()
+
+    def _track_request_performance(self, execution_time):
+        """Track request performance metrics"""
+        thread_id = threading.get_ident()
+        with self._pool_lock:
+            stats = self._connection_stats.setdefault(thread_id, {
+                'response_times': [],
+                'error_count': 0,
+                'last_error_time': None
+            })
+            
+            stats['response_times'].append(execution_time)
+            if len(stats['response_times']) > 100:  # Keep last 100 responses
+                stats['response_times'] = stats['response_times'][-100:]
+
+    def get_performance_stats(self):
+        """Get connection performance statistics"""
+        thread_id = threading.get_ident()
+        stats = self._connection_stats.get(thread_id, {})
+        
+        if not stats or not stats.get('response_times'):
+            return "No performance data available"
+            
+        response_times = stats['response_times']
+        return {
+            'avg_response_time': sum(response_times) / len(response_times),
+            'max_response_time': max(response_times),
+            'min_response_time': min(response_times),
+            'total_requests': len(response_times),
+            'error_count': stats.get('error_count', 0),
+            'memory_usage': self._memory_monitor.get_memory_stats()
+        }
 
     @classmethod
     def get_instance(cls):
