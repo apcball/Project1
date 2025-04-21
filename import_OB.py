@@ -189,10 +189,10 @@ def connect_to_odoo():
 
 class RetryConfig:
     """Configuration for retry mechanisms"""
-    CONNECT_MAX_RETRIES = 3  # ลดจาก 5 เป็น 3
-    IMPORT_MAX_RETRIES = 2   # ลดจาก 3 เป็น 2
-    INITIAL_RETRY_DELAY = 2  # ลดจาก 5 เป็น 2 วินาที
-    MAX_RETRY_DELAY = 30    # ลดจาก 60 เป็น 30 วินาที
+    CONNECT_MAX_RETRIES = 5  # ลดจาก 5 เป็น 3
+    IMPORT_MAX_RETRIES = 3   # ลดจาก 3 เป็น 2
+    INITIAL_RETRY_DELAY = 5  # ลดจาก 5 เป็น 2 วินาที
+    MAX_RETRY_DELAY = 60    # ลดจาก 60 เป็น 30 วินาที
 
 def ensure_connection():
     """Ensure connection is active, attempt to reconnect if needed"""
@@ -732,7 +732,7 @@ def main():
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
         
         # Process in smaller batches
-        batch_size = 10  # Reduced batch size from 50 to 10
+        batch_size = 50  # Reduced batch size from 50 to 10
         total_rows = len(df)
         total_batches = (total_rows + batch_size - 1) // batch_size
         
