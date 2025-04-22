@@ -5,51 +5,135 @@ import re
 from datetime import datetime
 import csv
 import os
+import os.path
 import time
+import json
+from typing import Dict, List, Any, Tuple
 
-# Create log directory if it doesn't exist
+# Create necessary directories
 if not os.path.exists('logs'):
     os.makedirs('logs')
+if not os.path.exists('state'):
+    os.makedirs('state')
 
 # Initialize lists to store successful and failed imports
 failed_imports = []
 error_messages = []
+successful_imports = []
 
-def log_error(po_name, line_number, product_code, error_message):
-    """Log error details for failed imports"""
-    failed_imports.append({
+# State tracking
+STATE_FILE = 'state/import_state.json'
+
+def save_state(current_row: int, file_name: str) -> None:
+    """Save the current import state to a file"""
+    state = {
+        'last_processed_row': current_row,
+        'file_name': file_name,
+        'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    }
+    with open(STATE_FILE, 'w') as f:
+        json.dump(state, f)
+
+def load_state() -> Tuple[int, str]:
+    """Load the last import state"""
+    try:
+        if os.path.exists(STATE_FILE):
+            with open(STATE_FILE, 'r') as f:
+                state = json.load(f)
+                return state.get('last_processed_row', 0), state.get('file_name', '')
+        return 0, ''
+    except Exception as e:
+        print(f"Error loading state: {e}")
+        return 0, ''
+
+def clear_state() -> None:
+    """Clear the current import state"""
+    if os.path.exists(STATE_FILE):
+        os.remove(STATE_FILE)
+
+def log_error(po_name, line_number, product_code, error_message, row_index=None, row_data=None):
+    """Log error details for failed imports with full row data"""
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    error_entry = {
         'PO Number': po_name,
         'Line Number': line_number,
         'Product Code': product_code,
         'Error Message': error_message,
-        'Date Time': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    })
-    error_messages.append(f"Error in PO {po_name}, Line {line_number}: {error_message}")
+        'Date Time': timestamp,
+        'Row Index': row_index
+    }
+    
+    # Add all row data if available
+    if row_data is not None:
+        for key, value in row_data.items():
+            if key not in error_entry:
+                error_entry[key] = value
+    
+    failed_imports.append(error_entry)
+    error_messages.append(f"Error in PO {po_name}, Line {line_number}, Row {row_index}: {error_message}")
+    
+    # Save to Excel immediately
+    try:
+        current_date = datetime.now().strftime('%Y%m%d')
+        error_file = f'logs/import_errors_{current_date}.xlsx'
+        
+        # If file exists, read it and append
+        if os.path.exists(error_file):
+            existing_df = pd.read_excel(error_file)
+            updated_df = pd.concat([existing_df, pd.DataFrame([error_entry])], ignore_index=True)
+        else:
+            updated_df = pd.DataFrame([error_entry])
+        
+        # Save with all columns
+        updated_df.to_excel(error_file, index=False)
+        print(f"\nError logged to: {error_file}")
+        
+    except Exception as e:
+        print(f"Warning: Could not save error log to file: {str(e)}")
+    
+    return error_entry
 
-def save_error_log():
-    """Save error log to Excel file"""
+def log_success(po_name, line_number, product_code, row_index=None):
+    """Log successful imports"""
+    success_entry = {
+        'PO Number': po_name,
+        'Line Number': line_number,
+        'Product Code': product_code,
+        'Date Time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'Row Index': row_index
+    }
+    successful_imports.append(success_entry)
+    return success_entry
+
+def save_import_logs():
+    """Save both error and success logs to Excel files"""
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    
+    # Save error log
     if failed_imports:
-        # Create DataFrame from failed imports
         df_errors = pd.DataFrame(failed_imports)
+        error_log_file = f'logs/import_errors_{timestamp}.xlsx'
+        df_errors.to_excel(error_log_file, index=False)
+        print(f"\nError log saved to: {error_log_file}")
         
-        # Generate filename with timestamp
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        log_file = f'logs/import_errors_{timestamp}.xlsx'
-        
-        # Save to Excel
-        df_errors.to_excel(log_file, index=False)
-        print(f"\nError log saved to: {log_file}")
-        
-        # Print error summary
         print("\nError Summary:")
         for msg in error_messages:
             print(msg)
+    
+    # Save success log
+    if successful_imports:
+        df_success = pd.DataFrame(successful_imports)
+        success_log_file = f'logs/import_success_{timestamp}.xlsx'
+        df_success.to_excel(success_log_file, index=False)
+        print(f"\nSuccess log saved to: {success_log_file}")
+        print(f"Successfully imported {len(successful_imports)} records")
 
 # --- Connection Settings ---
-url = 'http://119.59.124.100:8069/'
+url = 'http://119.59.102.189:8069/'
 db = 'MOG_LIVE'
-username = 'apichart@mogen.co.th'
-password = '471109538'
+username = 'parinya@mogen.co.th'
+password = 'mogen'
 
 def connect_to_odoo():
     """Create a new connection to Odoo with timeout handling"""
@@ -103,12 +187,19 @@ def connect_to_odoo():
         print(f"Unexpected connection error: {e}")
         return None, None
 
+class RetryConfig:
+    """Configuration for retry mechanisms"""
+    CONNECT_MAX_RETRIES = 5  # ลดจาก 5 เป็น 3
+    IMPORT_MAX_RETRIES = 3   # ลดจาก 3 เป็น 2
+    INITIAL_RETRY_DELAY = 5  # ลดจาก 5 เป็น 2 วินาที
+    MAX_RETRY_DELAY = 60    # ลดจาก 60 เป็น 30 วินาที
+
 def ensure_connection():
     """Ensure connection is active, attempt to reconnect if needed"""
     global uid, models
-    max_retries = 5
-    initial_retry_delay = 5  # seconds
-    max_retry_delay = 60  # maximum delay in seconds
+    max_retries = RetryConfig.CONNECT_MAX_RETRIES
+    initial_retry_delay = RetryConfig.INITIAL_RETRY_DELAY
+    max_retry_delay = RetryConfig.MAX_RETRY_DELAY
     
     for attempt in range(max_retries):
         if attempt > 0:
@@ -196,6 +287,196 @@ def search_vendor(partner_name=None, partner_code=None, partner_id=None):
         log_error('N/A', 'N/A', 'N/A', f"Vendor Search Error: {error_msg}")
         return False
 
+def retry_operation(operation_func, *args, max_retries=None, **kwargs):
+    """Generic retry mechanism for operations"""
+    if max_retries is None:
+        max_retries = RetryConfig.IMPORT_MAX_RETRIES
+    
+    for attempt in range(max_retries):
+        try:
+            if attempt > 0:
+                retry_delay = min(RetryConfig.INITIAL_RETRY_DELAY * (2 ** (attempt - 1)), 
+                                RetryConfig.MAX_RETRY_DELAY)
+                print(f"Retrying operation... (Attempt {attempt + 1}/{max_retries}, "
+                      f"waiting {retry_delay} seconds)")
+                time.sleep(retry_delay)
+            
+            result = operation_func(*args, **kwargs)
+            if result is not False:  # Consider False as failure
+                return result
+        except Exception as e:
+            print(f"Operation failed on attempt {attempt + 1}: {str(e)}")
+            if not ensure_connection():
+                print("Failed to re-establish connection")
+                return False
+    return False
+
+def prepare_order_line(line_data):
+    """Prepare a single order line"""
+    return [(0, 0, line_data)]
+
+def create_or_update_po(po_data):
+    """Create or update purchase order with individual lines"""
+    try:
+        po_name = po_data['name']
+        order_line = po_data.get('order_line', [])
+        
+        # Search for existing PO
+        try:
+            po_ids = models.execute_kw(
+                db, uid, password, 'purchase.order', 'search',
+                [[['name', '=', po_name]]]
+            )
+        except Exception as e:
+            print(f"Error searching PO {po_name}: {e}")
+            if not ensure_connection():
+                return False
+            return False
+
+        if po_ids:
+            print(f"Updating existing PO: {po_name}")
+            po_id = po_ids[0]
+            
+            try:
+                # Get PO state
+                po_state = models.execute_kw(
+                    db, uid, password, 'purchase.order', 'read',
+                    [po_id], {'fields': ['state']}
+                )[0]['state']
+                
+                # Only modify if in draft state
+                if po_state != 'draft':
+                    print(f"Cannot modify PO {po_name} in state: {po_state}")
+                    return False
+                
+                # Add new line to existing PO
+                models.execute_kw(
+                    db, uid, password, 'purchase.order', 'write',
+                    [po_id, {
+                        'partner_id': po_data['partner_id'],
+                        'partner_ref': po_data.get('partner_ref', ''),
+                        'date_order': po_data['date_order'],
+                        'date_planned': po_data['date_planned'],
+                        'picking_type_id': po_data['picking_type_id'],
+                        'notes': po_data.get('notes', ''),
+                        'order_line': order_line
+                    }]
+                )
+                print(f"Successfully added new line to PO")
+                return True
+                
+            except Exception as e:
+                print(f"Error updating PO {po_name}: {e}")
+                if not ensure_connection():
+                    return False
+                return False
+                
+        else:
+            print(f"Creating new PO: {po_name}")
+            try:
+                # Create new PO with single line
+                po_id = models.execute_kw(
+                    db, uid, password, 'purchase.order', 'create',
+                    [po_data]
+                )
+                print(f"Successfully created new PO with line")
+                return True
+            except Exception as e:
+                print(f"Error creating PO: {e}")
+                if not ensure_connection():
+                    return False
+                return False
+                
+    except Exception as e:
+        error_msg = str(e)
+        print(f"Error creating/updating PO: {error_msg}")
+        log_error(po_data.get('name', 'N/A'), 'N/A', 'N/A', f"PO Creation/Update Error: {error_msg}")
+        return False
+
+def truncate_description(text, max_length=500):
+    """Truncate description text to specified maximum length"""
+    if not text:
+        return ""
+    if len(text) <= max_length:
+        return text
+    return text[:max_length-3] + "..."
+
+def search_picking_type(picking_type_value):
+    """Search for picking type in Odoo"""
+    def get_default_picking_type():
+        try:
+            picking_type_ids = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search',
+                [[['code', '=', 'incoming'], ['warehouse_id', '!=', False]]],
+                {'limit': 1}
+            )
+            if picking_type_ids:
+                print("Using default Purchase picking type")
+                return picking_type_ids[0]
+            return False
+        except Exception as e:
+            print(f"Error getting default picking type: {e}")
+            if not ensure_connection():
+                return False
+            return False
+
+    if not picking_type_value or pd.isna(picking_type_value):
+        return get_default_picking_type()
+
+    picking_type_value = str(picking_type_value).strip()
+    
+    try:
+        # Get all picking types and their warehouses
+        try:
+            all_picking_types = models.execute_kw(
+                db, uid, password, 'stock.picking.type', 'search_read',
+                [[['code', '=', 'incoming']]],
+                {'fields': ['name', 'warehouse_id']}
+            )
+
+            # Get warehouse details
+            warehouse_ids = list(set([pt['warehouse_id'][0] for pt in all_picking_types if pt['warehouse_id']]))
+            warehouses = models.execute_kw(
+                db, uid, password, 'stock.warehouse', 'search_read',
+                [[['id', 'in', warehouse_ids]]],
+                {'fields': ['id', 'name']}
+            )
+            warehouse_dict = {w['id']: w['name'] for w in warehouses}
+            
+            # Try exact match on picking type name
+            for pt in all_picking_types:
+                if pt['name'].lower() == picking_type_value.lower():
+                    print(f"Found picking type by exact name: {picking_type_value}")
+                    return pt['id']
+                    
+            # Try partial match on picking type name
+            for pt in all_picking_types:
+                if picking_type_value.lower() in pt['name'].lower():
+                    print(f"Found picking type by partial name: {picking_type_value}")
+                    return pt['id']
+            
+            # Try warehouse name match
+            for pt in all_picking_types:
+                if pt['warehouse_id']:
+                    warehouse_name = warehouse_dict.get(pt['warehouse_id'][0], '')
+                    if picking_type_value.lower() in warehouse_name.lower():
+                        print(f"Found picking type by warehouse name: {picking_type_value}")
+                        return pt['id']
+                    
+        except Exception as e:
+            print(f"Error searching picking types: {e}")
+            if not ensure_connection():
+                return False
+
+        # If no match found, get default picking type
+        print(f"\nCould not find picking type for value: {picking_type_value}")
+        return get_default_picking_type()
+        
+    except Exception as e:
+        error_msg = str(e)
+        print(f"Error in search_picking_type: {error_msg}")
+        return get_default_picking_type()
+
 def search_product(product_value):
     """Search for product in Odoo using multiple search strategies"""
     if not isinstance(product_value, str):
@@ -265,8 +546,8 @@ def search_product(product_value):
             if product_ids:
                 print(f"Found product with cleaned MAC code: {product_value}")
                 return product_ids
-        
-            # 7. Try searching with wildcards for partial matches
+
+            # Try searching with wildcards for partial matches
             product_ids = safe_search([
                 '|',
                 ['default_code', 'ilike', f"%{product_value}%"],
@@ -275,15 +556,13 @@ def search_product(product_value):
             if product_ids:
                 print(f"Found product with partial code match: {product_value}")
                 return product_ids
-        
+
         print(f"Product not found: {product_value}")
-        log_error('N/A', 'N/A', product_value, f"Product not found in system: {product_value}")
         return []
         
     except Exception as e:
         error_msg = str(e)
         print(f"Error searching product: {error_msg}")
-        log_error('N/A', 'N/A', product_value, f"Product Search Error: {error_msg}")
         if not ensure_connection():
             return []
         return []
@@ -293,283 +572,13 @@ def convert_date(pd_timestamp):
     if pd.notnull(pd_timestamp):
         if isinstance(pd_timestamp, str):
             try:
-                # Try to parse string date
-                parsed_date = pd.to_datetime(pd_timestamp)
+                # Try to parse string date with explicit dayfirst=True for Thai date format
+                parsed_date = pd.to_datetime(pd_timestamp, dayfirst=True)
                 return parsed_date.strftime('%Y-%m-%d %H:%M:%S')
             except:
                 return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         return pd_timestamp.strftime('%Y-%m-%d %H:%M:%S')
     return datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # Return current date if no date provided
-
-def get_tax_id(tax_value):
-    """Get tax ID from value"""
-    if not tax_value or pd.isna(tax_value):
-        return False
-
-    try:
-        all_taxes = models.execute_kw(
-            db, uid, password, 'account.tax', 'search_read',
-            [[['type_tax_use', 'in', ['purchase', 'all']], ['active', '=', True]]],
-            {'fields': ['id', 'name', 'amount', 'type_tax_use']}
-        )
-
-        if isinstance(tax_value, str):
-            tax_value = tax_value.strip()
-            if tax_value.endswith('%'):
-                tax_percentage = float(tax_value.rstrip('%'))
-            else:
-                tax_percentage = float(tax_value) * 100
-        else:
-            tax_percentage = float(tax_value) * 100
-
-        matching_taxes = [tax for tax in all_taxes if abs(tax['amount'] - tax_percentage) < 0.01]
-        if matching_taxes:
-            tax_id = matching_taxes[0]['id']
-            print(f"Found purchase tax {tax_percentage}% with ID: {tax_id}")
-            return tax_id
-
-        print(f"Tax not found: {tax_value}")
-        return False
-    except Exception as e:
-        print(f"Error getting tax ID: {e}")
-        if not ensure_connection():
-            return False
-        return False
-
-def search_picking_type(picking_type_value):
-    """Search for picking type in Odoo"""
-    def get_default_picking_type():
-        try:
-            picking_type_ids = models.execute_kw(
-                db, uid, password, 'stock.picking.type', 'search',
-                [[['code', '=', 'incoming'], ['warehouse_id', '!=', False]]],
-                {'limit': 1}
-            )
-            if picking_type_ids:
-                print("Using default Purchase picking type")
-                return picking_type_ids[0]
-            return False
-        except Exception as e:
-            print(f"Error getting default picking type: {e}")
-            if not ensure_connection():
-                return False
-            return False
-
-    if not picking_type_value or pd.isna(picking_type_value):
-        return get_default_picking_type()
-
-    picking_type_value = str(picking_type_value).strip()
-    
-    try:
-        # Get all picking types and their warehouses
-        try:
-            all_picking_types = models.execute_kw(
-                db, uid, password, 'stock.picking.type', 'search_read',
-                [[['code', '=', 'incoming']]],
-                {'fields': ['name', 'warehouse_id']}
-            )
-
-            # Get warehouse details
-            warehouse_ids = list(set([pt['warehouse_id'][0] for pt in all_picking_types if pt['warehouse_id']]))
-            warehouses = models.execute_kw(
-                db, uid, password, 'stock.warehouse', 'search_read',
-                [[['id', 'in', warehouse_ids]]],
-                {'fields': ['id', 'name']}
-            )
-            warehouse_dict = {w['id']: w['name'] for w in warehouses}
-            
-            # Try exact match on picking type name
-            for pt in all_picking_types:
-                if pt['name'].lower() == picking_type_value.lower():
-                    print(f"Found picking type by exact name: {picking_type_value}")
-                    return pt['id']
-                    
-            # Try partial match on picking type name
-            for pt in all_picking_types:
-                if picking_type_value.lower() in pt['name'].lower():
-                    print(f"Found picking type by partial name: {picking_type_value}")
-                    return pt['id']
-            
-            # Try warehouse name match
-            for pt in all_picking_types:
-                if pt['warehouse_id']:
-                    warehouse_name = warehouse_dict.get(pt['warehouse_id'][0], '')
-                    if picking_type_value.lower() in warehouse_name.lower():
-                        print(f"Found picking type by warehouse name: {picking_type_value}")
-                        return pt['id']
-                    
-        except Exception as e:
-            print(f"Error searching picking types: {e}")
-            if not ensure_connection():
-                return False
-
-        # If no match found, get all picking types and print them for debugging
-        try:
-            all_picking_types = models.execute_kw(
-                db, uid, password, 'stock.picking.type', 'search_read',
-                [[['code', '=', 'incoming']]],
-                {'fields': ['name', 'warehouse_id']}
-            )
-            print(f"\nAvailable picking types:")
-            for pt in all_picking_types:
-                print(f"- {pt['name']} (ID: {pt['id']})")
-        except Exception as e:
-            print(f"Error getting all picking types: {e}")
-            if not ensure_connection():
-                return False
-
-        print(f"\nCould not find picking type for value: {picking_type_value}")
-        return get_default_picking_type()
-        
-    except Exception as e:
-        error_msg = str(e)
-        print(f"Error in search_picking_type: {error_msg}")
-        return get_default_picking_type()
-
-def create_or_update_po(po_data):
-    """Create or update a purchase order in Odoo"""
-    try:
-        po_name = po_data['name']
-        try:
-            po_ids = models.execute_kw(
-                db, uid, password, 'purchase.order', 'search',
-                [[['name', '=', po_name]]]
-            )
-        except Exception as e:
-            print(f"Error searching PO {po_name}: {e}")
-            if not ensure_connection():
-                return False
-            return False
-
-        if po_ids:
-            print(f"Updating existing PO: {po_name}")
-            po_id = po_ids[0]
-            
-            try:
-                existing_lines = models.execute_kw(
-                    db, uid, password, 'purchase.order.line', 'search_read',
-                    [[['order_id', '=', po_id]]],
-                    {'fields': ['id', 'product_id', 'product_qty', 'price_unit', 'taxes_id']}
-                )
-            except Exception as e:
-                print(f"Error reading PO lines for {po_name}: {e}")
-                if not ensure_connection():
-                    return False
-                return False
-            
-            try:
-                models.execute_kw(
-                    db, uid, password, 'purchase.order', 'write',
-                    [po_id, {
-                        'partner_id': po_data['partner_id'],
-                        'partner_ref': po_data.get('partner_ref', ''),
-                        'date_order': po_data['date_order'],
-                        'date_planned': po_data['date_planned'],
-                        'picking_type_id': po_data['picking_type_id'],
-                        'notes': po_data.get('notes', ''),
-                    }]
-                )
-            except Exception as e:
-                print(f"Error updating PO {po_name}: {e}")
-                if not ensure_connection():
-                    return False
-                return False
-            
-            # Process existing lines more safely
-            existing_lines_dict = {
-                (line['product_id'][0] if line['product_id'] else None): line 
-                for line in existing_lines
-            }
-
-            # Track which existing lines were updated
-            updated_line_ids = set()
-
-            # Process new/updated lines
-            for line in po_data['order_line']:
-                try:
-                    product_id = line[2].get('product_id')
-                    if not product_id:
-                        print(f"Warning: Missing product ID in line data for PO {po_name}")
-                        continue
-
-                    # Check if line exists for this product
-                    existing_line = existing_lines_dict.get(product_id)
-                    
-                    if existing_line:
-                        # Update existing line
-                        line_data = line[2].copy()
-                        line_data['order_id'] = po_id
-                        
-                        # Validate quantity before update
-                        if 'product_qty' in line_data:
-                            qty = safe_float_conversion(line_data['product_qty'])
-                            if qty <= 0:
-                                print(f"Warning: Invalid quantity in update: {line_data['product_qty']}")
-                                continue
-                            line_data['product_qty'] = qty
-
-                        models.execute_kw(
-                            db, uid, password, 'purchase.order.line', 'write',
-                            [existing_line['id'], line_data]
-                        )
-                        updated_line_ids.add(existing_line['id'])
-                    else:
-                        # Create new line
-                        line_data = line[2].copy()
-                        line_data['order_id'] = po_id
-                        
-                        # Validate quantity before create
-                        if 'product_qty' in line_data:
-                            qty = safe_float_conversion(line_data['product_qty'])
-                            if qty <= 0:
-                                print(f"Warning: Invalid quantity in new line: {line_data['product_qty']}")
-                                continue
-                            line_data['product_qty'] = qty
-
-                        new_line_id = models.execute_kw(
-                            db, uid, password, 'purchase.order.line', 'create',
-                            [line_data]
-                        )
-                except Exception as e:
-                    print(f"Error processing line for PO {po_name}: {e}")
-                    if not ensure_connection():
-                        return False
-                    continue
-
-            # Remove lines that were not updated (optional - uncomment if needed)
-            # unused_lines = [line['id'] for line in existing_lines if line['id'] not in updated_line_ids]
-            # if unused_lines:
-            #     try:
-            #         models.execute_kw(
-            #             db, uid, password, 'purchase.order.line', 'unlink',
-            #             [unused_lines]
-            #         )
-            #     except Exception as e:
-            #         print(f"Error removing unused lines for PO {po_name}: {e}")
-            #         if not ensure_connection():
-            #             return False
-            
-            print(f"Successfully updated PO: {po_name}")
-            return True
-        else:
-            print(f"Creating new PO: {po_name}")
-            try:
-                po_id = models.execute_kw(
-                    db, uid, password, 'purchase.order', 'create',
-                    [po_data]
-                )
-                print(f"Successfully created PO: {po_name}")
-                return True
-            except Exception as e:
-                print(f"Error creating PO {po_name}: {e}")
-                if not ensure_connection():
-                    return False
-                return False
-    except Exception as e:
-        error_msg = str(e)
-        print(f"Error creating/updating PO: {error_msg}")
-        log_error(po_data.get('name', 'N/A'), 'N/A', 'N/A', f"PO Creation/Update Error: {error_msg}")
-        return False
 
 def safe_float_conversion(value):
     """Safely convert various input formats to float"""
@@ -586,128 +595,128 @@ def safe_float_conversion(value):
     except (ValueError, TypeError):
         return 0.0
 
+# Initialize product cache
+product_cache = {}
+
+def search_product_with_cache(product_code):
+    """Search for product with caching to avoid repeated searches"""
+    if not product_code or pd.isna(product_code):
+        return []
+        
+    # Check cache first
+    if product_code in product_cache:
+        return product_cache[product_code]
+        
+    # Search for product
+    product_ids = search_product(product_code)
+    
+    # Cache the result
+    product_cache[product_code] = product_ids
+    
+    return product_ids
+
 def process_po_batch(batch_df, batch_num, total_batches):
     """Process a batch of purchase orders"""
     print(f"\nProcessing batch {batch_num}/{total_batches} ({len(batch_df)} rows)")
     
     success_count = 0
     error_count = 0
-    MAX_LINES_PER_PO = 500  # Maximum lines per PO
     
-    # Group by PO number within the batch
-    for po_name, po_group in batch_df.groupby('name'):
+    # Process each row individually
+    for index, row in batch_df.iterrows():
         try:
-            print(f"\nProcessing PO: {po_name}")
-            
-            # Get first row for PO header data
-            first_row = po_group.iloc[0]
+            po_name = row['name']
+            print(f"\nProcessing row {index + 1} for PO: {po_name}")
             
             # Find vendor
             vendor_id = search_vendor(
                 partner_name=None,
                 partner_code=None,
-                partner_id=first_row['partner_id'] if pd.notna(first_row['partner_id']) else None
+                partner_id=row['partner_id'] if pd.notna(row['partner_id']) else None
             )
             
             if not vendor_id:
                 error_count += 1
-                log_error(po_name, 'N/A', 'N/A', "Vendor not found or could not be created")
+                log_error(po_name, str(index), 'N/A', "Vendor not found or could not be created", index, row.to_dict())
                 continue
             
             # Get picking type
-            picking_type_id = search_picking_type(first_row['picking_type_id'] if pd.notna(first_row.get('picking_type_id')) else None)
+            picking_type_id = search_picking_type(row['picking_type_id'] if pd.notna(row.get('picking_type_id')) else None)
             if not picking_type_id:
                 error_count += 1
-                log_error(po_name, 'N/A', 'N/A', "Could not find or create picking type")
+                log_error(po_name, str(index), 'N/A', "Could not find or create picking type", index, row.to_dict())
                 continue
             
-            # Process all lines first to check products
-            all_lines = []
-            all_products_found = True
+            # Try to find product using cache
+            product_ids = search_product_with_cache(row['default_code']) if pd.notna(row.get('default_code')) else []
             
-            for _, line in po_group.iterrows():
-                # Try to find product by default_code first
-                product_ids = search_product(line['default_code']) if pd.notna(line.get('default_code')) else []
-                
-                # If not found by default_code, try old_product_code
-                if not product_ids:
-                    product_ids = search_product(line['old_product_code'])
-                
-                if not product_ids:
-                    all_products_found = False
-                    error_count += 1
-                    product_code = line.get('default_code', line['old_product_code'])
-                    log_error(po_name, line.name, product_code, "Product not found - Skipping entire PO")
-                    break
-                
-                # Process quantity with improved validation
-                quantity = safe_float_conversion(line['product_qty'])
-                if quantity <= 0:
-                    print(f"Warning: Zero or negative quantity ({line['product_qty']}) for product {line['old_product_code']}")
-                    error_count += 1
-                    log_error(po_name, line.name, line['old_product_code'], f"Invalid quantity: {line['product_qty']}")
-                    continue
-                
-                # Prepare the description with note and date_planned if available
-                description = str(line['description']) if 'description' in line and pd.notna(line['description']) else line['old_product_code']
-                
-                # Add date_planned to description if available
-                date_planned = convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False
-                if date_planned:
-                    description = f"{description}\nExpected Arrival: {date_planned}"
-                
-                # Add note if available
-                if 'note' in line and pd.notna(line['note']):
-                    description = f"{description}\nNote: {line['note']}"
-
-                line_data = {
-                    'product_id': product_ids[0],
-                    'name': description,
-                    'product_qty': quantity,
-                    'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
-                    'date_planned': date_planned,
-                }
-                
-                all_lines.append((0, 0, line_data))
+            # If not found by default_code, try old_product_code
+            if not product_ids and pd.notna(row.get('old_product_code')):
+                product_ids = search_product_with_cache(row['old_product_code'])
             
-            if not all_products_found:
+            if not product_ids:
                 error_count += 1
-                print(f"Skipping PO {po_name} due to missing products")
+                product_code = row.get('default_code', row.get('old_product_code', 'N/A'))
+                log_error(po_name, str(index), product_code, "Product not found", index, row.to_dict())
                 continue
             
-            # Split into multiple POs if needed
-            po_count = (len(all_lines) + MAX_LINES_PER_PO - 1) // MAX_LINES_PER_PO
+            # Process quantity with improved validation
+            quantity = safe_float_conversion(row['product_qty'])
+            if quantity <= 0:
+                print(f"Warning: Zero or negative quantity ({row['product_qty']}) for product {row.get('old_product_code', 'N/A')}")
+                error_count += 1
+                log_error(po_name, str(index), row.get('old_product_code', 'N/A'), 
+                         f"Invalid quantity: {row['product_qty']}", index, row.to_dict())
+                continue
             
-            for po_index in range(po_count):
-                start_idx = po_index * MAX_LINES_PER_PO
-                end_idx = start_idx + MAX_LINES_PER_PO
-                current_lines = all_lines[start_idx:end_idx]
-                
-                # Create PO name with suffix if split
-                current_po_name = po_name if po_count == 1 else f"{po_name}-{po_index + 1}"
-                
-                # Prepare PO data
-                po_data = {
-                    'name': current_po_name,
-                    'partner_id': vendor_id,
-                    'partner_ref': first_row.get('partner_ref', ''),
-                    'date_order': convert_date(first_row['date_order']),
-                    'date_planned': convert_date(first_row['date_planned']),
-                    'picking_type_id': picking_type_id,
-                    'order_line': current_lines
-                }
-                
-                if create_or_update_po(po_data):
-                    success_count += 1
-                    print(f"Successfully created PO: {current_po_name} with {len(current_lines)} lines")
-                else:
-                    error_count += 1
-                    print(f"Failed to create PO: {current_po_name}")
-                
+            # Process date_planned
+            date_planned = convert_date(row['date_planned']) if pd.notna(row.get('date_planned')) else convert_date(None)
+            
+            # Prepare the description (simplified and truncated)
+            base_description = str(row['description']) if pd.notna(row.get('description')) else row.get('old_product_code', '')
+            
+            # Add essential information only
+            description_parts = [base_description]
+            if pd.notna(row.get('note')):
+                description_parts.append(f"Note: {row['note']}")
+            
+            # Join parts and truncate
+            description = "\n".join(description_parts)
+            description = truncate_description(description)
+
+            # Create line data
+            line_data = {
+                'product_id': product_ids[0],
+                'name': description,
+                'product_qty': quantity,
+                'price_unit': safe_float_conversion(row['price_unit']),
+                'date_planned': date_planned,
+            }
+            
+            # Prepare PO data for this line
+            po_data = {
+                'name': po_name,
+                'partner_id': vendor_id,
+                'partner_ref': row.get('partner_ref', ''),
+                'date_order': convert_date(row['date_order']),
+                'date_planned': convert_date(row['date_planned']),
+                'picking_type_id': picking_type_id,
+                'order_line': prepare_order_line(line_data)
+            }
+            
+            if create_or_update_po(po_data):
+                success_count += 1
+                print(f"Successfully processed line for PO: {po_name}")
+                log_success(po_name, str(index), row.get('default_code', row.get('old_product_code', 'N/A')), index)
+            else:
+                error_count += 1
+                print(f"Failed to process line for PO: {po_name}")
+            
         except Exception as e:
             error_count += 1
-            print(f"Error processing PO {po_name}: {str(e)}")
-            log_error(po_name, 'N/A', 'N/A', f"Processing Error: {str(e)}")
+            print(f"Error processing row {index + 1}: {str(e)}")
+            log_error(row.get('name', 'N/A'), str(index), 'N/A', 
+                     f"Processing Error: {str(e)}", index, row.to_dict())
     
     return success_count, error_count
 
@@ -717,13 +726,13 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_OB.xlsx'
+        excel_file = 'Data_file/import_OB6.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
         
-        # Process in batches
-        batch_size = 50  # Number of rows per batch
+        # Process in smaller batches
+        batch_size = 50  # Reduced batch size from 50 to 10
         total_rows = len(df)
         total_batches = (total_rows + batch_size - 1) // batch_size
         
@@ -741,17 +750,17 @@ def main():
             
             # Print batch summary
             print(f"\nBatch {batch_num + 1} Summary:")
-            print(f"Successful POs: {success_count}")
-            print(f"Failed POs: {error_count}")
+            print(f"Successful lines: {success_count}")
+            print(f"Failed lines: {error_count}")
             
-            # Optional: Add a small delay between batches to prevent overloading
+            # Minimal delay between batches
             if batch_num < total_batches - 1:
-                time.sleep(1)  # 1 second delay between batches
+                time.sleep(0.5)  # ลดเวลารอเหลือ 0.5 วินาที
         
         # Print final summary
         print("\nFinal Import Summary:")
-        print(f"Total Successful POs: {total_success}")
-        print(f"Total Failed POs: {total_errors}")
+        print(f"Total Successful lines: {total_success}")
+        print(f"Total Failed lines: {total_errors}")
         print(f"Total Processed: {total_success + total_errors}")
         
     except Exception as e:
@@ -759,8 +768,8 @@ def main():
         log_error('N/A', 'N/A', 'N/A', f"Main Function Error: {str(e)}")
     
     finally:
-        # Save error log if there were any errors
-        save_error_log()
+        # Save logs
+        save_import_logs()
         print("\nImport process completed.")
 
 if __name__ == "__main__":
