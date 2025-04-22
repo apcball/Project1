@@ -18,7 +18,7 @@ def connect_to_odoo():
     return uid, models
 
 def read_excel_file():
-    file_path = 'Data_file/import_invoice_AR_ARX.xlsx'
+    file_path = 'Data_file\\import_invoice_CN.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     return pd.read_excel(file_path)
@@ -83,95 +83,95 @@ def find_product_by_code(uid, models, default_code):
         return product_data[0]
     return None
 
-def find_existing_invoice(uid, models, document_number):
+def find_existing_credit_note(uid, models, document_number):
     if not document_number:
         return None
     
-    # Search for existing invoice with the same name (document number)
-    invoice_ids = models.execute_kw(db, uid, password,
+    # Search for existing credit note with the same name (document number)
+    credit_note_ids = models.execute_kw(db, uid, password,
         'account.move', 'search_read',
-        [[['name', '=', document_number], ['move_type', '=', 'out_invoice']]],
+        [[['name', '=', document_number], ['move_type', '=', 'out_refund']]],
         {'fields': ['id', 'state']})
     
-    return invoice_ids[0] if invoice_ids else None
+    return credit_note_ids[0] if credit_note_ids else None
 
-def update_or_create_invoice(uid, models, invoice_data):
+def update_or_create_credit_note(uid, models, credit_note_data):
     try:
-        # Check if invoice already exists
-        existing_invoice = find_existing_invoice(uid, models, invoice_data['document_number'])
+        # Check if credit note already exists
+        existing_credit_note = find_existing_credit_note(uid, models, credit_note_data['document_number'])
         
         # Get or create partner
-        partner_id = get_or_create_partner(uid, models, invoice_data['partner_code'], invoice_data['partner_name'])
+        partner_id = get_or_create_partner(uid, models, credit_note_data['partner_code'], credit_note_data['partner_name'])
         if not partner_id:
             print("Failed to get or create partner")
             return False
 
         # Find product by default_code
-        product = find_product_by_code(uid, models, invoice_data['default_code'])
+        product = find_product_by_code(uid, models, credit_note_data['default_code'])
         if not product:
-            print(f"Product not found with code: {invoice_data['default_code']}")
+            print(f"Product not found with code: {credit_note_data['default_code']}")
             return False
 
-        # Prepare invoice line
-        invoice_line = {
+        # Prepare credit note line
+        credit_note_line = {
             'product_id': product['id'],
             'name': product['name'],
             'quantity': 1,  # Default quantity to 1 if not specified
-            'price_unit': invoice_data['price_unit'],
+            'price_unit': credit_note_data['price_unit'],
         }
 
-        if existing_invoice:
-            print(f"Found existing invoice with number: {invoice_data['document_number']}")
+        if existing_credit_note:
+            print(f"Found existing credit note with number: {credit_note_data['document_number']}")
             
-            # Check if invoice is in draft state
-            if existing_invoice['state'] != 'draft':
-                print(f"Cannot update invoice {invoice_data['document_number']} as it is not in draft state")
+            # Check if credit note is in draft state
+            if existing_credit_note['state'] != 'draft':
+                print(f"Cannot update credit note {credit_note_data['document_number']} as it is not in draft state")
                 return False
 
-            # Update existing invoice
+            # Update existing credit note
             # First, delete existing lines
             models.execute_kw(db, uid, password,
                 'account.move.line', 'unlink',
                 [models.execute_kw(db, uid, password,
                     'account.move.line', 'search',
-                    [[['move_id', '=', existing_invoice['id']], ['product_id', '!=', False]]])])
+                    [[['move_id', '=', existing_credit_note['id']], ['product_id', '!=', False]]])])
 
-            # Update invoice fields
+            # Update credit note fields
             update_vals = {
                 'partner_id': partner_id,
-                'invoice_date': invoice_data['invoice_date'],
-                'payment_reference': invoice_data['payment_reference'],  # Add payment reference
-                'narration': invoice_data['note'],
-                'invoice_line_ids': [(0, 0, invoice_line)],
+                'invoice_date': credit_note_data['invoice_date'],
+                'payment_reference': credit_note_data['payment_reference'],
+                'narration': credit_note_data['note'],
+                'invoice_line_ids': [(0, 0, credit_note_line)],
             }
             
             models.execute_kw(db, uid, password,
                 'account.move', 'write',
-                [[existing_invoice['id']], update_vals])
+                [[existing_credit_note['id']], update_vals])
             
-            print(f"Successfully updated invoice: {existing_invoice['id']}")
-            return existing_invoice['id']
+            print(f"Successfully updated credit note: {existing_credit_note['id']}")
+            return existing_credit_note['id']
         else:
-            # Create new invoice
-            invoice_vals = {
-                'move_type': 'out_invoice',
+            # Create new credit note
+            credit_note_vals = {
+                'move_type': 'out_refund',  # This is for customer credit note
                 'partner_id': partner_id,
-                'invoice_date': invoice_data['invoice_date'],
-                'name': invoice_data['document_number'],  # Set document number as name
-                'payment_reference': invoice_data['payment_reference'],  # Add payment reference
-                'narration': invoice_data['note'],
-                'invoice_line_ids': [(0, 0, invoice_line)],
+                'invoice_date': credit_note_data['invoice_date'],
+                'name': credit_note_data['document_number'],
+                'payment_reference': credit_note_data['payment_reference'],
+                'narration': credit_note_data['note'],
+                'invoice_line_ids': [(0, 0, credit_note_line)],
             }
 
-            invoice_id = models.execute_kw(db, uid, password,
+            credit_note_id = models.execute_kw(db, uid, password,
                 'account.move', 'create',
-                [invoice_vals])
+                [credit_note_vals])
 
-            print(f"Successfully created new invoice with ID: {invoice_id}")
-            return invoice_id
+            print(f"Successfully created new credit note with ID: {credit_note_id}")
+            return credit_note_id
 
     except Exception as e:
-        print(f"Error processing invoice: {str(e)}")
+        print(f"Error processing credit note: {str(e)}")
         return False
 
 def main():
@@ -193,25 +193,27 @@ def main():
                     invoice_date = invoice_date.strftime('%Y-%m-%d')
 
                 # Clean and prepare data
-                invoice_data = {
+                credit_note_data = {
                     'invoice_date': invoice_date,
                     'partner_code': str(row['partner_code']).strip(),
                     'partner_name': str(row['partner_id']).strip(),  # Changed from partner_name to partner_id
                     'default_code': str(row['default_code']) if pd.notna(row['default_code']) else '',
-                    'price_unit': float(row['price_unit']) if pd.notna(row['price_unit']) else 0.0,
                     'document_number': str(row['name']).strip() if pd.notna(row['name']) else '',
                     'payment_reference': str(row['payment_referance']).strip() if pd.notna(row['payment_referance']) else '',
                     'note': str(row['note']).strip() if pd.notna(row['note']) else '',
+                    'price_unit': float(row['price_unit']) if pd.notna(row['price_unit']) else 0.0,
                 }
-                
-                print(f"\nProcessing invoice for partner: {invoice_data['partner_name']} (Code: {invoice_data['partner_code']})")
-                print(f"Document number: {invoice_data['document_number']}")
-                print(f"Payment Reference: {invoice_data['payment_reference']}")
-                update_or_create_invoice(uid, models, invoice_data)
+
+                # Create or update credit note
+                result = update_or_create_credit_note(uid, models, credit_note_data)
+                if result:
+                    print(f"Successfully processed row {index + 2}")
+                else:
+                    print(f"Failed to process row {index + 2}")
 
             except Exception as e:
                 print(f"Error processing row {index + 2}: {str(e)}")
-                continue
+                continue  # Continue with next row even if current row fails
 
         print("\nImport process completed")
 
