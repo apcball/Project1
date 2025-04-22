@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import xmlrpc.client
 import pandas as pd
+import sys
 from datetime import datetime
 
 # Odoo connection parameters
@@ -11,35 +12,73 @@ PASSWORD = '471109538'
 
 def connect_to_odoo():
     """Establish connection to Odoo server"""
-    common = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/common')
-    uid = common.authenticate(DB, USERNAME, PASSWORD, {})
-    models = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/object')
-    return uid, models
+    print("Connecting to Odoo...")
+    try:
+        common = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/common')
+        uid = common.authenticate(DB, USERNAME, PASSWORD, {})
+        if not uid:
+            print("Authentication failed")
+            return None, None
+        models = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/object')
+        print("Connected to Odoo successfully")
+        return uid, models
+    except Exception as e:
+        print(f"Failed to connect to Odoo: {str(e)}")
+        return None, None
 
 def read_excel_file(file_path):
     """Read the Excel file and return a cleaned pandas DataFrame"""
     try:
         # Read Excel file
+        print(f"\nReading Excel file: {file_path}")
         df = pd.read_excel(file_path)
         
-        # Print original columns and first few rows for debugging
+        # Print original columns for debugging
         print("\nOriginal Excel columns:", df.columns.tolist())
-        print("\nFirst few rows of raw data:")
-        print(df.head())
         
-        # Fill NaN values in product_id column
-        df['product_id'] = df['product_id'].fillna(method='ffill')
+        # Verify required columns exist
+        required_columns = ['Reference', 'operation', 'work_center', 'default_durations']
+        missing_columns = [col for col in required_columns if col not in df.columns]
+        if missing_columns:
+            print(f"Error: Missing required columns: {missing_columns}")
+            return None
+            
+        # Create a clean DataFrame with only required columns
+        clean_df = pd.DataFrame({
+            'product_id': df['Reference'],
+            'name': df['operation'],
+            'workcenter_id': df['work_center'],
+            'time_cycle_manual': df['default_durations']
+        })
         
-        # Remove rows where all required fields are NaN
-        df = df.dropna(subset=['product_id', 'name', 'workcenter_id'], how='all')
+        # Forward fill product_id (Reference)
+        clean_df['product_id'] = clean_df['product_id'].fillna(method='ffill')
         
-        return df
+        # Remove rows where operation or workcenter is missing
+        clean_df = clean_df.dropna(subset=['name', 'workcenter_id'])
+        
+        # Convert time_cycle_manual to float, replace NaN with 0.0
+        clean_df['time_cycle_manual'] = pd.to_numeric(clean_df['time_cycle_manual'], errors='coerce').fillna(0.0)
+        
+        # Remove any remaining rows with NaN values
+        clean_df = clean_df.dropna()
+        
+        print(f"\nProcessed {len(clean_df)} valid rows")
+        print("\nSample of processed data:")
+        print(clean_df.head())
+        
+        return clean_df
+        
     except Exception as e:
         print(f"Error reading Excel file: {str(e)}")
         return None
 
 def update_operation_bom(uid, models, data):
-    """Update operation BOM based on product_id from BOM"""
+    """Update operation BOM based on product_id"""
+    if data is None or len(data) == 0:
+        print("No valid data to process")
+        return 0, 0, 0
+        
     success_count = 0
     error_count = 0
     skipped_count = 0
@@ -47,149 +86,120 @@ def update_operation_bom(uid, models, data):
     current_product = None
     sequence_counter = 10
     
+    # Get all workcenters once
+    try:
+        all_workcenters = models.execute_kw(DB, uid, PASSWORD,
+            'mrp.workcenter', 'search_read',
+            [[]], {'fields': ['id', 'name']}
+        )
+        workcenter_dict = {wc['name']: wc['id'] for wc in all_workcenters}
+    except Exception as e:
+        print(f"Error fetching workcenters: {str(e)}")
+        return 0, 0, 0
+    
+    total_rows = len(data)
+    print(f"\nProcessing {total_rows} operations...")
+    
     for index, row in data.iterrows():
         try:
             product_code = str(row['product_id']).strip()
+            operation_name = str(row['name']).strip()
+            workcenter_name = str(row['workcenter_id']).strip()
             
-            # Skip if product_id is empty or nan
-            if not product_code or product_code.lower() == 'nan':
-                print(f"Skipping row {index + 2}: Empty or invalid product_id")
-                skipped_count += 1
-                continue
+            print(f"\nProcessing {index + 1}/{total_rows}:")
+            print(f"Product: {product_code}")
+            print(f"Operation: {operation_name}")
+            print(f"Workcenter: {workcenter_name}")
             
-            # Reset sequence counter for new product
+            # Reset sequence for new product
             if current_product != product_code:
                 current_product = product_code
                 sequence_counter = 10
             
-            # Print the row data for debugging
-            print(f"\nProcessing row {index + 2}:")
-            print(f"Product Code: {product_code}")
-            print(f"Operation Name: {row.get('name', 'MISSING')}")
-            print(f"Workcenter: {row.get('workcenter_id', 'MISSING')}")
-            
-            # Search for the product in BOM
+            # Find BOM
             bom_ids = models.execute_kw(DB, uid, PASSWORD,
                 'mrp.bom', 'search',
                 [[['code', '=', product_code]]]
             )
             
             if not bom_ids:
-                print(f"BOM not found for product code: {product_code}")
+                print(f"No BOM found for product code: {product_code}")
                 error_count += 1
                 continue
             
-            # Get the BOM data
-            bom_data = models.execute_kw(DB, uid, PASSWORD,
-                'mrp.bom', 'read',
-                [bom_ids[0]], {'fields': ['id', 'product_id']}
-            )
-            
-            if not bom_data or not bom_data[0].get('product_id'):
-                print(f"Product not found in BOM: {product_code}")
-                error_count += 1
-                continue
-            
-            bom_id = bom_data[0]['id']
-            
-            # Skip if operation name or workcenter is missing
-            if pd.isna(row.get('name')) or pd.isna(row.get('workcenter_id')):
-                print(f"Skipping row {index + 2}: Missing operation name or workcenter")
-                skipped_count += 1
-                continue
+            bom_id = bom_ids[0]
             
             # Get workcenter_id
-            workcenter_ids = models.execute_kw(DB, uid, PASSWORD,
-                'mrp.workcenter', 'search',
-                [[['name', '=', str(row['workcenter_id'])]]]
-            )
-            
-            if not workcenter_ids:
-                print(f"Workcenter not found: {row['workcenter_id']}")
+            workcenter_id = workcenter_dict.get(workcenter_name)
+            if not workcenter_id:
+                print(f"Workcenter not found: {workcenter_name}")
                 error_count += 1
                 continue
-            
-            workcenter_id = workcenter_ids[0]
-            
-            # Search for existing operation in the BOM
-            operation_ids = models.execute_kw(DB, uid, PASSWORD,
-                'mrp.routing.workcenter', 'search',
-                [[['bom_id', '=', bom_id]]]
-            )
             
             # Prepare operation values
             operation_vals = {
-                'name': str(row['name']),
+                'name': operation_name,
                 'workcenter_id': workcenter_id,
-                'time_cycle_manual': float(row['time_cycle_manual']) if pd.notna(row.get('time_cycle_manual')) else 0.0,
+                'time_cycle_manual': float(row['time_cycle_manual']),
                 'sequence': sequence_counter,
                 'bom_id': bom_id,
             }
             
-            matching_operation = None
-            if operation_ids:
-                # Find matching operation by name and workcenter
-                operations_data = models.execute_kw(DB, uid, PASSWORD,
-                    'mrp.routing.workcenter', 'read',
-                    [operation_ids], {'fields': ['id', 'name', 'workcenter_id']}
-                )
-                for op in operations_data:
-                    if op['name'] == str(row['name']) and op['workcenter_id'][0] == workcenter_id:
-                        matching_operation = op['id']
-                        break
+            # Check for existing operation
+            existing_ops = models.execute_kw(DB, uid, PASSWORD,
+                'mrp.routing.workcenter', 'search_read',
+                [[['bom_id', '=', bom_id], 
+                  ['name', '=', operation_name],
+                  ['workcenter_id', '=', workcenter_id]]],
+                {'fields': ['id']}
+            )
             
-            if matching_operation:
+            if existing_ops:
                 # Update existing operation
+                op_id = existing_ops[0]['id']
                 models.execute_kw(DB, uid, PASSWORD,
                     'mrp.routing.workcenter', 'write',
-                    [matching_operation, operation_vals]
+                    [[op_id], operation_vals]
                 )
-                print(f"Updated operation for BOM: {product_code}")
+                print("Updated existing operation")
             else:
                 # Create new operation
                 models.execute_kw(DB, uid, PASSWORD,
                     'mrp.routing.workcenter', 'create',
                     [operation_vals]
                 )
-                print(f"Created new operation for BOM: {product_code}")
+                print("Created new operation")
             
             success_count += 1
             sequence_counter += 10
             
         except Exception as e:
-            print(f"Error processing row {index + 2}: {str(e)}")
+            print(f"Error processing row: {str(e)}")
             error_count += 1
+            continue
     
     return success_count, error_count, skipped_count
 
 def main():
+    # Check command line arguments
+    if len(sys.argv) < 2:
+        print("Please provide the Excel file path")
+        return
+        
+    excel_file = sys.argv[1]
+    
     # Connect to Odoo
-    print("Connecting to Odoo...")
     uid, models = connect_to_odoo()
-    
-    if not uid:
-        print("Failed to connect to Odoo")
+    if not uid or not models:
         return
     
-    print("Connected to Odoo successfully")
-    
-    # Read Excel file
-    excel_file = "Data_file/operation_bu2_น่น_2803.xlsx"
-    print(f"Reading Excel file: {excel_file}")
+    # Read and process Excel file
     data = read_excel_file(excel_file)
-    
     if data is None:
-        print("Failed to read Excel file")
         return
     
-    if len(data) == 0:
-        print("No valid data found in Excel file after cleaning")
-        return
-    
-    print(f"Found {len(data)} valid records in Excel file")
-    
-    # Process the data
-    print("\nStarting to process operations...")
+    # Update operations
+    print("\nUpdating operations in Odoo...")
     success_count, error_count, skipped_count = update_operation_bom(uid, models, data)
     
     # Print summary
@@ -198,9 +208,6 @@ def main():
     print(f"Errors: {error_count}")
     print(f"Skipped: {skipped_count}")
     print(f"Total records processed: {success_count + error_count + skipped_count}")
-    
-    if error_count > 0 or skipped_count > 0:
-        print("\nPlease check the log messages above for details on errors and skipped records.")
 
 if __name__ == "__main__":
     main()
