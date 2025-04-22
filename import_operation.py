@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Odoo connection parameters
 HOST = 'http://mogth.work:8069'
-DB = 'MOG_Training'
+DB = 'MOG_LIVE'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
