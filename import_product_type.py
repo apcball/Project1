@@ -19,10 +19,10 @@ failed_updates_file = f'failed_updates_{current_time}.csv'
 failed_updates = []
 
 # Odoo connection parameters
-url = 'http://119.59.124.100:8069'
-db = 'odoo17'
-username = 'admin'
-password = 'admin'
+url = 'http://119.59.102.189:8069'
+db = 'MOG_LIVE'
+username = 'apichart@mogen.co.th'
+password = '471109538'
 
 # Connect to Odoo
 print("Connecting to Odoo server...")
