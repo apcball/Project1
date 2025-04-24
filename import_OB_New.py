@@ -33,7 +33,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Constants
-BATCH_SIZE = 30   # Optimized for faster processing with smaller batches
+BATCH_SIZE = 50   # Optimized for faster processing with smaller batches
 MAX_WORKERS = 6   # Balanced number of workers
 CACHE_SIZE = 5000 # Optimized cache size
 MAX_RETRIES = 3   # Maximum number of retry attempts
@@ -527,7 +527,7 @@ password = '471109538'
 
 
 # --- Data File Settings ---
-excel_file = 'Data_file/import_OB7.xlsx'
+excel_file = 'Data_file/import_OBสินค้าชำรุดแก้ไข2.xlsx'
 
 class OdooConnection:
     _instances = {}  # Connection pool
