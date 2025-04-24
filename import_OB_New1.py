@@ -593,7 +593,11 @@ username = 'parinya@mogen.co.th'
 password = 'mogen'
 
 # --- Data File Settings ---
+<<<<<<< HEAD
 excel_file = 'Data_file/import_OB7.xlsx'
+=======
+excel_file = 'Data_file/import_OBสินค้าชำรุด.xlsx'
+>>>>>>> 762faafb5c2486461d27e239ac0d0579e45a44c8
 
 class OdooConnection:
     _instances = {}  # Connection pool
