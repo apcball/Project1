@@ -589,11 +589,11 @@ class ImportManager:
 # --- Connection Settings ---
 url = 'http://mogth.work:8069/'
 db = 'MOG_LIVE'
-username = 'apichart@mogen.co.th'
-password = '471109538'
+username = 'parinya@mogen.co.th'
+password = 'mogen'
 
 # --- Data File Settings ---
-excel_file = 'Data_file/import_OB6.xlsx'
+excel_file = 'Data_file/import_OB7.xlsx'
 
 class OdooConnection:
     _instances = {}  # Connection pool
