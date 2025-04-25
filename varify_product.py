@@ -27,8 +27,8 @@ password = '471109538'
 BATCH_SIZE = 1000  # Number of records to process in each batch
 MAX_RETRIES = 3    # Maximum number of connection retry attempts
 RETRY_DELAY = 5    # Delay in seconds between retries
-CHECKPOINT_FILE = 'verification_checkpoint.json'
-TEMP_RESULTS_FILE = 'temp_not_found_products.xlsx'
+CHECKPOINT_FILE = 'Data_file/verification_checkpoint.json'
+OUTPUT_FILE = 'Data_file/not_found_products.xlsx'
 
 class OdooConnection:
     def __init__(self):
@@ -161,15 +161,9 @@ class ProductVerifier:
     def __init__(self):
         self.odoo = OdooConnection()
         self.checkpoint_data = self.load_checkpoint()
-        self.not_found_products = self.load_temp_results()
 
     def load_checkpoint(self) -> dict:
-        if os.path.exists(CHECKPOINT_FILE):
-            try:
-                with open(CHECKPOINT_FILE, 'r') as f:
-                    return json.load(f)
-            except Exception as e:
-                logging.error(f"Error loading checkpoint: {str(e)}")
+        # Reset checkpoint to start from beginning
         return {'last_processed_index': 0}
 
     def save_checkpoint(self, index: int):
@@ -188,12 +182,23 @@ class ProductVerifier:
                 logging.error(f"Error loading temporary results: {str(e)}")
         return []
 
-    def save_temp_results(self):
+    def save_not_found_product(self, product_code: str):
         try:
-            df = pd.DataFrame(self.not_found_products)
-            df.to_excel(TEMP_RESULTS_FILE, index=False)
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            
+            # Read existing file if it exists
+            if os.path.exists(OUTPUT_FILE):
+                existing_df = pd.read_excel(OUTPUT_FILE)
+                new_data = pd.DataFrame([{'old_product_code': product_code, 'timestamp': timestamp}])
+                updated_df = pd.concat([existing_df, new_data], ignore_index=True)
+            else:
+                updated_df = pd.DataFrame([{'old_product_code': product_code, 'timestamp': timestamp}])
+            
+            # Save to Excel
+            updated_df.to_excel(OUTPUT_FILE, index=False)
+            logging.info(f"Product not found and saved to file: {product_code}")
         except Exception as e:
-            logging.error(f"Error saving temporary results: {str(e)}")
+            logging.error(f"Error saving not found product {product_code}: {str(e)}")
 
     def process_batch(self, batch_df: pd.DataFrame, start_idx: int):
         consecutive_errors = 0
@@ -203,8 +208,17 @@ class ProductVerifier:
             absolute_index = start_idx + index
             
             try:
-                old_product_code = str(row['old_product_code']).strip()
-                description = str(row['description']).strip()
+                # Print column names for debugging
+                if index == 0:
+                    logging.info(f"Available columns: {', '.join(row.index)}")
+                
+                # Get the first column value regardless of its name
+                old_product_code = str(row.iloc[0]).strip()
+                if index == 0:
+                    logging.info(f"Available columns: {', '.join(row.index)}")
+                
+                # Get the first column value regardless of its name
+                old_product_code = str(row.iloc[0]).strip()
 
                 # Check for too many consecutive errors
                 if consecutive_errors >= max_consecutive_errors:
@@ -215,10 +229,7 @@ class ProductVerifier:
                 found, match_type, product_data = self.odoo.search_product(old_product_code)
                 
                 if not found:
-                    self.not_found_products.append({
-                        'old_product_code': old_product_code,
-                        'description': description
-                    })
+                    self.save_not_found_product(old_product_code)
                     logging.info(f"Product not found: {old_product_code}")
                 else:
                     logging.info(f"Product found: {old_product_code} (matched by {match_type})")
@@ -253,13 +264,29 @@ class ProductVerifier:
             # Save progress periodically
             if (index + 1) % 50 == 0:  # Increased frequency of checkpoints
                 self.save_checkpoint(absolute_index)
-                self.save_temp_results()
-                logging.info(f"Progress saved at record {absolute_index + 1}")
-
+            # Read the Excel file and ensure we get the first column
+            input_file = 'Data_file/Product_find.xlsx'
+            df = pd.read_excel(input_file)
+            
+            # Reset checkpoint file if exists
+            if os.path.exists(CHECKPOINT_FILE):
+                os.remove(CHECKPOINT_FILE)
+            
+            # Reset not_found_products file if exists
+            if os.path.exists(OUTPUT_FILE):
+                os.remove(OUTPUT_FILE)
+            
+            # If DataFrame is empty, log error and return
+            if df.empty:
+                logging.error("Input file is empty")
+                return
+                
+            # Rename first column to 'old_product_code' for consistency
+            df = df.rename(columns={df.columns[0]: 'old_product_code'})
     def verify_products(self):
         try:
             # Read the Excel file
-            input_file = 'Data_file/import_OBสินค้าชำรุด.xlsx'
+            input_file = 'Data_file/Product_find.xlsx'
             df = pd.read_excel(input_file)
             
             total_records = len(df)
@@ -279,22 +306,16 @@ class ProductVerifier:
                 
                 logging.info(f"Completed batch. Progress: {batch_end}/{total_records}")
 
-            # Save final results
-            if self.not_found_products:
-                timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-                output_file = f'not_found_products_{timestamp}.xlsx'
-                df_result = pd.DataFrame(self.not_found_products)
-                df_result.to_excel(output_file, index=False)
-                logging.info(f"Products not found have been saved to: {output_file}")
-                logging.info(f"Total products not found: {len(self.not_found_products)}")
+            # Final log message
+            if os.path.exists(OUTPUT_FILE):
+                df_result = pd.read_excel(OUTPUT_FILE)
+                logging.info(f"Total products not found: {len(df_result)}")
             else:
                 logging.info("All products were found in the system!")
 
             # Clean up temporary files
             if os.path.exists(CHECKPOINT_FILE):
                 os.remove(CHECKPOINT_FILE)
-            if os.path.exists(TEMP_RESULTS_FILE):
-                os.remove(TEMP_RESULTS_FILE)
 
         except Exception as e:
             logging.error(f"An error occurred during verification: {str(e)}")

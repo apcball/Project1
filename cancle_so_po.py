@@ -14,7 +14,7 @@ logging.basicConfig(
 )
 
 # Odoo connection settings
-url = 'http://mogth.work:8069'
+url = 'http://119.59.124.100:8069'
 db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
@@ -60,9 +60,13 @@ def cancel_sale_order(models, uid, order_number):
             logging.warning(f"Sale order {order_number} not found")
             return False
             
-        # Check if order can be cancelled
-        if order_data['state'] in ['cancel', 'done']:
-            logging.warning(f"Sale order {order_number} is already {order_data['state']}")
+        # Check order state
+        current_state = order_data['state']
+        if current_state == 'draft':
+            logging.info(f"Sale order {order_number} is already in draft state")
+            return True
+        elif current_state in ['cancel', 'done']:
+            logging.warning(f"Sale order {order_number} is already {current_state}")
             return False
             
         # Search for the sale order
@@ -80,8 +84,17 @@ def cancel_sale_order(models, uid, order_number):
         # Verify the cancellation
         updated_order = get_order_details(models, uid, order_number, 'SO')
         if updated_order and updated_order['state'] == 'cancel':
-            logging.info(f"Successfully cancelled sale order: {order_number}")
-            return True
+            # Set to draft after cancellation
+            try:
+                models.execute_kw(db, uid, password,
+                    'sale.order', 'write',
+                    [order_ids, {'state': 'draft'}]
+                )
+                logging.info(f"Successfully cancelled and set to draft sale order: {order_number}")
+                return True
+            except Exception as e:
+                logging.error(f"Error setting sale order {order_number} to draft: {str(e)}")
+                return False
         else:
             logging.error(f"Failed to cancel sale order {order_number}")
             return False
@@ -99,9 +112,13 @@ def cancel_purchase_order(models, uid, order_number):
             logging.warning(f"Purchase order {order_number} not found")
             return False
             
-        # Check if order can be cancelled
-        if order_data['state'] in ['cancel', 'done', 'purchase']:
-            logging.warning(f"Purchase order {order_number} is already {order_data['state']}")
+        # Check order state
+        current_state = order_data['state']
+        if current_state == 'draft':
+            logging.info(f"Purchase order {order_number} is already in draft state")
+            return True
+        elif current_state in ['cancel', 'done', 'purchase']:
+            logging.warning(f"Purchase order {order_number} is already {current_state}")
             return False
             
         # Search for the purchase order
@@ -119,8 +136,17 @@ def cancel_purchase_order(models, uid, order_number):
         # Verify the cancellation
         updated_order = get_order_details(models, uid, order_number, 'PO')
         if updated_order and updated_order['state'] == 'cancel':
-            logging.info(f"Successfully cancelled purchase order: {order_number}")
-            return True
+            # Set to draft after cancellation
+            try:
+                models.execute_kw(db, uid, password,
+                    'purchase.order', 'write',
+                    [order_ids, {'state': 'draft'}]
+                )
+                logging.info(f"Successfully cancelled and set to draft purchase order: {order_number}")
+                return True
+            except Exception as e:
+                logging.error(f"Error setting purchase order {order_number} to draft: {str(e)}")
+                return False
         else:
             logging.error(f"Failed to cancel purchase order {order_number}")
             return False
