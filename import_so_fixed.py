@@ -57,8 +57,8 @@ def export_error_logs():
         print(f"Failed to export logs: {e}")
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+url = 'http://mogdev.work:8069'
+db = 'MOG_Training'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -443,7 +443,7 @@ def create_sale_order(row, row_number):
 
 # --- อ่านไฟล์ Excel ---
 try:
-    excel_file = 'Data_file/import_SO.xlsx'
+    excel_file = 'Data_file/import_SO_update.xlsx'
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
     print("Excel columns:", list(df.columns))
