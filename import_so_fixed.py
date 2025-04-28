@@ -57,8 +57,8 @@ def export_error_logs():
         print(f"Failed to export logs: {e}")
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-url = 'http://mogdev.work:8069'
-db = 'MOG_Training'
+url = 'http://mogth.work:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -310,7 +310,10 @@ def get_product_data(product_code, product_name=None):
             product_data = models.execute_kw(
                 db, uid, password, 'product.product', 'read',
                 [product_ids[0]], 
-                {'fields': ['id', 'name', 'default_code', 'list_price', 'uom_id']}
+                {'fields': [
+                    'id', 'name', 'default_code', 'list_price', 'uom_id',
+                    'taxes_id', 'packaging_ids'
+                ]}
             )[0]
             return product_data
         
@@ -320,6 +323,36 @@ def get_product_data(product_code, product_name=None):
             
     except Exception as e:
         print(f"Error processing product {product_code}: {e}")
+        return None
+
+def get_packaging_data(product_id, packaging_code):
+    """ค้นหาข้อมูลหน่วยบรรจุจากรหัส"""
+    if pd.isna(packaging_code):
+        return None
+    
+    try:
+        packaging_code = str(packaging_code).strip()
+        # Search for packaging by code
+        packaging_ids = models.execute_kw(
+            db, uid, password, 'product.packaging', 'search',
+            [[
+                ['product_id', '=', product_id],
+                ['name', '=', packaging_code]
+            ]]
+        )
+        
+        if packaging_ids:
+            packaging_data = models.execute_kw(
+                db, uid, password, 'product.packaging', 'read',
+                [packaging_ids[0]], 
+                {'fields': ['id', 'name', 'qty']}
+            )[0]
+            return packaging_data
+            
+        return None
+            
+    except Exception as e:
+        print(f"Error processing packaging {packaging_code}: {e}")
         return None
 
 def get_warehouse_data(warehouse_name):
@@ -389,6 +422,30 @@ def create_sale_order(row, row_number):
             log_error(row['name'], row_number, 'Product Error', 
                      f"Product not found: {row['product_id']}", row)
             return None
+
+        # Get packaging data if specified
+        packaging_data = None
+        if not pd.isna(row.get('packaging_id')):
+            packaging_data = get_packaging_data(product_data['id'], row['packaging_id'])
+            
+        # Prepare order line
+        order_line = {
+            'product_id': product_data['id'],
+            'name': row['product_name'] if not pd.isna(row['product_name']) else product_data['name'],
+            'product_uom_qty': float(row['product_uom_qty']),
+            'price_unit': float(row['price_unit']),
+            'product_uom': product_data['uom_id'][0],
+            'sequence': int(row['sequence']) if not pd.isna(row.get('sequence')) else 10,
+            'discount': float(row['discount']) if not pd.isna(row.get('discount')) else 0.0,
+            'tax_id': [(6, 0, product_data.get('taxes_id', []))],
+        }
+        
+        # Add packaging if found
+        if packaging_data:
+            order_line.update({
+                'product_packaging_id': packaging_data['id'],
+                'product_packaging_qty': float(row['packaging_qty']) if not pd.isna(row.get('packaging_qty')) else 1.0
+            })
         
         # Get tags data
         tag_ids = get_tags(row.get('tags')) if not pd.isna(row.get('tags')) else []
@@ -405,13 +462,7 @@ def create_sale_order(row, row_number):
             'user_id': user_data['id'] if user_data else False,
             'note': row['note'] if not pd.isna(row['note']) else False,
             'tag_ids': [(6, 0, tag_ids)] if tag_ids else False,
-            'order_line': [(0, 0, {
-                'product_id': product_data['id'],
-                'name': row['product_name'] if not pd.isna(row['product_name']) else product_data['name'],
-                'product_uom_qty': float(row['product_uom_qty']),
-                'price_unit': float(row['price_unit']),
-                'product_uom': product_data['uom_id'][0]
-            })]
+            'order_line': [(0, 0, order_line)]
         }
         
         # Add team_id if found
@@ -436,13 +487,14 @@ def create_sale_order(row, row_number):
                 order_lines = models.execute_kw(
                     db, uid, password, 'sale.order.line', 'read',
                     [so_data['order_line']],
-                    {'fields': ['id', 'product_id']}
+                    {'fields': ['id', 'product_id', 'sequence']}
                 )
                 
-                # Find and remove lines with the same product
+                # Find and remove lines with the same sequence or product
                 lines_to_remove = []
                 for line in order_lines:
-                    if line['product_id'][0] == product_data['id']:
+                    if (not pd.isna(row.get('sequence')) and line['sequence'] == int(row['sequence'])) or \
+                       line['product_id'][0] == product_data['id']:
                         lines_to_remove.append((2, line['id'], 0))  # (2, id, 0) is the command to remove a line
                 
                 if lines_to_remove:
@@ -490,7 +542,7 @@ def create_sale_order(row, row_number):
 
 # --- อ่านไฟล์ Excel ---
 try:
-    excel_file = 'Data_file/import_SO1.xlsx'
+    excel_file = 'Data_file/import_SO_update.xlsx'
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
     print("Excel columns:", list(df.columns))
