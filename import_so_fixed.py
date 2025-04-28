@@ -161,6 +161,39 @@ def get_partner_data(partner_name):
         print(f"Error processing partner {partner_name}: {e}")
         return None
 
+def get_tags(tag_names):
+    """Get or create tags from comma-separated string"""
+    if pd.isna(tag_names):
+        return []
+        
+    tag_ids = []
+    try:
+        # Split tag names and remove whitespace
+        tags = [tag.strip() for tag in str(tag_names).split(',') if tag.strip()]
+        
+        for tag_name in tags:
+            # Search for existing tag
+            tag_ids_found = models.execute_kw(
+                db, uid, password, 'crm.tag', 'search',
+                [[['name', '=', tag_name]]]
+            )
+            
+            if tag_ids_found:
+                tag_ids.append(tag_ids_found[0])
+            else:
+                # Create new tag if not found
+                tag_id = models.execute_kw(
+                    db, uid, password, 'crm.tag', 'create',
+                    [{'name': tag_name}]
+                )
+                if tag_id:
+                    tag_ids.append(tag_id)
+    
+    except Exception as e:
+        print(f"Error processing tags {tag_names}: {e}")
+    
+    return tag_ids
+
 def get_shipping_address(address_name, parent_id):
     """ค้นหาหรือสร้าง Shipping Address"""
     if pd.isna(address_name):
@@ -357,6 +390,9 @@ def create_sale_order(row, row_number):
                      f"Product not found: {row['product_id']}", row)
             return None
         
+        # Get tags data
+        tag_ids = get_tags(row.get('tags')) if not pd.isna(row.get('tags')) else []
+        
         # Prepare SO values
         so_vals = {
             'name': row['name'],
@@ -368,6 +404,7 @@ def create_sale_order(row, row_number):
             'warehouse_id': warehouse_data['id'],
             'user_id': user_data['id'] if user_data else False,
             'note': row['note'] if not pd.isna(row['note']) else False,
+            'tag_ids': [(6, 0, tag_ids)] if tag_ids else False,
             'order_line': [(0, 0, {
                 'product_id': product_data['id'],
                 'name': row['product_name'] if not pd.isna(row['product_name']) else product_data['name'],
@@ -415,11 +452,13 @@ def create_sale_order(row, row_number):
                         [existing_so[0], {'order_line': lines_to_remove}]
                     )
             
-            # Add new line
-            print(f"Updated product {row['product_id']} in order {row['name']}")
-            return models.execute_kw(
-                db, uid, password, 'sale.order', 'write',
-                [existing_so[0], {
+                # Add new line and update tags
+                print(f"Updated product {row['product_id']} in order {row['name']}")
+                
+                # Get tags data
+                tag_ids = get_tags(row.get('tags')) if not pd.isna(row.get('tags')) else []
+                
+                update_vals = {
                     'order_line': [(0, 0, {
                         'product_id': product_data['id'],
                         'name': row['product_name'] if not pd.isna(row['product_name']) else product_data['name'],
@@ -427,8 +466,16 @@ def create_sale_order(row, row_number):
                         'price_unit': float(row['price_unit']),
                         'product_uom': product_data['uom_id'][0]
                     })]
-                }]
-            )
+                }
+                
+                # Add tags if present
+                if tag_ids:
+                    update_vals['tag_ids'] = [(6, 0, tag_ids)]
+                
+                return models.execute_kw(
+                    db, uid, password, 'sale.order', 'write',
+                    [existing_so[0], update_vals]
+                )
         else:
             # Create new SO
             return models.execute_kw(
@@ -443,7 +490,7 @@ def create_sale_order(row, row_number):
 
 # --- อ่านไฟล์ Excel ---
 try:
-    excel_file = 'Data_file/import_SO_update.xlsx'
+    excel_file = 'Data_file/import_SO1.xlsx'
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
     print("Excel columns:", list(df.columns))
