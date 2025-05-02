@@ -58,7 +58,7 @@ def export_error_logs():
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 url = 'http://mogdev.work:8069'
-db = 'MOG_Test'
+db = 'MOG_Training'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -101,21 +101,27 @@ except Exception as e:
 
 def format_date(date_str):
     """แปลงรูปแบบวันที่ให้ตรงกับ Odoo format"""
-    if pd.isna(date_str):
-        return False
     try:
-        if isinstance(date_str, datetime):
-            return date_str.strftime('%Y-%m-%d')
+        if pd.isna(date_str):
+            return False
+        
+        if isinstance(date_str, (datetime, pd.Timestamp)):
+            return date_str.strftime('%Y-%m-%d %H:%M:%S')
+            
         elif isinstance(date_str, str):
             try:
-                return datetime.strptime(date_str, '%Y-%m-%d').strftime('%Y-%m-%d')
-            except ValueError:
+                # Convert string to datetime
+                parsed_date = pd.to_datetime(date_str)
+                return parsed_date.strftime('%Y-%m-%d %H:%M:%S')
+            except:
+                print(f"Warning: Could not parse date string: {date_str}")
                 return False
+            
         return False
-    except Exception:
+        
+    except Exception as e:
+        print(f"Error formatting date {date_str}: {str(e)}")
         return False
-
-
 
 def get_partner_data(partner_name):
     """ค้นหาข้อมูลลูกค้าจากชื่อ"""
@@ -381,8 +387,6 @@ def get_warehouse_data(warehouse_name):
         print(f"Error processing warehouse {warehouse_name}: {e}")
         return None
 
-
-
 def create_sale_order(row, row_number):
     """สร้าง Sale Order จากข้อมูลในแถว Excel"""
     try:
@@ -436,7 +440,7 @@ def create_sale_order(row, row_number):
             'price_unit': float(row['price_unit']),
             'product_uom': product_data['uom_id'][0],
             'sequence': int(row['sequence']) if not pd.isna(row.get('sequence')) else 10,
-            'discount': float(row['discount']) if not pd.isna(row.get('discount')) else 0.0,
+            'discount': float(row['discount']) * 100 if not pd.isna(row.get('discount')) else 0.0,  # Convert decimal to percentage
             'tax_id': [(6, 0, product_data.get('taxes_id', []))],
         }
         
@@ -516,7 +520,9 @@ def create_sale_order(row, row_number):
                         'name': row['product_name'] if not pd.isna(row['product_name']) else product_data['name'],
                         'product_uom_qty': float(row['product_uom_qty']),
                         'price_unit': float(row['price_unit']),
-                        'product_uom': product_data['uom_id'][0]
+                        'product_uom': product_data['uom_id'][0],
+                        'discount': float(row['discount']) * 100 if not pd.isna(row.get('discount')) else 0.0,  # Convert decimal to percentage
+                        'sequence': int(row['sequence']) if not pd.isna(row.get('sequence')) else 10,
                     })]
                 }
                 
@@ -543,7 +549,24 @@ def create_sale_order(row, row_number):
 # --- อ่านไฟล์ Excel ---
 try:
     excel_file = 'Data_file/import_SO_Test.xlsx'
+    
+    # Read Excel file without date parsing first
     df = pd.read_excel(excel_file)
+    
+    # Convert date columns manually with specific format
+    if 'date_order' in df.columns:
+        # Convert to datetime assuming DD/MM/YYYY format
+        df['date_order'] = pd.to_datetime(df['date_order'], format='%d/%m/%Y')
+        # Convert to Odoo format
+        df['date_order'] = df['date_order'].dt.strftime('%Y-%m-%d %H:%M:%S')
+        print("Date order values:", df['date_order'].tolist())  # Debug print
+    
+    if 'commitment_date' in df.columns and not df['commitment_date'].isna().all():
+        # Convert to datetime assuming DD/MM/YYYY format
+        df['commitment_date'] = pd.to_datetime(df['commitment_date'], format='%d/%m/%Y')
+        # Convert to Odoo format
+        df['commitment_date'] = df['commitment_date'].dt.strftime('%Y-%m-%d %H:%M:%S')
+    
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
     print("Excel columns:", list(df.columns))
 except FileNotFoundError:
@@ -562,13 +585,14 @@ errors = 0
 print("\nStarting import process...")
 for index, row in df.iterrows():
     processed += 1
-    if processed % 100 == 0:  # Show progress every 100 rows
+    if processed % 10 == 0:  # Show progress every 10 rows
         print(f"Progress: {processed}/{total_rows} rows ({(processed/total_rows*100):.1f}%)")
     
     try:
         result = create_sale_order(row, index + 2)  # +2 because Excel rows start at 1 and header is row 1
         if result is not None:
             success += 1
+            print(f"Successfully processed SO {row['name']}")
         else:
             errors += 1
     except Exception as e:
