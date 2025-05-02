@@ -57,8 +57,8 @@ def export_error_logs():
         print(f"Failed to export logs: {e}")
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-url = 'http://mogdev.work:8069'
-db = 'MOG_Training'
+url = 'http://mogth.work:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -98,6 +98,35 @@ try:
 except Exception as e:
     print("Error creating XML-RPC models proxy:", e)
     sys.exit(1)
+
+def validate_number(value):
+    """Validate and convert numbers to prevent XML-RPC limits"""
+    try:
+        if pd.isna(value):
+            return 0
+        
+        # Convert to float first to handle both int and float
+        num = float(value)
+        
+        # Check if number exceeds 32-bit integer limits
+        if num > 2147483647 or num < -2147483648:
+            # For large numbers, return a safe maximum value
+            if num > 0:
+                return 2147483647
+            return -2147483648
+        
+        return num
+    except:
+        return 0
+
+def truncate_string(text, max_length=500):
+    """Truncate long strings to prevent XML-RPC size issues"""
+    if pd.isna(text):
+        return ''
+    text = str(text)
+    if len(text) > max_length:
+        return text[:max_length]
+    return text
 
 def format_date(date_str):
     """แปลงรูปแบบวันที่ให้ตรงกับ Odoo format"""
@@ -432,15 +461,15 @@ def create_sale_order(row, row_number):
         if not pd.isna(row.get('packaging_id')):
             packaging_data = get_packaging_data(product_data['id'], row['packaging_id'])
             
-        # Prepare order line
+        # Prepare order line with validated numbers and truncated strings
         order_line = {
             'product_id': product_data['id'],
-            'name': row['product_name'] if not pd.isna(row['product_name']) else product_data['name'],
-            'product_uom_qty': float(row['product_uom_qty']),
-            'price_unit': float(row['price_unit']),
+            'name': truncate_string(row['product_name'] if not pd.isna(row['product_name']) else product_data['name']),
+            'product_uom_qty': validate_number(row['product_uom_qty']),
+            'price_unit': validate_number(row['price_unit']),
             'product_uom': product_data['uom_id'][0],
-            'sequence': int(row['sequence']) if not pd.isna(row.get('sequence')) else 10,
-            'discount': float(row['discount']) * 100 if not pd.isna(row.get('discount')) else 0.0,  # Convert decimal to percentage
+            'sequence': validate_number(row.get('sequence', 10)),
+            'discount': validate_number(row.get('discount', 0.0)) * 100,  # Convert decimal to percentage
             'tax_id': [(6, 0, product_data.get('taxes_id', []))],
         }
         
@@ -454,17 +483,17 @@ def create_sale_order(row, row_number):
         # Get tags data
         tag_ids = get_tags(row.get('tags')) if not pd.isna(row.get('tags')) else []
         
-        # Prepare SO values
+        # Prepare SO values with truncated strings
         so_vals = {
-            'name': row['name'],
+            'name': truncate_string(row['name']),
             'date_order': format_date(row['date_order']),
             'commitment_date': format_date(row['commitment_date']) if not pd.isna(row.get('commitment_date')) else False,
-            'client_order_ref': row['client_order_ref'] if not pd.isna(row.get('client_order_ref')) else False,
+            'client_order_ref': truncate_string(row['client_order_ref']) if not pd.isna(row.get('client_order_ref')) else False,
             'partner_id': partner_data['id'],
             'partner_shipping_id': shipping_data['id'],
             'warehouse_id': warehouse_data['id'],
             'user_id': user_data['id'] if user_data else False,
-            'note': row['note'] if not pd.isna(row['note']) else False,
+            'note': truncate_string(row['note'], 1000) if not pd.isna(row['note']) else False,
             'tag_ids': [(6, 0, tag_ids)] if tag_ids else False,
             'order_line': [(0, 0, order_line)]
         }
@@ -517,12 +546,12 @@ def create_sale_order(row, row_number):
                 update_vals = {
                     'order_line': [(0, 0, {
                         'product_id': product_data['id'],
-                        'name': row['product_name'] if not pd.isna(row['product_name']) else product_data['name'],
-                        'product_uom_qty': float(row['product_uom_qty']),
-                        'price_unit': float(row['price_unit']),
+                        'name': truncate_string(row['product_name'] if not pd.isna(row['product_name']) else product_data['name']),
+                        'product_uom_qty': validate_number(row['product_uom_qty']),
+                        'price_unit': validate_number(row['price_unit']),
                         'product_uom': product_data['uom_id'][0],
-                        'discount': float(row['discount']) * 100 if not pd.isna(row.get('discount')) else 0.0,  # Convert decimal to percentage
-                        'sequence': int(row['sequence']) if not pd.isna(row.get('sequence')) else 10,
+                        'discount': validate_number(row.get('discount', 0.0)) * 100,  # Convert decimal to percentage
+                        'sequence': validate_number(row.get('sequence', 10)),
                     })]
                 }
                 
@@ -556,9 +585,9 @@ try:
     # Convert date columns manually with specific format
     if 'date_order' in df.columns:
         # Convert to datetime assuming DD/MM/YYYY format
-        df['date_order'] = pd.to_datetime(df['date_order'], format='%d/%m/%Y')
+        df['date_order'] = pd.to_datetime(df['date_order'], format='%m/%d/%Y')
         # Convert to Odoo format
-        df['date_order'] = df['date_order'].dt.strftime('%Y-%m-%d %H:%M:%S')
+        df['date_order'] = df['date_order'].dt.strftime('%d-%m-%y %H:%M:%S')
         print("Date order values:", df['date_order'].tolist())  # Debug print
     
     if 'commitment_date' in df.columns and not df['commitment_date'].isna().all():
