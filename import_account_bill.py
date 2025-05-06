@@ -7,8 +7,8 @@ import json
 import ast
 
 # --- Connection Settings ---
-url = 'http://mogdev.work:8069'
-db = 'MOG_Test'
+url = 'http://mogth.work:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 

@@ -3,6 +3,23 @@ import xmlrpc.client
 import pandas as pd
 from datetime import datetime
 import os
+import logging
+from collections import defaultdict
+
+# Set up logging
+logging.basicConfig(
+    filename='import_invoice.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+# Global statistics
+import_stats = {
+    'success': 0,
+    'failed': 0,
+    'updated': 0,
+    'created': 0
+}
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
@@ -20,8 +37,64 @@ def connect_to_odoo():
 def read_excel_file():
     file_path = 'Data_file/import_invoice_AR_ARX.xlsx'
     if not os.path.exists(file_path):
-        raise FileNotFoundError(f"Excel file not found at {file_path}")
+        msg = f"Excel file not found at {file_path}"
+        logging.error(msg)
+        raise FileNotFoundError(msg)
     return pd.read_excel(file_path)
+
+def print_import_summary():
+    logging.info("\n=== Import Summary ===")
+    logging.info(f"Total Success: {import_stats['success']}")
+    logging.info(f"Total Failed: {import_stats['failed']}")
+    logging.info(f"New Invoices Created: {import_stats['created']}")
+    logging.info(f"Existing Invoices Updated: {import_stats['updated']}")
+    logging.info("===================\n")
+
+def main():
+    try:
+        logging.info("Starting invoice import process...")
+        
+        # Connect to Odoo
+        uid, models = connect_to_odoo()
+        logging.info("Successfully connected to Odoo")
+
+        # Read Excel file
+        df = read_excel_file()
+        logging.info(f"Read {len(df)} records from Excel file")
+
+        # Group by document number to handle multiple lines
+        grouped = df.groupby('document_number')
+        
+        for doc_num, group in grouped:
+            logging.info(f"Processing document number: {doc_num}")
+            
+            for _, row in group.iterrows():
+                invoice_data = {
+                    'document_number': doc_num,
+                    'partner_code': row['partner_code'],
+                    'partner_name': row['partner_name'],
+                    'default_code': row['default_code'],
+                    'price_unit': row['price_unit'],
+                    'quantity': row.get('quantity', 1),
+                    'invoice_date': row['invoice_date'],
+                    'payment_reference': row.get('payment_reference', ''),
+                    'note': row.get('note', ''),
+                    'journal': row.get('journal', '')
+                }
+                
+                result = update_or_create_invoice(uid, models, invoice_data)
+                if not result:
+                    logging.error(f"Failed to process line for document {doc_num}")
+
+        print_import_summary()
+        logging.info("Import process completed")
+
+    except Exception as e:
+        logging.error(f"Error in main process: {str(e)}")
+        import_stats['failed'] += 1
+
+if __name__ == "__main__":
+    main()
 
 def get_or_create_partner(uid, models, partner_code, partner_name):
     try:
@@ -115,89 +188,89 @@ def update_or_create_invoice(uid, models, invoice_data):
         # Get or create partner
         partner_id = get_or_create_partner(uid, models, invoice_data['partner_code'], invoice_data['partner_name'])
         if not partner_id:
-            print("Failed to get or create partner")
+            msg = f"Failed to get or create partner for {invoice_data['document_number']}"
+            logging.error(msg)
+            import_stats['failed'] += 1
             return False
 
         # Find product by default_code
         product = find_product_by_code(uid, models, invoice_data['default_code'])
         if not product:
-            print(f"Product not found with code: {invoice_data['default_code']}")
+            msg = f"Product not found with code: {invoice_data['default_code']} for invoice {invoice_data['document_number']}"
+            logging.error(msg)
+            import_stats['failed'] += 1
             return False
 
+        # Get quantity from data or default to 1
+        quantity = invoice_data.get('quantity', 1)
+        
         # Prepare invoice line
         invoice_line = {
             'product_id': product['id'],
             'name': product['name'],
-            'quantity': 1,  # Default quantity to 1 if not specified
+            'quantity': quantity,
             'price_unit': invoice_data['price_unit'],
         }
 
+        # Get journal id
+        journal_id = find_journal_by_name(uid, models, invoice_data.get('journal'))
+        if not journal_id:
+            msg = f"Journal not found: {invoice_data.get('journal')} for invoice {invoice_data['document_number']}"
+            logging.error(msg)
+            import_stats['failed'] += 1
+            return False
+
         if existing_invoice:
-            print(f"Found existing invoice with number: {invoice_data['document_number']}")
+            logging.info(f"Found existing invoice with number: {invoice_data['document_number']}")
             
             # Check if invoice is in draft state
             if existing_invoice['state'] != 'draft':
-                print(f"Cannot update invoice {invoice_data['document_number']} as it is not in draft state")
+                msg = f"Cannot update invoice {invoice_data['document_number']} as it is not in draft state"
+                logging.error(msg)
+                import_stats['failed'] += 1
                 return False
 
-            # Update existing invoice
-            # First, delete existing lines
-            models.execute_kw(db, uid, password,
-                'account.move.line', 'unlink',
-                [models.execute_kw(db, uid, password,
-                    'account.move.line', 'search',
-                    [[['move_id', '=', existing_invoice['id']], ['product_id', '!=', False]]])])
-
-            # Get journal id
-            journal_id = find_journal_by_name(uid, models, invoice_data.get('journal'))
-            if not journal_id:
-                print(f"Journal not found: {invoice_data.get('journal')}")
-                return False
-
-            # Update invoice fields
+            # Add new line to existing invoice
             update_vals = {
-                'partner_id': partner_id,
-                'invoice_date': invoice_data['invoice_date'],
-                'payment_reference': invoice_data['payment_reference'],  # Add payment reference
-                'narration': invoice_data['note'],
                 'invoice_line_ids': [(0, 0, invoice_line)],
-                'journal_id': journal_id,  # Add journal field
             }
             
             models.execute_kw(db, uid, password,
                 'account.move', 'write',
                 [[existing_invoice['id']], update_vals])
             
-            print(f"Successfully updated invoice: {existing_invoice['id']}")
+            msg = f"Successfully added new line to invoice: {existing_invoice['id']}"
+            logging.info(msg)
+            import_stats['updated'] += 1
             return existing_invoice['id']
         else:
-            # Get journal id
-            journal_id = find_journal_by_name(uid, models, invoice_data.get('journal'))
-            if not journal_id:
-                print(f"Journal not found: {invoice_data.get('journal')}")
-                return False
-
             # Create new invoice
             invoice_vals = {
                 'move_type': 'out_invoice',
                 'partner_id': partner_id,
                 'invoice_date': invoice_data['invoice_date'],
-                'name': invoice_data['document_number'],  # Set document number as name
-                'payment_reference': invoice_data['payment_reference'],  # Add payment reference
+                'name': invoice_data['document_number'],
+                'payment_reference': invoice_data['payment_reference'],
                 'narration': invoice_data['note'],
                 'invoice_line_ids': [(0, 0, invoice_line)],
-                'journal_id': journal_id,  # Add journal field
+                'journal_id': journal_id,
             }
 
             invoice_id = models.execute_kw(db, uid, password,
                 'account.move', 'create',
                 [invoice_vals])
 
-            print(f"Successfully created new invoice with ID: {invoice_id}")
+            msg = f"Successfully created new invoice with ID: {invoice_id}"
+            logging.info(msg)
+            import_stats['created'] += 1
+            import_stats['success'] += 1
             return invoice_id
 
     except Exception as e:
-        print(f"Error processing invoice: {str(e)}")
+        msg = f"Error processing invoice {invoice_data['document_number']}: {str(e)}"
+        logging.error(msg)
+        import_stats['failed'] += 1
+        return False
         return False
 
 def main():
