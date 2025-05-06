@@ -9,8 +9,8 @@ import ast
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
 db = 'MOG_LIVE'
-username = 'parinya@mogen.co.th'
-password = 'mogen'
+username = 'apichart@mogen.co.th'
+password = '471109538'
 
 # Function to connect to Odoo
 def connect_to_odoo():
@@ -29,7 +29,8 @@ def read_excel_file():
         'partner_id',          # ชื่อผู้ขาย/ผู้จำหน่าย
         'partner_code',        # รหัสผู้ขาย/ผู้จำหน่าย
         'name',               # เลขที่เอกสาร
-        'payment_referance',   # เลขที่อ้างอิงการชำระเงิน
+        'payment_reference',   # เลขที่อ้างอิงการชำระเงิน
+        'bill_reference',     # เลขที่อ้างอิงบิล
         'invoice_date',        # วันที่ใบแจ้งหนี้
         'default_code',        # รหัสสินค้า
         'product_name',        # ชื่อสินค้า/บริการ
@@ -48,14 +49,20 @@ def read_excel_file():
     # Read Excel file with all sheets
     df = pd.read_excel(file_path, dtype=str)
     
+    # Print all columns to verify structure
+    print("\nColumns in Excel file:", df.columns.tolist())
+    
+    # Verify required columns exist
+    required_columns = ['bill_reference', 'payment_reference', 'journal']
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    if missing_columns:
+        raise ValueError(f"Required columns not found in Excel file: {', '.join(missing_columns)}")
+    
     # Convert numeric columns
     numeric_columns = ['quantity', 'price_unit']
     for col in numeric_columns:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
-    
-    # Read Excel file
-    df = pd.read_excel(file_path)
     
     # Check for missing required columns
     required_columns = ['partner_id', 'name', 'invoice_date', 'default_code', 'price_unit']
@@ -140,39 +147,52 @@ def find_product_by_code(uid, models, default_code):
         return product_data[0]
     return None
 
-def find_vat_tax(uid, models):
-    """Find VAT 7% tax ID"""
+
+
+def get_journal_id(uid, models, journal_code):
+    """Find journal ID by code or name"""
     try:
-        # Search for VAT 7% tax with more flexible criteria
-        tax_ids = models.execute_kw(db, uid, password,
-            'account.tax', 'search_read',
-            [[['type_tax_use', '=', 'purchase'], 
-              ['amount', '=', 7.0],
-              '|',
-              ['name', 'ilike', '%7%'],
-              ['description', 'ilike', '%7%']]],
-            {'fields': ['id', 'name']})
+        # Get default purchase journal as fallback
+        default_journal = models.execute_kw(db, uid, password,
+            'account.journal', 'search_read',
+            [[['type', '=', 'purchase']]],
+            {'fields': ['id', 'name', 'code'], 'limit': 1})
         
-        if tax_ids:
-            print(f"Found VAT tax: {tax_ids[0]['name']}")
-            return [(6, 0, [tax_ids[0]['id']])]  # Format required by Odoo for many2many fields
+        default_journal_id = default_journal[0]['id'] if default_journal else False
+        
+        if not journal_code or pd.isna(journal_code):
+            print(f"No journal specified, using default purchase journal")
+            return default_journal_id
             
-        # If not found, try broader search
-        tax_ids = models.execute_kw(db, uid, password,
-            'account.tax', 'search_read',
-            [[['type_tax_use', '=', 'purchase'], 
-              ['amount', '=', 7.0]]],
-            {'fields': ['id', 'name']})
+        journal_code = str(journal_code).strip()
+        
+        # Search for journal with various conditions
+        domain = ['|', '|', '|',
+            ['code', '=', journal_code],
+            ['code', 'ilike', journal_code],
+            ['name', '=', journal_code],
+            ['name', 'ilike', journal_code]
+        ]
+        
+        journals = models.execute_kw(db, uid, password,
+            'account.journal', 'search_read',
+            [domain],
+            {'fields': ['id', 'name', 'code']})
+        
+        if journals:
+            # Print all found journals for debugging
+            for j in journals:
+                print(f"Found journal: {j['name']} (code: {j['code']})")
+            # Use the first match
+            print(f"Using journal: {journals[0]['name']} (code: {journals[0]['code']})")
+            return journals[0]['id']
+        else:
+            print(f"Warning: Journal not found for: {journal_code}, using default purchase journal")
+            return default_journal_id
             
-        if tax_ids:
-            print(f"Found VAT tax: {tax_ids[0]['name']}")
-            return [(6, 0, [tax_ids[0]['id']])]
-            
-        print("Warning: VAT 7% tax not found")
-        return False
     except Exception as e:
-        print(f"Error finding VAT tax: {str(e)}")
-        return False
+        print(f"Error finding journal: {str(e)}")
+        return default_journal_id
 
 def find_existing_bill(uid, models, document_number):
     """Find existing bill by document number"""
@@ -238,9 +258,13 @@ def update_or_create_bill(uid, models, bill_data):
             return False
 
         # Find product by default_code
-        product = find_product_by_code(uid, models, bill_data['default_code'])
-        if not product:
-            print(f"Product not found with code: {bill_data['default_code']}")
+        if bill_data['default_code']:
+            product = find_product_by_code(uid, models, bill_data['default_code'])
+            if not product:
+                print(f"Product not found with code: {bill_data['default_code']}")
+                return False
+        else:
+            print("No product code provided")
             return False
 
         # Parse analytic distribution
@@ -255,13 +279,6 @@ def update_or_create_bill(uid, models, bill_data):
             'price_unit': bill_data['price_unit'],
             'analytic_distribution': analytic_distribution,
         }
-        
-        # Add tax if found
-        tax_id = find_vat_tax(uid, models)
-        if tax_id:
-            bill_line['tax_ids'] = tax_id
-        else:
-            print("Warning: VAT 7% tax will not be applied")
 
         if existing_bill:
             print(f"Found existing bill with number: {bill_data['document_number']}")
@@ -273,21 +290,26 @@ def update_or_create_bill(uid, models, bill_data):
 
             # Update existing bill
             # First, delete existing lines
-            models.execute_kw(db, uid, password,
-                'account.move.line', 'unlink',
-                [models.execute_kw(db, uid, password,
-                    'account.move.line', 'search',
-                    [[['move_id', '=', existing_bill['id']], ['product_id', '!=', False]]])])
-
-            # Update bill fields
-            update_vals = {
-                'partner_id': vendor_id,
-                'invoice_date': bill_data['invoice_date'],
-                'ref': bill_data['payment_reference'],
-                'narration': bill_data['note'],
-                'invoice_line_ids': [(0, 0, bill_line)],
-            }
+            existing_lines = models.execute_kw(db, uid, password,
+                'account.move.line', 'search',
+                [[['move_id', '=', existing_bill['id']], ['display_type', 'in', ['product', False]]]])
             
+            if existing_lines:
+                models.execute_kw(db, uid, password, 'account.move.line', 'unlink', [existing_lines])
+
+                # Update bill fields
+                bill_reference = bill_data.get('bill_reference', '').strip()
+                print(f"Setting bill reference to: {bill_reference}")
+                
+                update_vals = {
+                    'partner_id': vendor_id,
+                    'invoice_date': bill_data['invoice_date'],
+                    'ref': bill_reference,  # This is the bill reference field in Odoo
+                    'payment_reference': bill_data['payment_reference'],
+                    'narration': bill_data.get('note', ''),
+                    'invoice_line_ids': [(0, 0, bill_line)],
+                }
+
             models.execute_kw(db, uid, password,
                 'account.move', 'write',
                 [[existing_bill['id']], update_vals])
@@ -296,22 +318,60 @@ def update_or_create_bill(uid, models, bill_data):
             return existing_bill['id']
         else:
             # Create new bill
+            # Ensure bill reference and payment reference are properly set
+            bill_reference = bill_data.get('bill_reference', '').strip()
+            payment_reference = bill_data.get('payment_reference', '').strip()
+            
+            # Get journal_id (will return default journal if specified journal not found)
+            journal_id = get_journal_id(uid, models, bill_data.get('journal'))
+            
+            print(f"Setting bill reference to: {bill_reference}")
+            print(f"Setting payment reference to: {payment_reference}")
+            print(f"Using journal_id: {journal_id}")
+            
             bill_vals = {
                 'move_type': 'in_invoice',
                 'partner_id': vendor_id,
                 'invoice_date': bill_data['invoice_date'],
                 'name': bill_data['document_number'],
-                'ref': bill_data['payment_reference'],
-                'narration': bill_data['note'],
+                'ref': bill_reference,  # Bill reference field
+                'payment_reference': payment_reference,  # Payment reference field
+                'journal_id': journal_id,  # Journal field
+                'narration': bill_data.get('note', ''),
                 'invoice_line_ids': [(0, 0, bill_line)],
             }
 
-            bill_id = models.execute_kw(db, uid, password,
-                'account.move', 'create',
-                [bill_vals])
+            try:
+                bill_id = models.execute_kw(db, uid, password,
+                    'account.move', 'create',
+                    [bill_vals])
 
-            print(f"Successfully created new bill with ID: {bill_id}")
-            return bill_id
+                if bill_id:
+                    print(f"Successfully created new bill with ID: {bill_id}")
+                    # Verify the bill was created properly
+                    created_bill = models.execute_kw(db, uid, password,
+                        'account.move', 'search_read',
+                        [[['id', '=', bill_id]]],
+                        {'fields': ['id', 'state', 'name']})
+                    if created_bill:
+                        print(f"Bill {created_bill[0]['name']} created in {created_bill[0]['state']} state")
+                        return bill_id
+                    else:
+                        print("Warning: Bill created but verification failed")
+                        return bill_id
+                else:
+                    print("Failed to create bill - no ID returned")
+                    return False
+
+            except xmlrpc.client.Fault as fault:
+                print(f"XMLRPC Fault while creating bill: {fault.faultString}")
+                if 'access' in fault.faultString.lower():
+                    print("Access rights issue detected - please check user permissions")
+                return False
+            except Exception as e:
+                print(f"Unexpected error while creating bill: {str(e)}")
+                print(f"Bill values that caused error: {bill_vals}")
+                return False
 
     except Exception as e:
         print(f"Error processing bill: {str(e)}")
@@ -334,9 +394,18 @@ def main():
                 invoice_date = row['invoice_date']
                 if pd.notna(invoice_date):
                     if isinstance(invoice_date, pd.Timestamp):
+                        # Convert to YYYY-MM-DD format for Odoo
                         invoice_date = invoice_date.strftime('%Y-%m-%d')
                     else:
-                        invoice_date = str(invoice_date).strip()
+                        # If it's already a string, ensure it's in correct format
+                        try:
+                            # Parse the date assuming m/d/y format
+                            date_obj = pd.to_datetime(invoice_date)
+                            # Convert to YYYY-MM-DD format for Odoo
+                            invoice_date = date_obj.strftime('%Y-%m-%d')
+                        except:
+                            print(f"Warning: Could not parse date: {invoice_date}")
+                            invoice_date = str(invoice_date).strip()
 
                 # Clean and prepare data
                 bill_data = {
@@ -346,7 +415,9 @@ def main():
                     'default_code': str(row['default_code']).strip() if pd.notna(row['default_code']) else '',
                     'price_unit': float(row['price_unit']) if pd.notna(row['price_unit']) else 0.0,
                     'document_number': str(row['name']).strip() if pd.notna(row['name']) else '',
-                    'payment_reference': str(row['payment_referance']).strip() if pd.notna(row.get('payment_referance')) else '',
+                    'payment_reference': str(row['payment_reference']).strip() if pd.notna(row['payment_reference']) else '',
+                    'bill_reference': str(row['bill_reference']).strip() if pd.notna(row['bill_reference']) else '',
+                    'journal': str(row['journal']).strip() if pd.notna(row['journal']) else '',
                     'note': str(row['note']).strip() if pd.notna(row.get('note')) else '',
                     'analytic_distribution': row['analytic_distribution'] if pd.notna(row.get('analytic_distribution')) else '',
                     'product_name': str(row['product_name']).strip() if pd.notna(row.get('product_name')) else '',
@@ -357,6 +428,9 @@ def main():
                 print(f"\nProcessing bill for vendor: {bill_data['vendor_name']}")
                 print(f"Partner Code: {bill_data['partner_code']}")
                 print(f"Document number: {bill_data['document_number']}")
+                print(f"Bill Reference: {bill_data['bill_reference']}")
+                print(f"Payment Reference: {bill_data['payment_reference']}")
+                print(f"Journal: {bill_data['journal']}")
                 print(f"Invoice date: {bill_data['invoice_date']}")
                 print(f"Product code: {bill_data['default_code']}")
                 print(f"Product name: {bill_data['product_name']}")
