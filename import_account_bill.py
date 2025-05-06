@@ -7,8 +7,8 @@ import json
 import ast
 
 # --- Connection Settings ---
-url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+url = 'http://mogdev.work:8069'
+db = 'MOG_Test'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -19,59 +19,82 @@ def connect_to_odoo():
     models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
     return uid, models
 
+def truncate_string(value, max_length=500):
+    """Truncate string to maximum length while preserving words"""
+    if not value or len(str(value)) <= max_length:
+        return value
+    truncated = str(value)[:max_length-3].rsplit(' ', 1)[0]
+    return truncated + '...'
+
+def clean_and_validate_data(value, field_name, max_length=500):
+    """Clean and validate data fields"""
+    if pd.isna(value):
+        return ''
+    
+    cleaned_value = str(value).strip()
+    
+    # Handle specific field validations
+    if field_name in ['quantity', 'price_unit']:
+        try:
+            return float(cleaned_value) if cleaned_value else 0.0
+        except ValueError:
+            print(f"Warning: Invalid number in {field_name}: {cleaned_value}, using 0")
+            return 0.0
+            
+    # Truncate long strings
+    return truncate_string(cleaned_value, max_length)
+
 def read_excel_file():
     file_path = 'Data_file/import_bill.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
-    # Define expected columns
-    expected_columns = [
-        'partner_id',          # ชื่อผู้ขาย/ผู้จำหน่าย
-        'partner_code',        # รหัสผู้ขาย/ผู้จำหน่าย
-        'name',               # เลขที่เอกสาร
-        'payment_reference',   # เลขที่อ้างอิงการชำระเงิน
-        'bill_reference',     # เลขที่อ้างอิงบิล
-        'invoice_date',        # วันที่ใบแจ้งหนี้
-        'default_code',        # รหัสสินค้า
-        'product_name',        # ชื่อสินค้า/บริการ
-        'label',              # รายละเอียดสินค้า/บริการ
-        'quantity',            # จำนวน
-        'uom',                 # หน่วยนับ
-        'price_unit',         # ราคาต่อหน่วย
-        'tax_id',             # รหัสภาษี
-        'analytic_distribution', # รหัสแผนก/โครงการ
-        'note',                # หมายเหตุ
-        'payment_term',        # เงื่อนไขการชำระเงิน
-        'due_date',           # วันครบกำหนดชำระ
-        'currency_id',        # สกุลเงิน
-    ]
+    # Define expected columns with their max lengths
+    field_limits = {
+        'partner_id': 500,          # ชื่อผู้ขาย/ผู้จำหน่าย
+        'partner_code': 64,         # รหัสผู้ขาย/ผู้จำหน่าย
+        'name': 255,               # เลขที่เอกสาร
+        'payment_reference': 255,   # เลขที่อ้างอิงการชำระเงิน
+        'bill_reference': 255,     # เลขที่อ้างอิงบิล
+        'invoice_date': 10,        # วันที่ใบแจ้งหนี้
+        'default_code': 64,        # รหัสสินค้า
+        'product_name': 500,       # ชื่อสินค้า/บริการ
+        'label': 1000,            # รายละเอียดสินค้า/บริการ
+        'quantity': 0,            # จำนวน (numeric)
+        'uom': 64,                # หน่วยนับ
+        'price_unit': 0,         # ราคาต่อหน่วย (numeric)
+        'tax_id': 64,            # รหัสภาษี
+        'analytic_distribution': 64, # รหัสแผนก/โครงการ
+        'note': 1000,            # หมายเหตุ
+        'payment_term': 255,     # เงื่อนไขการชำระเงิน
+        'due_date': 10,         # วันครบกำหนดชำระ
+        'currency_id': 64,      # สกุลเงิน
+        'journal': 64,          # สมุดรายวัน
+    }
     
-    # Read Excel file with all sheets
+    # Read Excel file
     df = pd.read_excel(file_path, dtype=str)
-    
-    # Print all columns to verify structure
     print("\nColumns in Excel file:", df.columns.tolist())
     
-    # Verify required columns exist
-    required_columns = ['bill_reference', 'payment_reference', 'journal']
+    # Verify required columns
+    required_columns = ['partner_id', 'name', 'invoice_date', 'default_code', 'price_unit', 
+                       'bill_reference', 'payment_reference', 'journal']
     missing_columns = [col for col in required_columns if col not in df.columns]
     if missing_columns:
         raise ValueError(f"Required columns not found in Excel file: {', '.join(missing_columns)}")
+    
+    # Clean and validate data
+    for column in df.columns:
+        if column in field_limits:
+            df[column] = df[column].apply(
+                lambda x: clean_and_validate_data(x, column, field_limits[column])
+            )
     
     # Convert numeric columns
     numeric_columns = ['quantity', 'price_unit']
     for col in numeric_columns:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
-    
-    # Check for missing required columns
-    required_columns = ['partner_id', 'name', 'invoice_date', 'default_code', 'price_unit']
-    missing_columns = [col for col in required_columns if col not in df.columns]
-    if missing_columns:
-        print("Excel columns found:", df.columns.tolist())
-        raise ValueError(f"Missing required columns in Excel file: {', '.join(missing_columns)}")
-    if missing_columns:
-        raise ValueError(f"Missing required columns in Excel file: {', '.join(missing_columns)}")
     
     return df
 
@@ -146,8 +169,6 @@ def find_product_by_code(uid, models, default_code):
             [product_id[0]], {'fields': ['id', 'name']})
         return product_data[0]
     return None
-
-
 
 def get_journal_id(uid, models, journal_code):
     """Find journal ID by code or name"""
@@ -246,6 +267,49 @@ def parse_analytic_distribution(uid, models, analytic_str):
         print(f"Invalid analytic_distribution format: {analytic_str}")
         return {}
 
+def create_import_log():
+    """Create or get import log file"""
+    import csv
+    from datetime import datetime
+    
+    log_dir = 'Data_file/logs'
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+    
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    log_file = f'{log_dir}/import_log_{timestamp}.csv'
+    
+    # Create log file with headers
+    with open(log_file, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            'Timestamp',
+            'Document Number',
+            'Vendor Name',
+            'Bill Reference',
+            'Status',
+            'Message',
+            'Row Number'
+        ])
+    return log_file
+
+def log_import_result(log_file, data, status, message, row_number):
+    """Log import result to CSV file"""
+    import csv
+    from datetime import datetime
+    
+    with open(log_file, 'a', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            data.get('document_number', ''),
+            data.get('vendor_name', ''),
+            data.get('bill_reference', ''),
+            status,
+            message,
+            row_number
+        ])
+
 def update_or_create_bill(uid, models, bill_data):
     try:
         # Check if bill already exists
@@ -288,33 +352,38 @@ def update_or_create_bill(uid, models, bill_data):
                 print(f"Cannot update bill {bill_data['document_number']} as it is not in draft state")
                 return False
 
-            # Update existing bill
-            # First, delete existing lines
-            existing_lines = models.execute_kw(db, uid, password,
-                'account.move.line', 'search',
-                [[['move_id', '=', existing_bill['id']], ['display_type', 'in', ['product', False]]]])
-            
-            if existing_lines:
-                models.execute_kw(db, uid, password, 'account.move.line', 'unlink', [existing_lines])
+            # Add new line to existing bill
+            update_vals = {
+                'invoice_line_ids': [(0, 0, bill_line)],
+            }
 
-                # Update bill fields
-                bill_reference = bill_data.get('bill_reference', '').strip()
-                print(f"Setting bill reference to: {bill_reference}")
+            # Update header fields only if they are different
+            bill_reference = bill_data.get('bill_reference', '').strip()
+            existing_bill_data = models.execute_kw(db, uid, password,
+                'account.move', 'read',
+                [existing_bill['id']],
+                {'fields': ['partner_id', 'invoice_date', 'ref', 'payment_reference', 'narration']})
+
+            if existing_bill_data:
+                current_data = existing_bill_data[0]
                 
-                update_vals = {
-                    'partner_id': vendor_id,
-                    'invoice_date': bill_data['invoice_date'],
-                    'ref': bill_reference,  # This is the bill reference field in Odoo
-                    'payment_reference': bill_data['payment_reference'],
-                    'narration': bill_data.get('note', ''),
-                    'invoice_line_ids': [(0, 0, bill_line)],
-                }
+                # Only update header fields if they are different or not set
+                if current_data['partner_id'] and current_data['partner_id'][0] != vendor_id:
+                    update_vals['partner_id'] = vendor_id
+                if not current_data['invoice_date'] or current_data['invoice_date'] != bill_data['invoice_date']:
+                    update_vals['invoice_date'] = bill_data['invoice_date']
+                if not current_data['ref'] or current_data['ref'] != bill_reference:
+                    update_vals['ref'] = bill_reference
+                if not current_data['payment_reference'] or current_data['payment_reference'] != bill_data['payment_reference']:
+                    update_vals['payment_reference'] = bill_data['payment_reference']
+                if bill_data.get('note') and (not current_data['narration'] or current_data['narration'] != bill_data['note']):
+                    update_vals['narration'] = bill_data['note']
 
             models.execute_kw(db, uid, password,
                 'account.move', 'write',
                 [[existing_bill['id']], update_vals])
             
-            print(f"Successfully updated bill: {existing_bill['id']}")
+            print(f"Successfully added line to existing bill: {existing_bill['id']}")
             return existing_bill['id']
         else:
             # Create new bill
@@ -383,71 +452,112 @@ def main():
         uid, models = connect_to_odoo()
         print("Successfully connected to Odoo")
 
+        # Create import log file
+        log_file = create_import_log()
+        print(f"Created import log file: {log_file}")
+
         # Read Excel file
         df = read_excel_file()
         print("Successfully read Excel file")
+        
+        # Initialize counters
+        total_rows = len(df)
+        success_count = 0
+        error_count = 0
+        skipped_count = 0
 
-        # Process each row in the Excel file
-        for index, row in df.iterrows():
+        # Group rows by document number
+        grouped_df = df.groupby('name')
+
+        # Process each document
+        for doc_number, group in grouped_df:
             try:
+                print(f"\nProcessing document number: {doc_number}")
+                print(f"Number of lines: {len(group)}")
+                
+                first_row = group.iloc[0]
+                first_row_number = group.index[0] + 2  # Adding 2 because Excel starts at 1 and header row
+
                 # Convert invoice_date to string format if it's a datetime
-                invoice_date = row['invoice_date']
+                invoice_date = first_row['invoice_date']
                 if pd.notna(invoice_date):
                     if isinstance(invoice_date, pd.Timestamp):
-                        # Convert to YYYY-MM-DD format for Odoo
                         invoice_date = invoice_date.strftime('%Y-%m-%d')
                     else:
-                        # If it's already a string, ensure it's in correct format
                         try:
-                            # Parse the date assuming m/d/y format
                             date_obj = pd.to_datetime(invoice_date)
-                            # Convert to YYYY-MM-DD format for Odoo
                             invoice_date = date_obj.strftime('%Y-%m-%d')
                         except:
                             print(f"Warning: Could not parse date: {invoice_date}")
                             invoice_date = str(invoice_date).strip()
 
-                # Clean and prepare data
-                bill_data = {
-                    'invoice_date': invoice_date if pd.notna(invoice_date) else None,
-                    'vendor_name': str(row['partner_id']).strip() if pd.notna(row['partner_id']) else '',
-                    'partner_code': str(row['partner_code']).strip() if pd.notna(row.get('partner_code')) else None,
-                    'default_code': str(row['default_code']).strip() if pd.notna(row['default_code']) else '',
-                    'price_unit': float(row['price_unit']) if pd.notna(row['price_unit']) else 0.0,
-                    'document_number': str(row['name']).strip() if pd.notna(row['name']) else '',
-                    'payment_reference': str(row['payment_reference']).strip() if pd.notna(row['payment_reference']) else '',
-                    'bill_reference': str(row['bill_reference']).strip() if pd.notna(row['bill_reference']) else '',
-                    'journal': str(row['journal']).strip() if pd.notna(row['journal']) else '',
-                    'note': str(row['note']).strip() if pd.notna(row.get('note')) else '',
-                    'analytic_distribution': row['analytic_distribution'] if pd.notna(row.get('analytic_distribution')) else '',
-                    'product_name': str(row['product_name']).strip() if pd.notna(row.get('product_name')) else '',
-                    'label': str(row['label']).strip() if pd.notna(row.get('label')) else '',
-                    'quantity': float(row['quantity']) if pd.notna(row.get('quantity')) else 1.0,
-                }
-                
-                print(f"\nProcessing bill for vendor: {bill_data['vendor_name']}")
-                print(f"Partner Code: {bill_data['partner_code']}")
-                print(f"Document number: {bill_data['document_number']}")
-                print(f"Bill Reference: {bill_data['bill_reference']}")
-                print(f"Payment Reference: {bill_data['payment_reference']}")
-                print(f"Journal: {bill_data['journal']}")
-                print(f"Invoice date: {bill_data['invoice_date']}")
-                print(f"Product code: {bill_data['default_code']}")
-                print(f"Product name: {bill_data['product_name']}")
-                print(f"Label: {bill_data['label']}")
-                print(f"Quantity: {bill_data['quantity']}")
-                print(f"Price: {bill_data['price_unit']}")
-                print(f"Analytic Distribution: {bill_data['analytic_distribution']}")
-                update_or_create_bill(uid, models, bill_data)
+                # Process each line in the document
+                for index, row in group.iterrows():
+                    row_number = index + 2  # Adding 2 because Excel starts at 1 and header row
+                    try:
+                        # Clean and prepare data with validation
+                        bill_data = {
+                            'invoice_date': invoice_date if pd.notna(invoice_date) else None,
+                            'vendor_name': clean_and_validate_data(row['partner_id'], 'partner_id'),
+                            'partner_code': clean_and_validate_data(row.get('partner_code'), 'partner_code'),
+                            'default_code': clean_and_validate_data(row['default_code'], 'default_code'),
+                            'price_unit': clean_and_validate_data(row['price_unit'], 'price_unit'),
+                            'document_number': clean_and_validate_data(row['name'], 'name'),
+                            'payment_reference': clean_and_validate_data(row['payment_reference'], 'payment_reference'),
+                            'bill_reference': clean_and_validate_data(row['bill_reference'], 'bill_reference'),
+                            'journal': clean_and_validate_data(row['journal'], 'journal'),
+                            'note': clean_and_validate_data(row.get('note'), 'note'),
+                            'analytic_distribution': clean_and_validate_data(row.get('analytic_distribution'), 'analytic_distribution'),
+                            'product_name': clean_and_validate_data(row.get('product_name'), 'product_name'),
+                            'label': clean_and_validate_data(row.get('label'), 'label'),
+                            'quantity': clean_and_validate_data(row.get('quantity', 1.0), 'quantity'),
+                        }
+
+                        print(f"\nProcessing line {row_number}:")
+                        print(f"Product code: {bill_data['default_code']}")
+                        print(f"Product name: {bill_data['product_name']}")
+                        print(f"Quantity: {bill_data['quantity']}")
+                        print(f"Price: {bill_data['price_unit']}")
+
+                        # Process the bill
+                        result = update_or_create_bill(uid, models, bill_data)
+                        if result:
+                            message = "Successfully processed"
+                            print(f"Line {row_number}: {message}")
+                            log_import_result(log_file, bill_data, 'Success', message, row_number)
+                            success_count += 1
+                        else:
+                            message = "Failed to process line"
+                            print(f"Line {row_number}: {message}")
+                            log_import_result(log_file, bill_data, 'Error', message, row_number)
+                            error_count += 1
+
+                    except ValueError as ve:
+                        message = f"Validation error: {str(ve)}"
+                        print(f"Line {row_number}: {message}")
+                        log_import_result(log_file, {'document_number': row.get('name', '')}, 'Error', message, row_number)
+                        error_count += 1
+                        continue
 
             except Exception as e:
-                print(f"Error processing row {index + 2}: {str(e)}")
+                message = f"Error processing document: {str(e)}"
+                print(f"Document {doc_number}: {message}")
+                log_import_result(log_file, {'document_number': doc_number}, 'Error', message, first_row_number)
+                error_count += len(group)
                 continue
 
-        print("\nImport process completed")
+        # Print summary
+        print("\nImport Summary:")
+        print(f"Total rows processed: {total_rows}")
+        print(f"Successfully imported: {success_count}")
+        print(f"Errors: {error_count}")
+        print(f"Skipped: {skipped_count}")
+        print(f"\nDetailed log file: {log_file}")
 
     except Exception as e:
         print(f"Error in main process: {str(e)}")
+        if 'log_file' in locals():
+            log_import_result(log_file, {}, 'Error', f"Main process error: {str(e)}", 0)
 
 if __name__ == "__main__":
     main()
