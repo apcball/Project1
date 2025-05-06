@@ -2626,3 +2626,11 @@
 2025-05-06 16:31:49,782 - INFO - Successfully created new invoice with ID: 11937
 2025-05-06 16:31:50,397 - INFO - Successfully created new invoice with ID: 11938
 2025-05-06 16:31:51,131 - INFO - Successfully created new invoice with ID: 11939
+2025-05-06 16:34:38,864 - INFO - Starting invoice import process...
+2025-05-06 16:34:40,470 - INFO - Successfully connected to Odoo
+2025-05-06 16:34:40,976 - INFO - Read 2624 records from Excel file
+2025-05-06 16:34:40,976 - ERROR - Error in main process: 'document_number'
+2025-05-06 16:34:44,860 - INFO - Successfully created new invoice with ID: 14511
+2025-05-06 16:34:47,946 - INFO - Successfully created new invoice with ID: 14512
+2025-05-06 16:34:49,191 - INFO - Successfully created new invoice with ID: 14513
+2025-05-06 16:34:52,926 - INFO - Successfully created new invoice with ID: 14514
