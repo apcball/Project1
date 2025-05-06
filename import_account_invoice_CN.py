@@ -95,6 +95,22 @@ def find_existing_credit_note(uid, models, document_number):
     
     return credit_note_ids[0] if credit_note_ids else None
 
+def find_journal_by_code(uid, models, journal_code):
+    if not journal_code or pd.isna(journal_code):
+        return None
+        
+    journal_code = str(journal_code).strip()
+    journal_id = models.execute_kw(db, uid, password,
+        'account.journal', 'search',
+        [[['code', '=', journal_code]]])
+    
+    if journal_id:
+        journal_data = models.execute_kw(db, uid, password,
+            'account.journal', 'read',
+            [journal_id[0]], {'fields': ['id', 'name']})
+        return journal_data[0]
+    return None
+
 def update_or_create_credit_note(uid, models, credit_note_data):
     try:
         # Check if credit note already exists
@@ -112,12 +128,18 @@ def update_or_create_credit_note(uid, models, credit_note_data):
             print(f"Product not found with code: {credit_note_data['default_code']}")
             return False
 
+        # Find journal by code
+        journal = find_journal_by_code(uid, models, credit_note_data['journal'])
+        if not journal:
+            print(f"Journal not found with code: {credit_note_data['journal']}")
+            return False
+
         # Prepare credit note line
         credit_note_line = {
             'product_id': product['id'],
             'name': product['name'],
             'quantity': 1,  # Default quantity to 1 if not specified
-            'price_unit': credit_note_data['price_unit'],
+            'price_unit': abs(float(credit_note_data['price_unit'])),  # Ensure price is positive
         }
 
         if existing_credit_note:
@@ -161,6 +183,7 @@ def update_or_create_credit_note(uid, models, credit_note_data):
                 'payment_reference': credit_note_data['payment_reference'],
                 'narration': credit_note_data['note'],
                 'invoice_line_ids': [(0, 0, credit_note_line)],
+                'journal_id': journal['id'],  # Set the journal
             }
 
             credit_note_id = models.execute_kw(db, uid, password,
@@ -198,6 +221,7 @@ def main():
                     'partner_code': str(row['partner_code']).strip(),
                     'partner_name': str(row['partner_id']).strip(),  # Changed from partner_name to partner_id
                     'default_code': str(row['default_code']) if pd.notna(row['default_code']) else '',
+                    'journal': str(row['journal']).strip() if pd.notna(row['journal']) else '',
                     'document_number': str(row['name']).strip() if pd.notna(row['name']) else '',
                     'payment_reference': str(row['payment_referance']).strip() if pd.notna(row['payment_referance']) else '',
                     'note': str(row['note']).strip() if pd.notna(row['note']) else '',

@@ -83,6 +83,18 @@ def find_product_by_code(uid, models, default_code):
         return product_data[0]
     return None
 
+def find_journal_by_name(uid, models, journal_name):
+    if not journal_name or pd.isna(journal_name):
+        return None
+    
+    journal_name = str(journal_name).strip()
+    journal_ids = models.execute_kw(db, uid, password,
+        'account.journal', 'search_read',
+        [[['name', 'ilike', journal_name], ['type', '=', 'sale']]],
+        {'fields': ['id', 'name']})
+    
+    return journal_ids[0]['id'] if journal_ids else None
+
 def find_existing_invoice(uid, models, document_number):
     if not document_number:
         return None
@@ -136,6 +148,12 @@ def update_or_create_invoice(uid, models, invoice_data):
                     'account.move.line', 'search',
                     [[['move_id', '=', existing_invoice['id']], ['product_id', '!=', False]]])])
 
+            # Get journal id
+            journal_id = find_journal_by_name(uid, models, invoice_data.get('journal'))
+            if not journal_id:
+                print(f"Journal not found: {invoice_data.get('journal')}")
+                return False
+
             # Update invoice fields
             update_vals = {
                 'partner_id': partner_id,
@@ -143,6 +161,7 @@ def update_or_create_invoice(uid, models, invoice_data):
                 'payment_reference': invoice_data['payment_reference'],  # Add payment reference
                 'narration': invoice_data['note'],
                 'invoice_line_ids': [(0, 0, invoice_line)],
+                'journal_id': journal_id,  # Add journal field
             }
             
             models.execute_kw(db, uid, password,
@@ -152,6 +171,12 @@ def update_or_create_invoice(uid, models, invoice_data):
             print(f"Successfully updated invoice: {existing_invoice['id']}")
             return existing_invoice['id']
         else:
+            # Get journal id
+            journal_id = find_journal_by_name(uid, models, invoice_data.get('journal'))
+            if not journal_id:
+                print(f"Journal not found: {invoice_data.get('journal')}")
+                return False
+
             # Create new invoice
             invoice_vals = {
                 'move_type': 'out_invoice',
@@ -161,6 +186,7 @@ def update_or_create_invoice(uid, models, invoice_data):
                 'payment_reference': invoice_data['payment_reference'],  # Add payment reference
                 'narration': invoice_data['note'],
                 'invoice_line_ids': [(0, 0, invoice_line)],
+                'journal_id': journal_id,  # Add journal field
             }
 
             invoice_id = models.execute_kw(db, uid, password,
@@ -198,10 +224,11 @@ def main():
                     'partner_code': str(row['partner_code']).strip(),
                     'partner_name': str(row['partner_id']).strip(),  # Changed from partner_name to partner_id
                     'default_code': str(row['default_code']) if pd.notna(row['default_code']) else '',
-                    'price_unit': float(row['price_unit']) if pd.notna(row['price_unit']) else 0.0,
                     'document_number': str(row['name']).strip() if pd.notna(row['name']) else '',
                     'payment_reference': str(row['payment_referance']).strip() if pd.notna(row['payment_referance']) else '',
                     'note': str(row['note']).strip() if pd.notna(row['note']) else '',
+                    'price_unit': float(row['price_unit']) if pd.notna(row['price_unit']) else 0.0,
+                    'journal': str(row['journal']) if pd.notna(row['journal']) else '',  # Add journal field
                 }
                 
                 print(f"\nProcessing invoice for partner: {invoice_data['partner_name']} (Code: {invoice_data['partner_code']})")
