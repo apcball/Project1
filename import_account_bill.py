@@ -172,19 +172,29 @@ def find_product_by_code(uid, models, default_code):
     return None
 
 def update_move_line_account(uid, models, move_id, line_data):
-    """Update account in journal items after bill is posted - only for the credit line (second line)"""
+    """Update account in journal items after bill is posted - only for the credit line"""
     try:
-        # Find the payable account (214102 - ค่าใช้จ่ายค้างจ่าย)
-        payable_account = find_account_by_code(uid, models, '214102')
-        if not payable_account:
-            print("Could not find payable account 214102")
-            return False
+        # Get the expense account code from line_data
+        expense_account_code = line_data.get('expense_account')
+        if not expense_account_code or pd.isna(expense_account_code):
+            print("No expense account code provided, using default 214102")
+            expense_account_code = '214102'  # Default to ค่าใช้จ่ายค้างจ่าย
+
+        # Find the expense account
+        expense_account_id = find_account_by_code(uid, models, expense_account_code)
+        if not expense_account_id:
+            print(f"Could not find expense account with code: {expense_account_code}, using default 214102")
+            # Try to find default account 214102
+            expense_account_id = find_account_by_code(uid, models, '214102')
+            if not expense_account_id:
+                print("Could not find default account 214102")
+                return False
 
         # Get the credit line (payable line) for this bill
         move_lines = models.execute_kw(db, uid, password,
             'account.move.line', 'search_read',
             [[['move_id', '=', move_id], 
-              ['credit', '>', 0]  # Get credit line (payable line)
+              ['credit', '>', 0]  # Get credit line
             ]],
             {'fields': ['id', 'account_id', 'name', 'credit']})
 
@@ -192,18 +202,15 @@ def update_move_line_account(uid, models, move_id, line_data):
             print("No credit line found")
             return False
 
-        # There should be only one credit line
-        credit_line = move_lines[0]
-
-        # Update the credit line's account to 214102
+        # Update the credit line's account
         try:
             models.execute_kw(db, uid, password,
                 'account.move.line', 'write',
-                [[credit_line['id']], {'account_id': payable_account}])
-            print(f"Successfully updated credit line to account 214102 (ค่าใช้จ่ายค้างจ่าย)")
+                [[move_lines[0]['id']], {'account_id': expense_account_id}])
+            print(f"Successfully updated credit account to {expense_account_code}")
             return True
         except Exception as e:
-            print(f"Error updating credit line {credit_line['id']}: {str(e)}")
+            print(f"Error updating credit line: {str(e)}")
             return False
 
     except Exception as e:
@@ -606,10 +613,12 @@ def main():
                         # Process the bill
                         result = update_or_create_bill(uid, models, bill_data)
                         if result:
-                            # After bill is created, update the credit account to 214102
-                            update_result = update_move_line_account(uid, models, result, {})
+                            # After bill is created, update the credit account from expense_account
+                            update_result = update_move_line_account(uid, models, result, {
+                                'expense_account': row.get('expense_account')
+                            })
                             if update_result:
-                                message = "Successfully processed and updated credit account to 214102"
+                                message = "Successfully processed and updated credit account"
                             else:
                                 message = "Bill created but credit account update failed"
                             print(f"Line {row_number}: {message}")
