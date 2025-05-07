@@ -46,8 +46,8 @@ def save_error_log():
             print(msg)
 
 # --- Connection Settings ---
-url = 'http://mogdev.work:8069'
-db = 'MOG_Training'
+url = 'http://mogth.work:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -408,7 +408,7 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_PO1.xlsx'
+        excel_file = 'Data_file/import_PO_update.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")

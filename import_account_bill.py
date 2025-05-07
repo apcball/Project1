@@ -45,7 +45,7 @@ def clean_and_validate_data(value, field_name, max_length=500):
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    file_path = 'Data_file/import_journal_ค้างจ่าย.xlsx'
+    file_path = 'Data_file/import_journal_ค้างจ่าย1.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
