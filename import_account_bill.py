@@ -45,7 +45,7 @@ def clean_and_validate_data(value, field_name, max_length=500):
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    file_path = 'Data_file/import_bill.xlsx'
+    file_path = 'Data_file/import_journal_ค้างจ่าย.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
@@ -70,6 +70,7 @@ def read_excel_file():
         'due_date': 10,         # วันครบกำหนดชำระ
         'currency_id': 64,      # สกุลเงิน
         'journal': 64,          # สมุดรายวัน
+        'expense_account': 64,  # รหัสบัญชีค่าใช้จ่าย
     }
     
     # Read Excel file
@@ -169,6 +170,84 @@ def find_product_by_code(uid, models, default_code):
             [product_id[0]], {'fields': ['id', 'name']})
         return product_data[0]
     return None
+
+def update_move_line_account(uid, models, move_id, line_data):
+    """Update account in journal items after bill is posted - only for the credit line"""
+    try:
+        # Get the expense account code from line_data
+        expense_account_code = line_data.get('expense_account')
+        if not expense_account_code or pd.isna(expense_account_code):
+            print("No expense account code provided, using default 214102")
+            expense_account_code = '214102'  # Default to ค่าใช้จ่ายค้างจ่าย
+
+        # Find the expense account
+        expense_account_id = find_account_by_code(uid, models, expense_account_code)
+        if not expense_account_id:
+            print(f"Could not find expense account with code: {expense_account_code}, using default 214102")
+            # Try to find default account 214102
+            expense_account_id = find_account_by_code(uid, models, '214102')
+            if not expense_account_id:
+                print("Could not find default account 214102")
+                return False
+
+        # Get the credit line (payable line) for this bill
+        move_lines = models.execute_kw(db, uid, password,
+            'account.move.line', 'search_read',
+            [[['move_id', '=', move_id], 
+              ['credit', '>', 0]  # Get credit line
+            ]],
+            {'fields': ['id', 'account_id', 'name', 'credit']})
+
+        if not move_lines:
+            print("No credit line found")
+            return False
+
+        # Update the credit line's account
+        try:
+            models.execute_kw(db, uid, password,
+                'account.move.line', 'write',
+                [[move_lines[0]['id']], {'account_id': expense_account_id}])
+            print(f"Successfully updated credit account to {expense_account_code}")
+            return True
+        except Exception as e:
+            print(f"Error updating credit line: {str(e)}")
+            return False
+
+    except Exception as e:
+        print(f"Error updating move line account: {str(e)}")
+        return False
+
+def find_account_by_code(uid, models, account_code):
+    """Find account ID by code"""
+    try:
+        if not account_code or pd.isna(account_code):
+            return None
+            
+        # Clean up account code - extract only the numbers at the start
+        account_code = str(account_code).strip()
+        import re
+        account_code = re.match(r'^\d+', account_code)
+        if account_code:
+            account_code = account_code.group(0)
+        else:
+            return None
+        
+        # Search for account with code
+        account_ids = models.execute_kw(db, uid, password,
+            'account.account', 'search_read',
+            [[['code', '=', account_code]]],
+            {'fields': ['id', 'name', 'code']})
+        
+        if account_ids:
+            print(f"Found account: {account_ids[0]['name']} (code: {account_ids[0]['code']})")
+            return account_ids[0]['id']
+        else:
+            print(f"Warning: Account not found for code: {account_code}")
+            return None
+            
+    except Exception as e:
+        print(f"Error finding account: {str(e)}")
+        return None
 
 def get_journal_id(uid, models, journal_code):
     """Find journal ID by code or name"""
@@ -335,6 +414,13 @@ def update_or_create_bill(uid, models, bill_data):
         analytic_distribution = parse_analytic_distribution(uid, models, bill_data['analytic_distribution'])
         print(f"Using analytic distribution: {analytic_distribution}")
 
+        # Find account by code
+        account_id = None
+        if bill_data.get('account_code'):
+            account_id = find_account_by_code(uid, models, bill_data['account_code'])
+            if not account_id:
+                print(f"Warning: Account not found with code: {bill_data['account_code']}")
+
         # Prepare bill line
         bill_line = {
             'product_id': product['id'],
@@ -343,6 +429,10 @@ def update_or_create_bill(uid, models, bill_data):
             'price_unit': bill_data['price_unit'],
             'analytic_distribution': analytic_distribution,
         }
+        
+        # Add account if found
+        if account_id:
+            bill_line['account_id'] = account_id
 
         if existing_bill:
             print(f"Found existing bill with number: {bill_data['document_number']}")
@@ -511,6 +601,7 @@ def main():
                             'product_name': clean_and_validate_data(row.get('product_name'), 'product_name'),
                             'label': clean_and_validate_data(row.get('label'), 'label'),
                             'quantity': clean_and_validate_data(row.get('quantity', 1.0), 'quantity'),
+                            'expense_account': clean_and_validate_data(row.get('expense_account'), 'expense_account'),
                         }
 
                         print(f"\nProcessing line {row_number}:")
@@ -522,7 +613,14 @@ def main():
                         # Process the bill
                         result = update_or_create_bill(uid, models, bill_data)
                         if result:
-                            message = "Successfully processed"
+                            # After bill is created, update the credit account from expense_account
+                            update_result = update_move_line_account(uid, models, result, {
+                                'expense_account': row.get('expense_account')
+                            })
+                            if update_result:
+                                message = "Successfully processed and updated credit account"
+                            else:
+                                message = "Bill created but credit account update failed"
                             print(f"Line {row_number}: {message}")
                             log_import_result(log_file, bill_data, 'Success', message, row_number)
                             success_count += 1
