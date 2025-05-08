@@ -8800,3 +8800,639 @@ Skipped Orders (8/209):
 2025-05-07 11:48:16,078 - INFO -   - PD-6800183 (Not found)
 2025-05-07 11:48:16,078 - INFO -   - PD-6800185 (Not found)
 2025-05-07 11:48:16,078 - INFO - Order cancellation process completed.
+2025-05-08 09:20:36,617 - INFO - Starting order cancellation process...
+2025-05-08 09:20:38,570 - INFO - Processing PO BPD-6700364 (1/209)
+2025-05-08 09:20:40,553 - INFO - Successfully cancelled purchase order: BPD-6700364
+2025-05-08 09:20:40,553 - INFO - Processing PO BPD-6800052 (3/209)
+2025-05-08 09:20:40,845 - INFO - Successfully cancelled purchase order: BPD-6800052
+2025-05-08 09:20:40,846 - INFO - Processing PO BPD-6800097 (6/209)
+2025-05-08 09:20:42,103 - INFO - Successfully cancelled purchase order: BPD-6800097
+2025-05-08 09:20:42,104 - INFO - Processing PO BPD-6800154 (13/209)
+2025-05-08 09:20:42,443 - INFO - Successfully cancelled purchase order: BPD-6800154
+2025-05-08 09:20:42,444 - INFO - Processing PO BPD-6800171 (14/209)
+2025-05-08 09:20:43,889 - INFO - Successfully cancelled purchase order: BPD-6800171
+2025-05-08 09:20:43,891 - INFO - Processing PO BPD-6800173 (15/209)
+2025-05-08 09:20:44,230 - INFO - Successfully cancelled purchase order: BPD-6800173
+2025-05-08 09:20:44,231 - INFO - Processing PO BPD-6800175 (16/209)
+2025-05-08 09:20:44,557 - INFO - Successfully cancelled purchase order: BPD-6800175
+2025-05-08 09:20:44,557 - INFO - Processing PO BPD-6800235 (24/209)
+2025-05-08 09:20:44,907 - INFO - Successfully cancelled purchase order: BPD-6800235
+2025-05-08 09:20:44,909 - INFO - Processing PO BPD-6800236 (25/209)
+2025-05-08 09:20:45,246 - INFO - Successfully cancelled purchase order: BPD-6800236
+2025-05-08 09:20:45,247 - INFO - Processing PO BPD-6800240 (26/209)
+2025-05-08 09:20:45,593 - INFO - Successfully cancelled purchase order: BPD-6800240
+2025-05-08 09:20:45,594 - INFO - Processing PO BPD-6800250 (50/209)
+2025-05-08 09:20:46,818 - INFO - Successfully cancelled purchase order: BPD-6800250
+2025-05-08 09:20:46,819 - INFO - Processing PO BPD-6800255 (51/209)
+2025-05-08 09:20:47,136 - INFO - Successfully cancelled purchase order: BPD-6800255
+2025-05-08 09:20:47,137 - INFO - Processing PO BPD-6800272 (52/209)
+2025-05-08 09:20:47,460 - INFO - Successfully cancelled purchase order: BPD-6800272
+2025-05-08 09:20:47,460 - INFO - Processing PO BPD-6800273 (53/209)
+2025-05-08 09:20:47,803 - INFO - Successfully cancelled purchase order: BPD-6800273
+2025-05-08 09:20:47,803 - INFO - Processing PO BPD-6800274 (54/209)
+2025-05-08 09:20:48,199 - INFO - Successfully cancelled purchase order: BPD-6800274
+2025-05-08 09:20:48,199 - INFO - Processing PO BPD-6800276 (55/209)
+2025-05-08 09:20:48,553 - INFO - Successfully cancelled purchase order: BPD-6800276
+2025-05-08 09:20:48,556 - INFO - Processing PO BPD-6800277 (57/209)
+2025-05-08 09:20:48,884 - INFO - Successfully cancelled purchase order: BPD-6800277
+2025-05-08 09:20:48,886 - INFO - Processing PO BPD-6800279 (58/209)
+2025-05-08 09:20:49,217 - INFO - Successfully cancelled purchase order: BPD-6800279
+2025-05-08 09:20:49,218 - INFO - Processing PO BPD-6800280 (59/209)
+2025-05-08 09:20:49,551 - INFO - Successfully cancelled purchase order: BPD-6800280
+2025-05-08 09:20:49,552 - INFO - Processing PO PD-6400471 (60/209)
+2025-05-08 09:20:49,907 - INFO - Successfully cancelled purchase order: PD-6400471
+2025-05-08 09:20:49,908 - INFO - Processing PO PD-6500139 (61/209)
+2025-05-08 09:20:50,017 - INFO - Processing PO PD-6700030 (62/209)
+2025-05-08 09:20:50,372 - INFO - Successfully cancelled purchase order: PD-6700030
+2025-05-08 09:20:50,373 - INFO - Processing PO PD-6700382 (64/209)
+2025-05-08 09:20:50,773 - INFO - Successfully cancelled purchase order: PD-6700382
+2025-05-08 09:20:50,775 - INFO - Processing PO PD-6700420 (66/209)
+2025-05-08 09:20:51,117 - INFO - Successfully cancelled purchase order: PD-6700420
+2025-05-08 09:20:51,118 - INFO - Processing PO PD-6700426 (67/209)
+2025-05-08 09:20:51,495 - INFO - Successfully cancelled purchase order: PD-6700426
+2025-05-08 09:20:51,495 - INFO - Processing PO PD-6700446 (68/209)
+2025-05-08 09:20:51,852 - INFO - Successfully cancelled purchase order: PD-6700446
+2025-05-08 09:20:51,854 - INFO - Processing PO PD-6700474 (69/209)
+2025-05-08 09:20:52,195 - INFO - Successfully cancelled purchase order: PD-6700474
+2025-05-08 09:20:52,196 - INFO - Processing PO PD-6700479 (71/209)
+2025-05-08 09:20:52,528 - INFO - Successfully cancelled purchase order: PD-6700479
+2025-05-08 09:20:52,529 - INFO - Processing PO PD-6800033 (72/209)
+2025-05-08 09:20:52,862 - INFO - Successfully cancelled purchase order: PD-6800033
+2025-05-08 09:20:52,863 - INFO - Processing PO PD-6800034 (74/209)
+2025-05-08 09:20:53,183 - INFO - Successfully cancelled purchase order: PD-6800034
+2025-05-08 09:20:53,184 - INFO - Processing PO PD-6800056 (75/209)
+2025-05-08 09:20:53,485 - INFO - Successfully cancelled purchase order: PD-6800056
+2025-05-08 09:20:53,486 - INFO - Processing PO PD-6800058 (77/209)
+2025-05-08 09:20:53,789 - INFO - Successfully cancelled purchase order: PD-6800058
+2025-05-08 09:20:53,789 - INFO - Processing PO PD-6800079 (79/209)
+2025-05-08 09:20:54,099 - INFO - Successfully cancelled purchase order: PD-6800079
+2025-05-08 09:20:54,100 - INFO - Processing PO PD-6800082 (83/209)
+2025-05-08 09:20:54,419 - INFO - Successfully cancelled purchase order: PD-6800082
+2025-05-08 09:20:54,420 - INFO - Processing PO PD-6800166 (88/209)
+2025-05-08 09:20:54,725 - INFO - Successfully cancelled purchase order: PD-6800166
+2025-05-08 09:20:54,725 - INFO - Processing PO PD-6800167 (89/209)
+2025-05-08 09:20:55,021 - INFO - Successfully cancelled purchase order: PD-6800167
+2025-05-08 09:20:55,021 - INFO - Processing PO PD-6800168 (90/209)
+2025-05-08 09:20:55,353 - INFO - Successfully cancelled purchase order: PD-6800168
+2025-05-08 09:20:55,354 - INFO - Processing PO PD-6800169 (96/209)
+2025-05-08 09:20:55,713 - INFO - Successfully cancelled purchase order: PD-6800169
+2025-05-08 09:20:55,714 - INFO - Processing PO PD-6800173 (100/209)
+2025-05-08 09:20:56,040 - INFO - Successfully cancelled purchase order: PD-6800173
+2025-05-08 09:20:56,041 - INFO - Processing PO PD-6800178 (104/209)
+2025-05-08 09:20:56,348 - INFO - Successfully cancelled purchase order: PD-6800178
+2025-05-08 09:20:56,349 - INFO - Processing PO PD-6800179 (105/209)
+2025-05-08 09:20:56,673 - INFO - Successfully cancelled purchase order: PD-6800179
+2025-05-08 09:20:56,673 - INFO - Processing PO PD-6800180 (106/209)
+2025-05-08 09:20:57,070 - INFO - Successfully cancelled purchase order: PD-6800180
+2025-05-08 09:20:57,072 - INFO - Processing PO PD-6800181 (111/209)
+2025-05-08 09:20:57,374 - INFO - Successfully cancelled purchase order: PD-6800181
+2025-05-08 09:20:57,375 - INFO - Processing PO PD-6800186 (112/209)
+2025-05-08 09:20:57,702 - INFO - Successfully cancelled purchase order: PD-6800186
+2025-05-08 09:20:57,703 - INFO - Processing PO PD-6800187 (122/209)
+2025-05-08 09:20:58,129 - INFO - Successfully cancelled purchase order: PD-6800187
+2025-05-08 09:20:58,130 - INFO - Processing PO PD-6800192 (124/209)
+2025-05-08 09:20:58,472 - INFO - Successfully cancelled purchase order: PD-6800192
+2025-05-08 09:20:58,475 - INFO - Processing PO PD-6800193 (127/209)
+2025-05-08 09:20:58,832 - INFO - Successfully cancelled purchase order: PD-6800193
+2025-05-08 09:20:58,832 - INFO - Processing PO PD-6800194 (131/209)
+2025-05-08 09:20:59,149 - INFO - Successfully cancelled purchase order: PD-6800194
+2025-05-08 09:20:59,150 - INFO - Processing PO PD-6800199 (132/209)
+2025-05-08 09:20:59,483 - INFO - Successfully cancelled purchase order: PD-6800199
+2025-05-08 09:20:59,484 - INFO - Processing PO PD-6800201 (135/209)
+2025-05-08 09:20:59,792 - INFO - Successfully cancelled purchase order: PD-6800201
+2025-05-08 09:20:59,793 - INFO - Processing PO PD-6800202 (136/209)
+2025-05-08 09:21:00,100 - INFO - Successfully cancelled purchase order: PD-6800202
+2025-05-08 09:21:00,101 - INFO - Processing PO PD-6800203 (137/209)
+2025-05-08 09:21:00,409 - INFO - Successfully cancelled purchase order: PD-6800203
+2025-05-08 09:21:00,409 - INFO - Processing PO PD-6800205 (138/209)
+2025-05-08 09:21:00,703 - INFO - Successfully cancelled purchase order: PD-6800205
+2025-05-08 09:21:00,704 - INFO - Processing PO PD-6800206 (139/209)
+2025-05-08 09:21:01,029 - INFO - Successfully cancelled purchase order: PD-6800206
+2025-05-08 09:21:01,029 - INFO - Processing PO PD-6800207 (140/209)
+2025-05-08 09:21:01,355 - INFO - Successfully cancelled purchase order: PD-6800207
+2025-05-08 09:21:01,355 - INFO - Processing PO BPD-6800032 (141/209)
+2025-05-08 09:21:01,673 - INFO - Successfully cancelled purchase order: BPD-6800032
+2025-05-08 09:21:01,674 - INFO - Processing PO BPD-6800086 (143/209)
+2025-05-08 09:21:02,034 - INFO - Successfully cancelled purchase order: BPD-6800086
+2025-05-08 09:21:02,035 - INFO - Processing PO BPD-6800087 (164/209)
+2025-05-08 09:21:02,395 - INFO - Successfully cancelled purchase order: BPD-6800087
+2025-05-08 09:21:02,396 - INFO - Processing PO BPD-6800090 (165/209)
+2025-05-08 09:21:02,823 - INFO - Successfully cancelled purchase order: BPD-6800090
+2025-05-08 09:21:02,823 - INFO - Processing PO BPD-6800092 (171/209)
+2025-05-08 09:21:03,426 - INFO - Successfully cancelled purchase order: BPD-6800092
+2025-05-08 09:21:03,426 - INFO - Processing PO BPD-6800104 (173/209)
+2025-05-08 09:21:03,892 - INFO - Successfully cancelled purchase order: BPD-6800104
+2025-05-08 09:21:03,893 - INFO - Processing PO BPD-6800118 (174/209)
+2025-05-08 09:21:04,312 - INFO - Successfully cancelled purchase order: BPD-6800118
+2025-05-08 09:21:04,312 - INFO - Processing PO BPD-6800119 (175/209)
+2025-05-08 09:21:04,672 - INFO - Successfully cancelled purchase order: BPD-6800119
+2025-05-08 09:21:04,673 - INFO - Processing PO BPD-6800177 (176/209)
+2025-05-08 09:21:05,203 - INFO - Successfully cancelled purchase order: BPD-6800177
+2025-05-08 09:21:05,204 - INFO - Processing PO BPD-6800178 (177/209)
+2025-05-08 09:21:05,591 - INFO - Successfully cancelled purchase order: BPD-6800178
+2025-05-08 09:21:05,592 - INFO - Processing PO BPD-6800179 (180/209)
+2025-05-08 09:21:06,123 - INFO - Successfully cancelled purchase order: BPD-6800179
+2025-05-08 09:21:06,124 - INFO - Processing PO BPD-6800183 (181/209)
+2025-05-08 09:21:06,509 - INFO - Successfully cancelled purchase order: BPD-6800183
+2025-05-08 09:21:06,509 - INFO - Processing PO BPD-6800184 (184/209)
+2025-05-08 09:21:07,269 - INFO - Successfully cancelled purchase order: BPD-6800184
+2025-05-08 09:21:07,271 - INFO - Processing PO BPD-6800185 (193/209)
+2025-05-08 09:21:07,767 - INFO - Successfully cancelled purchase order: BPD-6800185
+2025-05-08 09:21:07,767 - INFO - Processing PO BPD-6800186 (195/209)
+2025-05-08 09:21:08,260 - INFO - Successfully cancelled purchase order: BPD-6800186
+2025-05-08 09:21:08,262 - INFO - Processing PO BPD-6800187 (196/209)
+2025-05-08 09:21:08,623 - INFO - Successfully cancelled purchase order: BPD-6800187
+2025-05-08 09:21:08,626 - INFO - Processing PO BPD-6800188 (197/209)
+2025-05-08 09:21:08,998 - INFO - Successfully cancelled purchase order: BPD-6800188
+2025-05-08 09:21:08,999 - INFO - Processing PO BPD-6800189 (198/209)
+2025-05-08 09:21:09,312 - INFO - Successfully cancelled purchase order: BPD-6800189
+2025-05-08 09:21:09,313 - INFO - Processing PO BPD-6800190 (199/209)
+2025-05-08 09:21:09,635 - INFO - Successfully cancelled purchase order: BPD-6800190
+2025-05-08 09:21:09,636 - INFO - Processing PO BPD-6800192 (200/209)
+2025-05-08 09:21:10,285 - INFO - Successfully cancelled purchase order: BPD-6800192
+2025-05-08 09:21:10,285 - INFO - Processing PO BPD-6800193 (201/209)
+2025-05-08 09:21:10,878 - INFO - Successfully cancelled purchase order: BPD-6800193
+2025-05-08 09:21:10,879 - INFO - Processing PO BPD-6800194 (203/209)
+2025-05-08 09:21:11,449 - INFO - Successfully cancelled purchase order: BPD-6800194
+2025-05-08 09:21:11,450 - INFO - Processing PO BPD-6800196 (204/209)
+2025-05-08 09:21:12,200 - INFO - Successfully cancelled purchase order: BPD-6800196
+2025-05-08 09:21:12,202 - INFO - Processing PO BPD-6800203 (205/209)
+2025-05-08 09:21:12,883 - INFO - Successfully cancelled purchase order: BPD-6800203
+2025-05-08 09:21:12,884 - INFO - Processing PO BPD-6800204 (206/209)
+2025-05-08 09:21:13,548 - INFO - Successfully cancelled purchase order: BPD-6800204
+2025-05-08 09:21:13,549 - INFO - Processing PO BPD-6800205 (207/209)
+2025-05-08 09:21:14,203 - INFO - Successfully cancelled purchase order: BPD-6800205
+2025-05-08 09:21:14,205 - INFO - Processing PO BPD-6800207 (208/209)
+2025-05-08 09:21:14,544 - INFO - Successfully cancelled purchase order: BPD-6800207
+2025-05-08 09:21:14,545 - INFO - Processing PO BPD-6800208 (212/209)
+2025-05-08 09:21:14,962 - INFO - Successfully cancelled purchase order: BPD-6800208
+2025-05-08 09:21:14,963 - INFO - Processing PO BPD-6800209 (214/209)
+2025-05-08 09:21:15,399 - INFO - Successfully cancelled purchase order: BPD-6800209
+2025-05-08 09:21:15,399 - INFO - Processing PO BPD-6800210 (215/209)
+2025-05-08 09:21:15,790 - INFO - Successfully cancelled purchase order: BPD-6800210
+2025-05-08 09:21:15,791 - INFO - Processing PO BPD-6800212 (217/209)
+2025-05-08 09:21:16,189 - INFO - Successfully cancelled purchase order: BPD-6800212
+2025-05-08 09:21:16,190 - INFO - Processing PO BPD-6800213 (218/209)
+2025-05-08 09:21:16,548 - INFO - Successfully cancelled purchase order: BPD-6800213
+2025-05-08 09:21:16,549 - INFO - Processing PO BPD-6800214 (219/209)
+2025-05-08 09:21:16,890 - INFO - Successfully cancelled purchase order: BPD-6800214
+2025-05-08 09:21:16,891 - INFO - Processing PO BPD-6800215 (220/209)
+2025-05-08 09:21:17,189 - INFO - Successfully cancelled purchase order: BPD-6800215
+2025-05-08 09:21:17,190 - INFO - Processing PO BPD-6800216 (222/209)
+2025-05-08 09:21:17,500 - INFO - Successfully cancelled purchase order: BPD-6800216
+2025-05-08 09:21:17,501 - INFO - Processing PO BPD-6800217 (224/209)
+2025-05-08 09:21:17,815 - INFO - Successfully cancelled purchase order: BPD-6800217
+2025-05-08 09:21:17,815 - INFO - Processing PO BPD-6800220 (225/209)
+2025-05-08 09:21:18,178 - INFO - Successfully cancelled purchase order: BPD-6800220
+2025-05-08 09:21:18,179 - INFO - Processing PO BPD-6800221 (227/209)
+2025-05-08 09:21:18,500 - INFO - Successfully cancelled purchase order: BPD-6800221
+2025-05-08 09:21:18,502 - INFO - Processing PO BPD-6800222 (229/209)
+2025-05-08 09:21:18,839 - INFO - Successfully cancelled purchase order: BPD-6800222
+2025-05-08 09:21:18,841 - INFO - Processing PO BPD-6800223 (230/209)
+2025-05-08 09:21:19,151 - INFO - Successfully cancelled purchase order: BPD-6800223
+2025-05-08 09:21:19,152 - INFO - Processing PO BPD-6800224 (231/209)
+2025-05-08 09:21:19,494 - INFO - Successfully cancelled purchase order: BPD-6800224
+2025-05-08 09:21:19,495 - INFO - Processing PO BPD-6800225 (236/209)
+2025-05-08 09:21:19,899 - INFO - Successfully cancelled purchase order: BPD-6800225
+2025-05-08 09:21:19,900 - INFO - Processing PO BPD-6800226 (237/209)
+2025-05-08 09:21:20,327 - INFO - Successfully cancelled purchase order: BPD-6800226
+2025-05-08 09:21:20,328 - INFO - Processing PO BPD-6800228 (239/209)
+2025-05-08 09:21:20,818 - INFO - Successfully cancelled purchase order: BPD-6800228
+2025-05-08 09:21:20,820 - INFO - Processing PO BPD-6800229 (240/209)
+2025-05-08 09:21:21,489 - INFO - Successfully cancelled purchase order: BPD-6800229
+2025-05-08 09:21:21,491 - INFO - Processing PO BPD-6800230 (241/209)
+2025-05-08 09:21:22,166 - INFO - Successfully cancelled purchase order: BPD-6800230
+2025-05-08 09:21:22,167 - INFO - Processing PO BPD-6800231 (242/209)
+2025-05-08 09:21:22,813 - INFO - Successfully cancelled purchase order: BPD-6800231
+2025-05-08 09:21:22,815 - INFO - Processing PO BPD-6800232 (243/209)
+2025-05-08 09:21:23,345 - INFO - Successfully cancelled purchase order: BPD-6800232
+2025-05-08 09:21:23,346 - INFO - Processing PO BPD-6800233 (247/209)
+2025-05-08 09:21:23,681 - INFO - Successfully cancelled purchase order: BPD-6800233
+2025-05-08 09:21:23,682 - INFO - Processing PO BPD-6800234 (250/209)
+2025-05-08 09:21:24,008 - INFO - Successfully cancelled purchase order: BPD-6800234
+2025-05-08 09:21:24,009 - INFO - Processing PO BPD-6800237 (252/209)
+2025-05-08 09:21:24,346 - INFO - Successfully cancelled purchase order: BPD-6800237
+2025-05-08 09:21:24,347 - INFO - Processing PO BPD-6800238 (260/209)
+2025-05-08 09:21:24,686 - INFO - Successfully cancelled purchase order: BPD-6800238
+2025-05-08 09:21:24,687 - INFO - Processing PO BPD-6800239 (261/209)
+2025-05-08 09:21:25,031 - INFO - Successfully cancelled purchase order: BPD-6800239
+2025-05-08 09:21:25,032 - INFO - Processing PO BPD-6800242 (262/209)
+2025-05-08 09:21:25,586 - INFO - Successfully cancelled purchase order: BPD-6800242
+2025-05-08 09:21:25,587 - INFO - Processing PO BPD-6800243 (263/209)
+2025-05-08 09:21:26,485 - INFO - Successfully cancelled purchase order: BPD-6800243
+2025-05-08 09:21:26,486 - INFO - Processing PO BPD-6800244 (267/209)
+2025-05-08 09:21:27,260 - INFO - Successfully cancelled purchase order: BPD-6800244
+2025-05-08 09:21:27,262 - INFO - Processing PO BPD-6800245 (268/209)
+2025-05-08 09:21:28,013 - INFO - Successfully cancelled purchase order: BPD-6800245
+2025-05-08 09:21:28,014 - INFO - Processing PO BPD-6800246 (269/209)
+2025-05-08 09:21:28,440 - INFO - Successfully cancelled purchase order: BPD-6800246
+2025-05-08 09:21:28,442 - INFO - Processing PO BPD-6800247 (270/209)
+2025-05-08 09:21:28,800 - INFO - Successfully cancelled purchase order: BPD-6800247
+2025-05-08 09:21:28,802 - INFO - Processing PO BPD-6800248 (273/209)
+2025-05-08 09:21:29,139 - INFO - Successfully cancelled purchase order: BPD-6800248
+2025-05-08 09:21:29,141 - INFO - Processing PO BPD-6800249 (278/209)
+2025-05-08 09:21:29,508 - INFO - Successfully cancelled purchase order: BPD-6800249
+2025-05-08 09:21:29,509 - INFO - Processing PO BPD-6800251 (279/209)
+2025-05-08 09:21:29,871 - INFO - Successfully cancelled purchase order: BPD-6800251
+2025-05-08 09:21:29,873 - INFO - Processing PO BPD-6800252 (280/209)
+2025-05-08 09:21:30,250 - INFO - Successfully cancelled purchase order: BPD-6800252
+2025-05-08 09:21:30,252 - INFO - Processing PO BPD-6800253 (281/209)
+2025-05-08 09:21:30,630 - INFO - Successfully cancelled purchase order: BPD-6800253
+2025-05-08 09:21:30,631 - INFO - Processing PO BPD-6800254 (284/209)
+2025-05-08 09:21:31,005 - INFO - Successfully cancelled purchase order: BPD-6800254
+2025-05-08 09:21:31,005 - INFO - Processing PO BPD-6800256 (286/209)
+2025-05-08 09:21:31,333 - INFO - Successfully cancelled purchase order: BPD-6800256
+2025-05-08 09:21:31,334 - INFO - Processing PO BPD-6800257 (291/209)
+2025-05-08 09:21:31,656 - INFO - Successfully cancelled purchase order: BPD-6800257
+2025-05-08 09:21:31,658 - INFO - Processing PO BPD-6800258 (292/209)
+2025-05-08 09:21:32,031 - INFO - Successfully cancelled purchase order: BPD-6800258
+2025-05-08 09:21:32,032 - INFO - Processing PO BPD-6800259 (294/209)
+2025-05-08 09:21:32,346 - INFO - Successfully cancelled purchase order: BPD-6800259
+2025-05-08 09:21:32,346 - INFO - Processing PO BPD-6800260 (299/209)
+2025-05-08 09:21:32,658 - INFO - Successfully cancelled purchase order: BPD-6800260
+2025-05-08 09:21:32,659 - INFO - Processing PO BPD-6800261 (311/209)
+2025-05-08 09:21:32,982 - INFO - Successfully cancelled purchase order: BPD-6800261
+2025-05-08 09:21:32,984 - INFO - Processing PO BPD-6800262 (312/209)
+2025-05-08 09:21:33,308 - INFO - Successfully cancelled purchase order: BPD-6800262
+2025-05-08 09:21:33,310 - INFO - Processing PO BPD-6800263 (314/209)
+2025-05-08 09:21:33,679 - INFO - Successfully cancelled purchase order: BPD-6800263
+2025-05-08 09:21:33,680 - INFO - Processing PO BPD-6800264 (315/209)
+2025-05-08 09:21:33,973 - INFO - Successfully cancelled purchase order: BPD-6800264
+2025-05-08 09:21:33,973 - INFO - Processing PO BPD-6800265 (316/209)
+2025-05-08 09:21:34,285 - INFO - Successfully cancelled purchase order: BPD-6800265
+2025-05-08 09:21:34,286 - INFO - Processing PO BPD-6800266 (318/209)
+2025-05-08 09:21:34,607 - INFO - Successfully cancelled purchase order: BPD-6800266
+2025-05-08 09:21:34,609 - INFO - Processing PO BPD-6800267 (319/209)
+2025-05-08 09:21:34,923 - INFO - Successfully cancelled purchase order: BPD-6800267
+2025-05-08 09:21:34,924 - INFO - Processing PO BPD-6800268 (320/209)
+2025-05-08 09:21:35,226 - INFO - Successfully cancelled purchase order: BPD-6800268
+2025-05-08 09:21:35,227 - INFO - Processing PO BPD-6800269 (321/209)
+2025-05-08 09:21:35,528 - INFO - Successfully cancelled purchase order: BPD-6800269
+2025-05-08 09:21:35,529 - INFO - Processing PO BPD-6800270 (322/209)
+2025-05-08 09:21:35,835 - INFO - Successfully cancelled purchase order: BPD-6800270
+2025-05-08 09:21:35,836 - INFO - Processing PO BPD-6800271 (323/209)
+2025-05-08 09:21:36,152 - INFO - Successfully cancelled purchase order: BPD-6800271
+2025-05-08 09:21:36,154 - INFO - Processing PO BPD-6800275 (326/209)
+2025-05-08 09:21:36,471 - INFO - Successfully cancelled purchase order: BPD-6800275
+2025-05-08 09:21:36,472 - INFO - Processing PO BPD-6800278 (327/209)
+2025-05-08 09:21:36,765 - INFO - Successfully cancelled purchase order: BPD-6800278
+2025-05-08 09:21:36,766 - INFO - Processing PO PD-6800204 (329/209)
+2025-05-08 09:21:37,119 - INFO - Successfully cancelled purchase order: PD-6800204
+2025-05-08 09:21:37,120 - INFO - Processing PO PD-6700507 (337/209)
+2025-05-08 09:21:37,426 - INFO - Successfully cancelled purchase order: PD-6700507
+2025-05-08 09:21:37,426 - INFO - Processing PO PD-6800149 (338/209)
+2025-05-08 09:21:37,746 - INFO - Successfully cancelled purchase order: PD-6800149
+2025-05-08 09:21:37,747 - INFO - Processing PO PD-6800147 (339/209)
+2025-05-08 09:21:38,071 - INFO - Successfully cancelled purchase order: PD-6800147
+2025-05-08 09:21:38,072 - INFO - Processing PO PD-6800142 (341/209)
+2025-05-08 09:21:38,381 - INFO - Successfully cancelled purchase order: PD-6800142
+2025-05-08 09:21:38,381 - INFO - Processing PO PD-6800129 (342/209)
+2025-05-08 09:21:38,701 - INFO - Successfully cancelled purchase order: PD-6800129
+2025-05-08 09:21:38,702 - INFO - Processing PO PD-6800133 (346/209)
+2025-05-08 09:21:39,059 - INFO - Successfully cancelled purchase order: PD-6800133
+2025-05-08 09:21:39,061 - INFO - Processing PO PD-6800143 (350/209)
+2025-05-08 09:21:39,385 - INFO - Successfully cancelled purchase order: PD-6800143
+2025-05-08 09:21:39,386 - INFO - Processing PO PD-6800144 (351/209)
+2025-05-08 09:21:39,715 - INFO - Successfully cancelled purchase order: PD-6800144
+2025-05-08 09:21:39,716 - INFO - Processing PO PD-6800155 (352/209)
+2025-05-08 09:21:40,073 - INFO - Successfully cancelled purchase order: PD-6800155
+2025-05-08 09:21:40,074 - INFO - Processing PO PD-6800132 (353/209)
+2025-05-08 09:21:40,415 - INFO - Successfully cancelled purchase order: PD-6800132
+2025-05-08 09:21:40,416 - INFO - Processing PO PD-6800195 (359/209)
+2025-05-08 09:21:40,818 - INFO - Successfully cancelled purchase order: PD-6800195
+2025-05-08 09:21:40,820 - INFO - Processing PO PD-6800138 (360/209)
+2025-05-08 09:21:41,132 - INFO - Successfully cancelled purchase order: PD-6800138
+2025-05-08 09:21:41,133 - INFO - Processing PO PD-6800145 (361/209)
+2025-05-08 09:21:41,454 - INFO - Successfully cancelled purchase order: PD-6800145
+2025-05-08 09:21:41,455 - INFO - Processing PO PD-6800146 (362/209)
+2025-05-08 09:21:41,794 - INFO - Successfully cancelled purchase order: PD-6800146
+2025-05-08 09:21:41,795 - INFO - Processing PO PD-6800174 (363/209)
+2025-05-08 09:21:42,138 - INFO - Successfully cancelled purchase order: PD-6800174
+2025-05-08 09:21:42,139 - INFO - Processing PO PD-6700542 (364/209)
+2025-05-08 09:21:42,544 - INFO - Successfully cancelled purchase order: PD-6700542
+2025-05-08 09:21:42,545 - INFO - Processing PO PD-6700506 (365/209)
+2025-05-08 09:21:42,916 - INFO - Successfully cancelled purchase order: PD-6700506
+2025-05-08 09:21:42,917 - INFO - Processing PO PD-6700491 (368/209)
+2025-05-08 09:21:43,259 - INFO - Successfully cancelled purchase order: PD-6700491
+2025-05-08 09:21:43,260 - INFO - Processing PO PD-6800121 (373/209)
+2025-05-08 09:21:43,593 - INFO - Successfully cancelled purchase order: PD-6800121
+2025-05-08 09:21:43,594 - INFO - Processing PO PD-6800184 (377/209)
+2025-05-08 09:21:43,924 - INFO - Successfully cancelled purchase order: PD-6800184
+2025-05-08 09:21:43,925 - INFO - Processing PO PD-6800120 (378/209)
+2025-05-08 09:21:44,275 - INFO - Successfully cancelled purchase order: PD-6800120
+2025-05-08 09:21:44,277 - INFO - Processing PO PD-6700549 (384/209)
+2025-05-08 09:21:44,626 - INFO - Successfully cancelled purchase order: PD-6700549
+2025-05-08 09:21:44,627 - INFO - Processing PO PD-6800044 (385/209)
+2025-05-08 09:21:44,983 - INFO - Successfully cancelled purchase order: PD-6800044
+2025-05-08 09:21:44,984 - INFO - Processing PO PD-6800080 (386/209)
+2025-05-08 09:21:45,381 - INFO - Successfully cancelled purchase order: PD-6800080
+2025-05-08 09:21:45,382 - INFO - Processing PO PD-6800091 (389/209)
+2025-05-08 09:21:45,794 - INFO - Successfully cancelled purchase order: PD-6800091
+2025-05-08 09:21:45,796 - INFO - Processing PO PD-6800093 (390/209)
+2025-05-08 09:21:46,469 - INFO - Successfully cancelled purchase order: PD-6800093
+2025-05-08 09:21:46,470 - INFO - Processing PO PD-6800100 (391/209)
+2025-05-08 09:21:47,101 - INFO - Successfully cancelled purchase order: PD-6800100
+2025-05-08 09:21:47,102 - INFO - Processing PO PD-6800110 (393/209)
+2025-05-08 09:21:47,714 - INFO - Successfully cancelled purchase order: PD-6800110
+2025-05-08 09:21:47,715 - INFO - Processing PO PD-6800118 (394/209)
+2025-05-08 09:21:48,247 - INFO - Successfully cancelled purchase order: PD-6800118
+2025-05-08 09:21:48,249 - INFO - Processing PO PD-6800119 (395/209)
+2025-05-08 09:21:48,890 - INFO - Successfully cancelled purchase order: PD-6800119
+2025-05-08 09:21:48,892 - INFO - Processing PO PD-6800123 (396/209)
+2025-05-08 09:21:49,527 - INFO - Successfully cancelled purchase order: PD-6800123
+2025-05-08 09:21:49,528 - INFO - Processing PO PD-6800124 (397/209)
+2025-05-08 09:21:50,191 - INFO - Successfully cancelled purchase order: PD-6800124
+2025-05-08 09:21:50,193 - INFO - Processing PO PD-6800125 (398/209)
+2025-05-08 09:21:50,504 - INFO - Successfully cancelled purchase order: PD-6800125
+2025-05-08 09:21:50,505 - INFO - Processing PO PD-6800126 (400/209)
+2025-05-08 09:21:50,876 - INFO - Successfully cancelled purchase order: PD-6800126
+2025-05-08 09:21:50,877 - INFO - Processing PO PD-6800127 (401/209)
+2025-05-08 09:21:51,181 - INFO - Successfully cancelled purchase order: PD-6800127
+2025-05-08 09:21:51,182 - INFO - Processing PO PD-6800128 (402/209)
+2025-05-08 09:21:51,497 - INFO - Successfully cancelled purchase order: PD-6800128
+2025-05-08 09:21:51,498 - INFO - Processing PO PD-6800130 (403/209)
+2025-05-08 09:21:51,929 - INFO - Successfully cancelled purchase order: PD-6800130
+2025-05-08 09:21:51,929 - INFO - Processing PO PD-6800134 (407/209)
+2025-05-08 09:21:52,550 - INFO - Successfully cancelled purchase order: PD-6800134
+2025-05-08 09:21:52,552 - INFO - Processing PO PD-6800135 (408/209)
+2025-05-08 09:21:53,163 - INFO - Successfully cancelled purchase order: PD-6800135
+2025-05-08 09:21:53,163 - INFO - Processing PO PD-6800136 (416/209)
+2025-05-08 09:21:53,454 - INFO - Successfully cancelled purchase order: PD-6800136
+2025-05-08 09:21:53,454 - INFO - Processing PO PD-6800137 (417/209)
+2025-05-08 09:21:53,743 - INFO - Successfully cancelled purchase order: PD-6800137
+2025-05-08 09:21:53,744 - INFO - Processing PO PD-6800139 (418/209)
+2025-05-08 09:21:54,054 - INFO - Successfully cancelled purchase order: PD-6800139
+2025-05-08 09:21:54,055 - INFO - Processing PO PD-6800140 (419/209)
+2025-05-08 09:21:54,368 - INFO - Successfully cancelled purchase order: PD-6800140
+2025-05-08 09:21:54,369 - INFO - Processing PO PD-6800141 (420/209)
+2025-05-08 09:21:54,675 - INFO - Successfully cancelled purchase order: PD-6800141
+2025-05-08 09:21:54,676 - INFO - Processing PO PD-6800148 (424/209)
+2025-05-08 09:21:54,979 - INFO - Successfully cancelled purchase order: PD-6800148
+2025-05-08 09:21:54,980 - INFO - Processing PO PD-6800153 (426/209)
+2025-05-08 09:21:55,281 - INFO - Successfully cancelled purchase order: PD-6800153
+2025-05-08 09:21:55,282 - INFO - Processing PO PD-6800156 (430/209)
+2025-05-08 09:21:55,578 - INFO - Successfully cancelled purchase order: PD-6800156
+2025-05-08 09:21:55,579 - INFO - Processing PO PD-6800158 (431/209)
+2025-05-08 09:21:55,909 - INFO - Successfully cancelled purchase order: PD-6800158
+2025-05-08 09:21:55,910 - INFO - Processing PO PD-6800159 (433/209)
+2025-05-08 09:21:56,203 - INFO - Successfully cancelled purchase order: PD-6800159
+2025-05-08 09:21:56,203 - INFO - Processing PO PD-6800160 (434/209)
+2025-05-08 09:21:56,512 - INFO - Successfully cancelled purchase order: PD-6800160
+2025-05-08 09:21:56,513 - INFO - Processing PO PD-6800161 (436/209)
+2025-05-08 09:21:57,005 - INFO - Successfully cancelled purchase order: PD-6800161
+2025-05-08 09:21:57,006 - INFO - Processing PO PD-6800162 (437/209)
+2025-05-08 09:21:57,739 - INFO - Successfully cancelled purchase order: PD-6800162
+2025-05-08 09:21:57,740 - INFO - Processing PO PD-6800163 (438/209)
+2025-05-08 09:21:58,526 - INFO - Successfully cancelled purchase order: PD-6800163
+2025-05-08 09:21:58,529 - INFO - Processing PO PD-6800164 (439/209)
+2025-05-08 09:21:59,303 - INFO - Successfully cancelled purchase order: PD-6800164
+2025-05-08 09:21:59,304 - INFO - Processing PO PD-6800165 (441/209)
+2025-05-08 09:22:00,053 - INFO - Successfully cancelled purchase order: PD-6800165
+2025-05-08 09:22:00,054 - INFO - Processing PO PD-6800170 (443/209)
+2025-05-08 09:22:00,950 - INFO - Successfully cancelled purchase order: PD-6800170
+2025-05-08 09:22:00,951 - INFO - Processing PO PD-6800171 (444/209)
+2025-05-08 09:22:01,775 - INFO - Successfully cancelled purchase order: PD-6800171
+2025-05-08 09:22:01,776 - INFO - Processing PO PD-6800172 (448/209)
+2025-05-08 09:22:02,526 - INFO - Successfully cancelled purchase order: PD-6800172
+2025-05-08 09:22:02,529 - INFO - Processing PO PD-6800177 (451/209)
+2025-05-08 09:22:03,538 - INFO - Successfully cancelled purchase order: PD-6800177
+2025-05-08 09:22:03,540 - INFO - Processing PO PD-6800182 (455/209)
+2025-05-08 09:22:04,265 - INFO - Successfully cancelled purchase order: PD-6800182
+2025-05-08 09:22:04,268 - INFO - Processing PO PD-6800183 (456/209)
+2025-05-08 09:22:04,671 - INFO - Successfully cancelled purchase order: PD-6800183
+2025-05-08 09:22:04,673 - INFO - Processing PO PD-6800185 (457/209)
+2025-05-08 09:22:05,041 - INFO - Successfully cancelled purchase order: PD-6800185
+2025-05-08 09:22:05,042 - INFO - Processing PO PD-6800188 (459/209)
+2025-05-08 09:22:05,374 - INFO - Successfully cancelled purchase order: PD-6800188
+2025-05-08 09:22:05,375 - INFO - Processing PO PD-6800189 (461/209)
+2025-05-08 09:22:05,721 - INFO - Successfully cancelled purchase order: PD-6800189
+2025-05-08 09:22:05,721 - INFO - Processing PO PD-6800190 (465/209)
+2025-05-08 09:22:06,333 - INFO - Successfully cancelled purchase order: PD-6800190
+2025-05-08 09:22:06,334 - INFO - Processing PO PD-6800191 (466/209)
+2025-05-08 09:22:07,047 - INFO - Successfully cancelled purchase order: PD-6800191
+2025-05-08 09:22:07,048 - INFO - Processing PO PD-6800196 (469/209)
+2025-05-08 09:22:07,715 - INFO - Successfully cancelled purchase order: PD-6800196
+2025-05-08 09:22:07,716 - INFO - Processing PO PD-6800197 (470/209)
+2025-05-08 09:22:08,374 - INFO - Successfully cancelled purchase order: PD-6800197
+2025-05-08 09:22:08,375 - INFO - Processing PO PD-6800198 (476/209)
+2025-05-08 09:22:09,049 - INFO - Successfully cancelled purchase order: PD-6800198
+2025-05-08 09:22:09,049 - INFO - Processing PO PD-6800200 (480/209)
+2025-05-08 09:22:09,715 - INFO - Successfully cancelled purchase order: PD-6800200
+2025-05-08 09:22:09,716 - INFO - 
+Purchase Order Cancellation Summary:
+2025-05-08 09:22:09,716 - INFO - 
+Successful Cancellations (208/209):
+2025-05-08 09:22:09,717 - INFO -   - BPD-6700364
+2025-05-08 09:22:09,717 - INFO -   - BPD-6800052
+2025-05-08 09:22:09,718 - INFO -   - BPD-6800097
+2025-05-08 09:22:09,718 - INFO -   - BPD-6800154
+2025-05-08 09:22:09,718 - INFO -   - BPD-6800171
+2025-05-08 09:22:09,719 - INFO -   - BPD-6800173
+2025-05-08 09:22:09,719 - INFO -   - BPD-6800175
+2025-05-08 09:22:09,719 - INFO -   - BPD-6800235
+2025-05-08 09:22:09,720 - INFO -   - BPD-6800236
+2025-05-08 09:22:09,720 - INFO -   - BPD-6800240
+2025-05-08 09:22:09,720 - INFO -   - BPD-6800250
+2025-05-08 09:22:09,721 - INFO -   - BPD-6800255
+2025-05-08 09:22:09,721 - INFO -   - BPD-6800272
+2025-05-08 09:22:09,722 - INFO -   - BPD-6800273
+2025-05-08 09:22:09,722 - INFO -   - BPD-6800274
+2025-05-08 09:22:09,723 - INFO -   - BPD-6800276
+2025-05-08 09:22:09,724 - INFO -   - BPD-6800277
+2025-05-08 09:22:09,724 - INFO -   - BPD-6800279
+2025-05-08 09:22:09,724 - INFO -   - BPD-6800280
+2025-05-08 09:22:09,725 - INFO -   - PD-6400471
+2025-05-08 09:22:09,725 - INFO -   - PD-6700030
+2025-05-08 09:22:09,725 - INFO -   - PD-6700382
+2025-05-08 09:22:09,726 - INFO -   - PD-6700420
+2025-05-08 09:22:09,726 - INFO -   - PD-6700426
+2025-05-08 09:22:09,726 - INFO -   - PD-6700446
+2025-05-08 09:22:09,727 - INFO -   - PD-6700474
+2025-05-08 09:22:09,727 - INFO -   - PD-6700479
+2025-05-08 09:22:09,727 - INFO -   - PD-6800033
+2025-05-08 09:22:09,727 - INFO -   - PD-6800034
+2025-05-08 09:22:09,728 - INFO -   - PD-6800056
+2025-05-08 09:22:09,728 - INFO -   - PD-6800058
+2025-05-08 09:22:09,728 - INFO -   - PD-6800079
+2025-05-08 09:22:09,729 - INFO -   - PD-6800082
+2025-05-08 09:22:09,729 - INFO -   - PD-6800166
+2025-05-08 09:22:09,730 - INFO -   - PD-6800167
+2025-05-08 09:22:09,731 - INFO -   - PD-6800168
+2025-05-08 09:22:09,732 - INFO -   - PD-6800169
+2025-05-08 09:22:09,732 - INFO -   - PD-6800173
+2025-05-08 09:22:09,733 - INFO -   - PD-6800178
+2025-05-08 09:22:09,733 - INFO -   - PD-6800179
+2025-05-08 09:22:09,733 - INFO -   - PD-6800180
+2025-05-08 09:22:09,733 - INFO -   - PD-6800181
+2025-05-08 09:22:09,734 - INFO -   - PD-6800186
+2025-05-08 09:22:09,734 - INFO -   - PD-6800187
+2025-05-08 09:22:09,734 - INFO -   - PD-6800192
+2025-05-08 09:22:09,735 - INFO -   - PD-6800193
+2025-05-08 09:22:09,735 - INFO -   - PD-6800194
+2025-05-08 09:22:09,735 - INFO -   - PD-6800199
+2025-05-08 09:22:09,736 - INFO -   - PD-6800201
+2025-05-08 09:22:09,736 - INFO -   - PD-6800202
+2025-05-08 09:22:09,736 - INFO -   - PD-6800203
+2025-05-08 09:22:09,737 - INFO -   - PD-6800205
+2025-05-08 09:22:09,738 - INFO -   - PD-6800206
+2025-05-08 09:22:09,738 - INFO -   - PD-6800207
+2025-05-08 09:22:09,738 - INFO -   - BPD-6800032
+2025-05-08 09:22:09,739 - INFO -   - BPD-6800086
+2025-05-08 09:22:09,739 - INFO -   - BPD-6800087
+2025-05-08 09:22:09,739 - INFO -   - BPD-6800090
+2025-05-08 09:22:09,740 - INFO -   - BPD-6800092
+2025-05-08 09:22:09,740 - INFO -   - BPD-6800104
+2025-05-08 09:22:09,740 - INFO -   - BPD-6800118
+2025-05-08 09:22:09,740 - INFO -   - BPD-6800119
+2025-05-08 09:22:09,741 - INFO -   - BPD-6800177
+2025-05-08 09:22:09,741 - INFO -   - BPD-6800178
+2025-05-08 09:22:09,741 - INFO -   - BPD-6800179
+2025-05-08 09:22:09,742 - INFO -   - BPD-6800183
+2025-05-08 09:22:09,742 - INFO -   - BPD-6800184
+2025-05-08 09:22:09,742 - INFO -   - BPD-6800185
+2025-05-08 09:22:09,743 - INFO -   - BPD-6800186
+2025-05-08 09:22:09,743 - INFO -   - BPD-6800187
+2025-05-08 09:22:09,744 - INFO -   - BPD-6800188
+2025-05-08 09:22:09,744 - INFO -   - BPD-6800189
+2025-05-08 09:22:09,744 - INFO -   - BPD-6800190
+2025-05-08 09:22:09,744 - INFO -   - BPD-6800192
+2025-05-08 09:22:09,745 - INFO -   - BPD-6800193
+2025-05-08 09:22:09,745 - INFO -   - BPD-6800194
+2025-05-08 09:22:09,745 - INFO -   - BPD-6800196
+2025-05-08 09:22:09,746 - INFO -   - BPD-6800203
+2025-05-08 09:22:09,746 - INFO -   - BPD-6800204
+2025-05-08 09:22:09,747 - INFO -   - BPD-6800205
+2025-05-08 09:22:09,747 - INFO -   - BPD-6800207
+2025-05-08 09:22:09,747 - INFO -   - BPD-6800208
+2025-05-08 09:22:09,748 - INFO -   - BPD-6800209
+2025-05-08 09:22:09,748 - INFO -   - BPD-6800210
+2025-05-08 09:22:09,749 - INFO -   - BPD-6800212
+2025-05-08 09:22:09,749 - INFO -   - BPD-6800213
+2025-05-08 09:22:09,750 - INFO -   - BPD-6800214
+2025-05-08 09:22:09,750 - INFO -   - BPD-6800215
+2025-05-08 09:22:09,751 - INFO -   - BPD-6800216
+2025-05-08 09:22:09,751 - INFO -   - BPD-6800217
+2025-05-08 09:22:09,751 - INFO -   - BPD-6800220
+2025-05-08 09:22:09,752 - INFO -   - BPD-6800221
+2025-05-08 09:22:09,752 - INFO -   - BPD-6800222
+2025-05-08 09:22:09,752 - INFO -   - BPD-6800223
+2025-05-08 09:22:09,753 - INFO -   - BPD-6800224
+2025-05-08 09:22:09,753 - INFO -   - BPD-6800225
+2025-05-08 09:22:09,753 - INFO -   - BPD-6800226
+2025-05-08 09:22:09,754 - INFO -   - BPD-6800228
+2025-05-08 09:22:09,754 - INFO -   - BPD-6800229
+2025-05-08 09:22:09,754 - INFO -   - BPD-6800230
+2025-05-08 09:22:09,754 - INFO -   - BPD-6800231
+2025-05-08 09:22:09,755 - INFO -   - BPD-6800232
+2025-05-08 09:22:09,755 - INFO -   - BPD-6800233
+2025-05-08 09:22:09,755 - INFO -   - BPD-6800234
+2025-05-08 09:22:09,756 - INFO -   - BPD-6800237
+2025-05-08 09:22:09,756 - INFO -   - BPD-6800238
+2025-05-08 09:22:09,756 - INFO -   - BPD-6800239
+2025-05-08 09:22:09,757 - INFO -   - BPD-6800242
+2025-05-08 09:22:09,757 - INFO -   - BPD-6800243
+2025-05-08 09:22:09,757 - INFO -   - BPD-6800244
+2025-05-08 09:22:09,758 - INFO -   - BPD-6800245
+2025-05-08 09:22:09,758 - INFO -   - BPD-6800246
+2025-05-08 09:22:09,758 - INFO -   - BPD-6800247
+2025-05-08 09:22:09,759 - INFO -   - BPD-6800248
+2025-05-08 09:22:09,759 - INFO -   - BPD-6800249
+2025-05-08 09:22:09,759 - INFO -   - BPD-6800251
+2025-05-08 09:22:09,760 - INFO -   - BPD-6800252
+2025-05-08 09:22:09,760 - INFO -   - BPD-6800253
+2025-05-08 09:22:09,760 - INFO -   - BPD-6800254
+2025-05-08 09:22:09,761 - INFO -   - BPD-6800256
+2025-05-08 09:22:09,761 - INFO -   - BPD-6800257
+2025-05-08 09:22:09,761 - INFO -   - BPD-6800258
+2025-05-08 09:22:09,762 - INFO -   - BPD-6800259
+2025-05-08 09:22:09,762 - INFO -   - BPD-6800260
+2025-05-08 09:22:09,762 - INFO -   - BPD-6800261
+2025-05-08 09:22:09,763 - INFO -   - BPD-6800262
+2025-05-08 09:22:09,763 - INFO -   - BPD-6800263
+2025-05-08 09:22:09,764 - INFO -   - BPD-6800264
+2025-05-08 09:22:09,764 - INFO -   - BPD-6800265
+2025-05-08 09:22:09,764 - INFO -   - BPD-6800266
+2025-05-08 09:22:09,765 - INFO -   - BPD-6800267
+2025-05-08 09:22:09,765 - INFO -   - BPD-6800268
+2025-05-08 09:22:09,765 - INFO -   - BPD-6800269
+2025-05-08 09:22:09,765 - INFO -   - BPD-6800270
+2025-05-08 09:22:09,766 - INFO -   - BPD-6800271
+2025-05-08 09:22:09,766 - INFO -   - BPD-6800275
+2025-05-08 09:22:09,766 - INFO -   - BPD-6800278
+2025-05-08 09:22:09,767 - INFO -   - PD-6800204
+2025-05-08 09:22:09,767 - INFO -   - PD-6700507
+2025-05-08 09:22:09,767 - INFO -   - PD-6800149
+2025-05-08 09:22:09,767 - INFO -   - PD-6800147
+2025-05-08 09:22:09,768 - INFO -   - PD-6800142
+2025-05-08 09:22:09,768 - INFO -   - PD-6800129
+2025-05-08 09:22:09,772 - INFO -   - PD-6800133
+2025-05-08 09:22:09,774 - INFO -   - PD-6800143
+2025-05-08 09:22:09,775 - INFO -   - PD-6800144
+2025-05-08 09:22:09,776 - INFO -   - PD-6800155
+2025-05-08 09:22:09,777 - INFO -   - PD-6800132
+2025-05-08 09:22:09,778 - INFO -   - PD-6800195
+2025-05-08 09:22:09,780 - INFO -   - PD-6800138
+2025-05-08 09:22:09,781 - INFO -   - PD-6800145
+2025-05-08 09:22:09,783 - INFO -   - PD-6800146
+2025-05-08 09:22:09,784 - INFO -   - PD-6800174
+2025-05-08 09:22:09,785 - INFO -   - PD-6700542
+2025-05-08 09:22:09,786 - INFO -   - PD-6700506
+2025-05-08 09:22:09,787 - INFO -   - PD-6700491
+2025-05-08 09:22:09,787 - INFO -   - PD-6800121
+2025-05-08 09:22:09,788 - INFO -   - PD-6800184
+2025-05-08 09:22:09,789 - INFO -   - PD-6800120
+2025-05-08 09:22:09,790 - INFO -   - PD-6700549
+2025-05-08 09:22:09,790 - INFO -   - PD-6800044
+2025-05-08 09:22:09,792 - INFO -   - PD-6800080
+2025-05-08 09:22:09,792 - INFO -   - PD-6800091
+2025-05-08 09:22:09,793 - INFO -   - PD-6800093
+2025-05-08 09:22:09,793 - INFO -   - PD-6800100
+2025-05-08 09:22:09,793 - INFO -   - PD-6800110
+2025-05-08 09:22:09,793 - INFO -   - PD-6800118
+2025-05-08 09:22:09,795 - INFO -   - PD-6800119
+2025-05-08 09:22:09,795 - INFO -   - PD-6800123
+2025-05-08 09:22:09,796 - INFO -   - PD-6800124
+2025-05-08 09:22:09,799 - INFO -   - PD-6800125
+2025-05-08 09:22:09,802 - INFO -   - PD-6800126
+2025-05-08 09:22:09,803 - INFO -   - PD-6800127
+2025-05-08 09:22:09,803 - INFO -   - PD-6800128
+2025-05-08 09:22:09,804 - INFO -   - PD-6800130
+2025-05-08 09:22:09,806 - INFO -   - PD-6800134
+2025-05-08 09:22:09,807 - INFO -   - PD-6800135
+2025-05-08 09:22:09,810 - INFO -   - PD-6800136
+2025-05-08 09:22:09,812 - INFO -   - PD-6800137
+2025-05-08 09:22:09,816 - INFO -   - PD-6800139
+2025-05-08 09:22:09,817 - INFO -   - PD-6800140
+2025-05-08 09:22:09,817 - INFO -   - PD-6800141
+2025-05-08 09:22:09,817 - INFO -   - PD-6800148
+2025-05-08 09:22:09,818 - INFO -   - PD-6800153
+2025-05-08 09:22:09,818 - INFO -   - PD-6800156
+2025-05-08 09:22:09,819 - INFO -   - PD-6800158
+2025-05-08 09:22:09,819 - INFO -   - PD-6800159
+2025-05-08 09:22:09,819 - INFO -   - PD-6800160
+2025-05-08 09:22:09,819 - INFO -   - PD-6800161
+2025-05-08 09:22:09,820 - INFO -   - PD-6800162
+2025-05-08 09:22:09,820 - INFO -   - PD-6800163
+2025-05-08 09:22:09,820 - INFO -   - PD-6800164
+2025-05-08 09:22:09,821 - INFO -   - PD-6800165
+2025-05-08 09:22:09,821 - INFO -   - PD-6800170
+2025-05-08 09:22:09,821 - INFO -   - PD-6800171
+2025-05-08 09:22:09,822 - INFO -   - PD-6800172
+2025-05-08 09:22:09,822 - INFO -   - PD-6800177
+2025-05-08 09:22:09,822 - INFO -   - PD-6800182
+2025-05-08 09:22:09,823 - INFO -   - PD-6800183
+2025-05-08 09:22:09,823 - INFO -   - PD-6800185
+2025-05-08 09:22:09,824 - INFO -   - PD-6800188
+2025-05-08 09:22:09,824 - INFO -   - PD-6800189
+2025-05-08 09:22:09,824 - INFO -   - PD-6800190
+2025-05-08 09:22:09,825 - INFO -   - PD-6800191
+2025-05-08 09:22:09,825 - INFO -   - PD-6800196
+2025-05-08 09:22:09,825 - INFO -   - PD-6800197
+2025-05-08 09:22:09,827 - INFO -   - PD-6800198
+2025-05-08 09:22:09,830 - INFO -   - PD-6800200
+2025-05-08 09:22:09,831 - INFO - 
+Failed Cancellations (0/209):
+2025-05-08 09:22:09,832 - INFO - 
+Skipped Orders (1/209):
+2025-05-08 09:22:09,833 - INFO -   - PD-6500139 (Already cancelled)
+2025-05-08 09:22:09,833 - INFO - Order cancellation process completed.
