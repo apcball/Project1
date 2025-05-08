@@ -22,8 +22,8 @@ import_stats = {
 }
 
 # --- Connection Settings ---
-url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+url = 'http://mogdev.work:8069'
+db = 'MOG_Test'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -35,7 +35,7 @@ def connect_to_odoo():
     return uid, models
 
 def read_excel_file():
-    file_path = 'Data_file/import_invoice_AR_ARX.xlsx'
+    file_path = 'Data_file/import_invoice_ARX.xlsx'
     if not os.path.exists(file_path):
         msg = f"Excel file not found at {file_path}"
         logging.error(msg)
@@ -49,6 +49,33 @@ def print_import_summary():
     logging.info(f"New Invoices Created: {import_stats['created']}")
     logging.info(f"Existing Invoices Updated: {import_stats['updated']}")
     logging.info("===================\n")
+
+def update_move_line_account(uid, models, move_id, account_id):
+    """Update account in journal items after invoice is posted - for the debit line"""
+    try:
+        if not account_id:
+            return False
+
+        # Get the debit line for this invoice
+        move_lines = models.execute_kw(db, uid, password,
+            'account.move.line', 'search_read',
+            [[['move_id', '=', move_id], 
+              ['debit', '>', 0]  # Get debit line
+            ]],
+            {'fields': ['id', 'account_id', 'name', 'debit']})
+
+        if move_lines:
+            # Update the account for the debit line
+            models.execute_kw(db, uid, password,
+                'account.move.line', 'write',
+                [[move_lines[0]['id']], {'account_id': account_id}])
+            print(f"Updated account for move line {move_lines[0]['id']}")
+            return True
+        return False
+
+    except Exception as e:
+        print(f"Error updating move line account: {str(e)}")
+        return False
 
 def main():
     try:
@@ -79,7 +106,8 @@ def main():
                     'invoice_date': row['invoice_date'],
                     'payment_reference': row.get('payment_reference', ''),
                     'note': row.get('note', ''),
-                    'journal': row.get('journal', '')
+                    'journal': row.get('journal', ''),
+                    'account_code': row.get('account_code', '')  # เพิ่ม account_code
                 }
                 
                 result = update_or_create_invoice(uid, models, invoice_data)
@@ -168,6 +196,23 @@ def find_journal_by_name(uid, models, journal_name):
     
     return journal_ids[0]['id'] if journal_ids else None
 
+def find_account_by_code(uid, models, account_code):
+    """Find account by code"""
+    if not account_code or pd.isna(account_code):
+        return None
+        
+    account_code = str(account_code).strip()
+    account_ids = models.execute_kw(db, uid, password,
+        'account.account', 'search_read',
+        [[['code', '=', account_code]]],
+        {'fields': ['id', 'name', 'code']})
+    
+    if account_ids:
+        print(f"Found account: {account_ids[0]['name']} ({account_ids[0]['code']})")
+        return account_ids[0]['id']
+    print(f"Account not found with code: {account_code}")
+    return None
+
 def find_existing_invoice(uid, models, document_number):
     if not document_number:
         return None
@@ -198,6 +243,15 @@ def update_or_create_invoice(uid, models, invoice_data):
         if not product:
             msg = f"Product not found with code: {invoice_data['default_code']} for invoice {invoice_data['document_number']}"
             logging.error(msg)
+            return False
+
+        # Find account by code
+        account_id = None
+        if 'account_code' in invoice_data and invoice_data['account_code']:
+            account_id = find_account_by_code(uid, models, invoice_data['account_code'])
+            if not account_id:
+                msg = f"Account not found with code: {invoice_data['account_code']} for invoice {invoice_data['document_number']}"
+                logging.warning(msg)  # Warning only, will use default account
             import_stats['failed'] += 1
             return False
 
