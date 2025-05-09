@@ -45,7 +45,7 @@ def clean_and_validate_data(value, field_name, max_length=500):
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    file_path = 'Data_file/import_invoice_AR.xlsx'
+    file_path = 'Data_file/import_invoice_AR_เงินทดรองจ่าย113001.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
@@ -177,18 +177,27 @@ def update_move_line_account(uid, models, move_id, line_data):
         # Get the revenue account code from line_data
         revenue_account_code = line_data.get('revenue_account')
         if not revenue_account_code or pd.isna(revenue_account_code):
-            print("No revenue account code provided, using default 411101")
-            revenue_account_code = '411101'  # Default to รายได้จากการขายสินค้า
+            print("No revenue account code provided, using default 113001")
+            revenue_account_code = '113001'  # Default to เงินทดรองจ่าย
 
         # Find the revenue account
         revenue_account_id = find_account_by_code(uid, models, revenue_account_code)
         if not revenue_account_id:
-            print(f"Could not find revenue account with code: {revenue_account_code}, using default 411101")
-            # Try to find default account 411101
-            revenue_account_id = find_account_by_code(uid, models, '411101')
+            print(f"Could not find revenue account with code: {revenue_account_code}, using default 113001")
+            # Try to find default account 113001
+            revenue_account_id = find_account_by_code(uid, models, '113001')
             if not revenue_account_id:
-                print("Could not find default account 411101")
-                return False
+                # Try alternative accounts in order
+                alternative_accounts = ['113001', '113002', '113003']
+                for acc_code in alternative_accounts:
+                    revenue_account_id = find_account_by_code(uid, models, acc_code)
+                    if revenue_account_id:
+                        print(f"Using alternative account: {acc_code}")
+                        break
+                
+                if not revenue_account_id:
+                    print("Could not find any suitable account")
+                    return False
 
         # Get the debit line (receivable line) for this invoice
         move_lines = models.execute_kw(db, uid, password,
@@ -202,12 +211,32 @@ def update_move_line_account(uid, models, move_id, line_data):
             print("No debit line found")
             return False
 
-        # Update the debit line's account
+        # Get the invoice data to get the due date
+        invoice_data = models.execute_kw(db, uid, password,
+            'account.move', 'read',
+            [move_id],
+            {'fields': ['invoice_date', 'invoice_date_due']})
+
+        if not invoice_data:
+            print("Could not find invoice data")
+            return False
+
+        # Use invoice_date_due if available, otherwise use invoice_date
+        due_date = invoice_data[0].get('invoice_date_due') or invoice_data[0].get('invoice_date')
+        if not due_date:
+            print("No due date or invoice date found")
+            return False
+
+        # Update the debit line's account and due date
         try:
+            update_vals = {
+                'account_id': revenue_account_id,
+                'date_maturity': due_date  # Set the due date
+            }
             models.execute_kw(db, uid, password,
                 'account.move.line', 'write',
-                [[move_lines[0]['id']], {'account_id': revenue_account_id}])
-            print(f"Successfully updated debit account to {revenue_account_code}")
+                [[move_lines[0]['id']], update_vals])
+            print(f"Successfully updated debit account to {revenue_account_code} with due date")
             return True
         except Exception as e:
             print(f"Error updating debit line: {str(e)}")
@@ -223,20 +252,24 @@ def find_account_by_code(uid, models, account_code):
         if not account_code or pd.isna(account_code):
             return None
             
-        # Clean up account code - extract only the numbers at the start
+        # Clean up account code
         account_code = str(account_code).strip()
-        import re
-        account_code = re.match(r'^\d+', account_code)
-        if account_code:
-            account_code = account_code.group(0)
-        else:
-            return None
+        # Remove any spaces and special characters but keep numbers and letters
+        account_code = ''.join(c for c in account_code if c.isalnum())
         
         # Search for account with code
+        # Try exact match first
         account_ids = models.execute_kw(db, uid, password,
             'account.account', 'search_read',
             [[['code', '=', account_code]]],
             {'fields': ['id', 'name', 'code']})
+        
+        if not account_ids:
+            # If no exact match, try with 'ilike'
+            account_ids = models.execute_kw(db, uid, password,
+                'account.account', 'search_read',
+                [[['code', 'ilike', account_code]]],
+                {'fields': ['id', 'name', 'code']})
         
         if account_ids:
             print(f"Found account: {account_ids[0]['name']} (code: {account_ids[0]['code']})")
@@ -488,10 +521,15 @@ def update_or_create_invoice(uid, models, invoice_data):
             print(f"Setting payment reference to: {payment_reference}")
             print(f"Using journal_id: {journal_id}")
             
+            # Set invoice date and due date
+            invoice_date = invoice_data['invoice_date']
+            due_date = invoice_data.get('due_date', invoice_date)  # Use invoice date as due date if not specified
+            
             invoice_vals = {
                 'move_type': 'out_invoice',
                 'partner_id': customer_id,
-                'invoice_date': invoice_data['invoice_date'],
+                'invoice_date': invoice_date,
+                'invoice_date_due': due_date,  # Add due date
                 'name': invoice_data['document_number'],
                 'ref': invoice_reference,  # Invoice reference field
                 'payment_reference': payment_reference,  # Payment reference field
@@ -585,9 +623,23 @@ def main():
                 for index, row in group.iterrows():
                     row_number = index + 2  # Adding 2 because Excel starts at 1 and header row
                     try:
+                        # Process due date
+                        due_date = row.get('due_date')
+                        if pd.notna(due_date):
+                            if isinstance(due_date, pd.Timestamp):
+                                due_date = due_date.strftime('%Y-%m-%d')
+                            else:
+                                try:
+                                    date_obj = pd.to_datetime(due_date)
+                                    due_date = date_obj.strftime('%Y-%m-%d')
+                                except:
+                                    print(f"Warning: Could not parse due date: {due_date}, using invoice date")
+                                    due_date = invoice_date
+
                         # Clean and prepare data with validation
                         invoice_data = {
                             'invoice_date': invoice_date if pd.notna(invoice_date) else None,
+                            'due_date': due_date if pd.notna(due_date) else invoice_date,  # Use invoice date if no due date
                             'customer_name': clean_and_validate_data(row['partner_id'], 'partner_id'),
                             'partner_code': clean_and_validate_data(row.get('partner_code'), 'partner_code'),
                             'default_code': clean_and_validate_data(row['default_code'], 'default_code'),
