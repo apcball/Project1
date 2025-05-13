@@ -26,6 +26,52 @@ def truncate_string(value, max_length=500):
     truncated = str(value)[:max_length-3].rsplit(' ', 1)[0]
     return truncated + '...'
 
+def convert_date_format(date_value):
+    """Convert date from Excel to proper format"""
+    if pd.isna(date_value):
+        return False
+    
+    try:
+        # If date_value is already a datetime object (from Excel)
+        if isinstance(date_value, datetime):
+            return date_value.strftime('%Y-%m-%d')
+        
+        # If it's a pandas Timestamp
+        if isinstance(date_value, pd.Timestamp):
+            return date_value.strftime('%Y-%m-%d')
+            
+        # Try parsing string date in various formats
+        date_str = str(date_value).strip()
+        
+        # Try datetime with time format first
+        try:
+            # Handle format like "2012-11-22 00:00:00"
+            return datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d')
+        except ValueError:
+            pass
+        
+        # Try common Thai date formats
+        formats = [
+            '%Y-%m-%d',  # 2023-12-31
+            '%d/%m/%Y',  # 31/12/2023
+            '%d-%m-%Y',  # 31-12-2023
+            '%d/%m/%y',  # 31/12/23
+            '%Y/%m/%d',  # 2023/12/31
+        ]
+        
+        for fmt in formats:
+            try:
+                return datetime.strptime(date_str, fmt).strftime('%Y-%m-%d')
+            except ValueError:
+                continue
+        
+        print(f"Warning: Could not parse date: {date_value}, using False")
+        return False
+        
+    except Exception as e:
+        print(f"Error converting date {date_value}: {str(e)}")
+        return False
+
 def clean_and_validate_data(value, field_name, max_length=500):
     """Clean and validate data fields"""
     if pd.isna(value):
@@ -40,12 +86,16 @@ def clean_and_validate_data(value, field_name, max_length=500):
         except ValueError:
             print(f"Warning: Invalid number in {field_name}: {cleaned_value}, using 0")
             return 0.0
+    
+    # Handle date fields
+    if field_name in ['invoice_date', 'due_date']:
+        return convert_date_format(value)
             
     # Truncate long strings
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    file_path = 'Data_file/import_invoice_AR_111000.xlsx'
+    file_path = 'Data_file/import_invoice_AR_เงินมัดจำค่าสินค้า116201.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
@@ -73,8 +123,14 @@ def read_excel_file():
         'expense_account': 64,  # รหัสบัญชีค่าใช้จ่าย
     }
     
-    # Read Excel file
-    df = pd.read_excel(file_path, dtype=str)
+    # Read Excel file with proper date parsing
+    df = pd.read_excel(
+        file_path,
+        dtype={
+            'invoice_date': 'datetime64[ns]'
+        },
+        parse_dates=['invoice_date']
+    )
     print("\nColumns in Excel file:", df.columns.tolist())
     
     # Verify required columns

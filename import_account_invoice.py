@@ -35,7 +35,7 @@ def connect_to_odoo():
     return uid, models
 
 def read_excel_file():
-    file_path = 'Data_file/import_invoice_ARX.xlsx'
+    file_path = 'Data_file/import_invoice_AR_ภาษีซื้อ116400.xlsx'
     if not os.path.exists(file_path):
         msg = f"Excel file not found at {file_path}"
         logging.error(msg)

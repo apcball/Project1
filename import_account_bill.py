@@ -19,6 +19,46 @@ def connect_to_odoo():
     models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
     return uid, models
 
+def convert_date_format(date_str):
+    """Convert date string from dd/mm/yy to YYYY-MM-DD format"""
+    if not date_str or pd.isna(date_str):
+        return None
+        
+    date_str = str(date_str).strip()
+    
+    try:
+        # Handle dd/mm/yy format
+        if '/' in date_str:
+            parts = date_str.split('/')
+            if len(parts) == 3:
+                day, month, year = parts
+                # Convert 2-digit year to 4-digit year
+                if len(year) == 2:
+                    year = '20' + year  # Assuming years are in the 2000s
+                # Ensure day and month are 2 digits
+                day = day.zfill(2)
+                month = month.zfill(2)
+                # Validate the date
+                try:
+                    datetime(int(year), int(month), int(day))
+                    return f"{year}-{month}-{day}"
+                except ValueError as e:
+                    print(f"Invalid date values: {date_str}, Error: {str(e)}")
+                    return None
+        elif isinstance(date_str, str):
+            # Try to parse with pandas
+            try:
+                date_obj = pd.to_datetime(date_str)
+                return date_obj.strftime('%Y-%m-%d')
+            except:
+                print(f"Could not parse date string: {date_str}")
+                return None
+    except Exception as e:
+        print(f"Error converting date {date_str}: {str(e)}")
+        return None
+    
+    return None
+
 def truncate_string(value, max_length=500):
     """Truncate string to maximum length while preserving words"""
     if not value or len(str(value)) <= max_length:
@@ -45,7 +85,7 @@ def clean_and_validate_data(value, field_name, max_length=500):
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    file_path = 'Data_file/import_bill_AP.xlsx'
+    file_path = 'Data_file/import_bill_ภาษีซื้อ116400.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
@@ -73,8 +113,20 @@ def read_excel_file():
         'expense_account': 64,  # รหัสบัญชีค่าใช้จ่าย
     }
     
-    # Read Excel file
-    df = pd.read_excel(file_path, dtype=str)
+    # Read Excel file with explicit date parsing
+    df = pd.read_excel(file_path, dtype={'invoice_date': str})
+    
+    # Convert invoice_date column to proper date format
+    if 'invoice_date' in df.columns:
+        df['invoice_date'] = df['invoice_date'].apply(lambda x: convert_date_format(x) if pd.notna(x) else None)
+        # Remove rows where invoice_date is None
+        invalid_dates = df[df['invoice_date'].isna()]
+        if not invalid_dates.empty:
+            print("\nWarning: Following rows have invalid dates:")
+            for idx, row in invalid_dates.iterrows():
+                print(f"Row {idx+2}: {row['name']} - Invalid date: {row['invoice_date']}")
+        df = df.dropna(subset=['invoice_date'])
+    
     print("\nColumns in Excel file:", df.columns.tolist())
     
     # Verify required columns
@@ -568,18 +620,13 @@ def main():
                 first_row = group.iloc[0]
                 first_row_number = group.index[0] + 2  # Adding 2 because Excel starts at 1 and header row
 
-                # Convert invoice_date to string format if it's a datetime
+                # Get invoice date from the first row
                 invoice_date = first_row['invoice_date']
                 if pd.notna(invoice_date):
-                    if isinstance(invoice_date, pd.Timestamp):
-                        invoice_date = invoice_date.strftime('%Y-%m-%d')
-                    else:
-                        try:
-                            date_obj = pd.to_datetime(invoice_date)
-                            invoice_date = date_obj.strftime('%Y-%m-%d')
-                        except:
-                            print(f"Warning: Could not parse date: {invoice_date}")
-                            invoice_date = str(invoice_date).strip()
+                    invoice_date = convert_date_format(invoice_date)
+                    if not invoice_date:
+                        print(f"Warning: Invalid date format for {doc_number}")
+                        invoice_date = None
 
                 # Process each line in the document
                 for index, row in group.iterrows():
