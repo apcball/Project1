@@ -7,8 +7,8 @@ import json
 import ast
 
 # --- Connection Settings ---
-url = 'http://mogdev.work:8069'
-db = 'MOG_Test'
+url = 'http://mogth.work:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -45,7 +45,7 @@ def clean_and_validate_data(value, field_name, max_length=500):
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    file_path = 'Data_file/import_invoice_AR_เงินทดรองจ่าย113001.xlsx'
+    file_path = 'Data_file/import_invoice_AR_111000.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
