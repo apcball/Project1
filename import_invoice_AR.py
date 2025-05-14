@@ -95,7 +95,7 @@ def clean_and_validate_data(value, field_name, max_length=500):
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    file_path = 'Data_file/import_invoice_AR_เงินมัดจำค่าสินค้า116201.xlsx'
+    file_path = 'Data_file/import_invoice_AR_ภาษีซื้อ116400.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
