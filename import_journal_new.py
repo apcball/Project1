@@ -18,7 +18,7 @@ def connect_to_odoo():
     return uid, models
 
 def read_excel_file():
-    file_path = 'Data_file/import_journal_ค้างจ่าย.xlsx'
+    file_path = 'Data_file/import_journal.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
@@ -41,41 +41,48 @@ def read_excel_file():
     
     # Rename columns based on their position
     df.columns = [
-        'document_number',    # Column 0: CR18030032
-        'date',              # Column 1: 3/31/2018
-        'journal',           # Column 2: OB-AP
-        'ref',              # Column 3: PRPR00008241
-        'debit_account',     # Column 4: 911000 OB-AP
-        'credit_account',    # Column 5: 214102 ค่าใช้จ จ่ายค้างจ่าย
-        'partner_code',      # Column 6: CSC002
-        'partner_name',      # Column 7: CSC COMPLEX CENTER SOLE CO.,LTD.
-        'label',            # Column 8: -CSC COMPLEX CENTER SOLE CO.,LTD.
-        'amount',           # Column 9: 55549.21
-        'notes'             # Column 10: Unnamed
+        'document_number',    # number
+        'date',              # accounting Date
+        'journal',           # journal
+        'reference',         # reference
+        'account1',          # account1
+        'account2',          # account2
+        'partner_code',      # partner_code
+        'partner_name',      # partner_id
+        'label',            # label
+        'debit',            # debit
+        'credit'            # credit
     ]
     
+    # Clean up column names by stripping whitespace
+    df.columns = df.columns.str.strip()
+    
+    # Forward fill document_number, date, and journal
+    df['document_number'] = df['document_number'].fillna(method='ffill')
+    df['date'] = df['date'].fillna(method='ffill')
+    df['journal'] = df['journal'].fillna(method='ffill')
+    
     # Remove rows where essential columns are NaN
-    df = df.dropna(subset=['document_number', 'date', 'amount'], how='any')
+    df = df.dropna(subset=['document_number'], how='any')
     print(f"Rows after removing rows with missing essential data: {len(df)}")
     
     # Convert date column
     df['date'] = pd.to_datetime(df['date'], errors='coerce')
     
-    # Clean amount column (remove any commas and spaces, then convert to float)
-    df['amount'] = df['amount'].astype(str).str.replace(',', '').str.replace(' ', '')
-    df['amount'] = pd.to_numeric(df['amount'], errors='coerce')
+    # Clean debit and credit columns
+    df['debit'] = pd.to_numeric(df['debit'].fillna(0), errors='coerce').fillna(0)
+    df['credit'] = pd.to_numeric(df['credit'].fillna(0), errors='coerce').fillna(0)
     
     # Clean account columns
-    df['debit_account'] = df['debit_account'].astype(str).str.strip()
-    df['credit_account'] = df['credit_account'].astype(str).str.strip()
+    df['account1'] = df['account1'].astype(str).str.strip()
+    df['account2'] = df['account2'].astype(str).str.strip()
     
     # Clean partner code/name
-    df['partner_code'] = df['partner_code'].astype(str).str.strip()
-    df['partner_name'] = df['partner_name'].astype(str).str.strip()
+    df['partner_code'] = df['partner_code'].fillna('').astype(str).str.strip()
+    df['partner_name'] = df['partner_name'].fillna('').astype(str).str.strip()
     
     # Clean document number and ensure it's not empty
     df['document_number'] = df['document_number'].astype(str).str.strip()
-    df['document_number'] = df['document_number'].replace('', pd.NA).replace('nan', pd.NA)
     
     # Print sample of document numbers
     print("\nSample of document numbers:")
@@ -86,12 +93,12 @@ def read_excel_file():
     df = df.replace('None', '')
     
     print("\nFirst few rows of processed data:")
-    print(df[['document_number', 'date', 'amount']].head())
+    print(df[['document_number', 'date', 'debit', 'credit']].head())
     
     return df
 
 def find_account_by_code(uid, models, account_code):
-    if not account_code or pd.isna(account_code):
+    if not account_code or pd.isna(account_code) or account_code == 'nan':
         return None
         
     # Clean up account code - extract only the numbers at the start
@@ -157,7 +164,7 @@ def find_journal_by_code(uid, models, journal_code):
     return None
 
 def find_partner_by_code(uid, models, partner_code, partner_name=None):
-    if not partner_code or pd.isna(partner_code):
+    if not partner_code or pd.isna(partner_code) or partner_code == 'nan':
         return None
 
     partner_code = str(partner_code).strip()
@@ -191,67 +198,67 @@ def find_partner_by_code(uid, models, partner_code, partner_name=None):
     print(f"Partner not found with code: {partner_code} or name: {partner_name}")
     return None
 
-def create_journal_entry(uid, models, entry_data):
+def process_document_group(uid, models, doc_group):
     try:
+        if doc_group.empty:
+            return False
+
+        first_row = doc_group.iloc[0]
+        
         # Find journal
-        print(f"\nLooking for journal with code/name: {entry_data['journal_code']}")
-        journal = find_journal_by_code(uid, models, entry_data['journal_code'])
+        print(f"\nLooking for journal with code/name: {first_row['journal']}")
+        journal = find_journal_by_code(uid, models, first_row['journal'])
         if not journal:
-            print(f"Journal not found with code/name: {entry_data['journal_code']}")
-            # List available journals for debugging
-            all_journals = models.execute_kw(db, uid, password,
-                'account.journal', 'search_read',
-                [[]], {'fields': ['name', 'code']})
-            print("\nAvailable journals:")
-            for j in all_journals:
-                print(f"Name: {j['name']}, Code: {j['code']}")
+            print(f"Journal not found with code/name: {first_row['journal']}")
             return False
-            
-        # Find accounts
-        debit_account = find_account_by_code(uid, models, entry_data['debit_account'])
-        credit_account = find_account_by_code(uid, models, entry_data['credit_account'])
-        
-        if not debit_account or not credit_account:
-            print("Could not find required accounts")
-            return False
-            
-        # Find partner
-        partner = find_partner_by_code(uid, models, entry_data['partner_code'], entry_data['partner_name'])
-        
+
         # Prepare move lines
         move_lines = []
         
-        # Debit line
-        debit_line = {
-            'account_id': debit_account['id'],
-            'name': entry_data['label'] or entry_data['document_number'],
-            'debit': entry_data['amount'],
-            'credit': 0.0,
-        }
-        if partner:
-            debit_line['partner_id'] = partner['id']
-        move_lines.append((0, 0, debit_line))
-        
-        # Credit line
-        credit_line = {
-            'account_id': credit_account['id'],
-            'name': entry_data['label'] or entry_data['document_number'],
-            'debit': 0.0,
-            'credit': entry_data['amount'],
-        }
-        if partner:
-            credit_line['partner_id'] = partner['id']
-        move_lines.append((0, 0, credit_line))
-        
+        # Process each line in the document group
+        for _, row in doc_group.iterrows():
+            # Skip rows without account
+            if pd.isna(row['account1']) or str(row['account1']).strip() == '' or str(row['account1']).strip() == 'nan':
+                continue
+
+            # Find account
+            account = find_account_by_code(uid, models, row['account1'])
+            if not account:
+                print(f"Could not find account: {row['account1']}")
+                continue
+
+            # Find partner
+            partner = find_partner_by_code(uid, models, row['partner_code'], row['partner_name'])
+
+            # Create move line
+            line = {
+                'account_id': account['id'],
+                'name': row['label'] or str(row['document_number']).strip(),
+                'debit': float(row['debit']) if not pd.isna(row['debit']) else 0.0,
+                'credit': float(row['credit']) if not pd.isna(row['credit']) else 0.0,
+            }
+            if partner:
+                line['partner_id'] = partner['id']
+            move_lines.append((0, 0, line))
+
+        if not move_lines:
+            print("No valid lines found for document")
+            return False
+
+        # Check if debits and credits balance
+        total_debit = sum(line[2]['debit'] for line in move_lines)
+        total_credit = sum(line[2]['credit'] for line in move_lines)
+        print(f"Total debit: {total_debit}, Total credit: {total_credit}")
+
         # Prepare move data
         move_data = {
-            'ref': str(entry_data['document_number']).strip(),
-            'name': str(entry_data['document_number']).strip(),
-            'date': entry_data['date'].strftime('%Y-%m-%d'),
+            'ref': str(first_row['document_number']).strip(),
+            'name': str(first_row['document_number']).strip(),
+            'date': first_row['date'].strftime('%Y-%m-%d'),
             'journal_id': journal['id'],
             'line_ids': move_lines,
         }
-        
+
         print(f"Creating move with ref: {move_data['ref']}")
         
         # Create the move
@@ -261,9 +268,9 @@ def create_journal_entry(uid, models, entry_data):
             
         print(f"Created journal entry with ID: {move_id}")
         return True
-        
+
     except Exception as e:
-        print(f"Error creating journal entry: {str(e)}")
+        print(f"Error processing document group: {str(e)}")
         return False
 
 def main():
@@ -276,30 +283,14 @@ def main():
         df = read_excel_file()
         print("Successfully read Excel file")
         
-        # Process each row
-        for index, row in df.iterrows():
-            print(f"\nProcessing row {index + 1} of {len(df)}")
-            if pd.isna(row['document_number']) or str(row['document_number']).strip() == '':
-                print(f"Skipping row {index + 1} - Missing document number")
-                continue
-                
-            entry_data = {
-                'document_number': str(row['document_number']).strip(),
-                'date': row['date'],
-                'journal_code': row['journal'],
-                'debit_account': row['debit_account'],
-                'credit_account': row['credit_account'],
-                'partner_code': row['partner_code'],
-                'partner_name': row['partner_name'],
-                'label': row['label'],
-                'amount': row['amount']
-            }
+        # Group by document number
+        for doc_number, doc_group in df.groupby('document_number'):
+            print(f"\nProcessing document: {doc_number}")
+            print(f"Number of lines: {len(doc_group)}")
             
-            print(f"Document number being processed: {entry_data['document_number']}")
-            
-            success = create_journal_entry(uid, models, entry_data)
+            success = process_document_group(uid, models, doc_group)
             if not success:
-                print(f"Failed to create journal entry for document: {entry_data['document_number']}")
+                print(f"Failed to create journal entry for document: {doc_number}")
                 
     except Exception as e:
         print(f"Error in main function: {str(e)}")

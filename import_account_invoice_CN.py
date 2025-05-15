@@ -3,6 +3,28 @@ import xmlrpc.client
 import pandas as pd
 from datetime import datetime
 import os
+import logging
+from logging.handlers import RotatingFileHandler
+import sys
+
+# Set up logging
+def setup_logger(name, log_file, level=logging.INFO):
+    formatter = logging.Formatter('%(asctime)s - %(message)s')
+    handler = RotatingFileHandler(log_file, maxBytes=10000000, backupCount=5)
+    handler.setFormatter(formatter)
+    
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.addHandler(handler)
+    
+    return logger
+
+# Create logs directory if it doesn't exist
+os.makedirs('logs', exist_ok=True)
+
+# Setup loggers
+success_logger = setup_logger('success', 'logs/success.log')
+error_logger = setup_logger('error', 'logs/error.log')
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
@@ -97,41 +119,97 @@ def find_existing_credit_note(uid, models, document_number):
 
 def find_journal_by_code(uid, models, journal_code):
     if not journal_code or pd.isna(journal_code):
+        error_logger.error("Journal code is empty or invalid")
         return None
         
-    journal_code = str(journal_code).strip()
-    journal_id = models.execute_kw(db, uid, password,
-        'account.journal', 'search',
-        [[['code', '=', journal_code]]])
+    journal_code = str(journal_code).strip()  # Keep original case and format
     
-    if journal_id:
-        journal_data = models.execute_kw(db, uid, password,
-            'account.journal', 'read',
-            [journal_id[0]], {'fields': ['id', 'name']})
-        return journal_data[0]
-    return None
+    # Search for journal with exact name/code match
+    journal_domain = [
+        '|',
+        ('code', '=', journal_code),
+        ('name', '=', journal_code),
+        ('active', '=', True),
+    ]
+    
+    try:
+        # Search for matching journals
+        journal_ids = models.execute_kw(db, uid, password,
+            'account.journal', 'search_read',
+            [journal_domain],
+            {'fields': ['id', 'name', 'code', 'type', 'company_id', 'active']}
+        )
+        
+        if not journal_ids:
+            # If no exact match found, log detailed error
+            error_logger.error(f"No journal found with exact code/name: '{journal_code}'")
+            
+            # For debugging: Find similar journals
+            similar_journals = models.execute_kw(db, uid, password,
+                'account.journal', 'search_read',
+                [[('code', 'ilike', journal_code.split()[0])]],  # Search for first part of code
+                {'fields': ['id', 'name', 'code']}
+            )
+            if similar_journals:
+                error_logger.error("Similar journals found:")
+                for j in similar_journals:
+                    error_logger.error(f"- Code: '{j['code']}', Name: '{j['name']}'")
+            return None
+            
+        if len(journal_ids) > 1:
+            # Log warning if multiple matches found
+            error_logger.warning(f"Multiple journals found matching '{journal_code}'. Available journals:")
+            for j in journal_ids:
+                error_logger.warning(f"- Code: '{j['code']}', Name: '{j['name']}'")
+            
+            # Try to find exact match
+            exact_match = next((j for j in journal_ids if j['code'] == journal_code or j['name'] == journal_code), None)
+            if exact_match:
+                success_logger.info(f"Selected exact matching journal: {exact_match['name']} (Code: {exact_match['code']})")
+                return exact_match
+            
+            error_logger.error(f"No exact match found among multiple journals for '{journal_code}'")
+            return None
+            
+        journal = journal_ids[0]
+        success_logger.info(f"Found journal: {journal['name']} (Code: {journal['code']})")
+        return journal
+        
+    except Exception as e:
+        error_logger.error(f"Error while searching for journal '{journal_code}': {str(e)}")
+        return None
 
 def update_or_create_credit_note(uid, models, credit_note_data):
     try:
+        doc_number = credit_note_data['document_number']
         # Check if credit note already exists
-        existing_credit_note = find_existing_credit_note(uid, models, credit_note_data['document_number'])
+        existing_credit_note = find_existing_credit_note(uid, models, doc_number)
         
         # Get or create partner
         partner_id = get_or_create_partner(uid, models, credit_note_data['partner_code'], credit_note_data['partner_name'])
         if not partner_id:
-            print("Failed to get or create partner")
+            error_msg = f"Failed to get or create partner for document {doc_number}"
+            print(error_msg)
+            error_logger.error(error_msg)
             return False
 
         # Find product by default_code
         product = find_product_by_code(uid, models, credit_note_data['default_code'])
         if not product:
-            print(f"Product not found with code: {credit_note_data['default_code']}")
+            error_msg = f"Product not found with code: {credit_note_data['default_code']} for document {doc_number}"
+            print(error_msg)
+            error_logger.error(error_msg)
             return False
 
         # Find journal by code
         journal = find_journal_by_code(uid, models, credit_note_data['journal'])
         if not journal:
-            print(f"Journal not found with code: {credit_note_data['journal']}")
+            error_msg = f"Invalid journal for document {doc_number}. Please ensure:\n" \
+                       f"- Journal code '{credit_note_data['journal']}' exists\n" \
+                       f"- Journal is an active sales journal\n" \
+                       f"- Journal belongs to the correct company"
+            print(error_msg)
+            error_logger.error(error_msg)
             return False
 
         # Prepare credit note line
@@ -143,11 +221,13 @@ def update_or_create_credit_note(uid, models, credit_note_data):
         }
 
         if existing_credit_note:
-            print(f"Found existing credit note with number: {credit_note_data['document_number']}")
+            print(f"Found existing credit note with number: {doc_number}")
             
             # Check if credit note is in draft state
             if existing_credit_note['state'] != 'draft':
-                print(f"Cannot update credit note {credit_note_data['document_number']} as it is not in draft state")
+                error_msg = f"Cannot update credit note {doc_number} as it is not in draft state"
+                print(error_msg)
+                error_logger.error(error_msg)
                 return False
 
             # Update existing credit note
@@ -171,7 +251,9 @@ def update_or_create_credit_note(uid, models, credit_note_data):
                 'account.move', 'write',
                 [[existing_credit_note['id']], update_vals])
             
-            print(f"Successfully updated credit note: {existing_credit_note['id']}")
+            success_msg = f"Successfully updated credit note: {doc_number} (ID: {existing_credit_note['id']})"
+            print(success_msg)
+            success_logger.info(success_msg)
             return existing_credit_note['id']
         else:
             # Create new credit note
@@ -179,7 +261,7 @@ def update_or_create_credit_note(uid, models, credit_note_data):
                 'move_type': 'out_refund',  # This is for customer credit note
                 'partner_id': partner_id,
                 'invoice_date': credit_note_data['invoice_date'],
-                'name': credit_note_data['document_number'],
+                'name': doc_number,
                 'payment_reference': credit_note_data['payment_reference'],
                 'narration': credit_note_data['note'],
                 'invoice_line_ids': [(0, 0, credit_note_line)],
@@ -190,14 +272,78 @@ def update_or_create_credit_note(uid, models, credit_note_data):
                 'account.move', 'create',
                 [credit_note_vals])
 
-            print(f"Successfully created new credit note with ID: {credit_note_id}")
+            success_msg = f"Successfully created new credit note: {doc_number} (ID: {credit_note_id})"
+            print(success_msg)
+            success_logger.info(success_msg)
             return credit_note_id
 
     except Exception as e:
-        print(f"Error processing credit note: {str(e)}")
+        error_msg = f"Error processing credit note {doc_number}: {str(e)}"
+        print(error_msg)
+        error_logger.error(error_msg)
         return False
 
 def main():
+    try:
+        # Connect to Odoo
+        uid, models = connect_to_odoo()
+        
+        # Read Excel file
+        df = read_excel_file()
+        
+        total_records = len(df)
+        successful_imports = 0
+        failed_imports = 0
+        
+        success_logger.info(f"Starting import process for {total_records} records")
+        error_logger.info(f"Starting import process for {total_records} records")
+        
+        for index, row in df.iterrows():
+            try:
+                credit_note_data = {
+                    'document_number': str(row['document_number']).strip() if pd.notna(row['document_number']) else '',
+                    'partner_code': row['partner_code'],
+                    'partner_name': row['partner_name'],
+                    'default_code': row['default_code'],
+                    'price_unit': row['price_unit'],
+                    'invoice_date': row['invoice_date'].strftime('%Y-%m-%d') if pd.notna(row['invoice_date']) else False,
+                    'payment_reference': str(row['payment_reference']).strip() if pd.notna(row['payment_reference']) else '',
+                    'note': str(row['note']).strip() if pd.notna(row['note']) else '',
+                    'journal': row['journal'] if pd.notna(row['journal']) else '',
+                }
+                
+                result = update_or_create_credit_note(uid, models, credit_note_data)
+                if result:
+                    successful_imports += 1
+                else:
+                    failed_imports += 1
+                    
+            except Exception as e:
+                error_msg = f"Error processing row {index + 2}: {str(e)}"
+                print(error_msg)
+                error_logger.error(error_msg)
+                failed_imports += 1
+        
+        # Log final statistics
+        summary_msg = f"""
+Import process completed:
+Total records processed: {total_records}
+Successful imports: {successful_imports}
+Failed imports: {failed_imports}
+Success rate: {(successful_imports/total_records)*100:.2f}%
+"""
+        print(summary_msg)
+        success_logger.info(summary_msg)
+        error_logger.info(summary_msg)
+        
+    except Exception as e:
+        error_msg = f"Critical error in main process: {str(e)}"
+        print(error_msg)
+        error_logger.error(error_msg)
+        sys.exit(1)
+
+if __name__ == '__main__':
+    main()
     try:
         # Connect to Odoo
         uid, models = connect_to_odoo()

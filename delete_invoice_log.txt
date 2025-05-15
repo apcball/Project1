@@ -6656,3 +6656,1527 @@
         - Total successfully deleted: 0
         - Total failed to delete: 320
         
+2025-05-15 08:42:14,647 - INFO - Connecting to Odoo...
+2025-05-15 08:42:15,540 - INFO - Reading Excel file...
+2025-05-15 08:42:15,870 - INFO - Available columns in Excel: name, type
+2025-05-15 08:42:15,870 - INFO - Using columns: Document Number='name', Type='type'
+2025-05-15 08:42:15,889 - INFO - Found 320 invoices and 0 bills to process
+2025-05-15 08:42:15,889 - INFO - Starting deletion process for 320 invoices...
+2025-05-15 08:42:15,984 - WARNING - Could not set to draft state for CN19100032: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:16,172 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19100032
+2025-05-15 08:42:16,260 - WARNING - Could not set to draft state for CR1312054: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:16,415 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1312054
+2025-05-15 08:42:16,507 - WARNING - Could not set to draft state for CR0600001: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:16,660 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600001
+2025-05-15 08:42:16,770 - WARNING - Could not set to draft state for CN19050015: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:16,957 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19050015
+2025-05-15 08:42:17,079 - WARNING - Could not set to draft state for CN19050016: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:17,251 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19050016
+2025-05-15 08:42:17,389 - WARNING - Could not set to draft state for CN19050017: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:17,591 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19050017
+2025-05-15 08:42:17,699 - WARNING - Could not set to draft state for CN0901001: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:17,856 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0901001
+2025-05-15 08:42:17,954 - WARNING - Could not set to draft state for CR0600002: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:18,114 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600002
+2025-05-15 08:42:18,204 - WARNING - Could not set to draft state for CR0600003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:18,359 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600003
+2025-05-15 08:42:18,459 - WARNING - Could not set to draft state for CN15030009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:18,630 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN15030009
+2025-05-15 08:42:18,728 - WARNING - Could not set to draft state for CN18040014: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:18,890 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN18040014
+2025-05-15 08:42:18,988 - WARNING - Could not set to draft state for CN16120004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:19,170 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN16120004
+2025-05-15 08:42:19,311 - WARNING - Could not set to draft state for CN16120005: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:19,484 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN16120005
+2025-05-15 08:42:19,587 - WARNING - Could not set to draft state for CN0809044: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:19,752 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0809044
+2025-05-15 08:42:19,849 - WARNING - Could not set to draft state for CN1004017: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:20,022 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1004017
+2025-05-15 08:42:20,118 - WARNING - Could not set to draft state for CR15040008: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:20,269 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR15040008
+2025-05-15 08:42:20,358 - WARNING - Could not set to draft state for CRP1700328: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:20,512 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP1700328
+2025-05-15 08:42:20,600 - WARNING - Could not set to draft state for CR0710006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:20,761 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0710006
+2025-05-15 08:42:20,853 - WARNING - Could not set to draft state for CN1001004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:21,019 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1001004
+2025-05-15 08:42:21,114 - WARNING - Could not set to draft state for CR1008050: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:21,264 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1008050
+2025-05-15 08:42:21,361 - WARNING - Could not set to draft state for CR1104006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:21,513 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1104006
+2025-05-15 08:42:21,614 - WARNING - Could not set to draft state for CR1108031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:21,762 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1108031
+2025-05-15 08:42:21,853 - WARNING - Could not set to draft state for CR1110009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:22,005 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1110009
+2025-05-15 08:42:22,093 - WARNING - Could not set to draft state for CN1104012: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:22,238 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1104012
+2025-05-15 08:42:22,351 - WARNING - Could not set to draft state for CN1208002: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:22,498 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1208002
+2025-05-15 08:42:22,619 - WARNING - Could not set to draft state for CR0600004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:22,829 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600004
+2025-05-15 08:42:22,924 - WARNING - Could not set to draft state for CN1202042: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:23,078 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1202042
+2025-05-15 08:42:23,170 - WARNING - Could not set to draft state for CR0912004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:23,333 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0912004
+2025-05-15 08:42:23,432 - WARNING - Could not set to draft state for CN1409024: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:23,638 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1409024
+2025-05-15 08:42:23,781 - WARNING - Could not set to draft state for CN0706021: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:23,988 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0706021
+2025-05-15 08:42:24,087 - WARNING - Could not set to draft state for CN1107037: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:24,246 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1107037
+2025-05-15 08:42:24,345 - WARNING - Could not set to draft state for CN1107047: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:24,553 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1107047
+2025-05-15 08:42:24,646 - WARNING - Could not set to draft state for CN1107048: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:24,796 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1107048
+2025-05-15 08:42:24,898 - WARNING - Could not set to draft state for CN1107055: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:25,050 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1107055
+2025-05-15 08:42:25,163 - WARNING - Could not set to draft state for CN1107056: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:25,335 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1107056
+2025-05-15 08:42:25,425 - WARNING - Could not set to draft state for CN1107070: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:25,588 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1107070
+2025-05-15 08:42:25,680 - WARNING - Could not set to draft state for CN1408028: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:25,851 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408028
+2025-05-15 08:42:25,945 - WARNING - Could not set to draft state for CN1408033: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:26,112 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408033
+2025-05-15 08:42:26,215 - WARNING - Could not set to draft state for CN1407030: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:26,366 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407030
+2025-05-15 08:42:26,453 - WARNING - Could not set to draft state for CN1407037: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:26,610 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407037
+2025-05-15 08:42:26,707 - WARNING - Could not set to draft state for CN1407069: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:26,864 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407069
+2025-05-15 08:42:26,965 - WARNING - Could not set to draft state for CN1408006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:27,126 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408006
+2025-05-15 08:42:27,225 - WARNING - Could not set to draft state for CN1408022: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:27,388 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408022
+2025-05-15 08:42:27,476 - WARNING - Could not set to draft state for CN1408019: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:27,647 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408019
+2025-05-15 08:42:27,746 - WARNING - Could not set to draft state for CN1407024: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:27,911 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407024
+2025-05-15 08:42:28,012 - WARNING - Could not set to draft state for CN1408017: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:28,165 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408017
+2025-05-15 08:42:28,265 - WARNING - Could not set to draft state for CN1408021: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:28,416 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408021
+2025-05-15 08:42:28,515 - WARNING - Could not set to draft state for CN1408018: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:28,693 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408018
+2025-05-15 08:42:28,793 - WARNING - Could not set to draft state for CN1408031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:28,953 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408031
+2025-05-15 08:42:29,053 - WARNING - Could not set to draft state for CN1408032: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:29,217 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408032
+2025-05-15 08:42:29,301 - WARNING - Could not set to draft state for CN1408037: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:29,510 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408037
+2025-05-15 08:42:29,604 - WARNING - Could not set to draft state for CN1407056: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:29,766 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407056
+2025-05-15 08:42:29,870 - WARNING - Could not set to draft state for CN1407060: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:30,026 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407060
+2025-05-15 08:42:30,118 - WARNING - Could not set to draft state for CN1408005: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:30,273 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408005
+2025-05-15 08:42:30,376 - WARNING - Could not set to draft state for CN1407001: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:30,536 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407001
+2025-05-15 08:42:30,630 - WARNING - Could not set to draft state for CN1408023: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:30,800 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408023
+2025-05-15 08:42:30,899 - WARNING - Could not set to draft state for CN1408024: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:31,061 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408024
+2025-05-15 08:42:31,197 - WARNING - Could not set to draft state for CN1407034: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:31,410 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407034
+2025-05-15 08:42:31,687 - WARNING - Could not set to draft state for CN1408002: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:31,895 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408002
+2025-05-15 08:42:32,009 - WARNING - Could not set to draft state for CN1408027: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:32,223 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408027
+2025-05-15 08:42:32,361 - WARNING - Could not set to draft state for CN1407035: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:32,548 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407035
+2025-05-15 08:42:32,674 - WARNING - Could not set to draft state for CN1408020: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:32,844 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408020
+2025-05-15 08:42:32,951 - WARNING - Could not set to draft state for CN1408035: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:33,129 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408035
+2025-05-15 08:42:33,230 - WARNING - Could not set to draft state for CN1408036: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:33,387 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408036
+2025-05-15 08:42:33,489 - WARNING - Could not set to draft state for CN1408052: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:33,662 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408052
+2025-05-15 08:42:33,756 - WARNING - Could not set to draft state for CN1408053: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:33,921 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408053
+2025-05-15 08:42:34,025 - WARNING - Could not set to draft state for CN1408054: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:34,198 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408054
+2025-05-15 08:42:34,287 - WARNING - Could not set to draft state for CN1408055: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:34,451 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408055
+2025-05-15 08:42:34,558 - WARNING - Could not set to draft state for CN1408056: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:34,712 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408056
+2025-05-15 08:42:34,813 - WARNING - Could not set to draft state for CN1407042: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:34,981 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407042
+2025-05-15 08:42:35,098 - WARNING - Could not set to draft state for CN1407038: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:35,358 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407038
+2025-05-15 08:42:35,601 - WARNING - Could not set to draft state for CN1407039: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:35,847 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407039
+2025-05-15 08:42:36,000 - WARNING - Could not set to draft state for CN1408025: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:36,175 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408025
+2025-05-15 08:42:36,282 - WARNING - Could not set to draft state for CN1408026: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:36,454 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408026
+2025-05-15 08:42:36,557 - WARNING - Could not set to draft state for CN1408030: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:36,747 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408030
+2025-05-15 08:42:36,888 - WARNING - Could not set to draft state for CN1408029: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:37,118 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408029
+2025-05-15 08:42:37,391 - WARNING - Could not set to draft state for CN1407025: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:37,634 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407025
+2025-05-15 08:42:37,824 - WARNING - Could not set to draft state for CN1408003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:38,051 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408003
+2025-05-15 08:42:38,231 - WARNING - Could not set to draft state for CN1408004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:38,457 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408004
+2025-05-15 08:42:38,653 - WARNING - Could not set to draft state for CN1408007: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:38,956 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408007
+2025-05-15 08:42:39,069 - WARNING - Could not set to draft state for CN1408034: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:39,263 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1408034
+2025-05-15 08:42:39,411 - WARNING - Could not set to draft state for CN1407031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:39,606 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407031
+2025-05-15 08:42:39,734 - WARNING - Could not set to draft state for CN1407033: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:39,918 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407033
+2025-05-15 08:42:40,051 - WARNING - Could not set to draft state for CN1407020: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:40,237 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407020
+2025-05-15 08:42:40,356 - WARNING - Could not set to draft state for CN1407045: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:40,536 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407045
+2025-05-15 08:42:40,707 - WARNING - Could not set to draft state for CN1407046: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:40,927 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407046
+2025-05-15 08:42:41,053 - WARNING - Could not set to draft state for CN1407040: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:41,244 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407040
+2025-05-15 08:42:41,373 - WARNING - Could not set to draft state for CN1407041: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:41,614 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407041
+2025-05-15 08:42:41,766 - WARNING - Could not set to draft state for CN1407023: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:41,995 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407023
+2025-05-15 08:42:42,143 - WARNING - Could not set to draft state for CN1407027: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:42,331 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407027
+2025-05-15 08:42:42,426 - WARNING - Could not set to draft state for CN1407022: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:42,608 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407022
+2025-05-15 08:42:42,712 - WARNING - Could not set to draft state for CN1407028: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:42,880 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407028
+2025-05-15 08:42:42,975 - WARNING - Could not set to draft state for CN1407043: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:43,135 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407043
+2025-05-15 08:42:43,248 - WARNING - Could not set to draft state for CN1407052: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:43,433 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407052
+2025-05-15 08:42:43,546 - WARNING - Could not set to draft state for CN1407029: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:43,730 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407029
+2025-05-15 08:42:43,826 - WARNING - Could not set to draft state for CN1407021: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:44,001 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407021
+2025-05-15 08:42:44,106 - WARNING - Could not set to draft state for CN1407032: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:44,279 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407032
+2025-05-15 08:42:44,381 - WARNING - Could not set to draft state for CN1407026: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:44,545 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407026
+2025-05-15 08:42:44,639 - WARNING - Could not set to draft state for CN1407047: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:44,800 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407047
+2025-05-15 08:42:44,901 - WARNING - Could not set to draft state for CN1407048: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:45,059 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407048
+2025-05-15 08:42:45,159 - WARNING - Could not set to draft state for CN1407044: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:45,337 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407044
+2025-05-15 08:42:45,432 - WARNING - Could not set to draft state for CN1407051: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:45,598 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407051
+2025-05-15 08:42:45,695 - WARNING - Could not set to draft state for CN1407058: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:45,863 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407058
+2025-05-15 08:42:45,969 - WARNING - Could not set to draft state for CN1407064: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:46,145 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407064
+2025-05-15 08:42:46,263 - WARNING - Could not set to draft state for CN1407065: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:46,443 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407065
+2025-05-15 08:42:46,591 - WARNING - Could not set to draft state for CN1407067: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:46,753 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407067
+2025-05-15 08:42:46,912 - WARNING - Could not set to draft state for CN0804007: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:47,100 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0804007
+2025-05-15 08:42:47,264 - WARNING - Could not set to draft state for CN1407057: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:47,462 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407057
+2025-05-15 08:42:47,617 - WARNING - Could not set to draft state for CN1407063: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:47,858 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407063
+2025-05-15 08:42:47,990 - WARNING - Could not set to draft state for CN1407049: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:48,164 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407049
+2025-05-15 08:42:48,310 - WARNING - Could not set to draft state for CN1407066: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:48,507 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407066
+2025-05-15 08:42:48,645 - WARNING - Could not set to draft state for CN1201009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:48,810 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1201009
+2025-05-15 08:42:48,903 - WARNING - Could not set to draft state for CN0903013: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:49,074 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0903013
+2025-05-15 08:42:49,167 - WARNING - Could not set to draft state for CN1407055: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:49,341 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407055
+2025-05-15 08:42:49,433 - WARNING - Could not set to draft state for CN1407062: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:49,622 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407062
+2025-05-15 08:42:49,729 - WARNING - Could not set to draft state for CN1407054: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:49,878 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407054
+2025-05-15 08:42:49,969 - WARNING - Could not set to draft state for CN1407061: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:50,119 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407061
+2025-05-15 08:42:50,214 - WARNING - Could not set to draft state for CN1407053: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:50,370 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407053
+2025-05-15 08:42:50,464 - WARNING - Could not set to draft state for CN1407059: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:50,630 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407059
+2025-05-15 08:42:50,724 - WARNING - Could not set to draft state for CN1007004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:50,900 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1007004
+2025-05-15 08:42:50,993 - WARNING - Could not set to draft state for CN1407050: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:51,156 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1407050
+2025-05-15 08:42:51,259 - WARNING - Could not set to draft state for CR16100001: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:51,465 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR16100001
+2025-05-15 08:42:51,572 - WARNING - Could not set to draft state for CR16120007: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:51,735 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR16120007
+2025-05-15 08:42:51,846 - WARNING - Could not set to draft state for CR16120008: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:52,010 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR16120008
+2025-05-15 08:42:52,108 - WARNING - Could not set to draft state for CN0910007: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:52,275 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0910007
+2025-05-15 08:42:52,370 - WARNING - Could not set to draft state for CR0600005: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:52,535 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600005
+2025-05-15 08:42:52,631 - WARNING - Could not set to draft state for CRP1600198: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:52,812 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP1600198
+2025-05-15 08:42:52,906 - WARNING - Could not set to draft state for CN17030010: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:53,102 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN17030010
+2025-05-15 08:42:53,214 - WARNING - Could not set to draft state for CN1109011: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:53,411 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1109011
+2025-05-15 08:42:53,517 - WARNING - Could not set to draft state for CN1102007: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:53,680 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1102007
+2025-05-15 08:42:53,778 - WARNING - Could not set to draft state for CN20090012: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:53,934 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20090012
+2025-05-15 08:42:54,036 - WARNING - Could not set to draft state for CN1210020: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:54,189 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1210020
+2025-05-15 08:42:54,282 - WARNING - Could not set to draft state for CN15030031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:54,470 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN15030031
+2025-05-15 08:42:54,560 - WARNING - Could not set to draft state for CN0712003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:54,723 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0712003
+2025-05-15 08:42:54,824 - WARNING - Could not set to draft state for CN1312005: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:55,002 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1312005
+2025-05-15 08:42:55,109 - WARNING - Could not set to draft state for CRP2000091: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:55,276 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2000091
+2025-05-15 08:42:55,383 - WARNING - Could not set to draft state for CN20120039: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:55,551 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20120039
+2025-05-15 08:42:55,653 - WARNING - Could not set to draft state for CN20120040: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:55,826 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20120040
+2025-05-15 08:42:55,928 - WARNING - Could not set to draft state for CN20120041: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:56,091 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20120041
+2025-05-15 08:42:56,197 - WARNING - Could not set to draft state for CN20120042: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:56,355 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20120042
+2025-05-15 08:42:56,450 - WARNING - Could not set to draft state for CN20120043: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:56,605 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20120043
+2025-05-15 08:42:56,701 - WARNING - Could not set to draft state for CN20120044: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:56,854 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20120044
+2025-05-15 08:42:56,954 - WARNING - Could not set to draft state for CN20120045: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:57,118 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20120045
+2025-05-15 08:42:57,218 - WARNING - Could not set to draft state for CN20120050: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:57,389 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20120050
+2025-05-15 08:42:57,490 - WARNING - Could not set to draft state for CR0600007: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:57,644 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600007
+2025-05-15 08:42:57,738 - WARNING - Could not set to draft state for CN18030022: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:57,896 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN18030022
+2025-05-15 08:42:58,002 - WARNING - Could not set to draft state for CN17080019: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:58,173 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN17080019
+2025-05-15 08:42:58,289 - WARNING - Could not set to draft state for CN0804005: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:58,454 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0804005
+2025-05-15 08:42:58,556 - WARNING - Could not set to draft state for CR0600008: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:58,720 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600008
+2025-05-15 08:42:58,853 - WARNING - Could not set to draft state for CR0600009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:59,053 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600009
+2025-05-15 08:42:59,157 - WARNING - Could not set to draft state for CR0600010: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:59,355 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600010
+2025-05-15 08:42:59,467 - WARNING - Could not set to draft state for CR15040007: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:59,635 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR15040007
+2025-05-15 08:42:59,742 - WARNING - Could not set to draft state for CN15110008: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:42:59,894 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN15110008
+2025-05-15 08:42:59,989 - WARNING - Could not set to draft state for CN1102006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:00,152 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1102006
+2025-05-15 08:43:00,279 - WARNING - Could not set to draft state for CN20020032: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:00,469 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20020032
+2025-05-15 08:43:00,561 - WARNING - Could not set to draft state for CN18120003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:00,723 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN18120003
+2025-05-15 08:43:00,814 - WARNING - Could not set to draft state for CN16120034: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:01,002 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN16120034
+2025-05-15 08:43:01,098 - WARNING - Could not set to draft state for CR1108026: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:01,319 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1108026
+2025-05-15 08:43:01,418 - WARNING - Could not set to draft state for CR0600006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:01,603 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600006
+2025-05-15 08:43:01,712 - WARNING - Could not set to draft state for CRP1700289: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:01,879 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP1700289
+2025-05-15 08:43:01,978 - WARNING - Could not set to draft state for CN0706013: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:02,141 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0706013
+2025-05-15 08:43:02,236 - WARNING - Could not set to draft state for CN20110062: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:02,404 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN20110062
+2025-05-15 08:43:02,501 - WARNING - Could not set to draft state for CN17040041: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:02,660 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN17040041
+2025-05-15 08:43:02,758 - WARNING - Could not set to draft state for CN17040044: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:02,915 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN17040044
+2025-05-15 08:43:03,010 - WARNING - Could not set to draft state for CRP1800435: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:03,192 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP1800435
+2025-05-15 08:43:03,287 - WARNING - Could not set to draft state for CN1310013: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:03,464 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1310013
+2025-05-15 08:43:03,564 - WARNING - Could not set to draft state for CN19060054: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:03,716 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19060054
+2025-05-15 08:43:03,812 - WARNING - Could not set to draft state for CN19060055: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:03,967 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19060055
+2025-05-15 08:43:04,058 - WARNING - Could not set to draft state for CRP2100149: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:04,211 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2100149
+2025-05-15 08:43:04,306 - WARNING - Could not set to draft state for CN22030003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:04,452 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN22030003
+2025-05-15 08:43:04,563 - WARNING - Could not set to draft state for CRP2200156: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:04,714 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2200156
+2025-05-15 08:43:04,813 - WARNING - Could not set to draft state for CN22090087: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:04,982 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN22090087
+2025-05-15 08:43:05,093 - WARNING - Could not set to draft state for CN23030009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:05,293 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23030009
+2025-05-15 08:43:05,394 - WARNING - Could not set to draft state for CN23030018: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:05,558 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23030018
+2025-05-15 08:43:05,650 - WARNING - Could not set to draft state for CRP2300090: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:05,803 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300090
+2025-05-15 08:43:05,893 - WARNING - Could not set to draft state for CRP2300089: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:06,057 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300089
+2025-05-15 08:43:06,145 - WARNING - Could not set to draft state for CRP2300086: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:06,295 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300086
+2025-05-15 08:43:06,394 - WARNING - Could not set to draft state for CRP2300085: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:06,550 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300085
+2025-05-15 08:43:06,640 - WARNING - Could not set to draft state for CN23060048: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:06,805 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060048
+2025-05-15 08:43:06,901 - WARNING - Could not set to draft state for CN23060049: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:07,063 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060049
+2025-05-15 08:43:07,159 - WARNING - Could not set to draft state for CN23060050: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:07,314 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060050
+2025-05-15 08:43:07,410 - WARNING - Could not set to draft state for CN23060051: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:07,573 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060051
+2025-05-15 08:43:07,667 - WARNING - Could not set to draft state for CN23060052: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:07,852 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060052
+2025-05-15 08:43:07,939 - WARNING - Could not set to draft state for CN23060053: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:08,087 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060053
+2025-05-15 08:43:08,176 - WARNING - Could not set to draft state for CN23060054: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:08,326 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060054
+2025-05-15 08:43:08,423 - WARNING - Could not set to draft state for CN23060055: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:08,584 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060055
+2025-05-15 08:43:08,672 - WARNING - Could not set to draft state for CN23060058: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:08,837 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060058
+2025-05-15 08:43:08,925 - WARNING - Could not set to draft state for CN23060060: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:09,098 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060060
+2025-05-15 08:43:09,192 - WARNING - Could not set to draft state for CN23060061: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:09,351 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060061
+2025-05-15 08:43:09,463 - WARNING - Could not set to draft state for CN23060062: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:09,613 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060062
+2025-05-15 08:43:09,703 - WARNING - Could not set to draft state for CN23060063: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:09,867 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060063
+2025-05-15 08:43:09,964 - WARNING - Could not set to draft state for CN23060065: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:10,119 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060065
+2025-05-15 08:43:10,207 - WARNING - Could not set to draft state for CN23060066: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:10,386 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060066
+2025-05-15 08:43:10,482 - WARNING - Could not set to draft state for CN23060064: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:10,647 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23060064
+2025-05-15 08:43:10,751 - WARNING - Could not set to draft state for CRP2300143: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:10,913 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300143
+2025-05-15 08:43:11,011 - WARNING - Could not set to draft state for CN23070136: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:11,179 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23070136
+2025-05-15 08:43:11,287 - WARNING - Could not set to draft state for CRP2300181: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:11,470 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300181
+2025-05-15 08:43:11,563 - WARNING - Could not set to draft state for CRP2300186: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:11,738 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300186
+2025-05-15 08:43:11,832 - WARNING - Could not set to draft state for CRP2300182: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:11,991 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300182
+2025-05-15 08:43:12,085 - WARNING - Could not set to draft state for CRP2300183: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:12,252 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300183
+2025-05-15 08:43:12,342 - WARNING - Could not set to draft state for CRP2300184: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:12,523 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300184
+2025-05-15 08:43:12,620 - WARNING - Could not set to draft state for CRP2300185: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:12,779 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300185
+2025-05-15 08:43:12,872 - WARNING - Could not set to draft state for CRP2300193: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:13,031 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300193
+2025-05-15 08:43:13,123 - WARNING - Could not set to draft state for CRP2300242: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:13,298 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2300242
+2025-05-15 08:43:13,393 - WARNING - Could not set to draft state for CN23120015: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:13,565 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23120015
+2025-05-15 08:43:13,652 - WARNING - Could not set to draft state for CN23120046: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:13,818 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN23120046
+2025-05-15 08:43:13,914 - WARNING - Could not set to draft state for CN24030024: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:14,111 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24030024
+2025-05-15 08:43:14,214 - WARNING - Could not set to draft state for CN24050004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:14,374 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24050004
+2025-05-15 08:43:14,471 - WARNING - Could not set to draft state for CN24050030: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:14,643 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24050030
+2025-05-15 08:43:14,744 - WARNING - Could not set to draft state for CN24050031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:14,914 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24050031
+2025-05-15 08:43:15,015 - WARNING - Could not set to draft state for CN24050032: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:15,185 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24050032
+2025-05-15 08:43:15,295 - WARNING - Could not set to draft state for CN24050033: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:15,453 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24050033
+2025-05-15 08:43:15,555 - WARNING - Could not set to draft state for CN24050034: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:15,714 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24050034
+2025-05-15 08:43:15,829 - WARNING - Could not set to draft state for CN24050035: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:15,997 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24050035
+2025-05-15 08:43:16,110 - WARNING - Could not set to draft state for CN24060009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:16,286 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24060009
+2025-05-15 08:43:16,382 - WARNING - Could not set to draft state for CN24060016: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:16,532 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24060016
+2025-05-15 08:43:16,623 - WARNING - Could not set to draft state for CN24070010: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:16,785 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24070010
+2025-05-15 08:43:16,882 - WARNING - Could not set to draft state for CN24070067: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:17,050 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24070067
+2025-05-15 08:43:17,154 - WARNING - Could not set to draft state for CN24080027: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:17,322 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24080027
+2025-05-15 08:43:17,428 - WARNING - Could not set to draft state for CN24080098: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:17,587 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24080098
+2025-05-15 08:43:17,683 - WARNING - Could not set to draft state for CN24080103: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:17,843 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24080103
+2025-05-15 08:43:17,944 - WARNING - Could not set to draft state for CN24090026: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:18,111 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090026
+2025-05-15 08:43:18,219 - WARNING - Could not set to draft state for CN24090027: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:18,391 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090027
+2025-05-15 08:43:18,489 - WARNING - Could not set to draft state for CN24090028: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:18,651 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090028
+2025-05-15 08:43:18,746 - WARNING - Could not set to draft state for CN24090029: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:18,901 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090029
+2025-05-15 08:43:19,005 - WARNING - Could not set to draft state for CN24090031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:19,169 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090031
+2025-05-15 08:43:19,279 - WARNING - Could not set to draft state for CN24090033: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:19,441 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090033
+2025-05-15 08:43:19,539 - WARNING - Could not set to draft state for CN24090034: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:19,694 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090034
+2025-05-15 08:43:19,790 - WARNING - Could not set to draft state for CN24090035: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:19,967 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090035
+2025-05-15 08:43:20,056 - WARNING - Could not set to draft state for CN24090037: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:20,227 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090037
+2025-05-15 08:43:20,323 - WARNING - Could not set to draft state for CN24090040: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:20,488 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090040
+2025-05-15 08:43:20,583 - WARNING - Could not set to draft state for CN24090041: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:20,750 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090041
+2025-05-15 08:43:20,847 - WARNING - Could not set to draft state for CN24090042: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:20,995 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090042
+2025-05-15 08:43:21,090 - WARNING - Could not set to draft state for CN24090043: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:21,258 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090043
+2025-05-15 08:43:21,353 - WARNING - Could not set to draft state for CN24090044: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:21,532 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090044
+2025-05-15 08:43:21,631 - WARNING - Could not set to draft state for CN24090046: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:21,791 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090046
+2025-05-15 08:43:21,890 - WARNING - Could not set to draft state for CN24090047: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:22,049 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090047
+2025-05-15 08:43:22,141 - WARNING - Could not set to draft state for CN24090048: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:22,291 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24090048
+2025-05-15 08:43:22,387 - WARNING - Could not set to draft state for CN24110059: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:22,584 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24110059
+2025-05-15 08:43:22,676 - WARNING - Could not set to draft state for CN24110069: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:22,832 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24110069
+2025-05-15 08:43:22,929 - WARNING - Could not set to draft state for CRP2400324: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:23,100 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2400324
+2025-05-15 08:43:23,214 - WARNING - Could not set to draft state for CRP2400332: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:23,394 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2400332
+2025-05-15 08:43:23,501 - WARNING - Could not set to draft state for CRP2400338: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:23,678 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2400338
+2025-05-15 08:43:23,775 - WARNING - Could not set to draft state for CRP2400346: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:23,937 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2400346
+2025-05-15 08:43:24,033 - WARNING - Could not set to draft state for CRP2400351: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:24,197 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2400351
+2025-05-15 08:43:24,290 - WARNING - Could not set to draft state for CRP2400358: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:24,457 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2400358
+2025-05-15 08:43:24,549 - WARNING - Could not set to draft state for CN24120002: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:24,709 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24120002
+2025-05-15 08:43:24,813 - WARNING - Could not set to draft state for CN24120008: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:24,968 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24120008
+2025-05-15 08:43:25,074 - WARNING - Could not set to draft state for CN24120017: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:25,236 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24120017
+2025-05-15 08:43:25,332 - WARNING - Could not set to draft state for CN24120020: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:25,497 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24120020
+2025-05-15 08:43:25,592 - WARNING - Could not set to draft state for CN24120021: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:25,756 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24120021
+2025-05-15 08:43:25,853 - WARNING - Could not set to draft state for CN24120022: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:25,999 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24120022
+2025-05-15 08:43:26,091 - WARNING - Could not set to draft state for CN24120023: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:26,239 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24120023
+2025-05-15 08:43:26,330 - WARNING - Could not set to draft state for CN24120024: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:26,480 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN24120024
+2025-05-15 08:43:26,578 - WARNING - Could not set to draft state for CRP2400377: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:26,729 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2400377
+2025-05-15 08:43:26,828 - WARNING - Could not set to draft state for CN25010001: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:26,980 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25010001
+2025-05-15 08:43:27,075 - WARNING - Could not set to draft state for CN25010003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:27,240 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25010003
+2025-05-15 08:43:27,335 - WARNING - Could not set to draft state for CN25010011: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:27,493 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25010011
+2025-05-15 08:43:27,586 - WARNING - Could not set to draft state for CN25010012: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:27,739 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25010012
+2025-05-15 08:43:27,836 - WARNING - Could not set to draft state for CRP2500001: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:28,016 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500001
+2025-05-15 08:43:28,115 - WARNING - Could not set to draft state for CRP2500002: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:28,282 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500002
+2025-05-15 08:43:28,382 - WARNING - Could not set to draft state for CRP2500003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:28,537 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500003
+2025-05-15 08:43:28,625 - WARNING - Could not set to draft state for CRP2500006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:28,778 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500006
+2025-05-15 08:43:28,878 - WARNING - Could not set to draft state for CRP2500008: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:29,042 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500008
+2025-05-15 08:43:29,138 - WARNING - Could not set to draft state for CRP2500009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:29,309 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500009
+2025-05-15 08:43:29,404 - WARNING - Could not set to draft state for CRP2500011: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:29,561 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500011
+2025-05-15 08:43:29,657 - WARNING - Could not set to draft state for CRP2500012: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:29,813 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500012
+2025-05-15 08:43:29,922 - WARNING - Could not set to draft state for CRP2500013: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:30,085 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500013
+2025-05-15 08:43:30,187 - WARNING - Could not set to draft state for CRP2500015: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:30,352 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500015
+2025-05-15 08:43:30,459 - WARNING - Could not set to draft state for CN25020003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:30,623 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020003
+2025-05-15 08:43:30,718 - WARNING - Could not set to draft state for CN25020005: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:30,875 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020005
+2025-05-15 08:43:30,971 - WARNING - Could not set to draft state for CN25020006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:31,129 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020006
+2025-05-15 08:43:31,240 - WARNING - Could not set to draft state for CN25020007: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:31,403 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020007
+2025-05-15 08:43:31,513 - WARNING - Could not set to draft state for CN25020008: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:31,677 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020008
+2025-05-15 08:43:31,777 - WARNING - Could not set to draft state for CN25020009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:31,951 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020009
+2025-05-15 08:43:32,050 - WARNING - Could not set to draft state for CN25020013: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:32,214 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020013
+2025-05-15 08:43:32,311 - WARNING - Could not set to draft state for CN25020014: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:32,466 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020014
+2025-05-15 08:43:32,559 - WARNING - Could not set to draft state for CN25020015: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:32,725 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020015
+2025-05-15 08:43:32,823 - WARNING - Could not set to draft state for CN25020016: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:32,997 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020016
+2025-05-15 08:43:33,088 - WARNING - Could not set to draft state for CN25020017: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:33,260 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020017
+2025-05-15 08:43:33,359 - WARNING - Could not set to draft state for CN25020018: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:33,521 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020018
+2025-05-15 08:43:33,629 - WARNING - Could not set to draft state for CN25020025: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:33,784 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020025
+2025-05-15 08:43:33,880 - WARNING - Could not set to draft state for CN25020027: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:34,046 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020027
+2025-05-15 08:43:34,152 - WARNING - Could not set to draft state for CN25020028: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:34,309 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020028
+2025-05-15 08:43:34,398 - WARNING - Could not set to draft state for CN25020029: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:34,549 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020029
+2025-05-15 08:43:34,638 - WARNING - Could not set to draft state for CN25020030: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:34,786 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020030
+2025-05-15 08:43:34,882 - WARNING - Could not set to draft state for CN25020031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:35,035 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020031
+2025-05-15 08:43:35,146 - WARNING - Could not set to draft state for CN25020033: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:35,306 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020033
+2025-05-15 08:43:35,422 - WARNING - Could not set to draft state for CN25020034: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:35,587 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020034
+2025-05-15 08:43:35,685 - WARNING - Could not set to draft state for CN25020035: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:35,854 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020035
+2025-05-15 08:43:35,956 - WARNING - Could not set to draft state for CN25020042: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:36,130 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN25020042
+2025-05-15 08:43:36,216 - WARNING - Could not set to draft state for CRP2500037: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:36,367 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500037
+2025-05-15 08:43:36,462 - WARNING - Could not set to draft state for CRP2500038: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:36,629 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500038
+2025-05-15 08:43:36,740 - WARNING - Could not set to draft state for CRP2500039: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:36,918 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500039
+2025-05-15 08:43:37,017 - WARNING - Could not set to draft state for CRP2500040: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:37,206 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500040
+2025-05-15 08:43:37,308 - WARNING - Could not set to draft state for CRP2500041: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:37,469 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500041
+2025-05-15 08:43:37,567 - WARNING - Could not set to draft state for CRP2500042: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:37,724 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500042
+2025-05-15 08:43:37,824 - WARNING - Could not set to draft state for CRP2500043: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:37,977 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500043
+2025-05-15 08:43:38,084 - WARNING - Could not set to draft state for CRP2500044: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:38,261 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500044
+2025-05-15 08:43:38,367 - WARNING - Could not set to draft state for CRP2500045: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:38,525 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500045
+2025-05-15 08:43:38,633 - WARNING - Could not set to draft state for CRP2500046: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:38,811 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500046
+2025-05-15 08:43:38,912 - WARNING - Could not set to draft state for CRP2500019: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:39,094 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500019
+2025-05-15 08:43:39,190 - WARNING - Could not set to draft state for CRP2500020: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:39,365 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500020
+2025-05-15 08:43:39,468 - WARNING - Could not set to draft state for CRP2500021: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:39,643 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500021
+2025-05-15 08:43:39,739 - WARNING - Could not set to draft state for CRP2500022: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:39,891 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500022
+2025-05-15 08:43:39,991 - WARNING - Could not set to draft state for CRP2500023: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:40,154 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500023
+2025-05-15 08:43:40,257 - WARNING - Could not set to draft state for CRP2500024: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:40,595 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500024
+2025-05-15 08:43:40,696 - WARNING - Could not set to draft state for CRP2500025: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:40,847 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500025
+2025-05-15 08:43:40,943 - WARNING - Could not set to draft state for CRP2500026: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:41,113 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500026
+2025-05-15 08:43:41,208 - WARNING - Could not set to draft state for CRP2500027: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:41,363 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500027
+2025-05-15 08:43:41,459 - WARNING - Could not set to draft state for CRP2500028: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:41,613 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500028
+2025-05-15 08:43:41,704 - WARNING - Could not set to draft state for CRP2500029: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:41,864 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500029
+2025-05-15 08:43:41,961 - WARNING - Could not set to draft state for CRP2500030: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:42,113 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500030
+2025-05-15 08:43:42,220 - WARNING - Could not set to draft state for CRP2500031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:42,405 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500031
+2025-05-15 08:43:42,505 - WARNING - Could not set to draft state for CRP2500032: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:42,684 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500032
+2025-05-15 08:43:42,787 - WARNING - Could not set to draft state for CRP2500033: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:42,954 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500033
+2025-05-15 08:43:43,055 - WARNING - Could not set to draft state for CRP2500034: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:43,236 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500034
+2025-05-15 08:43:43,343 - WARNING - Could not set to draft state for CRP2500035: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:43,529 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500035
+2025-05-15 08:43:43,623 - WARNING - Could not set to draft state for CRP2500036: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:43,797 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP2500036
+2025-05-15 08:43:43,890 - WARNING - Could not set to draft state for CNP0000152: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:43:44,071 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CNP0000152
+2025-05-15 08:43:44,073 - INFO - 
+            Invoice deletion completed:
+            - Total invoices processed: 320
+            - Successfully deleted: 320
+            - Failed to delete: 0
+            
+2025-05-15 08:43:44,074 - INFO - 
+        Final Summary:
+        - Total documents processed: 320
+        - Total successfully deleted: 320
+        - Total failed to delete: 0
+        
+2025-05-15 08:47:59,691 - INFO - Connecting to Odoo...
+2025-05-15 08:48:00,575 - INFO - Reading Excel file...
+2025-05-15 08:48:00,886 - INFO - Available columns in Excel: name, type
+2025-05-15 08:48:00,886 - INFO - Using columns: Document Number='name', Type='type'
+2025-05-15 08:48:00,901 - INFO - Found 320 invoices and 0 bills to process
+2025-05-15 08:48:00,901 - INFO - Starting deletion process for 320 invoices...
+2025-05-15 08:48:01,009 - WARNING - Could not set to draft state for CN19100032: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:01,195 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19100032
+2025-05-15 08:48:01,304 - WARNING - Could not set to draft state for CR1312054: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:01,485 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1312054
+2025-05-15 08:48:01,583 - WARNING - Could not set to draft state for CR0600001: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:01,760 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600001
+2025-05-15 08:48:01,859 - WARNING - Could not set to draft state for CN19050015: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:02,035 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19050015
+2025-05-15 08:48:02,130 - WARNING - Could not set to draft state for CN19050016: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:02,304 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19050016
+2025-05-15 08:48:02,404 - WARNING - Could not set to draft state for CN19050017: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:02,563 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN19050017
+2025-05-15 08:48:02,666 - WARNING - Could not set to draft state for CN0901001: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:02,844 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0901001
+2025-05-15 08:48:02,948 - WARNING - Could not set to draft state for CR0600002: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:03,111 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600002
+2025-05-15 08:48:03,208 - WARNING - Could not set to draft state for CR0600003: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:03,368 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600003
+2025-05-15 08:48:03,468 - WARNING - Could not set to draft state for CN15030009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:03,632 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN15030009
+2025-05-15 08:48:03,729 - WARNING - Could not set to draft state for CN18040014: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:03,888 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN18040014
+2025-05-15 08:48:03,988 - WARNING - Could not set to draft state for CN16120004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:04,139 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN16120004
+2025-05-15 08:48:04,229 - WARNING - Could not set to draft state for CN16120005: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:04,381 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN16120005
+2025-05-15 08:48:04,486 - WARNING - Could not set to draft state for CN0809044: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:04,648 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN0809044
+2025-05-15 08:48:04,742 - WARNING - Could not set to draft state for CN1004017: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:04,898 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1004017
+2025-05-15 08:48:05,001 - WARNING - Could not set to draft state for CR15040008: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:05,177 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR15040008
+2025-05-15 08:48:05,276 - WARNING - Could not set to draft state for CRP1700328: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:05,450 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CRP1700328
+2025-05-15 08:48:05,549 - WARNING - Could not set to draft state for CR0710006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:05,706 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0710006
+2025-05-15 08:48:05,801 - WARNING - Could not set to draft state for CN1001004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:05,966 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1001004
+2025-05-15 08:48:06,060 - WARNING - Could not set to draft state for CR1008050: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:06,226 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1008050
+2025-05-15 08:48:06,319 - WARNING - Could not set to draft state for CR1104006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:06,473 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1104006
+2025-05-15 08:48:06,575 - WARNING - Could not set to draft state for CR1108031: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:06,757 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1108031
+2025-05-15 08:48:06,871 - WARNING - Could not set to draft state for CR1110009: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:07,028 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR1110009
+2025-05-15 08:48:07,122 - WARNING - Could not set to draft state for CN1104012: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:07,288 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1104012
+2025-05-15 08:48:07,385 - WARNING - Could not set to draft state for CN1208002: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:07,566 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CN1208002
+2025-05-15 08:48:07,665 - WARNING - Could not set to draft state for CR0600004: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:48:07,820 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CR0600004
+2025-05-15 08:48:07,864 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1202042
+2025-05-15 08:48:07,908 - WARNING - ['out_invoice', 'out_refund'] document not found: CR0912004
+2025-05-15 08:48:07,952 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1409024
+2025-05-15 08:48:07,994 - WARNING - ['out_invoice', 'out_refund'] document not found: CN0706021
+2025-05-15 08:48:08,037 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1107037
+2025-05-15 08:48:08,084 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1107047
+2025-05-15 08:48:08,130 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1107048
+2025-05-15 08:48:08,173 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1107055
+2025-05-15 08:48:08,219 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1107056
+2025-05-15 08:48:08,272 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1107070
+2025-05-15 08:48:08,316 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408028
+2025-05-15 08:48:08,361 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408033
+2025-05-15 08:48:08,405 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407030
+2025-05-15 08:48:08,451 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407037
+2025-05-15 08:48:08,507 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407069
+2025-05-15 08:48:08,557 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408006
+2025-05-15 08:48:08,610 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408022
+2025-05-15 08:48:08,655 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408019
+2025-05-15 08:48:08,697 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407024
+2025-05-15 08:48:08,740 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408017
+2025-05-15 08:48:08,782 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408021
+2025-05-15 08:48:08,836 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408018
+2025-05-15 08:48:08,888 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408031
+2025-05-15 08:48:08,936 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408032
+2025-05-15 08:48:08,980 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408037
+2025-05-15 08:48:09,025 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407056
+2025-05-15 08:48:09,073 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407060
+2025-05-15 08:48:09,125 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408005
+2025-05-15 08:48:09,172 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407001
+2025-05-15 08:48:09,220 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408023
+2025-05-15 08:48:09,279 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408024
+2025-05-15 08:48:09,324 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407034
+2025-05-15 08:48:09,368 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408002
+2025-05-15 08:48:09,444 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408027
+2025-05-15 08:48:09,507 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407035
+2025-05-15 08:48:09,568 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408020
+2025-05-15 08:48:09,630 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408035
+2025-05-15 08:48:09,700 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408036
+2025-05-15 08:48:09,792 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408052
+2025-05-15 08:48:09,853 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408053
+2025-05-15 08:48:09,918 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408054
+2025-05-15 08:48:09,967 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408055
+2025-05-15 08:48:10,025 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408056
+2025-05-15 08:48:10,074 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407042
+2025-05-15 08:48:10,122 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407038
+2025-05-15 08:48:10,170 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407039
+2025-05-15 08:48:10,223 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408025
+2025-05-15 08:48:10,273 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408026
+2025-05-15 08:48:10,327 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408030
+2025-05-15 08:48:10,377 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408029
+2025-05-15 08:48:10,432 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407025
+2025-05-15 08:48:10,480 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408003
+2025-05-15 08:48:10,534 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408004
+2025-05-15 08:48:10,581 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408007
+2025-05-15 08:48:10,632 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1408034
+2025-05-15 08:48:10,678 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407031
+2025-05-15 08:48:10,728 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407033
+2025-05-15 08:48:10,774 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407020
+2025-05-15 08:48:10,823 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407045
+2025-05-15 08:48:10,872 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407046
+2025-05-15 08:48:10,919 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407040
+2025-05-15 08:48:10,967 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407041
+2025-05-15 08:48:11,015 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407023
+2025-05-15 08:48:11,073 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407027
+2025-05-15 08:48:11,126 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407022
+2025-05-15 08:48:11,170 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407028
+2025-05-15 08:48:11,215 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407043
+2025-05-15 08:48:11,257 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407052
+2025-05-15 08:48:11,305 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407029
+2025-05-15 08:48:11,350 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407021
+2025-05-15 08:48:11,396 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407032
+2025-05-15 08:48:11,440 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407026
+2025-05-15 08:48:11,483 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407047
+2025-05-15 08:48:11,530 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407048
+2025-05-15 08:48:11,585 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407044
+2025-05-15 08:48:11,631 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407051
+2025-05-15 08:48:11,677 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407058
+2025-05-15 08:48:11,723 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407064
+2025-05-15 08:48:11,767 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407065
+2025-05-15 08:48:11,813 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407067
+2025-05-15 08:48:11,856 - WARNING - ['out_invoice', 'out_refund'] document not found: CN0804007
+2025-05-15 08:48:11,900 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407057
+2025-05-15 08:48:11,943 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407063
+2025-05-15 08:48:11,992 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407049
+2025-05-15 08:48:12,036 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407066
+2025-05-15 08:48:12,083 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1201009
+2025-05-15 08:48:12,133 - WARNING - ['out_invoice', 'out_refund'] document not found: CN0903013
+2025-05-15 08:48:12,177 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407055
+2025-05-15 08:48:12,232 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407062
+2025-05-15 08:48:12,279 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407054
+2025-05-15 08:48:12,323 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407061
+2025-05-15 08:48:12,372 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407053
+2025-05-15 08:48:12,421 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407059
+2025-05-15 08:48:12,472 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1007004
+2025-05-15 08:48:12,537 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1407050
+2025-05-15 08:48:12,585 - WARNING - ['out_invoice', 'out_refund'] document not found: CR16100001
+2025-05-15 08:48:12,637 - WARNING - ['out_invoice', 'out_refund'] document not found: CR16120007
+2025-05-15 08:48:12,686 - WARNING - ['out_invoice', 'out_refund'] document not found: CR16120008
+2025-05-15 08:48:12,741 - WARNING - ['out_invoice', 'out_refund'] document not found: CN0910007
+2025-05-15 08:48:12,791 - WARNING - ['out_invoice', 'out_refund'] document not found: CR0600005
+2025-05-15 08:48:12,855 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP1600198
+2025-05-15 08:48:12,902 - WARNING - ['out_invoice', 'out_refund'] document not found: CN17030010
+2025-05-15 08:48:12,952 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1109011
+2025-05-15 08:48:12,995 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1102007
+2025-05-15 08:48:13,044 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20090012
+2025-05-15 08:48:13,098 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1210020
+2025-05-15 08:48:13,148 - WARNING - ['out_invoice', 'out_refund'] document not found: CN15030031
+2025-05-15 08:48:13,194 - WARNING - ['out_invoice', 'out_refund'] document not found: CN0712003
+2025-05-15 08:48:13,240 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1312005
+2025-05-15 08:48:13,293 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2000091
+2025-05-15 08:48:13,340 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20120039
+2025-05-15 08:48:13,388 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20120040
+2025-05-15 08:48:13,433 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20120041
+2025-05-15 08:48:13,479 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20120042
+2025-05-15 08:48:13,526 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20120043
+2025-05-15 08:48:13,572 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20120044
+2025-05-15 08:48:13,615 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20120045
+2025-05-15 08:48:13,659 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20120050
+2025-05-15 08:48:13,705 - WARNING - ['out_invoice', 'out_refund'] document not found: CR0600007
+2025-05-15 08:48:13,752 - WARNING - ['out_invoice', 'out_refund'] document not found: CN18030022
+2025-05-15 08:48:13,810 - WARNING - ['out_invoice', 'out_refund'] document not found: CN17080019
+2025-05-15 08:48:13,856 - WARNING - ['out_invoice', 'out_refund'] document not found: CN0804005
+2025-05-15 08:48:13,903 - WARNING - ['out_invoice', 'out_refund'] document not found: CR0600008
+2025-05-15 08:48:13,945 - WARNING - ['out_invoice', 'out_refund'] document not found: CR0600009
+2025-05-15 08:48:13,991 - WARNING - ['out_invoice', 'out_refund'] document not found: CR0600010
+2025-05-15 08:48:14,040 - WARNING - ['out_invoice', 'out_refund'] document not found: CR15040007
+2025-05-15 08:48:14,090 - WARNING - ['out_invoice', 'out_refund'] document not found: CN15110008
+2025-05-15 08:48:14,142 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1102006
+2025-05-15 08:48:14,190 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20020032
+2025-05-15 08:48:14,233 - WARNING - ['out_invoice', 'out_refund'] document not found: CN18120003
+2025-05-15 08:48:14,278 - WARNING - ['out_invoice', 'out_refund'] document not found: CN16120034
+2025-05-15 08:48:14,322 - WARNING - ['out_invoice', 'out_refund'] document not found: CR1108026
+2025-05-15 08:48:14,368 - WARNING - ['out_invoice', 'out_refund'] document not found: CR0600006
+2025-05-15 08:48:14,418 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP1700289
+2025-05-15 08:48:14,464 - WARNING - ['out_invoice', 'out_refund'] document not found: CN0706013
+2025-05-15 08:48:14,507 - WARNING - ['out_invoice', 'out_refund'] document not found: CN20110062
+2025-05-15 08:48:14,551 - WARNING - ['out_invoice', 'out_refund'] document not found: CN17040041
+2025-05-15 08:48:14,593 - WARNING - ['out_invoice', 'out_refund'] document not found: CN17040044
+2025-05-15 08:48:14,636 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP1800435
+2025-05-15 08:48:14,684 - WARNING - ['out_invoice', 'out_refund'] document not found: CN1310013
+2025-05-15 08:48:14,738 - WARNING - ['out_invoice', 'out_refund'] document not found: CN19060054
+2025-05-15 08:48:14,790 - WARNING - ['out_invoice', 'out_refund'] document not found: CN19060055
+2025-05-15 08:48:14,843 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2100149
+2025-05-15 08:48:14,890 - WARNING - ['out_invoice', 'out_refund'] document not found: CN22030003
+2025-05-15 08:48:14,935 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2200156
+2025-05-15 08:48:14,989 - WARNING - ['out_invoice', 'out_refund'] document not found: CN22090087
+2025-05-15 08:48:15,039 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23030009
+2025-05-15 08:48:15,092 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23030018
+2025-05-15 08:48:15,139 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300090
+2025-05-15 08:48:15,189 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300089
+2025-05-15 08:48:15,237 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300086
+2025-05-15 08:48:15,285 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300085
+2025-05-15 08:48:15,333 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060048
+2025-05-15 08:48:15,376 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060049
+2025-05-15 08:48:15,419 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060050
+2025-05-15 08:48:15,466 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060051
+2025-05-15 08:48:15,514 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060052
+2025-05-15 08:48:15,558 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060053
+2025-05-15 08:48:15,607 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060054
+2025-05-15 08:48:15,653 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060055
+2025-05-15 08:48:15,700 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060058
+2025-05-15 08:48:15,745 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060060
+2025-05-15 08:48:15,786 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060061
+2025-05-15 08:48:15,829 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060062
+2025-05-15 08:48:15,875 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060063
+2025-05-15 08:48:15,922 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060065
+2025-05-15 08:48:15,964 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060066
+2025-05-15 08:48:16,008 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23060064
+2025-05-15 08:48:16,053 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300143
+2025-05-15 08:48:16,102 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23070136
+2025-05-15 08:48:16,148 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300181
+2025-05-15 08:48:16,195 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300186
+2025-05-15 08:48:16,237 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300182
+2025-05-15 08:48:16,281 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300183
+2025-05-15 08:48:16,325 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300184
+2025-05-15 08:48:16,379 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300185
+2025-05-15 08:48:16,429 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300193
+2025-05-15 08:48:16,474 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2300242
+2025-05-15 08:48:16,522 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23120015
+2025-05-15 08:48:16,568 - WARNING - ['out_invoice', 'out_refund'] document not found: CN23120046
+2025-05-15 08:48:16,621 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24030024
+2025-05-15 08:48:16,675 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24050004
+2025-05-15 08:48:16,719 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24050030
+2025-05-15 08:48:16,763 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24050031
+2025-05-15 08:48:16,807 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24050032
+2025-05-15 08:48:16,851 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24050033
+2025-05-15 08:48:16,895 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24050034
+2025-05-15 08:48:16,938 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24050035
+2025-05-15 08:48:16,982 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24060009
+2025-05-15 08:48:17,027 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24060016
+2025-05-15 08:48:17,078 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24070010
+2025-05-15 08:48:17,123 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24070067
+2025-05-15 08:48:17,167 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24080027
+2025-05-15 08:48:17,210 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24080098
+2025-05-15 08:48:17,255 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24080103
+2025-05-15 08:48:17,299 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090026
+2025-05-15 08:48:17,345 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090027
+2025-05-15 08:48:17,399 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090028
+2025-05-15 08:48:17,452 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090029
+2025-05-15 08:48:17,503 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090031
+2025-05-15 08:48:17,554 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090033
+2025-05-15 08:48:17,602 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090034
+2025-05-15 08:48:17,652 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090035
+2025-05-15 08:48:17,702 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090037
+2025-05-15 08:48:17,752 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090040
+2025-05-15 08:48:17,802 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090041
+2025-05-15 08:48:17,847 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090042
+2025-05-15 08:48:17,892 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090043
+2025-05-15 08:48:17,947 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090044
+2025-05-15 08:48:17,991 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090046
+2025-05-15 08:48:18,039 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090047
+2025-05-15 08:48:18,092 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24090048
+2025-05-15 08:48:18,138 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24110059
+2025-05-15 08:48:18,182 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24110069
+2025-05-15 08:48:18,225 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2400324
+2025-05-15 08:48:18,271 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2400332
+2025-05-15 08:48:18,321 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2400338
+2025-05-15 08:48:18,371 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2400346
+2025-05-15 08:48:18,415 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2400351
+2025-05-15 08:48:18,458 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2400358
+2025-05-15 08:48:18,501 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24120002
+2025-05-15 08:48:18,546 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24120008
+2025-05-15 08:48:18,595 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24120017
+2025-05-15 08:48:18,644 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24120020
+2025-05-15 08:48:18,691 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24120021
+2025-05-15 08:48:18,733 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24120022
+2025-05-15 08:48:18,774 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24120023
+2025-05-15 08:48:18,824 - WARNING - ['out_invoice', 'out_refund'] document not found: CN24120024
+2025-05-15 08:48:18,873 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2400377
+2025-05-15 08:48:18,917 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25010001
+2025-05-15 08:48:18,961 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25010003
+2025-05-15 08:48:19,007 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25010011
+2025-05-15 08:48:19,057 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25010012
+2025-05-15 08:48:19,107 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500001
+2025-05-15 08:48:19,150 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500002
+2025-05-15 08:48:19,202 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500003
+2025-05-15 08:48:19,255 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500006
+2025-05-15 08:48:19,312 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500008
+2025-05-15 08:48:19,365 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500009
+2025-05-15 08:48:19,415 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500011
+2025-05-15 08:48:19,459 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500012
+2025-05-15 08:48:19,509 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500013
+2025-05-15 08:48:19,554 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500015
+2025-05-15 08:48:19,603 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020003
+2025-05-15 08:48:19,650 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020005
+2025-05-15 08:48:19,702 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020006
+2025-05-15 08:48:19,751 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020007
+2025-05-15 08:48:19,794 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020008
+2025-05-15 08:48:19,838 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020009
+2025-05-15 08:48:19,881 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020013
+2025-05-15 08:48:19,925 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020014
+2025-05-15 08:48:19,975 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020015
+2025-05-15 08:48:20,023 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020016
+2025-05-15 08:48:20,070 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020017
+2025-05-15 08:48:20,116 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020018
+2025-05-15 08:48:20,161 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020025
+2025-05-15 08:48:20,212 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020027
+2025-05-15 08:48:20,256 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020028
+2025-05-15 08:48:20,300 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020029
+2025-05-15 08:48:20,344 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020030
+2025-05-15 08:48:20,389 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020031
+2025-05-15 08:48:20,432 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020033
+2025-05-15 08:48:20,484 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020034
+2025-05-15 08:48:20,535 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020035
+2025-05-15 08:48:20,577 - WARNING - ['out_invoice', 'out_refund'] document not found: CN25020042
+2025-05-15 08:48:20,631 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500037
+2025-05-15 08:48:20,683 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500038
+2025-05-15 08:48:20,736 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500039
+2025-05-15 08:48:20,839 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500040
+2025-05-15 08:48:20,947 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500041
+2025-05-15 08:48:21,064 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500042
+2025-05-15 08:48:21,169 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500043
+2025-05-15 08:48:21,271 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500044
+2025-05-15 08:48:21,369 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500045
+2025-05-15 08:48:21,460 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500046
+2025-05-15 08:48:21,561 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500019
+2025-05-15 08:48:21,674 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500020
+2025-05-15 08:48:21,777 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500021
+2025-05-15 08:48:21,889 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500022
+2025-05-15 08:48:21,999 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500023
+2025-05-15 08:48:22,104 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500024
+2025-05-15 08:48:22,207 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500025
+2025-05-15 08:48:22,311 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500026
+2025-05-15 08:48:22,412 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500027
+2025-05-15 08:48:22,510 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500028
+2025-05-15 08:48:22,611 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500029
+2025-05-15 08:48:22,726 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500030
+2025-05-15 08:48:22,836 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500031
+2025-05-15 08:48:22,940 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500032
+2025-05-15 08:48:23,039 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500033
+2025-05-15 08:48:23,143 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500034
+2025-05-15 08:48:23,250 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500035
+2025-05-15 08:48:23,302 - WARNING - ['out_invoice', 'out_refund'] document not found: CRP2500036
+2025-05-15 08:48:23,358 - WARNING - ['out_invoice', 'out_refund'] document not found: CNP0000152
+2025-05-15 08:48:23,358 - INFO - 
+            Invoice deletion completed:
+            - Total invoices processed: 320
+            - Successfully deleted: 26
+            - Failed to delete: 294
+            
+2025-05-15 08:48:23,359 - INFO - 
+        Final Summary:
+        - Total documents processed: 320
+        - Total successfully deleted: 26
+        - Total failed to delete: 294
+        
+2025-05-15 08:58:45,562 - INFO - Connecting to Odoo...
+2025-05-15 08:58:46,456 - INFO - Reading Excel file...
+2025-05-15 08:58:46,869 - INFO - Available columns in Excel: name, type
+2025-05-15 08:58:46,869 - INFO - Using columns: Document Number='name', Type='type'
+2025-05-15 08:58:46,877 - INFO - Found 161 invoices and 0 bills to process
+2025-05-15 08:58:46,877 - INFO - Starting deletion process for 161 invoices...
+2025-05-15 08:58:46,977 - WARNING - Could not set to draft state for BSMG-680028: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:47,152 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BSMG-680028
+2025-05-15 08:58:47,261 - WARNING - Could not set to draft state for BSMG-680029: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:47,416 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BSMG-680029
+2025-05-15 08:58:47,521 - WARNING - Could not set to draft state for BSMG-680036: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:47,679 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BSMG-680036
+2025-05-15 08:58:47,798 - WARNING - Could not set to draft state for BSMG-680043: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:47,962 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BSMG-680043
+2025-05-15 08:58:48,060 - WARNING - Could not set to draft state for BSMG-680046: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:48,215 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BSMG-680046
+2025-05-15 08:58:48,322 - WARNING - Could not set to draft state for OEP6105060: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:48,492 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6105060
+2025-05-15 08:58:48,592 - WARNING - Could not set to draft state for BOEP6708018: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:48,744 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6708018
+2025-05-15 08:58:48,848 - WARNING - Could not set to draft state for BOEP6708022: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:49,005 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6708022
+2025-05-15 08:58:49,119 - WARNING - Could not set to draft state for BOEP6709022: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:49,277 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6709022
+2025-05-15 08:58:49,370 - WARNING - Could not set to draft state for BOEP6710014: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:49,530 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6710014
+2025-05-15 08:58:49,629 - WARNING - Could not set to draft state for BOEP6710019: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:49,786 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6710019
+2025-05-15 08:58:49,883 - WARNING - Could not set to draft state for BOEP6711019: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:50,029 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6711019
+2025-05-15 08:58:50,144 - WARNING - Could not set to draft state for BOEP6711025: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:50,297 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6711025
+2025-05-15 08:58:50,388 - WARNING - Could not set to draft state for OEP6711059: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:50,551 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6711059
+2025-05-15 08:58:50,658 - WARNING - Could not set to draft state for OEP6711091: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:50,809 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6711091
+2025-05-15 08:58:50,898 - WARNING - Could not set to draft state for BOEP6712021: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:51,054 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6712021
+2025-05-15 08:58:51,168 - WARNING - Could not set to draft state for BOEP6712024: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:51,329 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6712024
+2025-05-15 08:58:51,451 - WARNING - Could not set to draft state for BOEP6712025: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:51,615 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6712025
+2025-05-15 08:58:51,705 - WARNING - Could not set to draft state for OEP6712061: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:51,869 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6712061
+2025-05-15 08:58:51,965 - WARNING - Could not set to draft state for OEP6712109: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:52,134 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6712109
+2025-05-15 08:58:52,230 - WARNING - Could not set to draft state for BOEP6801010: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:52,389 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6801010
+2025-05-15 08:58:52,495 - WARNING - Could not set to draft state for OEP6801044: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:52,651 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6801044
+2025-05-15 08:58:52,755 - WARNING - Could not set to draft state for OEP6801060: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:52,933 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6801060
+2025-05-15 08:58:53,043 - WARNING - Could not set to draft state for OEP6801062: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:53,224 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6801062
+2025-05-15 08:58:53,321 - WARNING - Could not set to draft state for OEP6801064: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:53,492 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6801064
+2025-05-15 08:58:53,584 - WARNING - Could not set to draft state for OEP6802048: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:53,734 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802048
+2025-05-15 08:58:53,839 - WARNING - Could not set to draft state for OEP6802010: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:53,997 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802010
+2025-05-15 08:58:54,086 - WARNING - Could not set to draft state for OEP6802046: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:54,233 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802046
+2025-05-15 08:58:54,321 - WARNING - Could not set to draft state for OEP6802049: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:54,512 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802049
+2025-05-15 08:58:54,606 - WARNING - Could not set to draft state for BOEP6802002: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:54,769 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6802002
+2025-05-15 08:58:54,866 - WARNING - Could not set to draft state for BOEP6802006: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:55,039 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6802006
+2025-05-15 08:58:55,128 - WARNING - Could not set to draft state for OEP6802011: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:55,278 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802011
+2025-05-15 08:58:55,369 - WARNING - Could not set to draft state for OEP6802041: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:55,521 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802041
+2025-05-15 08:58:55,615 - WARNING - Could not set to draft state for OEP6802055: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:55,767 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802055
+2025-05-15 08:58:55,861 - WARNING - Could not set to draft state for OEP6802058: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:56,022 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802058
+2025-05-15 08:58:56,120 - WARNING - Could not set to draft state for OEP6802063: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:56,290 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802063
+2025-05-15 08:58:56,396 - WARNING - Could not set to draft state for OEP6802065: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:56,552 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802065
+2025-05-15 08:58:56,662 - WARNING - Could not set to draft state for IMT0000925: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:56,815 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: IMT0000925
+2025-05-15 08:58:56,904 - WARNING - Could not set to draft state for SMJV6212024: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:57,068 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: SMJV6212024
+2025-05-15 08:58:57,166 - WARNING - Could not set to draft state for GD-0037060: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:57,328 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GD-0037060
+2025-05-15 08:58:57,423 - WARNING - Could not set to draft state for BGD-000926: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:57,577 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-000926
+2025-05-15 08:58:57,672 - WARNING - Could not set to draft state for BGD-000969: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:57,850 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-000969
+2025-05-15 08:58:57,944 - WARNING - Could not set to draft state for BGD-000970: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:58,106 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-000970
+2025-05-15 08:58:58,202 - WARNING - Could not set to draft state for BGD-001071: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:58,385 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-001071
+2025-05-15 08:58:58,490 - WARNING - Could not set to draft state for BGD-001072: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:58,690 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-001072
+2025-05-15 08:58:58,796 - WARNING - Could not set to draft state for BGD-001150: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:58,964 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-001150
+2025-05-15 08:58:59,063 - WARNING - Could not set to draft state for BGD-001188: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:59,286 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-001188
+2025-05-15 08:58:59,392 - WARNING - Could not set to draft state for BGD-001190: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:59,572 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-001190
+2025-05-15 08:58:59,674 - WARNING - Could not set to draft state for GD-0043459: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:58:59,848 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GD-0043459
+2025-05-15 08:58:59,952 - WARNING - Could not set to draft state for BGD-001199: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:00,133 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BGD-001199
+2025-05-15 08:59:00,246 - WARNING - Could not set to draft state for GD-0043492: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:00,466 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GD-0043492
+2025-05-15 08:59:00,580 - WARNING - Could not set to draft state for GI-0003261: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:00,760 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003261
+2025-05-15 08:59:00,872 - WARNING - Could not set to draft state for GI-0003262: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:01,045 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003262
+2025-05-15 08:59:01,155 - WARNING - Could not set to draft state for GI-0003263: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:01,328 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003263
+2025-05-15 08:59:01,442 - WARNING - Could not set to draft state for GI-0003264: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:01,649 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003264
+2025-05-15 08:59:01,700 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003264
+2025-05-15 08:59:01,788 - WARNING - Could not set to draft state for GI-0003265: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:01,953 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003265
+2025-05-15 08:59:02,051 - WARNING - Could not set to draft state for GI-0003266: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:02,205 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003266
+2025-05-15 08:59:02,260 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003266
+2025-05-15 08:59:02,352 - WARNING - Could not set to draft state for GI-0003267: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:02,506 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003267
+2025-05-15 08:59:02,605 - WARNING - Could not set to draft state for GI-0003268: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:02,758 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003268
+2025-05-15 08:59:02,862 - WARNING - Could not set to draft state for GI-0003269: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:03,018 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003269
+2025-05-15 08:59:03,110 - WARNING - Could not set to draft state for GI-0003270: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:03,283 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003270
+2025-05-15 08:59:03,337 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003270
+2025-05-15 08:59:03,438 - WARNING - Could not set to draft state for GI-0003271: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:03,627 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003271
+2025-05-15 08:59:03,719 - WARNING - Could not set to draft state for GI-0003272: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:03,884 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003272
+2025-05-15 08:59:03,937 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003272
+2025-05-15 08:59:03,979 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003272
+2025-05-15 08:59:04,092 - WARNING - Could not set to draft state for GI-0003273: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:04,258 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: GI-0003273
+2025-05-15 08:59:04,303 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003273
+2025-05-15 08:59:04,344 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003273
+2025-05-15 08:59:04,440 - WARNING - Could not set to draft state for RO-0002887: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:04,603 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0002887
+2025-05-15 08:59:04,693 - WARNING - Could not set to draft state for RO-0010475: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:04,853 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010475
+2025-05-15 08:59:04,963 - WARNING - Could not set to draft state for BRO-000169: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:05,155 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000169
+2025-05-15 08:59:05,292 - WARNING - Could not set to draft state for BRO-000170: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:05,449 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000170
+2025-05-15 08:59:05,546 - WARNING - Could not set to draft state for RO-0010542: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:05,716 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010542
+2025-05-15 08:59:05,817 - WARNING - Could not set to draft state for BRO-000190: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:05,969 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000190
+2025-05-15 08:59:06,065 - WARNING - Could not set to draft state for BRO-000223: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:06,218 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000223
+2025-05-15 08:59:06,336 - WARNING - Could not set to draft state for BRO-000240: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:06,538 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000240
+2025-05-15 08:59:06,662 - WARNING - Could not set to draft state for RO-0010696: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:06,837 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010696
+2025-05-15 08:59:06,939 - WARNING - Could not set to draft state for RO-0010705: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:07,100 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010705
+2025-05-15 08:59:07,198 - WARNING - Could not set to draft state for BRO-000383: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:07,360 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000383
+2025-05-15 08:59:07,451 - WARNING - Could not set to draft state for RO-0010728: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:07,604 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010728
+2025-05-15 08:59:07,694 - WARNING - Could not set to draft state for BRO-000388: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:07,858 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000388
+2025-05-15 08:59:07,949 - WARNING - Could not set to draft state for BRO-000389: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:08,102 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000389
+2025-05-15 08:59:08,203 - WARNING - Could not set to draft state for RO-0010736: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:08,370 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010736
+2025-05-15 08:59:08,464 - WARNING - Could not set to draft state for RO-0010737: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:08,616 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010737
+2025-05-15 08:59:08,722 - WARNING - Could not set to draft state for RO-0010738: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:08,879 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010738
+2025-05-15 08:59:08,971 - WARNING - Could not set to draft state for RO-0010739: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:09,140 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010739
+2025-05-15 08:59:09,241 - WARNING - Could not set to draft state for RO-0010740: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:09,420 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010740
+2025-05-15 08:59:09,515 - WARNING - Could not set to draft state for RO-0010741: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:09,672 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010741
+2025-05-15 08:59:09,768 - WARNING - Could not set to draft state for RO-0010742: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:09,926 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010742
+2025-05-15 08:59:10,014 - WARNING - Could not set to draft state for RO-0010743: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:10,172 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010743
+2025-05-15 08:59:10,263 - WARNING - Could not set to draft state for RO-0010744: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:10,415 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010744
+2025-05-15 08:59:10,515 - WARNING - Could not set to draft state for RO-0010745: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:10,665 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010745
+2025-05-15 08:59:10,759 - WARNING - Could not set to draft state for RO-0010746: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:10,910 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010746
+2025-05-15 08:59:11,002 - WARNING - Could not set to draft state for BRO-000390: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:11,155 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000390
+2025-05-15 08:59:11,245 - WARNING - Could not set to draft state for RO-0010754: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:11,400 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010754
+2025-05-15 08:59:11,489 - WARNING - Could not set to draft state for RO-0010767: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:11,699 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010767
+2025-05-15 08:59:11,792 - WARNING - Could not set to draft state for BRO-000397: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:11,945 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000397
+2025-05-15 08:59:12,038 - WARNING - Could not set to draft state for BRO-000398: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:12,199 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000398
+2025-05-15 08:59:12,292 - WARNING - Could not set to draft state for BRO-000399: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:12,452 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000399
+2025-05-15 08:59:12,547 - WARNING - Could not set to draft state for BRO-000400: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:12,709 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000400
+2025-05-15 08:59:12,806 - WARNING - Could not set to draft state for BRO-000401: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:12,969 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000401
+2025-05-15 08:59:13,079 - WARNING - Could not set to draft state for BRO-000402: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:13,236 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000402
+2025-05-15 08:59:13,339 - WARNING - Could not set to draft state for BRO-000403: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:13,497 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000403
+2025-05-15 08:59:13,595 - WARNING - Could not set to draft state for BRO-000404: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:13,753 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000404
+2025-05-15 08:59:13,848 - WARNING - Could not set to draft state for BRO-000405: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:14,018 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000405
+2025-05-15 08:59:14,118 - WARNING - Could not set to draft state for BRO-000406: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:14,278 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000406
+2025-05-15 08:59:14,374 - WARNING - Could not set to draft state for BRO-000407: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:14,544 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000407
+2025-05-15 08:59:14,648 - WARNING - Could not set to draft state for RO-0010775: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:14,804 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010775
+2025-05-15 08:59:14,904 - WARNING - Could not set to draft state for RO-0010790: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:15,065 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010790
+2025-05-15 08:59:15,165 - WARNING - Could not set to draft state for BRO-000428: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:15,362 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000428
+2025-05-15 08:59:15,475 - WARNING - Could not set to draft state for RO-0010792: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:15,652 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010792
+2025-05-15 08:59:15,745 - WARNING - Could not set to draft state for RO-0010793: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:15,910 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010793
+2025-05-15 08:59:16,015 - WARNING - Could not set to draft state for RO-0010794: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:16,175 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010794
+2025-05-15 08:59:16,285 - WARNING - Could not set to draft state for RO-0010795: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:16,474 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010795
+2025-05-15 08:59:16,583 - WARNING - Could not set to draft state for BRO-000429: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:16,740 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000429
+2025-05-15 08:59:16,832 - WARNING - Could not set to draft state for RO-0010798: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:17,008 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: RO-0010798
+2025-05-15 08:59:17,114 - WARNING - Could not set to draft state for BRO-000432: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:17,287 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000432
+2025-05-15 08:59:17,398 - WARNING - Could not set to draft state for BRO-000433: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:17,555 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000433
+2025-05-15 08:59:17,654 - WARNING - Could not set to draft state for BRO-000434: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:17,812 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000434
+2025-05-15 08:59:17,923 - WARNING - Could not set to draft state for BRO-000435: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:18,079 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000435
+2025-05-15 08:59:18,183 - WARNING - Could not set to draft state for BRO-000436: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:18,355 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000436
+2025-05-15 08:59:18,450 - WARNING - Could not set to draft state for BRO-000437: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:18,607 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000437
+2025-05-15 08:59:18,716 - WARNING - Could not set to draft state for BRO-000438: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:18,870 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000438
+2025-05-15 08:59:18,991 - WARNING - Could not set to draft state for BRO-000439: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:19,153 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000439
+2025-05-15 08:59:19,255 - WARNING - Could not set to draft state for BRO-000440: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:19,420 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000440
+2025-05-15 08:59:19,511 - WARNING - Could not set to draft state for BRO-000441: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:19,670 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000441
+2025-05-15 08:59:19,787 - WARNING - Could not set to draft state for BRO-000442: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:19,956 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000442
+2025-05-15 08:59:20,045 - WARNING - Could not set to draft state for BRO-000443: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:20,204 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000443
+2025-05-15 08:59:20,298 - WARNING - Could not set to draft state for BRO-000444: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:20,448 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000444
+2025-05-15 08:59:20,541 - WARNING - Could not set to draft state for BRO-000445: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:20,729 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BRO-000445
+2025-05-15 08:59:20,848 - WARNING - Could not set to draft state for IPTM000093: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:21,077 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: IPTM000093
+2025-05-15 08:59:21,138 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:21,192 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:21,245 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:21,303 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:21,361 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:21,417 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:21,529 - WARNING - Could not set to draft state for CADV6803035: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:21,746 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CADV6803035
+2025-05-15 08:59:21,856 - WARNING - Could not set to draft state for CADV6803037: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:22,076 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CADV6803037
+2025-05-15 08:59:22,145 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803037
+2025-05-15 08:59:22,199 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803037
+2025-05-15 08:59:22,310 - WARNING - Could not set to draft state for CADV6803038: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:22,533 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CADV6803038
+2025-05-15 08:59:22,592 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803038
+2025-05-15 08:59:22,651 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803038
+2025-05-15 08:59:22,767 - WARNING - Could not set to draft state for OEP6708087: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:23,007 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6708087
+2025-05-15 08:59:23,122 - WARNING - Could not set to draft state for BOEP6801018: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:23,328 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6801018
+2025-05-15 08:59:23,464 - WARNING - Could not set to draft state for OEP6802070: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:23,682 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802070
+2025-05-15 08:59:23,801 - WARNING - Could not set to draft state for BOEP6802010: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:24,010 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6802010
+2025-05-15 08:59:24,184 - WARNING - Could not set to draft state for BOEP6802011: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:24,473 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6802011
+2025-05-15 08:59:24,710 - WARNING - Could not set to draft state for OEP6802068: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:25,097 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802068
+2025-05-15 08:59:25,311 - WARNING - Could not set to draft state for OEP6802069: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:25,775 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802069
+2025-05-15 08:59:25,996 - WARNING - Could not set to draft state for PT68000011: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:26,474 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: PT68000011
+2025-05-15 08:59:26,712 - WARNING - Could not set to draft state for PT68000012: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:26,924 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: PT68000012
+2025-05-15 08:59:27,043 - WARNING - Could not set to draft state for OEP6801066: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:27,255 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6801066
+2025-05-15 08:59:27,389 - WARNING - Could not set to draft state for OEP6802073: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:27,622 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802073
+2025-05-15 08:59:27,744 - WARNING - Could not set to draft state for BOEP6802013: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:27,952 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: BOEP6802013
+2025-05-15 08:59:28,064 - WARNING - Could not set to draft state for OEP6802080: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:28,274 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: OEP6802080
+2025-05-15 08:59:28,382 - WARNING - Could not set to draft state for CADV6804026: <Fault 2: 'Only posted/cancelled journal entries can be reset to draft.'>
+2025-05-15 08:59:28,599 - INFO - Successfully deleted ['out_invoice', 'out_refund'] document: CADV6804026
+2025-05-15 08:59:28,600 - INFO - 
+            Invoice deletion completed:
+            - Total invoices processed: 161
+            - Successfully deleted: 144
+            - Failed to delete: 17
+            
+2025-05-15 08:59:28,602 - INFO - 
+        Final Summary:
+        - Total documents processed: 161
+        - Total successfully deleted: 144
+        - Total failed to delete: 17
+        
+2025-05-15 08:59:36,100 - INFO - Connecting to Odoo...
+2025-05-15 08:59:37,023 - INFO - Reading Excel file...
+2025-05-15 08:59:37,333 - INFO - Available columns in Excel: name, type
+2025-05-15 08:59:37,334 - INFO - Using columns: Document Number='name', Type='type'
+2025-05-15 08:59:37,342 - INFO - Found 161 invoices and 0 bills to process
+2025-05-15 08:59:37,342 - INFO - Starting deletion process for 161 invoices...
+2025-05-15 08:59:37,400 - WARNING - ['out_invoice', 'out_refund'] document not found: BSMG-680028
+2025-05-15 08:59:37,461 - WARNING - ['out_invoice', 'out_refund'] document not found: BSMG-680029
+2025-05-15 08:59:37,513 - WARNING - ['out_invoice', 'out_refund'] document not found: BSMG-680036
+2025-05-15 08:59:37,564 - WARNING - ['out_invoice', 'out_refund'] document not found: BSMG-680043
+2025-05-15 08:59:37,616 - WARNING - ['out_invoice', 'out_refund'] document not found: BSMG-680046
+2025-05-15 08:59:37,669 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6105060
+2025-05-15 08:59:37,720 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6708018
+2025-05-15 08:59:37,767 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6708022
+2025-05-15 08:59:37,815 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6709022
+2025-05-15 08:59:37,869 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6710014
+2025-05-15 08:59:37,924 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6710019
+2025-05-15 08:59:37,975 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6711019
+2025-05-15 08:59:38,024 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6711025
+2025-05-15 08:59:38,076 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6711059
+2025-05-15 08:59:38,126 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6711091
+2025-05-15 08:59:38,175 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6712021
+2025-05-15 08:59:38,232 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6712024
+2025-05-15 08:59:38,279 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6712025
+2025-05-15 08:59:38,333 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6712061
+2025-05-15 08:59:38,390 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6712109
+2025-05-15 08:59:38,437 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6801010
+2025-05-15 08:59:38,492 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6801044
+2025-05-15 08:59:38,542 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6801060
+2025-05-15 08:59:38,598 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6801062
+2025-05-15 08:59:38,647 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6801064
+2025-05-15 08:59:38,703 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802048
+2025-05-15 08:59:38,757 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802010
+2025-05-15 08:59:38,812 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802046
+2025-05-15 08:59:38,870 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802049
+2025-05-15 08:59:38,917 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6802002
+2025-05-15 08:59:38,968 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6802006
+2025-05-15 08:59:39,023 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802011
+2025-05-15 08:59:39,082 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802041
+2025-05-15 08:59:39,134 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802055
+2025-05-15 08:59:39,184 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802058
+2025-05-15 08:59:39,236 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802063
+2025-05-15 08:59:39,289 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802065
+2025-05-15 08:59:39,347 - WARNING - ['out_invoice', 'out_refund'] document not found: IMT0000925
+2025-05-15 08:59:39,397 - WARNING - ['out_invoice', 'out_refund'] document not found: SMJV6212024
+2025-05-15 08:59:39,447 - WARNING - ['out_invoice', 'out_refund'] document not found: GD-0037060
+2025-05-15 08:59:39,502 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-000926
+2025-05-15 08:59:39,555 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-000969
+2025-05-15 08:59:39,609 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-000970
+2025-05-15 08:59:39,662 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-001071
+2025-05-15 08:59:39,716 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-001072
+2025-05-15 08:59:39,763 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-001150
+2025-05-15 08:59:39,820 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-001188
+2025-05-15 08:59:39,875 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-001190
+2025-05-15 08:59:39,928 - WARNING - ['out_invoice', 'out_refund'] document not found: GD-0043459
+2025-05-15 08:59:39,982 - WARNING - ['out_invoice', 'out_refund'] document not found: BGD-001199
+2025-05-15 08:59:40,034 - WARNING - ['out_invoice', 'out_refund'] document not found: GD-0043492
+2025-05-15 08:59:40,083 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003261
+2025-05-15 08:59:40,138 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003262
+2025-05-15 08:59:40,191 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003263
+2025-05-15 08:59:40,243 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003264
+2025-05-15 08:59:40,295 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003264
+2025-05-15 08:59:40,350 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003265
+2025-05-15 08:59:40,399 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003266
+2025-05-15 08:59:40,449 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003266
+2025-05-15 08:59:40,498 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003267
+2025-05-15 08:59:40,552 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003268
+2025-05-15 08:59:40,602 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003269
+2025-05-15 08:59:40,664 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003270
+2025-05-15 08:59:40,713 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003270
+2025-05-15 08:59:40,760 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003271
+2025-05-15 08:59:40,810 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003272
+2025-05-15 08:59:40,859 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003272
+2025-05-15 08:59:40,912 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003272
+2025-05-15 08:59:40,968 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003273
+2025-05-15 08:59:41,017 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003273
+2025-05-15 08:59:41,071 - WARNING - ['out_invoice', 'out_refund'] document not found: GI-0003273
+2025-05-15 08:59:41,124 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0002887
+2025-05-15 08:59:41,174 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010475
+2025-05-15 08:59:41,222 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000169
+2025-05-15 08:59:41,272 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000170
+2025-05-15 08:59:41,320 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010542
+2025-05-15 08:59:41,368 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000190
+2025-05-15 08:59:41,417 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000223
+2025-05-15 08:59:41,470 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000240
+2025-05-15 08:59:41,525 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010696
+2025-05-15 08:59:41,575 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010705
+2025-05-15 08:59:41,625 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000383
+2025-05-15 08:59:41,676 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010728
+2025-05-15 08:59:41,731 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000388
+2025-05-15 08:59:41,783 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000389
+2025-05-15 08:59:41,832 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010736
+2025-05-15 08:59:41,885 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010737
+2025-05-15 08:59:41,932 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010738
+2025-05-15 08:59:41,983 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010739
+2025-05-15 08:59:42,030 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010740
+2025-05-15 08:59:42,081 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010741
+2025-05-15 08:59:42,135 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010742
+2025-05-15 08:59:42,182 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010743
+2025-05-15 08:59:42,235 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010744
+2025-05-15 08:59:42,287 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010745
+2025-05-15 08:59:42,337 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010746
+2025-05-15 08:59:42,394 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000390
+2025-05-15 08:59:42,447 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010754
+2025-05-15 08:59:42,497 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010767
+2025-05-15 08:59:42,552 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000397
+2025-05-15 08:59:42,604 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000398
+2025-05-15 08:59:42,651 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000399
+2025-05-15 08:59:42,702 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000400
+2025-05-15 08:59:42,794 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000401
+2025-05-15 08:59:42,870 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000402
+2025-05-15 08:59:42,964 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000403
+2025-05-15 08:59:43,050 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000404
+2025-05-15 08:59:43,144 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000405
+2025-05-15 08:59:43,222 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000406
+2025-05-15 08:59:43,271 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000407
+2025-05-15 08:59:43,320 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010775
+2025-05-15 08:59:43,370 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010790
+2025-05-15 08:59:43,423 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000428
+2025-05-15 08:59:43,474 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010792
+2025-05-15 08:59:43,525 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010793
+2025-05-15 08:59:43,580 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010794
+2025-05-15 08:59:43,632 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010795
+2025-05-15 08:59:43,694 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000429
+2025-05-15 08:59:43,749 - WARNING - ['out_invoice', 'out_refund'] document not found: RO-0010798
+2025-05-15 08:59:43,794 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000432
+2025-05-15 08:59:43,843 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000433
+2025-05-15 08:59:43,894 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000434
+2025-05-15 08:59:43,941 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000435
+2025-05-15 08:59:43,996 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000436
+2025-05-15 08:59:44,044 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000437
+2025-05-15 08:59:44,093 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000438
+2025-05-15 08:59:44,146 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000439
+2025-05-15 08:59:44,197 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000440
+2025-05-15 08:59:44,245 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000441
+2025-05-15 08:59:44,294 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000442
+2025-05-15 08:59:44,344 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000443
+2025-05-15 08:59:44,396 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000444
+2025-05-15 08:59:44,444 - WARNING - ['out_invoice', 'out_refund'] document not found: BRO-000445
+2025-05-15 08:59:44,492 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:44,541 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:44,589 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:44,646 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:44,694 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:44,746 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:44,801 - WARNING - ['out_invoice', 'out_refund'] document not found: IPTM000093
+2025-05-15 08:59:44,850 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803035
+2025-05-15 08:59:44,902 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803037
+2025-05-15 08:59:44,952 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803037
+2025-05-15 08:59:45,004 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803037
+2025-05-15 08:59:45,054 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803038
+2025-05-15 08:59:45,111 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803038
+2025-05-15 08:59:45,165 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6803038
+2025-05-15 08:59:45,227 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6708087
+2025-05-15 08:59:45,281 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6801018
+2025-05-15 08:59:45,333 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802070
+2025-05-15 08:59:45,382 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6802010
+2025-05-15 08:59:45,439 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6802011
+2025-05-15 08:59:45,493 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802068
+2025-05-15 08:59:45,543 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802069
+2025-05-15 08:59:45,593 - WARNING - ['out_invoice', 'out_refund'] document not found: PT68000011
+2025-05-15 08:59:45,647 - WARNING - ['out_invoice', 'out_refund'] document not found: PT68000012
+2025-05-15 08:59:45,701 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6801066
+2025-05-15 08:59:45,784 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802073
+2025-05-15 08:59:45,880 - WARNING - ['out_invoice', 'out_refund'] document not found: BOEP6802013
+2025-05-15 08:59:45,976 - WARNING - ['out_invoice', 'out_refund'] document not found: OEP6802080
+2025-05-15 08:59:46,069 - WARNING - ['out_invoice', 'out_refund'] document not found: CADV6804026
+2025-05-15 08:59:46,070 - INFO - 
+            Invoice deletion completed:
+            - Total invoices processed: 161
+            - Successfully deleted: 0
+            - Failed to delete: 161
+            
+2025-05-15 08:59:46,071 - INFO - 
+        Final Summary:
+        - Total documents processed: 161
+        - Total successfully deleted: 0
+        - Total failed to delete: 161
+        
