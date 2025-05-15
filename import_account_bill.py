@@ -20,39 +20,54 @@ def connect_to_odoo():
     return uid, models
 
 def convert_date_format(date_str):
-    """Convert date string from dd/mm/yy to YYYY-MM-DD format"""
+    """Convert date string from dd/mm/yy or mm/dd/yy to YYYY-MM-DD format"""
     if not date_str or pd.isna(date_str):
         return None
         
     date_str = str(date_str).strip()
     
     try:
-        # Handle dd/mm/yy format
+        # Handle both dd/mm/yy and mm/dd/yy formats
         if '/' in date_str:
             parts = date_str.split('/')
             if len(parts) == 3:
-                day, month, year = parts
-                # Convert 2-digit year to 4-digit year
-                if len(year) == 2:
-                    year = '20' + year  # Assuming years are in the 2000s
-                # Ensure day and month are 2 digits
-                day = day.zfill(2)
-                month = month.zfill(2)
-                # Validate the date
-                try:
-                    datetime(int(year), int(month), int(day))
-                    return f"{year}-{month}-{day}"
-                except ValueError as e:
-                    print(f"Invalid date values: {date_str}, Error: {str(e)}")
-                    return None
-        elif isinstance(date_str, str):
-            # Try to parse with pandas
-            try:
-                date_obj = pd.to_datetime(date_str)
-                return date_obj.strftime('%Y-%m-%d')
-            except:
-                print(f"Could not parse date string: {date_str}")
+                # Try both mm/dd/yy and dd/mm/yy formats
+                formats_to_try = [
+                    {'month': 0, 'day': 1, 'year': 2},  # mm/dd/yy
+                    {'day': 0, 'month': 1, 'year': 2}   # dd/mm/yy
+                ]
+                
+                for date_format in formats_to_try:
+                    try:
+                        month = parts[date_format['month']]
+                        day = parts[date_format['day']]
+                        year = parts[date_format['year']]
+                        
+                        # Convert 2-digit year to 4-digit year
+                        if len(year) == 2:
+                            year = '20' + year  # Assuming years are in the 2000s
+                        
+                        # Ensure day and month are 2 digits
+                        day = day.zfill(2)
+                        month = month.zfill(2)
+                        
+                        # Validate the date
+                        datetime(int(year), int(month), int(day))
+                        return f"{year}-{month}-{day}"
+                    except ValueError:
+                        continue
+                
+                print(f"Could not parse date in any format: {date_str}")
                 return None
+                
+        # Try to parse with pandas as fallback
+        try:
+            date_obj = pd.to_datetime(date_str)
+            return date_obj.strftime('%Y-%m-%d')
+        except:
+            print(f"Could not parse date string: {date_str}")
+            return None
+            
     except Exception as e:
         print(f"Error converting date {date_str}: {str(e)}")
         return None
@@ -85,7 +100,7 @@ def clean_and_validate_data(value, field_name, max_length=500):
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    file_path = 'Data_file/import_bill_เงิดมัดจำ_215100.xlsx'
+    file_path = 'Data_file/import_bill_เจ้าหนี้การค้าในประเทศ211200.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
@@ -346,16 +361,26 @@ def get_journal_id(uid, models, journal_code):
         print(f"Error finding journal: {str(e)}")
         return default_journal_id
 
-def find_existing_bill(uid, models, document_number):
-    """Find existing bill by document number"""
+def find_existing_bill(uid, models, document_number, invoice_date=None):
+    """Find existing bill by document number and invoice date"""
     if not document_number:
         return None
     
-    # Search for existing bill with the same name (document number)
+    # Build search domain
+    domain = [
+        ['name', '=', document_number],
+        ['move_type', '=', 'in_invoice']
+    ]
+    
+    # Add invoice date to search criteria if provided
+    if invoice_date:
+        domain.append(['invoice_date', '=', invoice_date])
+    
+    # Search for existing bill
     bill_ids = models.execute_kw(db, uid, password,
         'account.move', 'search_read',
-        [[['name', '=', document_number], ['move_type', '=', 'in_invoice']]],
-        {'fields': ['id', 'state']})
+        [domain],
+        {'fields': ['id', 'state', 'invoice_date']})
     
     return bill_ids[0] if bill_ids else None
 
@@ -443,8 +468,8 @@ def log_import_result(log_file, data, status, message, row_number):
 
 def update_or_create_bill(uid, models, bill_data):
     try:
-        # Check if bill already exists
-        existing_bill = find_existing_bill(uid, models, bill_data['document_number'])
+        # Check if bill already exists using both document number and invoice date
+        existing_bill = find_existing_bill(uid, models, bill_data['document_number'], bill_data.get('invoice_date'))
         
         # Get or create vendor
         vendor_id = get_or_create_vendor(uid, models, bill_data['vendor_name'], bill_data.get('partner_code'))
