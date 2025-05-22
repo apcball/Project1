@@ -245,6 +245,7 @@ def create_or_update_po(po_data):
     """Create or update a purchase order in Odoo"""
     try:
         po_name = po_data['name']
+        po_data['state'] = 'draft'
         po_ids = models.execute_kw(
             db, uid, password, 'purchase.order', 'search',
             [[['name', '=', po_name]]]
@@ -268,6 +269,7 @@ def create_or_update_po(po_data):
                     'date_planned': po_data['date_planned'],
                     'picking_type_id': po_data['picking_type_id'],
                     'notes': po_data['notes'],
+                    'state': 'draft',
                 }]
             )
             
@@ -343,6 +345,7 @@ def process_po_batch(batch_df, batch_num, total_batches):
                 'date_planned': convert_date(first_row['date_planned']) if pd.notna(first_row['date_planned']) else False,
                 'picking_type_id': picking_type_id,
                 'notes': str(first_row['notes']) if pd.notna(first_row['notes']) else '',
+                'state': 'draft',
                 'order_line': []
             }
             
@@ -372,7 +375,7 @@ def process_po_batch(batch_df, batch_num, total_batches):
                 
                 line_data = {
                     'product_id': product_ids[0],
-                    'name': str(line['description']) if pd.notna(line.get('description')) else line['old_product_code'],
+                    'name': f"{str(line['description']) if pd.notna(line.get('description')) else line['old_product_code']} - Product ID: {line['product_id']}" if pd.notna(line.get('product_id')) else str(line['description']) if pd.notna(line.get('description')) else line['old_product_code'],
                     'product_qty': quantity,
                     'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
                     'date_planned': convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False,
@@ -408,7 +411,7 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_PO_update.xlsx'
+        excel_file = 'Data_file/import_PO_update1.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
