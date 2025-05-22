@@ -1,6 +1,16 @@
 import xmlrpc.client
 import pandas as pd
 from datetime import datetime
+import logging
+import sys
+from typing import Tuple, Any
+
+# Set up logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Connection settings
 HOST = 'http://mogth.work:8069'
@@ -8,175 +18,161 @@ DB = 'MOG_LIVE'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
-def connect_to_odoo():
-    """Establish connection to Odoo server"""
-    common = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/common')
-    uid = common.authenticate(DB, USERNAME, PASSWORD, {})
-    models = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/object')
-
-    print(f"Authentication successful, uid = {uid}")
-    return uid, models
-
-
-
-
-
-
-def convert_date(date_str):
-    """Convert date string to Odoo format (YYYY-MM-DD) with proper date conversion"""
-    if pd.isna(date_str):
-        return False
+def connect_to_odoo() -> Tuple[int, Any]:
+    """
+    Establish connection to Odoo server using XML-RPC.
     
+    Returns:
+        Tuple containing user ID (uid) and models proxy object
+    
+    Raises:
+        Exception: If connection or authentication fails
+    """
     try:
-        if isinstance(date_str, str) and '/' in date_str:
-            # For M/D/Y format from Excel (e.g., 3/31/2025)
-            month, day, year = map(int, date_str.split('/'))
-            # Create date with day and month in correct position
-            date_obj = datetime(year, month, day)
-        else:
-            # For YYYY-MM-DD HH:MM:SS format
-            date_obj = datetime.strptime(str(date_str), '%Y-%m-%d %H:%M:%S')
-            # Swap month and day
-            year = date_obj.year
-            month = date_obj.month
-            day = date_obj.day
-            # Create new date with swapped month and day
-            date_obj = datetime(year, day, month)
+        # Connect to Odoo common interface
+        common = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/common')
         
-        # Validate date
-        if date_obj.month > 12 or date_obj.day > 31:
-            raise ValueError("Invalid month or day")
+        # Verify server version
+        version_info = common.version()
+        logger.info(f"Connected to Odoo server version {version_info.get('server_version', 'unknown')}")
         
-        # Return in YYYY-MM-DD format
-        return date_obj.strftime('%Y-%m-%d')
+        # Authenticate
+        uid = common.authenticate(DB, USERNAME, PASSWORD, {})
+        if not uid:
+            raise Exception("Authentication failed")
         
-    except ValueError as e:
-        print(f"Error converting date {date_str}: {str(e)}")
-        return False
+        # Connect to object endpoint
+        models = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/object')
+        
+        logger.info(f"Authentication successful, uid = {uid}")
+        return uid, models
+        
     except Exception as e:
-        print(f"Error converting date {date_str}: {str(e)}")
-        return False
-def update_so_dates(uid, models):
-    """Update sale order dates from Excel file"""
+        logger.error(f"Failed to connect to Odoo: {str(e)}")
+        raise
+
+def convert_date(date_str: str) -> str:
+    """
+    Convert date string to Odoo compatible format (YYYY-MM-DD).
+    Thai date format is DD/MM/YYYY.
+    
+    Args:
+        date_str: Date string from Excel file
+        
+    Returns:
+        Formatted date string
+    """
     try:
-        # Read Excel file
+        original_date = str(date_str)
+        logger.info(f"Original date value: {original_date}")
+        
+        # Remove any time component if present
+        if ' ' in original_date:
+            original_date = original_date.split(' ')[0]
+        
+        # If it's already in YYYY-MM-DD format with or without time
+        if isinstance(original_date, str) and len(original_date.split('-')) == 3:
+            date_parts = original_date.split('-')
+            year = int(date_parts[0])
+            month = int(date_parts[1])
+            day = int(date_parts[2])
+            # Swap month and day to correct the format
+            return f"{year:04d}-{day:02d}-{month:02d}"
+
+        # Handle MM/DD/YYYY format from Excel and convert to DD/MM/YYYY
+        date_parts = original_date.strip().split('/')
+        if len(date_parts) == 3:
+            month = int(date_parts[0])  # First number is actually the month
+            day = int(date_parts[1])    # Second number is actually the day
+            year = int(date_parts[2])
+            if year < 100:  # If year is in two-digit format
+                year += 2000
+            
+            # Create datetime object to validate the date
+            try:
+                dt = datetime(year, day, month)  # Swap day and month
+                return dt.strftime('%Y-%m-%d')
+            except ValueError as e:
+                logger.error(f"Invalid date components: year={year}, month={month}, day={day}")
+                raise ValueError(f"Invalid date: {original_date}") from e
+                
+        raise ValueError(f"Unable to parse date: {original_date}")
+    except Exception as e:
+        logger.error(f"Date conversion error for {date_str}: {str(e)}")
+        raise
+
+def update_so_dates(uid: int, models: Any) -> None:
+    """
+    Update sale order dates from Excel file.
+    
+    Args:
+        uid: Odoo user ID
+        models: Odoo models proxy object
+    """
+    try:
+        # Read Excel file with explicit date parsing
         df = pd.read_excel('Data_file/import_date_SO1.xlsx')
-        print(f"\nExcel file read successfully. Number of rows = {len(df)}")
-
-        # Print column names to verify structure
-        print("\nAvailable columns in Excel:")
-        print(df.columns.tolist())
-
-        # Process each row
+        logger.info(f"Found {len(df)} records in Excel file")
+        
+        # Remove duplicates based on 'name' column to avoid multiple updates
+        df = df.drop_duplicates(subset=['name'])
+        logger.info(f"Processing {len(df)} unique sale orders after removing duplicates")
+        
+        success_count = 0
+        error_count = 0
+        
         for index, row in df.iterrows():
             try:
-                so_name = str(row['name']) if 'name' in row else None
-                new_date = convert_date(row['date_order']) if 'date_order' in row else None
-
-                if not so_name or not new_date:
-                    print(f"Skipping row {index + 1}: Missing required data")
-                    print(f"SO Name: {so_name}, Original Date: {row.get('date_order', 'Not found')}")
-                    continue
-
+                so_name = str(row['name']).strip()
+                logger.info(f"Processing sale order {so_name} with original date: {row['date_order']}")
+                date_order = convert_date(row['date_order'])
+                logger.info(f"Converted date for {so_name}: {date_order}")
+                
                 # Search for the sale order
                 so_ids = models.execute_kw(DB, uid, PASSWORD,
                     'sale.order', 'search',
                     [[['name', '=', so_name]]]
                 )
-
+                
                 if not so_ids:
-                    print(f"Sale Order {so_name} not found")
+                    logger.warning(f"Sale order {so_name} not found")
+                    error_count += 1
                     continue
-
-                # Update the date with current time
-                current_time = datetime.now().strftime('%H:%M:%S')
-                date_order = f"{new_date} {current_time}"
-
-                # Debug log
-                print(f"Processing SO {so_name}: Original={row['date_order']}, Converted={new_date}")
-
-                # Update the record
-                result = models.execute_kw(DB, uid, PASSWORD, 'sale.order', 'write', [
-                    so_ids[0],
-                    {
-                        'date_order': date_order,
-                        'effective_date': new_date
-                    }
-                ])
-
-                if result:
-                    # Force commit the changes
-                    models.execute_kw(DB, uid, PASSWORD, 'sale.order', 'flush', [['date_order', 'effective_date']])
-                    print(f"Successfully updated and committed date for SO {so_name} to {date_order}")
-                else:
-                    print(f"Failed to update SO {so_name}")
-
-            except Exception as e:
-                print(f"Error processing row {index + 1}: {str(e)}")
-                continue
-
-    except Exception as e:
-        print(f"Error processing Excel file: {str(e)}")
-    
-def update_so_dates(uid, models):
-    """Update sale order dates from Excel file"""
-    try:
-        # Read Excel file
-        df = pd.read_excel('Data_file/import_date_SO1.xlsx')
-        print(f"\nExcel file read successfully. Number of rows = {len(df)}")
-
-        # Print column names to verify structure
-        print("\nAvailable columns in Excel:")
-        print(df.columns.tolist())
-
-        # Process each row
-        for index, row in df.iterrows():
-            try:
-                so_name = str(row['name']) if 'name' in row else None
-                new_date = convert_date(row['date_order']) if 'date_order' in row else None
-
-                if not so_name or not new_date:
-                    print(f"Skipping row {index + 1}: Missing required data")
-                    print(f"SO Name: {so_name}, Original Date: {row.get('date_order', 'Not found')}")
-                    continue
-
-                # Search for the sale order
-                so_ids = models.execute_kw(DB, uid, PASSWORD,
-                    'sale.order', 'search',
-                    [[['name', '=', so_name]]]
-                )
-
-                if not so_ids:
-                    print(f"Sale Order {so_name} not found")
-                    continue
-
-                # Update the date with current time
-                current_time = datetime.now().strftime('%H:%M:%S')
-                date_order = f"{new_date} {current_time}"
-
-                # Debug log
-                print(f"Processing SO {so_name}: Original={row['date_order']}, Converted={new_date}")
-
+                
+                # Update the sale order date (date only, without time)
                 models.execute_kw(DB, uid, PASSWORD, 'sale.order', 'write', [
-                    so_ids[0],
+                    so_ids,
                     {
-                        'date_order': date_order,
-                        'effective_date': new_date
+                        'date_order': f"{date_order} 00:00:00",
                     }
                 ])
-                print(f"Successfully updated date for SO {so_name} to {date_order}")
-
+                
+                success_count += 1
+                logger.info(f"Updated date for sale order {so_name} to {date_order}")
+                
             except Exception as e:
-                print(f"Error processing row {index + 1}: {str(e)}")
-                continue
-
+                logger.error(f"Error processing row {index + 2}: {str(e)}")
+                error_count += 1
+                
+        logger.info(f"Process completed. Success: {success_count}, Errors: {error_count}")
+        
     except Exception as e:
-        print(f"Error processing Excel file: {str(e)}")
+        logger.error(f"Failed to process Excel file: {str(e)}")
+        raise
 
 def main():
-    """Main function"""
-    uid, models = connect_to_odoo()
-    update_so_dates(uid, models)
+    """Main execution function"""
+    try:
+        logger.info("Starting sale order date update process")
+        uid, models = connect_to_odoo()
+        update_so_dates(uid, models)
+        logger.info("Process completed successfully")
+        
+    except Exception as e:
+        logger.error(f"Process failed: {str(e)}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
+
+
