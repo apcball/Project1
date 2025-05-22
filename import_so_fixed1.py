@@ -4,6 +4,35 @@ import sys
 from datetime import datetime
 import os
 
+def process_discount(discount_value):
+    """แปลงค่า discount ให้อยู่ในรูปแบบที่ถูกต้อง"""
+    if pd.isna(discount_value):
+        return 0.0, 0.0
+    
+    try:
+        # Convert to string and strip whitespace
+        discount_str = str(discount_value).strip()
+        
+        # Check if empty after stripping
+        if not discount_str:
+            return 0.0, 0.0
+        
+        # Remove any spaces between number and %
+        discount_str = discount_str.replace(' %', '%').replace('% ', '%')
+        
+        # If ends with %, it's a percentage discount
+        if discount_str.endswith('%'):
+            # Remove % and convert to float
+            percentage = float(discount_str.rstrip('%'))
+            return percentage, 0.0
+        else:
+            # It's a fixed amount discount
+            return 0.0, float(discount_str)
+            
+    except Exception as e:
+        print(f"Error processing discount value {discount_value}: {e}")
+        return 0.0, 0.0
+
 # Initialize lists to store error logs and missing products
 error_logs = []
 missing_products = []
@@ -230,50 +259,95 @@ def get_tags(tag_names):
     return tag_ids
 
 def get_shipping_address(address_name, parent_id):
-    """ค้นหาหรือสร้าง Shipping Address"""
+    """ค้นหาหรือสร้าง Shipping Address โดยใช้ ilike เพื่อค้นหาแบบไม่คำนึงถึงตัวพิมพ์เล็ก/ใหญ่"""
     if pd.isna(address_name):
         return None
     
     try:
         address_name = str(address_name).strip()
-        # Search for existing shipping address
+        
+        # First, try to find address with exact parent
         address_ids = models.execute_kw(
             db, uid, password, 'res.partner', 'search',
             [[
-                ['name', '=', address_name],
+                ['name', 'ilike', address_name],
+                ['parent_id', '=', parent_id],
                 ['type', '=', 'delivery']
             ]]
         )
         
-        if address_ids:
-            address_data = models.execute_kw(
-                db, uid, password, 'res.partner', 'read',
-                [address_ids[0]], 
-                {'fields': ['id', 'name']}
-            )[0]
-            return address_data
-            
-        # Create new shipping address if not found
-        address_id = models.execute_kw(
-            db, uid, password, 'res.partner', 'create',
-            [{
-                'name': address_name,
-                'parent_id': parent_id,
-                'type': 'delivery',
-                'company_type': 'person',
-                'is_company': False
-            }]
-        )
+        # If not found with parent, search without parent constraint
+        if not address_ids:
+            address_ids = models.execute_kw(
+                db, uid, password, 'res.partner', 'search',
+                [[
+                    ['name', 'ilike', address_name],
+                    ['type', '=', 'delivery']
+                ]]
+            )
         
-        if address_id:
-            return {
-                'id': address_id,
-                'name': address_name
-            }
+        if address_ids:
+            # Get all matching addresses
+            all_addresses = models.execute_kw(
+                db, uid, password, 'res.partner', 'read',
+                [address_ids],
+                {'fields': ['id', 'name', 'parent_id', 'type']}
+            )
+            
+            selected_address = None
+            
+            # Try to find best match in this order:
+            # 1. Exact name match with correct parent
+            # 2. Exact name match with any parent
+            # 3. Similar name match with correct parent
+            # 4. First similar name match
+            for address in all_addresses:
+                if address['name'].lower() == address_name.lower():
+                    if address.get('parent_id') and address['parent_id'][0] == parent_id:
+                        selected_address = address
+                        break
+                    elif not selected_address:
+                        selected_address = address
+                elif not selected_address and address.get('parent_id') and address['parent_id'][0] == parent_id:
+                    selected_address = address
+            
+            if not selected_address and all_addresses:
+                selected_address = all_addresses[0]
+            
+            if selected_address:
+                return {
+                    'id': selected_address['id'],
+                    'name': selected_address['name']
+                }
+        
+        # If no matching address found, create new one
+        print(f"Creating new shipping address: {address_name} for parent {parent_id}")
+        address_vals = {
+            'name': address_name,
+            'parent_id': parent_id,
+            'type': 'delivery',
+            'company_type': 'person',
+            'is_company': False
+        }
+        
+        try:
+            address_id = models.execute_kw(
+                db, uid, password, 'res.partner', 'create',
+                [address_vals]
+            )
+            
+            if address_id:
+                return {
+                    'id': address_id,
+                    'name': address_name
+                }
+        except Exception as create_error:
+            print(f"Failed to create shipping address: {create_error}")
+            return None
             
         return None
     except Exception as e:
-        print(f"Error processing shipping address {address_name}: {e}")
+        print(f"Error processing shipping address {address_name} for parent {parent_id}: {e}")
         return None
 
 def get_user_data(user_name):
@@ -305,22 +379,64 @@ def get_user_data(user_name):
 def get_team_data(team_name):
     """ค้นหา Sales Team จากชื่อ"""
     if pd.isna(team_name):
+        # Return default team or None if no team specified
+        default_team_ids = models.execute_kw(
+            db, uid, password, 'crm.team', 'search',
+            [[['name', 'ilike', 'sales']]], {'limit': 1}
+        )
+        if default_team_ids:
+            return models.execute_kw(
+                db, uid, password, 'crm.team', 'read',
+                [default_team_ids[0]], 
+                {'fields': ['id', 'name']}
+            )[0]
         return None
     
     try:
         team_name = str(team_name).strip()
-        # Search for team by name
+        print(f"Searching for team: {team_name}")  # Debug log
+        
+        # Search for team by name with ilike
         team_ids = models.execute_kw(
             db, uid, password, 'crm.team', 'search',
             [[['name', 'ilike', team_name]]]
         )
         
         if team_ids:
+            # Get all matching teams
+            all_teams = models.execute_kw(
+                db, uid, password, 'crm.team', 'read',
+                [team_ids],
+                {'fields': ['id', 'name']}
+            )
+            
+            print(f"Found {len(all_teams)} matching teams")  # Debug log
+            for team in all_teams:
+                print(f"Found team: {team['name']}")  # Debug log
+            
+            # Try exact match first
+            for team in all_teams:
+                if team['name'].lower().strip() == team_name.lower().strip():
+                    print(f"Selected exact match team: {team['name']}")  # Debug log
+                    return team
+            
+            # If no exact match, return first match
+            print(f"Selected first available team: {all_teams[0]['name']}")  # Debug log
+            return all_teams[0]
+            
+        print(f"No team found matching: {team_name}, trying default team")
+        # Try to get default sales team
+        default_team_ids = models.execute_kw(
+            db, uid, password, 'crm.team', 'search',
+            [[['name', 'ilike', 'sales']]], {'limit': 1}
+        )
+        if default_team_ids:
             team_data = models.execute_kw(
                 db, uid, password, 'crm.team', 'read',
-                [team_ids[0]], 
+                [default_team_ids[0]], 
                 {'fields': ['id', 'name']}
             )[0]
+            print(f"Using default team: {team_data['name']}")
             return team_data
             
         return None
@@ -390,32 +506,57 @@ def get_packaging_data(product_id, packaging_code):
         print(f"Error processing packaging {packaging_code}: {e}")
         return None
 
-def get_pricelist_data(pricelist_name):
-    """ค้นหา Pricelist จากชื่อ"""
-    if pd.isna(pricelist_name):
+def process_discount(discount_value):
+    """แปลงค่า discount ให้อยู่ในรูปแบบที่ถูกต้อง"""
+    if pd.isna(discount_value):
+        return 0.0, 0.0
+    
+    try:
+        # Convert to string and strip whitespace
+        discount_str = str(discount_value).strip()
+        
+        # Check if empty after stripping
+        if not discount_str:
+            return 0.0, 0.0
+        
+        # Remove any spaces between number and %
+        discount_str = discount_str.replace(' %', '%').replace('% ', '%')
+        
+        # If ends with %, it's a percentage discount
+        if discount_str.endswith('%'):
+            # Remove % and convert to float
+            percentage = float(discount_str.rstrip('%'))
+            return percentage, 0.0
+        else:
+            # It's a fixed amount discount
+            return 0.0, float(discount_str)
+            
+    except Exception as e:
+        print(f"Error processing discount value {discount_value}: {e}")
+        return 0.0, 0.0
+    """ค้นหา Warehouse จากชื่อ"""
+    if pd.isna(warehouse_name):
         return None
 
     try:
-        pricelist_name = str(pricelist_name).strip()
-        # Search for pricelist by name
-        pricelist_ids = models.execute_kw(
-            db, uid, password, 'product.pricelist', 'search',
-            [[['name', 'ilike', pricelist_name]]]
+        warehouse_name = str(warehouse_name).strip()
+        # Search for warehouse by name
+        warehouse_ids = models.execute_kw(
+            db, uid, password, 'stock.warehouse', 'search',
+            [[['name', 'ilike', warehouse_name]]]
         )
 
-        if pricelist_ids:
-            pricelist_data = models.execute_kw(
-                db, uid, password, 'product.pricelist', 'read',
-                [pricelist_ids[0]],
-                {'fields': ['id', 'name', 'currency_id']}
+        if warehouse_ids:
+            warehouse_data = models.execute_kw(
+                db, uid, password, 'stock.warehouse', 'read',
+                [warehouse_ids[0]],
+                {'fields': ['id', 'name']}
             )[0]
-            return pricelist_data
+            return warehouse_data
 
-        print(f"Warning: Pricelist not found: {pricelist_name}")
         return None
-
     except Exception as e:
-        print(f"Error processing pricelist {pricelist_name}: {e}")
+        print(f"Error processing warehouse {warehouse_name}: {e}")
         return None
 
 def get_warehouse_data(warehouse_name):
@@ -445,27 +586,97 @@ def get_warehouse_data(warehouse_name):
         return None
 
 def get_pricelist_data(pricelist_name):
-    """ค้นหา Pricelist จากชื่อ"""
+    """ค้นหา Pricelist จากชื่อ โดยใช้ ilike เพื่อค้นหาแบบไม่คำนึงถึงตัวพิมพ์เล็ก/ใหญ่"""
     if pd.isna(pricelist_name):
+        # Try to get default THB pricelist
+        default_pricelist_ids = models.execute_kw(
+            db, uid, password, 'product.pricelist', 'search',
+            [[['currency_id.name', '=', 'THB']]], {'limit': 1}
+        )
+        if default_pricelist_ids:
+            return models.execute_kw(
+                db, uid, password, 'product.pricelist', 'read',
+                [default_pricelist_ids[0]],
+                {'fields': ['id', 'name', 'currency_id']}
+            )[0]
         return None
 
     try:
         pricelist_name = str(pricelist_name).strip()
-        # Search for pricelist by name
+        print(f"Searching for pricelist: {pricelist_name}")  # Debug log
+        
+        # Extract currency code if present in parentheses
+        currency_code = None
+        if '(' in pricelist_name and ')' in pricelist_name:
+            currency_code = pricelist_name[pricelist_name.rfind('(')+1:pricelist_name.rfind(')')].strip()
+            base_name = pricelist_name[:pricelist_name.rfind('(')].strip()
+            print(f"Extracted currency code: {currency_code}, base name: {base_name}")  # Debug log
+        else:
+            base_name = pricelist_name
+        
+        # Build domain for search
+        domain = []
+        if currency_code:
+            domain = [
+                '|',
+                ['name', 'ilike', pricelist_name],
+                '&',
+                ['name', 'ilike', base_name],
+                ['currency_id.name', '=', currency_code]
+            ]
+        else:
+            domain = [['name', 'ilike', pricelist_name]]
+        
+        # Search for pricelist
         pricelist_ids = models.execute_kw(
             db, uid, password, 'product.pricelist', 'search',
-            [[['name', 'ilike', pricelist_name]]]
+            [domain]
         )
 
         if pricelist_ids:
+            # Get all matching pricelists
+            all_pricelists = models.execute_kw(
+                db, uid, password, 'product.pricelist', 'read',
+                [pricelist_ids],
+                {'fields': ['id', 'name', 'currency_id']}
+            )
+            
+            print(f"Found {len(all_pricelists)} matching pricelists")  # Debug log
+            for pl in all_pricelists:
+                print(f"Found pricelist: {pl['name']} (Currency: {pl['currency_id'][1]})")  # Debug log
+            
+            # Try to find exact match first
+            for pricelist in all_pricelists:
+                if pricelist['name'].lower().strip() == pricelist_name.lower().strip():
+                    print(f"Selected exact match pricelist: {pricelist['name']}")  # Debug log
+                    return pricelist
+            
+            # Try to match by currency if specified
+            if currency_code:
+                for pricelist in all_pricelists:
+                    if pricelist['currency_id'][1] == currency_code:
+                        print(f"Selected currency match pricelist: {pricelist['name']}")  # Debug log
+                        return pricelist
+            
+            # If no specific match, return first match
+            print(f"Selected first available pricelist: {all_pricelists[0]['name']}")  # Debug log
+            return all_pricelists[0]
+
+        print(f"No pricelist found matching: {pricelist_name}, trying default THB pricelist")
+        # Try to get default THB pricelist
+        default_pricelist_ids = models.execute_kw(
+            db, uid, password, 'product.pricelist', 'search',
+            [[['currency_id.name', '=', 'THB']]], {'limit': 1}
+        )
+        if default_pricelist_ids:
             pricelist_data = models.execute_kw(
                 db, uid, password, 'product.pricelist', 'read',
-                [pricelist_ids[0]],
+                [default_pricelist_ids[0]],
                 {'fields': ['id', 'name', 'currency_id']}
             )[0]
+            print(f"Using default THB pricelist: {pricelist_data['name']}")
             return pricelist_data
 
-        print(f"Warning: Pricelist not found: {pricelist_name}")
         return None
 
     except Exception as e:
@@ -482,11 +693,16 @@ def create_sale_order(row, row_number):
             return None
         
         # Get shipping address data
-        shipping_data = get_shipping_address(row['partner_shipping_id'], partner_data['id'])
-        if not shipping_data:
-            log_error(row['name'], row_number, 'Shipping Address Error', 
-                     f"Shipping address not found: {row['partner_shipping_id']}", row)
-            return None
+        shipping_data = None
+        if not pd.isna(row['partner_shipping_id']):
+            shipping_data = get_shipping_address(row['partner_shipping_id'], partner_data['id'])
+            if not shipping_data:
+                log_error(row['name'], row_number, 'Shipping Address Error', 
+                         f"Failed to create/find shipping address: {row['partner_shipping_id']} for partner {partner_data['name']}", row)
+                return None
+        else:
+            # If no shipping address specified, use partner address
+            shipping_data = {'id': partner_data['id'], 'name': partner_data['name']}
         
         # Get warehouse data
         warehouse_data = get_warehouse_data(row['warehouse_id'])
@@ -518,6 +734,7 @@ def create_sale_order(row, row_number):
             packaging_data = get_packaging_data(product_data['id'], row['packaging_id'])
             
         # Prepare order line with validated numbers and truncated strings
+        discount_percent, discount_fixed = process_discount(row.get('discount'))
         order_line = {
             'product_id': product_data['id'],
             'name': truncate_string(row['product_name'] if not pd.isna(row['product_name']) else product_data['name']),
@@ -525,9 +742,11 @@ def create_sale_order(row, row_number):
             'price_unit': validate_number(row['price_unit']),
             'product_uom': product_data['uom_id'][0],
             'sequence': validate_number(row.get('sequence', 10)),
-            'discount': validate_number(row.get('discount', 0.0)) * 100,  # Convert decimal to percentage
+            'discount': discount_percent,
+            'discount_fixed': discount_fixed,
             'tax_id': [(6, 0, product_data.get('taxes_id', []))],
         }
+        
         
         # Add packaging if found
         if packaging_data:
@@ -539,6 +758,16 @@ def create_sale_order(row, row_number):
         # Get tags data
         tag_ids = get_tags(row.get('tags')) if not pd.isna(row.get('tags')) else []
         
+        # Get pricelist data
+        pricelist_id = False
+        if not pd.isna(row.get('pricelist_id')):
+            pricelist_data = get_pricelist_data(row['pricelist_id'])
+            if pricelist_data:
+                pricelist_id = pricelist_data['id']
+                print(f"Using pricelist: {pricelist_data['name']} (ID: {pricelist_id})")  # Debug log
+            else:
+                print(f"Warning: Could not find pricelist: {row['pricelist_id']}")
+        
         # Prepare SO values with truncated strings
         so_vals = {
             'name': truncate_string(row['name']),
@@ -546,8 +775,7 @@ def create_sale_order(row, row_number):
             'commitment_date': format_date(row['commitment_date']) if not pd.isna(row.get('commitment_date')) else False,
             'client_order_ref': truncate_string(row['client_order_ref']) if not pd.isna(row.get('client_order_ref')) else False,
             'partner_id': partner_data['id'],
-            'pricelist_id': get_pricelist_data(row['pricelist_id'])['id'] if not pd.isna(row.get('pricelist_id'))
-                and get_pricelist_data(row['pricelist_id']) else False,
+            'pricelist_id': pricelist_id,
             'partner_shipping_id': shipping_data['id'],
             'warehouse_id': warehouse_data['id'],
             'user_id': user_data['id'] if user_data else False,
@@ -608,8 +836,9 @@ def create_sale_order(row, row_number):
                         'product_uom_qty': validate_number(row['product_uom_qty']),
                         'price_unit': validate_number(row['price_unit']),
                         'product_uom': product_data['uom_id'][0],
-                        'discount': validate_number(row.get('discount', 0.0)) * 100,  # Convert decimal to percentage
                         'sequence': validate_number(row.get('sequence', 10)),
+                        'discount': discount_percent,
+                        'discount_fixed': discount_fixed,
                     })]
                 }
                 
@@ -635,7 +864,7 @@ def create_sale_order(row, row_number):
 
 # --- อ่านไฟล์ Excel ---
 try:
-    excel_file = 'Data_file/import_SO_Test.xlsx'
+    excel_file = 'Data_file/import_SO_มีนา.xlsx'
     
     # Read Excel file without date parsing first
     df = pd.read_excel(excel_file)
