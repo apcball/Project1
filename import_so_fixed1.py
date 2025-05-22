@@ -57,8 +57,8 @@ def export_error_logs():
         print(f"Failed to export logs: {e}")
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+url = 'http://mogdev.work:8069'
+db = 'MOG_Test'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -390,11 +390,39 @@ def get_packaging_data(product_id, packaging_code):
         print(f"Error processing packaging {packaging_code}: {e}")
         return None
 
+def get_pricelist_data(pricelist_name):
+    """ค้นหา Pricelist จากชื่อ"""
+    if pd.isna(pricelist_name):
+        return None
+
+    try:
+        pricelist_name = str(pricelist_name).strip()
+        # Search for pricelist by name
+        pricelist_ids = models.execute_kw(
+            db, uid, password, 'product.pricelist', 'search',
+            [[['name', 'ilike', pricelist_name]]]
+        )
+
+        if pricelist_ids:
+            pricelist_data = models.execute_kw(
+                db, uid, password, 'product.pricelist', 'read',
+                [pricelist_ids[0]],
+                {'fields': ['id', 'name', 'currency_id']}
+            )[0]
+            return pricelist_data
+
+        print(f"Warning: Pricelist not found: {pricelist_name}")
+        return None
+
+    except Exception as e:
+        print(f"Error processing pricelist {pricelist_name}: {e}")
+        return None
+
 def get_warehouse_data(warehouse_name):
     """ค้นหา Warehouse จากชื่อ"""
     if pd.isna(warehouse_name):
         return None
-    
+
     try:
         warehouse_name = str(warehouse_name).strip()
         # Search for warehouse by name
@@ -402,18 +430,46 @@ def get_warehouse_data(warehouse_name):
             db, uid, password, 'stock.warehouse', 'search',
             [[['name', 'ilike', warehouse_name]]]
         )
-        
+
         if warehouse_ids:
             warehouse_data = models.execute_kw(
                 db, uid, password, 'stock.warehouse', 'read',
-                [warehouse_ids[0]], 
+                [warehouse_ids[0]],
                 {'fields': ['id', 'name']}
             )[0]
             return warehouse_data
-            
+
         return None
     except Exception as e:
         print(f"Error processing warehouse {warehouse_name}: {e}")
+        return None
+
+def get_pricelist_data(pricelist_name):
+    """ค้นหา Pricelist จากชื่อ"""
+    if pd.isna(pricelist_name):
+        return None
+
+    try:
+        pricelist_name = str(pricelist_name).strip()
+        # Search for pricelist by name
+        pricelist_ids = models.execute_kw(
+            db, uid, password, 'product.pricelist', 'search',
+            [[['name', 'ilike', pricelist_name]]]
+        )
+
+        if pricelist_ids:
+            pricelist_data = models.execute_kw(
+                db, uid, password, 'product.pricelist', 'read',
+                [pricelist_ids[0]],
+                {'fields': ['id', 'name', 'currency_id']}
+            )[0]
+            return pricelist_data
+
+        print(f"Warning: Pricelist not found: {pricelist_name}")
+        return None
+
+    except Exception as e:
+        print(f"Error processing pricelist {pricelist_name}: {e}")
         return None
 
 def create_sale_order(row, row_number):
@@ -490,6 +546,8 @@ def create_sale_order(row, row_number):
             'commitment_date': format_date(row['commitment_date']) if not pd.isna(row.get('commitment_date')) else False,
             'client_order_ref': truncate_string(row['client_order_ref']) if not pd.isna(row.get('client_order_ref')) else False,
             'partner_id': partner_data['id'],
+            'pricelist_id': get_pricelist_data(row['pricelist_id'])['id'] if not pd.isna(row.get('pricelist_id'))
+                and get_pricelist_data(row['pricelist_id']) else False,
             'partner_shipping_id': shipping_data['id'],
             'warehouse_id': warehouse_data['id'],
             'user_id': user_data['id'] if user_data else False,
