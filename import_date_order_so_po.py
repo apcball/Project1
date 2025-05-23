@@ -54,49 +54,58 @@ def connect_to_odoo() -> Tuple[int, Any]:
 def convert_date(date_str: str) -> str:
     """
     Convert date string to Odoo compatible format (YYYY-MM-DD).
-    Thai date format is DD/MM/YYYY.
-    
+    Prioritizes Thai date format (DD/MM/YYYY) over US format (MM/DD/YYYY).
+
     Args:
-        date_str: Date string from Excel file
-        
+    date_str: Date string from Excel file
+
     Returns:
-        Formatted date string
+    Formatted date string
     """
     try:
         original_date = str(date_str)
         logger.info(f"Original date value: {original_date}")
-        
+
         # Remove any time component if present
         if ' ' in original_date:
             original_date = original_date.split(' ')[0]
-        
-        # If it's already in YYYY-MM-DD format with or without time
-        if isinstance(original_date, str) and len(original_date.split('-')) == 3:
-            date_parts = original_date.split('-')
-            year = int(date_parts[0])
-            month = int(date_parts[1])
-            day = int(date_parts[2])
-            # Swap month and day to correct the format
-            return f"{year:04d}-{day:02d}-{month:02d}"
 
-        # Handle MM/DD/YYYY format from Excel and convert to DD/MM/YYYY
+        # If it's already in YYYY-MM-DD format
+        if isinstance(original_date, str) and len(original_date.split('-')) == 3:
+            logger.info(f"Date already in YYYY-MM-DD format: {original_date}")
+            return original_date
+
         date_parts = original_date.strip().split('/')
-        if len(date_parts) == 3:
-            month = int(date_parts[0])  # First number is actually the month
-            day = int(date_parts[1])    # Second number is actually the day
+        if len(date_parts) != 3:
+            raise ValueError(f"Unable to parse date: {original_date}")
+
+        # Try Thai format first (DD/MM/YYYY)
+        try:
+            day = int(date_parts[0])
+            month = int(date_parts[1])
             year = int(date_parts[2])
-            if year < 100:  # If year is in two-digit format
+            if year < 100:
                 year += 2000
-            
-            # Create datetime object to validate the date
+            dt = datetime(year, month, day)
+            logger.info(f"Successfully parsed as Thai format (DD/MM/YYYY): {dt}")
+            return dt.strftime('%Y-%m-%d')
+        except ValueError:
+            logger.info(f"Failed to parse as Thai format, trying US format")
+
+            # Fall back to US format (MM/DD/YYYY)
             try:
-                dt = datetime(year, day, month)  # Swap day and month
+                month = int(date_parts[0])
+                day = int(date_parts[1])
+                year = int(date_parts[2])
+                if year < 100:
+                    year += 2000
+                dt = datetime(year, month, day)
+                logger.info(f"Successfully parsed as US format (MM/DD/YYYY): {dt}")
                 return dt.strftime('%Y-%m-%d')
             except ValueError as e:
                 logger.error(f"Invalid date components: year={year}, month={month}, day={day}")
-                raise ValueError(f"Invalid date: {original_date}") from e
-                
-        raise ValueError(f"Unable to parse date: {original_date}")
+                raise ValueError(f"Invalid date in both Thai and US formats: {original_date}") from e
+
     except Exception as e:
         logger.error(f"Date conversion error for {date_str}: {str(e)}")
         raise

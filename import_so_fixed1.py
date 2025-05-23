@@ -86,8 +86,8 @@ def export_error_logs():
         print(f"Failed to export logs: {e}")
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-url = 'http://mogdev.work:8069'
-db = 'MOG_Test'
+url = 'http://mogth.work:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -864,23 +864,17 @@ def create_sale_order(row, row_number):
 
 # --- อ่านไฟล์ Excel ---
 try:
-    excel_file = 'Data_file/import_SO_มีนา.xlsx'
-    
-    # Read Excel file without date parsing first
+    excel_file = 'Data_file/import_SO_04.xlsx'
+
     df = pd.read_excel(excel_file)
-    
-    # Convert date columns manually with specific format
+
+    # Convert date columns with dayfirst=True
     if 'date_order' in df.columns:
-        # Convert to datetime assuming DD/MM/YYYY format
-        df['date_order'] = pd.to_datetime(df['date_order'], format='%m/%d/%Y')
-        # Convert to Odoo format
-        df['date_order'] = df['date_order'].dt.strftime('%d-%m-%y %H:%M:%S')
-        print("Date order values:", df['date_order'].tolist())  # Debug print
-    
+        df['date_order'] = pd.to_datetime(df['date_order'], dayfirst=True)
+        df['date_order'] = df['date_order'].dt.strftime('%Y-%m-%d %H:%M:%S')
+
     if 'commitment_date' in df.columns and not df['commitment_date'].isna().all():
-        # Convert to datetime assuming DD/MM/YYYY format
-        df['commitment_date'] = pd.to_datetime(df['commitment_date'], format='%d/%m/%Y')
-        # Convert to Odoo format
+        df['commitment_date'] = pd.to_datetime(df['commitment_date'], dayfirst=True)
         df['commitment_date'] = df['commitment_date'].dt.strftime('%Y-%m-%d %H:%M:%S')
     
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
