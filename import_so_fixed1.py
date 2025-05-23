@@ -795,11 +795,23 @@ def create_sale_order(row, row_number):
         )
         
         if existing_so:
-            # Get existing order lines
+            # Get existing order state and other data
             so_data = models.execute_kw(
                 db, uid, password, 'sale.order', 'read',
-                [existing_so[0]], {'fields': ['order_line']}
+                [existing_so[0]], {'fields': ['state', 'order_line']}
             )[0]
+
+            # Check if order is confirmed (state != 'draft')
+            if so_data['state'] != 'draft':
+                log_error(
+                    row['name'],
+                    row_number,
+                    'Update Error',
+                    f"Cannot update confirmed sale order (State: {so_data['state']})",
+                    row
+                )
+                print(f"Warning: Cannot update confirmed sale order {row['name']}")
+                return None
             
             # Get all order line details to check for duplicates
             if so_data['order_line']:
