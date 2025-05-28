@@ -14,7 +14,7 @@ logging.basicConfig(
 
 # Odoo connection settings
 url = 'http://mogdev.work:8069'
-db = 'MOG_Test'
+db = 'MOG_LIVE1'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
