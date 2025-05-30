@@ -876,7 +876,7 @@ def create_sale_order(row, row_number):
 
 # --- อ่านไฟล์ Excel ---
 try:
-    excel_file = 'Data_file/import_SO_มีนา.xlsx'
+    excel_file = 'Data_file/import_SOX.xlsx'
 
     df = pd.read_excel(excel_file)
 
