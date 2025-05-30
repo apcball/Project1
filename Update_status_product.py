@@ -15,7 +15,7 @@ logging.basicConfig(
     ]
 )
 
-# --- Connection Settings ---
+# --- Connection Settings ---g
 url = 'http://mogth.work:8069'
 db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'

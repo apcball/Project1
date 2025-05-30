@@ -141,7 +141,7 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_PO_04.xlsx'
+        excel_file = 'Data_file/import_PO_05.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -201,8 +201,8 @@ def main():
         print("\nImport process completed.")
 
 # --- Connection Settings ---
-url = 'http://mogdev.work:8069'
-db = 'MOG_LIVE1'
+url = 'http://mogth.work:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -581,8 +581,8 @@ def process_single_po(po_group):
         po_data = {
             'name': po_name,
             'partner_id': vendor_id,
-            'date_order': convert_date(first_row['date_order']) if pd.notna(first_row['date_order']) else False,
-            'date_planned': convert_date(first_row['date_planned']) if pd.notna(first_row['date_planned']) else False,
+            'date_order': convert_date(first_row['date_order']) if pd.notna(first_row['date_order']) else datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'date_planned': convert_date(first_row['date_planned']) if pd.notna(first_row['date_planned']) else datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             'picking_type_id': picking_type_id,
             'notes': str(first_row['notes']) if pd.notna(first_row['notes']) else '',
             'state': 'draft',
@@ -622,7 +622,7 @@ def process_single_po(po_group):
                 'name': f"{str(line['description']) if pd.notna(line.get('description')) else line['old_product_code']} - Product ID: {line['product_id']}" if pd.notna(line.get('product_id')) else str(line['description']) if pd.notna(line.get('description')) else line['old_product_code'],
                 'product_qty': quantity,
                 'price_unit': float(line['price_unit']) if pd.notna(line['price_unit']) else 0.0,
-                'date_planned': convert_date(line['date_planned']) if pd.notna(line['date_planned']) else False,
+                'date_planned': convert_date(line['date_planned']) if pd.notna(line['date_planned']) else datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             }
             
             tax_id = get_tax_id(line['texs_id']) if pd.notna(line['texs_id']) else False
@@ -656,7 +656,7 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_PO_04.xlsx'
+        excel_file = 'Data_file/import_PO_05.xlsx'
         df = pd.read_excel(excel_file)
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")

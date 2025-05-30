@@ -19,7 +19,7 @@ failed_updates_file = f'failed_updates_{current_time}.csv'
 failed_updates = []
 
 # Odoo connection parameters
-url = 'http://119.59.102.189:8069'
+url = 'http://mogth.work:8069'
 db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
@@ -61,56 +61,41 @@ def save_failed_updates():
     if failed_updates:
         try:
             with open(failed_updates_file, 'w', newline='', encoding='utf-8') as f:
-                writer = csv.DictWriter(f, fieldnames=['Internal Reference', 'Product Type', 'UOM', 'Error Message', 'Timestamp'])
+                writer = csv.DictWriter(f, fieldnames=['Default Code', 'Product Type', 'Error Message', 'Timestamp'])
                 writer.writeheader()
                 writer.writerows(failed_updates)
             print(f"\nFailed updates have been saved to: {failed_updates_file}")
         except Exception as e:
             print(f"Error saving failed updates: {str(e)}")
 
-def log_failed_update(internal_ref, product_type, uom, error_message):
+def log_failed_update(internal_ref, product_type, error_message):
     """Log a failed update to both the log file and the failed updates list"""
     failed_updates.append({
-        'Internal Reference': internal_ref,
+        'Default Code': internal_ref,
         'Product Type': product_type,
-        'UOM': uom,
         'Error Message': error_message,
         'Timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     })
-    logging.error(f"Failed update - Internal Reference: {internal_ref}, Type: {product_type}, UOM: {uom}, Error: {error_message}")
+    logging.error(f"Failed update - Default Code: {internal_ref}, Type: {product_type}, Error: {error_message}")
 
-def update_product(internal_ref, product_type, uom):
-    """Update product type and unit of measure for a specific product"""
+def update_product(default_code, product_type):
+    """Update product type for a specific product using default_code"""
     try:
         # Search for the product using default_code
         product_ids = models.execute_kw(db, uid, password,
             'product.template', 'search',
-            [[['default_code', '=', internal_ref]]]
+            [[['default_code', '=', default_code]]]
         )
         
         if not product_ids:
             error_msg = "Product not found in system"
-            log_failed_update(internal_ref, product_type, uom, error_msg)
-            print(f"Product with internal reference {internal_ref} not found")
+            log_failed_update(default_code, product_type, error_msg)
+            print(f"Product with default code {default_code} not found")
             return False
         
-        # Get UOM ID
-        uom_ids = models.execute_kw(db, uid, password,
-            'uom.uom', 'search',
-            [[['name', '=', uom]]]
-        )
-        
-        if not uom_ids:
-            error_msg = f"UOM '{uom}' not found in system"
-            log_failed_update(internal_ref, product_type, uom, error_msg)
-            print(f"UOM {uom} not found")
-            return False
-        
-        # Update product
+        # Update product type only
         update_vals = {
             'type': product_type,  # 'product', 'consu', or 'service'
-            'uom_id': uom_ids[0],
-            'uom_po_id': uom_ids[0],  # Setting the same UOM for purchase
         }
         
         result = models.execute_kw(db, uid, password,
@@ -119,19 +104,19 @@ def update_product(internal_ref, product_type, uom):
         )
         
         if result:
-            print(f"Successfully updated product {internal_ref}")
-            logging.info(f"Successfully updated product {internal_ref}")
+            print(f"Successfully updated product {default_code} - Type: {product_type}")
+            logging.info(f"Successfully updated product {default_code} - Type: {product_type}")
             return True
         else:
             error_msg = "Update operation failed"
-            log_failed_update(internal_ref, product_type, uom, error_msg)
-            print(f"Failed to update product {internal_ref}")
+            log_failed_update(default_code, product_type, error_msg)
+            print(f"Failed to update product {default_code}")
             return False
             
     except Exception as e:
         error_msg = str(e)
-        log_failed_update(internal_ref, product_type, uom, error_msg)
-        print(f"Error updating product {internal_ref}: {error_msg}")
+        log_failed_update(default_code, product_type, error_msg)
+        print(f"Error updating product {default_code}: {error_msg}")
         return False
 
 def main():
@@ -147,52 +132,107 @@ def main():
         # Process each row
         for index, row in df.iterrows():
             try:
-                # Try different possible column names for internal reference
-                if 'Internal Reference' in df.columns:
-                    internal_ref = str(row['Internal Reference']).strip()
-                elif 'Default Code' in df.columns:
-                    internal_ref = str(row['Default Code']).strip()
+                # Try different possible column names for default code
+                default_code = None
+                if 'Default Code' in df.columns:
+                    default_code = str(row['Default Code']).strip()
+                elif 'default_code' in df.columns:
+                    default_code = str(row['default_code']).strip()
+                elif 'Internal Reference' in df.columns:
+                    default_code = str(row['Internal Reference']).strip()
                 elif 'Reference' in df.columns:
-                    internal_ref = str(row['Reference']).strip()
+                    default_code = str(row['Reference']).strip()
+                elif 'รหัสสินค้า' in df.columns:
+                    default_code = str(row['รหัสสินค้า']).strip()
                 else:
-                    print("Could not find internal reference column. Please check the Excel file.")
+                    print("Could not find default code column. Available columns:")
+                    for col in df.columns:
+                        print(f"- {col}")
                     return
 
                 # Try different possible column names for product type
-                if 'Type' in df.columns:
-                    product_type = str(row['Type']).strip().lower()
-                elif 'Product Type' in df.columns:
-                    product_type = str(row['Product Type']).strip().lower()
+                product_type = None
+                if 'Product Type' in df.columns:
+                    product_type_str = str(row['Product Type']).strip().lower()
+                    # Map display product types to Odoo internal types
+                    if product_type_str == 'storable product':
+                        product_type = 'product'
+                    elif product_type_str == 'consumable':
+                        product_type = 'consu'
+                    elif product_type_str == 'service':
+                        product_type = 'service'
+                    else:
+                        product_type = product_type_str
+                elif 'Type' in df.columns:
+                    product_type_str = str(row['Type']).strip().lower()
+                    # Map display product types to Odoo internal types
+                    if product_type_str == 'storable product':
+                        product_type = 'product'
+                    elif product_type_str == 'consumable':
+                        product_type = 'consu'
+                    elif product_type_str == 'service':
+                        product_type = 'service'
+                    else:
+                        product_type = product_type_str
+                elif 'product_type' in df.columns:
+                    product_type_str = str(row['product_type']).strip().lower()
+                    # Map display product types to Odoo internal types
+                    if product_type_str == 'storable product':
+                        product_type = 'product'
+                    elif product_type_str == 'consumable':
+                        product_type = 'consu'
+                    elif product_type_str == 'service':
+                        product_type = 'service'
+                    else:
+                        product_type = product_type_str
+                elif 'type' in df.columns:
+                    product_type_str = str(row['type']).strip().lower()
+                    # Map display product types to Odoo internal types
+                    if product_type_str == 'storable product':
+                        product_type = 'product'
+                    elif product_type_str == 'consumable':
+                        product_type = 'consu'
+                    elif product_type_str == 'service':
+                        product_type = 'service'
+                    else:
+                        product_type = product_type_str
+                elif 'ประเภทสินค้า' in df.columns:
+                    # Map Thai product type to Odoo product type values
+                    thai_type = str(row['ประเภทสินค้า']).strip()
+                    if 'สินค้าคงคลัง' in thai_type or 'คงคลัง' in thai_type:
+                        product_type = 'product'
+                    elif 'วัตถุดิบ' in thai_type or 'วัสดุสิ้นเปลือง' in thai_type:
+                        product_type = 'consu'
+                    elif 'บริการ' in thai_type or 'service' in thai_type.lower():
+                        product_type = 'service'
+                    else:
+                        # Default to product if not recognized
+                        product_type = 'product'
+                        print(f"Warning: Unrecognized product type '{thai_type}', defaulting to 'product'")
                 else:
-                    print("Could not find product type column. Please check the Excel file.")
+                    print("Could not find product type column. Available columns:")
+                    for col in df.columns:
+                        print(f"- {col}")
                     return
 
-                # Try different possible column names for UOM
-                if 'UOM' in df.columns:
-                    uom = str(row['UOM']).strip()
-                elif 'Unit of Measure' in df.columns:
-                    uom = str(row['Unit of Measure']).strip()
-                else:
-                    print("Could not find UOM column. Please check the Excel file.")
-                    return
-
-                if pd.isna(internal_ref) or pd.isna(product_type) or pd.isna(uom):
+                # Check for missing data
+                if pd.isna(default_code) or pd.isna(product_type) or default_code == 'nan' or product_type == 'nan':
                     error_msg = "Missing required data"
-                    log_failed_update(internal_ref if not pd.isna(internal_ref) else "N/A",
-                                    product_type if not pd.isna(product_type) else "N/A",
-                                    uom if not pd.isna(uom) else "N/A",
+                    log_failed_update(default_code if not pd.isna(default_code) and default_code != 'nan' else "N/A",
+                                    product_type if not pd.isna(product_type) and product_type != 'nan' else "N/A",
                                     error_msg)
                     failed_updates_count += 1
                     continue
                     
                 # Validate product type
-                if product_type not in ['product', 'consu', 'service']:
-                    error_msg = f"Invalid product type: {product_type}"
-                    log_failed_update(internal_ref, product_type, uom, error_msg)
+                valid_types = ['product', 'consu', 'service']
+                if product_type not in valid_types:
+                    error_msg = f"Invalid product type: {product_type}. Must be 'product', 'consu', or 'service'"
+                    log_failed_update(default_code, product_type, error_msg)
                     failed_updates_count += 1
                     continue
                     
-                if update_product(internal_ref, product_type, uom):
+                if update_product(default_code, product_type):
                     successful_updates += 1
                 else:
                     failed_updates_count += 1
@@ -221,6 +261,17 @@ def main():
     except Exception as e:
         print(f"Main execution error: {str(e)}")
         logging.error(f"Main execution error: {str(e)}")
+        # Save any failed updates that occurred before the error
+        save_failed_updates()
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+        print("\nScript execution completed.")
+    except KeyboardInterrupt:
+        print("\nScript execution interrupted by user.")
+        save_failed_updates()
+    except Exception as e:
+        print(f"\nUnexpected error: {str(e)}")
+        logging.error(f"Unexpected error: {str(e)}")
+        save_failed_updates()
