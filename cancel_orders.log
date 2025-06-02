@@ -2917,3 +2917,164 @@ Skipped Orders (176/180):
 2025-05-29 11:41:41,494 - INFO -   - BPO-6800162 (Not found)
 2025-05-29 11:41:41,494 - INFO -   - PO-6800193 (Not found)
 2025-05-29 11:41:41,495 - INFO - Order cancellation process completed.
+2025-06-02 07:46:08,362 - INFO - Starting order cancellation process...
+2025-06-02 07:46:11,670 - INFO - Processing PO BPO-6800139 (1/27)
+2025-06-02 07:46:12,083 - INFO - Successfully cancelled purchase order: BPO-6800139
+2025-06-02 07:46:12,084 - INFO - Processing PO PO-6800129 (13/27)
+2025-06-02 07:46:12,385 - INFO - Successfully cancelled purchase order: PO-6800129
+2025-06-02 07:46:12,386 - INFO - Processing PO PO-6800130 (14/27)
+2025-06-02 07:46:12,808 - INFO - Successfully cancelled purchase order: PO-6800130
+2025-06-02 07:46:12,811 - INFO - Processing PO PO-6800132 (15/27)
+2025-06-02 07:46:13,395 - INFO - Successfully cancelled purchase order: PO-6800132
+2025-06-02 07:46:13,395 - INFO - Processing PO PO-6800133 (16/27)
+2025-06-02 07:46:14,111 - INFO - Successfully cancelled purchase order: PO-6800133
+2025-06-02 07:46:14,113 - INFO - Processing PO BPO-6800133 (23/27)
+2025-06-02 07:46:14,841 - INFO - Successfully cancelled purchase order: BPO-6800133
+2025-06-02 07:46:14,843 - INFO - Processing PO BPO-6800134 (25/27)
+2025-06-02 07:46:15,472 - INFO - Successfully cancelled purchase order: BPO-6800134
+2025-06-02 07:46:15,473 - INFO - Processing PO PO-6800140 (26/27)
+2025-06-02 07:46:16,149 - INFO - Successfully cancelled purchase order: PO-6800140
+2025-06-02 07:46:16,151 - INFO - Processing PO PO-6800141 (30/27)
+2025-06-02 07:46:16,820 - INFO - Successfully cancelled purchase order: PO-6800141
+2025-06-02 07:46:16,823 - INFO - Processing PO PO-6800142 (31/27)
+2025-06-02 07:46:17,455 - INFO - Successfully cancelled purchase order: PO-6800142
+2025-06-02 07:46:17,456 - INFO - Processing PO PO-6800143 (33/27)
+2025-06-02 07:46:17,886 - INFO - Successfully cancelled purchase order: PO-6800143
+2025-06-02 07:46:17,886 - INFO - Processing PO PO-6800144 (38/27)
+2025-06-02 07:46:18,264 - INFO - Successfully cancelled purchase order: PO-6800144
+2025-06-02 07:46:18,265 - INFO - Processing PO PO-6800145 (39/27)
+2025-06-02 07:46:18,976 - INFO - Successfully cancelled purchase order: PO-6800145
+2025-06-02 07:46:18,977 - INFO - Processing PO PO-6800146 (43/27)
+2025-06-02 07:46:19,663 - INFO - Successfully cancelled purchase order: PO-6800146
+2025-06-02 07:46:19,663 - INFO - Processing PO BPO-6800136 (45/27)
+2025-06-02 07:46:20,243 - INFO - Successfully cancelled purchase order: BPO-6800136
+2025-06-02 07:46:20,244 - INFO - Processing PO PO-6800147 (46/27)
+2025-06-02 07:46:20,804 - INFO - Successfully cancelled purchase order: PO-6800147
+2025-06-02 07:46:20,805 - INFO - Processing PO PO-6800148 (67/27)
+2025-06-02 07:46:21,279 - INFO - Successfully cancelled purchase order: PO-6800148
+2025-06-02 07:46:21,281 - INFO - Processing PO PO-6800149 (68/27)
+2025-06-02 07:46:21,925 - INFO - Successfully cancelled purchase order: PO-6800149
+2025-06-02 07:46:21,926 - INFO - Processing PO PO-6800150 (69/27)
+2025-06-02 07:46:22,591 - INFO - Successfully cancelled purchase order: PO-6800150
+2025-06-02 07:46:22,592 - INFO - Processing PO PO-6800151 (71/27)
+2025-06-02 07:46:22,969 - INFO - Successfully cancelled purchase order: PO-6800151
+2025-06-02 07:46:22,970 - INFO - Processing PO PO-6800152 (72/27)
+2025-06-02 07:46:23,290 - INFO - Successfully cancelled purchase order: PO-6800152
+2025-06-02 07:46:23,290 - INFO - Processing PO PO-6800153 (75/27)
+2025-06-02 07:46:23,652 - INFO - Successfully cancelled purchase order: PO-6800153
+2025-06-02 07:46:23,653 - INFO - Processing PO PO-6800154 (77/27)
+2025-06-02 07:46:23,965 - INFO - Successfully cancelled purchase order: PO-6800154
+2025-06-02 07:46:23,966 - INFO - Processing PO PO-6800155 (78/27)
+2025-06-02 07:46:24,267 - INFO - Successfully cancelled purchase order: PO-6800155
+2025-06-02 07:46:24,268 - INFO - Processing PO PO-6800156 (82/27)
+2025-06-02 07:46:24,561 - INFO - Successfully cancelled purchase order: PO-6800156
+2025-06-02 07:46:24,562 - INFO - Processing PO PO-6800157 (83/27)
+2025-06-02 07:46:25,051 - INFO - Successfully cancelled purchase order: PO-6800157
+2025-06-02 07:46:25,052 - INFO - Processing PO PO-6800158 (84/27)
+2025-06-02 07:46:25,688 - INFO - Successfully cancelled purchase order: PO-6800158
+2025-06-02 07:46:25,689 - INFO - 
+Purchase Order Cancellation Summary:
+2025-06-02 07:46:25,690 - INFO - 
+Successful Cancellations (27/27):
+2025-06-02 07:46:25,692 - INFO -   - BPO-6800139
+2025-06-02 07:46:25,693 - INFO -   - PO-6800129
+2025-06-02 07:46:25,694 - INFO -   - PO-6800130
+2025-06-02 07:46:25,695 - INFO -   - PO-6800132
+2025-06-02 07:46:25,696 - INFO -   - PO-6800133
+2025-06-02 07:46:25,698 - INFO -   - BPO-6800133
+2025-06-02 07:46:25,700 - INFO -   - BPO-6800134
+2025-06-02 07:46:25,701 - INFO -   - PO-6800140
+2025-06-02 07:46:25,702 - INFO -   - PO-6800141
+2025-06-02 07:46:25,702 - INFO -   - PO-6800142
+2025-06-02 07:46:25,703 - INFO -   - PO-6800143
+2025-06-02 07:46:25,703 - INFO -   - PO-6800144
+2025-06-02 07:46:25,704 - INFO -   - PO-6800145
+2025-06-02 07:46:25,704 - INFO -   - PO-6800146
+2025-06-02 07:46:25,705 - INFO -   - BPO-6800136
+2025-06-02 07:46:25,705 - INFO -   - PO-6800147
+2025-06-02 07:46:25,706 - INFO -   - PO-6800148
+2025-06-02 07:46:25,706 - INFO -   - PO-6800149
+2025-06-02 07:46:25,707 - INFO -   - PO-6800150
+2025-06-02 07:46:25,707 - INFO -   - PO-6800151
+2025-06-02 07:46:25,708 - INFO -   - PO-6800152
+2025-06-02 07:46:25,708 - INFO -   - PO-6800153
+2025-06-02 07:46:25,708 - INFO -   - PO-6800154
+2025-06-02 07:46:25,709 - INFO -   - PO-6800155
+2025-06-02 07:46:25,709 - INFO -   - PO-6800156
+2025-06-02 07:46:25,710 - INFO -   - PO-6800157
+2025-06-02 07:46:25,710 - INFO -   - PO-6800158
+2025-06-02 07:46:25,710 - INFO - 
+Failed Cancellations (0/27):
+2025-06-02 07:46:25,711 - INFO - 
+Skipped Orders (0/27):
+2025-06-02 07:46:25,711 - INFO - Order cancellation process completed.
+2025-06-02 08:38:24,331 - INFO - Starting order cancellation process...
+2025-06-02 08:38:25,685 - INFO - Processing PO PO-6800158 (1/20)
+2025-06-02 08:38:26,042 - INFO - Successfully cancelled purchase order: PO-6800158
+2025-06-02 08:38:26,042 - INFO - Processing PO PO-6800157 (6/20)
+2025-06-02 08:38:26,428 - INFO - Successfully cancelled purchase order: PO-6800157
+2025-06-02 08:38:26,428 - INFO - Processing PO PO-6800156 (7/20)
+2025-06-02 08:38:26,733 - INFO - Successfully cancelled purchase order: PO-6800156
+2025-06-02 08:38:26,734 - INFO - Processing PO PO-6800155 (8/20)
+2025-06-02 08:38:27,038 - INFO - Successfully cancelled purchase order: PO-6800155
+2025-06-02 08:38:27,039 - INFO - Processing PO PO-6800154 (12/20)
+2025-06-02 08:38:27,364 - INFO - Successfully cancelled purchase order: PO-6800154
+2025-06-02 08:38:27,365 - INFO - Processing PO PO-6800153 (13/20)
+2025-06-02 08:38:27,792 - INFO - Successfully cancelled purchase order: PO-6800153
+2025-06-02 08:38:27,794 - INFO - Processing PO PO-6800152 (15/20)
+2025-06-02 08:38:28,401 - INFO - Successfully cancelled purchase order: PO-6800152
+2025-06-02 08:38:28,402 - INFO - Processing PO PO-6800151 (18/20)
+2025-06-02 08:38:29,058 - INFO - Successfully cancelled purchase order: PO-6800151
+2025-06-02 08:38:29,060 - INFO - Processing PO PO-6800150 (19/20)
+2025-06-02 08:38:29,728 - INFO - Successfully cancelled purchase order: PO-6800150
+2025-06-02 08:38:29,730 - INFO - Processing PO PO-6800149 (21/20)
+2025-06-02 08:38:30,261 - INFO - Successfully cancelled purchase order: PO-6800149
+2025-06-02 08:38:30,261 - INFO - Processing PO PO-6800148 (22/20)
+2025-06-02 08:38:30,582 - INFO - Successfully cancelled purchase order: PO-6800148
+2025-06-02 08:38:30,583 - INFO - Processing PO PO-6800147 (23/20)
+2025-06-02 08:38:31,216 - INFO - Successfully cancelled purchase order: PO-6800147
+2025-06-02 08:38:31,218 - INFO - Processing PO PO-6800146 (44/20)
+2025-06-02 08:38:31,837 - INFO - Successfully cancelled purchase order: PO-6800146
+2025-06-02 08:38:31,839 - INFO - Processing PO PO-6800145 (46/20)
+2025-06-02 08:38:32,245 - INFO - Successfully cancelled purchase order: PO-6800145
+2025-06-02 08:38:32,245 - INFO - Processing PO PO-6800143 (50/20)
+2025-06-02 08:38:32,550 - INFO - Successfully cancelled purchase order: PO-6800143
+2025-06-02 08:38:32,550 - INFO - Processing PO PO-6800144 (55/20)
+2025-06-02 08:38:33,182 - INFO - Successfully cancelled purchase order: PO-6800144
+2025-06-02 08:38:33,183 - INFO - Processing PO PO-6800140 (56/20)
+2025-06-02 08:38:33,781 - INFO - Successfully cancelled purchase order: PO-6800140
+2025-06-02 08:38:33,782 - INFO - Processing PO PO-6800141 (60/20)
+2025-06-02 08:38:34,388 - INFO - Successfully cancelled purchase order: PO-6800141
+2025-06-02 08:38:34,390 - INFO - Processing PO PO-6800142 (61/20)
+2025-06-02 08:38:35,001 - INFO - Successfully cancelled purchase order: PO-6800142
+2025-06-02 08:38:35,003 - INFO - Processing PO PO-6800139 (65/20)
+2025-06-02 08:38:35,628 - INFO - Successfully cancelled purchase order: PO-6800139
+2025-06-02 08:38:35,629 - INFO - 
+Purchase Order Cancellation Summary:
+2025-06-02 08:38:35,631 - INFO - 
+Successful Cancellations (20/20):
+2025-06-02 08:38:35,632 - INFO -   - PO-6800158
+2025-06-02 08:38:35,633 - INFO -   - PO-6800157
+2025-06-02 08:38:35,634 - INFO -   - PO-6800156
+2025-06-02 08:38:35,635 - INFO -   - PO-6800155
+2025-06-02 08:38:35,635 - INFO -   - PO-6800154
+2025-06-02 08:38:35,635 - INFO -   - PO-6800153
+2025-06-02 08:38:35,636 - INFO -   - PO-6800152
+2025-06-02 08:38:35,636 - INFO -   - PO-6800151
+2025-06-02 08:38:35,636 - INFO -   - PO-6800150
+2025-06-02 08:38:35,636 - INFO -   - PO-6800149
+2025-06-02 08:38:35,637 - INFO -   - PO-6800148
+2025-06-02 08:38:35,637 - INFO -   - PO-6800147
+2025-06-02 08:38:35,637 - INFO -   - PO-6800146
+2025-06-02 08:38:35,637 - INFO -   - PO-6800145
+2025-06-02 08:38:35,638 - INFO -   - PO-6800143
+2025-06-02 08:38:35,638 - INFO -   - PO-6800144
+2025-06-02 08:38:35,638 - INFO -   - PO-6800140
+2025-06-02 08:38:35,638 - INFO -   - PO-6800141
+2025-06-02 08:38:35,639 - INFO -   - PO-6800142
+2025-06-02 08:38:35,639 - INFO -   - PO-6800139
+2025-06-02 08:38:35,639 - INFO - 
+Failed Cancellations (0/20):
+2025-06-02 08:38:35,639 - INFO - 
+Skipped Orders (0/20):
+2025-06-02 08:38:35,640 - INFO - Order cancellation process completed.
