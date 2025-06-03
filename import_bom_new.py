@@ -13,7 +13,7 @@ def read_excel_template():
     """Read and validate the Excel template"""
     try:
         # Read the Excel file
-        df = pd.read_excel('Data_file/failed_bom_updates_เดือน.xlsx')
+        df = pd.read_excel('Data_file/import_bom_นุ่นติดตั้ง250603.xlsx')
         
         # Clean up the data
         df = df.fillna('')  # Replace NaN with empty string
