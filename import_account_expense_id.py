@@ -19,7 +19,7 @@ logging.getLogger().addHandler(console_handler)
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
-db = 'MOG_Training'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -40,12 +40,12 @@ def read_excel_data(file_path):
     """Read the Excel file containing product and account data."""
     try:
         df = pd.read_excel(file_path)
-        
+
         # Clean the data
         df['default_code'] = df['default_code'].astype(str).str.strip()
         # Extract only the account number from the property_account_expense_id column
-        df['account_code'] = df['property_account_expense_id'].astype(str).str.extract('(\d+)').iloc[:, 0]
-        
+        df['account_code'] = df['property_account_expense_id'].astype(str).str.extract(r'(\d+)').iloc[:, 0]
+
         return df.to_dict('records')
     except Exception as e:
         logging.error(f"Error reading Excel file: {str(e)}")
@@ -56,12 +56,36 @@ def update_product_account_expense(uid, models, data):
     success_count = 0
     error_count = 0
     skipped_count = 0
-    
+
     for row in data:
         try:
-            # Skip empty rows
-            if pd.isna(row['default_code']) or pd.isna(row['account_code']):
+            # Skip rows with empty default_code
+            if pd.isna(row['default_code']):
                 skipped_count += 1
+                continue
+
+            # Handle empty account_code (clear the expense account)
+            if pd.isna(row['account_code']):
+                product_ids = models.execute_kw(db, uid, password,
+                    'product.template', 'search',
+                    [[['default_code', '=', row['default_code']]]],
+                )
+
+                if not product_ids:
+                    logging.warning(f"Product with code '{row['default_code']}' not found")
+                    error_count += 1
+                    continue
+
+                # Clear the property_account_expense_id
+                models.execute_kw(db, uid, password,
+                    'product.template', 'write',
+                    [product_ids[0], {
+                        'property_account_expense_id': False
+                    }]
+                )
+
+                success_count += 1
+                logging.info(f"Cleared expense account for product '{row['default_code']}'")
                 continue
 
             # Search for the product using default_code
@@ -69,23 +93,23 @@ def update_product_account_expense(uid, models, data):
                 'product.template', 'search',
                 [[['default_code', '=', row['default_code']]]],
             )
-            
+
             if not product_ids:
                 logging.warning(f"Product with code '{row['default_code']}' not found")
                 error_count += 1
                 continue
-            
+
             # Search for the account using account code
             account_ids = models.execute_kw(db, uid, password,
                 'account.account', 'search',
                 [[['code', '=', row['account_code']]]],
             )
-            
+
             if not account_ids:
                 logging.warning(f"Account with code '{row['account_code']}' not found")
                 error_count += 1
                 continue
-            
+
             # Update the product's property_account_expense_id
             models.execute_kw(db, uid, password,
                 'product.template', 'write',
@@ -93,21 +117,21 @@ def update_product_account_expense(uid, models, data):
                     'property_account_expense_id': account_ids[0]
                 }]
             )
-            
+
             success_count += 1
             logging.info(f"Updated product '{row['default_code']}' with expense account '{row['account_code']}'")
-            
+
         except Exception as e:
             error_count += 1
             logging.error(f"Error updating product '{row['default_code']}': {str(e)}")
-    
+
     return success_count, error_count, skipped_count
 
 def main():
     try:
         # Connect to Odoo
         uid, models = connect_to_odoo()
-        
+
         # Test connection
         version_info = models.execute_kw(db, uid, password, 'ir.module.module', 'search_read',
             [[['name', '=', 'base']]],
@@ -115,19 +139,19 @@ def main():
         )
         if version_info:
             logging.info(f"Connected to Odoo {version_info[0]['latest_version']}")
-        
+
         # Read Excel data
         file_path = 'Data_file/import_account_expense_id.xlsx'
         data = read_excel_data(file_path)
-        
+
         if not data:
             logging.error("No data found in the Excel file")
             return
-        
+
         # Update products
         logging.info(f"Starting to process {len(data)} records...")
         success_count, error_count, skipped_count = update_product_account_expense(uid, models, data)
-        
+
         # Log summary
         logging.info(f"""
 Import Summary:
@@ -137,7 +161,7 @@ Successfully updated: {success_count}
 Errors: {error_count}
 Skipped: {skipped_count}
         """)
-        
+
     except Exception as e:
         logging.error(f"Error during execution: {str(e)}")
         raise
