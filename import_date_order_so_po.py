@@ -120,7 +120,7 @@ def update_so_dates(uid: int, models: Any) -> None:
     """
     try:
         # Read Excel file with explicit date parsing
-        df = pd.read_excel('Data_file/import_date_SO_04.xlsx')
+        df = pd.read_excel('Data_file/import_date_SO_05.xlsx')
         logger.info(f"Found {len(df)} records in Excel file")
         
         # Remove duplicates based on 'name' column to avoid multiple updates
