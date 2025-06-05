@@ -7,7 +7,7 @@ import os
 
 # Odoo connection parameters
 HOST = 'http://mogdev.work:8069'
-DB = 'MOG_LIVE3'
+DB = 'MOG_Test'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
@@ -290,81 +290,59 @@ def get_location_id(models, uid, location_name):
     except Exception as e:
         logger.error(f"Error finding location '{location_name}': {str(e)}")
         return False
-def get_product_id(models, uid, default_code, old_product_code=None):
-    """Get product ID by default_code or old_product_code using ilike search"""
-    try:
-        # Ensure default_code and old_product_code are strings and strip whitespace
-        default_code = str(default_code).strip()
-        if old_product_code:
-            old_product_code = str(old_product_code).strip()
-        logger.info(f"Searching for product with code: '{default_code}' and old code: '{old_product_code}'")
 
+def get_product_id(models, uid, default_code):
+    """Get product ID by default_code using ilike search"""
+    try:
+        # Ensure default_code is a string and strip whitespace
+        default_code = str(default_code).strip()
+        logger.info(f"Searching for product with code: '{default_code}'")
+        
         # First try exact match on default_code
         product_ids = models.execute_kw(DB, uid, PASSWORD,
-                                        'product.product', 'search',
-                                        [[['default_code', '=', default_code]]]
-                                        )
+            'product.product', 'search',
+            [[['default_code', '=', default_code]]]
+        )
+        
         if product_ids:
             logger.info(f"Found product with exact match on default_code: '{default_code}'")
             return product_ids[0]
-
+        
         # Try with ilike search if exact match fails
         product_ids = models.execute_kw(DB, uid, PASSWORD,
-                                        'product.product', 'search',
-                                        [[['default_code', 'ilike', default_code]]]
-                                        )
+            'product.product', 'search',
+            [[['default_code', 'ilike', default_code]]]
+        )
+        
         if product_ids:
             # Get the actual code for logging
             product_data = models.execute_kw(DB, uid, PASSWORD,
-                                             'product.product', 'read',
-                                             [product_ids[0]],
-                                             {'fields': ['default_code', 'name']}
-                                             )
+                'product.product', 'read',
+                [product_ids[0]],
+                {'fields': ['default_code', 'name']}
+            )
             logger.info(f"Found product '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' using ilike search for '{default_code}'")
             return product_ids[0]
-
+        
         # If still not found, try searching by name
         product_ids = models.execute_kw(DB, uid, PASSWORD,
-                                        'product.product', 'search',
-                                        [[['name', 'ilike', default_code]]]
-                                        )
+            'product.product', 'search',
+            [[['name', 'ilike', default_code]]]
+        )
+        
         if product_ids:
             product_data = models.execute_kw(DB, uid, PASSWORD,
-                                             'product.product', 'read',
-                                             [product_ids[0]],
-                                             {'fields': ['default_code', 'name']}
-                                             )
+                'product.product', 'read',
+                [product_ids[0]],
+                {'fields': ['default_code', 'name']}
+            )
             logger.info(f"Found product by name: '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' for search term '{default_code}'")
             return product_ids[0]
-
-        # If old_product_code is provided, try searching by old_product_code
-        if old_product_code:
-            product_ids = models.execute_kw(DB, uid, PASSWORD,
-                                            'product.product', 'search',
-                                            [[['old_product_code', '=', old_product_code]]]
-                                            )
-            if product_ids:
-                logger.info(f"Found product with exact match on old_product_code: '{old_product_code}'")
-                return product_ids[0]
-
-            # Try with ilike search if exact match fails
-            product_ids = models.execute_kw(DB, uid, PASSWORD,
-                                            'product.product', 'search',
-                                            [[['old_product_code', 'ilike', old_product_code]]]
-                                            )
-            if product_ids:
-                product_data = models.execute_kw(DB, uid, PASSWORD,
-                                                 'product.product', 'read',
-                                                 [product_ids[0]],
-                                                 {'fields': ['default_code', 'name']}
-                                                 )
-                logger.info(f"Found product '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' using ilike search for old_product_code '{old_product_code}'")
-                return product_ids[0]
-
-        logger.error(f"Product not found with code or name: '{default_code}' or old code: '{old_product_code}'")
+        
+        logger.error(f"Product not found with code or name: '{default_code}'")
         return False
     except Exception as e:
-        logger.error(f"Error finding product '{default_code}' or old code '{old_product_code}': {str(e)}")
+        logger.error(f"Error finding product '{default_code}': {str(e)}")
         return False
 
 def get_uom_id(models, uid, product_id):
@@ -527,7 +505,7 @@ def create_internal_transfers(uid, models, df):
                         else:
                             # Fallback to string conversion
                             date_str = str(first_row['scheduled_date'])
-                        
+                            
                         # Set all date fields in picking_vals
                         picking_vals['scheduled_date'] = date_str
                         picking_vals['date'] = date_str
@@ -559,9 +537,9 @@ def create_internal_transfers(uid, models, df):
                         'default_scheduled_date': date_str,
                         'default_date': date_str,
                         'tracking_disable': True,  # Disable tracking to prevent automatic date updates
-                        'mail_notrack': True,    # Disable mail tracking
+                        'mail_notrack': True,      # Disable mail tracking
                         'mail_create_nolog': True, # Disable logging
-                        'no_recompute': True    # Prevent field recomputation
+                        'no_recompute': True      # Prevent field recomputation
                     }
                     
                     # Add date_done if available
@@ -622,20 +600,60 @@ def create_internal_transfers(uid, models, df):
                         logger.info(f"Updated dates using write method with bypass context: {date_str}")
                     except Exception as e:
                         logger.warning(f"Could not update dates using ORM with bypass context: {str(e)}")
-                    
-                    # Try standard write method as fallback
-                    try:
-                        models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'write',
-                            [[picking_id], {
-                                'scheduled_date': date_str,
-                                'date': date_str,
-                                'date_deadline': date_str
-                            }]
-                        )
-                        logger.info(f"Updated dates using standard write method: {date_str}")
-                    except Exception as e2:
-                        logger.error(f"Failed to update dates using all methods: {str(e2)}")
+                        
+                        # Try standard write method as fallback
+                        try:
+                            models.execute_kw(DB, uid, PASSWORD,
+                                'stock.picking', 'write',
+                                [[picking_id], {
+                                    'scheduled_date': date_str,
+                                    'date': date_str,
+                                    'date_deadline': date_str
+                                }]
+                            )
+                            logger.info(f"Updated dates using standard write method: {date_str}")
+                        except Exception as e2:
+                            logger.error(f"Failed to update dates using all methods: {str(e2)}")
+                        
+                        # Try method 2: Use the ORM with a special context
+                        try:
+                            # Use the ORM but with a special context to bypass constraints
+                            bypass_context = {
+                                'bypass_date_validation': True, 
+                                'tracking_disable': True,
+                                'mail_notrack': True,
+                                'mail_create_nolog': True,
+                                'no_recompute': True,
+                                'force_period_date': date_str.split(' ')[0]  # Force period date (Odoo specific)
+                            }
+                            
+                            # Standard write with bypass context
+                            models.execute_kw(DB, uid, PASSWORD,
+                                'stock.picking', 'write',
+                                [[picking_id], {
+                                    'scheduled_date': date_str,
+                                    'date': date_str,
+                                    'date_deadline': date_str
+                                }],
+                                {'context': bypass_context}
+                            )
+                            logger.info(f"Updated dates using write method with bypass context: {date_str}")
+                        except Exception as e2:
+                            logger.warning(f"Could not update dates using ORM with bypass context: {str(e2)}")
+                            
+                            # Try method 3: Standard write method
+                            try:
+                                models.execute_kw(DB, uid, PASSWORD,
+                                    'stock.picking', 'write',
+                                    [[picking_id], {
+                                        'scheduled_date': date_str,
+                                        'date': date_str,
+                                        'date_deadline': date_str
+                                    }]
+                                )
+                                logger.info(f"Updated dates using standard write method: {date_str}")
+                            except Exception as e3:
+                                logger.error(f"Failed to update dates using all methods: {str(e3)}")
                     
                     # Try one more approach - update the picking before adding moves
                     try:
@@ -666,7 +684,7 @@ def create_internal_transfers(uid, models, df):
                             if not product_code:
                                 logger.warning(f"Skipping row with empty product code")
                                 continue
-                            
+                                
                             try:
                                 quantity = float(row['product_uom_qty'])
                             except (ValueError, TypeError):
@@ -757,7 +775,7 @@ def create_internal_transfers(uid, models, df):
                             [[picking_id]]
                         )
                         logger.warning(f"Deleted empty transfer {picking_id} as no valid products were found")
-                
+                    
                 except Exception as e:
                     logger.error(f"Error processing location group {dest_location} for date {date_group}: {str(e)}")
                     failed_transfers += len(location_df)
