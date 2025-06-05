@@ -1,0 +1,362 @@
+2025-06-05 15:36:20,552 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-05 15:36:20,595 - INFO - Odoo version: 17.0.1.3
+2025-06-05 15:36:20,688 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-05 15:36:20,999 - INFO - Successfully read Excel file with 46 rows
+2025-06-05 15:36:20,999 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-05 15:36:21,005 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-05 15:36:21,006 - INFO - scheduled_date sample: 2025-02-28 00:00:00
+2025-06-05 15:36:21,008 - INFO - Converted scheduled_date to string format. Sample: 2025-02-28 00:00:00
+2025-06-05 15:36:21,009 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-05 15:36:21,009 - INFO - Using 'origin' column to identify transfer groups
+2025-06-05 15:36:21,014 - INFO - Excel file validation and data filling completed successfully
+2025-06-05 15:36:21,118 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:21,253 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:21,341 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:21,426 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 1 with picking ID 4864
+2025-06-05 15:36:21,427 - INFO - Searching for product with code: 'AC0002100' and old code: 'AC0002100'
+2025-06-05 15:36:21,481 - INFO - Found product with exact match on default_code: 'AC0002100'
+2025-06-05 15:36:21,676 - INFO - Added product AC0002100 with quantity 5.0 to picking 4864
+2025-06-05 15:36:21,819 - INFO - Re-updated dates before confirming picking 4864: 2025-02-28 00:00:00
+2025-06-05 15:36:22,083 - INFO - Confirmed transfer 4864 with forced date context
+2025-06-05 15:36:22,181 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:22,325 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:22,386 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:22,450 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 2 with picking ID 4865
+2025-06-05 15:36:22,451 - INFO - Searching for product with code: 'AC0013100' and old code: 'AC0013100'
+2025-06-05 15:36:22,497 - INFO - Found product with exact match on default_code: 'AC0013100'
+2025-06-05 15:36:22,659 - INFO - Added product AC0013100 with quantity 5.0 to picking 4865
+2025-06-05 15:36:22,747 - INFO - Re-updated dates before confirming picking 4865: 2025-02-28 00:00:00
+2025-06-05 15:36:22,953 - INFO - Confirmed transfer 4865 with forced date context
+2025-06-05 15:36:23,060 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:23,229 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:23,292 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:23,360 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 3 with picking ID 4866
+2025-06-05 15:36:23,361 - INFO - Searching for product with code: 'AC0021100' and old code: 'AC0021100'
+2025-06-05 15:36:23,420 - INFO - Found product with exact match on default_code: 'AC0021100'
+2025-06-05 15:36:23,600 - INFO - Added product AC0021100 with quantity 2.0 to picking 4866
+2025-06-05 15:36:23,704 - INFO - Re-updated dates before confirming picking 4866: 2025-02-28 00:00:00
+2025-06-05 15:36:23,885 - INFO - Confirmed transfer 4866 with forced date context
+2025-06-05 15:36:24,003 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:24,143 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:24,200 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:24,279 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 4 with picking ID 4867
+2025-06-05 15:36:24,280 - INFO - Searching for product with code: 'AC0021100' and old code: 'AC0021100'
+2025-06-05 15:36:24,336 - INFO - Found product with exact match on default_code: 'AC0021100'
+2025-06-05 15:36:24,502 - INFO - Added product AC0021100 with quantity 5.0 to picking 4867
+2025-06-05 15:36:24,596 - INFO - Re-updated dates before confirming picking 4867: 2025-02-28 00:00:00
+2025-06-05 15:36:24,769 - INFO - Confirmed transfer 4867 with forced date context
+2025-06-05 15:36:24,862 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:29,212 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:29,262 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:29,328 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 5 with picking ID 4868
+2025-06-05 15:36:29,329 - INFO - Searching for product with code: 'AC0021100' and old code: 'AC0021100'
+2025-06-05 15:36:29,378 - INFO - Found product with exact match on default_code: 'AC0021100'
+2025-06-05 15:36:29,529 - INFO - Added product AC0021100 with quantity 1.0 to picking 4868
+2025-06-05 15:36:29,601 - INFO - Re-updated dates before confirming picking 4868: 2025-02-28 00:00:00
+2025-06-05 15:36:29,801 - INFO - Confirmed transfer 4868 with forced date context
+2025-06-05 15:36:29,892 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:30,030 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:30,094 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:30,183 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 6 with picking ID 4869
+2025-06-05 15:36:30,184 - INFO - Searching for product with code: 'AC0022100' and old code: 'AC0022100'
+2025-06-05 15:36:30,238 - INFO - Found product with exact match on default_code: 'AC0022100'
+2025-06-05 15:36:30,531 - INFO - Added product AC0022100 with quantity 1.0 to picking 4869
+2025-06-05 15:36:30,734 - INFO - Re-updated dates before confirming picking 4869: 2025-02-28 00:00:00
+2025-06-05 15:36:30,986 - INFO - Confirmed transfer 4869 with forced date context
+2025-06-05 15:36:31,101 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:31,260 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:31,337 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:31,404 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 7 with picking ID 4870
+2025-06-05 15:36:31,405 - INFO - Searching for product with code: 'AC0051101' and old code: 'AC0051101'
+2025-06-05 15:36:31,459 - INFO - Found product with exact match on default_code: 'AC0051101'
+2025-06-05 15:36:31,629 - INFO - Added product AC0051101 with quantity 2.0 to picking 4870
+2025-06-05 15:36:31,714 - INFO - Re-updated dates before confirming picking 4870: 2025-02-28 00:00:00
+2025-06-05 15:36:31,984 - INFO - Confirmed transfer 4870 with forced date context
+2025-06-05 15:36:32,087 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:32,217 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:32,279 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:32,376 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 8 with picking ID 4871
+2025-06-05 15:36:32,377 - INFO - Searching for product with code: 'AC0061101' and old code: 'AC0061101'
+2025-06-05 15:36:32,432 - INFO - Found product with exact match on default_code: 'AC0061101'
+2025-06-05 15:36:32,593 - INFO - Added product AC0061101 with quantity 4.0 to picking 4871
+2025-06-05 15:36:32,691 - INFO - Re-updated dates before confirming picking 4871: 2025-02-28 00:00:00
+2025-06-05 15:36:32,935 - INFO - Confirmed transfer 4871 with forced date context
+2025-06-05 15:36:33,248 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:33,379 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:33,447 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:33,529 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 9 with picking ID 4872
+2025-06-05 15:36:33,529 - INFO - Searching for product with code: 'ACF000111A' and old code: 'ACF000111A'
+2025-06-05 15:36:33,580 - INFO - Found product with exact match on default_code: 'ACF000111A'
+2025-06-05 15:36:33,770 - INFO - Added product ACF000111A with quantity 4.0 to picking 4872
+2025-06-05 15:36:33,858 - INFO - Re-updated dates before confirming picking 4872: 2025-02-28 00:00:00
+2025-06-05 15:36:34,071 - INFO - Confirmed transfer 4872 with forced date context
+2025-06-05 15:36:34,183 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:34,319 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:34,382 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:34,456 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 10 with picking ID 4873
+2025-06-05 15:36:34,458 - INFO - Searching for product with code: 'ACF000111A' and old code: 'ACF000111A'
+2025-06-05 15:36:34,515 - INFO - Found product with exact match on default_code: 'ACF000111A'
+2025-06-05 15:36:34,685 - INFO - Added product ACF000111A with quantity 2.0 to picking 4873
+2025-06-05 15:36:34,779 - INFO - Re-updated dates before confirming picking 4873: 2025-02-28 00:00:00
+2025-06-05 15:36:34,956 - INFO - Confirmed transfer 4873 with forced date context
+2025-06-05 15:36:35,042 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:35,163 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:35,217 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:35,280 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 11 with picking ID 4874
+2025-06-05 15:36:35,281 - INFO - Searching for product with code: 'F036B6C020' and old code: 'F036B6C020'
+2025-06-05 15:36:35,335 - INFO - Found product with exact match on default_code: 'F036B6C020'
+2025-06-05 15:36:35,541 - INFO - Added product F036B6C020 with quantity 1.0 to picking 4874
+2025-06-05 15:36:35,624 - INFO - Re-updated dates before confirming picking 4874: 2025-02-28 00:00:00
+2025-06-05 15:36:35,811 - INFO - Confirmed transfer 4874 with forced date context
+2025-06-05 15:36:35,902 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:36,022 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:36,085 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:36,146 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 12 with picking ID 4875
+2025-06-05 15:36:36,147 - INFO - Searching for product with code: 'F036B6C020' and old code: 'F036B6C020'
+2025-06-05 15:36:36,196 - INFO - Found product with exact match on default_code: 'F036B6C020'
+2025-06-05 15:36:36,344 - INFO - Added product F036B6C020 with quantity 1.0 to picking 4875
+2025-06-05 15:36:36,421 - INFO - Re-updated dates before confirming picking 4875: 2025-02-28 00:00:00
+2025-06-05 15:36:36,651 - INFO - Confirmed transfer 4875 with forced date context
+2025-06-05 15:36:36,753 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:36,872 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:36,931 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:37,004 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 13 with picking ID 4876
+2025-06-05 15:36:37,005 - INFO - Searching for product with code: 'F036B6C020' and old code: 'F036B6C020'
+2025-06-05 15:36:37,058 - INFO - Found product with exact match on default_code: 'F036B6C020'
+2025-06-05 15:36:37,226 - INFO - Added product F036B6C020 with quantity 1.0 to picking 4876
+2025-06-05 15:36:37,338 - INFO - Re-updated dates before confirming picking 4876: 2025-02-28 00:00:00
+2025-06-05 15:36:37,582 - INFO - Confirmed transfer 4876 with forced date context
+2025-06-05 15:36:37,687 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:37,842 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:37,909 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:38,005 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 14 with picking ID 4877
+2025-06-05 15:36:38,007 - INFO - Searching for product with code: 'FU0005WC280' and old code: 'FU0005WC280'
+2025-06-05 15:36:38,063 - INFO - Found product with exact match on default_code: 'FU0005WC280'
+2025-06-05 15:36:38,231 - INFO - Added product FU0005WC280 with quantity 1.0 to picking 4877
+2025-06-05 15:36:38,328 - INFO - Re-updated dates before confirming picking 4877: 2025-02-28 00:00:00
+2025-06-05 15:36:38,529 - INFO - Confirmed transfer 4877 with forced date context
+2025-06-05 15:36:38,626 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:38,769 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:38,824 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:38,903 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 15 with picking ID 4878
+2025-06-05 15:36:38,904 - INFO - Searching for product with code: 'FU0025IRL180' and old code: 'FU0025IRL180'
+2025-06-05 15:36:38,956 - INFO - Found product with exact match on default_code: 'FU0025IRL180'
+2025-06-05 15:36:39,131 - INFO - Added product FU0025IRL180 with quantity 2.0 to picking 4878
+2025-06-05 15:36:39,220 - INFO - Re-updated dates before confirming picking 4878: 2025-02-28 00:00:00
+2025-06-05 15:36:39,388 - INFO - Confirmed transfer 4878 with forced date context
+2025-06-05 15:36:39,492 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:39,634 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:39,715 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:39,869 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 16 with picking ID 4879
+2025-06-05 15:36:39,872 - INFO - Searching for product with code: 'LFA02011D' and old code: 'LFA02011D'
+2025-06-05 15:36:39,953 - INFO - Found product with exact match on default_code: 'LFA02011D'
+2025-06-05 15:36:40,624 - INFO - Added product LFA02011D with quantity 5.0 to picking 4879
+2025-06-05 15:36:40,858 - INFO - Re-updated dates before confirming picking 4879: 2025-02-28 00:00:00
+2025-06-05 15:36:41,199 - INFO - Confirmed transfer 4879 with forced date context
+2025-06-05 15:36:41,301 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:41,458 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:41,517 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:41,611 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 17 with picking ID 4880
+2025-06-05 15:36:41,612 - INFO - Searching for product with code: 'MA0343101' and old code: 'MA0343101'
+2025-06-05 15:36:41,684 - INFO - Found product with exact match on default_code: 'MA0343101'
+2025-06-05 15:36:41,910 - INFO - Added product MA0343101 with quantity 1.0 to picking 4880
+2025-06-05 15:36:42,050 - INFO - Re-updated dates before confirming picking 4880: 2025-02-28 00:00:00
+2025-06-05 15:36:42,335 - INFO - Confirmed transfer 4880 with forced date context
+2025-06-05 15:36:42,440 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:49,297 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:49,388 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:49,474 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 18 with picking ID 4881
+2025-06-05 15:36:49,475 - INFO - Searching for product with code: 'MA0343101(W)' and old code: 'MA0343101(W)'
+2025-06-05 15:36:49,519 - INFO - Found product with exact match on default_code: 'MA0343101(W)'
+2025-06-05 15:36:50,547 - INFO - Added product MA0343101(W) with quantity 1.0 to picking 4881
+2025-06-05 15:36:50,687 - INFO - Re-updated dates before confirming picking 4881: 2025-02-28 00:00:00
+2025-06-05 15:36:50,915 - INFO - Confirmed transfer 4881 with forced date context
+2025-06-05 15:36:51,002 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:51,129 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:51,190 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:51,590 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 19 with picking ID 4882
+2025-06-05 15:36:51,593 - INFO - Searching for product with code: 'MA0362101' and old code: 'MA0362101'
+2025-06-05 15:36:51,641 - INFO - Found product with exact match on default_code: 'MA0362101'
+2025-06-05 15:36:51,883 - INFO - Added product MA0362101 with quantity 1.0 to picking 4882
+2025-06-05 15:36:52,065 - INFO - Re-updated dates before confirming picking 4882: 2025-02-28 00:00:00
+2025-06-05 15:36:52,341 - INFO - Confirmed transfer 4882 with forced date context
+2025-06-05 15:36:52,436 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:52,583 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:52,685 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:52,798 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 20 with picking ID 4883
+2025-06-05 15:36:52,801 - INFO - Searching for product with code: 'MA0433101' and old code: 'MA0433101'
+2025-06-05 15:36:52,869 - INFO - Found product with exact match on default_code: 'MA0433101'
+2025-06-05 15:36:53,037 - INFO - Added product MA0433101 with quantity 1.0 to picking 4883
+2025-06-05 15:36:53,125 - INFO - Re-updated dates before confirming picking 4883: 2025-02-28 00:00:00
+2025-06-05 15:36:53,306 - INFO - Confirmed transfer 4883 with forced date context
+2025-06-05 15:36:53,394 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:53,511 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:53,566 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:53,630 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 21 with picking ID 4884
+2025-06-05 15:36:53,631 - INFO - Searching for product with code: 'MA0512C110' and old code: 'MA0512C110'
+2025-06-05 15:36:53,675 - INFO - Found product with exact match on default_code: 'MA0512C110'
+2025-06-05 15:36:53,831 - INFO - Added product MA0512C110 with quantity 3.0 to picking 4884
+2025-06-05 15:36:54,148 - INFO - Re-updated dates before confirming picking 4884: 2025-02-28 00:00:00
+2025-06-05 15:36:54,427 - INFO - Confirmed transfer 4884 with forced date context
+2025-06-05 15:36:54,546 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:54,733 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:54,812 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:54,916 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 22 with picking ID 4885
+2025-06-05 15:36:54,917 - INFO - Searching for product with code: 'MA372L101' and old code: 'MA372L101'
+2025-06-05 15:36:54,966 - INFO - Found product with exact match on default_code: 'MA372L101'
+2025-06-05 15:36:55,294 - INFO - Added product MA372L101 with quantity 4.0 to picking 4885
+2025-06-05 15:36:55,533 - INFO - Re-updated dates before confirming picking 4885: 2025-02-28 00:00:00
+2025-06-05 15:36:55,799 - INFO - Confirmed transfer 4885 with forced date context
+2025-06-05 15:36:55,884 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:56,038 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:57,111 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:57,188 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 23 with picking ID 4886
+2025-06-05 15:36:57,189 - INFO - Searching for product with code: 'MA372R101' and old code: 'MA372R101'
+2025-06-05 15:36:57,272 - INFO - Found product with exact match on default_code: 'MA372R101'
+2025-06-05 15:36:57,691 - INFO - Added product MA372R101 with quantity 2.0 to picking 4886
+2025-06-05 15:36:57,974 - INFO - Re-updated dates before confirming picking 4886: 2025-02-28 00:00:00
+2025-06-05 15:36:58,326 - INFO - Confirmed transfer 4886 with forced date context
+2025-06-05 15:36:58,445 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:58,604 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:58,685 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:58,803 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 24 with picking ID 4887
+2025-06-05 15:36:58,804 - INFO - Searching for product with code: 'MAE06DL101' and old code: 'MAE06DL101'
+2025-06-05 15:36:58,925 - INFO - Found product with exact match on default_code: 'MAE06DL101'
+2025-06-05 15:36:59,113 - INFO - Added product MAE06DL101 with quantity 2.0 to picking 4887
+2025-06-05 15:36:59,197 - INFO - Re-updated dates before confirming picking 4887: 2025-02-28 00:00:00
+2025-06-05 15:36:59,384 - INFO - Confirmed transfer 4887 with forced date context
+2025-06-05 15:36:59,475 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:36:59,607 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:36:59,682 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:36:59,787 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 25 with picking ID 4888
+2025-06-05 15:36:59,790 - INFO - Searching for product with code: 'MF00091Q7' and old code: 'MF00091Q7'
+2025-06-05 15:36:59,838 - INFO - Found product with exact match on default_code: 'MF00091Q7'
+2025-06-05 15:37:00,040 - INFO - Added product MF00091Q7 with quantity 3.0 to picking 4888
+2025-06-05 15:37:00,129 - INFO - Re-updated dates before confirming picking 4888: 2025-02-28 00:00:00
+2025-06-05 15:37:00,330 - INFO - Confirmed transfer 4888 with forced date context
+2025-06-05 15:37:00,414 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:00,538 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:00,619 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:00,681 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 26 with picking ID 4889
+2025-06-05 15:37:00,682 - INFO - Searching for product with code: 'MO00501210' and old code: 'MO00501210'
+2025-06-05 15:37:00,734 - INFO - Found product with exact match on default_code: 'MO00501210'
+2025-06-05 15:37:00,982 - INFO - Added product MO00501210 with quantity 3.0 to picking 4889
+2025-06-05 15:37:01,164 - INFO - Re-updated dates before confirming picking 4889: 2025-02-28 00:00:00
+2025-06-05 15:37:01,499 - INFO - Confirmed transfer 4889 with forced date context
+2025-06-05 15:37:01,593 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:01,724 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:01,784 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:01,848 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 27 with picking ID 4890
+2025-06-05 15:37:01,851 - INFO - Searching for product with code: 'MO00521210' and old code: 'MO00521210'
+2025-06-05 15:37:01,900 - INFO - Found product with exact match on default_code: 'MO00521210'
+2025-06-05 15:37:02,059 - INFO - Added product MO00521210 with quantity 5.0 to picking 4890
+2025-06-05 15:37:02,153 - INFO - Re-updated dates before confirming picking 4890: 2025-02-28 00:00:00
+2025-06-05 15:37:02,374 - INFO - Confirmed transfer 4890 with forced date context
+2025-06-05 15:37:02,462 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:02,635 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:02,689 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:02,763 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 28 with picking ID 4891
+2025-06-05 15:37:02,764 - INFO - Searching for product with code: 'MO028S101' and old code: 'MO028S101'
+2025-06-05 15:37:02,811 - INFO - Found product with exact match on default_code: 'MO028S101'
+2025-06-05 15:37:02,972 - INFO - Added product MO028S101 with quantity 10.0 to picking 4891
+2025-06-05 15:37:03,054 - INFO - Re-updated dates before confirming picking 4891: 2025-02-28 00:00:00
+2025-06-05 15:37:03,402 - INFO - Confirmed transfer 4891 with forced date context
+2025-06-05 15:37:03,505 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:03,631 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:03,715 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:03,811 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 29 with picking ID 4892
+2025-06-05 15:37:03,812 - INFO - Searching for product with code: 'MO032S101' and old code: 'MO032S101'
+2025-06-05 15:37:03,860 - INFO - Found product with exact match on default_code: 'MO032S101'
+2025-06-05 15:37:04,022 - INFO - Added product MO032S101 with quantity 5.0 to picking 4892
+2025-06-05 15:37:04,150 - INFO - Re-updated dates before confirming picking 4892: 2025-02-28 00:00:00
+2025-06-05 15:37:04,395 - INFO - Confirmed transfer 4892 with forced date context
+2025-06-05 15:37:04,499 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:04,647 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:04,747 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:04,850 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 30 with picking ID 4893
+2025-06-05 15:37:04,851 - INFO - Searching for product with code: 'MO051E1210' and old code: 'MO051E1210'
+2025-06-05 15:37:04,931 - INFO - Found product with exact match on default_code: 'MO051E1210'
+2025-06-05 15:37:05,115 - INFO - Added product MO051E1210 with quantity 3.0 to picking 4893
+2025-06-05 15:37:05,215 - INFO - Re-updated dates before confirming picking 4893: 2025-02-28 00:00:00
+2025-06-05 15:37:05,407 - INFO - Confirmed transfer 4893 with forced date context
+2025-06-05 15:37:05,498 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:05,727 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:05,786 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:05,895 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 31 with picking ID 4894
+2025-06-05 15:37:05,897 - INFO - Searching for product with code: 'MO15SS101' and old code: 'MO15SS101'
+2025-06-05 15:37:05,956 - INFO - Found product with exact match on default_code: 'MO15SS101'
+2025-06-05 15:37:06,151 - INFO - Added product MO15SS101 with quantity 4.0 to picking 4894
+2025-06-05 15:37:06,247 - INFO - Re-updated dates before confirming picking 4894: 2025-02-28 00:00:00
+2025-06-05 15:37:06,459 - INFO - Confirmed transfer 4894 with forced date context
+2025-06-05 15:37:06,544 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:06,680 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:06,785 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:06,852 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 32 with picking ID 4895
+2025-06-05 15:37:06,853 - INFO - Searching for product with code: 'MSW0012103' and old code: 'MSW0012103'
+2025-06-05 15:37:06,899 - INFO - Found product with exact match on default_code: 'MSW0012103'
+2025-06-05 15:37:07,075 - INFO - Added product MSW0012103 with quantity 2.0 to picking 4895
+2025-06-05 15:37:07,155 - INFO - Re-updated dates before confirming picking 4895: 2025-02-28 00:00:00
+2025-06-05 15:37:07,334 - INFO - Confirmed transfer 4895 with forced date context
+2025-06-05 15:37:07,427 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:07,548 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:07,609 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:07,670 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 33 with picking ID 4896
+2025-06-05 15:37:07,671 - INFO - Searching for product with code: 'MT014E101' and old code: 'MT014E101'
+2025-06-05 15:37:07,719 - INFO - Found product with exact match on default_code: 'MT014E101'
+2025-06-05 15:37:07,865 - INFO - Added product MT014E101 with quantity 1.0 to picking 4896
+2025-06-05 15:37:07,943 - INFO - Re-updated dates before confirming picking 4896: 2025-02-28 00:00:00
+2025-06-05 15:37:08,134 - INFO - Confirmed transfer 4896 with forced date context
+2025-06-05 15:37:08,230 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:08,376 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:08,442 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:08,530 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 34 with picking ID 4897
+2025-06-05 15:37:08,531 - INFO - Searching for product with code: 'MT056E1210' and old code: 'MT056E1210'
+2025-06-05 15:37:08,594 - INFO - Found product with exact match on default_code: 'MT056E1210'
+2025-06-05 15:37:08,790 - INFO - Added product MT056E1210 with quantity 1.0 to picking 4897
+2025-06-05 15:37:08,879 - INFO - Re-updated dates before confirming picking 4897: 2025-02-28 00:00:00
+2025-06-05 15:37:09,065 - INFO - Confirmed transfer 4897 with forced date context
+2025-06-05 15:37:09,164 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:09,304 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:09,362 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:09,430 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 35 with picking ID 4898
+2025-06-05 15:37:09,431 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-05 15:37:09,477 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-05 15:37:09,759 - INFO - Added product MT20SS101 with quantity 6.0 to picking 4898
+2025-06-05 15:37:09,952 - INFO - Re-updated dates before confirming picking 4898: 2025-02-28 00:00:00
+2025-06-05 15:37:10,214 - INFO - Confirmed transfer 4898 with forced date context
+2025-06-05 15:37:10,307 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:10,445 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:10,502 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:10,812 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 36 with picking ID 4899
+2025-06-05 15:37:10,815 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-05 15:37:10,869 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-05 15:37:11,160 - INFO - Added product MT20SS101 with quantity 1.0 to picking 4899
+2025-06-05 15:37:11,379 - INFO - Re-updated dates before confirming picking 4899: 2025-02-28 00:00:00
+2025-06-05 15:37:11,630 - INFO - Confirmed transfer 4899 with forced date context
+2025-06-05 15:37:11,729 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:11,850 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:11,904 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:11,984 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 37 with picking ID 4900
+2025-06-05 15:37:11,985 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-05 15:37:12,081 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-05 15:37:12,274 - INFO - Added product MT20SS101 with quantity 1.0 to picking 4900
+2025-06-05 15:37:12,422 - INFO - Re-updated dates before confirming picking 4900: 2025-02-28 00:00:00
+2025-06-05 15:37:12,651 - INFO - Confirmed transfer 4900 with forced date context
+2025-06-05 15:37:12,746 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:12,879 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:12,938 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:13,013 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 38 with picking ID 4901
+2025-06-05 15:37:13,014 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-06-05 15:37:13,059 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-06-05 15:37:13,209 - INFO - Added product MT541S101 with quantity 3.0 to picking 4901
+2025-06-05 15:37:13,307 - INFO - Re-updated dates before confirming picking 4901: 2025-02-28 00:00:00
+2025-06-05 15:37:13,488 - INFO - Confirmed transfer 4901 with forced date context
+2025-06-05 15:37:13,569 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:37:13,691 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:37:13,743 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:37:13,814 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 39 with picking ID 4902
+2025-06-05 15:37:13,814 - INFO - Searching for product with code: 'MT631S101' and old code: 'MT631S101'
+2025-06-05 15:37:13,860 - INFO - Found product with exact match on default_code: 'MT631S101'
+2025-06-05 15:37:14,019 - INFO - Added product MT631S101 with quantity 3.0 to picking 4902
+2025-06-05 15:37:14,120 - INFO - Re-updated dates before confirming picking 4902: 2025-02-28 00:00:00
+2025-06-05 15:37:14,352 - INFO - Confirmed transfer 4902 with forced date context

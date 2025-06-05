@@ -1,0 +1,16 @@
+2025-06-05 15:41:31,874 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-05 15:41:31,915 - INFO - Odoo version: 17.0.1.3
+2025-06-05 15:41:31,982 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-05 15:41:32,331 - INFO - Successfully read Excel file with 46 rows
+2025-06-05 15:41:32,332 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-05 15:41:32,342 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-05 15:41:32,343 - INFO - scheduled_date sample: 2025-02-28 00:00:00
+2025-06-05 15:41:32,348 - INFO - Converted scheduled_date to string format. Sample: 2025-02-28 00:00:00
+2025-06-05 15:41:32,350 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-05 15:41:32,353 - INFO - Using 'origin' column to identify transfer groups
+2025-06-05 15:41:32,358 - INFO - Excel file validation and data filling completed successfully
+2025-06-05 15:41:32,456 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 15:41:32,589 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 15:41:32,653 - INFO - Found partner ID 13743 for 'MOG-SCG'
+2025-06-05 15:41:32,653 - ERROR - Error creating internal transfers: name 'sequence' is not defined
+2025-06-05 15:41:32,654 - ERROR - Fatal error: name 'sequence' is not defined

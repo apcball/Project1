@@ -1,0 +1,58 @@
+2025-06-05 15:03:02,601 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-05 15:03:02,646 - INFO - Odoo version: 17.0.1.3
+2025-06-05 15:03:03,021 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-05 15:03:03,410 - INFO - Successfully read Excel file with 5 rows
+2025-06-05 15:03:03,410 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-05 15:03:03,418 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-05 15:03:03,418 - INFO - scheduled_date sample: 2025-02-28 00:00:00
+2025-06-05 15:03:03,420 - INFO - Converted scheduled_date to string format. Sample: 2025-02-28 00:00:00
+2025-06-05 15:03:03,421 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-05 15:03:03,421 - INFO - Using 'origin' column to identify transfer groups
+2025-06-05 15:03:03,426 - INFO - Excel file validation and data filling completed successfully
+2025-06-05 15:03:03,427 - INFO - Sorted DataFrame by 'sequence' column for import order.
+2025-06-05 15:03:03,430 - INFO - Searching for product with code: 'SP00010101' and old code: 'SP00010101'
+2025-06-05 15:03:03,480 - INFO - Found product with exact match on default_code: 'SP00010101'
+2025-06-05 15:03:03,623 - INFO - Searching for location: 'FG13/Stock'
+2025-06-05 15:03:03,749 - INFO - Found location with complete_name match: 'FG13/Stock' for 'FG13/Stock'
+2025-06-05 15:03:03,803 - INFO - Found partner ID 13741 for 'MOG-บริการเทคนิค'
+2025-06-05 15:03:03,870 - INFO - Created transfer for product SP00010101 with picking ID 4811
+2025-06-05 15:03:03,983 - INFO - Added product SP00010101 with quantity 3.0 to picking 4811
+2025-06-05 15:03:04,060 - INFO - Re-updated dates before confirming picking 4811: 2025-02-28 00:00:00
+2025-06-05 15:03:04,245 - INFO - Confirmed transfer 4811 with forced date context
+2025-06-05 15:03:04,246 - INFO - Searching for product with code: 'SP00273100' and old code: 'SP00273100'
+2025-06-05 15:03:04,293 - INFO - Found product with exact match on default_code: 'SP00273100'
+2025-06-05 15:03:04,442 - INFO - Searching for location: 'FG13/Stock'
+2025-06-05 15:03:04,578 - INFO - Found location with complete_name match: 'FG13/Stock' for 'FG13/Stock'
+2025-06-05 15:03:04,656 - INFO - Found partner ID 13741 for 'MOG-บริการเทคนิค'
+2025-06-05 15:03:04,733 - INFO - Created transfer for product SP00273100 with picking ID 4812
+2025-06-05 15:03:04,876 - INFO - Added product SP00273100 with quantity 22.0 to picking 4812
+2025-06-05 15:03:05,002 - INFO - Re-updated dates before confirming picking 4812: 2025-02-28 00:00:00
+2025-06-05 15:03:05,280 - INFO - Confirmed transfer 4812 with forced date context
+2025-06-05 15:03:05,282 - INFO - Searching for product with code: 'SPF0001200' and old code: 'SPF0001200'
+2025-06-05 15:03:05,347 - INFO - Found product with exact match on default_code: 'SPF0001200'
+2025-06-05 15:03:05,492 - INFO - Searching for location: 'FG13/Stock'
+2025-06-05 15:03:05,612 - INFO - Found location with complete_name match: 'FG13/Stock' for 'FG13/Stock'
+2025-06-05 15:03:05,673 - INFO - Found partner ID 13741 for 'MOG-บริการเทคนิค'
+2025-06-05 15:03:05,740 - INFO - Created transfer for product SPF0001200 with picking ID 4813
+2025-06-05 15:03:05,835 - INFO - Added product SPF0001200 with quantity 73.0 to picking 4813
+2025-06-05 15:03:05,920 - INFO - Re-updated dates before confirming picking 4813: 2025-02-28 00:00:00
+2025-06-05 15:03:06,093 - INFO - Confirmed transfer 4813 with forced date context
+2025-06-05 15:03:06,094 - INFO - Searching for product with code: 'SPF0003200' and old code: 'SPF0003200'
+2025-06-05 15:03:06,143 - INFO - Found product with exact match on default_code: 'SPF0003200'
+2025-06-05 15:03:06,277 - INFO - Searching for location: 'FG13/Stock'
+2025-06-05 15:03:06,402 - INFO - Found location with complete_name match: 'FG13/Stock' for 'FG13/Stock'
+2025-06-05 15:03:06,468 - INFO - Found partner ID 13741 for 'MOG-บริการเทคนิค'
+2025-06-05 15:03:06,539 - INFO - Created transfer for product SPF0003200 with picking ID 4814
+2025-06-05 15:03:06,629 - INFO - Added product SPF0003200 with quantity 80.0 to picking 4814
+2025-06-05 15:03:06,701 - INFO - Re-updated dates before confirming picking 4814: 2025-02-28 00:00:00
+2025-06-05 15:03:06,921 - INFO - Confirmed transfer 4814 with forced date context
+2025-06-05 15:03:06,922 - INFO - Searching for product with code: 'SPF0004200' and old code: 'SPF0004200'
+2025-06-05 15:03:06,966 - INFO - Found product with exact match on default_code: 'SPF0004200'
+2025-06-05 15:03:07,100 - INFO - Searching for location: 'FG13/Stock'
+2025-06-05 15:03:07,268 - INFO - Found location with complete_name match: 'FG13/Stock' for 'FG13/Stock'
+2025-06-05 15:03:07,341 - INFO - Found partner ID 13741 for 'MOG-บริการเทคนิค'
+2025-06-05 15:03:07,407 - INFO - Created transfer for product SPF0004200 with picking ID 4815
+2025-06-05 15:03:07,503 - INFO - Added product SPF0004200 with quantity 35.0 to picking 4815
+2025-06-05 15:03:07,577 - INFO - Re-updated dates before confirming picking 4815: 2025-02-28 00:00:00
+2025-06-05 15:03:07,744 - INFO - Confirmed transfer 4815 with forced date context
+2025-06-05 15:03:07,746 - INFO - Import completed: 5 success, 0 failed.
