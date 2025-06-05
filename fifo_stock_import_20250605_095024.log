@@ -1,0 +1,16 @@
+2025-06-05 09:50:26,341 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-05 09:50:27,423 - INFO - Odoo version: 17.0.1.3
+2025-06-05 09:50:27,512 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-05 09:50:36,656 - INFO - Successfully read Excel file with 5 rows
+2025-06-05 09:50:36,656 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-05 09:50:36,657 - INFO - Processed sequence column
+2025-06-05 09:50:36,659 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-05 09:50:36,659 - INFO - scheduled_date sample: 2025-02-28 00:00:00
+2025-06-05 09:50:36,660 - INFO - Converted scheduled_date to string format. Sample: 2025-02-28 00:00:00
+2025-06-05 09:50:36,660 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-05 09:50:36,660 - INFO - Using 'origin' column to identify transfer groups
+2025-06-05 09:50:36,661 - INFO - Excel file validation and data filling completed successfully
+2025-06-05 09:50:36,662 - INFO - Location destination values: ['OB-INVENTORY']
+2025-06-05 09:50:36,663 - INFO - Fixed scheduled_date format. Sample: 2025-02-28 00:00:00
+2025-06-05 09:50:36,663 - ERROR - Error in create_internal_transfers: Can only use .dt accessor with datetimelike values
+2025-06-05 09:50:36,663 - INFO - Import completed. Successful transfers: 0, Failed transfers: 0
