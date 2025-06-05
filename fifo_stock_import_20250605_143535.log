@@ -1,0 +1,169 @@
+2025-06-05 14:35:36,547 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-05 14:35:36,599 - INFO - Odoo version: 17.0.1.3
+2025-06-05 14:35:36,688 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-05 14:35:37,062 - INFO - Successfully read Excel file with 46 rows
+2025-06-05 14:35:37,062 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-05 14:35:37,064 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-05 14:35:37,065 - INFO - scheduled_date sample: 2025-02-28 00:00:00
+2025-06-05 14:35:37,067 - INFO - Converted scheduled_date to string format. Sample: 2025-02-28 00:00:00
+2025-06-05 14:35:37,068 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-05 14:35:37,069 - INFO - Using 'origin' column to identify transfer groups
+2025-06-05 14:35:37,073 - INFO - Excel file validation and data filling completed successfully
+2025-06-05 14:35:37,074 - INFO - Sorted DataFrame by 'sequence' column for import order.
+2025-06-05 14:35:37,077 - INFO - Location destination values: ['FG11/Stock']
+2025-06-05 14:35:37,079 - INFO - Fixed scheduled_date format. Sample: 2025-02-28 00:00:00
+2025-06-05 14:35:37,082 - INFO - Fixed date_done format. Sample: 2025-02-28 00:00:00
+2025-06-05 14:35:37,083 - INFO - Found 1 unique dates for transfers: ['2025-02-28']
+2025-06-05 14:35:37,084 - INFO - Processing 46 items for date: 2025-02-28
+2025-06-05 14:35:37,175 - INFO - Searching for location: 'FG11/Stock'
+2025-06-05 14:35:37,321 - INFO - Found location with complete_name match: 'FG11/Stock' for 'FG11/Stock'
+2025-06-05 14:35:37,472 - WARNING - Partner 'MOG-SCG' not found. Creating new partner.
+2025-06-05 14:35:37,597 - INFO - Created new partner 'MOG-SCG' with ID 14229
+2025-06-05 14:35:37,599 - INFO - Setting date fields to 2025-02-28 00:00:00 from Excel (original datetime)
+2025-06-05 14:35:37,600 - INFO - Setting date_done to 2025-02-28 00:00:00 from Excel (original datetime)
+2025-06-05 14:35:37,690 - INFO - Created transfer document for date 2025-02-28 to location FG11/Stock with ID 6696
+2025-06-05 14:35:37,738 - INFO - Initial dates after creation: {'id': 6696, 'scheduled_date': '2025-02-28 00:00:00', 'date': '2025-02-28 00:00:00', 'date_deadline': False}
+2025-06-05 14:35:37,797 - INFO - Updated dates using write method with bypass context: 2025-02-28 00:00:00
+2025-06-05 14:35:37,848 - INFO - Updated dates using standard write method: 2025-02-28 00:00:00
+2025-06-05 14:35:37,897 - INFO - Set picking state to draft to force date recalculation
+2025-06-05 14:35:37,949 - INFO - Final dates after updates: {'id': 6696, 'scheduled_date': '2025-02-28 00:00:00', 'date': '2025-02-28 00:00:00', 'date_deadline': '2025-02-28 00:00:00', 'state': 'draft'}
+2025-06-05 14:35:37,950 - INFO - Searching for product with code: 'AC0002100' and old code: 'AC0002100'
+2025-06-05 14:35:38,000 - INFO - Found product with exact match on default_code: 'AC0002100'
+2025-06-05 14:35:38,159 - INFO - Added product AC0002100 with quantity 5.0 to transfer 6696
+2025-06-05 14:35:38,160 - INFO - Searching for product with code: 'AC0013100' and old code: 'AC0013100'
+2025-06-05 14:35:38,210 - INFO - Found product with exact match on default_code: 'AC0013100'
+2025-06-05 14:35:38,364 - INFO - Added product AC0013100 with quantity 5.0 to transfer 6696
+2025-06-05 14:35:38,365 - INFO - Searching for product with code: 'AC0021100' and old code: 'AC0021100'
+2025-06-05 14:35:38,416 - INFO - Found product with exact match on default_code: 'AC0021100'
+2025-06-05 14:35:38,566 - INFO - Added product AC0021100 with quantity 2.0 to transfer 6696
+2025-06-05 14:35:38,567 - INFO - Searching for product with code: 'AC0021100' and old code: 'AC0021100'
+2025-06-05 14:35:38,622 - INFO - Found product with exact match on default_code: 'AC0021100'
+2025-06-05 14:35:38,789 - INFO - Added product AC0021100 with quantity 5.0 to transfer 6696
+2025-06-05 14:35:38,790 - INFO - Searching for product with code: 'AC0021100' and old code: 'AC0021100'
+2025-06-05 14:35:38,846 - INFO - Found product with exact match on default_code: 'AC0021100'
+2025-06-05 14:35:39,028 - INFO - Added product AC0021100 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:39,029 - INFO - Searching for product with code: 'AC0022100' and old code: 'AC0022100'
+2025-06-05 14:35:39,085 - INFO - Found product with exact match on default_code: 'AC0022100'
+2025-06-05 14:35:39,269 - INFO - Added product AC0022100 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:39,271 - INFO - Searching for product with code: 'AC0051101' and old code: 'AC0051101'
+2025-06-05 14:35:39,329 - INFO - Found product with exact match on default_code: 'AC0051101'
+2025-06-05 14:35:39,518 - INFO - Added product AC0051101 with quantity 2.0 to transfer 6696
+2025-06-05 14:35:39,519 - INFO - Searching for product with code: 'AC0061101' and old code: 'AC0061101'
+2025-06-05 14:35:39,581 - INFO - Found product with exact match on default_code: 'AC0061101'
+2025-06-05 14:35:39,776 - INFO - Added product AC0061101 with quantity 4.0 to transfer 6696
+2025-06-05 14:35:39,777 - INFO - Searching for product with code: 'ACF000111A' and old code: 'ACF000111A'
+2025-06-05 14:35:39,844 - INFO - Found product with exact match on default_code: 'ACF000111A'
+2025-06-05 14:35:40,044 - INFO - Added product ACF000111A with quantity 4.0 to transfer 6696
+2025-06-05 14:35:40,045 - INFO - Searching for product with code: 'ACF000111A' and old code: 'ACF000111A'
+2025-06-05 14:35:40,116 - INFO - Found product with exact match on default_code: 'ACF000111A'
+2025-06-05 14:35:40,317 - INFO - Added product ACF000111A with quantity 2.0 to transfer 6696
+2025-06-05 14:35:40,319 - INFO - Searching for product with code: 'F036B6C020' and old code: 'F036B6C020'
+2025-06-05 14:35:40,382 - INFO - Found product with exact match on default_code: 'F036B6C020'
+2025-06-05 14:35:40,544 - INFO - Added product F036B6C020 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:40,545 - INFO - Searching for product with code: 'F036B6C020' and old code: 'F036B6C020'
+2025-06-05 14:35:40,606 - INFO - Found product with exact match on default_code: 'F036B6C020'
+2025-06-05 14:35:40,788 - INFO - Added product F036B6C020 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:40,789 - INFO - Searching for product with code: 'F036B6C020' and old code: 'F036B6C020'
+2025-06-05 14:35:40,850 - INFO - Found product with exact match on default_code: 'F036B6C020'
+2025-06-05 14:35:41,023 - INFO - Added product F036B6C020 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:41,024 - INFO - Searching for product with code: 'FU0005WC280' and old code: 'FU0005WC280'
+2025-06-05 14:35:41,086 - INFO - Found product with exact match on default_code: 'FU0005WC280'
+2025-06-05 14:35:41,316 - INFO - Added product FU0005WC280 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:41,317 - INFO - Searching for product with code: 'FU0025IRL180' and old code: 'FU0025IRL180'
+2025-06-05 14:35:41,399 - INFO - Found product with exact match on default_code: 'FU0025IRL180'
+2025-06-05 14:35:41,632 - INFO - Added product FU0025IRL180 with quantity 2.0 to transfer 6696
+2025-06-05 14:35:41,634 - INFO - Searching for product with code: 'LFA02011D' and old code: 'LFA02011D'
+2025-06-05 14:35:41,723 - INFO - Found product with exact match on default_code: 'LFA02011D'
+2025-06-05 14:35:41,983 - INFO - Added product LFA02011D with quantity 5.0 to transfer 6696
+2025-06-05 14:35:41,985 - INFO - Searching for product with code: 'MA0343101' and old code: 'MA0343101'
+2025-06-05 14:35:42,067 - INFO - Found product with exact match on default_code: 'MA0343101'
+2025-06-05 14:35:42,327 - INFO - Added product MA0343101 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:42,328 - INFO - Searching for product with code: 'MA0343101(W)' and old code: 'MA0343101(W)'
+2025-06-05 14:35:42,420 - INFO - Found product with exact match on default_code: 'MA0343101(W)'
+2025-06-05 14:35:42,690 - INFO - Added product MA0343101(W) with quantity 1.0 to transfer 6696
+2025-06-05 14:35:42,690 - INFO - Searching for product with code: 'MA0362101' and old code: 'MA0362101'
+2025-06-05 14:35:42,763 - INFO - Found product with exact match on default_code: 'MA0362101'
+2025-06-05 14:35:42,934 - INFO - Added product MA0362101 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:42,935 - INFO - Searching for product with code: 'MA0433101' and old code: 'MA0433101'
+2025-06-05 14:35:42,983 - INFO - Found product with exact match on default_code: 'MA0433101'
+2025-06-05 14:35:43,149 - INFO - Added product MA0433101 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:43,149 - INFO - Searching for product with code: 'MA0512C110' and old code: 'MA0512C110'
+2025-06-05 14:35:43,201 - INFO - Found product with exact match on default_code: 'MA0512C110'
+2025-06-05 14:35:43,380 - INFO - Added product MA0512C110 with quantity 3.0 to transfer 6696
+2025-06-05 14:35:43,382 - INFO - Searching for product with code: 'MA372L101' and old code: 'MA372L101'
+2025-06-05 14:35:43,439 - INFO - Found product with exact match on default_code: 'MA372L101'
+2025-06-05 14:35:43,638 - INFO - Added product MA372L101 with quantity 4.0 to transfer 6696
+2025-06-05 14:35:43,640 - INFO - Searching for product with code: 'MA372R101' and old code: 'MA372R101'
+2025-06-05 14:35:43,695 - INFO - Found product with exact match on default_code: 'MA372R101'
+2025-06-05 14:35:43,860 - INFO - Added product MA372R101 with quantity 2.0 to transfer 6696
+2025-06-05 14:35:43,861 - INFO - Searching for product with code: 'MAE06DL101' and old code: 'MAE06DL101'
+2025-06-05 14:35:43,919 - INFO - Found product with exact match on default_code: 'MAE06DL101'
+2025-06-05 14:35:44,094 - INFO - Added product MAE06DL101 with quantity 2.0 to transfer 6696
+2025-06-05 14:35:44,094 - INFO - Searching for product with code: 'MF00091Q7' and old code: 'MF00091Q7'
+2025-06-05 14:35:44,146 - INFO - Found product with exact match on default_code: 'MF00091Q7'
+2025-06-05 14:35:44,315 - INFO - Added product MF00091Q7 with quantity 3.0 to transfer 6696
+2025-06-05 14:35:44,316 - INFO - Searching for product with code: 'MO00501210' and old code: 'MO00501210'
+2025-06-05 14:35:44,374 - INFO - Found product with exact match on default_code: 'MO00501210'
+2025-06-05 14:35:44,539 - INFO - Added product MO00501210 with quantity 3.0 to transfer 6696
+2025-06-05 14:35:44,540 - INFO - Searching for product with code: 'MO00521210' and old code: 'MO00521210'
+2025-06-05 14:35:44,607 - INFO - Found product with exact match on default_code: 'MO00521210'
+2025-06-05 14:35:44,792 - INFO - Added product MO00521210 with quantity 5.0 to transfer 6696
+2025-06-05 14:35:44,794 - INFO - Searching for product with code: 'MO028S101' and old code: 'MO028S101'
+2025-06-05 14:35:44,860 - INFO - Found product with exact match on default_code: 'MO028S101'
+2025-06-05 14:35:45,070 - INFO - Added product MO028S101 with quantity 10.0 to transfer 6696
+2025-06-05 14:35:45,071 - INFO - Searching for product with code: 'MO032S101' and old code: 'MO032S101'
+2025-06-05 14:35:45,143 - INFO - Found product with exact match on default_code: 'MO032S101'
+2025-06-05 14:35:45,323 - INFO - Added product MO032S101 with quantity 5.0 to transfer 6696
+2025-06-05 14:35:45,324 - INFO - Searching for product with code: 'MO051E1210' and old code: 'MO051E1210'
+2025-06-05 14:35:45,381 - INFO - Found product with exact match on default_code: 'MO051E1210'
+2025-06-05 14:35:45,558 - INFO - Added product MO051E1210 with quantity 3.0 to transfer 6696
+2025-06-05 14:35:45,559 - INFO - Searching for product with code: 'MO15SS101' and old code: 'MO15SS101'
+2025-06-05 14:35:45,615 - INFO - Found product with exact match on default_code: 'MO15SS101'
+2025-06-05 14:35:46,001 - INFO - Added product MO15SS101 with quantity 4.0 to transfer 6696
+2025-06-05 14:35:46,002 - INFO - Searching for product with code: 'MSW0012103' and old code: 'MSW0012103'
+2025-06-05 14:35:46,054 - INFO - Found product with exact match on default_code: 'MSW0012103'
+2025-06-05 14:35:46,218 - INFO - Added product MSW0012103 with quantity 2.0 to transfer 6696
+2025-06-05 14:35:46,219 - INFO - Searching for product with code: 'MT014E101' and old code: 'MT014E101'
+2025-06-05 14:35:46,269 - INFO - Found product with exact match on default_code: 'MT014E101'
+2025-06-05 14:35:46,415 - INFO - Added product MT014E101 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:46,416 - INFO - Searching for product with code: 'MT056E1210' and old code: 'MT056E1210'
+2025-06-05 14:35:46,470 - INFO - Found product with exact match on default_code: 'MT056E1210'
+2025-06-05 14:35:46,630 - INFO - Added product MT056E1210 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:46,631 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-05 14:35:46,680 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-05 14:35:46,863 - INFO - Added product MT20SS101 with quantity 6.0 to transfer 6696
+2025-06-05 14:35:46,863 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-05 14:35:46,912 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-05 14:35:47,075 - INFO - Added product MT20SS101 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:47,076 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-05 14:35:47,132 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-05 14:35:47,278 - INFO - Added product MT20SS101 with quantity 1.0 to transfer 6696
+2025-06-05 14:35:47,279 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-06-05 14:35:47,325 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-06-05 14:35:47,474 - INFO - Added product MT541S101 with quantity 3.0 to transfer 6696
+2025-06-05 14:35:47,474 - INFO - Searching for product with code: 'MT631S101' and old code: 'MT631S101'
+2025-06-05 14:35:47,521 - INFO - Found product with exact match on default_code: 'MT631S101'
+2025-06-05 14:35:47,688 - INFO - Added product MT631S101 with quantity 3.0 to transfer 6696
+2025-06-05 14:35:47,688 - INFO - Searching for product with code: 'RS00006110' and old code: 'RS00006110'
+2025-06-05 14:35:47,745 - INFO - Found product with exact match on default_code: 'RS00006110'
+2025-06-05 14:35:47,919 - INFO - Added product RS00006110 with quantity 4.0 to transfer 6696
+2025-06-05 14:35:47,919 - INFO - Searching for product with code: 'SP00205100' and old code: 'SP00205100'
+2025-06-05 14:35:47,976 - INFO - Found product with exact match on default_code: 'SP00205100'
+2025-06-05 14:35:48,150 - INFO - Added product SP00205100 with quantity 9.0 to transfer 6696
+2025-06-05 14:35:48,151 - INFO - Searching for product with code: 'SP0035100' and old code: 'SP0035100'
+2025-06-05 14:35:48,210 - INFO - Found product with exact match on default_code: 'SP0035100'
+2025-06-05 14:35:48,426 - INFO - Added product SP0035100 with quantity 9.0 to transfer 6696
+2025-06-05 14:35:48,426 - INFO - Searching for product with code: 'SPV0016100' and old code: 'SPV0016100'
+2025-06-05 14:35:48,485 - INFO - Found product with exact match on default_code: 'SPV0016100'
+2025-06-05 14:35:48,699 - INFO - Added product SPV0016100 with quantity 8.0 to transfer 6696
+2025-06-05 14:35:48,700 - INFO - Searching for product with code: 'SWR0006101' and old code: 'SWR0006101'
+2025-06-05 14:35:48,986 - INFO - Found product with exact match on default_code: 'SWR0006101'
+2025-06-05 14:35:49,154 - INFO - Added product SWR0006101 with quantity 3.0 to transfer 6696
+2025-06-05 14:35:49,156 - INFO - Searching for product with code: 'UF00005100' and old code: 'UF00005100'
+2025-06-05 14:35:49,215 - INFO - Found product with exact match on default_code: 'UF00005100'
+2025-06-05 14:35:49,380 - INFO - Added product UF00005100 with quantity 6.0 to transfer 6696
+2025-06-05 14:35:49,381 - INFO - Searching for product with code: 'WB0001A100' and old code: 'WB0001A100'
+2025-06-05 14:35:49,441 - INFO - Found product with exact match on default_code: 'WB0001A100'
+2025-06-05 14:35:49,650 - INFO - Added product WB0001A100 with quantity 11.0 to transfer 6696
+2025-06-05 14:35:49,764 - INFO - Re-updated dates before confirming picking 6696: 2025-02-28 00:00:00
+2025-06-05 14:35:51,069 - INFO - Confirmed transfer 6696 with forced date context

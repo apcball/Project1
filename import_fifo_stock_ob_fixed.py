@@ -6,13 +6,13 @@ from datetime import datetime
 import os
 
 # Odoo connection parameters
-HOST = 'http://mogdev.work:8069'
-DB = 'MOG_LIVE3'
+HOST = 'http://mogth.work:8069'
+DB = 'MOG_LIVE'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/import_fifo_stock_ob.xlsx'
+EXCEL_FILE = 'Data_file/SCG.xlsx'
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -314,7 +314,6 @@ def get_product_id(models, uid, default_code, old_product_code=None):
                                         [[['default_code', 'ilike', default_code]]]
                                         )
         if product_ids:
-            # Get the actual code for logging
             product_data = models.execute_kw(DB, uid, PASSWORD,
                                              'product.product', 'read',
                                              [product_ids[0]],
@@ -322,6 +321,31 @@ def get_product_id(models, uid, default_code, old_product_code=None):
                                              )
             logger.info(f"Found product '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' using ilike search for '{default_code}'")
             return product_ids[0]
+
+        # If still not found, try searching by old_product_code (exact and ilike)
+        if old_product_code:
+            # Exact match
+            product_ids = models.execute_kw(DB, uid, PASSWORD,
+                                            'product.product', 'search',
+                                            [[['old_product_code', '=', old_product_code]]]
+                                            )
+            if product_ids:
+                logger.info(f"Found product with exact match on old_product_code: '{old_product_code}'")
+                return product_ids[0]
+
+            # ilike match
+            product_ids = models.execute_kw(DB, uid, PASSWORD,
+                                            'product.product', 'search',
+                                            [[['old_product_code', 'ilike', old_product_code]]]
+                                            )
+            if product_ids:
+                product_data = models.execute_kw(DB, uid, PASSWORD,
+                                                 'product.product', 'read',
+                                                 [product_ids[0]],
+                                                 {'fields': ['default_code', 'name']}
+                                                 )
+                logger.info(f"Found product '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' using ilike search for old_product_code '{old_product_code}'")
+                return product_ids[0]
 
         # If still not found, try searching by name
         product_ids = models.execute_kw(DB, uid, PASSWORD,
@@ -336,30 +360,6 @@ def get_product_id(models, uid, default_code, old_product_code=None):
                                              )
             logger.info(f"Found product by name: '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' for search term '{default_code}'")
             return product_ids[0]
-
-        # If old_product_code is provided, try searching by old_product_code
-        if old_product_code:
-            product_ids = models.execute_kw(DB, uid, PASSWORD,
-                                            'product.product', 'search',
-                                            [[['old_product_code', '=', old_product_code]]]
-                                            )
-            if product_ids:
-                logger.info(f"Found product with exact match on old_product_code: '{old_product_code}'")
-                return product_ids[0]
-
-            # Try with ilike search if exact match fails
-            product_ids = models.execute_kw(DB, uid, PASSWORD,
-                                            'product.product', 'search',
-                                            [[['old_product_code', 'ilike', old_product_code]]]
-                                            )
-            if product_ids:
-                product_data = models.execute_kw(DB, uid, PASSWORD,
-                                                 'product.product', 'read',
-                                                 [product_ids[0]],
-                                                 {'fields': ['default_code', 'name']}
-                                                 )
-                logger.info(f"Found product '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' using ilike search for old_product_code '{old_product_code}'")
-                return product_ids[0]
 
         logger.error(f"Product not found with code or name: '{default_code}' or old code: '{old_product_code}'")
         return False
@@ -384,14 +384,20 @@ def create_internal_transfers(uid, models, df):
     """Create internal transfers from DataFrame, grouped by scheduled_date"""
     successful_transfers = 0
     failed_transfers = 0
-    
+
     try:
         # Check required columns
         required_columns = ['product_id', 'product_uom_qty']
         missing_columns = [col for col in required_columns if col not in df.columns]
         if missing_columns:
             raise ValueError(f"Missing required columns: {missing_columns}")
-        
+
+        # >>> เพิ่มส่วนนี้เพื่อจัดเรียงตาม sequence ถ้ามีคอลัมน์นี้ <<<
+        if 'sequence' in df.columns:
+            df = df.sort_values(by='sequence').reset_index(drop=True)
+            logger.info("Sorted DataFrame by 'sequence' column for import order.")
+        # <<< จบส่วนที่เพิ่ม >>>
+
         # Ensure numeric columns are properly formatted and create a copy to avoid SettingWithCopyWarning
         df = df.copy()  # Create an explicit copy to avoid SettingWithCopyWarning
         df.loc[:, 'product_uom_qty'] = pd.to_numeric(df['product_uom_qty'], errors='coerce')
@@ -661,29 +667,30 @@ def create_internal_transfers(uid, models, df):
                     move_ids = []
                     for _, row in location_df.iterrows():
                         try:
-                            # Get product information
-                            product_code = str(row['product_id']).strip()
+                            # อ่านค่า product_id จาก DataFrame
+                            product_code = str(row['product_id']).strip() if pd.notna(row['product_id']) else None
                             if not product_code:
-                                logger.warning(f"Skipping row with empty product code")
+                                logger.warning("Skipping row with empty product_id")
                                 continue
-                            
+
+                            # ค้นหาใน Odoo ที่ default_code และ old_product_code
+                            product_id = get_product_id(models, uid, product_code, product_code)
+                            if not product_id:
+                                logger.warning(f"Product not found in Odoo: {product_code}")
+                                continue
+
+                            # อ่านค่า quantity จาก DataFrame
                             try:
                                 quantity = float(row['product_uom_qty'])
                             except (ValueError, TypeError):
                                 logger.warning(f"Skipping product {product_code} with invalid quantity: {row['product_uom_qty']}")
                                 continue
-                            
-                            # Skip if quantity is zero or negative
+
+                            # ข้ามถ้า quantity <= 0
                             if quantity <= 0:
                                 logger.warning(f"Skipping product {product_code} with invalid quantity: {quantity}")
                                 continue
-                            
-                            # Get product ID
-                            product_id = get_product_id(models, uid, product_code)
-                            if not product_id:
-                                logger.warning(f"Product not found: {product_code}")
-                                continue
-                            
+
                             # Get UoM ID
                             uom_id = get_uom_id(models, uid, product_id)
                             if not uom_id:
@@ -718,72 +725,46 @@ def create_internal_transfers(uid, models, df):
                         except Exception as e:
                             logger.error(f"Error processing product {row.get('product_id', 'unknown')}: {str(e)}")
                             failed_transfers += 1
-                    
+
                     # Confirm the transfer if we have at least one move
                     if move_ids:
                         # Before confirming, try to set the date one more time
                         try:
-                            models.execute_kw(DB, uid, PASSWORD,
-                                'stock.picking', 'write',
+                            models.execute_kw(DB, uid, PASSWORD, 'stock.picking', 'write',
                                 [[picking_id], {
                                     'scheduled_date': date_str,
                                     'date': date_str,
                                     'date_deadline': date_str
-                                }],
-                                {'context': {'force_period_date': date_str.split(' ')[0]}}
+                                }]
                             )
-                            logger.info(f"Final date update before confirmation: {date_str}")
-                        except Exception as final_update_error:
-                            logger.warning(f"Final date update failed: {str(final_update_error)}")
-                        
-                        # Now confirm the transfer
-                        models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'action_confirm',
-                            [[picking_id]]
-                        )
-                        logger.info(f"Confirmed transfer {picking_id} with {len(move_ids)} products")
-                        
-                        # Check the dates after confirmation
-                        picking_data_confirmed = models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'read',
-                            [picking_id],
-                            {'fields': ['scheduled_date', 'date', 'date_deadline', 'state']}
-                        )
-                        logger.info(f"Dates after confirmation: {picking_data_confirmed[0]}")
-                    else:
-                        # If no moves were created, delete the empty picking
-                        models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'unlink',
-                            [[picking_id]]
-                        )
-                        logger.warning(f"Deleted empty transfer {picking_id} as no valid products were found")
-                
-                except Exception as e:
-                    logger.error(f"Error processing location group {dest_location} for date {date_group}: {str(e)}")
-                    failed_transfers += len(location_df)
-        
-        return successful_transfers, failed_transfers
-    
-    except Exception as e:
-        logger.error(f"Error in create_internal_transfers: {str(e)}")
-        return successful_transfers, failed_transfers
+                            logger.info(f"Re-updated dates before confirming picking {picking_id}: {date_str}")
+                        except Exception as e:
+                            logger.warning(f"Could not update dates before confirming picking: {str(e)}")
 
-def main():
-    try:
-        # Connect to Odoo
-        uid, models = connect_to_odoo()
-        
-        # Read Excel file
-        df = read_excel_file()
-        
-        # Create internal transfers
-        successful, failed = create_internal_transfers(uid, models, df)
-        
-        # Log summary
-        logger.info(f"Import completed. Successful transfers: {successful}, Failed transfers: {failed}")
-        
+                        try:
+                            models.execute_kw(DB, uid, PASSWORD, 'stock.picking', 'action_confirm', [[picking_id]], {
+                                'context': {
+                                    'force_date': date_str,
+                                    'planned_date': date_str,
+                                    'default_scheduled_date': date_str,
+                                    'default_date': date_str,
+                                }
+                            })
+                            logger.info(f"Confirmed transfer {picking_id} with forced date context")
+                        except Exception as e:
+                            logger.error(f"Failed to confirm transfer {picking_id}: {str(e)}")
+                except Exception as e:
+                    logger.error(f"Error processing location group {dest_location}: {str(e)}")
+                    failed_transfers += 1
+
     except Exception as e:
-        logger.error(f"Main process failed: {str(e)}")
+        logger.error(f"Error creating internal transfers: {str(e)}")
+        raise
 
 if __name__ == "__main__":
-    main()
+    try:
+        uid, models = connect_to_odoo()
+        df = read_excel_file()
+        create_internal_transfers(uid, models, df)
+    except Exception as e:
+        logger.error(f"Fatal error: {str(e)}")

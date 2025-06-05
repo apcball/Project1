@@ -3,8 +3,8 @@ import pandas as pd
 import sys
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-server_url = 'http://mogth.work:8069'
-database = 'MOG_LIVE'
+server_url = 'http://mogdev.work:8069'
+database = 'MOG_LIVE3'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -154,6 +154,19 @@ for index, row in df.iterrows():
         # อัพเดทข้อมูลบัญชีสำหรับ Category ที่มีอยู่แล้ว
         if income_account or expense_account:
             update_category_accounts(existing_ids[0], income_account, expense_account)
+        # อัพเดท Costing Method ถ้ามีระบุ
+        if pd.notna(row.get('Unnamed: 2')):
+            cost_method = str(row['Unnamed: 2']).strip()
+            if cost_method.lower() not in ['', 'costingmethod']:
+                cost_method_value = get_cost_method(cost_method)
+                try:
+                    models.execute_kw(
+                        database, uid, password, 'product.category', 'write',
+                        [[existing_ids[0]], {'property_cost_method': cost_method_value}]
+                    )
+                    print(f"อัพเดท Costing Method '{cost_method}' -> '{cost_method_value}' สำเร็จ")
+                except Exception as e:
+                    print(f"ไม่สามารถอัพเดท Costing Method: {e}")
         continue
 
     # ค้นหา Parent Category หากระบุไว้
