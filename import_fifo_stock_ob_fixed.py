@@ -6,13 +6,13 @@ from datetime import datetime
 import os
 
 # Odoo connection parameters
-HOST = 'http://mogdev.work:8069'
-DB = 'MOG_LIVE3'
+HOST = 'http://mogth.work:8069'
+DB = 'MOG_LIVE'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/SCG.xlsx'
+EXCEL_FILE = 'Data_file/วัตถุดิบ2-3.xlsx'
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -551,7 +551,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Data_file/SCG.xlsx'
+        EXCEL_FILE = 'Data_file/วัตถุดิบ2-3.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         create_internal_transfers(uid, models, df)
