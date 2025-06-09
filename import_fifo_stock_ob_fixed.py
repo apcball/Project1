@@ -12,11 +12,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-<<<<<<< HEAD
 EXCEL_FILE = 'Data_file/SCG.xlsx'
-=======
-EXCEL_FILE = 'Data_file/บริการเทคนิค1.xlsx'
->>>>>>> fb906cb (ok)
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -507,7 +503,6 @@ def create_internal_transfers(uid, models, df):
                         'location_dest_id': dest_location_id,
                         'sequence': int(row['sequence']) if 'sequence' in row and pd.notna(row['sequence']) else 10,
                         'description_picking': f"Excel Row {idx+1} | Seq:{row['sequence']} | Product:{product_code}",
-                        # 'description': f"Excel Row {idx+1} | Seq:{row['sequence']} | Product:{product_code}",
                     }
                     if 'price_unit' in row and pd.notna(row['price_unit']):
                         try:
@@ -546,223 +541,12 @@ def create_internal_transfers(uid, models, df):
                         'default_scheduled_date': date_str,
                         'default_date': date_str,
                     }
-<<<<<<< HEAD
                 })
                 logger.info(f"Confirmed transfer {picking_id} with forced date context")
             except Exception as e:
                 logger.error(f"Failed to confirm transfer {picking_id}: {str(e)}")
 
             successful_transfers += 1
-=======
-                    
-                    # Add date_done if available
-                    if 'date_done_orig' in first_row and pd.notna(first_row['date_done_orig']):
-                        # Use the original datetime object
-                        date_done_obj = first_row['date_done_orig']
-                        if isinstance(date_done_obj, pd.Timestamp):
-                            picking_vals['date_done'] = date_done_obj.strftime('%Y-%m-%d %H:%M:%S')
-                        else:
-                            picking_vals['date_done'] = str(first_row['date_done'])
-                        logger.info(f"Setting date_done to {picking_vals['date_done']} from Excel (original datetime)")
-                    elif 'date_done' in first_row and pd.notna(first_row['date_done']):
-                        picking_vals['date_done'] = str(first_row['date_done'])
-                        logger.info(f"Setting date_done to {picking_vals['date_done']} from Excel (string version)")
-                    
-                    # Add partner_id if available
-                    if partner_id:
-                        picking_vals['partner_id'] = partner_id
-                    
-                    # Create the picking with context to force the date
-                    picking_id = models.execute_kw(DB, uid, PASSWORD,
-                        'stock.picking', 'create',
-                        [picking_vals],
-                        {'context': context}
-                    )
-                    logger.info(f"Created transfer document for date {date_group} to location {dest_location} with ID {picking_id}")
-                    
-                    # Check the actual date that was saved
-                    picking_data_before = models.execute_kw(DB, uid, PASSWORD,
-                        'stock.picking', 'read',
-                        [picking_id],
-                        {'fields': ['scheduled_date', 'date', 'date_deadline']}
-                    )
-                    logger.info(f"Initial dates after creation: {picking_data_before[0]}")
-                    
-                    # Try a direct database update approach for Odoo 17
-                    try:
-                        # Try to update the picking directly using the ORM with a special context
-                        bypass_context = {
-                            'bypass_date_validation': True, 
-                            'tracking_disable': True,
-                            'mail_notrack': True,
-                            'mail_create_nolog': True,
-                            'no_recompute': True,
-                            'force_period_date': date_str.split(' ')[0]  # Force period date (Odoo specific)
-                        }
-                        
-                        # Try to update using write method with bypass context
-                        models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'write',
-                            [[picking_id], {
-                                'scheduled_date': date_str,
-                                'date': date_str,
-                                'date_deadline': date_str
-                            }],
-                            {'context': bypass_context}
-                        )
-                        logger.info(f"Updated dates using write method with bypass context: {date_str}")
-                    except Exception as e:
-                        logger.warning(f"Could not update dates using ORM with bypass context: {str(e)}")
-                    
-                    # Try standard write method as fallback
-                    try:
-                        models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'write',
-                            [[picking_id], {
-                                'scheduled_date': date_str,
-                                'date': date_str,
-                                'date_deadline': date_str
-                            }]
-                        )
-                        logger.info(f"Updated dates using standard write method: {date_str}")
-                    except Exception as e2:
-                        logger.error(f"Failed to update dates using all methods: {str(e2)}")
-                    
-                    # Try one more approach - update the picking before adding moves
-                    try:
-                        # Try to update the picking state to force date recalculation
-                        models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'write',
-                            [[picking_id], {'state': 'draft'}],
-                            {'context': {'force_period_date': date_str.split(' ')[0]}}
-                        )
-                        logger.info("Set picking state to draft to force date recalculation")
-                    except Exception as state_error:
-                        logger.warning(f"Could not update picking state: {str(state_error)}")
-                    
-                    # Verify the update was successful
-                    picking_data_after = models.execute_kw(DB, uid, PASSWORD,
-                        'stock.picking', 'read',
-                        [picking_id],
-                        {'fields': ['scheduled_date', 'date', 'date_deadline', 'state']}
-                    )
-                    logger.info(f"Final dates after updates: {picking_data_after[0]}")
-                    
-                    # Process each product in this group
-                    move_ids = []
-                    for _, row in location_df.iterrows():
-                        try:
-                            # Get product information
-                            product_code = str(row['product_id']).strip()
-                            if not product_code:
-                                logger.warning(f"Skipping row with empty product code")
-                                continue
-                            
-                            try:
-                                quantity = float(row['product_uom_qty'])
-                            except (ValueError, TypeError):
-                                logger.warning(f"Skipping product {product_code} with invalid quantity: {row['product_uom_qty']}")
-                                continue
-                            
-                            # Skip if quantity is zero or negative
-                            if quantity <= 0:
-                                logger.warning(f"Skipping product {product_code} with invalid quantity: {quantity}")
-                                continue
-                            
-                            # Get product ID
-                            product_id = get_product_id(models, uid, product_code)
-                            if not product_id:
-                                logger.warning(f"Product not found: {product_code}")
-                                continue
-                            
-                            # Get UoM ID
-                            uom_id = get_uom_id(models, uid, product_id)
-                            if not uom_id:
-                                logger.warning(f"UoM not found for product {product_code}")
-                                continue
-                            
-                            # Create stock move
-                            move_vals = {
-                                'name': f"Move {product_code}",
-                                'product_id': product_id,
-                                'product_uom_qty': quantity,
-                                'product_uom': uom_id,
-                                'picking_id': picking_id,
-                                'location_id': source_location_id,
-                                'location_dest_id': dest_location_id,
-                            }
-
-                            # Add sequence if available
-                            if 'sequence' in row and pd.notna(row['sequence']):
-                                move_vals['sequence'] = int(row['sequence'])
-                            
-                            # Add price_unit if available
-                            if 'price_unit' in row and pd.notna(row['price_unit']):
-                                try:
-                                    move_vals['price_unit'] = float(row['price_unit'])
-                                except (ValueError, TypeError):
-                                    logger.warning(f"Invalid price_unit value for product {product_code}: {row['price_unit']}")
-                            
-                            move_id = models.execute_kw(DB, uid, PASSWORD,
-                                'stock.move', 'create',
-                                [move_vals]
-                            )
-                            move_ids.append(move_id)
-                            logger.info(f"Added product {product_code} with quantity {quantity} to transfer {picking_id}")
-                            successful_transfers += 1
-                        except Exception as e:
-                            logger.error(f"Error processing product {row.get('product_id', 'unknown')}: {str(e)}")
-                            failed_transfers += 1
-                    
-                    # Confirm the transfer if we have at least one move
-                    if move_ids:
-                        # Before confirming, try to set the date one more time
-                        try:
-                            models.execute_kw(DB, uid, PASSWORD,
-                                'stock.picking', 'write',
-                                [[picking_id], {
-                                    'scheduled_date': date_str,
-                                    'date': date_str,
-                                    'date_deadline': date_str
-                                }],
-                                {'context': {'force_period_date': date_str.split(' ')[0]}}
-                            )
-                            logger.info(f"Final date update before confirmation: {date_str}")
-                        except Exception as final_update_error:
-                            logger.warning(f"Final date update failed: {str(final_update_error)}")
-                        
-                        # Now confirm the transfer
-                        models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'action_confirm',
-                            [[picking_id]]
-                        )
-                        logger.info(f"Confirmed transfer {picking_id} with {len(move_ids)} products")
-                        
-                        # Check the dates after confirmation
-                        picking_data_confirmed = models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'read',
-                            [picking_id],
-                            {'fields': ['scheduled_date', 'date', 'date_deadline', 'state']}
-                        )
-                        logger.info(f"Dates after confirmation: {picking_data_confirmed[0]}")
-                    else:
-                        # If no moves were created, delete the empty picking
-                        models.execute_kw(DB, uid, PASSWORD,
-                            'stock.picking', 'unlink',
-                            [[picking_id]]
-                        )
-                        logger.warning(f"Deleted empty transfer {picking_id} as no valid products were found")
-                
-                except Exception as e:
-                    logger.error(f"Error processing location group {dest_location} for date {date_group}: {str(e)}")
-                    failed_transfers += len(location_df)
-        
-        return successful_transfers, failed_transfers
-    
-    except Exception as e:
-        logger.error(f"Error in create_internal_transfers: {str(e)}")
-        return successful_transfers, failed_transfers
->>>>>>> fb906cb (ok)
 
     except Exception as e:
         logger.error(f"Error creating internal transfers: {str(e)}")
