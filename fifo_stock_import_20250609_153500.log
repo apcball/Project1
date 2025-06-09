@@ -1,0 +1,1035 @@
+2025-06-09 15:35:01,627 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-09 15:35:01,693 - INFO - Odoo version: 17.0.1.3
+2025-06-09 15:35:01,813 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-09 15:35:02,162 - INFO - Successfully read Excel file with 339 rows
+2025-06-09 15:35:02,162 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-09 15:35:02,166 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-09 15:35:02,167 - INFO - scheduled_date sample: 2025-02-28 00:00:00
+2025-06-09 15:35:02,169 - INFO - Converted scheduled_date to string format. Sample: 2025-02-28 00:00:00
+2025-06-09 15:35:02,170 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-09 15:35:02,171 - INFO - Using 'origin' column to identify transfer groups
+2025-06-09 15:35:02,175 - INFO - Excel file validation and data filling completed successfully
+2025-06-09 15:35:02,344 - INFO - Searching for location: 'FG50/Stock'
+2025-06-09 15:35:02,547 - INFO - Found location with complete_name match: 'FG50/Stock' for 'FG50/Stock'
+2025-06-09 15:35:02,638 - INFO - Found partner ID 14303 for 'MOG-สินค้าชำรุด'
+2025-06-09 15:35:02,783 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 8000 with picking ID 7318
+2025-06-09 15:35:02,784 - INFO - Searching for product with code: 'MO042S101' and old code: 'MO042S101'
+2025-06-09 15:35:02,852 - INFO - Found product with exact match on default_code: 'MO042S101'
+2025-06-09 15:35:03,196 - INFO - Added product MO042S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:03,197 - INFO - Searching for product with code: 'MO049EXBC101' and old code: 'MO049EXBC101'
+2025-06-09 15:35:03,293 - INFO - Found product with exact match on default_code: 'MO049EXBC101'
+2025-06-09 15:35:03,483 - INFO - Added product MO049EXBC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:03,484 - INFO - Searching for product with code: 'MO049EXBC101' and old code: 'MO049EXBC101'
+2025-06-09 15:35:03,539 - INFO - Found product with exact match on default_code: 'MO049EXBC101'
+2025-06-09 15:35:03,725 - INFO - Added product MO049EXBC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:03,725 - INFO - Searching for product with code: 'MO05NBC101' and old code: 'MO05NBC101'
+2025-06-09 15:35:03,777 - INFO - Found product with exact match on default_code: 'MO05NBC101'
+2025-06-09 15:35:03,943 - INFO - Added product MO05NBC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:03,943 - INFO - Searching for product with code: 'MO05NBC101' and old code: 'MO05NBC101'
+2025-06-09 15:35:04,001 - INFO - Found product with exact match on default_code: 'MO05NBC101'
+2025-06-09 15:35:04,174 - INFO - Added product MO05NBC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:04,174 - INFO - Searching for product with code: 'MO05NBC101' and old code: 'MO05NBC101'
+2025-06-09 15:35:04,225 - INFO - Found product with exact match on default_code: 'MO05NBC101'
+2025-06-09 15:35:04,402 - INFO - Added product MO05NBC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:04,404 - INFO - Searching for product with code: 'MO05SU10' and old code: 'MO05SU10'
+2025-06-09 15:35:04,469 - INFO - Found product with exact match on default_code: 'MO05SU10'
+2025-06-09 15:35:04,643 - INFO - Added product MO05SU10 with quantity 1.0 to picking 7318
+2025-06-09 15:35:04,643 - INFO - Searching for product with code: 'MO05SU10' and old code: 'MO05SU10'
+2025-06-09 15:35:04,699 - INFO - Found product with exact match on default_code: 'MO05SU10'
+2025-06-09 15:35:04,870 - INFO - Added product MO05SU10 with quantity 1.0 to picking 7318
+2025-06-09 15:35:04,871 - INFO - Searching for product with code: 'MO05SU10' and old code: 'MO05SU10'
+2025-06-09 15:35:04,973 - INFO - Found product with exact match on default_code: 'MO05SU10'
+2025-06-09 15:35:05,277 - INFO - Added product MO05SU10 with quantity 1.0 to picking 7318
+2025-06-09 15:35:05,277 - INFO - Searching for product with code: 'MO066S101' and old code: 'MO066S101'
+2025-06-09 15:35:05,359 - INFO - Found product with exact match on default_code: 'MO066S101'
+2025-06-09 15:35:05,721 - INFO - Added product MO066S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:05,721 - INFO - Searching for product with code: 'MO069BC101' and old code: 'MO069BC101'
+2025-06-09 15:35:05,839 - INFO - Found product with exact match on default_code: 'MO069BC101'
+2025-06-09 15:35:06,279 - INFO - Added product MO069BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:06,281 - INFO - Searching for product with code: 'MO069BC101' and old code: 'MO069BC101'
+2025-06-09 15:35:06,422 - INFO - Found product with exact match on default_code: 'MO069BC101'
+2025-06-09 15:35:06,799 - INFO - Added product MO069BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:06,800 - INFO - Searching for product with code: 'MO10BC101' and old code: 'MO10BC101'
+2025-06-09 15:35:06,919 - INFO - Found product with exact match on default_code: 'MO10BC101'
+2025-06-09 15:35:07,311 - INFO - Added product MO10BC101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:07,312 - INFO - Searching for product with code: 'MO10BC101' and old code: 'MO10BC101'
+2025-06-09 15:35:07,427 - INFO - Found product with exact match on default_code: 'MO10BC101'
+2025-06-09 15:35:07,794 - INFO - Added product MO10BC101 with quantity 3.0 to picking 7318
+2025-06-09 15:35:07,794 - INFO - Searching for product with code: 'MO12BC101' and old code: 'MO12BC101'
+2025-06-09 15:35:07,891 - INFO - Found product with exact match on default_code: 'MO12BC101'
+2025-06-09 15:35:08,073 - INFO - Added product MO12BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:08,074 - INFO - Searching for product with code: 'MO12BC101' and old code: 'MO12BC101'
+2025-06-09 15:35:08,139 - INFO - Found product with exact match on default_code: 'MO12BC101'
+2025-06-09 15:35:08,318 - INFO - Added product MO12BC101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:08,320 - INFO - Searching for product with code: 'MO12BC101' and old code: 'MO12BC101'
+2025-06-09 15:35:08,379 - INFO - Found product with exact match on default_code: 'MO12BC101'
+2025-06-09 15:35:08,564 - INFO - Added product MO12BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:08,565 - INFO - Searching for product with code: 'MO12SS101' and old code: 'MO12SS101'
+2025-06-09 15:35:08,621 - INFO - Found product with exact match on default_code: 'MO12SS101'
+2025-06-09 15:35:08,789 - INFO - Added product MO12SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:08,790 - INFO - Searching for product with code: 'MO12SS101' and old code: 'MO12SS101'
+2025-06-09 15:35:08,850 - INFO - Found product with exact match on default_code: 'MO12SS101'
+2025-06-09 15:35:09,027 - INFO - Added product MO12SS101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:09,028 - INFO - Searching for product with code: 'MO12SS101' and old code: 'MO12SS101'
+2025-06-09 15:35:09,101 - INFO - Found product with exact match on default_code: 'MO12SS101'
+2025-06-09 15:35:09,298 - INFO - Added product MO12SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:09,299 - INFO - Searching for product with code: 'MO25BC101' and old code: 'MO25BC101'
+2025-06-09 15:35:09,361 - INFO - Found product with exact match on default_code: 'MO25BC101'
+2025-06-09 15:35:09,595 - INFO - Added product MO25BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:09,596 - INFO - Searching for product with code: 'MO25BC101' and old code: 'MO25BC101'
+2025-06-09 15:35:09,681 - INFO - Found product with exact match on default_code: 'MO25BC101'
+2025-06-09 15:35:09,942 - INFO - Added product MO25BC101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:09,943 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:10,043 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:10,359 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:10,360 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:10,488 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:10,874 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:10,875 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:10,995 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:11,366 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:11,367 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:11,467 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:11,816 - INFO - Added product MO261S101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:11,818 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:11,932 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:12,303 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:12,305 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:12,439 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:12,858 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:12,859 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:12,982 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:13,427 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:13,428 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:13,562 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:13,963 - INFO - Added product MO261S101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:13,963 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:14,068 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:14,443 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:14,444 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:14,562 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:15,028 - INFO - Added product MO261S101 with quantity 3.0 to picking 7318
+2025-06-09 15:35:15,029 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:15,158 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:15,575 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:15,576 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:15,694 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:16,052 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:16,054 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:16,184 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:16,564 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:16,564 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:16,688 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:17,076 - INFO - Added product MO26BC101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:17,077 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:17,210 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:17,599 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:17,601 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:17,726 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:18,135 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:18,137 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:18,283 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:18,743 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:18,743 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:18,852 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:19,232 - INFO - Added product MO26BC101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:19,232 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:19,358 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:19,767 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:19,768 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:19,887 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:20,266 - INFO - Added product MO26BC101 with quantity 3.0 to picking 7318
+2025-06-09 15:35:20,267 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:20,383 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:20,744 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:20,745 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:35:20,866 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:35:21,057 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:21,058 - INFO - Searching for product with code: 'MO31NBC1010' and old code: 'MO31NBC1010'
+2025-06-09 15:35:21,130 - INFO - Found product with exact match on default_code: 'MO31NBC1010'
+2025-06-09 15:35:21,314 - INFO - Added product MO31NBC1010 with quantity 1.0 to picking 7318
+2025-06-09 15:35:21,315 - INFO - Searching for product with code: 'MO31NBC1010' and old code: 'MO31NBC1010'
+2025-06-09 15:35:21,379 - INFO - Found product with exact match on default_code: 'MO31NBC1010'
+2025-06-09 15:35:21,583 - INFO - Added product MO31NBC1010 with quantity 2.0 to picking 7318
+2025-06-09 15:35:21,584 - INFO - Searching for product with code: 'MO32BC101' and old code: 'MO32BC101'
+2025-06-09 15:35:21,657 - INFO - Found product with exact match on default_code: 'MO32BC101'
+2025-06-09 15:35:21,853 - INFO - Added product MO32BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:21,855 - INFO - Searching for product with code: 'MO32BC101' and old code: 'MO32BC101'
+2025-06-09 15:35:21,955 - INFO - Found product with exact match on default_code: 'MO32BC101'
+2025-06-09 15:35:22,194 - INFO - Added product MO32BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:22,196 - INFO - Searching for product with code: 'MO38BC101' and old code: 'MO38BC101'
+2025-06-09 15:35:22,278 - INFO - Found product with exact match on default_code: 'MO38BC101'
+2025-06-09 15:35:22,598 - INFO - Added product MO38BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:22,600 - INFO - Searching for product with code: 'MT014B101' and old code: 'MT014B101'
+2025-06-09 15:35:22,714 - INFO - Found product with exact match on default_code: 'MT014B101'
+2025-06-09 15:35:23,118 - INFO - Added product MT014B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:23,119 - INFO - Searching for product with code: 'MT14S1101' and old code: 'MT14S1101'
+2025-06-09 15:35:23,238 - INFO - Found product with exact match on default_code: 'MT14S1101'
+2025-06-09 15:35:23,683 - INFO - Added product MT14S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:23,684 - INFO - Searching for product with code: 'MT14TC101' and old code: 'MT14TC101'
+2025-06-09 15:35:23,815 - INFO - Found product with exact match on default_code: 'MT14TC101'
+2025-06-09 15:35:24,221 - INFO - Added product MT14TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:24,222 - INFO - Searching for product with code: 'MU0001B101' and old code: 'MU0001B101'
+2025-06-09 15:35:24,347 - INFO - Found product with exact match on default_code: 'MU0001B101'
+2025-06-09 15:35:24,748 - INFO - Added product MU0001B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:24,749 - INFO - Searching for product with code: 'MUS100I0C10000' and old code: 'MUS100I0C10000'
+2025-06-09 15:35:24,883 - INFO - Found product with exact match on default_code: 'MUS100I0C10000'
+2025-06-09 15:35:25,248 - INFO - Added product MUS100I0C10000 with quantity 1.0 to picking 7318
+2025-06-09 15:35:25,249 - INFO - Searching for product with code: 'RS00001100' and old code: 'RS00001100'
+2025-06-09 15:35:25,362 - INFO - Found product with exact match on default_code: 'RS00001100'
+2025-06-09 15:35:25,759 - INFO - Added product RS00001100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:25,760 - INFO - Searching for product with code: 'SP0036100' and old code: 'SP0036100'
+2025-06-09 15:35:25,888 - INFO - Found product with exact match on default_code: 'SP0036100'
+2025-06-09 15:35:26,314 - INFO - Added product SP0036100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:26,315 - INFO - Searching for product with code: 'SPW005N110' and old code: 'SPW005N110'
+2025-06-09 15:35:26,438 - INFO - Found product with exact match on default_code: 'SPW005N110'
+2025-06-09 15:35:26,888 - INFO - Added product SPW005N110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:26,889 - INFO - Searching for product with code: 'SPW005N110' and old code: 'SPW005N110'
+2025-06-09 15:35:27,030 - INFO - Found product with exact match on default_code: 'SPW005N110'
+2025-06-09 15:35:27,456 - INFO - Added product SPW005N110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:27,457 - INFO - Searching for product with code: 'SPW005N110' and old code: 'SPW005N110'
+2025-06-09 15:35:27,602 - INFO - Found product with exact match on default_code: 'SPW005N110'
+2025-06-09 15:35:27,975 - INFO - Added product SPW005N110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:27,977 - INFO - Searching for product with code: 'SPW005N110' and old code: 'SPW005N110'
+2025-06-09 15:35:28,100 - INFO - Found product with exact match on default_code: 'SPW005N110'
+2025-06-09 15:35:28,591 - INFO - Added product SPW005N110 with quantity 2.0 to picking 7318
+2025-06-09 15:35:28,593 - INFO - Searching for product with code: 'SPW005N110' and old code: 'SPW005N110'
+2025-06-09 15:35:28,710 - INFO - Found product with exact match on default_code: 'SPW005N110'
+2025-06-09 15:35:29,093 - INFO - Added product SPW005N110 with quantity 3.0 to picking 7318
+2025-06-09 15:35:29,095 - INFO - Searching for product with code: 'SPW0260100' and old code: 'SPW0260100'
+2025-06-09 15:35:29,225 - INFO - Found product with exact match on default_code: 'SPW0260100'
+2025-06-09 15:35:29,610 - INFO - Added product SPW0260100 with quantity 3.0 to picking 7318
+2025-06-09 15:35:29,611 - INFO - Searching for product with code: 'SPW0260100' and old code: 'SPW0260100'
+2025-06-09 15:35:29,738 - INFO - Found product with exact match on default_code: 'SPW0260100'
+2025-06-09 15:35:30,175 - INFO - Added product SPW0260100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:30,176 - INFO - Searching for product with code: 'SPW0260100' and old code: 'SPW0260100'
+2025-06-09 15:35:30,318 - INFO - Found product with exact match on default_code: 'SPW0260100'
+2025-06-09 15:35:30,801 - INFO - Added product SPW0260100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:30,802 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:35:30,958 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:35:31,387 - INFO - Added product SPW026100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:31,388 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:35:31,504 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:35:31,876 - INFO - Added product SPW026100 with quantity 2.0 to picking 7318
+2025-06-09 15:35:31,878 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:35:32,015 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:35:32,473 - INFO - Added product SPW026100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:32,474 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:35:32,629 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:35:33,047 - INFO - Added product SPW026100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:33,048 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:35:33,237 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:35:33,642 - INFO - Added product SPW026100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:33,643 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:35:33,766 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:35:34,148 - INFO - Added product SPW026100 with quantity 2.0 to picking 7318
+2025-06-09 15:35:34,148 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:35:34,301 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:35:34,723 - INFO - Added product SPW026100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:34,728 - INFO - Searching for product with code: 'SPW031N110' and old code: 'SPW031N110'
+2025-06-09 15:35:34,850 - INFO - Found product with exact match on default_code: 'SPW031N110'
+2025-06-09 15:35:35,317 - INFO - Added product SPW031N110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:35,318 - INFO - Searching for product with code: 'SPW031N110' and old code: 'SPW031N110'
+2025-06-09 15:35:35,444 - INFO - Found product with exact match on default_code: 'SPW031N110'
+2025-06-09 15:35:35,911 - INFO - Added product SPW031N110 with quantity 2.0 to picking 7318
+2025-06-09 15:35:35,912 - INFO - Searching for product with code: 'SPW069100' and old code: 'SPW069100'
+2025-06-09 15:35:36,090 - INFO - Found product with exact match on default_code: 'SPW069100'
+2025-06-09 15:35:36,553 - INFO - Added product SPW069100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:36,554 - INFO - Searching for product with code: 'SPW120100' and old code: 'SPW120100'
+2025-06-09 15:35:36,672 - INFO - Found product with exact match on default_code: 'SPW120100'
+2025-06-09 15:35:37,065 - INFO - Added product SPW120100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:37,066 - INFO - Searching for product with code: 'SPW120100' and old code: 'SPW120100'
+2025-06-09 15:35:37,186 - INFO - Found product with exact match on default_code: 'SPW120100'
+2025-06-09 15:35:37,440 - INFO - Added product SPW120100 with quantity 2.0 to picking 7318
+2025-06-09 15:35:37,442 - INFO - Searching for product with code: 'SPW120100' and old code: 'SPW120100'
+2025-06-09 15:35:37,493 - INFO - Found product with exact match on default_code: 'SPW120100'
+2025-06-09 15:35:37,662 - INFO - Added product SPW120100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:37,664 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:35:37,725 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:35:37,965 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:35:37,966 - INFO - Searching for product with code: 'MO010S101' and old code: 'MO010S101'
+2025-06-09 15:35:38,044 - INFO - Found product with exact match on default_code: 'MO010S101'
+2025-06-09 15:35:38,232 - INFO - Added product MO010S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:38,233 - INFO - Searching for product with code: 'MO010S101' and old code: 'MO010S101'
+2025-06-09 15:35:38,289 - INFO - Found product with exact match on default_code: 'MO010S101'
+2025-06-09 15:35:38,514 - INFO - Added product MO010S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:38,515 - INFO - Searching for product with code: 'MO015S101' and old code: 'MO015S101'
+2025-06-09 15:35:38,594 - INFO - Found product with exact match on default_code: 'MO015S101'
+2025-06-09 15:35:38,898 - INFO - Added product MO015S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:38,898 - INFO - Searching for product with code: 'MO049EXBC101' and old code: 'MO049EXBC101'
+2025-06-09 15:35:39,015 - INFO - Found product with exact match on default_code: 'MO049EXBC101'
+2025-06-09 15:35:39,481 - INFO - Added product MO049EXBC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:39,481 - INFO - Searching for product with code: 'MO053BC101' and old code: 'MO053BC101'
+2025-06-09 15:35:39,628 - INFO - Found product with exact match on default_code: 'MO053BC101'
+2025-06-09 15:35:40,093 - INFO - Added product MO053BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:40,094 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:35:40,226 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:35:40,688 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:40,690 - INFO - Searching for product with code: 'MT00068110' and old code: 'MT00068110'
+2025-06-09 15:35:40,811 - INFO - Found product with exact match on default_code: 'MT00068110'
+2025-06-09 15:35:41,204 - INFO - Added product MT00068110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:41,205 - INFO - Searching for product with code: 'MT00068110' and old code: 'MT00068110'
+2025-06-09 15:35:41,331 - INFO - Found product with exact match on default_code: 'MT00068110'
+2025-06-09 15:35:41,766 - INFO - Added product MT00068110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:41,768 - INFO - Searching for product with code: 'MT00068110' and old code: 'MT00068110'
+2025-06-09 15:35:41,888 - INFO - Found product with exact match on default_code: 'MT00068110'
+2025-06-09 15:35:42,270 - INFO - Added product MT00068110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:42,270 - INFO - Searching for product with code: 'MT00068110' and old code: 'MT00068110'
+2025-06-09 15:35:42,392 - INFO - Found product with exact match on default_code: 'MT00068110'
+2025-06-09 15:35:42,779 - INFO - Added product MT00068110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:42,781 - INFO - Searching for product with code: 'MT0033S110' and old code: 'MT0033S110'
+2025-06-09 15:35:42,911 - INFO - Found product with exact match on default_code: 'MT0033S110'
+2025-06-09 15:35:43,308 - INFO - Added product MT0033S110 with quantity 1.0 to picking 7318
+2025-06-09 15:35:43,309 - INFO - Searching for product with code: 'MT0071TC101' and old code: 'MT0071TC101'
+2025-06-09 15:35:43,430 - INFO - Found product with exact match on default_code: 'MT0071TC101'
+2025-06-09 15:35:43,857 - INFO - Added product MT0071TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:43,859 - INFO - Searching for product with code: 'MT0074S101' and old code: 'MT0074S101'
+2025-06-09 15:35:43,986 - INFO - Found product with exact match on default_code: 'MT0074S101'
+2025-06-09 15:35:44,380 - INFO - Added product MT0074S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:44,381 - INFO - Searching for product with code: 'MT010B101' and old code: 'MT010B101'
+2025-06-09 15:35:44,500 - INFO - Found product with exact match on default_code: 'MT010B101'
+2025-06-09 15:35:44,884 - INFO - Added product MT010B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:44,885 - INFO - Searching for product with code: 'MT014B101' and old code: 'MT014B101'
+2025-06-09 15:35:44,986 - INFO - Found product with exact match on default_code: 'MT014B101'
+2025-06-09 15:35:45,226 - INFO - Added product MT014B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:45,227 - INFO - Searching for product with code: 'MT014B101' and old code: 'MT014B101'
+2025-06-09 15:35:45,303 - INFO - Found product with exact match on default_code: 'MT014B101'
+2025-06-09 15:35:45,599 - INFO - Added product MT014B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:45,599 - INFO - Searching for product with code: 'MT014B101' and old code: 'MT014B101'
+2025-06-09 15:35:45,713 - INFO - Found product with exact match on default_code: 'MT014B101'
+2025-06-09 15:35:46,012 - INFO - Added product MT014B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:46,013 - INFO - Searching for product with code: 'MT014B101' and old code: 'MT014B101'
+2025-06-09 15:35:46,098 - INFO - Found product with exact match on default_code: 'MT014B101'
+2025-06-09 15:35:46,308 - INFO - Added product MT014B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:46,308 - INFO - Searching for product with code: 'MT014B101' and old code: 'MT014B101'
+2025-06-09 15:35:46,395 - INFO - Found product with exact match on default_code: 'MT014B101'
+2025-06-09 15:35:46,599 - INFO - Added product MT014B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:46,600 - INFO - Searching for product with code: 'MT019B101' and old code: 'MT019B101'
+2025-06-09 15:35:46,693 - INFO - Found product with exact match on default_code: 'MT019B101'
+2025-06-09 15:35:46,936 - INFO - Added product MT019B101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:46,937 - INFO - Searching for product with code: 'MT019B101' and old code: 'MT019B101'
+2025-06-09 15:35:47,103 - INFO - Found product with exact match on default_code: 'MT019B101'
+2025-06-09 15:35:47,275 - INFO - Added product MT019B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:47,277 - INFO - Searching for product with code: 'MT020B101' and old code: 'MT020B101'
+2025-06-09 15:35:47,341 - INFO - Found product with exact match on default_code: 'MT020B101'
+2025-06-09 15:35:47,520 - INFO - Added product MT020B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:47,521 - INFO - Searching for product with code: 'MT020B101' and old code: 'MT020B101'
+2025-06-09 15:35:47,585 - INFO - Found product with exact match on default_code: 'MT020B101'
+2025-06-09 15:35:47,790 - INFO - Added product MT020B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:47,791 - INFO - Searching for product with code: 'MT020B101' and old code: 'MT020B101'
+2025-06-09 15:35:47,850 - INFO - Found product with exact match on default_code: 'MT020B101'
+2025-06-09 15:35:48,033 - INFO - Added product MT020B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:48,035 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:48,109 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:48,310 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:48,312 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:48,388 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:48,752 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:48,754 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:48,851 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:49,086 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:49,088 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:49,185 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:49,438 - INFO - Added product MT021B101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:49,439 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:49,527 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:49,749 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:49,750 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:49,862 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:50,032 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:50,033 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:50,103 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:50,322 - INFO - Added product MT021B101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:50,323 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:50,395 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:50,573 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:50,575 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:35:50,668 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:35:50,857 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:50,858 - INFO - Searching for product with code: 'MT022B101' and old code: 'MT022B101'
+2025-06-09 15:35:50,934 - INFO - Found product with exact match on default_code: 'MT022B101'
+2025-06-09 15:35:51,119 - INFO - Added product MT022B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:51,120 - INFO - Searching for product with code: 'MT022S101' and old code: 'MT022S101'
+2025-06-09 15:35:51,183 - INFO - Found product with exact match on default_code: 'MT022S101'
+2025-06-09 15:35:51,378 - INFO - Added product MT022S101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:51,378 - INFO - Searching for product with code: 'MT030B101' and old code: 'MT030B101'
+2025-06-09 15:35:51,446 - INFO - Found product with exact match on default_code: 'MT030B101'
+2025-06-09 15:35:51,631 - INFO - Added product MT030B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:51,632 - INFO - Searching for product with code: 'MT033B101' and old code: 'MT033B101'
+2025-06-09 15:35:51,702 - INFO - Found product with exact match on default_code: 'MT033B101'
+2025-06-09 15:35:51,880 - INFO - Added product MT033B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:51,881 - INFO - Searching for product with code: 'MT055B101' and old code: 'MT055B101'
+2025-06-09 15:35:51,956 - INFO - Found product with exact match on default_code: 'MT055B101'
+2025-06-09 15:35:52,146 - INFO - Added product MT055B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:52,146 - INFO - Searching for product with code: 'MT063B101' and old code: 'MT063B101'
+2025-06-09 15:35:52,204 - INFO - Found product with exact match on default_code: 'MT063B101'
+2025-06-09 15:35:52,411 - INFO - Added product MT063B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:52,411 - INFO - Searching for product with code: 'MT068B101' and old code: 'MT068B101'
+2025-06-09 15:35:52,483 - INFO - Found product with exact match on default_code: 'MT068B101'
+2025-06-09 15:35:52,727 - INFO - Added product MT068B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:52,729 - INFO - Searching for product with code: 'MT068B101' and old code: 'MT068B101'
+2025-06-09 15:35:52,804 - INFO - Found product with exact match on default_code: 'MT068B101'
+2025-06-09 15:35:52,992 - INFO - Added product MT068B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:52,992 - INFO - Searching for product with code: 'MT068B101' and old code: 'MT068B101'
+2025-06-09 15:35:53,050 - INFO - Found product with exact match on default_code: 'MT068B101'
+2025-06-09 15:35:53,211 - INFO - Added product MT068B101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:53,212 - INFO - Searching for product with code: 'MT10TC101' and old code: 'MT10TC101'
+2025-06-09 15:35:53,277 - INFO - Found product with exact match on default_code: 'MT10TC101'
+2025-06-09 15:35:53,442 - INFO - Added product MT10TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:53,443 - INFO - Searching for product with code: 'MT14S1101' and old code: 'MT14S1101'
+2025-06-09 15:35:53,495 - INFO - Found product with exact match on default_code: 'MT14S1101'
+2025-06-09 15:35:53,657 - INFO - Added product MT14S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:53,658 - INFO - Searching for product with code: 'MT14S1101' and old code: 'MT14S1101'
+2025-06-09 15:35:53,716 - INFO - Found product with exact match on default_code: 'MT14S1101'
+2025-06-09 15:35:53,886 - INFO - Added product MT14S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:53,887 - INFO - Searching for product with code: 'MT14S1101' and old code: 'MT14S1101'
+2025-06-09 15:35:53,938 - INFO - Found product with exact match on default_code: 'MT14S1101'
+2025-06-09 15:35:54,108 - INFO - Added product MT14S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:54,109 - INFO - Searching for product with code: 'MT14S1101' and old code: 'MT14S1101'
+2025-06-09 15:35:54,163 - INFO - Found product with exact match on default_code: 'MT14S1101'
+2025-06-09 15:35:54,346 - INFO - Added product MT14S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:54,347 - INFO - Searching for product with code: 'MT14S1101' and old code: 'MT14S1101'
+2025-06-09 15:35:54,414 - INFO - Found product with exact match on default_code: 'MT14S1101'
+2025-06-09 15:35:54,608 - INFO - Added product MT14S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:54,609 - INFO - Searching for product with code: 'MT14TC101' and old code: 'MT14TC101'
+2025-06-09 15:35:54,672 - INFO - Found product with exact match on default_code: 'MT14TC101'
+2025-06-09 15:35:54,842 - INFO - Added product MT14TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:54,843 - INFO - Searching for product with code: 'MT14TC101' and old code: 'MT14TC101'
+2025-06-09 15:35:54,896 - INFO - Found product with exact match on default_code: 'MT14TC101'
+2025-06-09 15:35:55,069 - INFO - Added product MT14TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:55,070 - INFO - Searching for product with code: 'MT14TC101' and old code: 'MT14TC101'
+2025-06-09 15:35:55,126 - INFO - Found product with exact match on default_code: 'MT14TC101'
+2025-06-09 15:35:55,306 - INFO - Added product MT14TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:55,306 - INFO - Searching for product with code: 'MT14TC101' and old code: 'MT14TC101'
+2025-06-09 15:35:55,360 - INFO - Found product with exact match on default_code: 'MT14TC101'
+2025-06-09 15:35:55,534 - INFO - Added product MT14TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:55,535 - INFO - Searching for product with code: 'MT14TC101' and old code: 'MT14TC101'
+2025-06-09 15:35:55,592 - INFO - Found product with exact match on default_code: 'MT14TC101'
+2025-06-09 15:35:55,776 - INFO - Added product MT14TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:55,776 - INFO - Searching for product with code: 'MT19TC101' and old code: 'MT19TC101'
+2025-06-09 15:35:55,828 - INFO - Found product with exact match on default_code: 'MT19TC101'
+2025-06-09 15:35:56,002 - INFO - Added product MT19TC101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:56,003 - INFO - Searching for product with code: 'MT19TC101' and old code: 'MT19TC101'
+2025-06-09 15:35:56,064 - INFO - Found product with exact match on default_code: 'MT19TC101'
+2025-06-09 15:35:56,254 - INFO - Added product MT19TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:56,254 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-09 15:35:56,316 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-09 15:35:56,501 - INFO - Added product MT20SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:56,502 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-09 15:35:56,556 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-09 15:35:56,740 - INFO - Added product MT20SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:56,742 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-09 15:35:56,801 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-09 15:35:56,971 - INFO - Added product MT20SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:56,972 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-09 15:35:57,029 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-09 15:35:57,204 - INFO - Added product MT20SS101 with quantity 2.0 to picking 7318
+2025-06-09 15:35:57,204 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-09 15:35:57,265 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-09 15:35:57,449 - INFO - Added product MT20SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:57,450 - INFO - Searching for product with code: 'MT20TC101' and old code: 'MT20TC101'
+2025-06-09 15:35:57,515 - INFO - Found product with exact match on default_code: 'MT20TC101'
+2025-06-09 15:35:57,695 - INFO - Added product MT20TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:57,697 - INFO - Searching for product with code: 'MT20TC101' and old code: 'MT20TC101'
+2025-06-09 15:35:57,769 - INFO - Found product with exact match on default_code: 'MT20TC101'
+2025-06-09 15:35:57,960 - INFO - Added product MT20TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:57,961 - INFO - Searching for product with code: 'MT20TC101' and old code: 'MT20TC101'
+2025-06-09 15:35:58,038 - INFO - Found product with exact match on default_code: 'MT20TC101'
+2025-06-09 15:35:58,249 - INFO - Added product MT20TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:58,249 - INFO - Searching for product with code: 'MT21NS1101' and old code: 'MT21NS1101'
+2025-06-09 15:35:58,333 - INFO - Found product with exact match on default_code: 'MT21NS1101'
+2025-06-09 15:35:58,567 - INFO - Added product MT21NS1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:58,569 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:35:58,680 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:35:58,928 - INFO - Added product MT21S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:58,928 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:35:59,008 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:35:59,215 - INFO - Added product MT21S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:59,215 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:35:59,288 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:35:59,532 - INFO - Added product MT21S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:59,534 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:35:59,616 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:35:59,915 - INFO - Added product MT21S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:35:59,916 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:36:00,098 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:36:00,549 - INFO - Added product MT21S1101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:00,550 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:36:00,677 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:36:01,100 - INFO - Added product MT21S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:01,100 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:36:01,249 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:36:01,838 - INFO - Added product MT21S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:01,839 - INFO - Searching for product with code: 'MT21S2101' and old code: 'MT21S2101'
+2025-06-09 15:36:01,962 - INFO - Found product with exact match on default_code: 'MT21S2101'
+2025-06-09 15:36:02,376 - INFO - Added product MT21S2101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:02,378 - INFO - Searching for product with code: 'MT21S2101' and old code: 'MT21S2101'
+2025-06-09 15:36:02,497 - INFO - Found product with exact match on default_code: 'MT21S2101'
+2025-06-09 15:36:02,914 - INFO - Added product MT21S2101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:02,914 - INFO - Searching for product with code: 'MT21S2101' and old code: 'MT21S2101'
+2025-06-09 15:36:03,042 - INFO - Found product with exact match on default_code: 'MT21S2101'
+2025-06-09 15:36:03,523 - INFO - Added product MT21S2101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:03,524 - INFO - Searching for product with code: 'MT21S2101' and old code: 'MT21S2101'
+2025-06-09 15:36:03,691 - INFO - Found product with exact match on default_code: 'MT21S2101'
+2025-06-09 15:36:04,134 - INFO - Added product MT21S2101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:04,135 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:04,262 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:04,687 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:04,688 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:04,828 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:05,333 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:05,333 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:05,462 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:05,889 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:05,890 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:06,014 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:06,436 - INFO - Added product MT21TC101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:06,436 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:06,553 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:06,977 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:06,978 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:07,095 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:07,494 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:07,496 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:07,610 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:08,089 - INFO - Added product MT21TC101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:08,090 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:08,250 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:08,720 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:08,721 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:08,845 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:09,237 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:09,238 - INFO - Searching for product with code: 'MT22TC101' and old code: 'MT22TC101'
+2025-06-09 15:36:09,382 - INFO - Found product with exact match on default_code: 'MT22TC101'
+2025-06-09 15:36:09,831 - INFO - Added product MT22TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:09,833 - INFO - Searching for product with code: 'MT22TC101' and old code: 'MT22TC101'
+2025-06-09 15:36:09,973 - INFO - Found product with exact match on default_code: 'MT22TC101'
+2025-06-09 15:36:10,442 - INFO - Added product MT22TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:10,444 - INFO - Searching for product with code: 'MT22TC101' and old code: 'MT22TC101'
+2025-06-09 15:36:10,583 - INFO - Found product with exact match on default_code: 'MT22TC101'
+2025-06-09 15:36:11,014 - INFO - Added product MT22TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:11,015 - INFO - Searching for product with code: 'MT24NB101' and old code: 'MT24NB101'
+2025-06-09 15:36:11,140 - INFO - Found product with exact match on default_code: 'MT24NB101'
+2025-06-09 15:36:11,554 - INFO - Added product MT24NB101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:11,555 - INFO - Searching for product with code: 'MT24NB101' and old code: 'MT24NB101'
+2025-06-09 15:36:11,688 - INFO - Found product with exact match on default_code: 'MT24NB101'
+2025-06-09 15:36:12,101 - INFO - Added product MT24NB101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:12,102 - INFO - Searching for product with code: 'MT24NB101' and old code: 'MT24NB101'
+2025-06-09 15:36:12,225 - INFO - Found product with exact match on default_code: 'MT24NB101'
+2025-06-09 15:36:12,502 - INFO - Added product MT24NB101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:12,503 - INFO - Searching for product with code: 'MT24NB101' and old code: 'MT24NB101'
+2025-06-09 15:36:12,559 - INFO - Found product with exact match on default_code: 'MT24NB101'
+2025-06-09 15:36:12,749 - INFO - Added product MT24NB101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:12,751 - INFO - Searching for product with code: 'MT24NB101' and old code: 'MT24NB101'
+2025-06-09 15:36:12,812 - INFO - Found product with exact match on default_code: 'MT24NB101'
+2025-06-09 15:36:12,994 - INFO - Added product MT24NB101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:12,996 - INFO - Searching for product with code: 'MT24NTC101' and old code: 'MT24NTC101'
+2025-06-09 15:36:13,056 - INFO - Found product with exact match on default_code: 'MT24NTC101'
+2025-06-09 15:36:13,241 - INFO - Added product MT24NTC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:13,242 - INFO - Searching for product with code: 'MT24NTC101' and old code: 'MT24NTC101'
+2025-06-09 15:36:13,307 - INFO - Found product with exact match on default_code: 'MT24NTC101'
+2025-06-09 15:36:13,484 - INFO - Added product MT24NTC101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:13,486 - INFO - Searching for product with code: 'MT24NTC101' and old code: 'MT24NTC101'
+2025-06-09 15:36:13,541 - INFO - Found product with exact match on default_code: 'MT24NTC101'
+2025-06-09 15:36:13,728 - INFO - Added product MT24NTC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:13,730 - INFO - Searching for product with code: 'MT30TC101' and old code: 'MT30TC101'
+2025-06-09 15:36:13,788 - INFO - Found product with exact match on default_code: 'MT30TC101'
+2025-06-09 15:36:13,964 - INFO - Added product MT30TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:13,965 - INFO - Searching for product with code: 'MT30TC101' and old code: 'MT30TC101'
+2025-06-09 15:36:14,020 - INFO - Found product with exact match on default_code: 'MT30TC101'
+2025-06-09 15:36:14,183 - INFO - Added product MT30TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:14,192 - INFO - Searching for product with code: 'MT33TC101' and old code: 'MT33TC101'
+2025-06-09 15:36:14,249 - INFO - Found product with exact match on default_code: 'MT33TC101'
+2025-06-09 15:36:14,437 - INFO - Added product MT33TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:14,439 - INFO - Searching for product with code: 'MT411S101' and old code: 'MT411S101'
+2025-06-09 15:36:14,503 - INFO - Found product with exact match on default_code: 'MT411S101'
+2025-06-09 15:36:14,668 - INFO - Added product MT411S101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:14,670 - INFO - Searching for product with code: 'MT411S101' and old code: 'MT411S101'
+2025-06-09 15:36:14,726 - INFO - Found product with exact match on default_code: 'MT411S101'
+2025-06-09 15:36:14,898 - INFO - Added product MT411S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:14,899 - INFO - Searching for product with code: 'MT411S101' and old code: 'MT411S101'
+2025-06-09 15:36:14,952 - INFO - Found product with exact match on default_code: 'MT411S101'
+2025-06-09 15:36:15,139 - INFO - Added product MT411S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:15,141 - INFO - Searching for product with code: 'MT4134B101' and old code: 'MT4134B101'
+2025-06-09 15:36:15,198 - INFO - Found product with exact match on default_code: 'MT4134B101'
+2025-06-09 15:36:15,367 - INFO - Added product MT4134B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:15,368 - INFO - Searching for product with code: 'MT4134B101' and old code: 'MT4134B101'
+2025-06-09 15:36:15,425 - INFO - Found product with exact match on default_code: 'MT4134B101'
+2025-06-09 15:36:15,592 - INFO - Added product MT4134B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:15,592 - INFO - Searching for product with code: 'MT4134B101' and old code: 'MT4134B101'
+2025-06-09 15:36:15,642 - INFO - Found product with exact match on default_code: 'MT4134B101'
+2025-06-09 15:36:15,810 - INFO - Added product MT4134B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:15,811 - INFO - Searching for product with code: 'MT4134B101' and old code: 'MT4134B101'
+2025-06-09 15:36:15,860 - INFO - Found product with exact match on default_code: 'MT4134B101'
+2025-06-09 15:36:16,033 - INFO - Added product MT4134B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:16,034 - INFO - Searching for product with code: 'MT43TC101' and old code: 'MT43TC101'
+2025-06-09 15:36:16,088 - INFO - Found product with exact match on default_code: 'MT43TC101'
+2025-06-09 15:36:16,244 - INFO - Added product MT43TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:16,245 - INFO - Searching for product with code: 'MT43TC101' and old code: 'MT43TC101'
+2025-06-09 15:36:16,298 - INFO - Found product with exact match on default_code: 'MT43TC101'
+2025-06-09 15:36:16,457 - INFO - Added product MT43TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:16,458 - INFO - Searching for product with code: 'MT43TC101' and old code: 'MT43TC101'
+2025-06-09 15:36:16,507 - INFO - Found product with exact match on default_code: 'MT43TC101'
+2025-06-09 15:36:16,668 - INFO - Added product MT43TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:16,670 - INFO - Searching for product with code: 'MT44TC101' and old code: 'MT44TC101'
+2025-06-09 15:36:16,723 - INFO - Found product with exact match on default_code: 'MT44TC101'
+2025-06-09 15:36:16,882 - INFO - Added product MT44TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:16,883 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-06-09 15:36:16,940 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-06-09 15:36:17,108 - INFO - Added product MT541S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:17,109 - INFO - Searching for product with code: 'MT54TC101' and old code: 'MT54TC101'
+2025-06-09 15:36:17,171 - INFO - Found product with exact match on default_code: 'MT54TC101'
+2025-06-09 15:36:17,346 - INFO - Added product MT54TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:17,348 - INFO - Searching for product with code: 'MT55TC101' and old code: 'MT55TC101'
+2025-06-09 15:36:17,404 - INFO - Found product with exact match on default_code: 'MT55TC101'
+2025-06-09 15:36:17,587 - INFO - Added product MT55TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:17,587 - INFO - Searching for product with code: 'MT631S101' and old code: 'MT631S101'
+2025-06-09 15:36:17,639 - INFO - Found product with exact match on default_code: 'MT631S101'
+2025-06-09 15:36:17,814 - INFO - Added product MT631S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:17,816 - INFO - Searching for product with code: 'MT68TC101' and old code: 'MT68TC101'
+2025-06-09 15:36:17,874 - INFO - Found product with exact match on default_code: 'MT68TC101'
+2025-06-09 15:36:18,040 - INFO - Added product MT68TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:18,040 - INFO - Searching for product with code: 'MT68TC101' and old code: 'MT68TC101'
+2025-06-09 15:36:18,095 - INFO - Found product with exact match on default_code: 'MT68TC101'
+2025-06-09 15:36:18,278 - INFO - Added product MT68TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:18,280 - INFO - Searching for product with code: 'MT68TC101' and old code: 'MT68TC101'
+2025-06-09 15:36:18,334 - INFO - Found product with exact match on default_code: 'MT68TC101'
+2025-06-09 15:36:18,493 - INFO - Added product MT68TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:18,494 - INFO - Searching for product with code: 'MT68TC101' and old code: 'MT68TC101'
+2025-06-09 15:36:18,548 - INFO - Found product with exact match on default_code: 'MT68TC101'
+2025-06-09 15:36:18,716 - INFO - Added product MT68TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:18,717 - INFO - Searching for product with code: 'SPW003100' and old code: 'SPW003100'
+2025-06-09 15:36:18,769 - INFO - Found product with exact match on default_code: 'SPW003100'
+2025-06-09 15:36:18,943 - INFO - Added product SPW003100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:18,944 - INFO - Searching for product with code: 'SPW0053100' and old code: 'SPW0053100'
+2025-06-09 15:36:18,997 - INFO - Found product with exact match on default_code: 'SPW0053100'
+2025-06-09 15:36:19,166 - INFO - Added product SPW0053100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:19,168 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2025-06-09 15:36:19,222 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2025-06-09 15:36:19,397 - INFO - Added product SPW0054110 with quantity 1.0 to picking 7318
+2025-06-09 15:36:19,397 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2025-06-09 15:36:19,450 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2025-06-09 15:36:19,643 - INFO - Added product SPW0054110 with quantity 1.0 to picking 7318
+2025-06-09 15:36:19,643 - INFO - Searching for product with code: 'SPW022100' and old code: 'SPW022100'
+2025-06-09 15:36:19,699 - INFO - Found product with exact match on default_code: 'SPW022100'
+2025-06-09 15:36:19,872 - INFO - Added product SPW022100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:19,873 - INFO - Searching for product with code: 'SPW022100' and old code: 'SPW022100'
+2025-06-09 15:36:19,925 - INFO - Found product with exact match on default_code: 'SPW022100'
+2025-06-09 15:36:20,103 - INFO - Added product SPW022100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:20,104 - INFO - Searching for product with code: 'SPW022100' and old code: 'SPW022100'
+2025-06-09 15:36:20,160 - INFO - Found product with exact match on default_code: 'SPW022100'
+2025-06-09 15:36:20,324 - INFO - Added product SPW022100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:20,325 - INFO - Searching for product with code: 'SPW030100' and old code: 'SPW030100'
+2025-06-09 15:36:20,386 - INFO - Found product with exact match on default_code: 'SPW030100'
+2025-06-09 15:36:20,558 - INFO - Added product SPW030100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:20,559 - INFO - Searching for product with code: 'SPW030100' and old code: 'SPW030100'
+2025-06-09 15:36:20,612 - INFO - Found product with exact match on default_code: 'SPW030100'
+2025-06-09 15:36:20,784 - INFO - Added product SPW030100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:20,785 - INFO - Searching for product with code: 'SPW041100' and old code: 'SPW041100'
+2025-06-09 15:36:20,845 - INFO - Found product with exact match on default_code: 'SPW041100'
+2025-06-09 15:36:21,024 - INFO - Added product SPW041100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:21,025 - INFO - Searching for product with code: 'SPW041100' and old code: 'SPW041100'
+2025-06-09 15:36:21,076 - INFO - Found product with exact match on default_code: 'SPW041100'
+2025-06-09 15:36:21,234 - INFO - Added product SPW041100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:21,236 - INFO - Searching for product with code: 'SPW041100' and old code: 'SPW041100'
+2025-06-09 15:36:21,296 - INFO - Found product with exact match on default_code: 'SPW041100'
+2025-06-09 15:36:21,456 - INFO - Added product SPW041100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:21,458 - INFO - Searching for product with code: 'SPW041100' and old code: 'SPW041100'
+2025-06-09 15:36:21,508 - INFO - Found product with exact match on default_code: 'SPW041100'
+2025-06-09 15:36:21,672 - INFO - Added product SPW041100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:21,673 - INFO - Searching for product with code: 'SPW068100' and old code: 'SPW068100'
+2025-06-09 15:36:21,724 - INFO - Found product with exact match on default_code: 'SPW068100'
+2025-06-09 15:36:21,891 - INFO - Added product SPW068100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:21,893 - INFO - Searching for product with code: 'SPW068100' and old code: 'SPW068100'
+2025-06-09 15:36:21,946 - INFO - Found product with exact match on default_code: 'SPW068100'
+2025-06-09 15:36:22,100 - INFO - Added product SPW068100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:22,101 - INFO - Searching for product with code: 'SPW068100' and old code: 'SPW068100'
+2025-06-09 15:36:22,153 - INFO - Found product with exact match on default_code: 'SPW068100'
+2025-06-09 15:36:22,313 - INFO - Added product SPW068100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:22,315 - INFO - Searching for product with code: 'SPW068100' and old code: 'SPW068100'
+2025-06-09 15:36:22,365 - INFO - Found product with exact match on default_code: 'SPW068100'
+2025-06-09 15:36:22,513 - INFO - Added product SPW068100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:22,514 - INFO - Searching for product with code: 'SPW0711000' and old code: 'SPW0711000'
+2025-06-09 15:36:22,569 - INFO - Found product with exact match on default_code: 'SPW0711000'
+2025-06-09 15:36:22,732 - INFO - Added product SPW0711000 with quantity 1.0 to picking 7318
+2025-06-09 15:36:22,732 - INFO - Searching for product with code: 'SPW14N100' and old code: 'SPW14N100'
+2025-06-09 15:36:22,780 - INFO - Found product with exact match on default_code: 'SPW14N100'
+2025-06-09 15:36:22,953 - INFO - Added product SPW14N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:22,954 - INFO - Searching for product with code: 'SPW16N100' and old code: 'SPW16N100'
+2025-06-09 15:36:23,007 - INFO - Found product with exact match on default_code: 'SPW16N100'
+2025-06-09 15:36:23,172 - INFO - Added product SPW16N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:23,173 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:23,231 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:23,390 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:23,391 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:23,447 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:23,611 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:23,611 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:23,661 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:23,818 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:23,819 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:23,869 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:24,024 - INFO - Added product SPW19N100 with quantity 2.0 to picking 7318
+2025-06-09 15:36:24,026 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:24,078 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:24,230 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:24,230 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:24,288 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:24,446 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:24,446 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:24,499 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:24,675 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:24,676 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:24,731 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:24,910 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:24,912 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:24,971 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:25,136 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:25,136 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:25,187 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:25,363 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:25,364 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:25,418 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:25,598 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:25,599 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:25,656 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:25,818 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:25,820 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:25,883 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:26,051 - INFO - Added product SPW19N100 with quantity 2.0 to picking 7318
+2025-06-09 15:36:26,053 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:26,108 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:26,276 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:26,277 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:26,335 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:26,504 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:26,505 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:26,558 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:26,727 - INFO - Added product SPW19N100 with quantity 2.0 to picking 7318
+2025-06-09 15:36:26,729 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:26,783 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:26,945 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:26,947 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:36:27,000 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:36:27,195 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:27,197 - INFO - Searching for product with code: 'SPW41N1100' and old code: 'SPW41N1100'
+2025-06-09 15:36:27,255 - INFO - Found product with exact match on default_code: 'SPW41N1100'
+2025-06-09 15:36:27,449 - INFO - Added product SPW41N1100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:27,451 - INFO - Searching for product with code: 'MAL160L1010' and old code: 'MAL160L1010'
+2025-06-09 15:36:27,516 - INFO - Found product with exact match on default_code: 'MAL160L1010'
+2025-06-09 15:36:27,705 - INFO - Added product MAL160L1010 with quantity 1.0 to picking 7318
+2025-06-09 15:36:27,707 - INFO - Searching for product with code: 'MA0133101' and old code: 'MA0133101'
+2025-06-09 15:36:27,785 - INFO - Found product with exact match on default_code: 'MA0133101'
+2025-06-09 15:36:28,066 - INFO - Added product MA0133101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:28,068 - INFO - Searching for product with code: 'MA0133101' and old code: 'MA0133101'
+2025-06-09 15:36:28,166 - INFO - Found product with exact match on default_code: 'MA0133101'
+2025-06-09 15:36:28,548 - INFO - Added product MA0133101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:28,550 - INFO - Searching for product with code: 'MA142B101' and old code: 'MA142B101'
+2025-06-09 15:36:28,663 - INFO - Found product with exact match on default_code: 'MA142B101'
+2025-06-09 15:36:29,110 - INFO - Added product MA142B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:29,112 - INFO - Searching for product with code: 'MA142B101' and old code: 'MA142B101'
+2025-06-09 15:36:29,238 - INFO - Found product with exact match on default_code: 'MA142B101'
+2025-06-09 15:36:29,718 - INFO - Added product MA142B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:29,719 - INFO - Searching for product with code: 'MA142B101' and old code: 'MA142B101'
+2025-06-09 15:36:29,858 - INFO - Found product with exact match on default_code: 'MA142B101'
+2025-06-09 15:36:30,329 - INFO - Added product MA142B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:30,331 - INFO - Searching for product with code: 'MA142P101' and old code: 'MA142P101'
+2025-06-09 15:36:30,455 - INFO - Found product with exact match on default_code: 'MA142P101'
+2025-06-09 15:36:30,946 - INFO - Added product MA142P101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:30,948 - INFO - Searching for product with code: 'MA142P101' and old code: 'MA142P101'
+2025-06-09 15:36:31,076 - INFO - Found product with exact match on default_code: 'MA142P101'
+2025-06-09 15:36:31,569 - INFO - Added product MA142P101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:31,569 - INFO - Searching for product with code: 'MA142P101' and old code: 'MA142P101'
+2025-06-09 15:36:31,699 - INFO - Found product with exact match on default_code: 'MA142P101'
+2025-06-09 15:36:32,198 - INFO - Added product MA142P101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:32,200 - INFO - Searching for product with code: 'MA142P101' and old code: 'MA142P101'
+2025-06-09 15:36:32,338 - INFO - Found product with exact match on default_code: 'MA142P101'
+2025-06-09 15:36:32,812 - INFO - Added product MA142P101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:32,814 - INFO - Searching for product with code: 'MO0049S110' and old code: 'MO0049S110'
+2025-06-09 15:36:32,939 - INFO - Found product with exact match on default_code: 'MO0049S110'
+2025-06-09 15:36:33,386 - INFO - Added product MO0049S110 with quantity 1.0 to picking 7318
+2025-06-09 15:36:33,387 - INFO - Searching for product with code: 'MO0049S110' and old code: 'MO0049S110'
+2025-06-09 15:36:33,533 - INFO - Found product with exact match on default_code: 'MO0049S110'
+2025-06-09 15:36:34,060 - INFO - Added product MO0049S110 with quantity 1.0 to picking 7318
+2025-06-09 15:36:34,062 - INFO - Searching for product with code: 'MO0069S1101' and old code: 'MO0069S1101'
+2025-06-09 15:36:34,196 - INFO - Found product with exact match on default_code: 'MO0069S1101'
+2025-06-09 15:36:34,747 - INFO - Added product MO0069S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:34,749 - INFO - Searching for product with code: 'MO0069S1101' and old code: 'MO0069S1101'
+2025-06-09 15:36:34,880 - INFO - Found product with exact match on default_code: 'MO0069S1101'
+2025-06-09 15:36:35,329 - INFO - Added product MO0069S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:35,331 - INFO - Searching for product with code: 'MO0069S1101' and old code: 'MO0069S1101'
+2025-06-09 15:36:35,465 - INFO - Found product with exact match on default_code: 'MO0069S1101'
+2025-06-09 15:36:35,927 - INFO - Added product MO0069S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:35,929 - INFO - Searching for product with code: 'MO010S101' and old code: 'MO010S101'
+2025-06-09 15:36:36,077 - INFO - Found product with exact match on default_code: 'MO010S101'
+2025-06-09 15:36:36,577 - INFO - Added product MO010S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:36,578 - INFO - Searching for product with code: 'MO010S101' and old code: 'MO010S101'
+2025-06-09 15:36:36,715 - INFO - Found product with exact match on default_code: 'MO010S101'
+2025-06-09 15:36:37,176 - INFO - Added product MO010S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:37,178 - INFO - Searching for product with code: 'MO010S101' and old code: 'MO010S101'
+2025-06-09 15:36:37,310 - INFO - Found product with exact match on default_code: 'MO010S101'
+2025-06-09 15:36:37,772 - INFO - Added product MO010S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:37,774 - INFO - Searching for product with code: 'MO032S101' and old code: 'MO032S101'
+2025-06-09 15:36:37,909 - INFO - Found product with exact match on default_code: 'MO032S101'
+2025-06-09 15:36:38,418 - INFO - Added product MO032S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:38,419 - INFO - Searching for product with code: 'MO05SU10' and old code: 'MO05SU10'
+2025-06-09 15:36:38,551 - INFO - Found product with exact match on default_code: 'MO05SU10'
+2025-06-09 15:36:38,968 - INFO - Added product MO05SU10 with quantity 1.0 to picking 7318
+2025-06-09 15:36:38,969 - INFO - Searching for product with code: 'MO05SU10' and old code: 'MO05SU10'
+2025-06-09 15:36:39,090 - INFO - Found product with exact match on default_code: 'MO05SU10'
+2025-06-09 15:36:39,547 - INFO - Added product MO05SU10 with quantity 1.0 to picking 7318
+2025-06-09 15:36:39,548 - INFO - Searching for product with code: 'MO066S101' and old code: 'MO066S101'
+2025-06-09 15:36:39,669 - INFO - Found product with exact match on default_code: 'MO066S101'
+2025-06-09 15:36:40,181 - INFO - Added product MO066S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:40,183 - INFO - Searching for product with code: 'MO069BC101' and old code: 'MO069BC101'
+2025-06-09 15:36:40,326 - INFO - Found product with exact match on default_code: 'MO069BC101'
+2025-06-09 15:36:40,817 - INFO - Added product MO069BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:40,818 - INFO - Searching for product with code: 'MO079S101' and old code: 'MO079S101'
+2025-06-09 15:36:40,945 - INFO - Found product with exact match on default_code: 'MO079S101'
+2025-06-09 15:36:41,363 - INFO - Added product MO079S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:41,365 - INFO - Searching for product with code: 'MO10BC101' and old code: 'MO10BC101'
+2025-06-09 15:36:41,471 - INFO - Found product with exact match on default_code: 'MO10BC101'
+2025-06-09 15:36:41,852 - INFO - Added product MO10BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:41,854 - INFO - Searching for product with code: 'MO10BC101' and old code: 'MO10BC101'
+2025-06-09 15:36:41,990 - INFO - Found product with exact match on default_code: 'MO10BC101'
+2025-06-09 15:36:42,488 - INFO - Added product MO10BC101 with quantity 3.0 to picking 7318
+2025-06-09 15:36:42,490 - INFO - Searching for product with code: 'MO12SP1210' and old code: 'MO12SP1210'
+2025-06-09 15:36:42,626 - INFO - Found product with exact match on default_code: 'MO12SP1210'
+2025-06-09 15:36:43,076 - INFO - Added product MO12SP1210 with quantity 1.0 to picking 7318
+2025-06-09 15:36:43,077 - INFO - Searching for product with code: 'MO12SS101' and old code: 'MO12SS101'
+2025-06-09 15:36:43,199 - INFO - Found product with exact match on default_code: 'MO12SS101'
+2025-06-09 15:36:43,599 - INFO - Added product MO12SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:43,600 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:36:43,723 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:36:43,983 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:43,984 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:36:44,042 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:36:44,213 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:44,215 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:36:44,270 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:36:44,430 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:44,430 - INFO - Searching for product with code: 'MO261S101' and old code: 'MO261S101'
+2025-06-09 15:36:44,481 - INFO - Found product with exact match on default_code: 'MO261S101'
+2025-06-09 15:36:44,638 - INFO - Added product MO261S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:44,640 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:36:44,696 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:36:44,869 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:44,871 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:36:44,924 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:36:45,093 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:45,094 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:36:45,145 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:36:45,303 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:45,304 - INFO - Searching for product with code: 'MO26BC101' and old code: 'MO26BC101'
+2025-06-09 15:36:45,356 - INFO - Found product with exact match on default_code: 'MO26BC101'
+2025-06-09 15:36:45,530 - INFO - Added product MO26BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:45,530 - INFO - Searching for product with code: 'MO31NBC1010' and old code: 'MO31NBC1010'
+2025-06-09 15:36:45,586 - INFO - Found product with exact match on default_code: 'MO31NBC1010'
+2025-06-09 15:36:45,767 - INFO - Added product MO31NBC1010 with quantity 1.0 to picking 7318
+2025-06-09 15:36:45,768 - INFO - Searching for product with code: 'MO32BC101' and old code: 'MO32BC101'
+2025-06-09 15:36:45,827 - INFO - Found product with exact match on default_code: 'MO32BC101'
+2025-06-09 15:36:45,995 - INFO - Added product MO32BC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:45,997 - INFO - Searching for product with code: 'MT0033S110' and old code: 'MT0033S110'
+2025-06-09 15:36:46,047 - INFO - Found product with exact match on default_code: 'MT0033S110'
+2025-06-09 15:36:46,234 - INFO - Added product MT0033S110 with quantity 2.0 to picking 7318
+2025-06-09 15:36:46,236 - INFO - Searching for product with code: 'MT0033S110' and old code: 'MT0033S110'
+2025-06-09 15:36:46,294 - INFO - Found product with exact match on default_code: 'MT0033S110'
+2025-06-09 15:36:46,473 - INFO - Added product MT0033S110 with quantity 1.0 to picking 7318
+2025-06-09 15:36:46,474 - INFO - Searching for product with code: 'MT019B101' and old code: 'MT019B101'
+2025-06-09 15:36:46,531 - INFO - Found product with exact match on default_code: 'MT019B101'
+2025-06-09 15:36:46,710 - INFO - Added product MT019B101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:46,712 - INFO - Searching for product with code: 'MT020B101' and old code: 'MT020B101'
+2025-06-09 15:36:46,767 - INFO - Found product with exact match on default_code: 'MT020B101'
+2025-06-09 15:36:46,957 - INFO - Added product MT020B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:46,958 - INFO - Searching for product with code: 'MT020B101' and old code: 'MT020B101'
+2025-06-09 15:36:47,016 - INFO - Found product with exact match on default_code: 'MT020B101'
+2025-06-09 15:36:47,205 - INFO - Added product MT020B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:47,207 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:36:47,268 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:36:47,555 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:47,556 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:36:47,640 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:36:47,897 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:47,898 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:36:47,953 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:36:48,148 - INFO - Added product MT021B101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:48,149 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:36:48,208 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:36:48,384 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:48,386 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:36:48,462 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:36:48,729 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:48,730 - INFO - Searching for product with code: 'MT021B101' and old code: 'MT021B101'
+2025-06-09 15:36:48,806 - INFO - Found product with exact match on default_code: 'MT021B101'
+2025-06-09 15:36:48,995 - INFO - Added product MT021B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:48,996 - INFO - Searching for product with code: 'MT022B101' and old code: 'MT022B101'
+2025-06-09 15:36:49,045 - INFO - Found product with exact match on default_code: 'MT022B101'
+2025-06-09 15:36:49,221 - INFO - Added product MT022B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:49,222 - INFO - Searching for product with code: 'MT022B101' and old code: 'MT022B101'
+2025-06-09 15:36:49,274 - INFO - Found product with exact match on default_code: 'MT022B101'
+2025-06-09 15:36:49,445 - INFO - Added product MT022B101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:49,447 - INFO - Searching for product with code: 'MT022S101' and old code: 'MT022S101'
+2025-06-09 15:36:49,501 - INFO - Found product with exact match on default_code: 'MT022S101'
+2025-06-09 15:36:49,675 - INFO - Added product MT022S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:49,677 - INFO - Searching for product with code: 'MT022S101' and old code: 'MT022S101'
+2025-06-09 15:36:49,734 - INFO - Found product with exact match on default_code: 'MT022S101'
+2025-06-09 15:36:49,891 - INFO - Added product MT022S101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:49,893 - INFO - Searching for product with code: 'MT033B101' and old code: 'MT033B101'
+2025-06-09 15:36:49,948 - INFO - Found product with exact match on default_code: 'MT033B101'
+2025-06-09 15:36:50,112 - INFO - Added product MT033B101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:50,113 - INFO - Searching for product with code: 'MT033B101' and old code: 'MT033B101'
+2025-06-09 15:36:50,169 - INFO - Found product with exact match on default_code: 'MT033B101'
+2025-06-09 15:36:50,324 - INFO - Added product MT033B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:50,326 - INFO - Searching for product with code: 'MT19TC101' and old code: 'MT19TC101'
+2025-06-09 15:36:50,391 - INFO - Found product with exact match on default_code: 'MT19TC101'
+2025-06-09 15:36:50,606 - INFO - Added product MT19TC101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:50,608 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-09 15:36:50,661 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-09 15:36:50,833 - INFO - Added product MT20SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:50,834 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-09 15:36:50,885 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-09 15:36:51,060 - INFO - Added product MT20SS101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:51,063 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2025-06-09 15:36:51,119 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2025-06-09 15:36:51,306 - INFO - Added product MT20SS101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:51,307 - INFO - Searching for product with code: 'MT20TC101' and old code: 'MT20TC101'
+2025-06-09 15:36:51,372 - INFO - Found product with exact match on default_code: 'MT20TC101'
+2025-06-09 15:36:51,545 - INFO - Added product MT20TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:51,547 - INFO - Searching for product with code: 'MT20TC101' and old code: 'MT20TC101'
+2025-06-09 15:36:51,602 - INFO - Found product with exact match on default_code: 'MT20TC101'
+2025-06-09 15:36:51,765 - INFO - Added product MT20TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:51,767 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:36:51,816 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:36:51,982 - INFO - Added product MT21S1101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:51,982 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:36:52,034 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:36:52,207 - INFO - Added product MT21S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:52,209 - INFO - Searching for product with code: 'MT21S1101' and old code: 'MT21S1101'
+2025-06-09 15:36:52,276 - INFO - Found product with exact match on default_code: 'MT21S1101'
+2025-06-09 15:36:52,457 - INFO - Added product MT21S1101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:52,458 - INFO - Searching for product with code: 'MT21S2101' and old code: 'MT21S2101'
+2025-06-09 15:36:52,508 - INFO - Found product with exact match on default_code: 'MT21S2101'
+2025-06-09 15:36:52,686 - INFO - Added product MT21S2101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:52,688 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:52,744 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:52,937 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:52,938 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:52,999 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:53,179 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:53,180 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:53,237 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:53,410 - INFO - Added product MT21TC101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:53,411 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:53,460 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:53,646 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:53,646 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:53,696 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:53,872 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:53,872 - INFO - Searching for product with code: 'MT21TC101' and old code: 'MT21TC101'
+2025-06-09 15:36:53,929 - INFO - Found product with exact match on default_code: 'MT21TC101'
+2025-06-09 15:36:54,101 - INFO - Added product MT21TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:54,102 - INFO - Searching for product with code: 'MT22TC101' and old code: 'MT22TC101'
+2025-06-09 15:36:54,153 - INFO - Found product with exact match on default_code: 'MT22TC101'
+2025-06-09 15:36:54,350 - INFO - Added product MT22TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:54,351 - INFO - Searching for product with code: 'MT22TC101' and old code: 'MT22TC101'
+2025-06-09 15:36:54,403 - INFO - Found product with exact match on default_code: 'MT22TC101'
+2025-06-09 15:36:54,582 - INFO - Added product MT22TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:54,583 - INFO - Searching for product with code: 'MT22TC101' and old code: 'MT22TC101'
+2025-06-09 15:36:54,635 - INFO - Found product with exact match on default_code: 'MT22TC101'
+2025-06-09 15:36:54,800 - INFO - Added product MT22TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:54,801 - INFO - Searching for product with code: 'MT22TC101' and old code: 'MT22TC101'
+2025-06-09 15:36:54,851 - INFO - Found product with exact match on default_code: 'MT22TC101'
+2025-06-09 15:36:55,017 - INFO - Added product MT22TC101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:55,018 - INFO - Searching for product with code: 'MT24NB101' and old code: 'MT24NB101'
+2025-06-09 15:36:55,070 - INFO - Found product with exact match on default_code: 'MT24NB101'
+2025-06-09 15:36:55,240 - INFO - Added product MT24NB101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:55,242 - INFO - Searching for product with code: 'MT24NB101' and old code: 'MT24NB101'
+2025-06-09 15:36:55,302 - INFO - Found product with exact match on default_code: 'MT24NB101'
+2025-06-09 15:36:55,482 - INFO - Added product MT24NB101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:55,483 - INFO - Searching for product with code: 'MT33TC101' and old code: 'MT33TC101'
+2025-06-09 15:36:55,537 - INFO - Found product with exact match on default_code: 'MT33TC101'
+2025-06-09 15:36:55,719 - INFO - Added product MT33TC101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:55,720 - INFO - Searching for product with code: 'MT33TC101' and old code: 'MT33TC101'
+2025-06-09 15:36:55,773 - INFO - Found product with exact match on default_code: 'MT33TC101'
+2025-06-09 15:36:55,936 - INFO - Added product MT33TC101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:55,938 - INFO - Searching for product with code: 'MT411S101' and old code: 'MT411S101'
+2025-06-09 15:36:56,003 - INFO - Found product with exact match on default_code: 'MT411S101'
+2025-06-09 15:36:56,178 - INFO - Added product MT411S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:56,178 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-06-09 15:36:56,227 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-06-09 15:36:56,416 - INFO - Added product MT541S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:56,417 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-06-09 15:36:56,476 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-06-09 15:36:56,656 - INFO - Added product MT541S101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:56,656 - INFO - Searching for product with code: 'MU0007B101' and old code: 'MU0007B101'
+2025-06-09 15:36:56,708 - INFO - Found product with exact match on default_code: 'MU0007B101'
+2025-06-09 15:36:56,888 - INFO - Added product MU0007B101 with quantity 2.0 to picking 7318
+2025-06-09 15:36:56,888 - INFO - Searching for product with code: 'MWH02B101' and old code: 'MWH02B101'
+2025-06-09 15:36:56,942 - INFO - Found product with exact match on default_code: 'MWH02B101'
+2025-06-09 15:36:57,157 - INFO - Added product MWH02B101 with quantity 1.0 to picking 7318
+2025-06-09 15:36:57,157 - INFO - Searching for product with code: 'SPW005N110' and old code: 'SPW005N110'
+2025-06-09 15:36:57,221 - INFO - Found product with exact match on default_code: 'SPW005N110'
+2025-06-09 15:36:57,432 - INFO - Added product SPW005N110 with quantity 1.0 to picking 7318
+2025-06-09 15:36:57,432 - INFO - Searching for product with code: 'SPW005N110' and old code: 'SPW005N110'
+2025-06-09 15:36:57,500 - INFO - Found product with exact match on default_code: 'SPW005N110'
+2025-06-09 15:36:57,741 - INFO - Added product SPW005N110 with quantity 3.0 to picking 7318
+2025-06-09 15:36:57,742 - INFO - Searching for product with code: 'SPW022100' and old code: 'SPW022100'
+2025-06-09 15:36:57,806 - INFO - Found product with exact match on default_code: 'SPW022100'
+2025-06-09 15:36:58,040 - INFO - Added product SPW022100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:58,041 - INFO - Searching for product with code: 'SPW022100' and old code: 'SPW022100'
+2025-06-09 15:36:58,108 - INFO - Found product with exact match on default_code: 'SPW022100'
+2025-06-09 15:36:58,330 - INFO - Added product SPW022100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:58,331 - INFO - Searching for product with code: 'SPW022100' and old code: 'SPW022100'
+2025-06-09 15:36:58,391 - INFO - Found product with exact match on default_code: 'SPW022100'
+2025-06-09 15:36:58,592 - INFO - Added product SPW022100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:58,593 - INFO - Searching for product with code: 'SPW022100' and old code: 'SPW022100'
+2025-06-09 15:36:58,648 - INFO - Found product with exact match on default_code: 'SPW022100'
+2025-06-09 15:36:58,829 - INFO - Added product SPW022100 with quantity 2.0 to picking 7318
+2025-06-09 15:36:58,830 - INFO - Searching for product with code: 'SPW0260100' and old code: 'SPW0260100'
+2025-06-09 15:36:58,884 - INFO - Found product with exact match on default_code: 'SPW0260100'
+2025-06-09 15:36:59,078 - INFO - Added product SPW0260100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:59,079 - INFO - Searching for product with code: 'SPW0260100' and old code: 'SPW0260100'
+2025-06-09 15:36:59,133 - INFO - Found product with exact match on default_code: 'SPW0260100'
+2025-06-09 15:36:59,304 - INFO - Added product SPW0260100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:59,305 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:36:59,356 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:36:59,551 - INFO - Added product SPW026100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:59,554 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2025-06-09 15:36:59,610 - INFO - Found product with exact match on default_code: 'SPW026100'
+2025-06-09 15:36:59,808 - INFO - Added product SPW026100 with quantity 1.0 to picking 7318
+2025-06-09 15:36:59,809 - INFO - Searching for product with code: 'SPW030100' and old code: 'SPW030100'
+2025-06-09 15:36:59,862 - INFO - Found product with exact match on default_code: 'SPW030100'
+2025-06-09 15:37:00,053 - INFO - Added product SPW030100 with quantity 2.0 to picking 7318
+2025-06-09 15:37:00,054 - INFO - Searching for product with code: 'SPW030100' and old code: 'SPW030100'
+2025-06-09 15:37:00,105 - INFO - Found product with exact match on default_code: 'SPW030100'
+2025-06-09 15:37:00,282 - INFO - Added product SPW030100 with quantity 1.0 to picking 7318
+2025-06-09 15:37:00,282 - INFO - Searching for product with code: 'SPW032100.' and old code: 'SPW032100.'
+2025-06-09 15:37:00,344 - INFO - Found product with exact match on default_code: 'SPW032100.'
+2025-06-09 15:37:00,557 - INFO - Added product SPW032100. with quantity 1.0 to picking 7318
+2025-06-09 15:37:00,558 - INFO - Searching for product with code: 'SPW069100' and old code: 'SPW069100'
+2025-06-09 15:37:00,615 - INFO - Found product with exact match on default_code: 'SPW069100'
+2025-06-09 15:37:00,833 - INFO - Added product SPW069100 with quantity 1.0 to picking 7318
+2025-06-09 15:37:00,834 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:37:00,890 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:37:01,091 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:37:01,092 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:37:01,143 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:37:01,332 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:37:01,333 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:37:01,390 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:37:01,608 - INFO - Added product SPW19N100 with quantity 2.0 to picking 7318
+2025-06-09 15:37:01,608 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:37:01,666 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:37:01,852 - INFO - Added product SPW19N100 with quantity 2.0 to picking 7318
+2025-06-09 15:37:01,853 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:37:01,937 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:37:02,194 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:37:02,196 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:37:02,267 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:37:02,470 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:37:02,472 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2025-06-09 15:37:02,531 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2025-06-09 15:37:02,738 - INFO - Added product SPW19N100 with quantity 1.0 to picking 7318
+2025-06-09 15:37:02,971 - INFO - Re-updated dates before confirming picking 7318: 2025-02-28 00:00:00
+2025-06-09 15:37:07,982 - INFO - Confirmed transfer 7318 with forced date context
+2025-06-09 15:37:07,983 - INFO - Import completed: 1 success, 0 failed.
