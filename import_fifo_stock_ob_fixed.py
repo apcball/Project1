@@ -68,6 +68,12 @@ def read_excel_file():
         df = pd.read_excel(EXCEL_FILE, parse_dates=False)
         logger.info(f"Successfully read Excel file with {len(df)} rows")
         logger.info(f"Excel columns: {list(df.columns)}")
+
+        # Handle sequence column if present
+        if 'sequence' in df.columns:
+            df.loc[:, 'sequence'] = pd.to_numeric(df['sequence'], errors='coerce')
+            df.loc[df['sequence'].isna(), 'sequence'] = 0
+            logger.info("Processed sequence column")
         
         # Convert date columns to datetime explicitly
         if 'scheduled_date' in df.columns:
@@ -245,7 +251,7 @@ def get_location_id(models, uid, location_name):
             return location_ids[0]
         
         # Special case for 'FG50/Stock' - try to find 'Stock' or similar
-        if 'FG50' in location_name or 'Stock' in location_name:
+        if 'FG13' in location_name or 'Stock' in location_name:
             logger.info(f"Trying to find a stock location as fallback for '{location_name}'")
             # Try to find any stock location
             stock_location_ids = models.execute_kw(DB, uid, PASSWORD,
@@ -498,7 +504,6 @@ def create_internal_transfers(uid, models, df):
                         'location_dest_id': dest_location_id,
                         'sequence': int(row['sequence']) if 'sequence' in row and pd.notna(row['sequence']) else 10,
                         'description_picking': f"Excel Row {idx+1} | Seq:{row['sequence']} | Product:{product_code}",
-                        # 'description': f"Excel Row {idx+1} | Seq:{row['sequence']} | Product:{product_code}",
                     }
                     if 'price_unit' in row and pd.notna(row['price_unit']):
                         try:
