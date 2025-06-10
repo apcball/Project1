@@ -462,6 +462,7 @@ def create_internal_transfers(uid, models, df):
             # วนลูปแต่ละบรรทัดใน group (แม้รหัสซ้ำก็สร้าง move ใหม่ทุกบรรทัด)
             for idx, row in group_df.iterrows():
                 try:
+                    logger.info(f"Processing Excel row {idx+1}: {row.to_dict()}")
                     product_code = str(row['product_id']).strip() if pd.notna(row['product_id']) else None
                     if not product_code:
                         logger.warning("Skipping row with empty product_id")
@@ -554,6 +555,15 @@ if __name__ == "__main__":
         EXCEL_FILE = 'Data_file/สินค้าโชว์1-10.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
+        # ก่อนวนลูปสร้าง picking/move
+        df = df.dropna(subset=['product_id', 'product_uom_qty'])
+        print("DataFrame rows:", len(df))
+        print("Row ที่ product_id ว่าง:")
+        print(df[df['product_id'].isnull()])
+        print("Row ที่ product_uom_qty ว่าง:")
+        print(df[df['product_uom_qty'].isnull()])
+        print("Row ที่ว่างทุก column:")
+        print(df[df.isnull().all(axis=1)])
         create_internal_transfers(uid, models, df)
     except Exception as e:
         logger.error(f"Fatal error: {str(e)}")
