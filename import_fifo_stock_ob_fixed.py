@@ -12,7 +12,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/สินค้าโชว์1-10.xlsx'
+EXCEL_FILE = 'Data_file/สิ้นเปลืองโรงงาน.xlsx'
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -117,12 +117,12 @@ def read_excel_file():
         
         # Make sure location_dest_id and picking_type_id columns exist
         if 'location_dest_id' not in df.columns:
-            df['location_dest_id'] = 'Stock'  # Default value
-            logger.info("Added missing 'location_dest_id' column with default value 'Stock'")
-        
+            # ไม่ต้องเติมค่า default ใดๆ ถ้าไม่มี column นี้
+            logger.info("No 'location_dest_id' column found. Will skip this field if missing.")
+
         if 'picking_type_id' not in df.columns:
-            df['picking_type_id'] = 'OB FIFO'  # Default value
-            logger.info("Added missing 'picking_type_id' column with default value 'OB FIFO'")
+            df['picking_type_id'] = 'Delivery Orders'  # Default for Delivery
+            logger.info("Added missing 'picking_type_id' column with default value 'Delivery Orders'")
         
         # Try to identify groups by origin if available
         if 'origin' in df.columns and not df['origin'].isna().all():
@@ -206,10 +206,37 @@ def get_or_create_partner(models, uid, partner_name):
 def get_location_id(models, uid, location_name):
     """Get location ID by name - improved version"""
     try:
-        # Ensure location_name is a string and strip whitespace
         location_name = str(location_name).strip()
         logger.info(f"Searching for location: '{location_name}'")
-        
+
+        # ถ้าเป็น Customers หรือ Partners/Customers ให้หา usage = 'customer'
+        if location_name.lower() in ['customers', 'partners/customers', 'partner/customers']:
+            location_ids = models.execute_kw(DB, uid, PASSWORD,
+                'stock.location', 'search',
+                [[['usage', '=', 'customer']]],
+                {'limit': 1}
+            )
+            if location_ids:
+                logger.info(f"Found customer location for '{location_name}'")
+                return location_ids[0]
+            else:
+                logger.error(f"Customer location not found for '{location_name}'")
+                return False
+
+        # ถ้าเป็น Vendors หรือ Partners/Vendors ให้หา usage = 'supplier'
+        if location_name.lower() in ['vendors', 'partners/vendors', 'partner/vendors']:
+            location_ids = models.execute_kw(DB, uid, PASSWORD,
+                'stock.location', 'search',
+                [[['usage', '=', 'supplier']]],
+                {'limit': 1}
+            )
+            if location_ids:
+                logger.info(f"Found supplier location for '{location_name}'")
+                return location_ids[0]
+            else:
+                logger.error(f"Supplier location not found for '{location_name}'")
+                return False
+
         # First try exact match
         location_ids = models.execute_kw(DB, uid, PASSWORD,
             'stock.location', 'search',
@@ -421,11 +448,11 @@ def create_internal_transfers(uid, models, df):
                 logger.error(f"Source location not found for picking type: {picking_type_name}")
                 continue
 
-            dest_location = str(first_row.get('location_dest_id', 'Stock')).strip()
-            dest_location_id = get_location_id(models, uid, dest_location)
-            if not dest_location_id:
-                logger.error(f"Destination location not found: {dest_location}")
-                continue
+            dest_location = first_row.get('location_dest_id', None)
+            if pd.notna(dest_location) and str(dest_location).strip() != "":
+                dest_location_id = get_location_id(models, uid, str(dest_location).strip())
+            else:
+                dest_location_id = False
 
             partner_id = False
             if 'partner_id' in first_row and pd.notna(first_row['partner_id']):
@@ -437,7 +464,8 @@ def create_internal_transfers(uid, models, df):
             picking_vals = {
                 'picking_type_id': picking_type_id,
                 'location_id': source_location_id,
-                'location_dest_id': dest_location_id,
+                # ใส่ location_dest_id เฉพาะถ้ามีค่า
+                **({'location_dest_id': dest_location_id} if dest_location_id else {}),
                 'origin': str(first_row.get('origin', f"Import {date_str.split(' ')[0]}")).strip(),
                 'note': f"Imported from Excel file: {os.path.basename(EXCEL_FILE)} - Date: {date_str} - Sequence: {sequence}",
                 'scheduled_date': date_str,
@@ -501,10 +529,12 @@ def create_internal_transfers(uid, models, df):
                         'product_uom': uom_id,
                         'picking_id': picking_id,
                         'location_id': source_location_id,
-                        'location_dest_id': dest_location_id,
                         'sequence': int(row['sequence']) if 'sequence' in row and pd.notna(row['sequence']) else 10,
                         'description_picking': f"Excel Row {idx+1} | Seq:{row['sequence']} | Product:{product_code}",
                     }
+                    if dest_location_id:
+                        move_vals['location_dest_id'] = dest_location_id
+
                     if 'price_unit' in row and pd.notna(row['price_unit']):
                         try:
                             move_vals['price_unit'] = float(row['price_unit'])
@@ -557,7 +587,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Data_file/สินค้าโชว์1-10.xlsx'
+        EXCEL_FILE = 'Data_file/สิ้นเปลืองโรงงาน.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move
