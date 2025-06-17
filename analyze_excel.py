@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 # Excel file path
-EXCEL_FILE = 'Data_file/บริการเทคนิค11.xlsx'
+EXCEL_FILE = 'Data_file/สิ้นเปลืองโรงงาน.xlsx'
 
 # Configure logging
 log_filename = f'excel_analysis_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -47,6 +47,64 @@ def analyze_excel():
             # Check for NaN values
             nan_count = df['sequence'].isna().sum()
             logger.info(f"Found {nan_count} NaN sequence values")
+            
+        # Analyze price_unit column specifically
+        if 'price_unit' in df.columns:
+            logger.info("Found 'price_unit' column")
+            logger.info(f"price_unit dtype: {df['price_unit'].dtype}")
+            
+            # Count zeros and NaN values
+            zeros = (df['price_unit'] == 0).sum()
+            logger.info(f"Found {zeros} rows with price_unit = 0")
+            
+            nans = df['price_unit'].isna().sum()
+            logger.info(f"Found {nans} rows with NaN price_unit")
+            
+            negatives = (df['price_unit'] < 0).sum()
+            logger.info(f"Found {negatives} rows with negative price_unit")
+            
+            # Check data types within the column
+            data_types = {type(x) for x in df['price_unit'].dropna()}
+            logger.info(f"price_unit column contains these data types: {data_types}")
+            
+            # Show sample values
+            logger.info(f"Sample price_unit values: {df['price_unit'].head().tolist()}")
+            
+        # Analyze product_id column
+        if 'product_id' in df.columns:
+            logger.info("Found 'product_id' column")
+            logger.info(f"product_id dtype: {df['product_id'].dtype}")
+            sample_products = df['product_id'].sample(min(5, len(df))).tolist()
+            logger.info(f"Sample product_id values: {sample_products}")
+            
+        # Analyze quantity column
+        if 'product_uom_qty' in df.columns:
+            logger.info("Found 'product_uom_qty' column")
+            logger.info(f"product_uom_qty dtype: {df['product_uom_qty'].dtype}")
+            logger.info(f"product_uom_qty min: {df['product_uom_qty'].min()}, max: {df['product_uom_qty'].max()}")
+            logger.info(f"Sample product_uom_qty values: {df['product_uom_qty'].head().tolist()}")
+            
+        # Analyze location column
+        if 'location_dest_id' in df.columns:
+            logger.info("Found 'location_dest_id' column")
+            logger.info(f"location_dest_id dtype: {df['location_dest_id'].dtype}")
+            unique_locations = df['location_dest_id'].unique().tolist()
+            logger.info(f"Unique location_dest_id values: {unique_locations}")
+            
+        # Calculate total valuation based on price_unit * product_uom_qty
+        if 'price_unit' in df.columns and 'product_uom_qty' in df.columns:
+            df['calculated_value'] = df['price_unit'] * df['product_uom_qty']
+            total_value = df['calculated_value'].sum()
+            logger.info(f"Total calculated valuation: {total_value}")
+            
+            # Group by sequence and show price_unit stats
+            price_stats = df.groupby('sequence')['price_unit'].agg(['mean', 'min', 'max', 'count'])
+            logger.info("Price unit statistics by sequence:")
+            logger.info(price_stats.head(10).to_string())
+            
+            # Show rows with zero price_unit values
+            zero_price_indices = df[df['price_unit'] == 0].index.tolist()
+            logger.info(f"Index of rows with zero price_unit: {zero_price_indices[:20]} {'...' if len(zero_price_indices) > 20 else ''}")
         else:
             logger.info("No 'sequence' column found")
         
