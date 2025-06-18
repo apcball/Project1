@@ -4,17 +4,6 @@ import pandas as pd
 import logging
 from datetime import datetime
 import os
-import argparse
-import sys
-import socket
-
-# Set up command line arguments
-parser = argparse.ArgumentParser(description='Fix inventory quantities and prices in Odoo')
-parser.add_argument('--dry-run', action='store_true', help='Run in dry-run mode (no changes applied)')
-parser.add_argument('--location', help='Specific location name or ID to use')
-parser.add_argument('--timeout', type=int, default=120, help='XML-RPC timeout in seconds')
-parser.add_argument('--excel', help='Path to Excel file')
-args = parser.parse_args()
 
 # Odoo connection parameters
 HOST = 'http://mogdev.work:8069'
@@ -23,7 +12,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = args.excel if args.excel else 'Data_file/สิ้นเปลืองโรงงาน.xlsx'
+EXCEL_FILE = 'Data_file/สิ้นเปลืองโรงงาน.xlsx'
 
 # Configure logging
 log_filename = f'fix_inventory_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -38,32 +27,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def connect_to_odoo():
-    """Establish connection to Odoo server with timeout handling"""
+    """Establish connection to Odoo server"""
     try:
-        # Set socket timeout
-        socket.setdefaulttimeout(args.timeout)
-        
-        # Connect to common endpoint
         common = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/common')
         uid = common.authenticate(DB, USERNAME, PASSWORD, {})
         if not uid:
             raise Exception("Authentication failed")
-        
-        # Connect to object endpoint
         models = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/object')
-        
-        # Test connection with a simple call
-        version_info = common.version()
-        odoo_version = version_info.get('server_version', 'Unknown')
-        logger.info(f"Successfully connected to Odoo version {odoo_version} as user ID: {uid}")
-        
-        return uid, models, odoo_version
-    except xmlrpc.client.Fault as e:
-        logger.error(f"Odoo server error: {str(e)}")
-        raise
-    except socket.timeout:
-        logger.error(f"Connection timeout. Consider increasing timeout (current: {args.timeout}s)")
-        raise
+        logger.info(f"Successfully connected to Odoo as user ID: {uid}")
+        return uid, models
     except Exception as e:
         logger.error(f"Failed to connect to Odoo: {str(e)}")
         raise
@@ -85,12 +57,12 @@ def read_excel_file():
         raise
 
 def get_product_id(models, uid, default_code):
-    """Get product ID by default_code or old_product_code with enhanced search capability"""
+    """Get product ID by default_code with enhanced search capability"""
     try:
         default_code = str(default_code).strip()
         logger.info(f"Searching for product with code: '{default_code}'")
 
-        # 1. Try exact match by default_code first
+        # 1. Try exact match first
         product_ids = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'search',
             [[('default_code', '=', default_code)]],
             {'limit': 1}
@@ -102,7 +74,7 @@ def get_product_id(models, uid, default_code):
             logger.info(f"Found product with exact match: {product_data[0]['name']}")
             return product_ids[0]
 
-        # 2. Try case-insensitive match on default_code
+        # 2. Try case-insensitive match
         product_ids = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'search',
             [[('default_code', 'ilike', default_code)]],
             {'limit': 5}
@@ -114,42 +86,7 @@ def get_product_id(models, uid, default_code):
             logger.info(f"Found product with similar code: {product_data[0]['name']} (code: {product_data[0].get('default_code', 'N/A')})")
             return product_ids[0]
         
-        # 3. Try exact match on old_product_code
-        logger.info(f"Searching for product with old_product_code: '{default_code}'")
-        try:
-            # Check if old_product_code field exists
-            fields = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'fields_get', [])
-            if 'old_product_code' in fields:
-                product_ids = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'search',
-                    [[('old_product_code', '=', default_code)]],
-                    {'limit': 1}
-                )
-                if product_ids:
-                    product_data = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'read',
-                        [product_ids[0]], {'fields': ['name', 'default_code', 'old_product_code']}
-                    )
-                    logger.info(f"Found product using old_product_code: {product_data[0]['name']} " + 
-                                f"(code: {product_data[0].get('default_code', 'N/A')}, old code: {product_data[0].get('old_product_code', 'N/A')})")
-                    return product_ids[0]
-                
-                # 4. Try case-insensitive match on old_product_code
-                product_ids = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'search',
-                    [[('old_product_code', 'ilike', default_code)]],
-                    {'limit': 1}
-                )
-                if product_ids:
-                    product_data = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'read',
-                        [product_ids[0]], {'fields': ['name', 'default_code', 'old_product_code']}
-                    )
-                    logger.info(f"Found product with similar old_product_code: {product_data[0]['name']} " + 
-                                f"(code: {product_data[0].get('default_code', 'N/A')}, old code: {product_data[0].get('old_product_code', 'N/A')})")
-                    return product_ids[0]
-            else:
-                logger.debug("old_product_code field not available in product.product model")
-        except Exception as e_old:
-            logger.warning(f"Error while searching by old_product_code: {str(e_old)}")
-        
-        # 5. If code starts with INSTALL_, try without the prefix
+        # 3. If code starts with INSTALL_, try without the prefix
         if default_code.startswith('INSTALL_'):
             alt_code = default_code.replace('INSTALL_', '')
             product_ids = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'search',
@@ -163,7 +100,7 @@ def get_product_id(models, uid, default_code):
                 logger.info(f"Found product without INSTALL_ prefix: {product_data[0]['name']}")
                 return product_ids[0]
 
-        # 6. Try name search as a last resort
+        # 4. Try name search as a last resort
         product_ids = models.execute_kw(DB, uid, PASSWORD, 'product.product', 'search',
             [[('name', 'ilike', default_code)]],
             {'limit': 1}
@@ -181,93 +118,6 @@ def get_product_id(models, uid, default_code):
     except Exception as e:
         logger.error(f"Error finding product '{default_code}': {str(e)}")
         return False
-
-def get_stock_location(models, uid):
-    """Find an appropriate stock location based on command line args or defaults"""
-    try:
-        logger.info("Searching for stock location")
-        
-        # If location is specified by ID (numeric)
-        if args.location and args.location.isdigit():
-            location_id = int(args.location)
-            location_data = models.execute_kw(DB, uid, PASSWORD, 'stock.location', 'read',
-                [location_id], {'fields': ['name', 'usage']}
-            )
-            if location_data and location_data[0]['usage'] == 'internal':
-                logger.info(f"Using specified location: {location_data[0]['name']} (ID: {location_id})")
-                return location_id
-            else:
-                logger.warning(f"Specified location ID {location_id} is not valid or not internal")
-        
-        # If location is specified by name
-        elif args.location:
-            location_ids = models.execute_kw(DB, uid, PASSWORD, 'stock.location', 'search',
-                [[('name', '=', args.location), ('usage', '=', 'internal')]],
-                {'limit': 1}
-            )
-            if location_ids:
-                location_data = models.execute_kw(DB, uid, PASSWORD, 'stock.location', 'read',
-                    [location_ids[0]], {'fields': ['name']}
-                )
-                logger.info(f"Using specified location by name: {location_data[0]['name']} (ID: {location_ids[0]})")
-                return location_ids[0]
-            else:
-                logger.warning(f"Specified location name '{args.location}' not found or not internal")
-        
-        # Find default location - first try Stock location
-        location_ids = models.execute_kw(DB, uid, PASSWORD, 'stock.location', 'search',
-            [[('name', '=', 'Stock'), ('usage', '=', 'internal')]],
-            {'limit': 1}
-        )
-        
-        # If not found, try WH/Stock
-        if not location_ids:
-            location_ids = models.execute_kw(DB, uid, PASSWORD, 'stock.location', 'search',
-                [[('name', '=', 'WH/Stock'), ('usage', '=', 'internal')]],
-                {'limit': 1}
-            )
-        
-        # If still not found, get any internal location
-        if not location_ids:
-            location_ids = models.execute_kw(DB, uid, PASSWORD, 'stock.location', 'search',
-                [[('usage', '=', 'internal')]],
-                {'limit': 1}
-            )
-        
-        if location_ids:
-            location_data = models.execute_kw(DB, uid, PASSWORD, 'stock.location', 'read',
-                [location_ids[0]], {'fields': ['name']}
-            )
-            logger.info(f"Using default location: {location_data[0]['name']} (ID: {location_ids[0]})")
-            return location_ids[0]
-        
-        logger.error("No internal stock location found")
-        return False
-        
-    except Exception as e:
-        logger.error(f"Error finding stock location: {str(e)}")
-        return False
-
-def check_product_in_location(models, uid, product_id, location_id):
-    """Check if product exists in inventory at the given location"""
-    try:
-        quant_ids = models.execute_kw(DB, uid, PASSWORD, 'stock.quant', 'search',
-            [[('product_id', '=', product_id), ('location_id', '=', location_id)]],
-            {'limit': 1}
-        )
-        
-        if quant_ids:
-            quant_data = models.execute_kw(DB, uid, PASSWORD, 'stock.quant', 'read',
-                [quant_ids[0]], {'fields': ['quantity']}
-            )
-            current_qty = quant_data[0]['quantity']
-            return True, quant_ids[0], current_qty
-        
-        return False, False, 0
-        
-    except Exception as e:
-        logger.error(f"Error checking product in location: {str(e)}")
-        return False, False, 0
 
 def fix_inventory_prices():
     """Fix inventory valuation by updating product standard prices"""
@@ -339,10 +189,14 @@ def fix_inventory_prices():
                         product_tmpl_id = product_data[0]['product_tmpl_id'][0]
                         
                         # Find a stock location
-                        location_id = get_stock_location(models, uid)
+                        location_ids = models.execute_kw(DB, uid, PASSWORD, 'stock.location', 'search',
+                            [[('usage', '=', 'internal')]],
+                            {'limit': 1}
+                        )
+                        location_id = location_ids[0] if location_ids else False
+                        
                         if not location_id:
-                            logger.warning(f"No valid stock location found for {product_code}")
-                            failed_count += 1
+                            logger.warning(f"No internal location found for {product_code}")
                             continue
                         
                         # Create wizard
