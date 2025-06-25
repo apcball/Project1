@@ -12,7 +12,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/FG10 delivery.xlsx'
+EXCEL_FILE = 'Data_file/สำเร็จรูป1-1.xlsx'
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -522,6 +522,16 @@ def create_internal_transfers(uid, models, df):
                         logger.warning(f"UoM not found for product {product_code}")
                         continue
 
+                    # หา destination location สำหรับ row นี้ (อาจต่างจาก first_row)
+                    row_dest_location = row.get('location_dest_id', None)
+                    row_dest_location_id = dest_location_id  # ใช้ค่าจาก first_row เป็น default
+                    
+                    # ถ้า row นี้มี location_dest_id ต่างจาก first_row ให้หาใหม่
+                    if (pd.notna(row_dest_location) and str(row_dest_location).strip() != "" and 
+                        str(row_dest_location).strip() != str(first_row.get('location_dest_id', '')).strip()):
+                        row_dest_location_id = get_location_id(models, uid, str(row_dest_location).strip())
+                        logger.info(f"Row {idx+1} has different destination: {row_dest_location}")
+
                     move_vals = {
                         'name': f"Move {product_code} | Seq:{row['sequence']} | Line:{idx+1}",
                         'product_id': product_id,
@@ -532,8 +542,24 @@ def create_internal_transfers(uid, models, df):
                         'sequence': int(row['sequence']) if 'sequence' in row and pd.notna(row['sequence']) else 10,
                         'description_picking': f"Excel Row {idx+1} | Seq:{row['sequence']} | Product:{product_code}",
                     }
-                    if dest_location_id:
-                        move_vals['location_dest_id'] = dest_location_id
+                    
+                    # ใส่ location_dest_id - ถ้าไม่มีให้ใช้ default location จาก picking type
+                    if row_dest_location_id:
+                        move_vals['location_dest_id'] = row_dest_location_id
+                    else:
+                        # หา default destination location จาก picking type
+                        picking_type_data = models.execute_kw(DB, uid, PASSWORD,
+                            'stock.picking.type', 'read',
+                            [picking_type_id],
+                            {'fields': ['default_location_dest_id']}
+                        )
+                        default_dest_id = picking_type_data[0]['default_location_dest_id'][0] if picking_type_data[0]['default_location_dest_id'] else False
+                        if default_dest_id:
+                            move_vals['location_dest_id'] = default_dest_id
+                            logger.warning(f"Using default destination location for product {product_code}")
+                        else:
+                            logger.error(f"No destination location found for product {product_code} - move may fail")
+                            continue
 
                     if 'price_unit' in row and pd.notna(row['price_unit']):
                         try:
@@ -546,6 +572,7 @@ def create_internal_transfers(uid, models, df):
                         [move_vals]
                     )
                     logger.info(f"Added product {product_code} with quantity {quantity} to picking {picking_id}")
+                    logger.info(f"Move locations - Source: {source_location_id}, Dest: {move_vals.get('location_dest_id', 'NOT SET')}")
 
                 except Exception as e:
                     logger.error(f"Error processing row {idx+1}: {str(e)}")
@@ -587,7 +614,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Data_file/FG10 delivery.xlsx'
+        EXCEL_FILE = 'Data_file/สำเร็จรูป1-1.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move

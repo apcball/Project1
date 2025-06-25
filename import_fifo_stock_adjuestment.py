@@ -7,13 +7,13 @@ import os
 import re
 
 # Odoo connection parameters
-HOST = 'http://mogdev.work:8069'
-DB = 'MOG_LIVE3'
+HOST = 'http://mogth.work:8069'
+DB = 'MOG_LIVE'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/FG10 delivery3.xlsx'
+EXCEL_FILE = 'Data_file/AS01 Adjuest.xlsx'
 # Default picking type (Delivery Orders for delivery operations)
 DEFAULT_PICKING_TYPE = 'Delivery Orders'
 # Default source location - None means we'll use the column value or the picking type's default
@@ -1019,7 +1019,7 @@ def get_customer_shipping_info(models, uid, partner_id):
 
 if __name__ == "__main__":
     try:        # You can change these parameters based on your delivery import requirements
-        EXCEL_FILE = 'Data_file/FG10 delivery3.xlsx'
+        EXCEL_FILE = 'Data_file/AS01 Adjuest.xlsx'
         DEFAULT_PICKING_TYPE = 'Delivery Orders'  # Use 'Delivery Orders' for delivery operations
         # Note: The 'picking_type_id' column in the Excel file is now used as the Source Location
         
