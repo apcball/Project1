@@ -1,0 +1,36 @@
+2025-06-24 21:41:25,527 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-24 21:41:25,641 - INFO - Odoo version: 17.0.1.3
+2025-06-24 21:41:25,922 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-24 21:41:26,082 - INFO - Successfully read Excel file with 2076 rows
+2025-06-24 21:41:26,083 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-24 21:41:26,084 - INFO - Processed sequence column
+2025-06-24 21:41:26,089 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-24 21:41:26,089 - INFO - scheduled_date sample: NaT
+2025-06-24 21:41:26,090 - WARNING - Replaced 2076 NaN scheduled_date values with current datetime
+2025-06-24 21:41:26,093 - INFO - Converted scheduled_date to string format. Sample: 2025-06-24 21:41:26
+2025-06-24 21:41:26,094 - INFO - Using 'picking_type_id' column as source location
+2025-06-24 21:41:26,094 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-24 21:41:26,094 - INFO - Using 'origin' column to identify transfer groups
+2025-06-24 21:41:26,096 - INFO - Starting to group duplicate product entries...
+2025-06-24 21:41:26,097 - INFO - Grouping by columns: ['product_id', 'scheduled_date', 'location_dest_id', 'picking_type_id', 'partner_id', 'origin']
+2025-06-24 21:41:26,097 - INFO - Grouping DataFrame with 2076 rows
+2025-06-24 21:41:26,102 - INFO - After grouping: 1 rows
+2025-06-24 21:41:26,106 - INFO - Successfully calculated weighted average prices
+2025-06-24 21:41:26,106 - INFO - Grouped duplicate products: 2076 rows reduced to 1 rows (2075 duplicates merged)
+2025-06-24 21:41:26,106 - INFO - Excel file validation and data filling completed successfully
+2025-06-24 21:41:26,112 - INFO - Searching for location: 'FG10/Stock'
+2025-06-24 21:41:26,497 - INFO - Found location with complete_name match: 'FG10/Stock' for 'FG10/Stock'
+2025-06-24 21:41:26,498 - INFO - Using source location from Excel: 'FG10/Stock'
+2025-06-24 21:41:26,614 - INFO - Searching for location: 'Partners/Customers'
+2025-06-24 21:41:26,735 - INFO - Found customer location for 'Partners/Customers'
+2025-06-24 21:41:26,859 - INFO - Found partner ID 15401 for 'MOG FG01'
+2025-06-24 21:41:26,977 - INFO - Retrieved shipping information for partner: MOG FG01
+2025-06-24 21:41:26,978 - INFO - Using customer location as destination for delivery to MOG FG01
+2025-06-24 21:41:27,168 - INFO - Created transfer for date 2025-06-24 21:41:26 sequence 0.0 with picking ID 8755
+2025-06-24 21:41:27,169 - INFO - Processing Excel row 1: {'product_id': 'LFU36027 (AL-124) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ (Alu Com)ขนาด 45 ซม.', 'scheduled_date': Timestamp('2025-06-24 21:41:26'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment', 'product_uom_qty': 6228, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-24 21:41:27,169 - INFO - Searching for product with code: 'LFU36027 (AL-124) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ (Alu Com)ขนาด 45 ซม.' and old code: 'LFU36027 (AL-124) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ (Alu Com)ขนาด 45 ซม.'
+2025-06-24 21:41:28,490 - INFO - Found product by exact name match: 'LFU36027 (AL-124) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ (Alu Com)ขนาด 45 ซม.' with code 'LFU036B7C54' for search term 'LFU36027 (AL-124) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ (Alu Com)ขนาด 45 ซม.'
+2025-06-24 21:41:29,006 - INFO - Added product LFU36027 (AL-124) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ (Alu Com)ขนาด 45 ซม. with quantity 6228.0 to picking 8755
+2025-06-24 21:41:29,416 - INFO - Re-updated dates before confirming picking 8755: 2025-06-24 21:41:26
+2025-06-24 21:41:30,337 - INFO - Confirmed transfer 8755 with forced date context
+2025-06-24 21:41:30,337 - INFO - Import completed: 1 success, 0 failed.
