@@ -13,7 +13,7 @@ def read_excel_template():
     """Read and validate the Excel template"""
     try:
         # Read the Excel file
-        df = pd.read_excel('Data_file/import_bom_นุ่นติดตั้ง250603.xlsx')
+        df = pd.read_excel('Data_file/import_bom_นุ่นผลิต250603.xlsx')
         
         # Clean up the data
         df = df.fillna('')  # Replace NaN with empty string
@@ -282,6 +282,13 @@ def write_failed_entries(failed_entries):
     output_file = f'Data_file/failed_bom_updates_{timestamp}.xlsx'
     df_failed.to_excel(output_file, index=False)
     print(f"\nFailed entries have been written to: {output_file}")
+
+def find_product(product_code):
+    product = db.session.query(Product).filter_by(code=product_code).first()
+    if not product:
+        # ถ้าไม่เจอ product ให้ค้นหาที่ old_product_code
+        product = db.session.query(Product).filter_by(old_product_code=product_code).first()
+    return product
 
 def main():
     print("Starting BOM import process...")
