@@ -7,13 +7,13 @@ import os
 import re
 
 # Odoo connection parameters
-HOST = 'http://mogdev.work:8069'
-DB = 'MOG_LIVE3'
+HOST = 'http://mogth.work:8069'
+DB = 'MOG_LIVE'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/FG10 delivery3.xlsx'
+EXCEL_FILE = 'Data_file/FG30 Adjustment.xlsx'
 # Default picking type (Delivery Orders for delivery operations)
 DEFAULT_PICKING_TYPE = 'Delivery Orders'
 # Default source location - None means we'll use the column value or the picking type's default
@@ -914,7 +914,7 @@ def create_internal_transfers(uid, models, df):
                     logger.error(f"Error processing row {idx+1}: {str(e)}")
                     failed_transfers += 1
 
-            # Confirm picking หลังจากเพิ่ม move ครบ
+            # Keep picking in draft state - only update dates
             try:
                 models.execute_kw(DB, uid, PASSWORD, 'stock.picking', 'write',
                     [[picking_id], {
@@ -923,22 +923,12 @@ def create_internal_transfers(uid, models, df):
                         'date_deadline': date_str
                     }]
                 )
-                logger.info(f"Re-updated dates before confirming picking {picking_id}: {date_str}")
+                logger.info(f"Updated dates for picking {picking_id} (kept in draft state): {date_str}")
             except Exception as e:
-                logger.warning(f"Could not update dates before confirming picking: {str(e)}")
+                logger.warning(f"Could not update dates for picking: {str(e)}")
 
-            try:
-                models.execute_kw(DB, uid, PASSWORD, 'stock.picking', 'action_confirm', [[picking_id]], {
-                    'context': {
-                        'force_date': date_str,
-                        'planned_date': date_str,
-                        'default_scheduled_date': date_str,
-                        'default_date': date_str,
-                    }
-                })
-                logger.info(f"Confirmed transfer {picking_id} with forced date context")
-            except Exception as e:
-                logger.error(f"Failed to confirm transfer {picking_id}: {str(e)}")
+            # Note: Picking is kept in draft state (not confirmed)
+            logger.info(f"Created transfer {picking_id} in draft state - ready for manual review")
 
             successful_transfers += 1
 
@@ -1019,7 +1009,7 @@ def get_customer_shipping_info(models, uid, partner_id):
 
 if __name__ == "__main__":
     try:        # You can change these parameters based on your delivery import requirements
-        EXCEL_FILE = 'Data_file/FG10 delivery3.xlsx'
+        EXCEL_FILE = 'Data_file/FG30 Adjustment.xlsx'
         DEFAULT_PICKING_TYPE = 'Delivery Orders'  # Use 'Delivery Orders' for delivery operations
         # Note: The 'picking_type_id' column in the Excel file is now used as the Source Location
         
