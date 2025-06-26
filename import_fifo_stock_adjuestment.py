@@ -13,11 +13,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-<<<<<<< HEAD
-EXCEL_FILE = 'Data_file/FG30 Adjustment.xlsx'
-=======
-EXCEL_FILE = 'Data_file/AS01 Adjuest.xlsx'
->>>>>>> dbc9dbd6edb4cfea811d48a6f4cb5de50bd49adb
+EXCEL_FILE = 'Data_file/FG10 Adjuestment.xlsx'
 # Default picking type (Delivery Orders for delivery operations)
 DEFAULT_PICKING_TYPE = 'Delivery Orders'
 # Default source location - None means we'll use the column value or the picking type's default
@@ -75,6 +71,18 @@ def read_excel_file():
         df = pd.read_excel(EXCEL_FILE, parse_dates=False)
         logger.info(f"Successfully read Excel file with {len(df)} rows")
         logger.info(f"Excel columns: {list(df.columns)}")
+
+        # Check for "Delivery Orders" column and map it to picking_type_id (source location)
+        if 'Delivery Orders' in df.columns:
+            logger.info("Found 'Delivery Orders' column, using it as source location")
+            # If both picking_type_id and "Delivery Orders" exist, use "Delivery Orders"
+            if 'picking_type_id' in df.columns:
+                logger.info("Both 'picking_type_id' and 'Delivery Orders' columns exist, prioritizing 'Delivery Orders'")
+                df['picking_type_id'] = df['Delivery Orders']
+            else:
+                # Create picking_type_id column from "Delivery Orders"
+                df['picking_type_id'] = df['Delivery Orders']
+                logger.info("Added 'picking_type_id' column from 'Delivery Orders' values")
 
         # Handle sequence column if present
         if 'sequence' in df.columns:
@@ -754,8 +762,15 @@ def create_internal_transfers(uid, models, df):
             
             # Get source location from picking_type_id column (which now contains source location)
             source_location_name = None
-            if 'picking_type_id' in first_row and pd.notna(first_row['picking_type_id']):
+            
+            # First check if we have "Delivery Orders" column with valid data
+            if 'Delivery Orders' in first_row and pd.notna(first_row['Delivery Orders']):
+                source_location_name = str(first_row.get('Delivery Orders', '')).strip()
+                logger.info(f"Using source location from 'Delivery Orders' column: '{source_location_name}'")
+            # Then check picking_type_id (which may also contain data from "Delivery Orders")
+            elif 'picking_type_id' in first_row and pd.notna(first_row['picking_type_id']):
                 source_location_name = str(first_row.get('picking_type_id', '')).strip()
+                logger.info(f"Using source location from picking_type_id column: '{source_location_name}'")
             
             # Get source location ID using the location name from the column
             source_location_id = False
@@ -1013,11 +1028,7 @@ def get_customer_shipping_info(models, uid, partner_id):
 
 if __name__ == "__main__":
     try:        # You can change these parameters based on your delivery import requirements
-<<<<<<< HEAD
-        EXCEL_FILE = 'Data_file/FG30 Adjustment.xlsx'
-=======
-        EXCEL_FILE = 'Data_file/AS01 Adjuest.xlsx'
->>>>>>> dbc9dbd6edb4cfea811d48a6f4cb5de50bd49adb
+        EXCEL_FILE = 'Data_file/FG10 Adjuestment.xlsx'
         DEFAULT_PICKING_TYPE = 'Delivery Orders'  # Use 'Delivery Orders' for delivery operations
         # Note: The 'picking_type_id' column in the Excel file is now used as the Source Location
         
@@ -1032,6 +1043,12 @@ if __name__ == "__main__":
         print("Sample data (first 3 rows):")
         if len(df) > 0:
             print(df.head(3))
+        
+        # Additional check for "Delivery Orders" column
+        if 'Delivery Orders' in df.columns:
+            print("Found 'Delivery Orders' column. Will use it as source location for transfers.")
+            # Make sure it's used for picking_type_id (source location)
+            df['picking_type_id'] = df['Delivery Orders']
         
         # Check for required columns and clean data
         if 'product_id' not in df.columns or 'product_uom_qty' not in df.columns:

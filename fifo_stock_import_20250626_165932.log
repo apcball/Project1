@@ -1,0 +1,413 @@
+2025-06-26 16:59:33,747 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-26 16:59:34,556 - INFO - Odoo version: 17.0.1.3
+2025-06-26 16:59:34,651 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-26 16:59:34,995 - INFO - Successfully read Excel file with 463 rows
+2025-06-26 16:59:34,995 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'Delivery Orders', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-26 16:59:34,996 - INFO - Found 'Delivery Orders' column, using it as source location
+2025-06-26 16:59:34,997 - INFO - Added 'picking_type_id' column from 'Delivery Orders' values
+2025-06-26 16:59:34,998 - INFO - Processed sequence column
+2025-06-26 16:59:35,002 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-26 16:59:35,002 - INFO - scheduled_date sample: NaT
+2025-06-26 16:59:35,004 - WARNING - Replaced 463 NaN scheduled_date values with current datetime
+2025-06-26 16:59:35,011 - INFO - Converted scheduled_date to string format. Sample: 2025-06-26 16:59:35
+2025-06-26 16:59:35,012 - INFO - Using 'picking_type_id' column as source location
+2025-06-26 16:59:35,012 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-26 16:59:35,013 - INFO - Using 'origin' column to identify transfer groups
+2025-06-26 16:59:35,017 - INFO - Starting to group duplicate product entries...
+2025-06-26 16:59:35,018 - INFO - Grouping by columns: ['product_id', 'scheduled_date', 'location_dest_id', 'picking_type_id', 'partner_id', 'origin']
+2025-06-26 16:59:35,020 - INFO - Grouping DataFrame with 463 rows
+2025-06-26 16:59:35,028 - INFO - After grouping: 63 rows
+2025-06-26 16:59:35,043 - INFO - Successfully calculated weighted average prices
+2025-06-26 16:59:35,043 - INFO - Grouped duplicate products: 463 rows reduced to 63 rows (400 duplicates merged)
+2025-06-26 16:59:35,044 - INFO - Excel file validation and data filling completed successfully
+2025-06-26 16:59:35,064 - INFO - Using source location from picking_type_id column: 'FG30/Stock'
+2025-06-26 16:59:35,064 - INFO - Searching for location: 'FG30/Stock'
+2025-06-26 16:59:37,475 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-06-26 16:59:37,475 - INFO - Using source location from Excel: 'FG30/Stock'
+2025-06-26 16:59:37,621 - INFO - Searching for location: 'Partners/Customers'
+2025-06-26 16:59:37,679 - INFO - Found customer location for 'Partners/Customers'
+2025-06-26 16:59:37,759 - INFO - Found partner ID 15526 for 'MOG FG30'
+2025-06-26 16:59:37,797 - INFO - Retrieved shipping information for partner: MOG FG30
+2025-06-26 16:59:37,797 - INFO - Using customer location as destination for delivery to MOG FG30
+2025-06-26 16:59:38,800 - INFO - Created transfer for date 2025-06-26 16:59:35 sequence 0.0 with picking ID 8986
+2025-06-26 16:59:38,801 - INFO - Processing Excel row 1: {'product_id': '[AC0013100] AC13 ที่วางสบู่', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:38,802 - INFO - Searching for product with code: '[AC0013100] AC13 ที่วางสบู่' and old code: '[AC0013100] AC13 ที่วางสบู่'
+2025-06-26 16:59:40,421 - INFO - Trying word-by-word search in product name for: '[AC0013100] AC13 ที่วางสบู่'
+2025-06-26 16:59:40,421 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[AC0013100]'], ['name', 'ilike', 'AC13'], ['name', 'ilike', 'ที่วางสบู่']]
+2025-06-26 16:59:40,531 - INFO - Found product by partial word match: 'ไม้ยางพารา BJ ลูกตั้ง 188x1000x15 AC13 เกรด BC' with code '201030006' for search term '[AC0013100] AC13 ที่วางสบู่'
+2025-06-26 16:59:40,684 - INFO - Added product [AC0013100] AC13 ที่วางสบู่ with quantity 2.0 to picking 8986
+2025-06-26 16:59:40,685 - INFO - Processing Excel row 2: {'product_id': '[AC0021100] AC21 ที่ใส่กระดาษชำระ', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:40,685 - INFO - Searching for product with code: '[AC0021100] AC21 ที่ใส่กระดาษชำระ' and old code: '[AC0021100] AC21 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:41,156 - INFO - Trying word-by-word search in product name for: '[AC0021100] AC21 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:41,156 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[AC0021100]'], ['name', 'ilike', 'AC21'], ['name', 'ilike', 'ที่ใส่กระดาษชำระ']]
+2025-06-26 16:59:41,296 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[AC0021100] AC21 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:41,430 - INFO - Added product [AC0021100] AC21 ที่ใส่กระดาษชำระ with quantity 2.0 to picking 8986
+2025-06-26 16:59:41,431 - INFO - Processing Excel row 3: {'product_id': '[AC0051101] AC51 ที่ใส่กระดาษชำระ', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 72, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:41,431 - INFO - Searching for product with code: '[AC0051101] AC51 ที่ใส่กระดาษชำระ' and old code: '[AC0051101] AC51 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:41,695 - INFO - Trying word-by-word search in product name for: '[AC0051101] AC51 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:41,695 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[AC0051101]'], ['name', 'ilike', 'AC51'], ['name', 'ilike', 'ที่ใส่กระดาษชำระ']]
+2025-06-26 16:59:41,770 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[AC0051101] AC51 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:41,869 - INFO - Added product [AC0051101] AC51 ที่ใส่กระดาษชำระ with quantity 72.0 to picking 8986
+2025-06-26 16:59:41,870 - INFO - Processing Excel row 4: {'product_id': '[AC0052101] AC52 ที่วางสบู่', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 79, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:41,870 - INFO - Searching for product with code: '[AC0052101] AC52 ที่วางสบู่' and old code: '[AC0052101] AC52 ที่วางสบู่'
+2025-06-26 16:59:42,082 - INFO - Trying word-by-word search in product name for: '[AC0052101] AC52 ที่วางสบู่'
+2025-06-26 16:59:42,082 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[AC0052101]'], ['name', 'ilike', 'AC52'], ['name', 'ilike', 'ที่วางสบู่']]
+2025-06-26 16:59:42,211 - INFO - Found product by partial word match: 'ไม้ยางพารา BJ ลูกนอน 250x1150x25 AC52 เกรด BC ตีจมูก 3 ด้าน' with code '201030012' for search term '[AC0052101] AC52 ที่วางสบู่'
+2025-06-26 16:59:42,548 - INFO - Added product [AC0052101] AC52 ที่วางสบู่ with quantity 79.0 to picking 8986
+2025-06-26 16:59:42,548 - INFO - Processing Excel row 5: {'product_id': '[AC0053101] AC53 ราวแขวนผ้า', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 68, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:42,549 - INFO - Searching for product with code: '[AC0053101] AC53 ราวแขวนผ้า' and old code: '[AC0053101] AC53 ราวแขวนผ้า'
+2025-06-26 16:59:43,093 - INFO - Trying word-by-word search in product name for: '[AC0053101] AC53 ราวแขวนผ้า'
+2025-06-26 16:59:43,094 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[AC0053101]'], ['name', 'ilike', 'AC53'], ['name', 'ilike', 'ราวแขวนผ้า']]
+2025-06-26 16:59:43,260 - INFO - Found product by partial word match: 'ไม้ยางพารา FJ พับผ้า 956x1000x1383x20 AC53 เกรด BC R' with code '201030411' for search term '[AC0053101] AC53 ราวแขวนผ้า'
+2025-06-26 16:59:43,502 - INFO - Added product [AC0053101] AC53 ราวแขวนผ้า with quantity 68.0 to picking 8986
+2025-06-26 16:59:43,502 - INFO - Processing Excel row 6: {'product_id': '[AC0061101] AC61 ที่ใส่กระดาษชำระ', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 53, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:43,503 - INFO - Searching for product with code: '[AC0061101] AC61 ที่ใส่กระดาษชำระ' and old code: '[AC0061101] AC61 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:44,010 - INFO - Trying word-by-word search in product name for: '[AC0061101] AC61 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:44,010 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[AC0061101]'], ['name', 'ilike', 'AC61'], ['name', 'ilike', 'ที่ใส่กระดาษชำระ']]
+2025-06-26 16:59:44,169 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[AC0061101] AC61 ที่ใส่กระดาษชำระ'
+2025-06-26 16:59:44,441 - INFO - Added product [AC0061101] AC61 ที่ใส่กระดาษชำระ with quantity 53.0 to picking 8986
+2025-06-26 16:59:44,443 - INFO - Processing Excel row 7: {'product_id': '[AC0063101] AC63 ราวแขวนผ้า', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 87, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:44,444 - INFO - Searching for product with code: '[AC0063101] AC63 ราวแขวนผ้า' and old code: '[AC0063101] AC63 ราวแขวนผ้า'
+2025-06-26 16:59:44,939 - INFO - Trying word-by-word search in product name for: '[AC0063101] AC63 ราวแขวนผ้า'
+2025-06-26 16:59:44,939 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[AC0063101]'], ['name', 'ilike', 'AC63'], ['name', 'ilike', 'ราวแขวนผ้า']]
+2025-06-26 16:59:45,105 - INFO - Found product by partial word match: 'ไม้ยางพารา FJ ชานพัก 1020x1120x25 AC63 เกรด AB' with code '201030160' for search term '[AC0063101] AC63 ราวแขวนผ้า'
+2025-06-26 16:59:45,465 - INFO - Added product [AC0063101] AC63 ราวแขวนผ้า with quantity 87.0 to picking 8986
+2025-06-26 16:59:45,466 - INFO - Processing Excel row 8: {'product_id': '[ACF000111A] ACF02 ที่วางสบู่ หินสังเคราะห์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 20, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:45,466 - INFO - Searching for product with code: '[ACF000111A] ACF02 ที่วางสบู่ หินสังเคราะห์' and old code: '[ACF000111A] ACF02 ที่วางสบู่ หินสังเคราะห์'
+2025-06-26 16:59:45,984 - INFO - Trying word-by-word search in product name for: '[ACF000111A] ACF02 ที่วางสบู่ หินสังเคราะห์'
+2025-06-26 16:59:45,984 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[ACF000111A]'], ['name', 'ilike', 'ACF02'], ['name', 'ilike', 'ที่วางสบู่'], ['name', 'ilike', 'หินสังเคราะห์']]
+2025-06-26 16:59:46,161 - INFO - Found product by partial word match: '3AC13 ที่วางสบู่' with code '3AC0013100' for search term '[ACF000111A] ACF02 ที่วางสบู่ หินสังเคราะห์'
+2025-06-26 16:59:46,306 - INFO - Added product [ACF000111A] ACF02 ที่วางสบู่ หินสังเคราะห์ with quantity 20.0 to picking 8986
+2025-06-26 16:59:46,307 - INFO - Processing Excel row 9: {'product_id': '[ACLF0001110] ACLF01 ชั้นวางของอเนกประสงค์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 6, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:46,307 - INFO - Searching for product with code: '[ACLF0001110] ACLF01 ชั้นวางของอเนกประสงค์' and old code: '[ACLF0001110] ACLF01 ชั้นวางของอเนกประสงค์'
+2025-06-26 16:59:46,606 - INFO - Trying word-by-word search in product name for: '[ACLF0001110] ACLF01 ชั้นวางของอเนกประสงค์'
+2025-06-26 16:59:46,606 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[ACLF0001110]'], ['name', 'ilike', 'ACLF01'], ['name', 'ilike', 'ชั้นวางของอเนกประสงค์']]
+2025-06-26 16:59:46,675 - INFO - Found product by partial word match: '3ACLF01/1 ชั้นวางของหินสังเคราะห์' with code '3ACLF0001111' for search term '[ACLF0001110] ACLF01 ชั้นวางของอเนกประสงค์'
+2025-06-26 16:59:46,797 - INFO - Added product [ACLF0001110] ACLF01 ชั้นวางของอเนกประสงค์ with quantity 6.0 to picking 8986
+2025-06-26 16:59:46,798 - INFO - Processing Excel row 10: {'product_id': '[ACS003110A] ACS31L ที่ใส่กระดาษชำระ สแตนเลส', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 5, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:46,798 - INFO - Searching for product with code: '[ACS003110A] ACS31L ที่ใส่กระดาษชำระ สแตนเลส' and old code: '[ACS003110A] ACS31L ที่ใส่กระดาษชำระ สแตนเลส'
+2025-06-26 16:59:47,019 - INFO - Trying word-by-word search in product name for: '[ACS003110A] ACS31L ที่ใส่กระดาษชำระ สแตนเลส'
+2025-06-26 16:59:47,020 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[ACS003110A]'], ['name', 'ilike', 'ACS31L'], ['name', 'ilike', 'ที่ใส่กระดาษชำระ'], ['name', 'ilike', 'สแตนเลส']]
+2025-06-26 16:59:47,147 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[ACS003110A] ACS31L ที่ใส่กระดาษชำระ สแตนเลส'
+2025-06-26 16:59:47,256 - INFO - Added product [ACS003110A] ACS31L ที่ใส่กระดาษชำระ สแตนเลส with quantity 5.0 to picking 8986
+2025-06-26 16:59:47,257 - INFO - Processing Excel row 11: {'product_id': '[ACS004410B] ACS442 ที่ใส่กระดาษชำระ สแตนเลส', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 42, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:47,257 - INFO - Searching for product with code: '[ACS004410B] ACS442 ที่ใส่กระดาษชำระ สแตนเลส' and old code: '[ACS004410B] ACS442 ที่ใส่กระดาษชำระ สแตนเลส'
+2025-06-26 16:59:47,577 - INFO - Trying word-by-word search in product name for: '[ACS004410B] ACS442 ที่ใส่กระดาษชำระ สแตนเลส'
+2025-06-26 16:59:47,577 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[ACS004410B]'], ['name', 'ilike', 'ACS442'], ['name', 'ilike', 'ที่ใส่กระดาษชำระ'], ['name', 'ilike', 'สแตนเลส']]
+2025-06-26 16:59:47,744 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[ACS004410B] ACS442 ที่ใส่กระดาษชำระ สแตนเลส'
+2025-06-26 16:59:47,863 - INFO - Added product [ACS004410B] ACS442 ที่ใส่กระดาษชำระ สแตนเลส with quantity 42.0 to picking 8986
+2025-06-26 16:59:47,863 - INFO - Processing Excel row 12: {'product_id': '[ACS03602100] ACS0360-2 ราวแขวนผ้า สแตนเลส', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 27, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:47,864 - INFO - Searching for product with code: '[ACS03602100] ACS0360-2 ราวแขวนผ้า สแตนเลส' and old code: '[ACS03602100] ACS0360-2 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:48,226 - INFO - Trying word-by-word search in product name for: '[ACS03602100] ACS0360-2 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:48,227 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[ACS03602100]'], ['name', 'ilike', 'ACS0360-2'], ['name', 'ilike', 'ราวแขวนผ้า'], ['name', 'ilike', 'สแตนเลส']]
+2025-06-26 16:59:48,411 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[ACS03602100] ACS0360-2 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:48,529 - INFO - Added product [ACS03602100] ACS0360-2 ราวแขวนผ้า สแตนเลส with quantity 27.0 to picking 8986
+2025-06-26 16:59:48,530 - INFO - Processing Excel row 13: {'product_id': '[ACS1360100] ACS1360 (HL) ราวแขวนผ้า สแตนเลส', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 22, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:48,531 - INFO - Searching for product with code: '[ACS1360100] ACS1360 (HL) ราวแขวนผ้า สแตนเลส' and old code: '[ACS1360100] ACS1360 (HL) ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:48,826 - INFO - Trying word-by-word search in product name for: '[ACS1360100] ACS1360 (HL) ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:48,827 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[ACS1360100]'], ['name', 'ilike', 'ACS1360'], ['name', 'ilike', '(HL)'], ['name', 'ilike', 'ราวแขวนผ้า'], ['name', 'ilike', 'สแตนเลส']]
+2025-06-26 16:59:49,038 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[ACS1360100] ACS1360 (HL) ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:49,267 - INFO - Added product [ACS1360100] ACS1360 (HL) ราวแขวนผ้า สแตนเลส with quantity 22.0 to picking 8986
+2025-06-26 16:59:49,268 - INFO - Processing Excel row 14: {'product_id': '[ACS2360100] ACS2360 ราวแขวนผ้า สแตนเลส', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 3, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:49,269 - INFO - Searching for product with code: '[ACS2360100] ACS2360 ราวแขวนผ้า สแตนเลส' and old code: '[ACS2360100] ACS2360 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:49,769 - INFO - Trying word-by-word search in product name for: '[ACS2360100] ACS2360 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:49,769 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[ACS2360100]'], ['name', 'ilike', 'ACS2360'], ['name', 'ilike', 'ราวแขวนผ้า'], ['name', 'ilike', 'สแตนเลส']]
+2025-06-26 16:59:49,935 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[ACS2360100] ACS2360 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:50,242 - INFO - Added product [ACS2360100] ACS2360 ราวแขวนผ้า สแตนเลส with quantity 3.0 to picking 8986
+2025-06-26 16:59:50,243 - INFO - Processing Excel row 15: {'product_id': '[ACS3600120] ACS36#BL ชั้นวางของอเนกประสงค์ สแตนเลส', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 4, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:50,243 - INFO - Searching for product with code: '[ACS3600120] ACS36#BL ชั้นวางของอเนกประสงค์ สแตนเลส' and old code: '[ACS3600120] ACS36#BL ชั้นวางของอเนกประสงค์ สแตนเลส'
+2025-06-26 16:59:50,785 - INFO - Trying word-by-word search in product name for: '[ACS3600120] ACS36#BL ชั้นวางของอเนกประสงค์ สแตนเลส'
+2025-06-26 16:59:50,785 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[ACS3600120]'], ['name', 'ilike', 'ACS36#BL'], ['name', 'ilike', 'ชั้นวางของอเนกประสงค์'], ['name', 'ilike', 'สแตนเลส']]
+2025-06-26 16:59:50,985 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[ACS3600120] ACS36#BL ชั้นวางของอเนกประสงค์ สแตนเลส'
+2025-06-26 16:59:51,338 - INFO - Added product [ACS3600120] ACS36#BL ชั้นวางของอเนกประสงค์ สแตนเลส with quantity 4.0 to picking 8986
+2025-06-26 16:59:51,340 - INFO - Processing Excel row 16: {'product_id': '[ACS3800120] ACS3850#BL ราวแขวนผ้า สแตนเลส', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:51,341 - INFO - Searching for product with code: '[ACS3800120] ACS3850#BL ราวแขวนผ้า สแตนเลส' and old code: '[ACS3800120] ACS3850#BL ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:52,129 - INFO - Trying word-by-word search in product name for: '[ACS3800120] ACS3850#BL ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:52,129 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[ACS3800120]'], ['name', 'ilike', 'ACS3850#BL'], ['name', 'ilike', 'ราวแขวนผ้า'], ['name', 'ilike', 'สแตนเลส']]
+2025-06-26 16:59:52,442 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[ACS3800120] ACS3850#BL ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:52,758 - INFO - Added product [ACS3800120] ACS3850#BL ราวแขวนผ้า สแตนเลส with quantity 1.0 to picking 8986
+2025-06-26 16:59:52,759 - INFO - Processing Excel row 17: {'product_id': '[ACS4860120] ACS4860 ราวแขวนผ้า สแตนเลส', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 8, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:52,759 - INFO - Searching for product with code: '[ACS4860120] ACS4860 ราวแขวนผ้า สแตนเลส' and old code: '[ACS4860120] ACS4860 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:53,327 - INFO - Trying word-by-word search in product name for: '[ACS4860120] ACS4860 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:53,327 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[ACS4860120]'], ['name', 'ilike', 'ACS4860'], ['name', 'ilike', 'ราวแขวนผ้า'], ['name', 'ilike', 'สแตนเลส']]
+2025-06-26 16:59:53,547 - INFO - Found product by partial word match: 'ACS21 ที่ใส่กระดาษชำระ สแตนเลส' with code 'ACS0021100' for search term '[ACS4860120] ACS4860 ราวแขวนผ้า สแตนเลส'
+2025-06-26 16:59:53,793 - INFO - Added product [ACS4860120] ACS4860 ราวแขวนผ้า สแตนเลส with quantity 8.0 to picking 8986
+2025-06-26 16:59:53,794 - INFO - Processing Excel row 18: {'product_id': '[FCA0007100] FCA07C ก๊อกเดี่ยวอ่างล้างหน้า', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 4, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:53,795 - INFO - Searching for product with code: '[FCA0007100] FCA07C ก๊อกเดี่ยวอ่างล้างหน้า' and old code: '[FCA0007100] FCA07C ก๊อกเดี่ยวอ่างล้างหน้า'
+2025-06-26 16:59:54,408 - INFO - Trying word-by-word search in product name for: '[FCA0007100] FCA07C ก๊อกเดี่ยวอ่างล้างหน้า'
+2025-06-26 16:59:54,408 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[FCA0007100]'], ['name', 'ilike', 'FCA07C'], ['name', 'ilike', 'ก๊อกเดี่ยวอ่างล้างหน้า']]
+2025-06-26 16:59:54,589 - INFO - Found product by partial word match: 'สติ๊กเกอร์PVC Water Efficiency Label FCA07C' with code '414010037' for search term '[FCA0007100] FCA07C ก๊อกเดี่ยวอ่างล้างหน้า'
+2025-06-26 16:59:54,816 - INFO - Added product [FCA0007100] FCA07C ก๊อกเดี่ยวอ่างล้างหน้า with quantity 4.0 to picking 8986
+2025-06-26 16:59:54,817 - INFO - Processing Excel row 19: {'product_id': '[FT00081T2] FT8090 (New-L) Top หินสังเคราะห์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:54,818 - INFO - Searching for product with code: '[FT00081T2] FT8090 (New-L) Top หินสังเคราะห์' and old code: '[FT00081T2] FT8090 (New-L) Top หินสังเคราะห์'
+2025-06-26 16:59:55,419 - INFO - Trying word-by-word search in product name for: '[FT00081T2] FT8090 (New-L) Top หินสังเคราะห์'
+2025-06-26 16:59:55,420 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[FT00081T2]'], ['name', 'ilike', 'FT8090'], ['name', 'ilike', '(New-L)'], ['name', 'ilike', 'Top'], ['name', 'ilike', 'หินสังเคราะห์']]
+2025-06-26 16:59:55,636 - INFO - Found product by partial word match: 'ไม้ยางพารา FJ TOP 600x850x30 AC09 เกรด AB' with code '201030019' for search term '[FT00081T2] FT8090 (New-L) Top หินสังเคราะห์'
+2025-06-26 16:59:55,929 - INFO - Added product [FT00081T2] FT8090 (New-L) Top หินสังเคราะห์ with quantity 1.0 to picking 8986
+2025-06-26 16:59:55,931 - INFO - Processing Excel row 20: {'product_id': '[FU0043E8C161] FU43058P#B3-L เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 58 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 11, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:55,933 - INFO - Searching for product with code: '[FU0043E8C161] FU43058P#B3-L เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 58 ซม.' and old code: '[FU0043E8C161] FU43058P#B3-L เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 58 ซม.'
+2025-06-26 16:59:56,389 - INFO - Trying word-by-word search in product name for: '[FU0043E8C161] FU43058P#B3-L เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 58 ซม.'
+2025-06-26 16:59:56,389 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[FU0043E8C161]'], ['name', 'ilike', 'FU43058P#B3-L'], ['name', 'ilike', 'เฟอร์นิเจอร์'], ['name', 'ilike', 'กันน้ำ'], ['name', 'ilike', '(PW)ขนาด']]
+2025-06-26 16:59:56,517 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[FU0043E8C161] FU43058P#B3-L เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 58 ซม.'
+2025-06-26 16:59:56,650 - INFO - Added product [FU0043E8C161] FU43058P#B3-L เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 58 ซม. with quantity 11.0 to picking 8986
+2025-06-26 16:59:56,650 - INFO - Processing Excel row 21: {'product_id': '[FU0056JC180] FU56100U (R-AL) เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 100 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 5, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:56,651 - INFO - Searching for product with code: '[FU0056JC180] FU56100U (R-AL) เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 100 ซม.' and old code: '[FU0056JC180] FU56100U (R-AL) เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 100 ซม.'
+2025-06-26 16:59:56,923 - INFO - Trying word-by-word search in product name for: '[FU0056JC180] FU56100U (R-AL) เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 100 ซม.'
+2025-06-26 16:59:56,924 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[FU0056JC180]'], ['name', 'ilike', 'FU56100U'], ['name', 'ilike', '(R-AL)'], ['name', 'ilike', 'เฟอร์นิเจอร์'], ['name', 'ilike', 'กันน้ำ']]
+2025-06-26 16:59:57,064 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[FU0056JC180] FU56100U (R-AL) เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 100 ซม.'
+2025-06-26 16:59:57,159 - INFO - Added product [FU0056JC180] FU56100U (R-AL) เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 100 ซม. with quantity 5.0 to picking 8986
+2025-06-26 16:59:57,159 - INFO - Processing Excel row 22: {'product_id': '[FU00640300] FU64060F เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 20, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:57,160 - INFO - Searching for product with code: '[FU00640300] FU64060F เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' and old code: '[FU00640300] FU64060F เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.'
+2025-06-26 16:59:57,891 - INFO - Trying word-by-word search in product name for: '[FU00640300] FU64060F เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.'
+2025-06-26 16:59:57,891 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[FU00640300]'], ['name', 'ilike', 'FU64060F'], ['name', 'ilike', 'เฟอร์นิเจอร์'], ['name', 'ilike', 'กันน้ำ'], ['name', 'ilike', '(PW)ขนาด']]
+2025-06-26 16:59:58,284 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[FU00640300] FU64060F เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.'
+2025-06-26 16:59:58,690 - INFO - Added product [FU00640300] FU64060F เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม. with quantity 20.0 to picking 8986
+2025-06-26 16:59:58,691 - INFO - Processing Excel row 23: {'product_id': '[FU00650G107] FU65071G เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 71 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 9, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:58,691 - INFO - Searching for product with code: '[FU00650G107] FU65071G เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 71 ซม.' and old code: '[FU00650G107] FU65071G เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 71 ซม.'
+2025-06-26 16:59:59,241 - INFO - Trying word-by-word search in product name for: '[FU00650G107] FU65071G เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 71 ซม.'
+2025-06-26 16:59:59,241 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[FU00650G107]'], ['name', 'ilike', 'FU65071G'], ['name', 'ilike', 'เฟอร์นิเจอร์'], ['name', 'ilike', 'กันน้ำ'], ['name', 'ilike', '(PW)ขนาด']]
+2025-06-26 16:59:59,582 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[FU00650G107] FU65071G เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 71 ซม.'
+2025-06-26 16:59:59,849 - INFO - Added product [FU00650G107] FU65071G เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 71 ซม. with quantity 9.0 to picking 8986
+2025-06-26 16:59:59,851 - INFO - Processing Excel row 24: {'product_id': '[LA0213262] LA21070C-L3 อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ขนาด 70 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 16:59:59,852 - INFO - Searching for product with code: '[LA0213262] LA21070C-L3 อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ขนาด 70 ซม.' and old code: '[LA0213262] LA21070C-L3 อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ขนาด 70 ซม.'
+2025-06-26 17:00:00,363 - INFO - Trying word-by-word search in product name for: '[LA0213262] LA21070C-L3 อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ขนาด 70 ซม.'
+2025-06-26 17:00:00,363 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[LA0213262]'], ['name', 'ilike', 'LA21070C-L3'], ['name', 'ilike', 'อ่างล้างหน้า'], ['name', 'ilike', 'พร้อมตู้เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', 'ซม.']]
+2025-06-26 17:00:00,839 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[LA0213262] LA21070C-L3 อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ขนาด 70 ซม.'
+2025-06-26 17:00:01,254 - INFO - Added product [LA0213262] LA21070C-L3 อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ขนาด 70 ซม. with quantity 2.0 to picking 8986
+2025-06-26 17:00:01,255 - INFO - Processing Excel row 25: {'product_id': '[MA0174101] MA174 อ่างล้างหน้าแขวนผนัง พร้อมขา', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 25, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:01,255 - INFO - Searching for product with code: '[MA0174101] MA174 อ่างล้างหน้าแขวนผนัง พร้อมขา' and old code: '[MA0174101] MA174 อ่างล้างหน้าแขวนผนัง พร้อมขา'
+2025-06-26 17:00:01,769 - INFO - Trying word-by-word search in product name for: '[MA0174101] MA174 อ่างล้างหน้าแขวนผนัง พร้อมขา'
+2025-06-26 17:00:01,769 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MA0174101]'], ['name', 'ilike', 'MA174'], ['name', 'ilike', 'อ่างล้างหน้าแขวนผนัง'], ['name', 'ilike', 'พร้อมขา']]
+2025-06-26 17:00:01,952 - INFO - Found product by partial word match: '3MA174 Basin' with code '3MA0174101' for search term '[MA0174101] MA174 อ่างล้างหน้าแขวนผนัง พร้อมขา'
+2025-06-26 17:00:02,272 - INFO - Added product [MA0174101] MA174 อ่างล้างหน้าแขวนผนัง พร้อมขา with quantity 25.0 to picking 8986
+2025-06-26 17:00:02,274 - INFO - Processing Excel row 26: {'product_id': '[MA575C110] MA575 อ่างล้างหน้าฝังใต้เคาน์เตอร์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:02,276 - INFO - Searching for product with code: '[MA575C110] MA575 อ่างล้างหน้าฝังใต้เคาน์เตอร์' and old code: '[MA575C110] MA575 อ่างล้างหน้าฝังใต้เคาน์เตอร์'
+2025-06-26 17:00:02,749 - INFO - Trying word-by-word search in product name for: '[MA575C110] MA575 อ่างล้างหน้าฝังใต้เคาน์เตอร์'
+2025-06-26 17:00:02,749 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MA575C110]'], ['name', 'ilike', 'MA575'], ['name', 'ilike', 'อ่างล้างหน้าฝังใต้เคาน์เตอร์']]
+2025-06-26 17:00:02,916 - INFO - Found product by partial word match: '3MA185 อ่างล้างหน้าฝังใต้เคาน์เตอร์' with code '3MA0185101' for search term '[MA575C110] MA575 อ่างล้างหน้าฝังใต้เคาน์เตอร์'
+2025-06-26 17:00:03,206 - INFO - Added product [MA575C110] MA575 อ่างล้างหน้าฝังใต้เคาน์เตอร์ with quantity 2.0 to picking 8986
+2025-06-26 17:00:03,207 - INFO - Processing Excel row 27: {'product_id': '[MAL160L1010] MAL160(L) อ่างล้างหน้าแขวนผนัง', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:03,207 - INFO - Searching for product with code: '[MAL160L1010] MAL160(L) อ่างล้างหน้าแขวนผนัง' and old code: '[MAL160L1010] MAL160(L) อ่างล้างหน้าแขวนผนัง'
+2025-06-26 17:00:03,671 - INFO - Trying word-by-word search in product name for: '[MAL160L1010] MAL160(L) อ่างล้างหน้าแขวนผนัง'
+2025-06-26 17:00:03,671 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MAL160L1010]'], ['name', 'ilike', 'MAL160(L)'], ['name', 'ilike', 'อ่างล้างหน้าแขวนผนัง']]
+2025-06-26 17:00:03,827 - INFO - Found product by partial word match: '3MAL160(L) Basin' with code '3MAL160L1010' for search term '[MAL160L1010] MAL160(L) อ่างล้างหน้าแขวนผนัง'
+2025-06-26 17:00:04,083 - INFO - Added product [MAL160L1010] MAL160(L) อ่างล้างหน้าแขวนผนัง with quantity 2.0 to picking 8986
+2025-06-26 17:00:04,085 - INFO - Processing Excel row 28: {'product_id': '[MAM011C1111] MAM013-12 อ่างล้างหน้าวางบนเคาน์เตอร์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:04,087 - INFO - Searching for product with code: '[MAM011C1111] MAM013-12 อ่างล้างหน้าวางบนเคาน์เตอร์' and old code: '[MAM011C1111] MAM013-12 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:04,649 - INFO - Trying word-by-word search in product name for: '[MAM011C1111] MAM013-12 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:04,650 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MAM011C1111]'], ['name', 'ilike', 'MAM013-12'], ['name', 'ilike', 'อ่างล้างหน้าวางบนเคาน์เตอร์']]
+2025-06-26 17:00:04,802 - INFO - Found product by partial word match: 'MA033 อ่างล้างหน้าวางบนเคาน์เตอร์' with code 'MA0033101' for search term '[MAM011C1111] MAM013-12 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:05,059 - INFO - Added product [MAM011C1111] MAM013-12 อ่างล้างหน้าวางบนเคาน์เตอร์ with quantity 2.0 to picking 8986
+2025-06-26 17:00:05,060 - INFO - Processing Excel row 29: {'product_id': '[MAM011C112] MAM013-3 อ่างล้างหน้าวางบนเคาน์เตอร์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 20, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:05,061 - INFO - Searching for product with code: '[MAM011C112] MAM013-3 อ่างล้างหน้าวางบนเคาน์เตอร์' and old code: '[MAM011C112] MAM013-3 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:05,644 - INFO - Trying word-by-word search in product name for: '[MAM011C112] MAM013-3 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:05,644 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MAM011C112]'], ['name', 'ilike', 'MAM013-3'], ['name', 'ilike', 'อ่างล้างหน้าวางบนเคาน์เตอร์']]
+2025-06-26 17:00:05,826 - INFO - Found product by partial word match: 'MA033 อ่างล้างหน้าวางบนเคาน์เตอร์' with code 'MA0033101' for search term '[MAM011C112] MAM013-3 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:06,191 - INFO - Added product [MAM011C112] MAM013-3 อ่างล้างหน้าวางบนเคาน์เตอร์ with quantity 20.0 to picking 8986
+2025-06-26 17:00:06,193 - INFO - Processing Excel row 30: {'product_id': '[MAM011C115] MAM013-6 อ่างล้างหน้าวางบนเคาน์เตอร์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 8, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:06,195 - INFO - Searching for product with code: '[MAM011C115] MAM013-6 อ่างล้างหน้าวางบนเคาน์เตอร์' and old code: '[MAM011C115] MAM013-6 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:06,794 - INFO - Trying word-by-word search in product name for: '[MAM011C115] MAM013-6 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:06,794 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MAM011C115]'], ['name', 'ilike', 'MAM013-6'], ['name', 'ilike', 'อ่างล้างหน้าวางบนเคาน์เตอร์']]
+2025-06-26 17:00:06,981 - INFO - Found product by partial word match: 'MA033 อ่างล้างหน้าวางบนเคาน์เตอร์' with code 'MA0033101' for search term '[MAM011C115] MAM013-6 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:07,264 - INFO - Added product [MAM011C115] MAM013-6 อ่างล้างหน้าวางบนเคาน์เตอร์ with quantity 8.0 to picking 8986
+2025-06-26 17:00:07,265 - INFO - Processing Excel row 31: {'product_id': '[MAM011C119] MAM013-10 อ่างล้างหน้าวางบนเคาน์เตอร์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:07,266 - INFO - Searching for product with code: '[MAM011C119] MAM013-10 อ่างล้างหน้าวางบนเคาน์เตอร์' and old code: '[MAM011C119] MAM013-10 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:07,818 - INFO - Trying word-by-word search in product name for: '[MAM011C119] MAM013-10 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:07,819 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MAM011C119]'], ['name', 'ilike', 'MAM013-10'], ['name', 'ilike', 'อ่างล้างหน้าวางบนเคาน์เตอร์']]
+2025-06-26 17:00:07,961 - INFO - Found product by partial word match: 'MA033 อ่างล้างหน้าวางบนเคาน์เตอร์' with code 'MA0033101' for search term '[MAM011C119] MAM013-10 อ่างล้างหน้าวางบนเคาน์เตอร์'
+2025-06-26 17:00:08,225 - INFO - Added product [MAM011C119] MAM013-10 อ่างล้างหน้าวางบนเคาน์เตอร์ with quantity 1.0 to picking 8986
+2025-06-26 17:00:08,229 - INFO - Processing Excel row 32: {'product_id': '[MCV0002100] MCV02M วาล์วผสมเปิด-ปิดน้ำ ฝังผนัง', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:08,231 - INFO - Searching for product with code: '[MCV0002100] MCV02M วาล์วผสมเปิด-ปิดน้ำ ฝังผนัง' and old code: '[MCV0002100] MCV02M วาล์วผสมเปิด-ปิดน้ำ ฝังผนัง'
+2025-06-26 17:00:08,780 - INFO - Trying word-by-word search in product name for: '[MCV0002100] MCV02M วาล์วผสมเปิด-ปิดน้ำ ฝังผนัง'
+2025-06-26 17:00:08,781 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MCV0002100]'], ['name', 'ilike', 'MCV02M'], ['name', 'ilike', 'วาล์วผสมเปิด-ปิดน้ำ'], ['name', 'ilike', 'ฝังผนัง']]
+2025-06-26 17:00:08,960 - INFO - Found product by partial word match: 'ที่ใส่ทิชชู่สแตนเลส แบบเดี่ยว (แนวนอน) แบบฝังผนัง รหัส Marvel MS304-04' with code '408020001' for search term '[MCV0002100] MCV02M วาล์วผสมเปิด-ปิดน้ำ ฝังผนัง'
+2025-06-26 17:00:09,247 - INFO - Added product [MCV0002100] MCV02M วาล์วผสมเปิด-ปิดน้ำ ฝังผนัง with quantity 2.0 to picking 8986
+2025-06-26 17:00:09,248 - INFO - Processing Excel row 33: {'product_id': '[MF0041LH7] F4035G (L) เฟอร์นิเจอร์ขนาด 35 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:09,248 - INFO - Searching for product with code: '[MF0041LH7] F4035G (L) เฟอร์นิเจอร์ขนาด 35 ซม.' and old code: '[MF0041LH7] F4035G (L) เฟอร์นิเจอร์ขนาด 35 ซม.'
+2025-06-26 17:00:09,744 - INFO - Trying word-by-word search in product name for: '[MF0041LH7] F4035G (L) เฟอร์นิเจอร์ขนาด 35 ซม.'
+2025-06-26 17:00:09,745 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[MF0041LH7]'], ['name', 'ilike', 'F4035G'], ['name', 'ilike', '(L)'], ['name', 'ilike', 'เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', 'ซม.']]
+2025-06-26 17:00:10,212 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[MF0041LH7] F4035G (L) เฟอร์นิเจอร์ขนาด 35 ซม.'
+2025-06-26 17:00:10,462 - INFO - Added product [MF0041LH7] F4035G (L) เฟอร์นิเจอร์ขนาด 35 ซม. with quantity 2.0 to picking 8986
+2025-06-26 17:00:10,463 - INFO - Processing Excel row 34: {'product_id': '[MF004816J] F48070U เฟอร์นิเจอร์ขนาด 70 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:10,463 - INFO - Searching for product with code: '[MF004816J] F48070U เฟอร์นิเจอร์ขนาด 70 ซม.' and old code: '[MF004816J] F48070U เฟอร์นิเจอร์ขนาด 70 ซม.'
+2025-06-26 17:00:11,036 - INFO - Trying word-by-word search in product name for: '[MF004816J] F48070U เฟอร์นิเจอร์ขนาด 70 ซม.'
+2025-06-26 17:00:11,036 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MF004816J]'], ['name', 'ilike', 'F48070U'], ['name', 'ilike', 'เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', 'ซม.']]
+2025-06-26 17:00:11,451 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[MF004816J] F48070U เฟอร์นิเจอร์ขนาด 70 ซม.'
+2025-06-26 17:00:11,709 - INFO - Added product [MF004816J] F48070U เฟอร์นิเจอร์ขนาด 70 ซม. with quantity 1.0 to picking 8986
+2025-06-26 17:00:11,711 - INFO - Processing Excel row 35: {'product_id': '[MF005613L] F56120T (R-AL) เฟอร์นิเจอร์ขนาด 120 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 3, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:11,715 - INFO - Searching for product with code: '[MF005613L] F56120T (R-AL) เฟอร์นิเจอร์ขนาด 120 ซม.' and old code: '[MF005613L] F56120T (R-AL) เฟอร์นิเจอร์ขนาด 120 ซม.'
+2025-06-26 17:00:12,426 - INFO - Trying word-by-word search in product name for: '[MF005613L] F56120T (R-AL) เฟอร์นิเจอร์ขนาด 120 ซม.'
+2025-06-26 17:00:12,427 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[MF005613L]'], ['name', 'ilike', 'F56120T'], ['name', 'ilike', '(R-AL)'], ['name', 'ilike', 'เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', '120']]
+2025-06-26 17:00:12,898 - INFO - Found product by partial word match: 'ไม้ยางพารา BJ ชานพัก 1200x1050x25 AC39 เกรด BC' with code '201030002' for search term '[MF005613L] F56120T (R-AL) เฟอร์นิเจอร์ขนาด 120 ซม.'
+2025-06-26 17:00:13,191 - INFO - Added product [MF005613L] F56120T (R-AL) เฟอร์นิเจอร์ขนาด 120 ซม. with quantity 3.0 to picking 8986
+2025-06-26 17:00:13,191 - INFO - Processing Excel row 36: {'product_id': '[MF008R12W] F8090PPZ (R) เฟอร์นิเจอร์ขนาด 90 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:13,192 - INFO - Searching for product with code: '[MF008R12W] F8090PPZ (R) เฟอร์นิเจอร์ขนาด 90 ซม.' and old code: '[MF008R12W] F8090PPZ (R) เฟอร์นิเจอร์ขนาด 90 ซม.'
+2025-06-26 17:00:13,851 - INFO - Trying word-by-word search in product name for: '[MF008R12W] F8090PPZ (R) เฟอร์นิเจอร์ขนาด 90 ซม.'
+2025-06-26 17:00:13,851 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[MF008R12W]'], ['name', 'ilike', 'F8090PPZ'], ['name', 'ilike', '(R)'], ['name', 'ilike', 'เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', 'ซม.']]
+2025-06-26 17:00:14,367 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[MF008R12W] F8090PPZ (R) เฟอร์นิเจอร์ขนาด 90 ซม.'
+2025-06-26 17:00:14,629 - INFO - Added product [MF008R12W] F8090PPZ (R) เฟอร์นิเจอร์ขนาด 90 ซม. with quantity 1.0 to picking 8986
+2025-06-26 17:00:14,629 - INFO - Processing Excel row 37: {'product_id': '[MF015N123] F15090F-N เฟอร์นิเจอร์ขนาด 90 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:14,630 - INFO - Searching for product with code: '[MF015N123] F15090F-N เฟอร์นิเจอร์ขนาด 90 ซม.' and old code: '[MF015N123] F15090F-N เฟอร์นิเจอร์ขนาด 90 ซม.'
+2025-06-26 17:00:15,189 - INFO - Trying word-by-word search in product name for: '[MF015N123] F15090F-N เฟอร์นิเจอร์ขนาด 90 ซม.'
+2025-06-26 17:00:15,190 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MF015N123]'], ['name', 'ilike', 'F15090F-N'], ['name', 'ilike', 'เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', 'ซม.']]
+2025-06-26 17:00:15,576 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[MF015N123] F15090F-N เฟอร์นิเจอร์ขนาด 90 ซม.'
+2025-06-26 17:00:15,988 - INFO - Added product [MF015N123] F15090F-N เฟอร์นิเจอร์ขนาด 90 ซม. with quantity 1.0 to picking 8986
+2025-06-26 17:00:15,991 - INFO - Processing Excel row 38: {'product_id': '[MF015N153] F15080F-N เฟอร์นิเจอร์ขนาด 80 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 4, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:15,992 - INFO - Searching for product with code: '[MF015N153] F15080F-N เฟอร์นิเจอร์ขนาด 80 ซม.' and old code: '[MF015N153] F15080F-N เฟอร์นิเจอร์ขนาด 80 ซม.'
+2025-06-26 17:00:16,652 - INFO - Trying word-by-word search in product name for: '[MF015N153] F15080F-N เฟอร์นิเจอร์ขนาด 80 ซม.'
+2025-06-26 17:00:16,654 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MF015N153]'], ['name', 'ilike', 'F15080F-N'], ['name', 'ilike', 'เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', 'ซม.']]
+2025-06-26 17:00:17,103 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[MF015N153] F15080F-N เฟอร์นิเจอร์ขนาด 80 ซม.'
+2025-06-26 17:00:17,443 - INFO - Added product [MF015N153] F15080F-N เฟอร์นิเจอร์ขนาด 80 ซม. with quantity 4.0 to picking 8986
+2025-06-26 17:00:17,443 - INFO - Processing Excel row 39: {'product_id': '[MF018A112] F18A60C เฟอร์นิเจอร์ขนาด 60 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:17,444 - INFO - Searching for product with code: '[MF018A112] F18A60C เฟอร์นิเจอร์ขนาด 60 ซม.' and old code: '[MF018A112] F18A60C เฟอร์นิเจอร์ขนาด 60 ซม.'
+2025-06-26 17:00:18,043 - INFO - Trying word-by-word search in product name for: '[MF018A112] F18A60C เฟอร์นิเจอร์ขนาด 60 ซม.'
+2025-06-26 17:00:18,044 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MF018A112]'], ['name', 'ilike', 'F18A60C'], ['name', 'ilike', 'เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', 'ซม.']]
+2025-06-26 17:00:18,431 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[MF018A112] F18A60C เฟอร์นิเจอร์ขนาด 60 ซม.'
+2025-06-26 17:00:18,731 - INFO - Added product [MF018A112] F18A60C เฟอร์นิเจอร์ขนาด 60 ซม. with quantity 2.0 to picking 8986
+2025-06-26 17:00:18,732 - INFO - Processing Excel row 40: {'product_id': '[MO0010101] MO10 สุขภัณฑ์ชิ้นเดียว', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:18,733 - INFO - Searching for product with code: '[MO0010101] MO10 สุขภัณฑ์ชิ้นเดียว' and old code: '[MO0010101] MO10 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:19,407 - INFO - Trying word-by-word search in product name for: '[MO0010101] MO10 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:19,407 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MO0010101]'], ['name', 'ilike', 'MO10'], ['name', 'ilike', 'สุขภัณฑ์ชิ้นเดียว']]
+2025-06-26 17:00:19,562 - INFO - Found product by partial word match: '3MO49(ECO)/BFS สุขภัณฑ์ชิ้นเดียว ( ไม่มีอุปกรณ์ติดตั้ง)' with code '3MO00490001' for search term '[MO0010101] MO10 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:19,827 - INFO - Added product [MO0010101] MO10 สุขภัณฑ์ชิ้นเดียว with quantity 1.0 to picking 8986
+2025-06-26 17:00:19,828 - INFO - Processing Excel row 41: {'product_id': '[MO00381211] MO38N สุขภัณฑ์ชิ้นเดียว', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 3, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:19,828 - INFO - Searching for product with code: '[MO00381211] MO38N สุขภัณฑ์ชิ้นเดียว' and old code: '[MO00381211] MO38N สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:20,446 - INFO - Trying word-by-word search in product name for: '[MO00381211] MO38N สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:20,447 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MO00381211]'], ['name', 'ilike', 'MO38N'], ['name', 'ilike', 'สุขภัณฑ์ชิ้นเดียว']]
+2025-06-26 17:00:20,635 - INFO - Found product by partial word match: '3MO38N Water Closet' with code '3MO00381211' for search term '[MO00381211] MO38N สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:20,908 - INFO - Added product [MO00381211] MO38N สุขภัณฑ์ชิ้นเดียว with quantity 3.0 to picking 8986
+2025-06-26 17:00:20,909 - INFO - Processing Excel row 42: {'product_id': '[MO0310101] MO310 สุขภัณฑ์ชิ้นเดียว', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 7, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:20,909 - INFO - Searching for product with code: '[MO0310101] MO310 สุขภัณฑ์ชิ้นเดียว' and old code: '[MO0310101] MO310 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:21,420 - INFO - Trying word-by-word search in product name for: '[MO0310101] MO310 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:21,421 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MO0310101]'], ['name', 'ilike', 'MO310'], ['name', 'ilike', 'สุขภัณฑ์ชิ้นเดียว']]
+2025-06-26 17:00:21,549 - INFO - Found product by partial word match: '3MO49(ECO)/BFS สุขภัณฑ์ชิ้นเดียว ( ไม่มีอุปกรณ์ติดตั้ง)' with code '3MO00490001' for search term '[MO0310101] MO310 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:21,837 - INFO - Added product [MO0310101] MO310 สุขภัณฑ์ชิ้นเดียว with quantity 7.0 to picking 8986
+2025-06-26 17:00:21,838 - INFO - Processing Excel row 43: {'product_id': '[MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 3, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:21,838 - INFO - Searching for product with code: '[MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว' and old code: '[MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:22,415 - INFO - Trying word-by-word search in product name for: '[MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:22,416 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MO031N101]'], ['name', 'ilike', 'MO31N'], ['name', 'ilike', 'สุขภัณฑ์ชิ้นเดียว']]
+2025-06-26 17:00:22,592 - INFO - Found product by partial word match: '3MO49(ECO)/BFS สุขภัณฑ์ชิ้นเดียว ( ไม่มีอุปกรณ์ติดตั้ง)' with code '3MO00490001' for search term '[MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:22,863 - INFO - Added product [MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว with quantity 3.0 to picking 8986
+2025-06-26 17:00:22,865 - INFO - Processing Excel row 44: {'product_id': '[MT00431210] MT43 สุขภัณฑ์สองชิ้น', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 27, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:22,867 - INFO - Searching for product with code: '[MT00431210] MT43 สุขภัณฑ์สองชิ้น' and old code: '[MT00431210] MT43 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:23,395 - INFO - Trying word-by-word search in product name for: '[MT00431210] MT43 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:23,395 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MT00431210]'], ['name', 'ilike', 'MT43'], ['name', 'ilike', 'สุขภัณฑ์สองชิ้น']]
+2025-06-26 17:00:23,546 - INFO - Found product by partial word match: '3MT43 Water Closet' with code '3MT00431210' for search term '[MT00431210] MT43 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:23,793 - INFO - Added product [MT00431210] MT43 สุขภัณฑ์สองชิ้น with quantity 27.0 to picking 8986
+2025-06-26 17:00:23,794 - INFO - Processing Excel row 45: {'product_id': '[MT00631210] MT63 สุขภัณฑ์สองชิ้น', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:23,794 - INFO - Searching for product with code: '[MT00631210] MT63 สุขภัณฑ์สองชิ้น' and old code: '[MT00631210] MT63 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:24,259 - INFO - Trying word-by-word search in product name for: '[MT00631210] MT63 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:24,259 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MT00631210]'], ['name', 'ilike', 'MT63'], ['name', 'ilike', 'สุขภัณฑ์สองชิ้น']]
+2025-06-26 17:00:24,413 - INFO - Found product by partial word match: 'กล่องกระดาษสำหรับชักโครก รุ่น MT63' with code '413010031' for search term '[MT00631210] MT63 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:24,677 - INFO - Added product [MT00631210] MT63 สุขภัณฑ์สองชิ้น with quantity 2.0 to picking 8986
+2025-06-26 17:00:24,678 - INFO - Processing Excel row 46: {'product_id': '[MT00681110] MT68 (ECO) สุขภัณฑ์สองชิ้น', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 27, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:24,678 - INFO - Searching for product with code: '[MT00681110] MT68 (ECO) สุขภัณฑ์สองชิ้น' and old code: '[MT00681110] MT68 (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:25,182 - INFO - Trying word-by-word search in product name for: '[MT00681110] MT68 (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:25,182 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MT00681110]'], ['name', 'ilike', 'MT68'], ['name', 'ilike', '(ECO)'], ['name', 'ilike', 'สุขภัณฑ์สองชิ้น']]
+2025-06-26 17:00:25,335 - INFO - Found product by partial word match: '3MO40 (ECO) (NC) Spare part' with code '3MO00401010' for search term '[MT00681110] MT68 (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:25,610 - INFO - Added product [MT00681110] MT68 (ECO) สุขภัณฑ์สองชิ้น with quantity 27.0 to picking 8986
+2025-06-26 17:00:25,611 - INFO - Processing Excel row 47: {'product_id': '[MT00681112] MT68EX (ECO) สุขภัณฑ์สองชิ้น', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 3, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:25,611 - INFO - Searching for product with code: '[MT00681112] MT68EX (ECO) สุขภัณฑ์สองชิ้น' and old code: '[MT00681112] MT68EX (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:26,104 - INFO - Trying word-by-word search in product name for: '[MT00681112] MT68EX (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:26,104 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MT00681112]'], ['name', 'ilike', 'MT68EX'], ['name', 'ilike', '(ECO)'], ['name', 'ilike', 'สุขภัณฑ์สองชิ้น']]
+2025-06-26 17:00:26,284 - INFO - Found product by partial word match: '3MO40 (ECO) (NC) Spare part' with code '3MO00401010' for search term '[MT00681112] MT68EX (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:26,662 - INFO - Added product [MT00681112] MT68EX (ECO) สุขภัณฑ์สองชิ้น with quantity 3.0 to picking 8986
+2025-06-26 17:00:26,665 - INFO - Processing Excel row 48: {'product_id': '[MT00811210] MT81 สุขภัณฑ์สองชิ้น', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 4, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:26,666 - INFO - Searching for product with code: '[MT00811210] MT81 สุขภัณฑ์สองชิ้น' and old code: '[MT00811210] MT81 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:27,459 - INFO - Trying word-by-word search in product name for: '[MT00811210] MT81 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:27,460 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MT00811210]'], ['name', 'ilike', 'MT81'], ['name', 'ilike', 'สุขภัณฑ์สองชิ้น']]
+2025-06-26 17:00:27,665 - INFO - Found product by partial word match: 'MT09 สุขภัณฑ์สองชิ้น' with code 'MT0009101' for search term '[MT00811210] MT81 สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:28,000 - INFO - Added product [MT00811210] MT81 สุขภัณฑ์สองชิ้น with quantity 4.0 to picking 8986
+2025-06-26 17:00:28,001 - INFO - Processing Excel row 49: {'product_id': '[MT055E1210] MT55 (ECO) สุขภัณฑ์สองชิ้น', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 3, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:28,001 - INFO - Searching for product with code: '[MT055E1210] MT55 (ECO) สุขภัณฑ์สองชิ้น' and old code: '[MT055E1210] MT55 (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:28,570 - INFO - Trying word-by-word search in product name for: '[MT055E1210] MT55 (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:28,571 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MT055E1210]'], ['name', 'ilike', 'MT55'], ['name', 'ilike', '(ECO)'], ['name', 'ilike', 'สุขภัณฑ์สองชิ้น']]
+2025-06-26 17:00:28,742 - INFO - Found product by partial word match: '3MO40 (ECO) (NC) Spare part' with code '3MO00401010' for search term '[MT055E1210] MT55 (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:29,074 - INFO - Added product [MT055E1210] MT55 (ECO) สุขภัณฑ์สองชิ้น with quantity 3.0 to picking 8986
+2025-06-26 17:00:29,075 - INFO - Processing Excel row 50: {'product_id': '[MT057EX1210] MT57EX (ECO) สุขภัณฑ์สองชิ้น', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 3, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:29,076 - INFO - Searching for product with code: '[MT057EX1210] MT57EX (ECO) สุขภัณฑ์สองชิ้น' and old code: '[MT057EX1210] MT57EX (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:29,657 - INFO - Trying word-by-word search in product name for: '[MT057EX1210] MT57EX (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:29,658 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MT057EX1210]'], ['name', 'ilike', 'MT57EX'], ['name', 'ilike', '(ECO)'], ['name', 'ilike', 'สุขภัณฑ์สองชิ้น']]
+2025-06-26 17:00:29,877 - INFO - Found product by partial word match: '3MO40 (ECO) (NC) Spare part' with code '3MO00401010' for search term '[MT057EX1210] MT57EX (ECO) สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:30,164 - INFO - Added product [MT057EX1210] MT57EX (ECO) สุขภัณฑ์สองชิ้น with quantity 3.0 to picking 8986
+2025-06-26 17:00:30,165 - INFO - Processing Excel row 51: {'product_id': '[MT73100LP] MT73-LP สุขภัณฑ์สองชิ้น', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:30,165 - INFO - Searching for product with code: '[MT73100LP] MT73-LP สุขภัณฑ์สองชิ้น' and old code: '[MT73100LP] MT73-LP สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:30,788 - INFO - Trying word-by-word search in product name for: '[MT73100LP] MT73-LP สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:30,788 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MT73100LP]'], ['name', 'ilike', 'MT73-LP'], ['name', 'ilike', 'สุขภัณฑ์สองชิ้น']]
+2025-06-26 17:00:30,947 - INFO - Found product by partial word match: 'MT09 สุขภัณฑ์สองชิ้น' with code 'MT0009101' for search term '[MT73100LP] MT73-LP สุขภัณฑ์สองชิ้น'
+2025-06-26 17:00:31,206 - INFO - Added product [MT73100LP] MT73-LP สุขภัณฑ์สองชิ้น with quantity 2.0 to picking 8986
+2025-06-26 17:00:31,207 - INFO - Processing Excel row 52: {'product_id': '[MUS008100] MUS08 โถปัสสาวะชาย เซนเซอร์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 13, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:31,207 - INFO - Searching for product with code: '[MUS008100] MUS08 โถปัสสาวะชาย เซนเซอร์' and old code: '[MUS008100] MUS08 โถปัสสาวะชาย เซนเซอร์'
+2025-06-26 17:00:31,694 - INFO - Trying word-by-word search in product name for: '[MUS008100] MUS08 โถปัสสาวะชาย เซนเซอร์'
+2025-06-26 17:00:31,694 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[MUS008100]'], ['name', 'ilike', 'MUS08'], ['name', 'ilike', 'โถปัสสาวะชาย'], ['name', 'ilike', 'เซนเซอร์']]
+2025-06-26 17:00:31,854 - INFO - Found product by partial word match: '3MUS08 Urinal' with code '3MUS008100' for search term '[MUS008100] MUS08 โถปัสสาวะชาย เซนเซอร์'
+2025-06-26 17:00:32,139 - INFO - Added product [MUS008100] MUS08 โถปัสสาวะชาย เซนเซอร์ with quantity 13.0 to picking 8986
+2025-06-26 17:00:32,140 - INFO - Processing Excel row 53: {'product_id': '[MWH002101] MWH02 สุขภัณฑ์แขวนผนัง', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 2, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:32,140 - INFO - Searching for product with code: '[MWH002101] MWH02 สุขภัณฑ์แขวนผนัง' and old code: '[MWH002101] MWH02 สุขภัณฑ์แขวนผนัง'
+2025-06-26 17:00:33,080 - INFO - Trying word-by-word search in product name for: '[MWH002101] MWH02 สุขภัณฑ์แขวนผนัง'
+2025-06-26 17:00:33,081 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[MWH002101]'], ['name', 'ilike', 'MWH02'], ['name', 'ilike', 'สุขภัณฑ์แขวนผนัง']]
+2025-06-26 17:00:33,302 - INFO - Found product by partial word match: 'กล่องกระดาษสำหรับชักโครก รุ่น W01, W02, MWH02' with code '413010032' for search term '[MWH002101] MWH02 สุขภัณฑ์แขวนผนัง'
+2025-06-26 17:00:33,559 - INFO - Added product [MWH002101] MWH02 สุขภัณฑ์แขวนผนัง with quantity 2.0 to picking 8986
+2025-06-26 17:00:33,559 - INFO - Processing Excel row 54: {'product_id': '[NFG06-DISPLAY-SPC1200] Display ไลฟ์สดขายของ Size 1200', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:33,560 - INFO - Searching for product with code: '[NFG06-DISPLAY-SPC1200] Display ไลฟ์สดขายของ Size 1200' and old code: '[NFG06-DISPLAY-SPC1200] Display ไลฟ์สดขายของ Size 1200'
+2025-06-26 17:00:34,111 - INFO - Trying word-by-word search in product name for: '[NFG06-DISPLAY-SPC1200] Display ไลฟ์สดขายของ Size 1200'
+2025-06-26 17:00:34,111 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[NFG06-DISPLAY-SPC1200]'], ['name', 'ilike', 'Display'], ['name', 'ilike', 'ไลฟ์สดขายของ'], ['name', 'ilike', 'Size'], ['name', 'ilike', '1200']]
+2025-06-26 17:00:34,487 - INFO - Found product by partial word match: 'ไม้ยางพารา BJ ชานพัก 1200x1050x25 AC39 เกรด BC' with code '201030002' for search term '[NFG06-DISPLAY-SPC1200] Display ไลฟ์สดขายของ Size 1200'
+2025-06-26 17:00:34,822 - INFO - Added product [NFG06-DISPLAY-SPC1200] Display ไลฟ์สดขายของ Size 1200 with quantity 1.0 to picking 8986
+2025-06-26 17:00:34,823 - INFO - Processing Excel row 55: {'product_id': '[NX4MF0048213] NX4F48060F (SP4) เฟอร์นิเจอร์ขนาด 60 ซม.', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:34,824 - INFO - Searching for product with code: '[NX4MF0048213] NX4F48060F (SP4) เฟอร์นิเจอร์ขนาด 60 ซม.' and old code: '[NX4MF0048213] NX4F48060F (SP4) เฟอร์นิเจอร์ขนาด 60 ซม.'
+2025-06-26 17:00:35,397 - INFO - Trying word-by-word search in product name for: '[NX4MF0048213] NX4F48060F (SP4) เฟอร์นิเจอร์ขนาด 60 ซม.'
+2025-06-26 17:00:35,397 - INFO - Searching with domain: ['|', '|', '|', '|', ['name', 'ilike', '[NX4MF0048213]'], ['name', 'ilike', 'NX4F48060F'], ['name', 'ilike', '(SP4)'], ['name', 'ilike', 'เฟอร์นิเจอร์ขนาด'], ['name', 'ilike', 'ซม.']]
+2025-06-26 17:00:35,674 - INFO - Found product by partial word match: 'LFU33060U24(SP) อ่างล้างหน้า พร้อมตู้เฟอร์นิเจอร์ กันน้ำ (PW)ขนาด 60 ซม.' with code 'LFU0033DFC22024' for search term '[NX4MF0048213] NX4F48060F (SP4) เฟอร์นิเจอร์ขนาด 60 ซม.'
+2025-06-26 17:00:35,827 - INFO - Added product [NX4MF0048213] NX4F48060F (SP4) เฟอร์นิเจอร์ขนาด 60 ซม. with quantity 1.0 to picking 8986
+2025-06-26 17:00:35,829 - INFO - Processing Excel row 56: {'product_id': '[NX5SP129100] NX5SP129 ก๊อกเดี่ยวอ่างล้างหน้า', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:35,830 - INFO - Searching for product with code: '[NX5SP129100] NX5SP129 ก๊อกเดี่ยวอ่างล้างหน้า' and old code: '[NX5SP129100] NX5SP129 ก๊อกเดี่ยวอ่างล้างหน้า'
+2025-06-26 17:00:36,171 - INFO - Trying word-by-word search in product name for: '[NX5SP129100] NX5SP129 ก๊อกเดี่ยวอ่างล้างหน้า'
+2025-06-26 17:00:36,172 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[NX5SP129100]'], ['name', 'ilike', 'NX5SP129'], ['name', 'ilike', 'ก๊อกเดี่ยวอ่างล้างหน้า']]
+2025-06-26 17:00:36,289 - INFO - Found product by partial word match: 'MI212 ก๊อกเดี่ยวอ่างล้างหน้า' with code 'FA0017100' for search term '[NX5SP129100] NX5SP129 ก๊อกเดี่ยวอ่างล้างหน้า'
+2025-06-26 17:00:36,423 - INFO - Added product [NX5SP129100] NX5SP129 ก๊อกเดี่ยวอ่างล้างหน้า with quantity 1.0 to picking 8986
+2025-06-26 17:00:36,424 - INFO - Processing Excel row 57: {'product_id': '[NX5SWR0001100] NX5SWR01C ฝักบัวเรนชาวเวอร์', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:36,425 - INFO - Searching for product with code: '[NX5SWR0001100] NX5SWR01C ฝักบัวเรนชาวเวอร์' and old code: '[NX5SWR0001100] NX5SWR01C ฝักบัวเรนชาวเวอร์'
+2025-06-26 17:00:36,798 - INFO - Trying word-by-word search in product name for: '[NX5SWR0001100] NX5SWR01C ฝักบัวเรนชาวเวอร์'
+2025-06-26 17:00:36,798 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[NX5SWR0001100]'], ['name', 'ilike', 'NX5SWR01C'], ['name', 'ilike', 'ฝักบัวเรนชาวเวอร์']]
+2025-06-26 17:00:36,942 - INFO - Found product by partial word match: 'MI130 ชุดฝักบัวเรนชาวเวอร์' with code 'ML0111100' for search term '[NX5SWR0001100] NX5SWR01C ฝักบัวเรนชาวเวอร์'
+2025-06-26 17:00:37,063 - INFO - Added product [NX5SWR0001100] NX5SWR01C ฝักบัวเรนชาวเวอร์ with quantity 1.0 to picking 8986
+2025-06-26 17:00:37,063 - INFO - Processing Excel row 58: {'product_id': '[NX5UF01100] NX5UF01 ฟลัชวาล์ว โถปัสสาวะชาย', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:37,064 - INFO - Searching for product with code: '[NX5UF01100] NX5UF01 ฟลัชวาล์ว โถปัสสาวะชาย' and old code: '[NX5UF01100] NX5UF01 ฟลัชวาล์ว โถปัสสาวะชาย'
+2025-06-26 17:00:37,606 - INFO - Trying word-by-word search in product name for: '[NX5UF01100] NX5UF01 ฟลัชวาล์ว โถปัสสาวะชาย'
+2025-06-26 17:00:37,607 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[NX5UF01100]'], ['name', 'ilike', 'NX5UF01'], ['name', 'ilike', 'ฟลัชวาล์ว'], ['name', 'ilike', 'โถปัสสาวะชาย']]
+2025-06-26 17:00:37,688 - INFO - Found product by partial word match: '3FV001 ฟลัชวาล์ว โถสุขภัณฑ์' with code '3FV00011000' for search term '[NX5UF01100] NX5UF01 ฟลัชวาล์ว โถปัสสาวะชาย'
+2025-06-26 17:00:37,860 - INFO - Added product [NX5UF01100] NX5UF01 ฟลัชวาล์ว โถปัสสาวะชาย with quantity 1.0 to picking 8986
+2025-06-26 17:00:37,863 - INFO - Processing Excel row 59: {'product_id': '[RS00006110] RS06 ชุดสายฉีดชำระ', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 32, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:37,864 - INFO - Searching for product with code: '[RS00006110] RS06 ชุดสายฉีดชำระ' and old code: '[RS00006110] RS06 ชุดสายฉีดชำระ'
+2025-06-26 17:00:38,297 - INFO - Trying word-by-word search in product name for: '[RS00006110] RS06 ชุดสายฉีดชำระ'
+2025-06-26 17:00:38,298 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[RS00006110]'], ['name', 'ilike', 'RS06'], ['name', 'ilike', 'ชุดสายฉีดชำระ']]
+2025-06-26 17:00:38,445 - INFO - Found product by partial word match: 'SP35 ชุดสายฉีดชำระ' with code 'SP0035100' for search term '[RS00006110] RS06 ชุดสายฉีดชำระ'
+2025-06-26 17:00:38,614 - INFO - Added product [RS00006110] RS06 ชุดสายฉีดชำระ with quantity 32.0 to picking 8986
+2025-06-26 17:00:38,615 - INFO - Processing Excel row 60: {'product_id': '[SP0035100] SP35 ชุดสายฉีดชำระ', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 27, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:38,615 - INFO - Searching for product with code: '[SP0035100] SP35 ชุดสายฉีดชำระ' and old code: '[SP0035100] SP35 ชุดสายฉีดชำระ'
+2025-06-26 17:00:38,952 - INFO - Trying word-by-word search in product name for: '[SP0035100] SP35 ชุดสายฉีดชำระ'
+2025-06-26 17:00:38,954 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[SP0035100]'], ['name', 'ilike', 'SP35'], ['name', 'ilike', 'ชุดสายฉีดชำระ']]
+2025-06-26 17:00:39,125 - INFO - Found product by partial word match: 'SP35 ชุดสายฉีดชำระ' with code 'SP0035100' for search term '[SP0035100] SP35 ชุดสายฉีดชำระ'
+2025-06-26 17:00:39,370 - INFO - Added product [SP0035100] SP35 ชุดสายฉีดชำระ with quantity 27.0 to picking 8986
+2025-06-26 17:00:39,370 - INFO - Processing Excel row 61: {'product_id': '[SP00782100] SP78 หม้อน้ำซ่อนผนัง ไม่มีเฟรม', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 6, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:39,371 - INFO - Searching for product with code: '[SP00782100] SP78 หม้อน้ำซ่อนผนัง ไม่มีเฟรม' and old code: '[SP00782100] SP78 หม้อน้ำซ่อนผนัง ไม่มีเฟรม'
+2025-06-26 17:00:39,970 - INFO - Trying word-by-word search in product name for: '[SP00782100] SP78 หม้อน้ำซ่อนผนัง ไม่มีเฟรม'
+2025-06-26 17:00:39,970 - INFO - Searching with domain: ['|', '|', '|', ['name', 'ilike', '[SP00782100]'], ['name', 'ilike', 'SP78'], ['name', 'ilike', 'หม้อน้ำซ่อนผนัง'], ['name', 'ilike', 'ไม่มีเฟรม']]
+2025-06-26 17:00:40,094 - INFO - Found product by partial word match: 'กล่องกระดาษสำหรับสินค้า รุ่น SP78' with code '413010210' for search term '[SP00782100] SP78 หม้อน้ำซ่อนผนัง ไม่มีเฟรม'
+2025-06-26 17:00:40,325 - INFO - Added product [SP00782100] SP78 หม้อน้ำซ่อนผนัง ไม่มีเฟรม with quantity 6.0 to picking 8986
+2025-06-26 17:00:40,326 - INFO - Processing Excel row 62: {'product_id': '[SP02110100] SP2110 ก๊อกเซนเซอร์อ่างล้างหน้า', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 6, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:40,327 - INFO - Searching for product with code: '[SP02110100] SP2110 ก๊อกเซนเซอร์อ่างล้างหน้า' and old code: '[SP02110100] SP2110 ก๊อกเซนเซอร์อ่างล้างหน้า'
+2025-06-26 17:00:40,970 - INFO - Trying word-by-word search in product name for: '[SP02110100] SP2110 ก๊อกเซนเซอร์อ่างล้างหน้า'
+2025-06-26 17:00:40,971 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[SP02110100]'], ['name', 'ilike', 'SP2110'], ['name', 'ilike', 'ก๊อกเซนเซอร์อ่างล้างหน้า']]
+2025-06-26 17:00:41,101 - INFO - Found product by partial word match: 'FCA46C ก๊อกเซนเซอร์อ่างล้างหน้า' with code 'FCA0046100' for search term '[SP02110100] SP2110 ก๊อกเซนเซอร์อ่างล้างหน้า'
+2025-06-26 17:00:41,533 - INFO - Added product [SP02110100] SP2110 ก๊อกเซนเซอร์อ่างล้างหน้า with quantity 6.0 to picking 8986
+2025-06-26 17:00:41,533 - INFO - Processing Excel row 63: {'product_id': '[VT10032101] NX132 สุขภัณฑ์ชิ้นเดียว', 'scheduled_date': Timestamp('2025-06-26 16:59:35'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG30/Stock', 'partner_id': 'MOG FG30', 'origin': 'FG30 Adjuestment', 'product_uom_qty': 1, 'sequence': 0.0, 'price_unit': 0.0}
+2025-06-26 17:00:41,534 - INFO - Searching for product with code: '[VT10032101] NX132 สุขภัณฑ์ชิ้นเดียว' and old code: '[VT10032101] NX132 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:42,435 - INFO - Trying word-by-word search in product name for: '[VT10032101] NX132 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:42,436 - INFO - Searching with domain: ['|', '|', ['name', 'ilike', '[VT10032101]'], ['name', 'ilike', 'NX132'], ['name', 'ilike', 'สุขภัณฑ์ชิ้นเดียว']]
+2025-06-26 17:00:42,636 - INFO - Found product by partial word match: '3MO49(ECO)/BFS สุขภัณฑ์ชิ้นเดียว ( ไม่มีอุปกรณ์ติดตั้ง)' with code '3MO00490001' for search term '[VT10032101] NX132 สุขภัณฑ์ชิ้นเดียว'
+2025-06-26 17:00:42,941 - INFO - Added product [VT10032101] NX132 สุขภัณฑ์ชิ้นเดียว with quantity 1.0 to picking 8986
+2025-06-26 17:00:43,313 - INFO - Updated dates for picking 8986 (kept in draft state): 2025-06-26 16:59:35
+2025-06-26 17:00:43,313 - INFO - Created transfer 8986 in draft state - ready for manual review
+2025-06-26 17:00:43,314 - INFO - Import completed: 1 success, 0 failed.

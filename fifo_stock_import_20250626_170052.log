@@ -1,0 +1,12 @@
+2025-06-26 17:00:54,734 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-26 17:00:54,778 - INFO - Odoo version: 17.0.1.3
+2025-06-26 17:00:54,906 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-26 17:00:54,906 - ERROR - Failed to read Excel file: Excel file not found: Data_file/FG10 Adjustment.xlsx
+2025-06-26 17:00:54,907 - ERROR - Fatal error: Excel file not found: Data_file/FG10 Adjustment.xlsx
+2025-06-26 17:00:54,908 - ERROR - Traceback (most recent call last):
+  File "c:\Users\Ball\Documents\Git_apcball\Project1\import_fifo_stock_adjuestment.py", line 1038, in <module>
+    df = read_excel_file()
+  File "c:\Users\Ball\Documents\Git_apcball\Project1\import_fifo_stock_adjuestment.py", line 68, in read_excel_file
+    raise FileNotFoundError(f"Excel file not found: {EXCEL_FILE}")
+FileNotFoundError: Excel file not found: Data_file/FG10 Adjustment.xlsx
+
