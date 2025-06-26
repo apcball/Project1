@@ -1,0 +1,211 @@
+2025-06-26 23:17:02,243 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-26 23:17:02,459 - INFO - Available internal locations (178):
+2025-06-26 23:17:02,459 - INFO - - ID: 229, Name: Stock, Complete Name: AS01/Stock
+2025-06-26 23:17:02,460 - INFO - - ID: 317, Name: Stock, Complete Name: DS01/Stock
+2025-06-26 23:17:02,460 - INFO - - ID: 253, Name: Stock, Complete Name: FG10/Stock
+2025-06-26 23:17:02,460 - INFO - - ID: 261, Name: Stock, Complete Name: FG11/Stock
+2025-06-26 23:17:02,460 - INFO - - ID: 1007, Name: วังน้อย, Complete Name: FG11/วังน้อย
+2025-06-26 23:17:02,460 - INFO - - ID: 269, Name: Stock, Complete Name: FG12/Stock
+2025-06-26 23:17:02,460 - INFO - - ID: 1011, Name: นครศรีธรรมราช, Complete Name: FG12/นครศรีธรรมราช
+2025-06-26 23:17:02,460 - INFO - - ID: 1009, Name: ภูเก็ต, Complete Name: FG12/ภูเก็ต
+2025-06-26 23:17:02,460 - INFO - - ID: 1008, Name: รังสิตคลอง 4, Complete Name: FG12/รังสิตคลอง 4
+2025-06-26 23:17:02,460 - INFO - - ID: 1010, Name: เชียงใหม่, Complete Name: FG12/เชียงใหม่
+2025-06-26 23:17:02,460 - INFO - - ID: 1013, Name: Stock, Complete Name: FG13/Stock
+2025-06-26 23:17:02,460 - INFO - - ID: 1036, Name: นิธิเดช  มีธง, Complete Name: FG13/นิธิเดช  มีธง
+2025-06-26 23:17:02,460 - INFO - - ID: 1037, Name: นเรศ  พุทธรักษา, Complete Name: FG13/นเรศ  พุทธรักษา
+2025-06-26 23:17:02,461 - INFO - - ID: 1034, Name: ประทีป  เรืองศรี, Complete Name: FG13/ประทีป  เรืองศรี
+2025-06-26 23:17:02,461 - INFO - - ID: 1035, Name: สุทธิพงษ์  วุฒิคำ, Complete Name: FG13/สุทธิพงษ์  วุฒิคำ
+2025-06-26 23:17:02,461 - INFO - - ID: 1038, Name: อนุรักษ์  รักประสงค์, Complete Name: FG13/อนุรักษ์  รักประสงค์
+2025-06-26 23:17:02,461 - INFO - - ID: 277, Name: Stock, Complete Name: FG20/Stock
+2025-06-26 23:17:02,461 - INFO - - ID: 1029, Name: Anuchit, Complete Name: FG30/Anuchit
+2025-06-26 23:17:02,461 - INFO - - ID: 941, Name: BTV-SH, Complete Name: FG30/BTV-SH
+2025-06-26 23:17:02,461 - INFO - - ID: 985, Name: DOH001, Complete Name: FG30/DOH001
+2025-06-26 23:17:02,461 - INFO - - ID: 990, Name: DOHBN01, Complete Name: FG30/DOHBN01
+2025-06-26 23:17:02,461 - INFO - - ID: 1006, Name: DOHBP01, Complete Name: FG30/DOHBP01
+2025-06-26 23:17:02,461 - INFO - - ID: 1004, Name: DOHBR01, Complete Name: FG30/DOHBR01
+2025-06-26 23:17:02,461 - INFO - - ID: 991, Name: DOHBT01, Complete Name: FG30/DOHBT01
+2025-06-26 23:17:02,461 - INFO - - ID: 998, Name: DOHBW01, Complete Name: FG30/DOHBW01
+2025-06-26 23:17:02,461 - INFO - - ID: 999, Name: DOHCB01, Complete Name: FG30/DOHCB01
+2025-06-26 23:17:02,461 - INFO - - ID: 986, Name: DOHCH01, Complete Name: FG30/DOHCH01
+2025-06-26 23:17:02,461 - INFO - - ID: 1005, Name: DOHCP01, Complete Name: FG30/DOHCP01
+2025-06-26 23:17:02,462 - INFO - - ID: 1001, Name: DOHHY01, Complete Name: FG30/DOHHY01
+2025-06-26 23:17:02,462 - INFO - - ID: 1002, Name: DOHKB01, Complete Name: FG30/DOHKB01
+2025-06-26 23:17:02,462 - INFO - - ID: 994, Name: DOHKK01, Complete Name: FG30/DOHKK01
+2025-06-26 23:17:02,462 - INFO - - ID: 997, Name: DOHLC01, Complete Name: FG30/DOHLC01
+2025-06-26 23:17:02,462 - INFO - - ID: 996, Name: DOHMP01, Complete Name: FG30/DOHMP01
+2025-06-26 23:17:02,462 - INFO - - ID: 989, Name: DOHNR01, Complete Name: FG30/DOHNR01
+2025-06-26 23:17:02,462 - INFO - - ID: 987, Name: DOHPH01, Complete Name: FG30/DOHPH01
+2025-06-26 23:17:02,462 - INFO - - ID: 1003, Name: DOHPL01, Complete Name: FG30/DOHPL01
+2025-06-26 23:17:02,462 - INFO - - ID: 992, Name: DOHPR01, Complete Name: FG30/DOHPR01
+2025-06-26 23:17:02,462 - INFO - - ID: 993, Name: DOHRS01, Complete Name: FG30/DOHRS01
+2025-06-26 23:17:02,462 - INFO - - ID: 995, Name: DOHSR01, Complete Name: FG30/DOHSR01
+2025-06-26 23:17:02,462 - INFO - - ID: 1000, Name: DOHST01, Complete Name: FG30/DOHST01
+2025-06-26 23:17:02,463 - INFO - - ID: 1042, Name: DOHTP01, Complete Name: FG30/DOHTP01
+2025-06-26 23:17:02,463 - INFO - - ID: 988, Name: DOHUD01, Complete Name: FG30/DOHUD01
+2025-06-26 23:17:02,463 - INFO - - ID: 961, Name: DS MGP CDC, Complete Name: FG30/DS MGP CDC
+2025-06-26 23:17:02,463 - INFO - - ID: 960, Name: DS OLT LLK, Complete Name: FG30/DS OLT LLK
+2025-06-26 23:17:02,463 - INFO - - ID: 974, Name: FIP001, Complete Name: FG30/FIP001
+2025-06-26 23:17:02,463 - INFO - - ID: 978, Name: GBCP01, Complete Name: FG30/GBCP01
+2025-06-26 23:17:02,463 - INFO - - ID: 979, Name: GBLP01, Complete Name: FG30/GBLP01
+2025-06-26 23:17:02,463 - INFO - - ID: 980, Name: GBNA01, Complete Name: FG30/GBNA01
+2025-06-26 23:17:02,463 - INFO - - ID: 981, Name: GBNB01, Complete Name: FG30/GBNB01
+2025-06-26 23:17:02,463 - INFO - - ID: 982, Name: GBNK01, Complete Name: FG30/GBNK01
+2025-06-26 23:17:02,463 - INFO - - ID: 970, Name: HOH002, Complete Name: FG30/HOH002
+2025-06-26 23:17:02,463 - INFO - - ID: 971, Name: HOH004, Complete Name: FG30/HOH004
+2025-06-26 23:17:02,463 - INFO - - ID: 963, Name: HSP001, Complete Name: FG30/HSP001
+2025-06-26 23:17:02,463 - INFO - - ID: 962, Name: HSP003, Complete Name: FG30/HSP003
+2025-06-26 23:17:02,463 - INFO - - ID: 964, Name: HSP008, Complete Name: FG30/HSP008
+2025-06-26 23:17:02,463 - INFO - - ID: 965, Name: HSP009, Complete Name: FG30/HSP009
+2025-06-26 23:17:02,464 - INFO - - ID: 975, Name: JCH001, Complete Name: FG30/JCH001
+2025-06-26 23:17:02,464 - INFO - - ID: 1027, Name: Kanittha, Complete Name: FG30/Kanittha
+2025-06-26 23:17:02,464 - INFO - - ID: 967, Name: MBH001, Complete Name: FG30/MBH001
+2025-06-26 23:17:02,464 - INFO - - ID: 1031, Name: Natwida, Complete Name: FG30/Natwida
+2025-06-26 23:17:02,464 - INFO - - ID: 285, Name: PJ, Complete Name: FG30/PJ
+2025-06-26 23:17:02,464 - INFO - - ID: 1044, Name: PJ MGP PKT, Complete Name: FG30/PJ MGP PKT
+2025-06-26 23:17:02,464 - INFO - - ID: 1024, Name: Peerapol, Complete Name: FG30/Peerapol
+2025-06-26 23:17:02,464 - INFO - - ID: 1032, Name: Piyawan, Complete Name: FG30/Piyawan
+2025-06-26 23:17:02,464 - INFO - - ID: 1033, Name: Pongpipat, Complete Name: FG30/Pongpipat
+2025-06-26 23:17:02,464 - INFO - - ID: 933, Name: RT-BTV-BN, Complete Name: FG30/RT-BTV-BN
+2025-06-26 23:17:02,464 - INFO - - ID: 936, Name: RT-BTV-CH, Complete Name: FG30/RT-BTV-CH
+2025-06-26 23:17:02,464 - INFO - - ID: 932, Name: RT-BTV-DC, Complete Name: FG30/RT-BTV-DC
+2025-06-26 23:17:02,464 - INFO - - ID: 940, Name: RT-BTV-HH, Complete Name: FG30/RT-BTV-HH
+2025-06-26 23:17:02,464 - INFO - - ID: 928, Name: RT-BTV-KN, Complete Name: FG30/RT-BTV-KN
+2025-06-26 23:17:02,464 - INFO - - ID: 929, Name: RT-BTV-PM, Complete Name: FG30/RT-BTV-PM
+2025-06-26 23:17:02,464 - INFO - - ID: 935, Name: RT-BTV-PN, Complete Name: FG30/RT-BTV-PN
+2025-06-26 23:17:02,464 - INFO - - ID: 927, Name: RT-BTV-PR, Complete Name: FG30/RT-BTV-PR
+2025-06-26 23:17:02,464 - INFO - - ID: 938, Name: RT-BTV-PY, Complete Name: FG30/RT-BTV-PY
+2025-06-26 23:17:02,465 - INFO - - ID: 930, Name: RT-BTV-RD, Complete Name: FG30/RT-BTV-RD
+2025-06-26 23:17:02,465 - INFO - - ID: 931, Name: RT-BTV-RP, Complete Name: FG30/RT-BTV-RP
+2025-06-26 23:17:02,465 - INFO - - ID: 926, Name: RT-BTV-RS, Complete Name: FG30/RT-BTV-RS
+2025-06-26 23:17:02,465 - INFO - - ID: 939, Name: RT-BTV-RY, Complete Name: FG30/RT-BTV-RY
+2025-06-26 23:17:02,465 - INFO - - ID: 934, Name: RT-BTV-SR, Complete Name: FG30/RT-BTV-SR
+2025-06-26 23:17:02,465 - INFO - - ID: 937, Name: RT-BTV-UD, Complete Name: FG30/RT-BTV-UD
+2025-06-26 23:17:02,465 - INFO - - ID: 1026, Name: Ronnapob, Complete Name: FG30/Ronnapob
+2025-06-26 23:17:02,465 - INFO - - ID: 966, Name: SBDH001, Complete Name: FG30/SBDH001
+2025-06-26 23:17:02,465 - INFO - - ID: 1043, Name: SCG-3K, Complete Name: FG30/SCG-3K
+2025-06-26 23:17:02,465 - INFO - - ID: 957, Name: SCG-AB, Complete Name: FG30/SCG-AB
+2025-06-26 23:17:02,465 - INFO - - ID: 955, Name: SCG-AJ, Complete Name: FG30/SCG-AJ
+2025-06-26 23:17:02,465 - INFO - - ID: 956, Name: SCG-AS, Complete Name: FG30/SCG-AS
+2025-06-26 23:17:02,465 - INFO - - ID: 952, Name: SCG-BR, Complete Name: FG30/SCG-BR
+2025-06-26 23:17:02,465 - INFO - - ID: 948, Name: SCG-CH, Complete Name: FG30/SCG-CH
+2025-06-26 23:17:02,465 - INFO - - ID: 945, Name: SCG-CK, Complete Name: FG30/SCG-CK
+2025-06-26 23:17:02,466 - INFO - - ID: 944, Name: SCG-CP, Complete Name: FG30/SCG-CP
+2025-06-26 23:17:02,466 - INFO - - ID: 946, Name: SCG-CR, Complete Name: FG30/SCG-CR
+2025-06-26 23:17:02,466 - INFO - - ID: 947, Name: SCG-HC, Complete Name: FG30/SCG-HC
+2025-06-26 23:17:02,466 - INFO - - ID: 951, Name: SCG-JR, Complete Name: FG30/SCG-JR
+2025-06-26 23:17:02,466 - INFO - - ID: 942, Name: SCG-KB, Complete Name: FG30/SCG-KB
+2025-06-26 23:17:02,466 - INFO - - ID: 943, Name: SCG-LB, Complete Name: FG30/SCG-LB
+2025-06-26 23:17:02,466 - INFO - - ID: 958, Name: SCG-MC, Complete Name: FG30/SCG-MC
+2025-06-26 23:17:02,466 - INFO - - ID: 959, Name: SCG-NMA, Complete Name: FG30/SCG-NMA
+2025-06-26 23:17:02,466 - INFO - - ID: 950, Name: SCG-NS, Complete Name: FG30/SCG-NS
+2025-06-26 23:17:02,466 - INFO - - ID: 949, Name: SCG-NST, Complete Name: FG30/SCG-NST
+2025-06-26 23:17:02,466 - INFO - - ID: 953, Name: SCG-PKK, Complete Name: FG30/SCG-PKK
+2025-06-26 23:17:02,466 - INFO - - ID: 954, Name: SCG-PL, Complete Name: FG30/SCG-PL
+2025-06-26 23:17:02,466 - INFO - - ID: 969, Name: SMC003, Complete Name: FG30/SMC003
+2025-06-26 23:17:02,466 - INFO - - ID: 968, Name: SMC006, Complete Name: FG30/SMC006
+2025-06-26 23:17:02,466 - INFO - - ID: 983, Name: SNPT01, Complete Name: FG30/SNPT01
+2025-06-26 23:17:02,466 - INFO - - ID: 984, Name: SNSK01, Complete Name: FG30/SNSK01
+2025-06-26 23:17:02,466 - INFO - - ID: 1030, Name: Siripohn, Complete Name: FG30/Siripohn
+2025-06-26 23:17:02,467 - INFO - - ID: 1022, Name: Stock, Complete Name: FG30/Stock
+2025-06-26 23:17:02,467 - INFO - - ID: 1025, Name: Thawatchai, Complete Name: FG30/Thawatchai
+2025-06-26 23:17:02,467 - INFO - - ID: 972, Name: YJR001, Complete Name: FG30/YJR001
+2025-06-26 23:17:02,467 - INFO - - ID: 977, Name: YLY001, Complete Name: FG30/YLY001
+2025-06-26 23:17:02,467 - INFO - - ID: 973, Name: YOH001, Complete Name: FG30/YOH001
+2025-06-26 23:17:02,467 - INFO - - ID: 976, Name: YUL002, Complete Name: FG30/YUL002
+2025-06-26 23:17:02,467 - INFO - - ID: 293, Name: Stock, Complete Name: FG40/Stock
+2025-06-26 23:17:02,467 - INFO - - ID: 301, Name: Stock, Complete Name: FG50/Stock
+2025-06-26 23:17:02,467 - INFO - - ID: 245, Name: Stock, Complete Name: PD01/Stock
+2025-06-26 23:17:02,467 - INFO - - ID: 875, Name: ALPHA, Complete Name: PJ01/ALPHA
+2025-06-26 23:17:02,467 - INFO - - ID: 876, Name: AY-PKS, Complete Name: PJ01/AY-PKS
+2025-06-26 23:17:02,467 - INFO - - ID: 877, Name: AY-WG, Complete Name: PJ01/AY-WG
+2025-06-26 23:17:02,467 - INFO - - ID: 878, Name: CPN, Complete Name: PJ01/CPN
+2025-06-26 23:17:02,467 - INFO - - ID: 879, Name: GREAT, Complete Name: PJ01/GREAT
+2025-06-26 23:17:02,467 - INFO - - ID: 310, Name: Input, Complete Name: PJ01/Input
+2025-06-26 23:17:02,467 - INFO - - ID: 880, Name: M15, Complete Name: PJ01/M15
+2025-06-26 23:17:02,467 - INFO - - ID: 881, Name: MB5, Complete Name: PJ01/MB5
+2025-06-26 23:17:02,467 - INFO - - ID: 882, Name: MBR, Complete Name: PJ01/MBR
+2025-06-26 23:17:02,467 - INFO - - ID: 883, Name: MRI, Complete Name: PJ01/MRI
+2025-06-26 23:17:02,467 - INFO - - ID: 884, Name: MRR, Complete Name: PJ01/MRR
+2025-06-26 23:17:02,467 - INFO - - ID: 885, Name: MS3, Complete Name: PJ01/MS3
+2025-06-26 23:17:02,467 - INFO - - ID: 886, Name: MTN-BKT100+, Complete Name: PJ01/MTN-BKT100+
+2025-06-26 23:17:02,467 - INFO - - ID: 887, Name: MTN-CM, Complete Name: PJ01/MTN-CM
+2025-06-26 23:17:02,467 - INFO - - ID: 888, Name: MTN-MLW, Complete Name: PJ01/MTN-MLW
+2025-06-26 23:17:02,467 - INFO - - ID: 889, Name: NB, Complete Name: PJ01/NB
+2025-06-26 23:17:02,467 - INFO - - ID: 890, Name: NTW-N15, Complete Name: PJ01/NTW-N15
+2025-06-26 23:17:02,468 - INFO - - ID: 891, Name: NTW-N93, Complete Name: PJ01/NTW-N93
+2025-06-26 23:17:02,468 - INFO - - ID: 892, Name: NTW-PK, Complete Name: PJ01/NTW-PK
+2025-06-26 23:17:02,468 - INFO - - ID: 312, Name: Output, Complete Name: PJ01/Output
+2025-06-26 23:17:02,468 - INFO - - ID: 893, Name: PF-ONN/7, Complete Name: PJ01/PF-ONN/7
+2025-06-26 23:17:02,468 - INFO - - ID: 894, Name: PF-ONN/9, Complete Name: PJ01/PF-ONN/9
+2025-06-26 23:17:02,468 - INFO - - ID: 895, Name: PF-RAM/3, Complete Name: PJ01/PF-RAM/3
+2025-06-26 23:17:02,468 - INFO - - ID: 896, Name: PF-RMK/5, Complete Name: PJ01/PF-RMK/5
+2025-06-26 23:17:02,468 - INFO - - ID: 897, Name: PF-RPT, Complete Name: PJ01/PF-RPT
+2025-06-26 23:17:02,468 - INFO - - ID: 898, Name: PF-RS, Complete Name: PJ01/PF-RS
+2025-06-26 23:17:02,468 - INFO - - ID: 899, Name: PS100, Complete Name: PJ01/PS100
+2025-06-26 23:17:02,468 - INFO - - ID: 900, Name: PS106, Complete Name: PJ01/PS106
+2025-06-26 23:17:02,468 - INFO - - ID: 901, Name: PS107, Complete Name: PJ01/PS107
+2025-06-26 23:17:02,468 - INFO - - ID: 902, Name: PS109, Complete Name: PJ01/PS109
+2025-06-26 23:17:02,468 - INFO - - ID: 903, Name: PS47, Complete Name: PJ01/PS47
+2025-06-26 23:17:02,468 - INFO - - ID: 904, Name: PS76, Complete Name: PJ01/PS76
+2025-06-26 23:17:02,468 - INFO - - ID: 905, Name: PS89, Complete Name: PJ01/PS89
+2025-06-26 23:17:02,468 - INFO - - ID: 906, Name: PS99, Complete Name: PJ01/PS99
+2025-06-26 23:17:02,468 - INFO - - ID: 907, Name: S13, Complete Name: PJ01/S13
+2025-06-26 23:17:02,468 - INFO - - ID: 908, Name: SG-PB, Complete Name: PJ01/SG-PB
+2025-06-26 23:17:02,468 - INFO - - ID: 909, Name: SG-PT2, Complete Name: PJ01/SG-PT2
+2025-06-26 23:17:02,468 - INFO - - ID: 309, Name: Stock-1, Complete Name: PJ01/Stock-1
+2025-06-26 23:17:02,468 - INFO - - ID: 911, Name: TYPR, Complete Name: PJ01/TYPR
+2025-06-26 23:17:02,468 - INFO - - ID: 912, Name: Urban, Complete Name: PJ01/Urban
+2025-06-26 23:17:02,468 - INFO - - ID: 913, Name: V-BY, Complete Name: PJ01/V-BY
+2025-06-26 23:17:02,468 - INFO - - ID: 914, Name: V-LW, Complete Name: PJ01/V-LW
+2025-06-26 23:17:02,468 - INFO - - ID: 915, Name: V-SB3, Complete Name: PJ01/V-SB3
+2025-06-26 23:17:02,468 - INFO - - ID: 916, Name: VIE-PK5, Complete Name: PJ01/VIE-PK5
+2025-06-26 23:17:02,469 - INFO - - ID: 917, Name: VIE-RM, Complete Name: PJ01/VIE-RM
+2025-06-26 23:17:02,469 - INFO - - ID: 918, Name: VIE-RP, Complete Name: PJ01/VIE-RP
+2025-06-26 23:17:02,469 - INFO - - ID: 919, Name: VIVE13, Complete Name: PJ01/VIVE13
+2025-06-26 23:17:02,469 - INFO - - ID: 173, Name: Stock, Complete Name: RM01/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 181, Name: Stock, Complete Name: RM02/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 920, Name: ASR, Complete Name: RM03/ASR
+2025-06-26 23:17:02,469 - INFO - - ID: 921, Name: CSI, Complete Name: RM03/CSI
+2025-06-26 23:17:02,469 - INFO - - ID: 922, Name: KPB, Complete Name: RM03/KPB
+2025-06-26 23:17:02,469 - INFO - - ID: 923, Name: NAS, Complete Name: RM03/NAS
+2025-06-26 23:17:02,469 - INFO - - ID: 924, Name: QTL, Complete Name: RM03/QTL
+2025-06-26 23:17:02,469 - INFO - - ID: 205, Name: Stock, Complete Name: RM03/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 925, Name: TCI, Complete Name: RM03/TCI
+2025-06-26 23:17:02,469 - INFO - - ID: 8, Name: Stock, Complete Name: RM03/TCI/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 189, Name: Stock, Complete Name: RM11/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 197, Name: Stock, Complete Name: RM12/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 237, Name: Stock, Complete Name: SM01/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 213, Name: Stock, Complete Name: ST01/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 221, Name: Stock, Complete Name: ST02/Stock
+2025-06-26 23:17:02,469 - INFO - - ID: 19, Name: Subcontracting Location, Complete Name: บริษัทเนอวานา ไดอิ จำกัด (มหาชน)  สำนักงานใหญ่/Subcontracting Location
+2025-06-26 23:17:02,469 - INFO - Setting inventory adjustment date to: 2025-01-31 00:00:00 (31/01/2025)
+2025-06-26 23:17:02,692 - WARNING - Could not update company settings for backdating: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 468, in call_kw\n    result = _call_kw_multi(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 453, in _call_kw_multi\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 3556, in read\n    self._origin.fetch(fields)\n  File "/opt/instance1/odoo17/odoo/models.py", line 3813, in fetch\n    fields_to_fetch = self._determine_fields_to_fetch(field_names, ignore_when_in_cache=True)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 3880, in _determine_fields_to_fetch\n    raise ValueError(f"Invalid field {field_name!r} on model {self._name!r}")\nValueError: Invalid field \'stock_move_timestamp_backward\' on model \'res.company\'\n'>
+2025-06-26 23:17:09,810 - INFO - Found 3 locations: [173, 229, 253]
+2025-06-26 23:17:09,942 - INFO - The following locations will be processed:
+2025-06-26 23:17:09,943 - INFO - - RM01/Stock (ID: 173)
+2025-06-26 23:17:09,943 - INFO - - AS01/Stock (ID: 229)
+2025-06-26 23:17:09,943 - INFO - - FG10/Stock (ID: 253)
+2025-06-26 23:17:17,538 - INFO - Processing location: Stock (ID: 173)
+2025-06-26 23:17:18,356 - INFO - Found 885 products with stock in location 173
+2025-06-26 23:17:18,517 - INFO - Using inventory loss location ID: 14
+2025-06-26 23:17:18,517 - INFO - Setting to zero: [MA0603F12] MA603#BL อ่างล้างหน้าวางบนเคาน์เตอร์ (current qty: 1.0)
+2025-06-26 23:17:19,083 - INFO - Trying alternative assign method: <Fault 4: 'Private methods (such as _action_assign) cannot be called remotely.'>
+2025-06-26 23:17:19,235 - WARNING - Error while processing move: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 468, in call_kw\n    result = _call_kw_multi(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 453, in _call_kw_multi\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/repair/models/stock_move.py", line 88, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp_subcontracting/models/stock_move.py", line 139, in write\n    res = super().write(values)\n          ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp/models/stock_move.py", line 413, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/stock/models/stock_move.py", line 679, in write\n    res = super(StockMove, self).write(vals)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4359, in write\n    raise ValueError("Invalid field %r on model %r" % (fname, self._name))\nValueError: Invalid field \'quantity_done\' on model \'stock.move\'\n'>
+2025-06-26 23:17:19,235 - INFO - ✅ Created and confirmed stock move to reset [MA0603F12] MA603#BL อ่างล้างหน้าวางบนเคาน์เตอร์
+2025-06-26 23:17:19,236 - INFO - Setting to zero: [MA0604F12] MA613#BL อ่างล้างหน้าวางบนเคาน์เตอร์ (current qty: 1.0)
+2025-06-26 23:17:19,695 - INFO - Trying alternative assign method: <Fault 4: 'Private methods (such as _action_assign) cannot be called remotely.'>
+2025-06-26 23:17:19,800 - WARNING - Error while processing move: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 468, in call_kw\n    result = _call_kw_multi(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 453, in _call_kw_multi\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/repair/models/stock_move.py", line 88, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp_subcontracting/models/stock_move.py", line 139, in write\n    res = super().write(values)\n          ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp/models/stock_move.py", line 413, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/stock/models/stock_move.py", line 679, in write\n    res = super(StockMove, self).write(vals)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4359, in write\n    raise ValueError("Invalid field %r on model %r" % (fname, self._name))\nValueError: Invalid field \'quantity_done\' on model \'stock.move\'\n'>
+2025-06-26 23:17:19,801 - INFO - ✅ Created and confirmed stock move to reset [MA0604F12] MA613#BL อ่างล้างหน้าวางบนเคาน์เตอร์
+2025-06-26 23:17:19,801 - INFO - Setting to zero: [MA072B101] MA072 (B) อ่างล้างหน้าแขวนผนัง (current qty: 10.0)
+2025-06-26 23:17:20,186 - INFO - Trying alternative assign method: <Fault 4: 'Private methods (such as _action_assign) cannot be called remotely.'>
+2025-06-26 23:17:20,329 - WARNING - Error while processing move: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 468, in call_kw\n    result = _call_kw_multi(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 453, in _call_kw_multi\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/repair/models/stock_move.py", line 88, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp_subcontracting/models/stock_move.py", line 139, in write\n    res = super().write(values)\n          ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp/models/stock_move.py", line 413, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/stock/models/stock_move.py", line 679, in write\n    res = super(StockMove, self).write(vals)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4359, in write\n    raise ValueError("Invalid field %r on model %r" % (fname, self._name))\nValueError: Invalid field \'quantity_done\' on model \'stock.move\'\n'>
+2025-06-26 23:17:20,330 - INFO - ✅ Created and confirmed stock move to reset [MA072B101] MA072 (B) อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:17:20,330 - INFO - Setting to zero: [MA092P101] MA092 (P) เฉพาะขาอ่างล้างหน้า (current qty: 109.0)
+2025-06-26 23:17:20,796 - INFO - Trying alternative assign method: <Fault 4: 'Private methods (such as _action_assign) cannot be called remotely.'>
+2025-06-26 23:17:20,936 - WARNING - Error while processing move: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 468, in call_kw\n    result = _call_kw_multi(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 453, in _call_kw_multi\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/repair/models/stock_move.py", line 88, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp_subcontracting/models/stock_move.py", line 139, in write\n    res = super().write(values)\n          ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp/models/stock_move.py", line 413, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/stock/models/stock_move.py", line 679, in write\n    res = super(StockMove, self).write(vals)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4359, in write\n    raise ValueError("Invalid field %r on model %r" % (fname, self._name))\nValueError: Invalid field \'quantity_done\' on model \'stock.move\'\n'>
+2025-06-26 23:17:20,936 - INFO - ✅ Created and confirmed stock move to reset [MA092P101] MA092 (P) เฉพาะขาอ่างล้างหน้า
+2025-06-26 23:17:20,937 - INFO - Setting to zero: [MA142B101] MA142 (B) อ่างล้างหน้าแขวนผนัง (current qty: 591.0)
+2025-06-26 23:17:21,438 - INFO - Trying alternative assign method: <Fault 4: 'Private methods (such as _action_assign) cannot be called remotely.'>
+2025-06-26 23:17:21,571 - WARNING - Error while processing move: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 468, in call_kw\n    result = _call_kw_multi(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 453, in _call_kw_multi\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/repair/models/stock_move.py", line 88, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp_subcontracting/models/stock_move.py", line 139, in write\n    res = super().write(values)\n          ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mrp/models/stock_move.py", line 413, in write\n    res = super().write(vals)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/stock/models/stock_move.py", line 679, in write\n    res = super(StockMove, self).write(vals)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4359, in write\n    raise ValueError("Invalid field %r on model %r" % (fname, self._name))\nValueError: Invalid field \'quantity_done\' on model \'stock.move\'\n'>
+2025-06-26 23:17:21,572 - INFO - ✅ Created and confirmed stock move to reset [MA142B101] MA142 (B) อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:17:21,572 - INFO - Setting to zero: [MA142P101] MA142 (P) เฉพาะขาอ่างล้างหน้า (current qty: 785.0)

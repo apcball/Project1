@@ -3,7 +3,7 @@ from datetime import datetime
 
 # 🔐 Connection parameters
 HOST = 'http://mogdev.work:8069'
-DB = 'MOG_LIVE3'
+DB = 'MOG_LIVE_26-06'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
@@ -114,7 +114,7 @@ try:
     account_moves = models.execute_kw(DB, uid, PASSWORD,
         'account.move.line', 'search_read',
         [[
-            ('date', '<=', '2025-01-31'),
+            ('date', '<=', '2024-12-31 23:59:59'),
             ('account_id.code', 'like', '1301%'),  # สินค้าคงคลัง
             ('balance', '!=', 0)
         ]],
@@ -225,7 +225,7 @@ try:
         stock_moves = models.execute_kw(DB, uid, PASSWORD,
             'stock.move', 'search_read',
             [[
-                ('date', '<=', '2025-01-31'),
+                ('date', '<=', '2024-12-31 23:59:59'),
                 ('product_uom_qty', '!=', 0)
             ]], {'fields': ['id', 'product_uom_qty', 'name'], 'limit': 500})
         
@@ -339,7 +339,7 @@ try:
     alt_moves = models.execute_kw(DB, uid, PASSWORD,
         'stock.move', 'search_read',
         [[
-            ('date', '<=', '2025-01-31'),
+            ('date', '<=', '2024-12-31 23:59:59'),
             ('product_uom_qty', '!=', 0)
         ]], {'fields': ['id', 'product_uom_qty'], 'limit': 300})
     

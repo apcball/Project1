@@ -1,0 +1,895 @@
+2025-06-26 23:29:42,936 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-26 23:29:43,161 - INFO - Available internal locations (178):
+2025-06-26 23:29:43,161 - INFO - - ID: 229, Name: Stock, Complete Name: AS01/Stock
+2025-06-26 23:29:43,162 - INFO - - ID: 317, Name: Stock, Complete Name: DS01/Stock
+2025-06-26 23:29:43,162 - INFO - - ID: 253, Name: Stock, Complete Name: FG10/Stock
+2025-06-26 23:29:43,162 - INFO - - ID: 261, Name: Stock, Complete Name: FG11/Stock
+2025-06-26 23:29:43,162 - INFO - - ID: 1007, Name: วังน้อย, Complete Name: FG11/วังน้อย
+2025-06-26 23:29:43,162 - INFO - - ID: 269, Name: Stock, Complete Name: FG12/Stock
+2025-06-26 23:29:43,162 - INFO - - ID: 1011, Name: นครศรีธรรมราช, Complete Name: FG12/นครศรีธรรมราช
+2025-06-26 23:29:43,162 - INFO - - ID: 1009, Name: ภูเก็ต, Complete Name: FG12/ภูเก็ต
+2025-06-26 23:29:43,162 - INFO - - ID: 1008, Name: รังสิตคลอง 4, Complete Name: FG12/รังสิตคลอง 4
+2025-06-26 23:29:43,162 - INFO - - ID: 1010, Name: เชียงใหม่, Complete Name: FG12/เชียงใหม่
+2025-06-26 23:29:43,162 - INFO - - ID: 1013, Name: Stock, Complete Name: FG13/Stock
+2025-06-26 23:29:43,162 - INFO - - ID: 1036, Name: นิธิเดช  มีธง, Complete Name: FG13/นิธิเดช  มีธง
+2025-06-26 23:29:43,163 - INFO - - ID: 1037, Name: นเรศ  พุทธรักษา, Complete Name: FG13/นเรศ  พุทธรักษา
+2025-06-26 23:29:43,163 - INFO - - ID: 1034, Name: ประทีป  เรืองศรี, Complete Name: FG13/ประทีป  เรืองศรี
+2025-06-26 23:29:43,163 - INFO - - ID: 1035, Name: สุทธิพงษ์  วุฒิคำ, Complete Name: FG13/สุทธิพงษ์  วุฒิคำ
+2025-06-26 23:29:43,163 - INFO - - ID: 1038, Name: อนุรักษ์  รักประสงค์, Complete Name: FG13/อนุรักษ์  รักประสงค์
+2025-06-26 23:29:43,163 - INFO - - ID: 277, Name: Stock, Complete Name: FG20/Stock
+2025-06-26 23:29:43,163 - INFO - - ID: 1029, Name: Anuchit, Complete Name: FG30/Anuchit
+2025-06-26 23:29:43,163 - INFO - - ID: 941, Name: BTV-SH, Complete Name: FG30/BTV-SH
+2025-06-26 23:29:43,163 - INFO - - ID: 985, Name: DOH001, Complete Name: FG30/DOH001
+2025-06-26 23:29:43,163 - INFO - - ID: 990, Name: DOHBN01, Complete Name: FG30/DOHBN01
+2025-06-26 23:29:43,163 - INFO - - ID: 1006, Name: DOHBP01, Complete Name: FG30/DOHBP01
+2025-06-26 23:29:43,163 - INFO - - ID: 1004, Name: DOHBR01, Complete Name: FG30/DOHBR01
+2025-06-26 23:29:43,163 - INFO - - ID: 991, Name: DOHBT01, Complete Name: FG30/DOHBT01
+2025-06-26 23:29:43,163 - INFO - - ID: 998, Name: DOHBW01, Complete Name: FG30/DOHBW01
+2025-06-26 23:29:43,163 - INFO - - ID: 999, Name: DOHCB01, Complete Name: FG30/DOHCB01
+2025-06-26 23:29:43,164 - INFO - - ID: 986, Name: DOHCH01, Complete Name: FG30/DOHCH01
+2025-06-26 23:29:43,164 - INFO - - ID: 1005, Name: DOHCP01, Complete Name: FG30/DOHCP01
+2025-06-26 23:29:43,164 - INFO - - ID: 1001, Name: DOHHY01, Complete Name: FG30/DOHHY01
+2025-06-26 23:29:43,164 - INFO - - ID: 1002, Name: DOHKB01, Complete Name: FG30/DOHKB01
+2025-06-26 23:29:43,164 - INFO - - ID: 994, Name: DOHKK01, Complete Name: FG30/DOHKK01
+2025-06-26 23:29:43,164 - INFO - - ID: 997, Name: DOHLC01, Complete Name: FG30/DOHLC01
+2025-06-26 23:29:43,164 - INFO - - ID: 996, Name: DOHMP01, Complete Name: FG30/DOHMP01
+2025-06-26 23:29:43,164 - INFO - - ID: 989, Name: DOHNR01, Complete Name: FG30/DOHNR01
+2025-06-26 23:29:43,164 - INFO - - ID: 987, Name: DOHPH01, Complete Name: FG30/DOHPH01
+2025-06-26 23:29:43,164 - INFO - - ID: 1003, Name: DOHPL01, Complete Name: FG30/DOHPL01
+2025-06-26 23:29:43,164 - INFO - - ID: 992, Name: DOHPR01, Complete Name: FG30/DOHPR01
+2025-06-26 23:29:43,164 - INFO - - ID: 993, Name: DOHRS01, Complete Name: FG30/DOHRS01
+2025-06-26 23:29:43,164 - INFO - - ID: 995, Name: DOHSR01, Complete Name: FG30/DOHSR01
+2025-06-26 23:29:43,164 - INFO - - ID: 1000, Name: DOHST01, Complete Name: FG30/DOHST01
+2025-06-26 23:29:43,165 - INFO - - ID: 1042, Name: DOHTP01, Complete Name: FG30/DOHTP01
+2025-06-26 23:29:43,165 - INFO - - ID: 988, Name: DOHUD01, Complete Name: FG30/DOHUD01
+2025-06-26 23:29:43,165 - INFO - - ID: 961, Name: DS MGP CDC, Complete Name: FG30/DS MGP CDC
+2025-06-26 23:29:43,165 - INFO - - ID: 960, Name: DS OLT LLK, Complete Name: FG30/DS OLT LLK
+2025-06-26 23:29:43,165 - INFO - - ID: 974, Name: FIP001, Complete Name: FG30/FIP001
+2025-06-26 23:29:43,165 - INFO - - ID: 978, Name: GBCP01, Complete Name: FG30/GBCP01
+2025-06-26 23:29:43,165 - INFO - - ID: 979, Name: GBLP01, Complete Name: FG30/GBLP01
+2025-06-26 23:29:43,165 - INFO - - ID: 980, Name: GBNA01, Complete Name: FG30/GBNA01
+2025-06-26 23:29:43,165 - INFO - - ID: 981, Name: GBNB01, Complete Name: FG30/GBNB01
+2025-06-26 23:29:43,165 - INFO - - ID: 982, Name: GBNK01, Complete Name: FG30/GBNK01
+2025-06-26 23:29:43,165 - INFO - - ID: 970, Name: HOH002, Complete Name: FG30/HOH002
+2025-06-26 23:29:43,165 - INFO - - ID: 971, Name: HOH004, Complete Name: FG30/HOH004
+2025-06-26 23:29:43,165 - INFO - - ID: 963, Name: HSP001, Complete Name: FG30/HSP001
+2025-06-26 23:29:43,165 - INFO - - ID: 962, Name: HSP003, Complete Name: FG30/HSP003
+2025-06-26 23:29:43,165 - INFO - - ID: 964, Name: HSP008, Complete Name: FG30/HSP008
+2025-06-26 23:29:43,166 - INFO - - ID: 965, Name: HSP009, Complete Name: FG30/HSP009
+2025-06-26 23:29:43,166 - INFO - - ID: 975, Name: JCH001, Complete Name: FG30/JCH001
+2025-06-26 23:29:43,166 - INFO - - ID: 1027, Name: Kanittha, Complete Name: FG30/Kanittha
+2025-06-26 23:29:43,166 - INFO - - ID: 967, Name: MBH001, Complete Name: FG30/MBH001
+2025-06-26 23:29:43,166 - INFO - - ID: 1031, Name: Natwida, Complete Name: FG30/Natwida
+2025-06-26 23:29:43,166 - INFO - - ID: 285, Name: PJ, Complete Name: FG30/PJ
+2025-06-26 23:29:43,166 - INFO - - ID: 1044, Name: PJ MGP PKT, Complete Name: FG30/PJ MGP PKT
+2025-06-26 23:29:43,166 - INFO - - ID: 1024, Name: Peerapol, Complete Name: FG30/Peerapol
+2025-06-26 23:29:43,166 - INFO - - ID: 1032, Name: Piyawan, Complete Name: FG30/Piyawan
+2025-06-26 23:29:43,166 - INFO - - ID: 1033, Name: Pongpipat, Complete Name: FG30/Pongpipat
+2025-06-26 23:29:43,166 - INFO - - ID: 933, Name: RT-BTV-BN, Complete Name: FG30/RT-BTV-BN
+2025-06-26 23:29:43,166 - INFO - - ID: 936, Name: RT-BTV-CH, Complete Name: FG30/RT-BTV-CH
+2025-06-26 23:29:43,166 - INFO - - ID: 932, Name: RT-BTV-DC, Complete Name: FG30/RT-BTV-DC
+2025-06-26 23:29:43,166 - INFO - - ID: 940, Name: RT-BTV-HH, Complete Name: FG30/RT-BTV-HH
+2025-06-26 23:29:43,167 - INFO - - ID: 928, Name: RT-BTV-KN, Complete Name: FG30/RT-BTV-KN
+2025-06-26 23:29:43,167 - INFO - - ID: 929, Name: RT-BTV-PM, Complete Name: FG30/RT-BTV-PM
+2025-06-26 23:29:43,167 - INFO - - ID: 935, Name: RT-BTV-PN, Complete Name: FG30/RT-BTV-PN
+2025-06-26 23:29:43,167 - INFO - - ID: 927, Name: RT-BTV-PR, Complete Name: FG30/RT-BTV-PR
+2025-06-26 23:29:43,167 - INFO - - ID: 938, Name: RT-BTV-PY, Complete Name: FG30/RT-BTV-PY
+2025-06-26 23:29:43,167 - INFO - - ID: 930, Name: RT-BTV-RD, Complete Name: FG30/RT-BTV-RD
+2025-06-26 23:29:43,167 - INFO - - ID: 931, Name: RT-BTV-RP, Complete Name: FG30/RT-BTV-RP
+2025-06-26 23:29:43,167 - INFO - - ID: 926, Name: RT-BTV-RS, Complete Name: FG30/RT-BTV-RS
+2025-06-26 23:29:43,167 - INFO - - ID: 939, Name: RT-BTV-RY, Complete Name: FG30/RT-BTV-RY
+2025-06-26 23:29:43,167 - INFO - - ID: 934, Name: RT-BTV-SR, Complete Name: FG30/RT-BTV-SR
+2025-06-26 23:29:43,167 - INFO - - ID: 937, Name: RT-BTV-UD, Complete Name: FG30/RT-BTV-UD
+2025-06-26 23:29:43,167 - INFO - - ID: 1026, Name: Ronnapob, Complete Name: FG30/Ronnapob
+2025-06-26 23:29:43,168 - INFO - - ID: 966, Name: SBDH001, Complete Name: FG30/SBDH001
+2025-06-26 23:29:43,168 - INFO - - ID: 1043, Name: SCG-3K, Complete Name: FG30/SCG-3K
+2025-06-26 23:29:43,168 - INFO - - ID: 957, Name: SCG-AB, Complete Name: FG30/SCG-AB
+2025-06-26 23:29:43,168 - INFO - - ID: 955, Name: SCG-AJ, Complete Name: FG30/SCG-AJ
+2025-06-26 23:29:43,168 - INFO - - ID: 956, Name: SCG-AS, Complete Name: FG30/SCG-AS
+2025-06-26 23:29:43,168 - INFO - - ID: 952, Name: SCG-BR, Complete Name: FG30/SCG-BR
+2025-06-26 23:29:43,168 - INFO - - ID: 948, Name: SCG-CH, Complete Name: FG30/SCG-CH
+2025-06-26 23:29:43,168 - INFO - - ID: 945, Name: SCG-CK, Complete Name: FG30/SCG-CK
+2025-06-26 23:29:43,168 - INFO - - ID: 944, Name: SCG-CP, Complete Name: FG30/SCG-CP
+2025-06-26 23:29:43,168 - INFO - - ID: 946, Name: SCG-CR, Complete Name: FG30/SCG-CR
+2025-06-26 23:29:43,168 - INFO - - ID: 947, Name: SCG-HC, Complete Name: FG30/SCG-HC
+2025-06-26 23:29:43,168 - INFO - - ID: 951, Name: SCG-JR, Complete Name: FG30/SCG-JR
+2025-06-26 23:29:43,168 - INFO - - ID: 942, Name: SCG-KB, Complete Name: FG30/SCG-KB
+2025-06-26 23:29:43,168 - INFO - - ID: 943, Name: SCG-LB, Complete Name: FG30/SCG-LB
+2025-06-26 23:29:43,168 - INFO - - ID: 958, Name: SCG-MC, Complete Name: FG30/SCG-MC
+2025-06-26 23:29:43,169 - INFO - - ID: 959, Name: SCG-NMA, Complete Name: FG30/SCG-NMA
+2025-06-26 23:29:43,169 - INFO - - ID: 950, Name: SCG-NS, Complete Name: FG30/SCG-NS
+2025-06-26 23:29:43,169 - INFO - - ID: 949, Name: SCG-NST, Complete Name: FG30/SCG-NST
+2025-06-26 23:29:43,169 - INFO - - ID: 953, Name: SCG-PKK, Complete Name: FG30/SCG-PKK
+2025-06-26 23:29:43,169 - INFO - - ID: 954, Name: SCG-PL, Complete Name: FG30/SCG-PL
+2025-06-26 23:29:43,169 - INFO - - ID: 969, Name: SMC003, Complete Name: FG30/SMC003
+2025-06-26 23:29:43,169 - INFO - - ID: 968, Name: SMC006, Complete Name: FG30/SMC006
+2025-06-26 23:29:43,169 - INFO - - ID: 983, Name: SNPT01, Complete Name: FG30/SNPT01
+2025-06-26 23:29:43,169 - INFO - - ID: 984, Name: SNSK01, Complete Name: FG30/SNSK01
+2025-06-26 23:29:43,169 - INFO - - ID: 1030, Name: Siripohn, Complete Name: FG30/Siripohn
+2025-06-26 23:29:43,169 - INFO - - ID: 1022, Name: Stock, Complete Name: FG30/Stock
+2025-06-26 23:29:43,169 - INFO - - ID: 1025, Name: Thawatchai, Complete Name: FG30/Thawatchai
+2025-06-26 23:29:43,169 - INFO - - ID: 972, Name: YJR001, Complete Name: FG30/YJR001
+2025-06-26 23:29:43,169 - INFO - - ID: 977, Name: YLY001, Complete Name: FG30/YLY001
+2025-06-26 23:29:43,169 - INFO - - ID: 973, Name: YOH001, Complete Name: FG30/YOH001
+2025-06-26 23:29:43,169 - INFO - - ID: 976, Name: YUL002, Complete Name: FG30/YUL002
+2025-06-26 23:29:43,169 - INFO - - ID: 293, Name: Stock, Complete Name: FG40/Stock
+2025-06-26 23:29:43,169 - INFO - - ID: 301, Name: Stock, Complete Name: FG50/Stock
+2025-06-26 23:29:43,169 - INFO - - ID: 245, Name: Stock, Complete Name: PD01/Stock
+2025-06-26 23:29:43,169 - INFO - - ID: 875, Name: ALPHA, Complete Name: PJ01/ALPHA
+2025-06-26 23:29:43,169 - INFO - - ID: 876, Name: AY-PKS, Complete Name: PJ01/AY-PKS
+2025-06-26 23:29:43,169 - INFO - - ID: 877, Name: AY-WG, Complete Name: PJ01/AY-WG
+2025-06-26 23:29:43,169 - INFO - - ID: 878, Name: CPN, Complete Name: PJ01/CPN
+2025-06-26 23:29:43,169 - INFO - - ID: 879, Name: GREAT, Complete Name: PJ01/GREAT
+2025-06-26 23:29:43,169 - INFO - - ID: 310, Name: Input, Complete Name: PJ01/Input
+2025-06-26 23:29:43,169 - INFO - - ID: 880, Name: M15, Complete Name: PJ01/M15
+2025-06-26 23:29:43,169 - INFO - - ID: 881, Name: MB5, Complete Name: PJ01/MB5
+2025-06-26 23:29:43,170 - INFO - - ID: 882, Name: MBR, Complete Name: PJ01/MBR
+2025-06-26 23:29:43,170 - INFO - - ID: 883, Name: MRI, Complete Name: PJ01/MRI
+2025-06-26 23:29:43,170 - INFO - - ID: 884, Name: MRR, Complete Name: PJ01/MRR
+2025-06-26 23:29:43,170 - INFO - - ID: 885, Name: MS3, Complete Name: PJ01/MS3
+2025-06-26 23:29:43,170 - INFO - - ID: 886, Name: MTN-BKT100+, Complete Name: PJ01/MTN-BKT100+
+2025-06-26 23:29:43,170 - INFO - - ID: 887, Name: MTN-CM, Complete Name: PJ01/MTN-CM
+2025-06-26 23:29:43,170 - INFO - - ID: 888, Name: MTN-MLW, Complete Name: PJ01/MTN-MLW
+2025-06-26 23:29:43,170 - INFO - - ID: 889, Name: NB, Complete Name: PJ01/NB
+2025-06-26 23:29:43,170 - INFO - - ID: 890, Name: NTW-N15, Complete Name: PJ01/NTW-N15
+2025-06-26 23:29:43,170 - INFO - - ID: 891, Name: NTW-N93, Complete Name: PJ01/NTW-N93
+2025-06-26 23:29:43,170 - INFO - - ID: 892, Name: NTW-PK, Complete Name: PJ01/NTW-PK
+2025-06-26 23:29:43,170 - INFO - - ID: 312, Name: Output, Complete Name: PJ01/Output
+2025-06-26 23:29:43,170 - INFO - - ID: 893, Name: PF-ONN/7, Complete Name: PJ01/PF-ONN/7
+2025-06-26 23:29:43,170 - INFO - - ID: 894, Name: PF-ONN/9, Complete Name: PJ01/PF-ONN/9
+2025-06-26 23:29:43,170 - INFO - - ID: 895, Name: PF-RAM/3, Complete Name: PJ01/PF-RAM/3
+2025-06-26 23:29:43,170 - INFO - - ID: 896, Name: PF-RMK/5, Complete Name: PJ01/PF-RMK/5
+2025-06-26 23:29:43,170 - INFO - - ID: 897, Name: PF-RPT, Complete Name: PJ01/PF-RPT
+2025-06-26 23:29:43,170 - INFO - - ID: 898, Name: PF-RS, Complete Name: PJ01/PF-RS
+2025-06-26 23:29:43,170 - INFO - - ID: 899, Name: PS100, Complete Name: PJ01/PS100
+2025-06-26 23:29:43,170 - INFO - - ID: 900, Name: PS106, Complete Name: PJ01/PS106
+2025-06-26 23:29:43,170 - INFO - - ID: 901, Name: PS107, Complete Name: PJ01/PS107
+2025-06-26 23:29:43,170 - INFO - - ID: 902, Name: PS109, Complete Name: PJ01/PS109
+2025-06-26 23:29:43,170 - INFO - - ID: 903, Name: PS47, Complete Name: PJ01/PS47
+2025-06-26 23:29:43,170 - INFO - - ID: 904, Name: PS76, Complete Name: PJ01/PS76
+2025-06-26 23:29:43,170 - INFO - - ID: 905, Name: PS89, Complete Name: PJ01/PS89
+2025-06-26 23:29:43,170 - INFO - - ID: 906, Name: PS99, Complete Name: PJ01/PS99
+2025-06-26 23:29:43,170 - INFO - - ID: 907, Name: S13, Complete Name: PJ01/S13
+2025-06-26 23:29:43,171 - INFO - - ID: 908, Name: SG-PB, Complete Name: PJ01/SG-PB
+2025-06-26 23:29:43,171 - INFO - - ID: 909, Name: SG-PT2, Complete Name: PJ01/SG-PT2
+2025-06-26 23:29:43,171 - INFO - - ID: 309, Name: Stock-1, Complete Name: PJ01/Stock-1
+2025-06-26 23:29:43,171 - INFO - - ID: 911, Name: TYPR, Complete Name: PJ01/TYPR
+2025-06-26 23:29:43,171 - INFO - - ID: 912, Name: Urban, Complete Name: PJ01/Urban
+2025-06-26 23:29:43,171 - INFO - - ID: 913, Name: V-BY, Complete Name: PJ01/V-BY
+2025-06-26 23:29:43,171 - INFO - - ID: 914, Name: V-LW, Complete Name: PJ01/V-LW
+2025-06-26 23:29:43,171 - INFO - - ID: 915, Name: V-SB3, Complete Name: PJ01/V-SB3
+2025-06-26 23:29:43,171 - INFO - - ID: 916, Name: VIE-PK5, Complete Name: PJ01/VIE-PK5
+2025-06-26 23:29:43,171 - INFO - - ID: 917, Name: VIE-RM, Complete Name: PJ01/VIE-RM
+2025-06-26 23:29:43,171 - INFO - - ID: 918, Name: VIE-RP, Complete Name: PJ01/VIE-RP
+2025-06-26 23:29:43,171 - INFO - - ID: 919, Name: VIVE13, Complete Name: PJ01/VIVE13
+2025-06-26 23:29:43,171 - INFO - - ID: 173, Name: Stock, Complete Name: RM01/Stock
+2025-06-26 23:29:43,171 - INFO - - ID: 181, Name: Stock, Complete Name: RM02/Stock
+2025-06-26 23:29:43,171 - INFO - - ID: 920, Name: ASR, Complete Name: RM03/ASR
+2025-06-26 23:29:43,171 - INFO - - ID: 921, Name: CSI, Complete Name: RM03/CSI
+2025-06-26 23:29:43,171 - INFO - - ID: 922, Name: KPB, Complete Name: RM03/KPB
+2025-06-26 23:29:43,171 - INFO - - ID: 923, Name: NAS, Complete Name: RM03/NAS
+2025-06-26 23:29:43,171 - INFO - - ID: 924, Name: QTL, Complete Name: RM03/QTL
+2025-06-26 23:29:43,171 - INFO - - ID: 205, Name: Stock, Complete Name: RM03/Stock
+2025-06-26 23:29:43,171 - INFO - - ID: 925, Name: TCI, Complete Name: RM03/TCI
+2025-06-26 23:29:43,171 - INFO - - ID: 8, Name: Stock, Complete Name: RM03/TCI/Stock
+2025-06-26 23:29:43,172 - INFO - - ID: 189, Name: Stock, Complete Name: RM11/Stock
+2025-06-26 23:29:43,172 - INFO - - ID: 197, Name: Stock, Complete Name: RM12/Stock
+2025-06-26 23:29:43,172 - INFO - - ID: 237, Name: Stock, Complete Name: SM01/Stock
+2025-06-26 23:29:43,172 - INFO - - ID: 213, Name: Stock, Complete Name: ST01/Stock
+2025-06-26 23:29:43,172 - INFO - - ID: 221, Name: Stock, Complete Name: ST02/Stock
+2025-06-26 23:29:43,172 - INFO - - ID: 19, Name: Subcontracting Location, Complete Name: บริษัทเนอวานา ไดอิ จำกัด (มหาชน)  สำนักงานใหญ่/Subcontracting Location
+2025-06-26 23:29:43,172 - INFO - Setting inventory adjustment date to: 2025-01-31 00:00:00 (31/01/2025)
+2025-06-26 23:29:43,409 - WARNING - Could not update company settings for backdating: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 468, in call_kw\n    result = _call_kw_multi(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 453, in _call_kw_multi\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 3556, in read\n    self._origin.fetch(fields)\n  File "/opt/instance1/odoo17/odoo/models.py", line 3813, in fetch\n    fields_to_fetch = self._determine_fields_to_fetch(field_names, ignore_when_in_cache=True)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 3880, in _determine_fields_to_fetch\n    raise ValueError(f"Invalid field {field_name!r} on model {self._name!r}")\nValueError: Invalid field \'stock_move_timestamp_backward\' on model \'res.company\'\n'>
+2025-06-26 23:29:47,262 - INFO - Found 3 locations: [173, 229, 253]
+2025-06-26 23:29:47,383 - INFO - The following locations will be processed:
+2025-06-26 23:29:47,383 - INFO - - RM01/Stock (ID: 173)
+2025-06-26 23:29:47,383 - INFO - - AS01/Stock (ID: 229)
+2025-06-26 23:29:47,383 - INFO - - FG10/Stock (ID: 253)
+2025-06-26 23:29:58,231 - INFO - Processing location: Stock (ID: 173)
+2025-06-26 23:29:58,965 - INFO - Found 885 products with stock in location 173
+2025-06-26 23:29:59,064 - INFO - Using inventory loss location ID: 14
+2025-06-26 23:29:59,065 - INFO - Setting to zero: [MA0603F12] MA603#BL อ่างล้างหน้าวางบนเคาน์เตอร์ (current qty: 1.0)
+2025-06-26 23:29:59,788 - INFO - Move state after processing: done
+2025-06-26 23:30:00,007 - INFO - ✅ Created and confirmed stock move to reset [MA0603F12] MA603#BL อ่างล้างหน้าวางบนเคาน์เตอร์ (state: done)
+2025-06-26 23:30:00,007 - INFO - ✅ Created and confirmed stock move to reset [MA0603F12] MA603#BL อ่างล้างหน้าวางบนเคาน์เตอร์
+2025-06-26 23:30:00,007 - INFO - Setting to zero: [MA0604F12] MA613#BL อ่างล้างหน้าวางบนเคาน์เตอร์ (current qty: 1.0)
+2025-06-26 23:30:00,818 - INFO - Move state after processing: done
+2025-06-26 23:30:01,302 - INFO - ✅ Created and confirmed stock move to reset [MA0604F12] MA613#BL อ่างล้างหน้าวางบนเคาน์เตอร์ (state: done)
+2025-06-26 23:30:01,303 - INFO - ✅ Created and confirmed stock move to reset [MA0604F12] MA613#BL อ่างล้างหน้าวางบนเคาน์เตอร์
+2025-06-26 23:30:01,303 - INFO - Setting to zero: [MA072B101] MA072 (B) อ่างล้างหน้าแขวนผนัง (current qty: 10.0)
+2025-06-26 23:30:02,057 - INFO - Move state after processing: done
+2025-06-26 23:30:02,262 - INFO - ✅ Created and confirmed stock move to reset [MA072B101] MA072 (B) อ่างล้างหน้าแขวนผนัง (state: done)
+2025-06-26 23:30:02,262 - INFO - ✅ Created and confirmed stock move to reset [MA072B101] MA072 (B) อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:30:02,262 - INFO - Setting to zero: [MA092P101] MA092 (P) เฉพาะขาอ่างล้างหน้า (current qty: 109.0)
+2025-06-26 23:30:02,856 - INFO - Move state after processing: done
+2025-06-26 23:30:03,203 - INFO - ✅ Created and confirmed stock move to reset [MA092P101] MA092 (P) เฉพาะขาอ่างล้างหน้า (state: done)
+2025-06-26 23:30:03,203 - INFO - ✅ Created and confirmed stock move to reset [MA092P101] MA092 (P) เฉพาะขาอ่างล้างหน้า
+2025-06-26 23:30:03,203 - INFO - Setting to zero: [MA142B101] MA142 (B) อ่างล้างหน้าแขวนผนัง (current qty: 591.0)
+2025-06-26 23:30:03,876 - INFO - Move state after processing: done
+2025-06-26 23:30:04,102 - INFO - ✅ Created and confirmed stock move to reset [MA142B101] MA142 (B) อ่างล้างหน้าแขวนผนัง (state: done)
+2025-06-26 23:30:04,103 - INFO - ✅ Created and confirmed stock move to reset [MA142B101] MA142 (B) อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:30:04,103 - INFO - Setting to zero: [MA142P101] MA142 (P) เฉพาะขาอ่างล้างหน้า (current qty: 785.0)
+2025-06-26 23:30:04,770 - INFO - Move state after processing: done
+2025-06-26 23:30:05,015 - INFO - ✅ Created and confirmed stock move to reset [MA142P101] MA142 (P) เฉพาะขาอ่างล้างหน้า (state: done)
+2025-06-26 23:30:05,015 - INFO - ✅ Created and confirmed stock move to reset [MA142P101] MA142 (P) เฉพาะขาอ่างล้างหน้า
+2025-06-26 23:30:05,016 - INFO - Setting to zero: [MA212B101] MA212 (B) อ่างล้างหน้าแขวนผนัง (current qty: 5.0)
+2025-06-26 23:30:05,701 - INFO - Move state after processing: done
+2025-06-26 23:30:06,079 - INFO - ✅ Created and confirmed stock move to reset [MA212B101] MA212 (B) อ่างล้างหน้าแขวนผนัง (state: done)
+2025-06-26 23:30:06,079 - INFO - ✅ Created and confirmed stock move to reset [MA212B101] MA212 (B) อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:30:06,080 - INFO - Setting to zero: [MA212P101] MA212 (P) เฉพาะขาอ่างล้างหน้า (current qty: 12.0)
+2025-06-26 23:30:06,775 - INFO - Move state after processing: done
+2025-06-26 23:30:07,009 - INFO - ✅ Created and confirmed stock move to reset [MA212P101] MA212 (P) เฉพาะขาอ่างล้างหน้า (state: done)
+2025-06-26 23:30:07,009 - INFO - ✅ Created and confirmed stock move to reset [MA212P101] MA212 (P) เฉพาะขาอ่างล้างหน้า
+2025-06-26 23:30:07,009 - INFO - Setting to zero: [MA266B201] MA266 (B) อ่างล้างหน้าแขวนผนัง (current qty: 2.0)
+2025-06-26 23:30:07,655 - INFO - Move state after processing: done
+2025-06-26 23:30:07,902 - INFO - ✅ Created and confirmed stock move to reset [MA266B201] MA266 (B) อ่างล้างหน้าแขวนผนัง (state: done)
+2025-06-26 23:30:07,903 - INFO - ✅ Created and confirmed stock move to reset [MA266B201] MA266 (B) อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:30:07,903 - INFO - Setting to zero: [MA332B101] MA332 (B) อ่างล้างหน้าแขวนผนัง (current qty: 424.0)
+2025-06-26 23:30:08,507 - INFO - Move state after processing: done
+2025-06-26 23:30:08,866 - INFO - ✅ Created and confirmed stock move to reset [MA332B101] MA332 (B) อ่างล้างหน้าแขวนผนัง (state: done)
+2025-06-26 23:30:08,867 - INFO - ✅ Created and confirmed stock move to reset [MA332B101] MA332 (B) อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:30:08,867 - INFO - Setting to zero: [MA332B1101] MA332 (B1) อ่างล้างหน้าแขวนผนัง (current qty: 108.0)
+2025-06-26 23:30:09,516 - INFO - Move state after processing: done
+2025-06-26 23:30:09,813 - INFO - ✅ Created and confirmed stock move to reset [MA332B1101] MA332 (B1) อ่างล้างหน้าแขวนผนัง (state: done)
+2025-06-26 23:30:09,814 - INFO - ✅ Created and confirmed stock move to reset [MA332B1101] MA332 (B1) อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:30:09,814 - INFO - Setting to zero: [MA372R101] MA372-R อ่างล้างหน้าแขวนผนัง (current qty: 3.0)
+2025-06-26 23:30:10,487 - INFO - Move state after processing: done
+2025-06-26 23:30:10,732 - INFO - ✅ Created and confirmed stock move to reset [MA372R101] MA372-R อ่างล้างหน้าแขวนผนัง (state: done)
+2025-06-26 23:30:10,733 - INFO - ✅ Created and confirmed stock move to reset [MA372R101] MA372-R อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:30:10,733 - INFO - Setting to zero: [MAE06DL101] MAE06D (L) อ่างล้างหน้าฝังบนเคาน์เตอร์ (current qty: 110.0)
+2025-06-26 23:30:11,478 - INFO - Move state after processing: done
+2025-06-26 23:30:11,732 - INFO - ✅ Created and confirmed stock move to reset [MAE06DL101] MAE06D (L) อ่างล้างหน้าฝังบนเคาน์เตอร์ (state: done)
+2025-06-26 23:30:11,733 - INFO - ✅ Created and confirmed stock move to reset [MAE06DL101] MAE06D (L) อ่างล้างหน้าฝังบนเคาน์เตอร์
+2025-06-26 23:30:11,733 - INFO - Setting to zero: [MAE06DR101] MAE06D (R) อ่างล้างหน้าฝังบนเคาน์เตอร์ (current qty: 60.0)
+2025-06-26 23:30:12,447 - INFO - Move state after processing: done
+2025-06-26 23:30:12,709 - INFO - ✅ Created and confirmed stock move to reset [MAE06DR101] MAE06D (R) อ่างล้างหน้าฝังบนเคาน์เตอร์ (state: done)
+2025-06-26 23:30:12,709 - INFO - ✅ Created and confirmed stock move to reset [MAE06DR101] MAE06D (R) อ่างล้างหน้าฝังบนเคาน์เตอร์
+2025-06-26 23:30:12,709 - INFO - Setting to zero: [MAE071R110] MAE07D(R) อ่างล้างหน้าฝังบนเคาน์เตอร์ (current qty: 95.0)
+2025-06-26 23:30:13,355 - INFO - Move state after processing: done
+2025-06-26 23:30:13,576 - INFO - ✅ Created and confirmed stock move to reset [MAE071R110] MAE07D(R) อ่างล้างหน้าฝังบนเคาน์เตอร์ (state: done)
+2025-06-26 23:30:13,576 - INFO - ✅ Created and confirmed stock move to reset [MAE071R110] MAE07D(R) อ่างล้างหน้าฝังบนเคาน์เตอร์
+2025-06-26 23:30:13,576 - INFO - Setting to zero: [MBS06A101] MBS06A อ่างอาบน้ำ แบบลอยตัว (น้ำวน+อัดอากาศ) พร้อมสะดืออ่างอาบน้ำ (current qty: 2.0)
+2025-06-26 23:30:14,255 - INFO - Move state after processing: done
+2025-06-26 23:30:14,561 - INFO - ✅ Created and confirmed stock move to reset [MBS06A101] MBS06A อ่างอาบน้ำ แบบลอยตัว (น้ำวน+อัดอากาศ) พร้อมสะดืออ่างอาบน้ำ (state: done)
+2025-06-26 23:30:14,561 - INFO - ✅ Created and confirmed stock move to reset [MBS06A101] MBS06A อ่างอาบน้ำ แบบลอยตัว (น้ำวน+อัดอากาศ) พร้อมสะดืออ่างอาบน้ำ
+2025-06-26 23:30:14,562 - INFO - Setting to zero: [MC013C1039] MC13G1 ตู้ข้างขนาด 35 ซม. (current qty: 7.0)
+2025-06-26 23:30:15,236 - INFO - Move state after processing: done
+2025-06-26 23:30:15,499 - INFO - ✅ Created and confirmed stock move to reset [MC013C1039] MC13G1 ตู้ข้างขนาด 35 ซม. (state: done)
+2025-06-26 23:30:15,500 - INFO - ✅ Created and confirmed stock move to reset [MC013C1039] MC13G1 ตู้ข้างขนาด 35 ซม.
+2025-06-26 23:30:15,500 - INFO - Setting to zero: [ML0085100] MI030 หัวฝักบัวก้านแข็ง (current qty: 74.0)
+2025-06-26 23:30:16,201 - INFO - Move state after processing: done
+2025-06-26 23:30:16,441 - INFO - ✅ Created and confirmed stock move to reset [ML0085100] MI030 หัวฝักบัวก้านแข็ง (state: done)
+2025-06-26 23:30:16,441 - INFO - ✅ Created and confirmed stock move to reset [ML0085100] MI030 หัวฝักบัวก้านแข็ง
+2025-06-26 23:30:16,442 - INFO - Setting to zero: [ML0088100] MI032 หัวฝักบัวก้านแข็ง (current qty: 96.0)
+2025-06-26 23:30:17,026 - INFO - Move state after processing: done
+2025-06-26 23:30:17,245 - INFO - ✅ Created and confirmed stock move to reset [ML0088100] MI032 หัวฝักบัวก้านแข็ง (state: done)
+2025-06-26 23:30:17,245 - INFO - ✅ Created and confirmed stock move to reset [ML0088100] MI032 หัวฝักบัวก้านแข็ง
+2025-06-26 23:30:17,245 - INFO - Setting to zero: [ML0108100] MI033 ก้านฝักบัวติดผนัง (current qty: 20.0)
+2025-06-26 23:30:17,859 - INFO - Move state after processing: done
+2025-06-26 23:30:18,156 - INFO - ✅ Created and confirmed stock move to reset [ML0108100] MI033 ก้านฝักบัวติดผนัง (state: done)
+2025-06-26 23:30:18,156 - INFO - ✅ Created and confirmed stock move to reset [ML0108100] MI033 ก้านฝักบัวติดผนัง
+2025-06-26 23:30:18,157 - INFO - Setting to zero: [MM071C100] MM71 กระจกเงา (current qty: 9.0)
+2025-06-26 23:30:18,773 - INFO - Move state after processing: done
+2025-06-26 23:30:19,055 - INFO - ✅ Created and confirmed stock move to reset [MM071C100] MM71 กระจกเงา (state: done)
+2025-06-26 23:30:19,056 - INFO - ✅ Created and confirmed stock move to reset [MM071C100] MM71 กระจกเงา
+2025-06-26 23:30:19,056 - INFO - Setting to zero: [MO0026101] MO26 สุขภัณฑ์ชิ้นเดียว (current qty: 34.0)
+2025-06-26 23:30:19,725 - INFO - Move state after processing: done
+2025-06-26 23:30:19,950 - INFO - ✅ Created and confirmed stock move to reset [MO0026101] MO26 สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:19,950 - INFO - ✅ Created and confirmed stock move to reset [MO0026101] MO26 สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:19,950 - INFO - Setting to zero: [MO002NC100] MO02N/C ฝาหม้อน้ำ (current qty: 3.0)
+2025-06-26 23:30:20,836 - INFO - Move state after processing: done
+2025-06-26 23:30:21,179 - INFO - ✅ Created and confirmed stock move to reset [MO002NC100] MO02N/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:30:21,179 - INFO - ✅ Created and confirmed stock move to reset [MO002NC100] MO02N/C ฝาหม้อน้ำ
+2025-06-26 23:30:21,179 - INFO - Setting to zero: [MO0032101] MO32 สุขภัณฑ์ชิ้นเดียว (current qty: 51.0)
+2025-06-26 23:30:21,929 - INFO - Move state after processing: done
+2025-06-26 23:30:22,206 - INFO - ✅ Created and confirmed stock move to reset [MO0032101] MO32 สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:22,207 - INFO - ✅ Created and confirmed stock move to reset [MO0032101] MO32 สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:22,207 - INFO - Setting to zero: [MO00401210] MO40 (Eco) สุขภัณฑ์ชิ้นเดียว (current qty: 95.0)
+2025-06-26 23:30:22,904 - INFO - Move state after processing: done
+2025-06-26 23:30:23,152 - INFO - ✅ Created and confirmed stock move to reset [MO00401210] MO40 (Eco) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:23,152 - INFO - ✅ Created and confirmed stock move to reset [MO00401210] MO40 (Eco) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:23,153 - INFO - Setting to zero: [MO00421210] MO42 (Eco) สุขภัณฑ์ชิ้นเดียว (current qty: 100.0)
+2025-06-26 23:30:23,913 - INFO - Move state after processing: done
+2025-06-26 23:30:24,201 - INFO - ✅ Created and confirmed stock move to reset [MO00421210] MO42 (Eco) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:24,202 - INFO - ✅ Created and confirmed stock move to reset [MO00421210] MO42 (Eco) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:24,202 - INFO - Setting to zero: [MO0045B1001] MO45IE/B เฉพาะตัวโถสุขภัณฑ์ (current qty: 1.0)
+2025-06-26 23:30:24,831 - INFO - Move state after processing: done
+2025-06-26 23:30:25,076 - INFO - ✅ Created and confirmed stock move to reset [MO0045B1001] MO45IE/B เฉพาะตัวโถสุขภัณฑ์ (state: done)
+2025-06-26 23:30:25,076 - INFO - ✅ Created and confirmed stock move to reset [MO0045B1001] MO45IE/B เฉพาะตัวโถสุขภัณฑ์
+2025-06-26 23:30:25,077 - INFO - Setting to zero: [MO00501210] MO50 สุขภัณฑ์ชิ้นเดียว (current qty: 125.0)
+2025-06-26 23:30:25,835 - INFO - Move state after processing: done
+2025-06-26 23:30:26,357 - INFO - ✅ Created and confirmed stock move to reset [MO00501210] MO50 สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:26,358 - INFO - ✅ Created and confirmed stock move to reset [MO00501210] MO50 สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:26,358 - INFO - Setting to zero: [MO0050EX1210] MO50EX สุขภัณฑ์ชิ้นเดียว (current qty: 156.0)
+2025-06-26 23:30:27,087 - INFO - Move state after processing: done
+2025-06-26 23:30:27,331 - INFO - ✅ Created and confirmed stock move to reset [MO0050EX1210] MO50EX สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:27,332 - INFO - ✅ Created and confirmed stock move to reset [MO0050EX1210] MO50EX สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:27,332 - INFO - Setting to zero: [MO00521210] MO52 สุขภัณฑ์ชิ้นเดียว (current qty: 930.0)
+2025-06-26 23:30:28,010 - INFO - Move state after processing: done
+2025-06-26 23:30:28,262 - INFO - ✅ Created and confirmed stock move to reset [MO00521210] MO52 สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:28,263 - INFO - ✅ Created and confirmed stock move to reset [MO00521210] MO52 สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:28,263 - INFO - Setting to zero: [MO00661210] MO66 (ECO) สุขภัณฑ์ชิ้นเดียว (current qty: 98.0)
+2025-06-26 23:30:29,084 - INFO - Move state after processing: done
+2025-06-26 23:30:29,338 - INFO - ✅ Created and confirmed stock move to reset [MO00661210] MO66 (ECO) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:29,338 - INFO - ✅ Created and confirmed stock move to reset [MO00661210] MO66 (ECO) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:29,338 - INFO - Setting to zero: [MO00691110] MO69 (ECO) สุขภัณฑ์ชิ้นเดียว (current qty: 2479.0)
+2025-06-26 23:30:30,074 - INFO - Move state after processing: done
+2025-06-26 23:30:30,326 - INFO - ✅ Created and confirmed stock move to reset [MO00691110] MO69 (ECO) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:30,326 - INFO - ✅ Created and confirmed stock move to reset [MO00691110] MO69 (ECO) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:30,326 - INFO - Setting to zero: [MO00691112] MO69#BL (ECO) สุขภัณฑ์ชิ้นเดียว (current qty: 111.0)
+2025-06-26 23:30:31,231 - INFO - Move state after processing: done
+2025-06-26 23:30:31,523 - INFO - ✅ Created and confirmed stock move to reset [MO00691112] MO69#BL (ECO) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:31,523 - INFO - ✅ Created and confirmed stock move to reset [MO00691112] MO69#BL (ECO) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:31,524 - INFO - Setting to zero: [MO0069S1101] MO69/S1 ฝารองนั่ง Slow Close (current qty: 28.0)
+2025-06-26 23:30:32,233 - INFO - Move state after processing: done
+2025-06-26 23:30:32,472 - INFO - ✅ Created and confirmed stock move to reset [MO0069S1101] MO69/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:32,472 - INFO - ✅ Created and confirmed stock move to reset [MO0069S1101] MO69/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:30:32,473 - INFO - Setting to zero: [MO0069S11011] MO69#BL/SU ฝารองนั่ง Slow Close (current qty: 2.0)
+2025-06-26 23:30:33,114 - INFO - Move state after processing: done
+2025-06-26 23:30:33,363 - INFO - ✅ Created and confirmed stock move to reset [MO0069S11011] MO69#BL/SU ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:33,364 - INFO - ✅ Created and confirmed stock move to reset [MO0069S11011] MO69#BL/SU ฝารองนั่ง Slow Close
+2025-06-26 23:30:33,364 - INFO - Setting to zero: [MO00771310] MO77 (ECO-IE) สุขภัณฑ์อัตโนมัติ (current qty: 25.0)
+2025-06-26 23:30:33,993 - INFO - Move state after processing: done
+2025-06-26 23:30:34,316 - INFO - ✅ Created and confirmed stock move to reset [MO00771310] MO77 (ECO-IE) สุขภัณฑ์อัตโนมัติ (state: done)
+2025-06-26 23:30:34,316 - INFO - ✅ Created and confirmed stock move to reset [MO00771310] MO77 (ECO-IE) สุขภัณฑ์อัตโนมัติ
+2025-06-26 23:30:34,317 - INFO - Setting to zero: [MO007C101] MO07/C ฝาหม้อน้ำ (current qty: 14.0)
+2025-06-26 23:30:35,095 - INFO - Move state after processing: done
+2025-06-26 23:30:35,326 - INFO - ✅ Created and confirmed stock move to reset [MO007C101] MO07/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:30:35,326 - INFO - ✅ Created and confirmed stock move to reset [MO007C101] MO07/C ฝาหม้อน้ำ
+2025-06-26 23:30:35,327 - INFO - Setting to zero: [MO010S101] MO10/S1 ฝารองนั่ง Slow Close (current qty: 13.0)
+2025-06-26 23:30:36,201 - INFO - Move state after processing: done
+2025-06-26 23:30:36,479 - INFO - ✅ Created and confirmed stock move to reset [MO010S101] MO10/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:36,480 - INFO - ✅ Created and confirmed stock move to reset [MO010S101] MO10/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:30:36,480 - INFO - Setting to zero: [MO015S101] MO15/S ฝารองนั่ง ธรรมดา (current qty: 504.0)
+2025-06-26 23:30:37,316 - INFO - Move state after processing: done
+2025-06-26 23:30:37,575 - INFO - ✅ Created and confirmed stock move to reset [MO015S101] MO15/S ฝารองนั่ง ธรรมดา (state: done)
+2025-06-26 23:30:37,575 - INFO - ✅ Created and confirmed stock move to reset [MO015S101] MO15/S ฝารองนั่ง ธรรมดา
+2025-06-26 23:30:37,575 - INFO - Setting to zero: [MO01S1101] MO01/S1 ฝารองนั่ง Slow Close (current qty: 492.0)
+2025-06-26 23:30:38,313 - INFO - Move state after processing: done
+2025-06-26 23:30:38,606 - INFO - ✅ Created and confirmed stock move to reset [MO01S1101] MO01/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:38,606 - INFO - ✅ Created and confirmed stock move to reset [MO01S1101] MO01/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:30:38,606 - INFO - Setting to zero: [MO023N101] MO23N สุขภัณฑ์ชิ้นเดียว (current qty: 1.0)
+2025-06-26 23:30:39,356 - INFO - Move state after processing: done
+2025-06-26 23:30:39,645 - INFO - ✅ Created and confirmed stock move to reset [MO023N101] MO23N สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:39,645 - INFO - ✅ Created and confirmed stock move to reset [MO023N101] MO23N สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:39,645 - INFO - Setting to zero: [MO025C101] MO25/C ฝาหม้อน้ำ (current qty: 18.0)
+2025-06-26 23:30:40,414 - INFO - Move state after processing: done
+2025-06-26 23:30:40,699 - INFO - ✅ Created and confirmed stock move to reset [MO025C101] MO25/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:30:40,699 - INFO - ✅ Created and confirmed stock move to reset [MO025C101] MO25/C ฝาหม้อน้ำ
+2025-06-26 23:30:40,699 - INFO - Setting to zero: [MO026C101] MO26/C ฝาหม้อน้ำ (current qty: 1.0)
+2025-06-26 23:30:41,401 - INFO - Move state after processing: done
+2025-06-26 23:30:41,646 - INFO - ✅ Created and confirmed stock move to reset [MO026C101] MO26/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:30:41,646 - INFO - ✅ Created and confirmed stock move to reset [MO026C101] MO26/C ฝาหม้อน้ำ
+2025-06-26 23:30:41,646 - INFO - Setting to zero: [MO027C101] MO27/C ฝาหม้อน้ำ (current qty: 6.0)
+2025-06-26 23:30:42,354 - INFO - Move state after processing: done
+2025-06-26 23:30:42,611 - INFO - ✅ Created and confirmed stock move to reset [MO027C101] MO27/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:30:42,611 - INFO - ✅ Created and confirmed stock move to reset [MO027C101] MO27/C ฝาหม้อน้ำ
+2025-06-26 23:30:42,612 - INFO - Setting to zero: [MO028S101] MO28/S ฝารองนั่ง ธรรมดา (current qty: 309.0)
+2025-06-26 23:30:43,207 - INFO - Move state after processing: done
+2025-06-26 23:30:43,480 - INFO - ✅ Created and confirmed stock move to reset [MO028S101] MO28/S ฝารองนั่ง ธรรมดา (state: done)
+2025-06-26 23:30:43,480 - INFO - ✅ Created and confirmed stock move to reset [MO028S101] MO28/S ฝารองนั่ง ธรรมดา
+2025-06-26 23:30:43,480 - INFO - Setting to zero: [MO031C101] MO31N/C ฝาหม้อน้ำ (current qty: 8.0)
+2025-06-26 23:30:44,161 - INFO - Move state after processing: done
+2025-06-26 23:30:44,411 - INFO - ✅ Created and confirmed stock move to reset [MO031C101] MO31N/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:30:44,411 - INFO - ✅ Created and confirmed stock move to reset [MO031C101] MO31N/C ฝาหม้อน้ำ
+2025-06-26 23:30:44,411 - INFO - Setting to zero: [MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว (current qty: 9.0)
+2025-06-26 23:30:45,121 - INFO - Move state after processing: done
+2025-06-26 23:30:45,434 - INFO - ✅ Created and confirmed stock move to reset [MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:45,434 - INFO - ✅ Created and confirmed stock move to reset [MO031N101] MO31N สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:45,435 - INFO - Setting to zero: [MO031N1310] MO31 (ECO PLUS) สุขภัณฑ์ชิ้นเดียว (current qty: 304.0)
+2025-06-26 23:30:46,260 - INFO - Move state after processing: done
+2025-06-26 23:30:46,520 - INFO - ✅ Created and confirmed stock move to reset [MO031N1310] MO31 (ECO PLUS) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:46,521 - INFO - ✅ Created and confirmed stock move to reset [MO031N1310] MO31 (ECO PLUS) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:46,521 - INFO - Setting to zero: [MO032C101] MO32/C ฝาหม้อน้ำ (current qty: 14.0)
+2025-06-26 23:30:47,210 - INFO - Move state after processing: done
+2025-06-26 23:30:47,497 - INFO - ✅ Created and confirmed stock move to reset [MO032C101] MO32/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:30:47,497 - INFO - ✅ Created and confirmed stock move to reset [MO032C101] MO32/C ฝาหม้อน้ำ
+2025-06-26 23:30:47,497 - INFO - Setting to zero: [MO032S101] MO32/S ฝารองนั่ง Slow Close (current qty: 105.0)
+2025-06-26 23:30:48,199 - INFO - Move state after processing: done
+2025-06-26 23:30:48,501 - INFO - ✅ Created and confirmed stock move to reset [MO032S101] MO32/S ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:48,501 - INFO - ✅ Created and confirmed stock move to reset [MO032S101] MO32/S ฝารองนั่ง Slow Close
+2025-06-26 23:30:48,501 - INFO - Setting to zero: [MO040S101] MO40/S ฝารองนั่ง Slow Close (current qty: 2.0)
+2025-06-26 23:30:49,121 - INFO - Move state after processing: done
+2025-06-26 23:30:49,399 - INFO - ✅ Created and confirmed stock move to reset [MO040S101] MO40/S ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:49,399 - INFO - ✅ Created and confirmed stock move to reset [MO040S101] MO40/S ฝารองนั่ง Slow Close
+2025-06-26 23:30:49,400 - INFO - Setting to zero: [MO042S101] MO42/S ฝารองนั่ง Slow Close (current qty: 107.0)
+2025-06-26 23:30:50,101 - INFO - Move state after processing: done
+2025-06-26 23:30:50,333 - INFO - ✅ Created and confirmed stock move to reset [MO042S101] MO42/S ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:50,333 - INFO - ✅ Created and confirmed stock move to reset [MO042S101] MO42/S ฝารองนั่ง Slow Close
+2025-06-26 23:30:50,333 - INFO - Setting to zero: [MO049E1210] MO49 (ECO) สุขภัณฑ์ชิ้นเดียว (current qty: 26.0)
+2025-06-26 23:30:51,115 - INFO - Move state after processing: done
+2025-06-26 23:30:51,427 - INFO - ✅ Created and confirmed stock move to reset [MO049E1210] MO49 (ECO) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:51,428 - INFO - ✅ Created and confirmed stock move to reset [MO049E1210] MO49 (ECO) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:51,428 - INFO - Setting to zero: [MO049EX101] MO49EX/S1 ฝารองนั่ง Slow Close (current qty: 4.0)
+2025-06-26 23:30:52,099 - INFO - Move state after processing: done
+2025-06-26 23:30:52,400 - INFO - ✅ Created and confirmed stock move to reset [MO049EX101] MO49EX/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:52,400 - INFO - ✅ Created and confirmed stock move to reset [MO049EX101] MO49EX/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:30:52,400 - INFO - Setting to zero: [MO049EX1210] MO49EX (ECO) สุขภัณฑ์ชิ้นเดียว (current qty: 779.0)
+2025-06-26 23:30:53,494 - INFO - Move state after processing: done
+2025-06-26 23:30:53,723 - INFO - ✅ Created and confirmed stock move to reset [MO049EX1210] MO49EX (ECO) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:53,723 - INFO - ✅ Created and confirmed stock move to reset [MO049EX1210] MO49EX (ECO) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:53,724 - INFO - Setting to zero: [MO051E1210] MO51 (ECO) สุขภัณฑ์ชิ้นเดียว (current qty: 24.0)
+2025-06-26 23:30:54,401 - INFO - Move state after processing: done
+2025-06-26 23:30:54,644 - INFO - ✅ Created and confirmed stock move to reset [MO051E1210] MO51 (ECO) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:54,644 - INFO - ✅ Created and confirmed stock move to reset [MO051E1210] MO51 (ECO) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:54,645 - INFO - Setting to zero: [MO053E1210] MO53 (ECO) สุขภัณฑ์ชิ้นเดียว (current qty: 65.0)
+2025-06-26 23:30:56,082 - INFO - Move state after processing: done
+2025-06-26 23:30:56,398 - INFO - ✅ Created and confirmed stock move to reset [MO053E1210] MO53 (ECO) สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:30:56,398 - INFO - ✅ Created and confirmed stock move to reset [MO053E1210] MO53 (ECO) สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:30:56,399 - INFO - Setting to zero: [MO065S101] MO65/S1 ฝารองนั่ง Slow Close (current qty: 1.0)
+2025-06-26 23:30:57,152 - INFO - Move state after processing: done
+2025-06-26 23:30:57,463 - INFO - ✅ Created and confirmed stock move to reset [MO065S101] MO65/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:30:57,463 - INFO - ✅ Created and confirmed stock move to reset [MO065S101] MO65/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:30:57,464 - INFO - Setting to zero: [MO069C101] MO69/C ฝาหม้อน้ำ (current qty: 12.0)
+2025-06-26 23:30:58,528 - INFO - Move state after processing: done
+2025-06-26 23:30:58,962 - INFO - ✅ Created and confirmed stock move to reset [MO069C101] MO69/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:30:58,962 - INFO - ✅ Created and confirmed stock move to reset [MO069C101] MO69/C ฝาหม้อน้ำ
+2025-06-26 23:30:58,962 - INFO - Setting to zero: [MO0840NDC10000] MO84(ECO-IE) สุขภัณฑ์อัตโนมัติ (current qty: 3.0)
+2025-06-26 23:30:59,634 - INFO - Move state after processing: done
+2025-06-26 23:30:59,899 - INFO - ✅ Created and confirmed stock move to reset [MO0840NDC10000] MO84(ECO-IE) สุขภัณฑ์อัตโนมัติ (state: done)
+2025-06-26 23:30:59,900 - INFO - ✅ Created and confirmed stock move to reset [MO0840NDC10000] MO84(ECO-IE) สุขภัณฑ์อัตโนมัติ
+2025-06-26 23:30:59,900 - INFO - Setting to zero: [MO0850NDC10000] MO85(ECO-IE) สุขภัณฑ์อัตโนมัติ (current qty: 2.0)
+2025-06-26 23:31:00,544 - INFO - Move state after processing: done
+2025-06-26 23:31:00,837 - INFO - ✅ Created and confirmed stock move to reset [MO0850NDC10000] MO85(ECO-IE) สุขภัณฑ์อัตโนมัติ (state: done)
+2025-06-26 23:31:00,837 - INFO - ✅ Created and confirmed stock move to reset [MO0850NDC10000] MO85(ECO-IE) สุขภัณฑ์อัตโนมัติ
+2025-06-26 23:31:00,837 - INFO - Setting to zero: [MO0870NDC10000] MO87(ECO-IE) สุขภัณฑ์อัตโนมัติ (current qty: 10.0)
+2025-06-26 23:31:01,596 - INFO - Move state after processing: done
+2025-06-26 23:31:01,837 - INFO - ✅ Created and confirmed stock move to reset [MO0870NDC10000] MO87(ECO-IE) สุขภัณฑ์อัตโนมัติ (state: done)
+2025-06-26 23:31:01,838 - INFO - ✅ Created and confirmed stock move to reset [MO0870NDC10000] MO87(ECO-IE) สุขภัณฑ์อัตโนมัติ
+2025-06-26 23:31:01,838 - INFO - Setting to zero: [MO0880NCC10000] MO88(ECO-IE) สุขภัณฑ์อัตโนมัติ (current qty: 8.0)
+2025-06-26 23:31:02,490 - INFO - Move state after processing: done
+2025-06-26 23:31:02,734 - INFO - ✅ Created and confirmed stock move to reset [MO0880NCC10000] MO88(ECO-IE) สุขภัณฑ์อัตโนมัติ (state: done)
+2025-06-26 23:31:02,734 - INFO - ✅ Created and confirmed stock move to reset [MO0880NCC10000] MO88(ECO-IE) สุขภัณฑ์อัตโนมัติ
+2025-06-26 23:31:02,734 - INFO - Setting to zero: [MO12SP101] MO12 สุขภัณฑ์ชิ้นเดียว (current qty: 33.0)
+2025-06-26 23:31:03,322 - INFO - Move state after processing: done
+2025-06-26 23:31:03,534 - INFO - ✅ Created and confirmed stock move to reset [MO12SP101] MO12 สุขภัณฑ์ชิ้นเดียว (state: done)
+2025-06-26 23:31:03,535 - INFO - ✅ Created and confirmed stock move to reset [MO12SP101] MO12 สุขภัณฑ์ชิ้นเดียว
+2025-06-26 23:31:03,535 - INFO - Setting to zero: [MO15SS101] MO15/SP ฝารองนั่ง Slow Close (current qty: 174.0)
+2025-06-26 23:31:04,213 - INFO - Move state after processing: done
+2025-06-26 23:31:04,838 - INFO - ✅ Created and confirmed stock move to reset [MO15SS101] MO15/SP ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:04,839 - INFO - ✅ Created and confirmed stock move to reset [MO15SS101] MO15/SP ฝารองนั่ง Slow Close
+2025-06-26 23:31:04,839 - INFO - Setting to zero: [MO261S101] MO26/S1 ฝารองนั่ง Slow Close (current qty: 95.0)
+2025-06-26 23:31:05,502 - INFO - Move state after processing: done
+2025-06-26 23:31:05,742 - INFO - ✅ Created and confirmed stock move to reset [MO261S101] MO26/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:05,742 - INFO - ✅ Created and confirmed stock move to reset [MO261S101] MO26/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:31:05,742 - INFO - Setting to zero: [MSB0148121] MSB148/1 ฝักบัวอาบน้ำและราวแขวนฝักบัวปรับระดับ (ไม่รวมวาล์ว) (current qty: 3.0)
+2025-06-26 23:31:06,442 - INFO - Move state after processing: done
+2025-06-26 23:31:06,672 - INFO - ✅ Created and confirmed stock move to reset [MSB0148121] MSB148/1 ฝักบัวอาบน้ำและราวแขวนฝักบัวปรับระดับ (ไม่รวมวาล์ว) (state: done)
+2025-06-26 23:31:06,673 - INFO - ✅ Created and confirmed stock move to reset [MSB0148121] MSB148/1 ฝักบัวอาบน้ำและราวแขวนฝักบัวปรับระดับ (ไม่รวมวาล์ว)
+2025-06-26 23:31:06,673 - INFO - Setting to zero: [MSP01610B] SP161/B ข้อต่อสามทางทองเหลืองเกลียวใน 1/2" (current qty: 109.0)
+2025-06-26 23:31:07,323 - INFO - Move state after processing: done
+2025-06-26 23:31:07,555 - INFO - ✅ Created and confirmed stock move to reset [MSP01610B] SP161/B ข้อต่อสามทางทองเหลืองเกลียวใน 1/2" (state: done)
+2025-06-26 23:31:07,556 - INFO - ✅ Created and confirmed stock move to reset [MSP01610B] SP161/B ข้อต่อสามทางทองเหลืองเกลียวใน 1/2"
+2025-06-26 23:31:07,556 - INFO - Setting to zero: [MSP0161N00] SP161N ก๊อกเดี่ยวอ่างล้างหน้า (current qty: 69.0)
+2025-06-26 23:31:08,260 - INFO - Move state after processing: done
+2025-06-26 23:31:08,555 - INFO - ✅ Created and confirmed stock move to reset [MSP0161N00] SP161N ก๊อกเดี่ยวอ่างล้างหน้า (state: done)
+2025-06-26 23:31:08,555 - INFO - ✅ Created and confirmed stock move to reset [MSP0161N00] SP161N ก๊อกเดี่ยวอ่างล้างหน้า
+2025-06-26 23:31:08,555 - INFO - Setting to zero: [MSP017800] SP178 ก๊อกล้างพื้น (current qty: 300.0)
+2025-06-26 23:31:09,325 - INFO - Move state after processing: done
+2025-06-26 23:31:09,571 - INFO - ✅ Created and confirmed stock move to reset [MSP017800] SP178 ก๊อกล้างพื้น (state: done)
+2025-06-26 23:31:09,572 - INFO - ✅ Created and confirmed stock move to reset [MSP017800] SP178 ก๊อกล้างพื้น
+2025-06-26 23:31:09,572 - INFO - Setting to zero: [MSP023900] SP239 สะดืออ่างล้างหน้า (current qty: 500.0)
+2025-06-26 23:31:10,259 - INFO - Move state after processing: done
+2025-06-26 23:31:10,522 - INFO - ✅ Created and confirmed stock move to reset [MSP023900] SP239 สะดืออ่างล้างหน้า (state: done)
+2025-06-26 23:31:10,522 - INFO - ✅ Created and confirmed stock move to reset [MSP023900] SP239 สะดืออ่างล้างหน้า
+2025-06-26 23:31:10,523 - INFO - Setting to zero: [MSP10T200] SP10T ปั๊มน้ำ ประกอบอ่างอาบน้ำระบบน้ำวน (current qty: 1.0)
+2025-06-26 23:31:11,220 - INFO - Move state after processing: done
+2025-06-26 23:31:11,469 - INFO - ✅ Created and confirmed stock move to reset [MSP10T200] SP10T ปั๊มน้ำ ประกอบอ่างอาบน้ำระบบน้ำวน (state: done)
+2025-06-26 23:31:11,469 - INFO - ✅ Created and confirmed stock move to reset [MSP10T200] SP10T ปั๊มน้ำ ประกอบอ่างอาบน้ำระบบน้ำวน
+2025-06-26 23:31:11,469 - INFO - Setting to zero: [MSP166LS00] SP166L หน้าบานฝั่ง L (current qty: 1.0)
+2025-06-26 23:31:12,146 - INFO - Move state after processing: done
+2025-06-26 23:31:12,385 - INFO - ✅ Created and confirmed stock move to reset [MSP166LS00] SP166L หน้าบานฝั่ง L (state: done)
+2025-06-26 23:31:12,385 - INFO - ✅ Created and confirmed stock move to reset [MSP166LS00] SP166L หน้าบานฝั่ง L
+2025-06-26 23:31:12,385 - INFO - Setting to zero: [MSP166RS00] SP166R หน้าบานฝั่ง R (current qty: 1.0)
+2025-06-26 23:31:13,000 - INFO - Move state after processing: done
+2025-06-26 23:31:13,220 - INFO - ✅ Created and confirmed stock move to reset [MSP166RS00] SP166R หน้าบานฝั่ง R (state: done)
+2025-06-26 23:31:13,221 - INFO - ✅ Created and confirmed stock move to reset [MSP166RS00] SP166R หน้าบานฝั่ง R
+2025-06-26 23:31:13,221 - INFO - Setting to zero: [MSP21T200] SP21T สะดืออ่างอาบน้ำ (current qty: 1.0)
+2025-06-26 23:31:14,097 - INFO - Move state after processing: done
+2025-06-26 23:31:14,319 - INFO - ✅ Created and confirmed stock move to reset [MSP21T200] SP21T สะดืออ่างอาบน้ำ (state: done)
+2025-06-26 23:31:14,319 - INFO - ✅ Created and confirmed stock move to reset [MSP21T200] SP21T สะดืออ่างอาบน้ำ
+2025-06-26 23:31:14,320 - INFO - Setting to zero: [MSP25T200] SP25T หมอนรองอ่างอาบน้ำ (current qty: 40.0)
+2025-06-26 23:31:15,018 - INFO - Move state after processing: done
+2025-06-26 23:31:15,285 - INFO - ✅ Created and confirmed stock move to reset [MSP25T200] SP25T หมอนรองอ่างอาบน้ำ (state: done)
+2025-06-26 23:31:15,285 - INFO - ✅ Created and confirmed stock move to reset [MSP25T200] SP25T หมอนรองอ่างอาบน้ำ
+2025-06-26 23:31:15,285 - INFO - Setting to zero: [MSV0005120] MSV05C วาล์วเปิด-ปิดน้ำ (current qty: 118.0)
+2025-06-26 23:31:16,081 - INFO - Move state after processing: done
+2025-06-26 23:31:16,344 - INFO - ✅ Created and confirmed stock move to reset [MSV0005120] MSV05C วาล์วเปิด-ปิดน้ำ (state: done)
+2025-06-26 23:31:16,344 - INFO - ✅ Created and confirmed stock move to reset [MSV0005120] MSV05C วาล์วเปิด-ปิดน้ำ
+2025-06-26 23:31:16,344 - INFO - Setting to zero: [MSW0011102] MSW11M#GL ชุดฝักบัวเรนชาวเวอร์ (current qty: 85.0)
+2025-06-26 23:31:16,986 - INFO - Move state after processing: done
+2025-06-26 23:31:17,223 - INFO - ✅ Created and confirmed stock move to reset [MSW0011102] MSW11M#GL ชุดฝักบัวเรนชาวเวอร์ (state: done)
+2025-06-26 23:31:17,223 - INFO - ✅ Created and confirmed stock move to reset [MSW0011102] MSW11M#GL ชุดฝักบัวเรนชาวเวอร์
+2025-06-26 23:31:17,223 - INFO - Setting to zero: [MSW0012103] MSW12M#GR ชุดฝักบัวเรนชาวเวอร์ (current qty: 100.0)
+2025-06-26 23:31:17,836 - INFO - Move state after processing: done
+2025-06-26 23:31:18,069 - INFO - ✅ Created and confirmed stock move to reset [MSW0012103] MSW12M#GR ชุดฝักบัวเรนชาวเวอร์ (state: done)
+2025-06-26 23:31:18,070 - INFO - ✅ Created and confirmed stock move to reset [MSW0012103] MSW12M#GR ชุดฝักบัวเรนชาวเวอร์
+2025-06-26 23:31:18,070 - INFO - Setting to zero: [MSW0482120] MSW482M ชุดฝักบัวเรนชาวเวอร์ (current qty: 135.0)
+2025-06-26 23:31:18,734 - INFO - Move state after processing: done
+2025-06-26 23:31:19,005 - INFO - ✅ Created and confirmed stock move to reset [MSW0482120] MSW482M ชุดฝักบัวเรนชาวเวอร์ (state: done)
+2025-06-26 23:31:19,005 - INFO - ✅ Created and confirmed stock move to reset [MSW0482120] MSW482M ชุดฝักบัวเรนชาวเวอร์
+2025-06-26 23:31:19,005 - INFO - Setting to zero: [MSW0483120] MSW483M ชุดฝักบัวเรนชาวเวอร์ (current qty: 121.0)
+2025-06-26 23:31:19,635 - INFO - Move state after processing: done
+2025-06-26 23:31:19,853 - INFO - ✅ Created and confirmed stock move to reset [MSW0483120] MSW483M ชุดฝักบัวเรนชาวเวอร์ (state: done)
+2025-06-26 23:31:19,854 - INFO - ✅ Created and confirmed stock move to reset [MSW0483120] MSW483M ชุดฝักบัวเรนชาวเวอร์
+2025-06-26 23:31:19,854 - INFO - Setting to zero: [MT0033S110] MT33/S ฝารองนั่ง Slow Close (current qty: 1339.0)
+2025-06-26 23:31:20,640 - INFO - Move state after processing: done
+2025-06-26 23:31:20,863 - INFO - ✅ Created and confirmed stock move to reset [MT0033S110] MT33/S ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:20,864 - INFO - ✅ Created and confirmed stock move to reset [MT0033S110] MT33/S ฝารองนั่ง Slow Close
+2025-06-26 23:31:20,864 - INFO - Setting to zero: [MT003S101] MT03/S ฝารองนั่ง Slow Close (current qty: 24.0)
+2025-06-26 23:31:21,663 - INFO - Move state after processing: done
+2025-06-26 23:31:21,899 - INFO - ✅ Created and confirmed stock move to reset [MT003S101] MT03/S ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:21,899 - INFO - ✅ Created and confirmed stock move to reset [MT003S101] MT03/S ฝารองนั่ง Slow Close
+2025-06-26 23:31:21,899 - INFO - Setting to zero: [MT00441210] MT44 สุขภัณฑ์สองชิ้น (current qty: 3.0)
+2025-06-26 23:31:22,457 - INFO - Move state after processing: done
+2025-06-26 23:31:22,665 - INFO - ✅ Created and confirmed stock move to reset [MT00441210] MT44 สุขภัณฑ์สองชิ้น (state: done)
+2025-06-26 23:31:22,665 - INFO - ✅ Created and confirmed stock move to reset [MT00441210] MT44 สุขภัณฑ์สองชิ้น
+2025-06-26 23:31:22,665 - INFO - Setting to zero: [MT00741110] MT74(ECO) สุขภัณฑ์สองชิ้น (current qty: 10.0)
+2025-06-26 23:31:23,420 - INFO - Move state after processing: done
+2025-06-26 23:31:23,677 - INFO - ✅ Created and confirmed stock move to reset [MT00741110] MT74(ECO) สุขภัณฑ์สองชิ้น (state: done)
+2025-06-26 23:31:23,678 - INFO - ✅ Created and confirmed stock move to reset [MT00741110] MT74(ECO) สุขภัณฑ์สองชิ้น
+2025-06-26 23:31:23,678 - INFO - Setting to zero: [MT0074B101] MT74/B เฉพาะตัวโถสุขภัณฑ์ (current qty: 5.0)
+2025-06-26 23:31:24,326 - INFO - Move state after processing: done
+2025-06-26 23:31:24,574 - INFO - ✅ Created and confirmed stock move to reset [MT0074B101] MT74/B เฉพาะตัวโถสุขภัณฑ์ (state: done)
+2025-06-26 23:31:24,574 - INFO - ✅ Created and confirmed stock move to reset [MT0074B101] MT74/B เฉพาะตัวโถสุขภัณฑ์
+2025-06-26 23:31:24,575 - INFO - Setting to zero: [MT010B+101] MT10/B+ เฉพาะตัวโถสุขภัณฑ์พร้อมอุปกรณ์ติดตั้ง (current qty: 160.0)
+2025-06-26 23:31:25,205 - INFO - Move state after processing: done
+2025-06-26 23:31:25,445 - INFO - ✅ Created and confirmed stock move to reset [MT010B+101] MT10/B+ เฉพาะตัวโถสุขภัณฑ์พร้อมอุปกรณ์ติดตั้ง (state: done)
+2025-06-26 23:31:25,445 - INFO - ✅ Created and confirmed stock move to reset [MT010B+101] MT10/B+ เฉพาะตัวโถสุขภัณฑ์พร้อมอุปกรณ์ติดตั้ง
+2025-06-26 23:31:25,445 - INFO - Setting to zero: [MT014B+101] MT14/B+ เฉพาะตัวโถสุขภัณฑ์พร้อมอุปกรณ์ติดตั้ง (current qty: 5.0)
+2025-06-26 23:31:26,132 - INFO - Move state after processing: done
+2025-06-26 23:31:26,383 - INFO - ✅ Created and confirmed stock move to reset [MT014B+101] MT14/B+ เฉพาะตัวโถสุขภัณฑ์พร้อมอุปกรณ์ติดตั้ง (state: done)
+2025-06-26 23:31:26,384 - INFO - ✅ Created and confirmed stock move to reset [MT014B+101] MT14/B+ เฉพาะตัวโถสุขภัณฑ์พร้อมอุปกรณ์ติดตั้ง
+2025-06-26 23:31:26,384 - INFO - Setting to zero: [MT014B101] MT14/B เฉพาะตัวโถสุขภัณฑ์ (current qty: 3.0)
+2025-06-26 23:31:27,139 - INFO - Move state after processing: done
+2025-06-26 23:31:27,430 - INFO - ✅ Created and confirmed stock move to reset [MT014B101] MT14/B เฉพาะตัวโถสุขภัณฑ์ (state: done)
+2025-06-26 23:31:27,431 - INFO - ✅ Created and confirmed stock move to reset [MT014B101] MT14/B เฉพาะตัวโถสุขภัณฑ์
+2025-06-26 23:31:27,431 - INFO - Setting to zero: [MT019BS01] MT19/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง รุ่น MT19 (SP) (current qty: 1.0)
+2025-06-26 23:31:28,073 - INFO - Move state after processing: done
+2025-06-26 23:31:28,306 - INFO - ✅ Created and confirmed stock move to reset [MT019BS01] MT19/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง รุ่น MT19 (SP) (state: done)
+2025-06-26 23:31:28,306 - INFO - ✅ Created and confirmed stock move to reset [MT019BS01] MT19/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง รุ่น MT19 (SP)
+2025-06-26 23:31:28,307 - INFO - Setting to zero: [MT019C101] MT19/C ฝาหม้อน้ำ (current qty: 1.0)
+2025-06-26 23:31:29,085 - INFO - Move state after processing: done
+2025-06-26 23:31:29,396 - INFO - ✅ Created and confirmed stock move to reset [MT019C101] MT19/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:31:29,396 - INFO - ✅ Created and confirmed stock move to reset [MT019C101] MT19/C ฝาหม้อน้ำ
+2025-06-26 23:31:29,396 - INFO - Setting to zero: [MT020B101] MT20/B เฉพาะตัวโถสุขภัณฑ์ (current qty: 3.0)
+2025-06-26 23:31:30,132 - INFO - Move state after processing: done
+2025-06-26 23:31:30,400 - INFO - ✅ Created and confirmed stock move to reset [MT020B101] MT20/B เฉพาะตัวโถสุขภัณฑ์ (state: done)
+2025-06-26 23:31:30,400 - INFO - ✅ Created and confirmed stock move to reset [MT020B101] MT20/B เฉพาะตัวโถสุขภัณฑ์
+2025-06-26 23:31:30,401 - INFO - Setting to zero: [MT021B101] MT21/B เฉพาะตัวโถสุขภัณฑ์ (current qty: 1.0)
+2025-06-26 23:31:31,218 - INFO - Move state after processing: done
+2025-06-26 23:31:31,437 - INFO - ✅ Created and confirmed stock move to reset [MT021B101] MT21/B เฉพาะตัวโถสุขภัณฑ์ (state: done)
+2025-06-26 23:31:31,437 - INFO - ✅ Created and confirmed stock move to reset [MT021B101] MT21/B เฉพาะตัวโถสุขภัณฑ์
+2025-06-26 23:31:31,438 - INFO - Setting to zero: [MT022S101] MT22/S ฝารองนั่ง ธรรมดา (current qty: 2329.0)
+2025-06-26 23:31:32,161 - INFO - Move state after processing: done
+2025-06-26 23:31:32,388 - INFO - ✅ Created and confirmed stock move to reset [MT022S101] MT22/S ฝารองนั่ง ธรรมดา (state: done)
+2025-06-26 23:31:32,388 - INFO - ✅ Created and confirmed stock move to reset [MT022S101] MT22/S ฝารองนั่ง ธรรมดา
+2025-06-26 23:31:32,388 - INFO - Setting to zero: [MT030C101] MT30/C ฝาหม้อน้ำ (current qty: 9.0)
+2025-06-26 23:31:33,089 - INFO - Move state after processing: done
+2025-06-26 23:31:33,378 - INFO - ✅ Created and confirmed stock move to reset [MT030C101] MT30/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:31:33,378 - INFO - ✅ Created and confirmed stock move to reset [MT030C101] MT30/C ฝาหม้อน้ำ
+2025-06-26 23:31:33,378 - INFO - Setting to zero: [MT034B101] MT34/B เฉพาะตัวโถสุขภัณฑ์ (current qty: 1.0)
+2025-06-26 23:31:34,029 - INFO - Move state after processing: done
+2025-06-26 23:31:34,268 - INFO - ✅ Created and confirmed stock move to reset [MT034B101] MT34/B เฉพาะตัวโถสุขภัณฑ์ (state: done)
+2025-06-26 23:31:34,269 - INFO - ✅ Created and confirmed stock move to reset [MT034B101] MT34/B เฉพาะตัวโถสุขภัณฑ์
+2025-06-26 23:31:34,269 - INFO - Setting to zero: [MT044C101] MT44/C ฝาหม้อน้ำ (current qty: 1.0)
+2025-06-26 23:31:34,897 - INFO - Move state after processing: done
+2025-06-26 23:31:35,145 - INFO - ✅ Created and confirmed stock move to reset [MT044C101] MT44/C ฝาหม้อน้ำ (state: done)
+2025-06-26 23:31:35,145 - INFO - ✅ Created and confirmed stock move to reset [MT044C101] MT44/C ฝาหม้อน้ำ
+2025-06-26 23:31:35,145 - INFO - Setting to zero: [MT057TC101] MT57/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ (current qty: 2.0)
+2025-06-26 23:31:35,885 - INFO - Move state after processing: done
+2025-06-26 23:31:36,201 - INFO - ✅ Created and confirmed stock move to reset [MT057TC101] MT57/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ (state: done)
+2025-06-26 23:31:36,201 - INFO - ✅ Created and confirmed stock move to reset [MT057TC101] MT57/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ
+2025-06-26 23:31:36,201 - INFO - Setting to zero: [MT14BS101] MT14/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง (current qty: 45.0)
+2025-06-26 23:31:36,805 - INFO - Move state after processing: done
+2025-06-26 23:31:37,030 - INFO - ✅ Created and confirmed stock move to reset [MT14BS101] MT14/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง (state: done)
+2025-06-26 23:31:37,030 - INFO - ✅ Created and confirmed stock move to reset [MT14BS101] MT14/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง
+2025-06-26 23:31:37,030 - INFO - Setting to zero: [MT14S1101] MT14/S1 ฝารองนั่ง Slow Close (current qty: 96.0)
+2025-06-26 23:31:37,660 - INFO - Move state after processing: done
+2025-06-26 23:31:37,926 - INFO - ✅ Created and confirmed stock move to reset [MT14S1101] MT14/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:37,927 - INFO - ✅ Created and confirmed stock move to reset [MT14S1101] MT14/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:31:37,927 - INFO - Setting to zero: [MT20SS101] MT20/SP ฝารองนั่ง Slow Close (current qty: 230.0)
+2025-06-26 23:31:38,550 - INFO - Move state after processing: done
+2025-06-26 23:31:38,815 - INFO - ✅ Created and confirmed stock move to reset [MT20SS101] MT20/SP ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:38,815 - INFO - ✅ Created and confirmed stock move to reset [MT20SS101] MT20/SP ฝารองนั่ง Slow Close
+2025-06-26 23:31:38,815 - INFO - Setting to zero: [MT21NBS01] MT21N/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง (current qty: 13.0)
+2025-06-26 23:31:39,580 - INFO - Move state after processing: done
+2025-06-26 23:31:39,810 - INFO - ✅ Created and confirmed stock move to reset [MT21NBS01] MT21N/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง (state: done)
+2025-06-26 23:31:39,811 - INFO - ✅ Created and confirmed stock move to reset [MT21NBS01] MT21N/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง
+2025-06-26 23:31:39,811 - INFO - Setting to zero: [MT21NS1101] MT21N/S1 ฝารองนั่ง Slow Close (current qty: 102.0)
+2025-06-26 23:31:40,499 - INFO - Move state after processing: done
+2025-06-26 23:31:40,707 - INFO - ✅ Created and confirmed stock move to reset [MT21NS1101] MT21N/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:40,707 - INFO - ✅ Created and confirmed stock move to reset [MT21NS1101] MT21N/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:31:40,707 - INFO - Setting to zero: [MT24NBS01] MT24N/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง รุ่น ซิมพลิ (current qty: 4.0)
+2025-06-26 23:31:41,687 - INFO - Move state after processing: done
+2025-06-26 23:31:41,936 - INFO - ✅ Created and confirmed stock move to reset [MT24NBS01] MT24N/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง รุ่น ซิมพลิ (state: done)
+2025-06-26 23:31:41,936 - INFO - ✅ Created and confirmed stock move to reset [MT24NBS01] MT24N/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง รุ่น ซิมพลิ
+2025-06-26 23:31:41,936 - INFO - Setting to zero: [MT30TCF100] MT30/TCF หม้อน้ำและฝาหม้อน้ำพร้อมอุปกรณ์หม้อน้ำ (ครบชุด) (current qty: 82.0)
+2025-06-26 23:31:42,630 - INFO - Move state after processing: done
+2025-06-26 23:31:42,880 - INFO - ✅ Created and confirmed stock move to reset [MT30TCF100] MT30/TCF หม้อน้ำและฝาหม้อน้ำพร้อมอุปกรณ์หม้อน้ำ (ครบชุด) (state: done)
+2025-06-26 23:31:42,881 - INFO - ✅ Created and confirmed stock move to reset [MT30TCF100] MT30/TCF หม้อน้ำและฝาหม้อน้ำพร้อมอุปกรณ์หม้อน้ำ (ครบชุด)
+2025-06-26 23:31:42,881 - INFO - Setting to zero: [MT341S101] MT34/S ฝารองนั่ง Slow Close (current qty: 295.0)
+2025-06-26 23:31:43,504 - INFO - Move state after processing: done
+2025-06-26 23:31:43,750 - INFO - ✅ Created and confirmed stock move to reset [MT341S101] MT34/S ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:43,750 - INFO - ✅ Created and confirmed stock move to reset [MT341S101] MT34/S ฝารองนั่ง Slow Close
+2025-06-26 23:31:43,750 - INFO - Setting to zero: [MT36TC101] MT36/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ (current qty: 16.0)
+2025-06-26 23:31:44,355 - INFO - Move state after processing: done
+2025-06-26 23:31:44,636 - INFO - ✅ Created and confirmed stock move to reset [MT36TC101] MT36/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ (state: done)
+2025-06-26 23:31:44,636 - INFO - ✅ Created and confirmed stock move to reset [MT36TC101] MT36/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ
+2025-06-26 23:31:44,636 - INFO - Setting to zero: [MT411S101] MT41/S1 ฝารองนั่ง Slow Close (current qty: 4.0)
+2025-06-26 23:31:45,429 - INFO - Move state after processing: done
+2025-06-26 23:31:45,771 - INFO - ✅ Created and confirmed stock move to reset [MT411S101] MT41/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:45,771 - INFO - ✅ Created and confirmed stock move to reset [MT411S101] MT41/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:31:45,771 - INFO - Setting to zero: [MT43TC101] MT43/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ (current qty: 1.0)
+2025-06-26 23:31:46,479 - INFO - Move state after processing: done
+2025-06-26 23:31:46,714 - INFO - ✅ Created and confirmed stock move to reset [MT43TC101] MT43/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ (state: done)
+2025-06-26 23:31:46,714 - INFO - ✅ Created and confirmed stock move to reset [MT43TC101] MT43/TC เฉพาะหม้อน้ำพร้อมฝาหม้อน้ำ
+2025-06-26 23:31:46,714 - INFO - Setting to zero: [MT541S101] MT54/S1 ฝารองนั่ง Slow Close (current qty: 387.0)
+2025-06-26 23:31:47,368 - INFO - Move state after processing: done
+2025-06-26 23:31:47,659 - INFO - ✅ Created and confirmed stock move to reset [MT541S101] MT54/S1 ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:47,659 - INFO - ✅ Created and confirmed stock move to reset [MT541S101] MT54/S1 ฝารองนั่ง Slow Close
+2025-06-26 23:31:47,659 - INFO - Setting to zero: [MU0001101] MU01 โถปัสสาวะชาย (current qty: 4.0)
+2025-06-26 23:31:48,309 - INFO - Move state after processing: done
+2025-06-26 23:31:48,554 - INFO - ✅ Created and confirmed stock move to reset [MU0001101] MU01 โถปัสสาวะชาย (state: done)
+2025-06-26 23:31:48,555 - INFO - ✅ Created and confirmed stock move to reset [MU0001101] MU01 โถปัสสาวะชาย
+2025-06-26 23:31:48,555 - INFO - Setting to zero: [MU0002101] MU02 โถปัสสาวะชาย (current qty: 67.0)
+2025-06-26 23:31:49,261 - INFO - Move state after processing: done
+2025-06-26 23:31:49,504 - INFO - ✅ Created and confirmed stock move to reset [MU0002101] MU02 โถปัสสาวะชาย (state: done)
+2025-06-26 23:31:49,504 - INFO - ✅ Created and confirmed stock move to reset [MU0002101] MU02 โถปัสสาวะชาย
+2025-06-26 23:31:49,504 - INFO - Setting to zero: [MU0002B101] MU02/B เฉพาะตัวโถปัสสาวะชาย (current qty: 1.0)
+2025-06-26 23:31:50,108 - INFO - Move state after processing: done
+2025-06-26 23:31:50,322 - INFO - ✅ Created and confirmed stock move to reset [MU0002B101] MU02/B เฉพาะตัวโถปัสสาวะชาย (state: done)
+2025-06-26 23:31:50,322 - INFO - ✅ Created and confirmed stock move to reset [MU0002B101] MU02/B เฉพาะตัวโถปัสสาวะชาย
+2025-06-26 23:31:50,322 - INFO - Setting to zero: [MU0003101] MU03 โถปัสสาวะชาย (current qty: 5.0)
+2025-06-26 23:31:51,270 - INFO - Move state after processing: done
+2025-06-26 23:31:51,478 - INFO - ✅ Created and confirmed stock move to reset [MU0003101] MU03 โถปัสสาวะชาย (state: done)
+2025-06-26 23:31:51,478 - INFO - ✅ Created and confirmed stock move to reset [MU0003101] MU03 โถปัสสาวะชาย
+2025-06-26 23:31:51,478 - INFO - Setting to zero: [MU0004101] MU04 โถปัสสาวะชาย (current qty: 42.0)
+2025-06-26 23:31:52,160 - INFO - Move state after processing: done
+2025-06-26 23:31:52,401 - INFO - ✅ Created and confirmed stock move to reset [MU0004101] MU04 โถปัสสาวะชาย (state: done)
+2025-06-26 23:31:52,401 - INFO - ✅ Created and confirmed stock move to reset [MU0004101] MU04 โถปัสสาวะชาย
+2025-06-26 23:31:52,401 - INFO - Setting to zero: [MU0006NF101] MU06(NF) โถปัสสาวะชาย (current qty: 10.0)
+2025-06-26 23:31:53,070 - INFO - Move state after processing: done
+2025-06-26 23:31:53,299 - INFO - ✅ Created and confirmed stock move to reset [MU0006NF101] MU06(NF) โถปัสสาวะชาย (state: done)
+2025-06-26 23:31:53,299 - INFO - ✅ Created and confirmed stock move to reset [MU0006NF101] MU06(NF) โถปัสสาวะชาย
+2025-06-26 23:31:53,300 - INFO - Setting to zero: [MU00071010] MU07 โถปัสสาวะชาย (current qty: 27.0)
+2025-06-26 23:31:53,934 - INFO - Move state after processing: done
+2025-06-26 23:31:54,159 - INFO - ✅ Created and confirmed stock move to reset [MU00071010] MU07 โถปัสสาวะชาย (state: done)
+2025-06-26 23:31:54,159 - INFO - ✅ Created and confirmed stock move to reset [MU00071010] MU07 โถปัสสาวะชาย
+2025-06-26 23:31:54,160 - INFO - Setting to zero: [MW004S101] W04/S ฝารองนั่ง Slow Close (current qty: 237.0)
+2025-06-26 23:31:55,027 - INFO - Move state after processing: done
+2025-06-26 23:31:55,287 - INFO - ✅ Created and confirmed stock move to reset [MW004S101] W04/S ฝารองนั่ง Slow Close (state: done)
+2025-06-26 23:31:55,288 - INFO - ✅ Created and confirmed stock move to reset [MW004S101] W04/S ฝารองนั่ง Slow Close
+2025-06-26 23:31:55,288 - INFO - Setting to zero: [MW021B101] W02/B เฉพาะตัวโถสุขภัณฑ์ (current qty: 32.0)
+2025-06-26 23:31:56,335 - INFO - Move state after processing: done
+2025-06-26 23:31:56,735 - INFO - ✅ Created and confirmed stock move to reset [MW021B101] W02/B เฉพาะตัวโถสุขภัณฑ์ (state: done)
+2025-06-26 23:31:56,736 - INFO - ✅ Created and confirmed stock move to reset [MW021B101] W02/B เฉพาะตัวโถสุขภัณฑ์
+2025-06-26 23:31:56,736 - INFO - Setting to zero: [NFG05-H4-W1-1469] FGMG_LFA20060 อ่างล้างหน้าแขวนผนัง (current qty: 2.0)
+2025-06-26 23:31:57,420 - INFO - Move state after processing: done
+2025-06-26 23:31:57,715 - INFO - ✅ Created and confirmed stock move to reset [NFG05-H4-W1-1469] FGMG_LFA20060 อ่างล้างหน้าแขวนผนัง (state: done)
+2025-06-26 23:31:57,715 - INFO - ✅ Created and confirmed stock move to reset [NFG05-H4-W1-1469] FGMG_LFA20060 อ่างล้างหน้าแขวนผนัง
+2025-06-26 23:31:57,715 - INFO - Setting to zero: [RS00005110] RS05#B ชุดสายฉีดชำระ (current qty: 400.0)
+2025-06-26 23:31:58,353 - INFO - Move state after processing: done
+2025-06-26 23:31:58,649 - INFO - ✅ Created and confirmed stock move to reset [RS00005110] RS05#B ชุดสายฉีดชำระ (state: done)
+2025-06-26 23:31:58,650 - INFO - ✅ Created and confirmed stock move to reset [RS00005110] RS05#B ชุดสายฉีดชำระ
+2025-06-26 23:31:58,650 - INFO - Setting to zero: [RS0007103] RS07#GL ชุดสายฉีดชำระ (current qty: 1.0)
+2025-06-26 23:31:59,312 - INFO - Move state after processing: done
+2025-06-26 23:31:59,536 - INFO - ✅ Created and confirmed stock move to reset [RS0007103] RS07#GL ชุดสายฉีดชำระ (state: done)
+2025-06-26 23:31:59,537 - INFO - ✅ Created and confirmed stock move to reset [RS0007103] RS07#GL ชุดสายฉีดชำระ
+2025-06-26 23:31:59,537 - INFO - Setting to zero: [RS0008101] RS08#BL ชุดสายฉีดชำระ (current qty: 142.0)
+2025-06-26 23:32:00,208 - INFO - Move state after processing: done
+2025-06-26 23:32:00,438 - INFO - ✅ Created and confirmed stock move to reset [RS0008101] RS08#BL ชุดสายฉีดชำระ (state: done)
+2025-06-26 23:32:00,439 - INFO - ✅ Created and confirmed stock move to reset [RS0008101] RS08#BL ชุดสายฉีดชำระ
+2025-06-26 23:32:00,439 - INFO - Setting to zero: [RS007100] RS07 ชุดสายฉีดชำระ (current qty: 487.0)
+2025-06-26 23:32:01,208 - INFO - Move state after processing: done
+2025-06-26 23:32:01,487 - INFO - ✅ Created and confirmed stock move to reset [RS007100] RS07 ชุดสายฉีดชำระ (state: done)
+2025-06-26 23:32:01,488 - INFO - ✅ Created and confirmed stock move to reset [RS007100] RS07 ชุดสายฉีดชำระ
+2025-06-26 23:32:01,488 - INFO - Setting to zero: [SAMPLE172] SAMPLE172 ชุดอุปกรณ์หม้อน้ำเซ็นเซอร์ (D7020) (current qty: 1.0)
+2025-06-26 23:32:02,074 - INFO - Move state after processing: done
+2025-06-26 23:32:02,315 - INFO - ✅ Created and confirmed stock move to reset [SAMPLE172] SAMPLE172 ชุดอุปกรณ์หม้อน้ำเซ็นเซอร์ (D7020) (state: done)
+2025-06-26 23:32:02,316 - INFO - ✅ Created and confirmed stock move to reset [SAMPLE172] SAMPLE172 ชุดอุปกรณ์หม้อน้ำเซ็นเซอร์ (D7020)
+2025-06-26 23:32:02,316 - INFO - Setting to zero: [SAMPLE174] SAMPLE174 ชุดอุปกรณ์หม้อน้ำเซ็นเซอร์ D7000 (current qty: 1.0)
+2025-06-26 23:32:02,952 - INFO - Move state after processing: done
+2025-06-26 23:32:03,223 - INFO - ✅ Created and confirmed stock move to reset [SAMPLE174] SAMPLE174 ชุดอุปกรณ์หม้อน้ำเซ็นเซอร์ D7000 (state: done)
+2025-06-26 23:32:03,223 - INFO - ✅ Created and confirmed stock move to reset [SAMPLE174] SAMPLE174 ชุดอุปกรณ์หม้อน้ำเซ็นเซอร์ D7000
+2025-06-26 23:32:03,223 - INFO - Setting to zero: [SAMPLE534] ตัวอย่างอ่างล้างหน้าเซรามิค (HY3008) ขนาด 585*390*190mm. (current qty: 1.0)
+2025-06-26 23:32:03,842 - INFO - Move state after processing: done
+2025-06-26 23:32:04,118 - INFO - ✅ Created and confirmed stock move to reset [SAMPLE534] ตัวอย่างอ่างล้างหน้าเซรามิค (HY3008) ขนาด 585*390*190mm. (state: done)
+2025-06-26 23:32:04,118 - INFO - ✅ Created and confirmed stock move to reset [SAMPLE534] ตัวอย่างอ่างล้างหน้าเซรามิค (HY3008) ขนาด 585*390*190mm.
+2025-06-26 23:32:04,118 - INFO - Setting to zero: [SBS0001101] SBS01#BL ราวแขวนฝักบัวปรับระดับ (current qty: 6.0)
+2025-06-26 23:32:04,781 - INFO - Move state after processing: done
+2025-06-26 23:32:05,018 - INFO - ✅ Created and confirmed stock move to reset [SBS0001101] SBS01#BL ราวแขวนฝักบัวปรับระดับ (state: done)
+2025-06-26 23:32:05,019 - INFO - ✅ Created and confirmed stock move to reset [SBS0001101] SBS01#BL ราวแขวนฝักบัวปรับระดับ
+2025-06-26 23:32:05,019 - INFO - Setting to zero: [SBS0005100] SBS05 ราวแขวนฝักบัวปรับระดับ (current qty: 80.0)
+2025-06-26 23:32:05,740 - INFO - Move state after processing: done
+2025-06-26 23:32:06,089 - INFO - ✅ Created and confirmed stock move to reset [SBS0005100] SBS05 ราวแขวนฝักบัวปรับระดับ (state: done)
+2025-06-26 23:32:06,089 - INFO - ✅ Created and confirmed stock move to reset [SBS0005100] SBS05 ราวแขวนฝักบัวปรับระดับ
+2025-06-26 23:32:06,089 - INFO - Setting to zero: [SP0001100] SP01 สายน้ำดียาว 15 นิ้ว (current qty: 1245.0)
+2025-06-26 23:32:06,856 - INFO - Move state after processing: done
+2025-06-26 23:32:07,203 - INFO - ✅ Created and confirmed stock move to reset [SP0001100] SP01 สายน้ำดียาว 15 นิ้ว (state: done)
+2025-06-26 23:32:07,204 - INFO - ✅ Created and confirmed stock move to reset [SP0001100] SP01 สายน้ำดียาว 15 นิ้ว
+2025-06-26 23:32:07,204 - INFO - Setting to zero: [SP0002100] SP02 สายน้ำดียาว 24 นิ้ว (current qty: 200.0)
+2025-06-26 23:32:07,828 - INFO - Move state after processing: done
+2025-06-26 23:32:08,125 - INFO - ✅ Created and confirmed stock move to reset [SP0002100] SP02 สายน้ำดียาว 24 นิ้ว (state: done)
+2025-06-26 23:32:08,125 - INFO - ✅ Created and confirmed stock move to reset [SP0002100] SP02 สายน้ำดียาว 24 นิ้ว
+2025-06-26 23:32:08,125 - INFO - Setting to zero: [SP0003100] SP03 สายน้ำดียาว 20 นิ้ว (current qty: 277.0)
+2025-06-26 23:32:08,851 - INFO - Move state after processing: done
+2025-06-26 23:32:09,145 - INFO - ✅ Created and confirmed stock move to reset [SP0003100] SP03 สายน้ำดียาว 20 นิ้ว (state: done)
+2025-06-26 23:32:09,145 - INFO - ✅ Created and confirmed stock move to reset [SP0003100] SP03 สายน้ำดียาว 20 นิ้ว
+2025-06-26 23:32:09,146 - INFO - Setting to zero: [SP0004100] SP04 ชุดน็อตยึดโถสุขภัณฑ์ (current qty: 7007.0)
+2025-06-26 23:32:09,830 - INFO - Move state after processing: done
+2025-06-26 23:32:10,101 - INFO - ✅ Created and confirmed stock move to reset [SP0004100] SP04 ชุดน็อตยึดโถสุขภัณฑ์ (state: done)
+2025-06-26 23:32:10,101 - INFO - ✅ Created and confirmed stock move to reset [SP0004100] SP04 ชุดน็อตยึดโถสุขภัณฑ์
+2025-06-26 23:32:10,102 - INFO - Setting to zero: [SP0008100] SP08 น็อตยึดหม้อน้ำ (current qty: 5791.0)
+2025-06-26 23:32:10,772 - INFO - Move state after processing: done
+2025-06-26 23:32:11,010 - INFO - ✅ Created and confirmed stock move to reset [SP0008100] SP08 น็อตยึดหม้อน้ำ (state: done)
+2025-06-26 23:32:11,010 - INFO - ✅ Created and confirmed stock move to reset [SP0008100] SP08 น็อตยึดหม้อน้ำ
+2025-06-26 23:32:11,010 - INFO - Setting to zero: [SP0012100] SP12 ฝาครอบรูน้ำล้น (current qty: 51.0)
+2025-06-26 23:32:11,784 - INFO - Move state after processing: done
+2025-06-26 23:32:12,014 - INFO - ✅ Created and confirmed stock move to reset [SP0012100] SP12 ฝาครอบรูน้ำล้น (state: done)
+2025-06-26 23:32:12,015 - INFO - ✅ Created and confirmed stock move to reset [SP0012100] SP12 ฝาครอบรูน้ำล้น
+2025-06-26 23:32:12,015 - INFO - Setting to zero: [SP0018100] SP18 สายน้ำดียาว 15 นิ้ว (current qty: 2494.0)
+2025-06-26 23:32:12,676 - INFO - Move state after processing: done
+2025-06-26 23:32:12,925 - INFO - ✅ Created and confirmed stock move to reset [SP0018100] SP18 สายน้ำดียาว 15 นิ้ว (state: done)
+2025-06-26 23:32:12,925 - INFO - ✅ Created and confirmed stock move to reset [SP0018100] SP18 สายน้ำดียาว 15 นิ้ว
+2025-06-26 23:32:12,925 - INFO - Setting to zero: [SP00184100] SP184 แผ่นปิด สะดืออ่างล้างหน้า (current qty: 15.0)
+2025-06-26 23:32:13,558 - INFO - Move state after processing: done
+2025-06-26 23:32:13,805 - INFO - ✅ Created and confirmed stock move to reset [SP00184100] SP184 แผ่นปิด สะดืออ่างล้างหน้า (state: done)
+2025-06-26 23:32:13,806 - INFO - ✅ Created and confirmed stock move to reset [SP00184100] SP184 แผ่นปิด สะดืออ่างล้างหน้า
+2025-06-26 23:32:13,806 - INFO - Setting to zero: [SP0019100] SP19 ชุดน็อตยึดโถสุขภัณฑ์ (current qty: 21.0)
+2025-06-26 23:32:14,483 - INFO - Move state after processing: done
+2025-06-26 23:32:14,844 - INFO - ✅ Created and confirmed stock move to reset [SP0019100] SP19 ชุดน็อตยึดโถสุขภัณฑ์ (state: done)
+2025-06-26 23:32:14,844 - INFO - ✅ Created and confirmed stock move to reset [SP0019100] SP19 ชุดน็อตยึดโถสุขภัณฑ์
+2025-06-26 23:32:14,844 - INFO - Setting to zero: [SP00206100] SP206 ก๊อกเดี่ยวอ่างล้างหน้า (current qty: 37.0)
+2025-06-26 23:32:15,898 - INFO - Move state after processing: done
+2025-06-26 23:32:16,326 - INFO - ✅ Created and confirmed stock move to reset [SP00206100] SP206 ก๊อกเดี่ยวอ่างล้างหน้า (state: done)
+2025-06-26 23:32:16,327 - INFO - ✅ Created and confirmed stock move to reset [SP00206100] SP206 ก๊อกเดี่ยวอ่างล้างหน้า
+2025-06-26 23:32:16,327 - INFO - Setting to zero: [SP00209100] SP209 ก๊อกเดี่ยวอ่างล้างหน้า (current qty: 42.0)
+2025-06-26 23:32:17,163 - INFO - Move state after processing: done
+2025-06-26 23:32:17,445 - INFO - ✅ Created and confirmed stock move to reset [SP00209100] SP209 ก๊อกเดี่ยวอ่างล้างหน้า (state: done)
+2025-06-26 23:32:17,446 - INFO - ✅ Created and confirmed stock move to reset [SP00209100] SP209 ก๊อกเดี่ยวอ่างล้างหน้า
+2025-06-26 23:32:17,448 - INFO - Setting to zero: [SP00212100] SP212 ฝักบัวสายอ่อน 1 ฟังก์ชั่น (current qty: 408.0)
+2025-06-26 23:32:18,131 - INFO - Move state after processing: done
+2025-06-26 23:32:18,433 - INFO - ✅ Created and confirmed stock move to reset [SP00212100] SP212 ฝักบัวสายอ่อน 1 ฟังก์ชั่น (state: done)
+2025-06-26 23:32:18,433 - INFO - ✅ Created and confirmed stock move to reset [SP00212100] SP212 ฝักบัวสายอ่อน 1 ฟังก์ชั่น
+2025-06-26 23:32:18,433 - INFO - Setting to zero: [SP00283100] SP283 สายอ่อนสแตนเลสสำหรับสายฉีดชำระยาว (current qty: 181.0)
+2025-06-26 23:32:19,247 - INFO - Move state after processing: done
+2025-06-26 23:32:19,642 - INFO - ✅ Created and confirmed stock move to reset [SP00283100] SP283 สายอ่อนสแตนเลสสำหรับสายฉีดชำระยาว (state: done)
+2025-06-26 23:32:19,642 - INFO - ✅ Created and confirmed stock move to reset [SP00283100] SP283 สายอ่อนสแตนเลสสำหรับสายฉีดชำระยาว
+2025-06-26 23:32:19,642 - INFO - Setting to zero: [SP00283101] SP283(SP) สายอ่อนสแตนเลสสำหรับสายฉีดชำระยาว (current qty: 220.0)
+2025-06-26 23:32:20,246 - INFO - Move state after processing: done
+2025-06-26 23:32:20,573 - INFO - ✅ Created and confirmed stock move to reset [SP00283101] SP283(SP) สายอ่อนสแตนเลสสำหรับสายฉีดชำระยาว (state: done)
+2025-06-26 23:32:20,573 - INFO - ✅ Created and confirmed stock move to reset [SP00283101] SP283(SP) สายอ่อนสแตนเลสสำหรับสายฉีดชำระยาว
+2025-06-26 23:32:20,573 - INFO - Setting to zero: [SP0029100] SP29 ก๊อกเดี่ยวอ่างล้างหน้า (current qty: 3.0)
+2025-06-26 23:32:21,371 - INFO - Move state after processing: done
+2025-06-26 23:32:21,595 - INFO - ✅ Created and confirmed stock move to reset [SP0029100] SP29 ก๊อกเดี่ยวอ่างล้างหน้า (state: done)
+2025-06-26 23:32:21,595 - INFO - ✅ Created and confirmed stock move to reset [SP0029100] SP29 ก๊อกเดี่ยวอ่างล้างหน้า
+2025-06-26 23:32:21,596 - INFO - Setting to zero: [SP0033100] SP33 ซีลยางรองก้นหม้อน้ำ (current qty: 174.0)
+2025-06-26 23:32:22,296 - INFO - Move state after processing: done
+2025-06-26 23:32:22,555 - INFO - ✅ Created and confirmed stock move to reset [SP0033100] SP33 ซีลยางรองก้นหม้อน้ำ (state: done)
+2025-06-26 23:32:22,555 - INFO - ✅ Created and confirmed stock move to reset [SP0033100] SP33 ซีลยางรองก้นหม้อน้ำ
+2025-06-26 23:32:22,555 - INFO - Setting to zero: [SP00337100] SP337 ชั้นวางของอะครีลิค (current qty: 36.0)
+2025-06-26 23:32:23,271 - INFO - Move state after processing: done
+2025-06-26 23:32:23,604 - INFO - ✅ Created and confirmed stock move to reset [SP00337100] SP337 ชั้นวางของอะครีลิค (state: done)
+2025-06-26 23:32:23,605 - INFO - ✅ Created and confirmed stock move to reset [SP00337100] SP337 ชั้นวางของอะครีลิค
+2025-06-26 23:32:23,605 - INFO - Setting to zero: [SP00388] SP388 ชุดเซ็นเซอร์ (current qty: 9.0)
+2025-06-26 23:32:24,571 - INFO - Move state after processing: done
+2025-06-26 23:32:24,843 - INFO - ✅ Created and confirmed stock move to reset [SP00388] SP388 ชุดเซ็นเซอร์ (state: done)
+2025-06-26 23:32:24,844 - INFO - ✅ Created and confirmed stock move to reset [SP00388] SP388 ชุดเซ็นเซอร์
+2025-06-26 23:32:24,844 - INFO - Setting to zero: [SP0039100] SP39 ข้อต่อ นิปเปิ้ล ทองเหลืองขนาด 1/2 " (current qty: 93.0)
+2025-06-26 23:32:25,567 - INFO - Move state after processing: done
+2025-06-26 23:32:26,066 - INFO - ✅ Created and confirmed stock move to reset [SP0039100] SP39 ข้อต่อ นิปเปิ้ล ทองเหลืองขนาด 1/2 " (state: done)
+2025-06-26 23:32:26,067 - INFO - ✅ Created and confirmed stock move to reset [SP0039100] SP39 ข้อต่อ นิปเปิ้ล ทองเหลืองขนาด 1/2 "
+2025-06-26 23:32:26,069 - INFO - Setting to zero: [SP0040100] SP40 ข้อต่อ ผ.ม ทองเหลืองขนาด 1/2 " (current qty: 82.0)
+2025-06-26 23:32:26,866 - INFO - Move state after processing: done
+2025-06-26 23:32:27,101 - INFO - ✅ Created and confirmed stock move to reset [SP0040100] SP40 ข้อต่อ ผ.ม ทองเหลืองขนาด 1/2 " (state: done)
+2025-06-26 23:32:27,102 - INFO - ✅ Created and confirmed stock move to reset [SP0040100] SP40 ข้อต่อ ผ.ม ทองเหลืองขนาด 1/2 "
+2025-06-26 23:32:27,102 - INFO - Setting to zero: [SP00415100] SP415 โครงเหล็กยึดหน้ากาก (Alu Com) (current qty: 21.0)
+2025-06-26 23:32:27,670 - INFO - Move state after processing: done
+2025-06-26 23:32:27,906 - INFO - ✅ Created and confirmed stock move to reset [SP00415100] SP415 โครงเหล็กยึดหน้ากาก (Alu Com) (state: done)
+2025-06-26 23:32:27,907 - INFO - ✅ Created and confirmed stock move to reset [SP00415100] SP415 โครงเหล็กยึดหน้ากาก (Alu Com)
+2025-06-26 23:32:27,907 - INFO - Setting to zero: [SP0071100] SP71 หม้อน้ำซ่อนผนัง (current qty: 5.0)
+2025-06-26 23:32:28,645 - INFO - Move state after processing: done
+2025-06-26 23:32:28,880 - INFO - ✅ Created and confirmed stock move to reset [SP0071100] SP71 หม้อน้ำซ่อนผนัง (state: done)
+2025-06-26 23:32:28,881 - INFO - ✅ Created and confirmed stock move to reset [SP0071100] SP71 หม้อน้ำซ่อนผนัง
+2025-06-26 23:32:28,881 - INFO - Setting to zero: [SP00942100] SP94 สายน้ำดียาว 40 นิ้ว (current qty: 243.0)
+2025-06-26 23:32:29,488 - INFO - Move state after processing: done
+2025-06-26 23:32:29,725 - INFO - ✅ Created and confirmed stock move to reset [SP00942100] SP94 สายน้ำดียาว 40 นิ้ว (state: done)
+2025-06-26 23:32:29,725 - INFO - ✅ Created and confirmed stock move to reset [SP00942100] SP94 สายน้ำดียาว 40 นิ้ว
+2025-06-26 23:32:29,726 - INFO - Setting to zero: [SP0103100] SP103 ท่อน้ำทิ้ง แบบตัว P (current qty: 400.0)
+2025-06-26 23:32:30,405 - INFO - Move state after processing: done
+2025-06-26 23:32:30,689 - INFO - ✅ Created and confirmed stock move to reset [SP0103100] SP103 ท่อน้ำทิ้ง แบบตัว P (state: done)
+2025-06-26 23:32:30,689 - INFO - ✅ Created and confirmed stock move to reset [SP0103100] SP103 ท่อน้ำทิ้ง แบบตัว P
+2025-06-26 23:32:30,689 - INFO - Setting to zero: [SP0129100] SP129 ก๊อกเดี่ยวอ่างล้างหน้า (current qty: 128.0)
+2025-06-26 23:32:31,385 - INFO - Move state after processing: done
+2025-06-26 23:32:31,619 - INFO - ✅ Created and confirmed stock move to reset [SP0129100] SP129 ก๊อกเดี่ยวอ่างล้างหน้า (state: done)
+2025-06-26 23:32:31,619 - INFO - ✅ Created and confirmed stock move to reset [SP0129100] SP129 ก๊อกเดี่ยวอ่างล้างหน้า
+2025-06-26 23:32:31,619 - INFO - Setting to zero: [SPC0011105] SPC01-7 ฝาหม้อน้ำ วัสดุเมลามีน (current qty: 8.0)
+2025-06-26 23:32:32,302 - INFO - Move state after processing: done
+2025-06-26 23:32:32,512 - INFO - ✅ Created and confirmed stock move to reset [SPC0011105] SPC01-7 ฝาหม้อน้ำ วัสดุเมลามีน (state: done)
+2025-06-26 23:32:32,513 - INFO - ✅ Created and confirmed stock move to reset [SPC0011105] SPC01-7 ฝาหม้อน้ำ วัสดุเมลามีน
+2025-06-26 23:32:32,513 - INFO - Setting to zero: [SPH0042100] SPH42 เฉพาะหูฝารองนั่ง (current qty: 54.0)
+2025-06-26 23:32:33,117 - INFO - Move state after processing: done
+2025-06-26 23:32:33,358 - INFO - ✅ Created and confirmed stock move to reset [SPH0042100] SPH42 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:33,358 - INFO - ✅ Created and confirmed stock move to reset [SPH0042100] SPH42 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:33,358 - INFO - Setting to zero: [SPH0050000] SPH50 เฉพาะหูฝารองนั่ง (current qty: 50.0)
+2025-06-26 23:32:34,107 - INFO - Move state after processing: done
+2025-06-26 23:32:34,331 - INFO - ✅ Created and confirmed stock move to reset [SPH0050000] SPH50 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:34,332 - INFO - ✅ Created and confirmed stock move to reset [SPH0050000] SPH50 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:34,332 - INFO - Setting to zero: [SPH0051100] SPH51 เฉพาะหูฝารองนั่ง (current qty: 49.0)
+2025-06-26 23:32:34,977 - INFO - Move state after processing: done
+2025-06-26 23:32:35,195 - INFO - ✅ Created and confirmed stock move to reset [SPH0051100] SPH51 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:35,196 - INFO - ✅ Created and confirmed stock move to reset [SPH0051100] SPH51 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:35,196 - INFO - Setting to zero: [SPH032100] SPH32 เฉพาะหูฝารองนั่ง (current qty: 128.0)
+2025-06-26 23:32:36,100 - INFO - Move state after processing: done
+2025-06-26 23:32:36,413 - INFO - ✅ Created and confirmed stock move to reset [SPH032100] SPH32 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:36,413 - INFO - ✅ Created and confirmed stock move to reset [SPH032100] SPH32 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:36,413 - INFO - Setting to zero: [SPH040100] SPH40 เฉพาะหูฝารองนั่ง (current qty: 100.0)
+2025-06-26 23:32:37,188 - INFO - Move state after processing: done
+2025-06-26 23:32:37,438 - INFO - ✅ Created and confirmed stock move to reset [SPH040100] SPH40 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:37,438 - INFO - ✅ Created and confirmed stock move to reset [SPH040100] SPH40 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:37,438 - INFO - Setting to zero: [SPH041100] SPH41 เฉพาะหูฝารองนั่ง (current qty: 10.0)
+2025-06-26 23:32:38,080 - INFO - Move state after processing: done
+2025-06-26 23:32:38,302 - INFO - ✅ Created and confirmed stock move to reset [SPH041100] SPH41 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:38,302 - INFO - ✅ Created and confirmed stock move to reset [SPH041100] SPH41 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:38,302 - INFO - Setting to zero: [SPH066100] SPH66/1 เฉพาะหูฝารองนั่ง (current qty: 60.0)
+2025-06-26 23:32:38,981 - INFO - Move state after processing: done
+2025-06-26 23:32:39,246 - INFO - ✅ Created and confirmed stock move to reset [SPH066100] SPH66/1 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:39,247 - INFO - ✅ Created and confirmed stock move to reset [SPH066100] SPH66/1 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:39,247 - INFO - Setting to zero: [SPH12S100] SPH12 เฉพาะหูฝารองนั่ง (current qty: 316.0)
+2025-06-26 23:32:39,915 - INFO - Move state after processing: done
+2025-06-26 23:32:40,147 - INFO - ✅ Created and confirmed stock move to reset [SPH12S100] SPH12 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:40,148 - INFO - ✅ Created and confirmed stock move to reset [SPH12S100] SPH12 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:40,148 - INFO - Setting to zero: [SPH12SP100] SPH12/SP-1 เฉพาะหูฝารองนั่ง (current qty: 120.0)
+2025-06-26 23:32:40,883 - INFO - Move state after processing: done
+2025-06-26 23:32:41,152 - INFO - ✅ Created and confirmed stock move to reset [SPH12SP100] SPH12/SP-1 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:41,153 - INFO - ✅ Created and confirmed stock move to reset [SPH12SP100] SPH12/SP-1 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:41,153 - INFO - Setting to zero: [SPH21S200] SPH21/2 เฉพาะหูฝารองนั่ง (current qty: 241.0)
+2025-06-26 23:32:41,743 - INFO - Move state after processing: done
+2025-06-26 23:32:41,968 - INFO - ✅ Created and confirmed stock move to reset [SPH21S200] SPH21/2 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:41,969 - INFO - ✅ Created and confirmed stock move to reset [SPH21S200] SPH21/2 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:41,969 - INFO - Setting to zero: [SPH261100] SPH26/1 เฉพาะหูฝารองนั่ง (current qty: 33.0)
+2025-06-26 23:32:42,583 - INFO - Move state after processing: done
+2025-06-26 23:32:42,821 - INFO - ✅ Created and confirmed stock move to reset [SPH261100] SPH26/1 เฉพาะหูฝารองนั่ง (state: done)
+2025-06-26 23:32:42,822 - INFO - ✅ Created and confirmed stock move to reset [SPH261100] SPH26/1 เฉพาะหูฝารองนั่ง
+2025-06-26 23:32:42,822 - INFO - Setting to zero: [SPO001100] SPO01 ปะเก็นยางเหนียว (current qty: 401.0)
+2025-06-26 23:32:43,489 - INFO - Move state after processing: done
+2025-06-26 23:32:43,734 - INFO - ✅ Created and confirmed stock move to reset [SPO001100] SPO01 ปะเก็นยางเหนียว (state: done)
+2025-06-26 23:32:43,734 - INFO - ✅ Created and confirmed stock move to reset [SPO001100] SPO01 ปะเก็นยางเหนียว
+2025-06-26 23:32:43,735 - INFO - Setting to zero: [SPR0321100] SPR32 รางหูฝารองนั่ง (current qty: 40.0)
+2025-06-26 23:32:44,417 - INFO - Move state after processing: done
+2025-06-26 23:32:44,688 - INFO - ✅ Created and confirmed stock move to reset [SPR0321100] SPR32 รางหูฝารองนั่ง (state: done)
+2025-06-26 23:32:44,689 - INFO - ✅ Created and confirmed stock move to reset [SPR0321100] SPR32 รางหูฝารองนั่ง
+2025-06-26 23:32:44,689 - INFO - Setting to zero: [SPU003100] SPU03 ชุดขาเหล็กยึดโถปัสสาวะชาย (current qty: 2.0)
+2025-06-26 23:32:45,344 - INFO - Move state after processing: done
+2025-06-26 23:32:45,571 - INFO - ✅ Created and confirmed stock move to reset [SPU003100] SPU03 ชุดขาเหล็กยึดโถปัสสาวะชาย (state: done)
+2025-06-26 23:32:45,571 - INFO - ✅ Created and confirmed stock move to reset [SPU003100] SPU03 ชุดขาเหล็กยึดโถปัสสาวะชาย
+2025-06-26 23:32:45,572 - INFO - Setting to zero: [SPU004100] SPU04 ชุดหน้าแปลน PVC (current qty: 1.0)
+2025-06-26 23:32:46,439 - INFO - Move state after processing: done
+2025-06-26 23:32:46,658 - INFO - ✅ Created and confirmed stock move to reset [SPU004100] SPU04 ชุดหน้าแปลน PVC (state: done)
+2025-06-26 23:32:46,658 - INFO - ✅ Created and confirmed stock move to reset [SPU004100] SPU04 ชุดหน้าแปลน PVC
+2025-06-26 23:32:46,659 - INFO - Setting to zero: [SPU011100] SPU11 ซีลยางโถปัสสาวะชาย (current qty: 106.0)
+2025-06-26 23:32:47,395 - INFO - Move state after processing: done
+2025-06-26 23:32:47,683 - INFO - ✅ Created and confirmed stock move to reset [SPU011100] SPU11 ซีลยางโถปัสสาวะชาย (state: done)
+2025-06-26 23:32:47,684 - INFO - ✅ Created and confirmed stock move to reset [SPU011100] SPU11 ซีลยางโถปัสสาวะชาย
+2025-06-26 23:32:47,684 - INFO - Setting to zero: [SPV0005100] SPV05 วาล์วเปิด-ปิดน้ำ (current qty: 1117.0)
+2025-06-26 23:32:48,333 - INFO - Move state after processing: done
+2025-06-26 23:32:48,572 - INFO - ✅ Created and confirmed stock move to reset [SPV0005100] SPV05 วาล์วเปิด-ปิดน้ำ (state: done)
+2025-06-26 23:32:48,573 - INFO - ✅ Created and confirmed stock move to reset [SPV0005100] SPV05 วาล์วเปิด-ปิดน้ำ
+2025-06-26 23:32:48,573 - INFO - Setting to zero: [SPV0006100] SPV06 สต็อปวาล์ว 1 ทาง (current qty: 400.0)
+2025-06-26 23:32:49,224 - INFO - Move state after processing: done
+2025-06-26 23:32:49,476 - INFO - ✅ Created and confirmed stock move to reset [SPV0006100] SPV06 สต็อปวาล์ว 1 ทาง (state: done)
+2025-06-26 23:32:49,477 - INFO - ✅ Created and confirmed stock move to reset [SPV0006100] SPV06 สต็อปวาล์ว 1 ทาง
+2025-06-26 23:32:49,477 - INFO - Setting to zero: [SPV0015100] SPV15 สต็อปวาล์ว 1 ทาง (current qty: 1.0)
+2025-06-26 23:32:50,073 - INFO - Move state after processing: done
+2025-06-26 23:32:50,344 - INFO - ✅ Created and confirmed stock move to reset [SPV0015100] SPV15 สต็อปวาล์ว 1 ทาง (state: done)
+2025-06-26 23:32:50,344 - INFO - ✅ Created and confirmed stock move to reset [SPV0015100] SPV15 สต็อปวาล์ว 1 ทาง
+2025-06-26 23:32:50,344 - INFO - Setting to zero: [SPV0016100] SPV16 สต็อปวาล์ว 1 ทาง (current qty: 400.0)
+2025-06-26 23:32:51,074 - INFO - Move state after processing: done
+2025-06-26 23:32:51,403 - INFO - ✅ Created and confirmed stock move to reset [SPV0016100] SPV16 สต็อปวาล์ว 1 ทาง (state: done)
+2025-06-26 23:32:51,403 - INFO - ✅ Created and confirmed stock move to reset [SPV0016100] SPV16 สต็อปวาล์ว 1 ทาง
+2025-06-26 23:32:51,403 - INFO - Setting to zero: [SPV002100] SPV02 สต็อปวาล์ว 1 ทาง (current qty: 507.0)
+2025-06-26 23:32:52,054 - INFO - Move state after processing: done
+2025-06-26 23:32:52,309 - INFO - ✅ Created and confirmed stock move to reset [SPV002100] SPV02 สต็อปวาล์ว 1 ทาง (state: done)
+2025-06-26 23:32:52,309 - INFO - ✅ Created and confirmed stock move to reset [SPV002100] SPV02 สต็อปวาล์ว 1 ทาง
+2025-06-26 23:32:52,310 - INFO - Setting to zero: [SPV003100] SPV03 สต็อปวาล์ว 2 ทาง (current qty: 500.0)
