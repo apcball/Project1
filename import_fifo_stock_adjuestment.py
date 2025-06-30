@@ -13,7 +13,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/FG10 Adjuestment.xlsx'
+EXCEL_FILE = 'Data_file/FG10 Adjuestment-03.xlsx'
 # Default picking type (Delivery Orders for delivery operations)
 DEFAULT_PICKING_TYPE = 'Delivery Orders'
 # Default source location - None means we'll use the column value or the picking type's default
@@ -483,7 +483,7 @@ def get_product_id(models, uid, default_code, old_product_code=None):
         default_code = clean_product_name(default_code)
         logger.info(f"Searching for product with code: '{default_code}'")
 
-        # First try exact match on default_code
+        # 1. Exact match on default_code
         product_ids = models.execute_kw(DB, uid, PASSWORD,
                                         'product.product', 'search',
                                         [[['default_code', '=', default_code]]]
@@ -492,7 +492,7 @@ def get_product_id(models, uid, default_code, old_product_code=None):
             logger.info(f"Found product with exact match on default_code: '{default_code}'")
             return product_ids[0]
 
-        # Try with ilike search if exact match fails
+        # 2. ilike match on default_code
         product_ids = models.execute_kw(DB, uid, PASSWORD,
                                         'product.product', 'search',
                                         [[['default_code', 'ilike', default_code]]]
@@ -506,7 +506,39 @@ def get_product_id(models, uid, default_code, old_product_code=None):
             logger.info(f"Found product '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' using ilike search for '{default_code}'")
             return product_ids[0]
 
-        logger.error(f"Product not found with code: '{default_code}'")
+        # 3. Exact match on barcode
+        product_ids = models.execute_kw(DB, uid, PASSWORD,
+                                        'product.product', 'search',
+                                        [[['barcode', '=', default_code]]]
+                                        )
+        if product_ids:
+            logger.info(f"Found product with exact match on barcode: '{default_code}'")
+            return product_ids[0]
+
+        # 4. ilike match on name
+        product_ids = models.execute_kw(DB, uid, PASSWORD,
+                                        'product.product', 'search',
+                                        [[['name', 'ilike', default_code]]]
+                                        )
+        if product_ids:
+            product_data = models.execute_kw(DB, uid, PASSWORD,
+                                             'product.product', 'read',
+                                             [product_ids[0]],
+                                             {'fields': ['default_code', 'name']}
+                                             )
+            logger.info(f"Found product '{product_data[0]['name']}' using ilike search for name '{default_code}'")
+            return product_ids[0]
+
+        # 5. Fallback: direct SQL search (if available)
+        try:
+            product_id = search_product_by_direct_sql(models, uid, default_code)
+            if product_id:
+                logger.info(f"Found product via direct SQL search: '{default_code}'")
+                return product_id
+        except Exception as e:
+            logger.warning(f"Direct SQL search failed: {str(e)}")
+
+        logger.error(f"Product not found with code, barcode, or name: '{default_code}'")
         return False
     except Exception as e:
         logger.error(f"Error finding product '{default_code}': {str(e)}")
@@ -806,7 +838,7 @@ def get_customer_shipping_info(models, uid, partner_id):
 
 if __name__ == "__main__":
     try:        # You can change these parameters based on your delivery import requirements
-        EXCEL_FILE = 'Data_file/FG10 Adjuestment.xlsx'
+        EXCEL_FILE = 'Data_file/FG10 Adjuestment-03.xlsx'
         DEFAULT_PICKING_TYPE = 'Delivery Orders'  # Use 'Delivery Orders' for delivery operations
         # Note: The 'picking_type_id' column in the Excel file is now used as the Source Location
         

@@ -7,7 +7,7 @@ import os
 
 # 🔐 Connection parameters
 HOST = 'http://mogdev.work:8069'
-DB = 'MOG_LIVE_28-06'
+DB = 'MOG_LIVE_26-06'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
@@ -15,8 +15,6 @@ PASSWORD = '471109538'
 MAX_RETRIES = 5      # จำนวนครั้งที่จะลองเชื่อมต่อซ้ำ
 RETRY_DELAY = 3      # ระยะเวลารอระหว่างการลองใหม่ (วินาที)
 TIMEOUT = 60         # timeout สำหรับการเชื่อมต่อ (วินาที)
-BATCH_SIZE = 1000    # จำนวน records ที่จะประมวลผลต่อรอบ
-MAX_ROUNDS = 500     # จำนวนรอบสูงสุดที่จะประมวลผล (เพิ่มเป็น 500 รอบ)
 
 # 📅 วันที่ที่ต้องการเคลียร์ (วันก่อนหน้า)
 clear_date = '2025-01-31 23:59:59'
@@ -24,31 +22,14 @@ clear_date = '2025-01-31 23:59:59'
 # กำหนดตัวแปรสำหรับการเชื่อมต่อ
 global_vars = {'common': None, 'uid': None, 'models': None}
 
-# สร้าง Transport class ที่รองรับ timeout
-class TimeoutTransport(xmlrpc.client.Transport):
-    def __init__(self, timeout=TIMEOUT, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.timeout = timeout
-        
-    def make_connection(self, host):
-        connection = super().make_connection(host)
-        connection.timeout = self.timeout
-        return connection
-
 # 🔌 ฟังก์ชั่นสำหรับสร้างการเชื่อมต่อใหม่
 def create_connection():
     print("🔄 Creating connection to Odoo server...")
-    # ตั้ง socket timeout แบบ global
-    socket.setdefaulttimeout(TIMEOUT)
-    
-    # สร้าง Transport ที่มี timeout
-    transport = TimeoutTransport(timeout=TIMEOUT)
-    
     common_proxy = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/common', 
-                                           transport=transport)
+                                           transport=xmlrpc.client.Transport(timeout=TIMEOUT))
     user_id = common_proxy.authenticate(DB, USERNAME, PASSWORD, {})
     models_proxy = xmlrpc.client.ServerProxy(f'{HOST}/xmlrpc/2/object', 
-                                           transport=transport)
+                                           transport=xmlrpc.client.Transport(timeout=TIMEOUT))
     print("✅ Connection established successfully")
     return common_proxy, user_id, models_proxy
 
@@ -158,31 +139,19 @@ try:
         total_rounds += 1
         print(f"\n🔄 Round {total_rounds}: Searching for valuation entries up to {clear_date}...")
         
-        # Get total count first for progress calculation
-        total_entries = execute_with_retry(
-            'stock.valuation.layer', 'search_count',
-            [[('value', '!=', 0), ('create_date', '<=', clear_date)]])
-        
-        if total_entries == 0:
-            print(f"✅ No more valuation entries found. Finished after {total_rounds} rounds.")
-            break
-        
         valuation_entries = execute_with_retry(
             'stock.valuation.layer', 'search_read',
             [[
                 ('value', '!=', 0), 
-                ('create_date', '<=', clear_date),
-                ('id', 'not in', list(processed_entries))  # Skip already processed entries
+                ('create_date', '<=', clear_date)  # เพิ่มเงื่อนไขวันที่
             ]],
-            {'fields': ['id', 'value', 'quantity', 'create_date'], 'limit': BATCH_SIZE})
+            {'fields': ['id', 'value', 'quantity', 'create_date'], 'limit': 500})  # เพิ่ม limit
         
         if not valuation_entries:
-            print(f"✅ No more unprocessed valuation entries found. Finished after {total_rounds} rounds.")
+            print(f"✅ No more valuation entries found. Finished after {total_rounds} rounds.")
             break
             
-        progress_percent = (len(processed_entries) / total_entries) * 100
-        print(f"\n📊 Progress: {progress_percent:.2f}% ({len(processed_entries)}/{total_entries} entries)")
-        print(f"📊 Found {len(valuation_entries)} new entries to process in this batch (up to {clear_date})")
+        print(f"📊 Found {len(valuation_entries)} valuation entries to clear (up to {clear_date})")
         
         if valuation_entries:
             print("🧹 Clearing valuation entries...")
@@ -246,10 +215,9 @@ try:
             else:
                 print(f"ℹ️ {remaining_count} valuation entries still need clearing. Continuing...")
             
-        # หยุดถ้ารันเกินจำนวนรอบที่กำหนด
-        if total_rounds >= MAX_ROUNDS:
-            print(f"⚠️ Reached maximum rounds ({MAX_ROUNDS}). Stopping.")
-            print(f"⚠️ You can continue processing by running the script again - it will resume from where it left off.")
+        # หยุดถ้ารันเกิน 30 รอบ เพื่อป้องกัน infinite loop (เพิ่มจากเดิม)
+        if total_rounds >= 30:
+            print("⚠️ Reached maximum rounds (30). Stopping.")
             break
     
     print(f"\n🎯 FINAL SUMMARY:")
