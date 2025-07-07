@@ -1,0 +1,699 @@
+2025-06-28 11:01:59,843 - INFO - Successfully connected to Odoo as user ID: 2
+2025-06-28 11:01:59,885 - INFO - Odoo version: 17.0.1.3
+2025-06-28 11:01:59,987 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'operation_date']
+2025-06-28 11:02:00,082 - INFO - Successfully read Excel file with 166 rows
+2025-06-28 11:02:00,082 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'Delivery Orders', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-06-28 11:02:00,082 - INFO - Found 'Delivery Orders' column, using it as source location
+2025-06-28 11:02:00,083 - INFO - Added 'picking_type_id' column from 'Delivery Orders' values
+2025-06-28 11:02:00,083 - INFO - Processed sequence column
+2025-06-28 11:02:00,088 - INFO - scheduled_date dtype: datetime64[ns]
+2025-06-28 11:02:00,088 - INFO - scheduled_date sample: NaT
+2025-06-28 11:02:00,089 - WARNING - Replaced 166 NaN scheduled_date values with current datetime
+2025-06-28 11:02:00,090 - INFO - Converted scheduled_date to string format. Sample: 2025-06-28 11:02:00
+2025-06-28 11:02:00,090 - INFO - Using 'picking_type_id' column as source location
+2025-06-28 11:02:00,090 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-06-28 11:02:00,090 - INFO - Using 'origin' column to identify transfer groups
+2025-06-28 11:02:00,092 - INFO - Starting to group duplicate product entries...
+2025-06-28 11:02:00,092 - INFO - Grouping by columns: ['product_id', 'scheduled_date', 'location_dest_id', 'picking_type_id', 'partner_id', 'origin']
+2025-06-28 11:02:00,092 - INFO - Grouping DataFrame with 166 rows
+2025-06-28 11:02:00,097 - INFO - After grouping: 166 rows
+2025-06-28 11:02:00,101 - INFO - Successfully calculated weighted average prices
+2025-06-28 11:02:00,101 - INFO - Grouped duplicate products: 166 rows reduced to 166 rows (0 duplicates merged)
+2025-06-28 11:02:00,101 - INFO - Excel file validation and data filling completed successfully
+2025-06-28 11:02:00,106 - INFO - Using source location from picking_type_id column: 'FG10/Stock'
+2025-06-28 11:02:00,106 - INFO - Searching for location: 'FG10/Stock'
+2025-06-28 11:02:00,207 - INFO - Found location with complete_name match: 'FG10/Stock' for 'FG10/Stock'
+2025-06-28 11:02:00,207 - INFO - Using source location from Excel: 'FG10/Stock'
+2025-06-28 11:02:00,255 - INFO - Searching for location: 'Partners/Customers'
+2025-06-28 11:02:00,295 - INFO - Found customer location for 'Partners/Customers'
+2025-06-28 11:02:00,341 - INFO - Found partner ID 15401 for 'MOG FG01'
+2025-06-28 11:02:00,398 - INFO - Retrieved shipping information for partner: MOG FG01
+2025-06-28 11:02:00,398 - INFO - Using customer location as destination for delivery to MOG FG01
+2025-06-28 11:02:00,495 - INFO - Created transfer for date 2025-06-28 11:02:00 sequence 1 with picking ID 9160
+2025-06-28 11:02:00,498 - INFO - Processing Excel row 1: {'product_id': 'SPW41N4100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 17.0, 'sequence': 1, 'price_unit': 0.0}
+2025-06-28 11:02:00,498 - INFO - Searching for product with code: 'SPW41N4100'
+2025-06-28 11:02:00,548 - INFO - Found product with exact match on default_code: 'SPW41N4100'
+2025-06-28 11:02:00,696 - INFO - Added product SPW41N4100 with quantity 17.0 to picking 9160
+2025-06-28 11:02:00,696 - INFO - Processing Excel row 2: {'product_id': 'SPW423100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 54.0, 'sequence': 2, 'price_unit': 0.0}
+2025-06-28 11:02:00,697 - INFO - Searching for product with code: 'SPW423100'
+2025-06-28 11:02:00,736 - INFO - Found product with exact match on default_code: 'SPW423100'
+2025-06-28 11:02:00,897 - INFO - Added product SPW423100 with quantity 54.0 to picking 9160
+2025-06-28 11:02:00,898 - INFO - Processing Excel row 3: {'product_id': 'SPWO11100-1', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 14.0, 'sequence': 3, 'price_unit': 0.0}
+2025-06-28 11:02:00,899 - INFO - Searching for product with code: 'SPWO11100-1'
+2025-06-28 11:02:00,944 - INFO - Found product with exact match on default_code: 'SPWO11100-1'
+2025-06-28 11:02:01,084 - INFO - Added product SPWO11100-1 with quantity 14.0 to picking 9160
+2025-06-28 11:02:01,085 - INFO - Processing Excel row 4: {'product_id': 'SPWO12100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 54.0, 'sequence': 4, 'price_unit': 0.0}
+2025-06-28 11:02:01,085 - INFO - Searching for product with code: 'SPWO12100'
+2025-06-28 11:02:01,133 - INFO - Found product with exact match on default_code: 'SPWO12100'
+2025-06-28 11:02:01,265 - INFO - Added product SPWO12100 with quantity 54.0 to picking 9160
+2025-06-28 11:02:01,266 - INFO - Processing Excel row 5: {'product_id': 'SPWO12110', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 5, 'price_unit': 0.0}
+2025-06-28 11:02:01,266 - INFO - Searching for product with code: 'SPWO12110'
+2025-06-28 11:02:01,312 - INFO - Found product with exact match on default_code: 'SPWO12110'
+2025-06-28 11:02:01,456 - INFO - Added product SPWO12110 with quantity 5.0 to picking 9160
+2025-06-28 11:02:01,456 - INFO - Processing Excel row 6: {'product_id': 'SPWO13100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 11.0, 'sequence': 6, 'price_unit': 0.0}
+2025-06-28 11:02:01,457 - INFO - Searching for product with code: 'SPWO13100'
+2025-06-28 11:02:01,502 - INFO - Found product with exact match on default_code: 'SPWO13100'
+2025-06-28 11:02:01,644 - INFO - Added product SPWO13100 with quantity 11.0 to picking 9160
+2025-06-28 11:02:01,644 - INFO - Processing Excel row 7: {'product_id': 'SPWO13101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 14.0, 'sequence': 7, 'price_unit': 0.0}
+2025-06-28 11:02:01,645 - INFO - Searching for product with code: 'SPWO13101'
+2025-06-28 11:02:01,687 - INFO - Found product with exact match on default_code: 'SPWO13101'
+2025-06-28 11:02:01,833 - INFO - Added product SPWO13101 with quantity 14.0 to picking 9160
+2025-06-28 11:02:01,833 - INFO - Processing Excel row 8: {'product_id': 'SSPW001100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 8, 'price_unit': 0.0}
+2025-06-28 11:02:01,833 - INFO - Searching for product with code: 'SSPW001100'
+2025-06-28 11:02:01,880 - INFO - Found product with exact match on default_code: 'SSPW001100'
+2025-06-28 11:02:02,036 - INFO - Added product SSPW001100 with quantity 5.0 to picking 9160
+2025-06-28 11:02:02,037 - INFO - Processing Excel row 9: {'product_id': 'SSPW011100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 9, 'price_unit': 0.0}
+2025-06-28 11:02:02,038 - INFO - Searching for product with code: 'SSPW011100'
+2025-06-28 11:02:02,081 - INFO - Found product with exact match on default_code: 'SSPW011100'
+2025-06-28 11:02:02,221 - INFO - Added product SSPW011100 with quantity 5.0 to picking 9160
+2025-06-28 11:02:02,222 - INFO - Processing Excel row 10: {'product_id': 'SW0301085', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 10, 'price_unit': 0.0}
+2025-06-28 11:02:02,222 - INFO - Searching for product with code: 'SW0301085'
+2025-06-28 11:02:02,276 - INFO - Found product with exact match on default_code: 'SW0301085'
+2025-06-28 11:02:02,414 - INFO - Added product SW0301085 with quantity 1.0 to picking 9160
+2025-06-28 11:02:02,414 - INFO - Processing Excel row 11: {'product_id': 'SW0301086', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 11, 'price_unit': 0.0}
+2025-06-28 11:02:02,414 - INFO - Searching for product with code: 'SW0301086'
+2025-06-28 11:02:02,455 - INFO - Found product with exact match on default_code: 'SW0301086'
+2025-06-28 11:02:02,605 - INFO - Added product SW0301086 with quantity 1.0 to picking 9160
+2025-06-28 11:02:02,605 - INFO - Processing Excel row 12: {'product_id': 'SW0501D86', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 12, 'price_unit': 0.0}
+2025-06-28 11:02:02,606 - INFO - Searching for product with code: 'SW0501D86'
+2025-06-28 11:02:02,660 - INFO - Found product with exact match on default_code: 'SW0501D86'
+2025-06-28 11:02:02,784 - INFO - Added product SW0501D86 with quantity 2.0 to picking 9160
+2025-06-28 11:02:02,785 - INFO - Processing Excel row 13: {'product_id': 'SW0501DSP86', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 13, 'price_unit': 0.0}
+2025-06-28 11:02:02,785 - INFO - Searching for product with code: 'SW0501DSP86'
+2025-06-28 11:02:02,831 - INFO - Found product with exact match on default_code: 'SW0501DSP86'
+2025-06-28 11:02:02,974 - INFO - Added product SW0501DSP86 with quantity 2.0 to picking 9160
+2025-06-28 11:02:02,974 - INFO - Processing Excel row 14: {'product_id': 'SWA0006100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 14, 'price_unit': 0.0}
+2025-06-28 11:02:02,974 - INFO - Searching for product with code: 'SWA0006100'
+2025-06-28 11:02:03,017 - INFO - Found product with exact match on default_code: 'SWA0006100'
+2025-06-28 11:02:03,229 - INFO - Added product SWA0006100 with quantity 3.0 to picking 9160
+2025-06-28 11:02:03,229 - INFO - Processing Excel row 15: {'product_id': 'SWA0007100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 15, 'price_unit': 0.0}
+2025-06-28 11:02:03,229 - INFO - Searching for product with code: 'SWA0007100'
+2025-06-28 11:02:03,269 - INFO - Found product with exact match on default_code: 'SWA0007100'
+2025-06-28 11:02:03,494 - INFO - Added product SWA0007100 with quantity 3.0 to picking 9160
+2025-06-28 11:02:03,494 - INFO - Processing Excel row 16: {'product_id': 'SWH0001S100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 16, 'price_unit': 0.0}
+2025-06-28 11:02:03,494 - INFO - Searching for product with code: 'SWH0001S100'
+2025-06-28 11:02:03,536 - INFO - Found product with exact match on default_code: 'SWH0001S100'
+2025-06-28 11:02:03,668 - INFO - Added product SWH0001S100 with quantity 1.0 to picking 9160
+2025-06-28 11:02:03,668 - INFO - Processing Excel row 17: {'product_id': 'SWH0002100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 63.0, 'sequence': 17, 'price_unit': 0.0}
+2025-06-28 11:02:03,669 - INFO - Searching for product with code: 'SWH0002100'
+2025-06-28 11:02:03,711 - INFO - Found product with exact match on default_code: 'SWH0002100'
+2025-06-28 11:02:03,854 - INFO - Added product SWH0002100 with quantity 63.0 to picking 9160
+2025-06-28 11:02:03,855 - INFO - Processing Excel row 18: {'product_id': 'SWH0002S100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 18, 'price_unit': 0.0}
+2025-06-28 11:02:03,856 - INFO - Searching for product with code: 'SWH0002S100'
+2025-06-28 11:02:03,899 - INFO - Found product with exact match on default_code: 'SWH0002S100'
+2025-06-28 11:02:04,045 - INFO - Added product SWH0002S100 with quantity 1.0 to picking 9160
+2025-06-28 11:02:04,046 - INFO - Processing Excel row 19: {'product_id': 'SWH0003100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 159.0, 'sequence': 19, 'price_unit': 0.0}
+2025-06-28 11:02:04,047 - INFO - Searching for product with code: 'SWH0003100'
+2025-06-28 11:02:04,086 - INFO - Found product with exact match on default_code: 'SWH0003100'
+2025-06-28 11:02:04,328 - INFO - Added product SWH0003100 with quantity 159.0 to picking 9160
+2025-06-28 11:02:04,329 - INFO - Processing Excel row 20: {'product_id': 'SWH006100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 291.0, 'sequence': 20, 'price_unit': 0.0}
+2025-06-28 11:02:04,329 - INFO - Searching for product with code: 'SWH006100'
+2025-06-28 11:02:04,369 - INFO - Found product with exact match on default_code: 'SWH006100'
+2025-06-28 11:02:04,590 - INFO - Added product SWH006100 with quantity 291.0 to picking 9160
+2025-06-28 11:02:04,592 - INFO - Processing Excel row 21: {'product_id': 'SWH006S100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 21, 'price_unit': 0.0}
+2025-06-28 11:02:04,592 - INFO - Searching for product with code: 'SWH006S100'
+2025-06-28 11:02:04,633 - INFO - Found product with exact match on default_code: 'SWH006S100'
+2025-06-28 11:02:04,770 - INFO - Added product SWH006S100 with quantity 1.0 to picking 9160
+2025-06-28 11:02:04,771 - INFO - Processing Excel row 22: {'product_id': 'SWH007101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 87.0, 'sequence': 22, 'price_unit': 0.0}
+2025-06-28 11:02:04,772 - INFO - Searching for product with code: 'SWH007101'
+2025-06-28 11:02:04,813 - INFO - Found product with exact match on default_code: 'SWH007101'
+2025-06-28 11:02:04,950 - INFO - Added product SWH007101 with quantity 87.0 to picking 9160
+2025-06-28 11:02:04,951 - INFO - Processing Excel row 23: {'product_id': 'SWH008101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 125.0, 'sequence': 23, 'price_unit': 0.0}
+2025-06-28 11:02:04,951 - INFO - Searching for product with code: 'SWH008101'
+2025-06-28 11:02:04,997 - INFO - Found product with exact match on default_code: 'SWH008101'
+2025-06-28 11:02:05,134 - INFO - Added product SWH008101 with quantity 125.0 to picking 9160
+2025-06-28 11:02:05,135 - INFO - Processing Excel row 24: {'product_id': 'SWH008S101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 24, 'price_unit': 0.0}
+2025-06-28 11:02:05,135 - INFO - Searching for product with code: 'SWH008S101'
+2025-06-28 11:02:05,182 - INFO - Found product with exact match on default_code: 'SWH008S101'
+2025-06-28 11:02:05,309 - INFO - Added product SWH008S101 with quantity 1.0 to picking 9160
+2025-06-28 11:02:05,310 - INFO - Processing Excel row 25: {'product_id': 'SWH009100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 68.0, 'sequence': 25, 'price_unit': 0.0}
+2025-06-28 11:02:05,311 - INFO - Searching for product with code: 'SWH009100'
+2025-06-28 11:02:05,353 - INFO - Found product with exact match on default_code: 'SWH009100'
+2025-06-28 11:02:05,479 - INFO - Added product SWH009100 with quantity 68.0 to picking 9160
+2025-06-28 11:02:05,480 - INFO - Processing Excel row 26: {'product_id': 'SWH009S100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 26, 'price_unit': 0.0}
+2025-06-28 11:02:05,480 - INFO - Searching for product with code: 'SWH009S100'
+2025-06-28 11:02:05,522 - INFO - Found product with exact match on default_code: 'SWH009S100'
+2025-06-28 11:02:05,654 - INFO - Added product SWH009S100 with quantity 1.0 to picking 9160
+2025-06-28 11:02:05,655 - INFO - Processing Excel row 27: {'product_id': 'SWH483H100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 27, 'price_unit': 0.0}
+2025-06-28 11:02:05,655 - INFO - Searching for product with code: 'SWH483H100'
+2025-06-28 11:02:05,703 - INFO - Found product with exact match on default_code: 'SWH483H100'
+2025-06-28 11:02:05,836 - INFO - Added product SWH483H100 with quantity 1.0 to picking 9160
+2025-06-28 11:02:05,837 - INFO - Processing Excel row 28: {'product_id': 'SWR0001100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 17.0, 'sequence': 28, 'price_unit': 0.0}
+2025-06-28 11:02:05,838 - INFO - Searching for product with code: 'SWR0001100'
+2025-06-28 11:02:05,882 - INFO - Found product with exact match on default_code: 'SWR0001100'
+2025-06-28 11:02:06,012 - INFO - Added product SWR0001100 with quantity 17.0 to picking 9160
+2025-06-28 11:02:06,013 - INFO - Processing Excel row 29: {'product_id': 'SWR0003100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 75.0, 'sequence': 29, 'price_unit': 0.0}
+2025-06-28 11:02:06,014 - INFO - Searching for product with code: 'SWR0003100'
+2025-06-28 11:02:06,055 - INFO - Found product with exact match on default_code: 'SWR0003100'
+2025-06-28 11:02:06,188 - INFO - Added product SWR0003100 with quantity 75.0 to picking 9160
+2025-06-28 11:02:06,189 - INFO - Processing Excel row 30: {'product_id': 'SWR0004100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 30.0, 'sequence': 30, 'price_unit': 0.0}
+2025-06-28 11:02:06,190 - INFO - Searching for product with code: 'SWR0004100'
+2025-06-28 11:02:06,230 - INFO - Found product with exact match on default_code: 'SWR0004100'
+2025-06-28 11:02:06,360 - INFO - Added product SWR0004100 with quantity 30.0 to picking 9160
+2025-06-28 11:02:06,361 - INFO - Processing Excel row 31: {'product_id': 'SWR00051001', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 31, 'price_unit': 0.0}
+2025-06-28 11:02:06,361 - INFO - Searching for product with code: 'SWR00051001'
+2025-06-28 11:02:06,406 - INFO - Found product with exact match on default_code: 'SWR00051001'
+2025-06-28 11:02:06,547 - INFO - Added product SWR00051001 with quantity 2.0 to picking 9160
+2025-06-28 11:02:06,548 - INFO - Processing Excel row 32: {'product_id': 'SWR000510V', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 32, 'price_unit': 0.0}
+2025-06-28 11:02:06,548 - INFO - Searching for product with code: 'SWR000510V'
+2025-06-28 11:02:06,593 - INFO - Found product with exact match on default_code: 'SWR000510V'
+2025-06-28 11:02:06,740 - INFO - Added product SWR000510V with quantity 2.0 to picking 9160
+2025-06-28 11:02:06,741 - INFO - Processing Excel row 33: {'product_id': 'SWR0006100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 70.0, 'sequence': 33, 'price_unit': 0.0}
+2025-06-28 11:02:06,742 - INFO - Searching for product with code: 'SWR0006100'
+2025-06-28 11:02:06,789 - INFO - Found product with exact match on default_code: 'SWR0006100'
+2025-06-28 11:02:06,938 - INFO - Added product SWR0006100 with quantity 70.0 to picking 9160
+2025-06-28 11:02:06,940 - INFO - Processing Excel row 34: {'product_id': 'SWR0006101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 60.0, 'sequence': 34, 'price_unit': 0.0}
+2025-06-28 11:02:06,940 - INFO - Searching for product with code: 'SWR0006101'
+2025-06-28 11:02:06,984 - INFO - Found product with exact match on default_code: 'SWR0006101'
+2025-06-28 11:02:07,124 - INFO - Added product SWR0006101 with quantity 60.0 to picking 9160
+2025-06-28 11:02:07,125 - INFO - Processing Excel row 35: {'product_id': 'SWR0007100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 63.0, 'sequence': 35, 'price_unit': 0.0}
+2025-06-28 11:02:07,125 - INFO - Searching for product with code: 'SWR0007100'
+2025-06-28 11:02:07,173 - INFO - Found product with exact match on default_code: 'SWR0007100'
+2025-06-28 11:02:07,333 - INFO - Added product SWR0007100 with quantity 63.0 to picking 9160
+2025-06-28 11:02:07,334 - INFO - Processing Excel row 36: {'product_id': 'TAM0115000', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 7.0, 'sequence': 36, 'price_unit': 0.0}
+2025-06-28 11:02:07,334 - INFO - Searching for product with code: 'TAM0115000'
+2025-06-28 11:02:07,382 - INFO - Found product with exact match on default_code: 'TAM0115000'
+2025-06-28 11:02:07,536 - INFO - Added product TAM0115000 with quantity 7.0 to picking 9160
+2025-06-28 11:02:07,537 - INFO - Processing Excel row 37: {'product_id': 'TAM0116000', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 37, 'price_unit': 0.0}
+2025-06-28 11:02:07,537 - INFO - Searching for product with code: 'TAM0116000'
+2025-06-28 11:02:07,587 - INFO - Found product with exact match on default_code: 'TAM0116000'
+2025-06-28 11:02:07,736 - INFO - Added product TAM0116000 with quantity 5.0 to picking 9160
+2025-06-28 11:02:07,738 - INFO - Processing Excel row 38: {'product_id': 'TS000S5L000', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 38, 'price_unit': 0.0}
+2025-06-28 11:02:07,738 - INFO - Searching for product with code: 'TS000S5L000'
+2025-06-28 11:02:07,779 - INFO - Found product with exact match on default_code: 'TS000S5L000'
+2025-06-28 11:02:07,918 - INFO - Added product TS000S5L000 with quantity 1.0 to picking 9160
+2025-06-28 11:02:07,919 - INFO - Processing Excel row 39: {'product_id': 'TS0010E11', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 9.0, 'sequence': 39, 'price_unit': 0.0}
+2025-06-28 11:02:07,919 - INFO - Searching for product with code: 'TS0010E11'
+2025-06-28 11:02:07,962 - INFO - Found product with exact match on default_code: 'TS0010E11'
+2025-06-28 11:02:08,098 - INFO - Added product TS0010E11 with quantity 9.0 to picking 9160
+2025-06-28 11:02:08,098 - INFO - Processing Excel row 40: {'product_id': 'TS0010E501', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 19.0, 'sequence': 40, 'price_unit': 0.0}
+2025-06-28 11:02:08,098 - INFO - Searching for product with code: 'TS0010E501'
+2025-06-28 11:02:08,142 - INFO - Found product with exact match on default_code: 'TS0010E501'
+2025-06-28 11:02:08,294 - INFO - Added product TS0010E501 with quantity 19.0 to picking 9160
+2025-06-28 11:02:08,295 - INFO - Processing Excel row 41: {'product_id': 'TS0010E5111', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 41, 'price_unit': 0.0}
+2025-06-28 11:02:08,296 - INFO - Searching for product with code: 'TS0010E5111'
+2025-06-28 11:02:08,341 - INFO - Found product with exact match on default_code: 'TS0010E5111'
+2025-06-28 11:02:08,480 - INFO - Added product TS0010E5111 with quantity 5.0 to picking 9160
+2025-06-28 11:02:08,481 - INFO - Processing Excel row 42: {'product_id': 'TS0010E5112', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 6.0, 'sequence': 42, 'price_unit': 0.0}
+2025-06-28 11:02:08,481 - INFO - Searching for product with code: 'TS0010E5112'
+2025-06-28 11:02:08,521 - INFO - Found product with exact match on default_code: 'TS0010E5112'
+2025-06-28 11:02:08,659 - INFO - Added product TS0010E5112 with quantity 6.0 to picking 9160
+2025-06-28 11:02:08,660 - INFO - Processing Excel row 43: {'product_id': 'TS00115000', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 4.0, 'sequence': 43, 'price_unit': 0.0}
+2025-06-28 11:02:08,661 - INFO - Searching for product with code: 'TS00115000'
+2025-06-28 11:02:08,704 - INFO - Found product with exact match on default_code: 'TS00115000'
+2025-06-28 11:02:08,846 - INFO - Added product TS00115000 with quantity 4.0 to picking 9160
+2025-06-28 11:02:08,848 - INFO - Processing Excel row 44: {'product_id': 'TS0048UC18', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 44, 'price_unit': 0.0}
+2025-06-28 11:02:08,848 - INFO - Searching for product with code: 'TS0048UC18'
+2025-06-28 11:02:08,889 - INFO - Found product with exact match on default_code: 'TS0048UC18'
+2025-06-28 11:02:09,025 - INFO - Added product TS0048UC18 with quantity 1.0 to picking 9160
+2025-06-28 11:02:09,026 - INFO - Processing Excel row 45: {'product_id': 'TS0481800', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 9.0, 'sequence': 45, 'price_unit': 0.0}
+2025-06-28 11:02:09,026 - INFO - Searching for product with code: 'TS0481800'
+2025-06-28 11:02:09,065 - INFO - Found product with exact match on default_code: 'TS0481800'
+2025-06-28 11:02:09,198 - INFO - Added product TS0481800 with quantity 9.0 to picking 9160
+2025-06-28 11:02:09,199 - INFO - Processing Excel row 46: {'product_id': 'TS048O5L', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 46, 'price_unit': 0.0}
+2025-06-28 11:02:09,200 - INFO - Searching for product with code: 'TS048O5L'
+2025-06-28 11:02:09,240 - INFO - Found product with exact match on default_code: 'TS048O5L'
+2025-06-28 11:02:09,373 - INFO - Added product TS048O5L with quantity 2.0 to picking 9160
+2025-06-28 11:02:09,374 - INFO - Processing Excel row 47: {'product_id': 'TS048O5R', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 47, 'price_unit': 0.0}
+2025-06-28 11:02:09,375 - INFO - Searching for product with code: 'TS048O5R'
+2025-06-28 11:02:09,419 - INFO - Found product with exact match on default_code: 'TS048O5R'
+2025-06-28 11:02:09,559 - INFO - Added product TS048O5R with quantity 5.0 to picking 9160
+2025-06-28 11:02:09,561 - INFO - Processing Excel row 48: {'product_id': 'TS048TL000', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 6.0, 'sequence': 48, 'price_unit': 0.0}
+2025-06-28 11:02:09,561 - INFO - Searching for product with code: 'TS048TL000'
+2025-06-28 11:02:09,604 - INFO - Found product with exact match on default_code: 'TS048TL000'
+2025-06-28 11:02:09,738 - INFO - Added product TS048TL000 with quantity 6.0 to picking 9160
+2025-06-28 11:02:09,739 - INFO - Processing Excel row 49: {'product_id': 'TS048TR000', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 4.0, 'sequence': 49, 'price_unit': 0.0}
+2025-06-28 11:02:09,740 - INFO - Searching for product with code: 'TS048TR000'
+2025-06-28 11:02:09,782 - INFO - Found product with exact match on default_code: 'TS048TR000'
+2025-06-28 11:02:09,934 - INFO - Added product TS048TR000 with quantity 4.0 to picking 9160
+2025-06-28 11:02:09,935 - INFO - Processing Excel row 50: {'product_id': 'TS48200000', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 50, 'price_unit': 0.0}
+2025-06-28 11:02:09,935 - INFO - Searching for product with code: 'TS48200000'
+2025-06-28 11:02:09,987 - INFO - Found product with exact match on default_code: 'TS48200000'
+2025-06-28 11:02:10,138 - INFO - Added product TS48200000 with quantity 5.0 to picking 9160
+2025-06-28 11:02:10,139 - INFO - Processing Excel row 51: {'product_id': 'TSF010650000', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 15.0, 'sequence': 51, 'price_unit': 0.0}
+2025-06-28 11:02:10,139 - INFO - Searching for product with code: 'TSF010650000'
+2025-06-28 11:02:10,184 - INFO - Found product with exact match on default_code: 'TSF010650000'
+2025-06-28 11:02:10,328 - INFO - Added product TSF010650000 with quantity 15.0 to picking 9160
+2025-06-28 11:02:10,330 - INFO - Processing Excel row 52: {'product_id': 'TSF01065BL00', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 6.0, 'sequence': 52, 'price_unit': 0.0}
+2025-06-28 11:02:10,330 - INFO - Searching for product with code: 'TSF01065BL00'
+2025-06-28 11:02:10,372 - INFO - Found product with exact match on default_code: 'TSF01065BL00'
+2025-06-28 11:02:10,502 - INFO - Added product TSF01065BL00 with quantity 6.0 to picking 9160
+2025-06-28 11:02:10,503 - INFO - Processing Excel row 53: {'product_id': 'TSP020TL', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 176.0, 'sequence': 53, 'price_unit': 0.0}
+2025-06-28 11:02:10,503 - INFO - Searching for product with code: 'TSP020TL'
+2025-06-28 11:02:10,545 - INFO - Found product with exact match on default_code: 'TSP020TL'
+2025-06-28 11:02:10,707 - INFO - Added product TSP020TL with quantity 176.0 to picking 9160
+2025-06-28 11:02:10,709 - INFO - Processing Excel row 54: {'product_id': 'UF00005100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 126.0, 'sequence': 54, 'price_unit': 0.0}
+2025-06-28 11:02:10,709 - INFO - Searching for product with code: 'UF00005100'
+2025-06-28 11:02:10,751 - INFO - Found product with exact match on default_code: 'UF00005100'
+2025-06-28 11:02:10,898 - INFO - Added product UF00005100 with quantity 126.0 to picking 9160
+2025-06-28 11:02:10,899 - INFO - Processing Excel row 55: {'product_id': 'UF00006100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 32.0, 'sequence': 55, 'price_unit': 0.0}
+2025-06-28 11:02:10,900 - INFO - Searching for product with code: 'UF00006100'
+2025-06-28 11:02:10,948 - INFO - Found product with exact match on default_code: 'UF00006100'
+2025-06-28 11:02:11,092 - INFO - Added product UF00006100 with quantity 32.0 to picking 9160
+2025-06-28 11:02:11,093 - INFO - Processing Excel row 56: {'product_id': 'UF00007100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 56, 'price_unit': 0.0}
+2025-06-28 11:02:11,093 - INFO - Searching for product with code: 'UF00007100'
+2025-06-28 11:02:11,138 - INFO - Found product with exact match on default_code: 'UF00007100'
+2025-06-28 11:02:11,374 - INFO - Added product UF00007100 with quantity 3.0 to picking 9160
+2025-06-28 11:02:11,375 - INFO - Processing Excel row 57: {'product_id': 'UF0001100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 30.0, 'sequence': 57, 'price_unit': 0.0}
+2025-06-28 11:02:11,376 - INFO - Searching for product with code: 'UF0001100'
+2025-06-28 11:02:11,422 - INFO - Found product with exact match on default_code: 'UF0001100'
+2025-06-28 11:02:11,559 - INFO - Added product UF0001100 with quantity 30.0 to picking 9160
+2025-06-28 11:02:11,559 - INFO - Processing Excel row 58: {'product_id': 'UF0004100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 198.0, 'sequence': 58, 'price_unit': 0.0}
+2025-06-28 11:02:11,559 - INFO - Searching for product with code: 'UF0004100'
+2025-06-28 11:02:11,605 - INFO - Found product with exact match on default_code: 'UF0004100'
+2025-06-28 11:02:11,752 - INFO - Added product UF0004100 with quantity 198.0 to picking 9160
+2025-06-28 11:02:11,753 - INFO - Processing Excel row 59: {'product_id': 'UF01/1100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 87.0, 'sequence': 59, 'price_unit': 0.0}
+2025-06-28 11:02:11,754 - INFO - Searching for product with code: 'UF01/1100'
+2025-06-28 11:02:11,798 - INFO - Found product with exact match on default_code: 'UF01/1100'
+2025-06-28 11:02:11,949 - INFO - Added product UF01/1100 with quantity 87.0 to picking 9160
+2025-06-28 11:02:11,950 - INFO - Processing Excel row 60: {'product_id': 'UF01/3100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 60, 'price_unit': 0.0}
+2025-06-28 11:02:11,950 - INFO - Searching for product with code: 'UF01/3100'
+2025-06-28 11:02:11,998 - INFO - Found product with exact match on default_code: 'UF01/3100'
+2025-06-28 11:02:12,163 - INFO - Added product UF01/3100 with quantity 5.0 to picking 9160
+2025-06-28 11:02:12,164 - INFO - Processing Excel row 61: {'product_id': 'UF04/1100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 18.0, 'sequence': 61, 'price_unit': 0.0}
+2025-06-28 11:02:12,164 - INFO - Searching for product with code: 'UF04/1100'
+2025-06-28 11:02:12,206 - INFO - Found product with exact match on default_code: 'UF04/1100'
+2025-06-28 11:02:12,348 - INFO - Added product UF04/1100 with quantity 18.0 to picking 9160
+2025-06-28 11:02:12,349 - INFO - Processing Excel row 62: {'product_id': 'UF04/2100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 62, 'price_unit': 0.0}
+2025-06-28 11:02:12,349 - INFO - Searching for product with code: 'UF04/2100'
+2025-06-28 11:02:12,388 - INFO - Found product with exact match on default_code: 'UF04/2100'
+2025-06-28 11:02:12,523 - INFO - Added product UF04/2100 with quantity 1.0 to picking 9160
+2025-06-28 11:02:12,524 - INFO - Processing Excel row 63: {'product_id': 'VIPM9809228', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 0.6, 'sequence': 63, 'price_unit': 0.0}
+2025-06-28 11:02:12,524 - INFO - Searching for product with code: 'VIPM9809228'
+2025-06-28 11:02:12,572 - INFO - Found product with exact match on default_code: 'VIPM9809228'
+2025-06-28 11:02:12,715 - INFO - Added product VIPM9809228 with quantity 0.6 to picking 9160
+2025-06-28 11:02:12,716 - INFO - Processing Excel row 64: {'product_id': 'VMAL0008101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 7.0, 'sequence': 64, 'price_unit': 0.0}
+2025-06-28 11:02:12,717 - INFO - Searching for product with code: 'VMAL0008101'
+2025-06-28 11:02:12,763 - INFO - Found product with exact match on default_code: 'VMAL0008101'
+2025-06-28 11:02:12,916 - INFO - Added product VMAL0008101 with quantity 7.0 to picking 9160
+2025-06-28 11:02:12,916 - INFO - Processing Excel row 65: {'product_id': 'VMG016200V', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 10.0, 'sequence': 65, 'price_unit': 0.0}
+2025-06-28 11:02:12,916 - INFO - Searching for product with code: 'VMG016200V'
+2025-06-28 11:02:12,957 - INFO - Found product with exact match on default_code: 'VMG016200V'
+2025-06-28 11:02:13,094 - INFO - Added product VMG016200V with quantity 10.0 to picking 9160
+2025-06-28 11:02:13,094 - INFO - Processing Excel row 66: {'product_id': 'VMG0162010', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 66, 'price_unit': 0.0}
+2025-06-28 11:02:13,094 - INFO - Searching for product with code: 'VMG0162010'
+2025-06-28 11:02:13,138 - INFO - Found product with exact match on default_code: 'VMG0162010'
+2025-06-28 11:02:13,272 - INFO - Added product VMG0162010 with quantity 1.0 to picking 9160
+2025-06-28 11:02:13,273 - INFO - Processing Excel row 67: {'product_id': 'VT00001101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 67, 'price_unit': 0.0}
+2025-06-28 11:02:13,273 - INFO - Searching for product with code: 'VT00001101'
+2025-06-28 11:02:13,313 - INFO - Found product with exact match on default_code: 'VT00001101'
+2025-06-28 11:02:13,457 - INFO - Added product VT00001101 with quantity 1.0 to picking 9160
+2025-06-28 11:02:13,458 - INFO - Processing Excel row 68: {'product_id': 'VT00003101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 22.0, 'sequence': 68, 'price_unit': 0.0}
+2025-06-28 11:02:13,458 - INFO - Searching for product with code: 'VT00003101'
+2025-06-28 11:02:13,501 - INFO - Found product with exact match on default_code: 'VT00003101'
+2025-06-28 11:02:13,634 - INFO - Added product VT00003101 with quantity 22.0 to picking 9160
+2025-06-28 11:02:13,635 - INFO - Processing Excel row 69: {'product_id': 'VT00004101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 69, 'price_unit': 0.0}
+2025-06-28 11:02:13,635 - INFO - Searching for product with code: 'VT00004101'
+2025-06-28 11:02:13,677 - INFO - Found product with exact match on default_code: 'VT00004101'
+2025-06-28 11:02:13,824 - INFO - Added product VT00004101 with quantity 3.0 to picking 9160
+2025-06-28 11:02:13,825 - INFO - Processing Excel row 70: {'product_id': 'VT00005101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 313.0, 'sequence': 70, 'price_unit': 0.0}
+2025-06-28 11:02:13,825 - INFO - Searching for product with code: 'VT00005101'
+2025-06-28 11:02:13,867 - INFO - Found product with exact match on default_code: 'VT00005101'
+2025-06-28 11:02:14,008 - INFO - Added product VT00005101 with quantity 313.0 to picking 9160
+2025-06-28 11:02:14,010 - INFO - Processing Excel row 71: {'product_id': 'VT00006101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 15.0, 'sequence': 71, 'price_unit': 0.0}
+2025-06-28 11:02:14,010 - INFO - Searching for product with code: 'VT00006101'
+2025-06-28 11:02:14,051 - INFO - Found product with exact match on default_code: 'VT00006101'
+2025-06-28 11:02:14,189 - INFO - Added product VT00006101 with quantity 15.0 to picking 9160
+2025-06-28 11:02:14,190 - INFO - Processing Excel row 72: {'product_id': 'VT00009101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 34.0, 'sequence': 72, 'price_unit': 0.0}
+2025-06-28 11:02:14,191 - INFO - Searching for product with code: 'VT00009101'
+2025-06-28 11:02:14,234 - INFO - Found product with exact match on default_code: 'VT00009101'
+2025-06-28 11:02:14,394 - INFO - Added product VT00009101 with quantity 34.0 to picking 9160
+2025-06-28 11:02:14,395 - INFO - Processing Excel row 73: {'product_id': 'VT00010101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 33.0, 'sequence': 73, 'price_unit': 0.0}
+2025-06-28 11:02:14,396 - INFO - Searching for product with code: 'VT00010101'
+2025-06-28 11:02:14,438 - INFO - Found product with exact match on default_code: 'VT00010101'
+2025-06-28 11:02:14,601 - INFO - Added product VT00010101 with quantity 33.0 to picking 9160
+2025-06-28 11:02:14,602 - INFO - Processing Excel row 74: {'product_id': 'VT00018501', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 27.0, 'sequence': 74, 'price_unit': 0.0}
+2025-06-28 11:02:14,603 - INFO - Searching for product with code: 'VT00018501'
+2025-06-28 11:02:14,650 - INFO - Found product with exact match on default_code: 'VT00018501'
+2025-06-28 11:02:14,839 - INFO - Added product VT00018501 with quantity 27.0 to picking 9160
+2025-06-28 11:02:14,840 - INFO - Processing Excel row 75: {'product_id': 'VT00019101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 51.0, 'sequence': 75, 'price_unit': 0.0}
+2025-06-28 11:02:14,841 - INFO - Searching for product with code: 'VT00019101'
+2025-06-28 11:02:14,886 - INFO - Found product with exact match on default_code: 'VT00019101'
+2025-06-28 11:02:15,077 - INFO - Added product VT00019101 with quantity 51.0 to picking 9160
+2025-06-28 11:02:15,078 - INFO - Processing Excel row 76: {'product_id': 'VT00035101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 75.0, 'sequence': 76, 'price_unit': 0.0}
+2025-06-28 11:02:15,078 - INFO - Searching for product with code: 'VT00035101'
+2025-06-28 11:02:15,135 - INFO - Found product with exact match on default_code: 'VT00035101'
+2025-06-28 11:02:15,396 - INFO - Added product VT00035101 with quantity 75.0 to picking 9160
+2025-06-28 11:02:15,397 - INFO - Processing Excel row 77: {'product_id': 'VT00048101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 417.0, 'sequence': 77, 'price_unit': 0.0}
+2025-06-28 11:02:15,397 - INFO - Searching for product with code: 'VT00048101'
+2025-06-28 11:02:15,459 - INFO - Found product with exact match on default_code: 'VT00048101'
+2025-06-28 11:02:15,732 - INFO - Added product VT00048101 with quantity 417.0 to picking 9160
+2025-06-28 11:02:15,734 - INFO - Processing Excel row 78: {'product_id': 'VT00050100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 78, 'price_unit': 0.0}
+2025-06-28 11:02:15,734 - INFO - Searching for product with code: 'VT00050100'
+2025-06-28 11:02:15,805 - INFO - Found product with exact match on default_code: 'VT00050100'
+2025-06-28 11:02:16,112 - INFO - Added product VT00050100 with quantity 3.0 to picking 9160
+2025-06-28 11:02:16,113 - INFO - Processing Excel row 79: {'product_id': 'VT0005110', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 11.0, 'sequence': 79, 'price_unit': 0.0}
+2025-06-28 11:02:16,113 - INFO - Searching for product with code: 'VT0005110'
+2025-06-28 11:02:16,184 - INFO - Found product with exact match on default_code: 'VT0005110'
+2025-06-28 11:02:16,540 - INFO - Added product VT0005110 with quantity 11.0 to picking 9160
+2025-06-28 11:02:16,541 - INFO - Processing Excel row 80: {'product_id': 'VT00052100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 80, 'price_unit': 0.0}
+2025-06-28 11:02:16,541 - INFO - Searching for product with code: 'VT00052100'
+2025-06-28 11:02:16,618 - INFO - Found product with exact match on default_code: 'VT00052100'
+2025-06-28 11:02:17,052 - INFO - Added product VT00052100 with quantity 3.0 to picking 9160
+2025-06-28 11:02:17,053 - INFO - Processing Excel row 81: {'product_id': 'VT00118101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 8.0, 'sequence': 81, 'price_unit': 0.0}
+2025-06-28 11:02:17,053 - INFO - Searching for product with code: 'VT00118101'
+2025-06-28 11:02:17,136 - INFO - Found product with exact match on default_code: 'VT00118101'
+2025-06-28 11:02:17,436 - INFO - Added product VT00118101 with quantity 8.0 to picking 9160
+2025-06-28 11:02:17,437 - INFO - Processing Excel row 82: {'product_id': 'VT00154101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 615.0, 'sequence': 82, 'price_unit': 0.0}
+2025-06-28 11:02:17,437 - INFO - Searching for product with code: 'VT00154101'
+2025-06-28 11:02:17,500 - INFO - Found product with exact match on default_code: 'VT00154101'
+2025-06-28 11:02:17,817 - INFO - Added product VT00154101 with quantity 615.0 to picking 9160
+2025-06-28 11:02:17,818 - INFO - Processing Excel row 83: {'product_id': 'VT00204101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 92.0, 'sequence': 83, 'price_unit': 0.0}
+2025-06-28 11:02:17,819 - INFO - Searching for product with code: 'VT00204101'
+2025-06-28 11:02:17,893 - INFO - Found product with exact match on default_code: 'VT00204101'
+2025-06-28 11:02:18,281 - INFO - Added product VT00204101 with quantity 92.0 to picking 9160
+2025-06-28 11:02:18,282 - INFO - Processing Excel row 84: {'product_id': 'VT00215101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 159.0, 'sequence': 84, 'price_unit': 0.0}
+2025-06-28 11:02:18,282 - INFO - Searching for product with code: 'VT00215101'
+2025-06-28 11:02:18,355 - INFO - Found product with exact match on default_code: 'VT00215101'
+2025-06-28 11:02:18,794 - INFO - Added product VT00215101 with quantity 159.0 to picking 9160
+2025-06-28 11:02:18,796 - INFO - Processing Excel row 85: {'product_id': 'VT0021B101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 180.0, 'sequence': 85, 'price_unit': 0.0}
+2025-06-28 11:02:18,796 - INFO - Searching for product with code: 'VT0021B101'
+2025-06-28 11:02:18,884 - INFO - Found product with exact match on default_code: 'VT0021B101'
+2025-06-28 11:02:19,305 - INFO - Added product VT0021B101 with quantity 180.0 to picking 9160
+2025-06-28 11:02:19,306 - INFO - Processing Excel row 86: {'product_id': 'VT0021P101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 199.0, 'sequence': 86, 'price_unit': 0.0}
+2025-06-28 11:02:19,306 - INFO - Searching for product with code: 'VT0021P101'
+2025-06-28 11:02:19,388 - INFO - Found product with exact match on default_code: 'VT0021P101'
+2025-06-28 11:02:19,819 - INFO - Added product VT0021P101 with quantity 199.0 to picking 9160
+2025-06-28 11:02:19,820 - INFO - Processing Excel row 87: {'product_id': 'VT00241101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 104.0, 'sequence': 87, 'price_unit': 0.0}
+2025-06-28 11:02:19,820 - INFO - Searching for product with code: 'VT00241101'
+2025-06-28 11:02:19,892 - INFO - Found product with exact match on default_code: 'VT00241101'
+2025-06-28 11:02:20,328 - INFO - Added product VT00241101 with quantity 104.0 to picking 9160
+2025-06-28 11:02:20,330 - INFO - Processing Excel row 88: {'product_id': 'VT00322101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 50.0, 'sequence': 88, 'price_unit': 0.0}
+2025-06-28 11:02:20,330 - INFO - Searching for product with code: 'VT00322101'
+2025-06-28 11:02:20,394 - INFO - Found product with exact match on default_code: 'VT00322101'
+2025-06-28 11:02:20,748 - INFO - Added product VT00322101 with quantity 50.0 to picking 9160
+2025-06-28 11:02:20,749 - INFO - Processing Excel row 89: {'product_id': 'VT00332101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 149.0, 'sequence': 89, 'price_unit': 0.0}
+2025-06-28 11:02:20,750 - INFO - Searching for product with code: 'VT00332101'
+2025-06-28 11:02:20,826 - INFO - Found product with exact match on default_code: 'VT00332101'
+2025-06-28 11:02:21,250 - INFO - Added product VT00332101 with quantity 149.0 to picking 9160
+2025-06-28 11:02:21,251 - INFO - Processing Excel row 90: {'product_id': 'VT00351101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 103.0, 'sequence': 90, 'price_unit': 0.0}
+2025-06-28 11:02:21,252 - INFO - Searching for product with code: 'VT00351101'
+2025-06-28 11:02:21,326 - INFO - Found product with exact match on default_code: 'VT00351101'
+2025-06-28 11:02:21,762 - INFO - Added product VT00351101 with quantity 103.0 to picking 9160
+2025-06-28 11:02:21,763 - INFO - Processing Excel row 91: {'product_id': 'VT0035B101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 294.0, 'sequence': 91, 'price_unit': 0.0}
+2025-06-28 11:02:21,764 - INFO - Searching for product with code: 'VT0035B101'
+2025-06-28 11:02:21,839 - INFO - Found product with exact match on default_code: 'VT0035B101'
+2025-06-28 11:02:22,274 - INFO - Added product VT0035B101 with quantity 294.0 to picking 9160
+2025-06-28 11:02:22,276 - INFO - Processing Excel row 92: {'product_id': 'VT00362101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 17.0, 'sequence': 92, 'price_unit': 0.0}
+2025-06-28 11:02:22,276 - INFO - Searching for product with code: 'VT00362101'
+2025-06-28 11:02:22,355 - INFO - Found product with exact match on default_code: 'VT00362101'
+2025-06-28 11:02:22,786 - INFO - Added product VT00362101 with quantity 17.0 to picking 9160
+2025-06-28 11:02:22,787 - INFO - Processing Excel row 93: {'product_id': 'VT0042E100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 93, 'price_unit': 0.0}
+2025-06-28 11:02:22,788 - INFO - Searching for product with code: 'VT0042E100'
+2025-06-28 11:02:22,872 - INFO - Found product with exact match on default_code: 'VT0042E100'
+2025-06-28 11:02:23,189 - INFO - Added product VT0042E100 with quantity 2.0 to picking 9160
+2025-06-28 11:02:23,189 - INFO - Processing Excel row 94: {'product_id': 'VT00433101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 24.0, 'sequence': 94, 'price_unit': 0.0}
+2025-06-28 11:02:23,189 - INFO - Searching for product with code: 'VT00433101'
+2025-06-28 11:02:23,257 - INFO - Found product with exact match on default_code: 'VT00433101'
+2025-06-28 11:02:23,603 - INFO - Added product VT00433101 with quantity 24.0 to picking 9160
+2025-06-28 11:02:23,604 - INFO - Processing Excel row 95: {'product_id': 'VT0092P101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 95, 'price_unit': 0.0}
+2025-06-28 11:02:23,604 - INFO - Searching for product with code: 'VT0092P101'
+2025-06-28 11:02:23,672 - INFO - Found product with exact match on default_code: 'VT0092P101'
+2025-06-28 11:02:24,025 - INFO - Added product VT0092P101 with quantity 1.0 to picking 9160
+2025-06-28 11:02:24,026 - INFO - Processing Excel row 96: {'product_id': 'VT00AC0310', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 8.0, 'sequence': 96, 'price_unit': 0.0}
+2025-06-28 11:02:24,026 - INFO - Searching for product with code: 'VT00AC0310'
+2025-06-28 11:02:24,098 - INFO - Found product with exact match on default_code: 'VT00AC0310'
+2025-06-28 11:02:24,426 - INFO - Added product VT00AC0310 with quantity 8.0 to picking 9160
+2025-06-28 11:02:24,427 - INFO - Processing Excel row 97: {'product_id': 'VT00AC0311', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 11.0, 'sequence': 97, 'price_unit': 0.0}
+2025-06-28 11:02:24,427 - INFO - Searching for product with code: 'VT00AC0311'
+2025-06-28 11:02:24,502 - INFO - Found product with exact match on default_code: 'VT00AC0311'
+2025-06-28 11:02:24,937 - INFO - Added product VT00AC0311 with quantity 11.0 to picking 9160
+2025-06-28 11:02:24,938 - INFO - Processing Excel row 98: {'product_id': 'VT00AC0312', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 7.0, 'sequence': 98, 'price_unit': 0.0}
+2025-06-28 11:02:24,938 - INFO - Searching for product with code: 'VT00AC0312'
+2025-06-28 11:02:25,011 - INFO - Found product with exact match on default_code: 'VT00AC0312'
+2025-06-28 11:02:25,448 - INFO - Added product VT00AC0312 with quantity 7.0 to picking 9160
+2025-06-28 11:02:25,448 - INFO - Processing Excel row 99: {'product_id': 'VT00AC1310', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 99, 'price_unit': 0.0}
+2025-06-28 11:02:25,449 - INFO - Searching for product with code: 'VT00AC1310'
+2025-06-28 11:02:25,543 - INFO - Found product with exact match on default_code: 'VT00AC1310'
+2025-06-28 11:02:25,917 - INFO - Added product VT00AC1310 with quantity 2.0 to picking 9160
+2025-06-28 11:02:25,917 - INFO - Processing Excel row 100: {'product_id': 'VT00AC1311', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 100, 'price_unit': 0.0}
+2025-06-28 11:02:25,918 - INFO - Searching for product with code: 'VT00AC1311'
+2025-06-28 11:02:25,991 - INFO - Found product with exact match on default_code: 'VT00AC1311'
+2025-06-28 11:02:26,307 - INFO - Added product VT00AC1311 with quantity 3.0 to picking 9160
+2025-06-28 11:02:26,308 - INFO - Processing Excel row 101: {'product_id': 'VT00AC1312', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 101, 'price_unit': 0.0}
+2025-06-28 11:02:26,308 - INFO - Searching for product with code: 'VT00AC1312'
+2025-06-28 11:02:26,378 - INFO - Found product with exact match on default_code: 'VT00AC1312'
+2025-06-28 11:02:26,724 - INFO - Added product VT00AC1312 with quantity 2.0 to picking 9160
+2025-06-28 11:02:26,724 - INFO - Processing Excel row 102: {'product_id': 'VT0113A101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 7.0, 'sequence': 102, 'price_unit': 0.0}
+2025-06-28 11:02:26,725 - INFO - Searching for product with code: 'VT0113A101'
+2025-06-28 11:02:26,791 - INFO - Found product with exact match on default_code: 'VT0113A101'
+2025-06-28 11:02:27,137 - INFO - Added product VT0113A101 with quantity 7.0 to picking 9160
+2025-06-28 11:02:27,138 - INFO - Processing Excel row 103: {'product_id': 'VT0122B101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 11.0, 'sequence': 103, 'price_unit': 0.0}
+2025-06-28 11:02:27,138 - INFO - Searching for product with code: 'VT0122B101'
+2025-06-28 11:02:27,214 - INFO - Found product with exact match on default_code: 'VT0122B101'
+2025-06-28 11:02:27,534 - INFO - Added product VT0122B101 with quantity 11.0 to picking 9160
+2025-06-28 11:02:27,535 - INFO - Processing Excel row 104: {'product_id': 'VT0122P101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 6.0, 'sequence': 104, 'price_unit': 0.0}
+2025-06-28 11:02:27,535 - INFO - Searching for product with code: 'VT0122P101'
+2025-06-28 11:02:27,609 - INFO - Found product with exact match on default_code: 'VT0122P101'
+2025-06-28 11:02:27,945 - INFO - Added product VT0122P101 with quantity 6.0 to picking 9160
+2025-06-28 11:02:27,945 - INFO - Processing Excel row 105: {'product_id': 'VT0142B101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 194.0, 'sequence': 105, 'price_unit': 0.0}
+2025-06-28 11:02:27,945 - INFO - Searching for product with code: 'VT0142B101'
+2025-06-28 11:02:28,031 - INFO - Found product with exact match on default_code: 'VT0142B101'
+2025-06-28 11:02:28,338 - INFO - Added product VT0142B101 with quantity 194.0 to picking 9160
+2025-06-28 11:02:28,339 - INFO - Processing Excel row 106: {'product_id': 'VT0142P101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 107.0, 'sequence': 106, 'price_unit': 0.0}
+2025-06-28 11:02:28,339 - INFO - Searching for product with code: 'VT0142P101'
+2025-06-28 11:02:28,400 - INFO - Found product with exact match on default_code: 'VT0142P101'
+2025-06-28 11:02:28,703 - INFO - Added product VT0142P101 with quantity 107.0 to picking 9160
+2025-06-28 11:02:28,704 - INFO - Processing Excel row 107: {'product_id': 'VT0154A101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 47.0, 'sequence': 107, 'price_unit': 0.0}
+2025-06-28 11:02:28,704 - INFO - Searching for product with code: 'VT0154A101'
+2025-06-28 11:02:28,763 - INFO - Found product with exact match on default_code: 'VT0154A101'
+2025-06-28 11:02:29,077 - INFO - Added product VT0154A101 with quantity 47.0 to picking 9160
+2025-06-28 11:02:29,077 - INFO - Processing Excel row 108: {'product_id': 'VT0154B101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 25.0, 'sequence': 108, 'price_unit': 0.0}
+2025-06-28 11:02:29,077 - INFO - Searching for product with code: 'VT0154B101'
+2025-06-28 11:02:29,157 - INFO - Found product with exact match on default_code: 'VT0154B101'
+2025-06-28 11:02:29,464 - INFO - Added product VT0154B101 with quantity 25.0 to picking 9160
+2025-06-28 11:02:29,465 - INFO - Processing Excel row 109: {'product_id': 'VT0154C101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 109, 'price_unit': 0.0}
+2025-06-28 11:02:29,465 - INFO - Searching for product with code: 'VT0154C101'
+2025-06-28 11:02:29,523 - INFO - Found product with exact match on default_code: 'VT0154C101'
+2025-06-28 11:02:29,954 - INFO - Added product VT0154C101 with quantity 1.0 to picking 9160
+2025-06-28 11:02:29,956 - INFO - Processing Excel row 110: {'product_id': 'VT0172P101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 32.0, 'sequence': 110, 'price_unit': 0.0}
+2025-06-28 11:02:29,956 - INFO - Searching for product with code: 'VT0172P101'
+2025-06-28 11:02:30,023 - INFO - Found product with exact match on default_code: 'VT0172P101'
+2025-06-28 11:02:30,363 - INFO - Added product VT0172P101 with quantity 32.0 to picking 9160
+2025-06-28 11:02:30,364 - INFO - Processing Excel row 111: {'product_id': 'VT0343W101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 7.0, 'sequence': 111, 'price_unit': 0.0}
+2025-06-28 11:02:30,364 - INFO - Searching for product with code: 'VT0343W101'
+2025-06-28 11:02:30,438 - INFO - Found product with exact match on default_code: 'VT0343W101'
+2025-06-28 11:02:30,749 - INFO - Added product VT0343W101 with quantity 7.0 to picking 9160
+2025-06-28 11:02:30,749 - INFO - Processing Excel row 112: {'product_id': 'VT0372L101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 112, 'price_unit': 0.0}
+2025-06-28 11:02:30,749 - INFO - Searching for product with code: 'VT0372L101'
+2025-06-28 11:02:30,814 - INFO - Found product with exact match on default_code: 'VT0372L101'
+2025-06-28 11:02:31,100 - INFO - Added product VT0372L101 with quantity 1.0 to picking 9160
+2025-06-28 11:02:31,101 - INFO - Processing Excel row 113: {'product_id': 'VT10007101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 113, 'price_unit': 0.0}
+2025-06-28 11:02:31,101 - INFO - Searching for product with code: 'VT10007101'
+2025-06-28 11:02:31,156 - INFO - Found product with exact match on default_code: 'VT10007101'
+2025-06-28 11:02:31,491 - INFO - Added product VT10007101 with quantity 2.0 to picking 9160
+2025-06-28 11:02:31,491 - INFO - Processing Excel row 114: {'product_id': 'VT10025101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 6.0, 'sequence': 114, 'price_unit': 0.0}
+2025-06-28 11:02:31,491 - INFO - Searching for product with code: 'VT10025101'
+2025-06-28 11:02:31,553 - INFO - Found product with exact match on default_code: 'VT10025101'
+2025-06-28 11:02:31,840 - INFO - Added product VT10025101 with quantity 6.0 to picking 9160
+2025-06-28 11:02:31,841 - INFO - Processing Excel row 115: {'product_id': 'VT10032101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 115, 'price_unit': 0.0}
+2025-06-28 11:02:31,841 - INFO - Searching for product with code: 'VT10032101'
+2025-06-28 11:02:31,903 - INFO - Found product with exact match on default_code: 'VT10032101'
+2025-06-28 11:02:32,176 - INFO - Added product VT10032101 with quantity 3.0 to picking 9160
+2025-06-28 11:02:32,177 - INFO - Processing Excel row 116: {'product_id': 'VT2024F101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 3.0, 'sequence': 116, 'price_unit': 0.0}
+2025-06-28 11:02:32,177 - INFO - Searching for product with code: 'VT2024F101'
+2025-06-28 11:02:32,220 - INFO - Found product with exact match on default_code: 'VT2024F101'
+2025-06-28 11:02:32,357 - INFO - Added product VT2024F101 with quantity 3.0 to picking 9160
+2025-06-28 11:02:32,358 - INFO - Processing Excel row 117: {'product_id': 'VT20300BS', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 117, 'price_unit': 0.0}
+2025-06-28 11:02:32,358 - INFO - Searching for product with code: 'VT20300BS'
+2025-06-28 11:02:32,399 - INFO - Found product with exact match on default_code: 'VT20300BS'
+2025-06-28 11:02:32,538 - INFO - Added product VT20300BS with quantity 2.0 to picking 9160
+2025-06-28 11:02:32,539 - INFO - Processing Excel row 118: {'product_id': 'VT2038F101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 33.0, 'sequence': 118, 'price_unit': 0.0}
+2025-06-28 11:02:32,539 - INFO - Searching for product with code: 'VT2038F101'
+2025-06-28 11:02:32,582 - INFO - Found product with exact match on default_code: 'VT2038F101'
+2025-06-28 11:02:32,721 - INFO - Added product VT2038F101 with quantity 33.0 to picking 9160
+2025-06-28 11:02:32,722 - INFO - Processing Excel row 119: {'product_id': 'VT20800BS', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 119, 'price_unit': 0.0}
+2025-06-28 11:02:32,723 - INFO - Searching for product with code: 'VT20800BS'
+2025-06-28 11:02:32,764 - INFO - Found product with exact match on default_code: 'VT20800BS'
+2025-06-28 11:02:32,894 - INFO - Added product VT20800BS with quantity 1.0 to picking 9160
+2025-06-28 11:02:32,895 - INFO - Processing Excel row 120: {'product_id': 'VT210SPBS', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 40.0, 'sequence': 120, 'price_unit': 0.0}
+2025-06-28 11:02:32,895 - INFO - Searching for product with code: 'VT210SPBS'
+2025-06-28 11:02:32,937 - INFO - Found product with exact match on default_code: 'VT210SPBS'
+2025-06-28 11:02:33,094 - INFO - Added product VT210SPBS with quantity 40.0 to picking 9160
+2025-06-28 11:02:33,095 - INFO - Processing Excel row 121: {'product_id': 'VT21600TF', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 6.0, 'sequence': 121, 'price_unit': 0.0}
+2025-06-28 11:02:33,095 - INFO - Searching for product with code: 'VT21600TF'
+2025-06-28 11:02:33,137 - INFO - Found product with exact match on default_code: 'VT21600TF'
+2025-06-28 11:02:33,287 - INFO - Added product VT21600TF with quantity 6.0 to picking 9160
+2025-06-28 11:02:33,288 - INFO - Processing Excel row 122: {'product_id': 'VT219ECTF', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 18.0, 'sequence': 122, 'price_unit': 0.0}
+2025-06-28 11:02:33,288 - INFO - Searching for product with code: 'VT219ECTF'
+2025-06-28 11:02:33,335 - INFO - Found product with exact match on default_code: 'VT219ECTF'
+2025-06-28 11:02:33,488 - INFO - Added product VT219ECTF with quantity 18.0 to picking 9160
+2025-06-28 11:02:33,490 - INFO - Processing Excel row 123: {'product_id': 'VT219SPTF', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 111.0, 'sequence': 123, 'price_unit': 0.0}
+2025-06-28 11:02:33,490 - INFO - Searching for product with code: 'VT219SPTF'
+2025-06-28 11:02:33,537 - INFO - Found product with exact match on default_code: 'VT219SPTF'
+2025-06-28 11:02:33,679 - INFO - Added product VT219SPTF with quantity 111.0 to picking 9160
+2025-06-28 11:02:33,680 - INFO - Processing Excel row 124: {'product_id': 'VT22000BS', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 124, 'price_unit': 0.0}
+2025-06-28 11:02:33,681 - INFO - Searching for product with code: 'VT22000BS'
+2025-06-28 11:02:33,722 - INFO - Found product with exact match on default_code: 'VT22000BS'
+2025-06-28 11:02:33,871 - INFO - Added product VT22000BS with quantity 5.0 to picking 9160
+2025-06-28 11:02:33,873 - INFO - Processing Excel row 125: {'product_id': 'VT22100BS', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 125, 'price_unit': 0.0}
+2025-06-28 11:02:33,873 - INFO - Searching for product with code: 'VT22100BS'
+2025-06-28 11:02:33,916 - INFO - Found product with exact match on default_code: 'VT22100BS'
+2025-06-28 11:02:34,072 - INFO - Added product VT22100BS with quantity 1.0 to picking 9160
+2025-06-28 11:02:34,073 - INFO - Processing Excel row 126: {'product_id': 'VT224N0TF', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 6.0, 'sequence': 126, 'price_unit': 0.0}
+2025-06-28 11:02:34,073 - INFO - Searching for product with code: 'VT224N0TF'
+2025-06-28 11:02:34,123 - INFO - Found product with exact match on default_code: 'VT224N0TF'
+2025-06-28 11:02:34,261 - INFO - Added product VT224N0TF with quantity 6.0 to picking 9160
+2025-06-28 11:02:34,262 - INFO - Processing Excel row 127: {'product_id': 'VT23000TF', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 19.0, 'sequence': 127, 'price_unit': 0.0}
+2025-06-28 11:02:34,262 - INFO - Searching for product with code: 'VT23000TF'
+2025-06-28 11:02:34,306 - INFO - Found product with exact match on default_code: 'VT23000TF'
+2025-06-28 11:02:34,478 - INFO - Added product VT23000TF with quantity 19.0 to picking 9160
+2025-06-28 11:02:34,480 - INFO - Processing Excel row 128: {'product_id': 'VT233SPTF', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 9.0, 'sequence': 128, 'price_unit': 0.0}
+2025-06-28 11:02:34,480 - INFO - Searching for product with code: 'VT233SPTF'
+2025-06-28 11:02:34,525 - INFO - Found product with exact match on default_code: 'VT233SPTF'
+2025-06-28 11:02:34,675 - INFO - Added product VT233SPTF with quantity 9.0 to picking 9160
+2025-06-28 11:02:34,676 - INFO - Processing Excel row 129: {'product_id': 'VT254EC0TF', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 129, 'price_unit': 0.0}
+2025-06-28 11:02:34,676 - INFO - Searching for product with code: 'VT254EC0TF'
+2025-06-28 11:02:34,725 - INFO - Found product with exact match on default_code: 'VT254EC0TF'
+2025-06-28 11:02:34,861 - INFO - Added product VT254EC0TF with quantity 1.0 to picking 9160
+2025-06-28 11:02:34,862 - INFO - Processing Excel row 130: {'product_id': 'VT255ECTF', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 130, 'price_unit': 0.0}
+2025-06-28 11:02:34,863 - INFO - Searching for product with code: 'VT255ECTF'
+2025-06-28 11:02:34,906 - INFO - Found product with exact match on default_code: 'VT255ECTF'
+2025-06-28 11:02:35,045 - INFO - Added product VT255ECTF with quantity 2.0 to picking 9160
+2025-06-28 11:02:35,046 - INFO - Processing Excel row 131: {'product_id': 'VT30002101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 131, 'price_unit': 0.0}
+2025-06-28 11:02:35,046 - INFO - Searching for product with code: 'VT30002101'
+2025-06-28 11:02:35,089 - INFO - Found product with exact match on default_code: 'VT30002101'
+2025-06-28 11:02:35,232 - INFO - Added product VT30002101 with quantity 2.0 to picking 9160
+2025-06-28 11:02:35,233 - INFO - Processing Excel row 132: {'product_id': 'VT30007101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 24.0, 'sequence': 132, 'price_unit': 0.0}
+2025-06-28 11:02:35,234 - INFO - Searching for product with code: 'VT30007101'
+2025-06-28 11:02:35,276 - INFO - Found product with exact match on default_code: 'VT30007101'
+2025-06-28 11:02:35,427 - INFO - Added product VT30007101 with quantity 24.0 to picking 9160
+2025-06-28 11:02:35,428 - INFO - Processing Excel row 133: {'product_id': 'VTMAC0101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 7.0, 'sequence': 133, 'price_unit': 0.0}
+2025-06-28 11:02:35,428 - INFO - Searching for product with code: 'VTMAC0101'
+2025-06-28 11:02:35,472 - INFO - Found product with exact match on default_code: 'VTMAC0101'
+2025-06-28 11:02:35,609 - INFO - Added product VTMAC0101 with quantity 7.0 to picking 9160
+2025-06-28 11:02:35,610 - INFO - Processing Excel row 134: {'product_id': 'VTMAC0201', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 5.0, 'sequence': 134, 'price_unit': 0.0}
+2025-06-28 11:02:35,610 - INFO - Searching for product with code: 'VTMAC0201'
+2025-06-28 11:02:35,656 - INFO - Found product with exact match on default_code: 'VTMAC0201'
+2025-06-28 11:02:35,807 - INFO - Added product VTMAC0201 with quantity 5.0 to picking 9160
+2025-06-28 11:02:35,808 - INFO - Processing Excel row 135: {'product_id': 'VTMAE0101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 39.0, 'sequence': 135, 'price_unit': 0.0}
+2025-06-28 11:02:35,808 - INFO - Searching for product with code: 'VTMAE0101'
+2025-06-28 11:02:35,848 - INFO - Found product with exact match on default_code: 'VTMAE0101'
+2025-06-28 11:02:35,988 - INFO - Added product VTMAE0101 with quantity 39.0 to picking 9160
+2025-06-28 11:02:35,989 - INFO - Processing Excel row 136: {'product_id': 'VTMAE01L1', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 11.0, 'sequence': 136, 'price_unit': 0.0}
+2025-06-28 11:02:35,989 - INFO - Searching for product with code: 'VTMAE01L1'
+2025-06-28 11:02:36,032 - INFO - Found product with exact match on default_code: 'VTMAE01L1'
+2025-06-28 11:02:36,197 - INFO - Added product VTMAE01L1 with quantity 11.0 to picking 9160
+2025-06-28 11:02:36,198 - INFO - Processing Excel row 137: {'product_id': 'VTMAE0201', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 38.0, 'sequence': 137, 'price_unit': 0.0}
+2025-06-28 11:02:36,198 - INFO - Searching for product with code: 'VTMAE0201'
+2025-06-28 11:02:36,240 - INFO - Found product with exact match on default_code: 'VTMAE0201'
+2025-06-28 11:02:36,391 - INFO - Added product VTMAE0201 with quantity 38.0 to picking 9160
+2025-06-28 11:02:36,391 - INFO - Processing Excel row 138: {'product_id': 'VTMAE0301', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 67.0, 'sequence': 138, 'price_unit': 0.0}
+2025-06-28 11:02:36,392 - INFO - Searching for product with code: 'VTMAE0301'
+2025-06-28 11:02:36,432 - INFO - Found product with exact match on default_code: 'VTMAE0301'
+2025-06-28 11:02:36,562 - INFO - Added product VTMAE0301 with quantity 67.0 to picking 9160
+2025-06-28 11:02:36,564 - INFO - Processing Excel row 139: {'product_id': 'VTMAE0401', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 46.0, 'sequence': 139, 'price_unit': 0.0}
+2025-06-28 11:02:36,564 - INFO - Searching for product with code: 'VTMAE0401'
+2025-06-28 11:02:36,612 - INFO - Found product with exact match on default_code: 'VTMAE0401'
+2025-06-28 11:02:36,761 - INFO - Added product VTMAE0401 with quantity 46.0 to picking 9160
+2025-06-28 11:02:36,762 - INFO - Processing Excel row 140: {'product_id': 'VTMAE05L1', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 21.0, 'sequence': 140, 'price_unit': 0.0}
+2025-06-28 11:02:36,762 - INFO - Searching for product with code: 'VTMAE05L1'
+2025-06-28 11:02:36,808 - INFO - Found product with exact match on default_code: 'VTMAE05L1'
+2025-06-28 11:02:36,946 - INFO - Added product VTMAE05L1 with quantity 21.0 to picking 9160
+2025-06-28 11:02:36,947 - INFO - Processing Excel row 141: {'product_id': 'VTMAE05R1', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 22.0, 'sequence': 141, 'price_unit': 0.0}
+2025-06-28 11:02:36,948 - INFO - Searching for product with code: 'VTMAE05R1'
+2025-06-28 11:02:36,995 - INFO - Found product with exact match on default_code: 'VTMAE05R1'
+2025-06-28 11:02:37,152 - INFO - Added product VTMAE05R1 with quantity 22.0 to picking 9160
+2025-06-28 11:02:37,153 - INFO - Processing Excel row 142: {'product_id': 'VTMAE06R1', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 17.0, 'sequence': 142, 'price_unit': 0.0}
+2025-06-28 11:02:37,153 - INFO - Searching for product with code: 'VTMAE06R1'
+2025-06-28 11:02:37,202 - INFO - Found product with exact match on default_code: 'VTMAE06R1'
+2025-06-28 11:02:37,337 - INFO - Added product VTMAE06R1 with quantity 17.0 to picking 9160
+2025-06-28 11:02:37,338 - INFO - Processing Excel row 143: {'product_id': 'VTMAE07L1', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 143, 'price_unit': 0.0}
+2025-06-28 11:02:37,339 - INFO - Searching for product with code: 'VTMAE07L1'
+2025-06-28 11:02:37,387 - INFO - Found product with exact match on default_code: 'VTMAE07L1'
+2025-06-28 11:02:37,524 - INFO - Added product VTMAE07L1 with quantity 1.0 to picking 9160
+2025-06-28 11:02:37,525 - INFO - Processing Excel row 144: {'product_id': 'VTMAE07R1', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 22.0, 'sequence': 144, 'price_unit': 0.0}
+2025-06-28 11:02:37,525 - INFO - Searching for product with code: 'VTMAE07R1'
+2025-06-28 11:02:37,568 - INFO - Found product with exact match on default_code: 'VTMAE07R1'
+2025-06-28 11:02:37,704 - INFO - Added product VTMAE07R1 with quantity 22.0 to picking 9160
+2025-06-28 11:02:37,705 - INFO - Processing Excel row 145: {'product_id': 'VTMAE08R1', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 12.0, 'sequence': 145, 'price_unit': 0.0}
+2025-06-28 11:02:37,705 - INFO - Searching for product with code: 'VTMAE08R1'
+2025-06-28 11:02:37,745 - INFO - Found product with exact match on default_code: 'VTMAE08R1'
+2025-06-28 11:02:37,879 - INFO - Added product VTMAE08R1 with quantity 12.0 to picking 9160
+2025-06-28 11:02:37,880 - INFO - Processing Excel row 146: {'product_id': 'VTMM0101', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 6.0, 'sequence': 146, 'price_unit': 0.0}
+2025-06-28 11:02:37,881 - INFO - Searching for product with code: 'VTMM0101'
+2025-06-28 11:02:37,921 - INFO - Found product with exact match on default_code: 'VTMM0101'
+2025-06-28 11:02:38,066 - INFO - Added product VTMM0101 with quantity 6.0 to picking 9160
+2025-06-28 11:02:38,067 - INFO - Processing Excel row 147: {'product_id': 'VTW00201', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 10.0, 'sequence': 147, 'price_unit': 0.0}
+2025-06-28 11:02:38,067 - INFO - Searching for product with code: 'VTW00201'
+2025-06-28 11:02:38,111 - INFO - Found product with exact match on default_code: 'VTW00201'
+2025-06-28 11:02:38,249 - INFO - Added product VTW00201 with quantity 10.0 to picking 9160
+2025-06-28 11:02:38,249 - INFO - Processing Excel row 148: {'product_id': 'VTW00401', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 148, 'price_unit': 0.0}
+2025-06-28 11:02:38,250 - INFO - Searching for product with code: 'VTW00401'
+2025-06-28 11:02:38,288 - INFO - Found product with exact match on default_code: 'VTW00401'
+2025-06-28 11:02:38,435 - INFO - Added product VTW00401 with quantity 2.0 to picking 9160
+2025-06-28 11:02:38,436 - INFO - Processing Excel row 149: {'product_id': 'VTWHW201', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 10.0, 'sequence': 149, 'price_unit': 0.0}
+2025-06-28 11:02:38,436 - INFO - Searching for product with code: 'VTWHW201'
+2025-06-28 11:02:38,478 - INFO - Found product with exact match on default_code: 'VTWHW201'
+2025-06-28 11:02:38,613 - INFO - Added product VTWHW201 with quantity 10.0 to picking 9160
+2025-06-28 11:02:38,614 - INFO - Processing Excel row 150: {'product_id': 'VTWHW301', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 150, 'price_unit': 0.0}
+2025-06-28 11:02:38,615 - INFO - Searching for product with code: 'VTWHW301'
+2025-06-28 11:02:38,661 - INFO - Found product with exact match on default_code: 'VTWHW301'
+2025-06-28 11:02:38,813 - INFO - Added product VTWHW301 with quantity 1.0 to picking 9160
+2025-06-28 11:02:38,814 - INFO - Processing Excel row 151: {'product_id': 'WB0001A100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1140.0, 'sequence': 151, 'price_unit': 0.0}
+2025-06-28 11:02:38,814 - INFO - Searching for product with code: 'WB0001A100'
+2025-06-28 11:02:38,854 - INFO - Found product with exact match on default_code: 'WB0001A100'
+2025-06-28 11:02:38,988 - INFO - Added product WB0001A100 with quantity 1140.0 to picking 9160
+2025-06-28 11:02:38,989 - INFO - Processing Excel row 152: {'product_id': 'WB0003C100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1113.0, 'sequence': 152, 'price_unit': 0.0}
+2025-06-28 11:02:38,989 - INFO - Searching for product with code: 'WB0003C100'
+2025-06-28 11:02:39,029 - INFO - Found product with exact match on default_code: 'WB0003C100'
+2025-06-28 11:02:39,239 - INFO - Added product WB0003C100 with quantity 1113.0 to picking 9160
+2025-06-28 11:02:39,240 - INFO - Processing Excel row 153: {'product_id': 'WB0004A100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1773.0, 'sequence': 153, 'price_unit': 0.0}
+2025-06-28 11:02:39,241 - INFO - Searching for product with code: 'WB0004A100'
+2025-06-28 11:02:39,286 - INFO - Found product with exact match on default_code: 'WB0004A100'
+2025-06-28 11:02:39,425 - INFO - Added product WB0004A100 with quantity 1773.0 to picking 9160
+2025-06-28 11:02:39,426 - INFO - Processing Excel row 154: {'product_id': 'WB0005A100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1081.0, 'sequence': 154, 'price_unit': 0.0}
+2025-06-28 11:02:39,427 - INFO - Searching for product with code: 'WB0005A100'
+2025-06-28 11:02:39,469 - INFO - Found product with exact match on default_code: 'WB0005A100'
+2025-06-28 11:02:39,613 - INFO - Added product WB0005A100 with quantity 1081.0 to picking 9160
+2025-06-28 11:02:39,615 - INFO - Processing Excel row 155: {'product_id': 'WB0006114', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 189.0, 'sequence': 155, 'price_unit': 0.0}
+2025-06-28 11:02:39,615 - INFO - Searching for product with code: 'WB0006114'
+2025-06-28 11:02:39,656 - INFO - Found product with exact match on default_code: 'WB0006114'
+2025-06-28 11:02:39,797 - INFO - Added product WB0006114 with quantity 189.0 to picking 9160
+2025-06-28 11:02:39,798 - INFO - Processing Excel row 156: {'product_id': 'WB0007110', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 164.0, 'sequence': 156, 'price_unit': 0.0}
+2025-06-28 11:02:39,798 - INFO - Searching for product with code: 'WB0007110'
+2025-06-28 11:02:39,841 - INFO - Found product with exact match on default_code: 'WB0007110'
+2025-06-28 11:02:39,986 - INFO - Added product WB0007110 with quantity 164.0 to picking 9160
+2025-06-28 11:02:39,986 - INFO - Processing Excel row 157: {'product_id': 'WB0008110', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 53.0, 'sequence': 157, 'price_unit': 0.0}
+2025-06-28 11:02:39,987 - INFO - Searching for product with code: 'WB0008110'
+2025-06-28 11:02:40,030 - INFO - Found product with exact match on default_code: 'WB0008110'
+2025-06-28 11:02:40,179 - INFO - Added product WB0008110 with quantity 53.0 to picking 9160
+2025-06-28 11:02:40,180 - INFO - Processing Excel row 158: {'product_id': 'WB0048100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 174.0, 'sequence': 158, 'price_unit': 0.0}
+2025-06-28 11:02:40,180 - INFO - Searching for product with code: 'WB0048100'
+2025-06-28 11:02:40,222 - INFO - Found product with exact match on default_code: 'WB0048100'
+2025-06-28 11:02:40,367 - INFO - Added product WB0048100 with quantity 174.0 to picking 9160
+2025-06-28 11:02:40,367 - INFO - Processing Excel row 159: {'product_id': 'WD0001A100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 444.0, 'sequence': 159, 'price_unit': 0.0}
+2025-06-28 11:02:40,368 - INFO - Searching for product with code: 'WD0001A100'
+2025-06-28 11:02:40,409 - INFO - Found product with exact match on default_code: 'WD0001A100'
+2025-06-28 11:02:40,637 - INFO - Added product WD0001A100 with quantity 444.0 to picking 9160
+2025-06-28 11:02:40,638 - INFO - Processing Excel row 160: {'product_id': 'WD0001N100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 160, 'price_unit': 0.0}
+2025-06-28 11:02:40,638 - INFO - Searching for product with code: 'WD0001N100'
+2025-06-28 11:02:40,683 - INFO - Found product with exact match on default_code: 'WD0001N100'
+2025-06-28 11:02:40,822 - INFO - Added product WD0001N100 with quantity 1.0 to picking 9160
+2025-06-28 11:02:40,823 - INFO - Processing Excel row 161: {'product_id': 'WD0001SP100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 382.0, 'sequence': 161, 'price_unit': 0.0}
+2025-06-28 11:02:40,824 - INFO - Searching for product with code: 'WD0001SP100'
+2025-06-28 11:02:40,870 - INFO - Found product with exact match on default_code: 'WD0001SP100'
+2025-06-28 11:02:41,024 - INFO - Added product WD0001SP100 with quantity 382.0 to picking 9160
+2025-06-28 11:02:41,025 - INFO - Processing Excel row 162: {'product_id': 'WD0002A100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 109.0, 'sequence': 162, 'price_unit': 0.0}
+2025-06-28 11:02:41,025 - INFO - Searching for product with code: 'WD0002A100'
+2025-06-28 11:02:41,069 - INFO - Found product with exact match on default_code: 'WD0002A100'
+2025-06-28 11:02:41,211 - INFO - Added product WD0002A100 with quantity 109.0 to picking 9160
+2025-06-28 11:02:41,212 - INFO - Processing Excel row 163: {'product_id': 'WD0003100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 63.0, 'sequence': 163, 'price_unit': 0.0}
+2025-06-28 11:02:41,212 - INFO - Searching for product with code: 'WD0003100'
+2025-06-28 11:02:41,256 - INFO - Found product with exact match on default_code: 'WD0003100'
+2025-06-28 11:02:41,424 - INFO - Added product WD0003100 with quantity 63.0 to picking 9160
+2025-06-28 11:02:41,425 - INFO - Processing Excel row 164: {'product_id': 'WD00482100', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 56.0, 'sequence': 164, 'price_unit': 0.0}
+2025-06-28 11:02:41,425 - INFO - Searching for product with code: 'WD00482100'
+2025-06-28 11:02:41,464 - INFO - Found product with exact match on default_code: 'WD00482100'
+2025-06-28 11:02:41,600 - INFO - Added product WD00482100 with quantity 56.0 to picking 9160
+2025-06-28 11:02:41,601 - INFO - Processing Excel row 165: {'product_id': 'WM03011R', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 1.0, 'sequence': 165, 'price_unit': 0.0}
+2025-06-28 11:02:41,601 - INFO - Searching for product with code: 'WM03011R'
+2025-06-28 11:02:41,647 - INFO - Found product with exact match on default_code: 'WM03011R'
+2025-06-28 11:02:41,789 - INFO - Added product WM03011R with quantity 1.0 to picking 9160
+2025-06-28 11:02:41,790 - INFO - Processing Excel row 166: {'product_id': 'ไม่ใช้', 'scheduled_date': Timestamp('2025-06-28 11:02:00'), 'location_dest_id': 'Partners/Customers', 'picking_type_id': 'FG10/Stock', 'partner_id': 'MOG FG01', 'origin': 'FG10 Adjuestment 03', 'product_uom_qty': 2.0, 'sequence': 166, 'price_unit': 0.0}
+2025-06-28 11:02:41,790 - INFO - Searching for product with code: 'ไม่ใช้'
+2025-06-28 11:02:41,833 - INFO - Found product with exact match on default_code: 'ไม่ใช้'
+2025-06-28 11:02:41,971 - INFO - Added product ไม่ใช้ with quantity 2.0 to picking 9160
+2025-06-28 11:02:42,345 - INFO - Updated dates for picking 9160 (kept in draft state): 2025-06-28 11:02:00
+2025-06-28 11:02:42,345 - INFO - Created transfer 9160 in draft state - ready for manual review
+2025-06-28 11:02:42,346 - INFO - Import completed: 1 success, 0 failed.
