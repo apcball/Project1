@@ -16,8 +16,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Odoo connection parameters
-url = 'http://mogth.work:8069'
-db = 'MOG_UAT'
+url = 'http://mogdev.work:8069'
+db = 'KYLD_DEV'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -86,10 +86,19 @@ def get_currency_id(currency_value, models, uid):
             return currency_ids[0]
     return None
 
+def clean_account_code(code):
+    """แปลงรหัสบัญชีให้เป็น string และตัด .0 ถ้าเป็นตัวเลขเต็ม"""
+    try:
+        if pd.notna(code) and float(code).is_integer():
+            return str(int(float(code)))
+    except Exception:
+        pass
+    return str(code).strip()
+
 def prepare_account_data(row, models, uid):
     """เตรียมข้อมูลบัญชีสำหรับสร้างหรืออัพเดท"""
     account_data = {
-        'code': str(row['code']).strip(),
+        'code': clean_account_code(row['code']),
         'name': str(row['name']).strip() if pd.notna(row['name']) else '',
         'account_type': get_account_type(row['account_type']),
     }
@@ -101,11 +110,12 @@ def prepare_account_data(row, models, uid):
     # เพิ่มข้อมูล currency_id ถ้ามี
     if 'currency_id' in row and pd.notna(row['currency_id']):
         currency_id = get_currency_id(row['currency_id'], models, uid)
+        code_cleaned = clean_account_code(row['code'])
         if currency_id:
             account_data['currency_id'] = currency_id
-            logger.info(f"กำหนด currency_id {currency_id} สำหรับบัญชี {row['code']}")
+            logger.info(f"กำหนด currency_id {currency_id} สำหรับบัญชี {code_cleaned}")
         else:
-            logger.warning(f"ไม่พบสกุลเงิน '{row['currency_id']}' ในระบบสำหรับบัญชี {row['code']}")
+            logger.warning(f"ไม่พบสกุลเงิน '{row['currency_id']}' ในระบบสำหรับบัญชี {code_cleaned}")
 
     return account_data
 
@@ -118,7 +128,7 @@ def import_or_update_accounts():
             return
 
         # อ่านไฟล์ Excel
-        file_path = Path(r"C:\Users\Ball\Documents\Git_apcball\Project1\Data_file\Chart_Of_Account.xlsx")
+        file_path = Path(r"C:\Users\Ball\Documents\Git_apcball\Project1\Data_file\Chart_Of_Account_kyld2.xlsx")
         logger.info(f"กำลังอ่านไฟล์ Excel: {file_path}")
         
         df = pd.read_excel(file_path)
@@ -151,7 +161,7 @@ def import_or_update_accounts():
                     stats['errors'] += 1
                     continue
 
-                account_code = str(row['code']).strip()
+                account_code = clean_account_code(row['code'])
                 account_data = prepare_account_data(row, models, uid)
 
                 try:
