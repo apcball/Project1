@@ -4,7 +4,7 @@ import sys
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 server_url = 'http://mogdev.work:8069'
-database = 'MOG_LIVE3'
+database = 'KYLD_DEV'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -68,10 +68,16 @@ def search_parent_category(parent_name):
     """
     if pd.isna(parent_name) or parent_name.strip() == "":
         return None
+    parent_name = parent_name.strip()
     parent_ids = models.execute_kw(
-        database, uid, password, 'product.category', 'search', [[['name', '=', parent_name.strip()]]]
+        database, uid, password, 'product.category', 'search', [[['name', '=', parent_name]]]
     )
-    return parent_ids[0] if parent_ids else None
+    if parent_ids:
+        print(f"พบ Parent Category '{parent_name}' (ID: {parent_ids[0]})")
+        return parent_ids[0]
+    else:
+        print(f"ไม่พบ Parent Category '{parent_name}'")
+        return None
 
 def update_category_accounts(category_id, income_account_code, expense_account_code):
     """
@@ -122,8 +128,13 @@ try:
             sys.exit(1)
     
     df = pd.read_excel(excel_file, sheet_name='Sheet1')
+    df.columns = df.columns.str.strip()  # ลบช่องว่างที่อาจมีในชื่อคอลัมน์
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
     print(f"Columns in the Excel file: {df.columns.tolist()}")
+    
+    # ตรวจสอบและแสดงข้อมูลแต่ละแถวเพื่อการ debug
+    print("\nตรวจสอบข้อมูล 5 แถวแรก:")
+    print(df.head().to_string())
 except Exception as e:
     print("Failed to read Excel file:", e)
     sys.exit(1)
@@ -135,8 +146,13 @@ for index, row in df.iterrows():
         print("\nข้ามแถวที่เป็นหัวตาราง")
         continue
 
-    category_name = str(row['product_category_import']).strip() if pd.notna(row['product_category_import']) else ""
-    parent_category_name = row.get('Unnamed: 1', '')
+    # ตรวจสอบชื่อคอลัมน์ที่ถูกต้อง
+    name_column = 'Name' if 'Name' in df.columns else 'product_category_import'
+    parent_column = 'Parent Category' if 'Parent Category' in df.columns else 'Unnamed: 1'
+    costing_column = 'CostingMethod' if 'CostingMethod' in df.columns else 'Unnamed: 2'
+    
+    category_name = str(row[name_column]).strip() if pd.notna(row[name_column]) else ""
+    parent_category_name = str(row[parent_column]).strip() if pd.notna(row[parent_column]) else ""
     income_account = str(row.get('Unnamed: 3', '')).strip() if pd.notna(row.get('Unnamed: 3')) else None
     expense_account = str(row.get('Unnamed: 4', '')).strip() if pd.notna(row.get('Unnamed: 4')) else None
 
@@ -144,29 +160,50 @@ for index, row in df.iterrows():
         print(f"\nRow {index}: ชื่อ Category ว่างเปล่า. ข้ามแถวนี้ไป")
         continue
 
-    print(f"\nกำลังประมวลผล Row {index}: Category '{category_name}'")
+    print(f"\nกำลังประมวลผล Row {index}:")
+    print(f"Category Name: '{category_name}'")
+    print(f"Parent Category: '{parent_category_name}'")
 
     # ตรวจสอบว่ามี Category นี้อยู่ในระบบหรือไม่
     existing_ids = search_category(category_name)
     
     if existing_ids:
-        print(f"Product Category '{category_name}' มีอยู่แล้ว")
-        # อัพเดทข้อมูลบัญชีสำหรับ Category ที่มีอยู่แล้ว
-        if income_account or expense_account:
-            update_category_accounts(existing_ids[0], income_account, expense_account)
+        category_id = existing_ids[0]
+        print(f"Product Category '{category_name}' มีอยู่แล้ว (ID: {category_id})")
+        
+        # อัพเดทข้อมูลเพิ่มเติม
+        update_data = {}
+        
+        # อัพเดท Parent Category ถ้ามี
+        if parent_category_name:
+            parent_id = search_parent_category(parent_category_name)
+            if parent_id:
+                update_data['parent_id'] = parent_id
+                print(f"อัพเดท Parent Category เป็น '{parent_category_name}'")
+        
         # อัพเดท Costing Method ถ้ามีระบุ
-        if pd.notna(row.get('Unnamed: 2')):
-            cost_method = str(row['Unnamed: 2']).strip()
+        if pd.notna(row.get(costing_column)):
+            cost_method = str(row[costing_column]).strip()
             if cost_method.lower() not in ['', 'costingmethod']:
                 cost_method_value = get_cost_method(cost_method)
-                try:
-                    models.execute_kw(
-                        database, uid, password, 'product.category', 'write',
-                        [[existing_ids[0]], {'property_cost_method': cost_method_value}]
-                    )
-                    print(f"อัพเดท Costing Method '{cost_method}' -> '{cost_method_value}' สำเร็จ")
-                except Exception as e:
-                    print(f"ไม่สามารถอัพเดท Costing Method: {e}")
+                update_data['property_cost_method'] = cost_method_value
+                print(f"กำหนด Costing Method '{cost_method}' -> '{cost_method_value}'")
+        
+        # อัพเดทข้อมูลถ้ามีการเปลี่ยนแปลง
+        if update_data:
+            try:
+                models.execute_kw(
+                    database, uid, password, 'product.category', 'write',
+                    [[category_id], update_data]
+                )
+                print("อัพเดทข้อมูล Category สำเร็จ")
+            except Exception as e:
+                print(f"ไม่สามารถอัพเดทข้อมูล Category: {e}")
+        
+        # อัพเดทข้อมูลบัญชี
+        if income_account or expense_account:
+            update_category_accounts(category_id, income_account, expense_account)
+        
         continue
 
     # ค้นหา Parent Category หากระบุไว้

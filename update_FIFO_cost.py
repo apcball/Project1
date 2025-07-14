@@ -1,7 +1,7 @@
 import xmlrpc.client
 
-HOST = 'http://mogth.work:8069'
-DB = 'MOG_LIVE'
+HOST = 'http://mogdev.work:8069'
+DB = 'KYLD_DEV'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 

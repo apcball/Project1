@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 # Odoo connection parameters
 url = 'http://mogdev.work:8069'
-db = 'KYLD_DEV'
+db = 'KYLD_DEV2'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -37,7 +37,7 @@ def connect_to_odoo():
         return None, None
 
 def get_account_type(account_type):
-    """แปลงประเภทบัญชีให้ตรงกับ Odoo"""
+    """แปลงประเภทบัญชีให้ตรงกับ Odoo 17"""
     type_mapping = {
         'receivable': 'asset_receivable',
         'payable': 'liability_payable',
@@ -54,7 +54,7 @@ def get_account_type(account_type):
         'income': 'income',
         'other income': 'income_other',
         'expenses': 'expense',
-        'other expenses': 'expense_other',
+        'other expenses': 'expense_depreciation',
         'cost of revenue': 'expense_direct_cost',
     }
     if not account_type or pd.isna(account_type):
@@ -97,14 +97,18 @@ def clean_account_code(code):
 
 def prepare_account_data(row, models, uid):
     """เตรียมข้อมูลบัญชีสำหรับสร้างหรืออัพเดท"""
+    account_type = get_account_type(row['account_type'])
+    
     account_data = {
         'code': clean_account_code(row['code']),
         'name': str(row['name']).strip() if pd.notna(row['name']) else '',
-        'account_type': get_account_type(row['account_type']),
+        'account_type': account_type,
     }
 
-    # เพิ่มข้อมูล reconcile ถ้ามี
-    if 'reconcile' in row and pd.notna(row['reconcile']):
+    # Set reconcile=True for receivable and payable accounts
+    if account_type in ['asset_receivable', 'liability_payable']:
+        account_data['reconcile'] = True
+    elif 'reconcile' in row and pd.notna(row['reconcile']):
         account_data['reconcile'] = bool(row['reconcile'])
 
     # เพิ่มข้อมูล currency_id ถ้ามี
