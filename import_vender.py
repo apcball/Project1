@@ -7,17 +7,21 @@ from typing import Dict, Any
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('vendor_import.log', encoding='utf-8'),
+        logging.StreamHandler()
+    ]
 )
 logger = logging.getLogger(__name__)
 
 # Configuration
 CONFIG = {
-    'url': 'http://mogth.work:8069',
-    'db': 'MOG_DEV',
+    'url': 'http://mogdev.work:8069',
+    'db': 'KYLD_DEV2',  # Changed to match the actual database name
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
-    'excel_path': 'Data_file/vender_import.xlsx'
+    'excel_path': 'Data_file/Vender_import by KYLD.xlsx'
 }
 
 def connect_to_odoo():
@@ -136,18 +140,10 @@ def get_account_id(models, uid, account_identifier, account_type):
 def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     """Clean and prepare vendor data"""
     
-    # Handle company_type and is_company fields
-    is_company_value = row.get('is_company', True)
-    
-    if pd.isna(is_company_value):
-        is_company = True
-    elif isinstance(is_company_value, str):
-        is_company_value = is_company_value.lower().strip()
-        is_company = is_company_value in ['true', '1', 'yes', 'y', 't']
-    elif isinstance(is_company_value, (int, float)):
-        is_company = bool(int(is_company_value))
-    else:
-        is_company = True
+    # Determine if company based on name prefix
+    name = str(row.get('name', '')).strip() if not pd.isna(row.get('name')) else ''
+    is_company = True if name.startswith('บริษัท') else False
+    company_type = 'company' if is_company else 'person'
 
     company_type = 'company' if is_company else 'person'
 
@@ -159,11 +155,10 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     # Get VAT from id tax field
     vat = str(row.get('id tax', '')).strip() if not pd.isna(row.get('id tax')) else False
 
-    # Get partner codes
+    # Get partner code
     partner_code = row.get('partner_code', False)
-    old_partner_code = row.get('old_partner_code', False)
-
-    # Clean partner codes
+    
+    # Clean partner code
     if not pd.isna(partner_code):
         if isinstance(partner_code, (int, float)):
             partner_code = str(int(partner_code))
@@ -171,14 +166,8 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
             partner_code = partner_code.strip()
     else:
         partner_code = False
-
-    if not pd.isna(old_partner_code):
-        if isinstance(old_partner_code, (int, float)):
-            old_partner_code = str(int(old_partner_code))
-        elif isinstance(old_partner_code, str):
-            old_partner_code = old_partner_code.strip()
-    else:
-        old_partner_code = False
+        
+    logger.info(f"Processing partner code: {partner_code}")
 
     # Get currency_id
     currency_id = False
@@ -332,11 +321,62 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
         'liability_payable'
     )
 
+    # Clean contact name
+    contact_name = str(row.get('Contact Name', '')).strip() if not pd.isna(row.get('Contact Name')) else False
+    
+    # Clean phone numbers
+    phone = str(row.get('phone', '')).strip() if not pd.isna(row.get('phone')) else False
+    mobile = str(row.get('mobile', '')).strip() if not pd.isna(row.get('mobile')) else False
+    
+    # Clean VAT (Tax ID)
+    vat = str(row.get('vat = Tex ID', '')).strip() if not pd.isna(row.get('vat = Tex ID')) else False
+    if vat:
+        # Remove any spaces and special characters
+        vat = ''.join(c for c in vat if c.isalnum())
+        # Add 'TH' prefix if not present
+        vat = f"TH{vat}" if not vat.startswith('TH') else vat
+    
+    # Get country ID for Thailand
+    country_id = False
+    country_code = row.get('country_code', 'TH')
+    if not pd.isna(country_code):
+        if isinstance(country_code, (int, float)):
+            # Convert numeric country code to string
+            country_code = str(int(country_code))
+        elif isinstance(country_code, str):
+            country_code = country_code.strip()
+        
+        country_ids = models.execute_kw(
+            CONFIG['db'], uid, CONFIG['password'],
+            'res.country', 'search',
+            [[['code', '=', country_code.upper()]]]
+        )
+        if country_ids:
+            country_id = country_ids[0]
+    
+    # Clean zip code
+    zip_code = str(row.get('zip', '')).strip() if not pd.isna(row.get('zip')) else False
+    if zip_code:
+        # Remove commas from zip code
+        zip_code = zip_code.replace(',', '')
+    
+    # Get payment term
+    property_payment_term_id = False
+    payment_term = row.get('property_payment_term_id', False)
+    if not pd.isna(payment_term) and payment_term:
+        payment_terms = models.execute_kw(
+            CONFIG['db'], uid, CONFIG['password'],
+            'account.payment.term', 'search',
+            [[['name', '=', str(payment_term).strip()]]]
+        )
+        if payment_terms:
+            property_payment_term_id = payment_terms[0]
+    
     # Prepare vendor data
     vendor_data = {
-        'name': str(row.get('name', '')).strip() if not pd.isna(row.get('name')) else False,
-        'partner_code': partner_code,
-        'old_code_partner': old_partner_code,
+        'name': name,
+        'partner_code': partner_code,  # เพิ่ม partner_code
+        'ref': partner_code,  # ใช้ partner_code เป็น ref ด้วย
         'company_type': company_type,
         'is_company': is_company,
         'street': str(row.get('street', '')).strip() if not pd.isna(row.get('street')) else False,
@@ -345,14 +385,11 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
         'zip': zip_code,
         'country_id': country_id,
         'phone': phone,
-        'email': str(row.get('email', '')).strip() if not pd.isna(row.get('email')) else False,
+        'mobile': mobile,
         'vat': vat,
         'supplier_rank': 1,
-        'property_supplier_payment_term_id': property_supplier_payment_term_id,
-        'partner_group': partner_group,
-        'partner_type': partner_type,
-        'office': office,
-        'currency_id': currency_id,
+        'customer_rank': int(row.get('customer_rank', 0)) if not pd.isna(row.get('customer_rank')) else 0,
+        'property_payment_term_id': property_payment_term_id,
         'bank_ids': [(0, 0, {
             'bank_id': bank_id,
             'acc_number': acc_number,
@@ -373,17 +410,17 @@ def process_vendor(vendor_data: Dict[str, Any], models: Any, uid: int) -> None:
         uid: User ID
     """
     try:
-        partner_code = vendor_data.get('partner_code')
-        if not partner_code:
-            logger.warning(f"Skipping vendor {vendor_data['name']} - No partner_code provided")
+        ref = vendor_data.get('ref')
+        if not ref:
+            logger.warning(f"Skipping vendor {vendor_data['name']} - No reference code provided")
             return
 
-        # Search for existing vendor by partner_code
+        # Search for existing vendor by partner_code or ref
         existing_vendor = models.execute_kw(
             CONFIG['db'], uid, CONFIG['password'],
             'res.partner', 'search_read',
-            [[['partner_code', '=', partner_code]]],
-            {'fields': ['id', 'name', 'partner_code']}
+            [['|', ('partner_code', '=', ref), ('ref', '=', ref)]],
+            {'fields': ['id', 'name', 'ref', 'partner_code']}
         )
 
         if existing_vendor:
@@ -412,14 +449,14 @@ def process_vendor(vendor_data: Dict[str, Any], models: Any, uid: int) -> None:
                     'res.partner', 'write',
                     [existing_id, vendor_data]
                 )
-                logger.info(f"Updated existing vendor - Partner Code: {partner_code}, Name: {vendor_data['name']}")
+                logger.info(f"Updated existing vendor - Reference: {ref}, Name: {vendor_data['name']}")
 
                 # Verify the update
                 updated_data = models.execute_kw(
                     CONFIG['db'], uid, CONFIG['password'],
                     'res.partner', 'read',
                     [existing_id],
-                    {'fields': ['name', 'partner_code', 'property_supplier_payment_term_id']}
+                    {'fields': ['name', 'ref', 'property_supplier_payment_term_id']}
                 )
                 
                 # Verify payment term if it was set
@@ -430,17 +467,17 @@ def process_vendor(vendor_data: Dict[str, Any], models: Any, uid: int) -> None:
                         logger.warning(f"Payment term may not have been set correctly for {vendor_data['name']}")
 
             except Exception as update_error:
-                logger.error(f"Error updating vendor {partner_code}: {update_error}")
+                logger.error(f"Error updating vendor {ref}: {update_error}")
                 
         else:
-            # No existing vendor with this partner_code - Create new
+            # No existing vendor with this reference - Create new
             try:
                 new_vendor_id = models.execute_kw(
                     CONFIG['db'], uid, CONFIG['password'],
                     'res.partner', 'create',
                     [vendor_data]
                 )
-                logger.info(f"Created new vendor - Partner Code: {partner_code}, Name: {vendor_data['name']}, ID: {new_vendor_id}")
+                logger.info(f"Created new vendor - Reference: {ref}, Name: {vendor_data['name']}, ID: {new_vendor_id}")
 
                 # Verify the creation and payment term
                 if vendor_data.get('property_supplier_payment_term_id'):
@@ -456,14 +493,61 @@ def process_vendor(vendor_data: Dict[str, Any], models: Any, uid: int) -> None:
                         logger.warning(f"Payment term may not have been set correctly for {vendor_data['name']}")
 
             except Exception as create_error:
-                logger.error(f"Error creating new vendor {partner_code}: {create_error}")
+                logger.error(f"Error creating new vendor {ref}: {create_error}")
 
     except Exception as e:
         logger.error(f"Error processing vendor {vendor_data.get('name', 'Unknown')}: {e}")
 
+def ensure_partner_code_field(models, uid):
+    """Ensure partner_code field exists in res.partner model"""
+    try:
+        # Check if field exists
+        fields_data = models.execute_kw(
+            CONFIG['db'], uid, CONFIG['password'],
+            'ir.model.fields', 'search_read',
+            [[['model', '=', 'res.partner'], ['name', '=', 'partner_code']]],
+            {'fields': ['id', 'name']}
+        )
+        
+        if not fields_data:
+            # Create the field if it doesn't exist
+            field_data = {
+                'name': 'partner_code',
+                'field_description': 'Partner Code',
+                'model': 'res.partner',
+                'model_id': models.execute_kw(
+                    CONFIG['db'], uid, CONFIG['password'],
+                    'ir.model', 'search',
+                    [[['model', '=', 'res.partner']]]
+                )[0],
+                'ttype': 'char',
+                'state': 'manual',
+                'required': False,
+                'index': True,
+                'store': True,
+                'copied': True
+            }
+            
+            models.execute_kw(
+                CONFIG['db'], uid, CONFIG['password'],
+                'ir.model.fields', 'create',
+                [field_data]
+            )
+            logger.info("Created partner_code field in res.partner model")
+        else:
+            logger.info("partner_code field already exists in res.partner model")
+            
+    except Exception as e:
+        logger.error(f"Error ensuring partner_code field: {e}")
+        sys.exit(1)
+
 def main():
     """Main execution function"""
     uid, models = connect_to_odoo()
+    
+    # Ensure partner_code field exists
+    ensure_partner_code_field(models, uid)
+    
     df = read_excel_file(CONFIG['excel_path'])
 
     for index, row in df.iterrows():

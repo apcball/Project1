@@ -1,0 +1,621 @@
+2025-07-14 10:30:30,062 - ERROR - Connection error: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/modules/registry.py", line 87, in __new__\n    return cls.registries[db_name]\n           ~~~~~~~~~~~~~~^^^^^^^^^\n  File "/opt/instance1/odoo17-venv/lib/python3.12/site-packages/decorator.py", line 232, in fun\n    return caller(func, *(extras + args), **kw)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/tools/func.py", line 87, in locked\n    return func(inst, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/tools/lru.py", line 34, in __getitem__\n    a = self.d[obj]\n        ~~~~~~^^^^^\nKeyError: \'kyld_dev\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/common.py", line 56, in dispatch\n    return g[exp_method_name](*params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/common.py", line 25, in exp_authenticate\n    res_users = odoo.registry(db)[\'res.users\']\n                ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/__init__.py", line 106, in registry\n    return modules.registry.Registry(database_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/modules/registry.py", line 89, in __new__\n    return cls.new(db_name)\n           ^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17-venv/lib/python3.12/site-packages/decorator.py", line 232, in fun\n    return caller(func, *(extras + args), **kw)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/tools/func.py", line 87, in locked\n    return func(inst, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/modules/registry.py", line 97, in new\n    registry.init(db_name)\n  File "/opt/instance1/odoo17/odoo/modules/registry.py", line 178, in init\n    with closing(self.cursor()) as cr:\n                 ^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/modules/registry.py", line 946, in cursor\n    return self._db.cursor()\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/sql_db.py", line 753, in cursor\n    return Cursor(self.__pool, self.__dbname, self.__dsn)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/sql_db.py", line 267, in __init__\n    self._cnx = pool.borrow(dsn)\n                ^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17-venv/lib/python3.12/site-packages/decorator.py", line 232, in fun\n    return caller(func, *(extras + args), **kw)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/tools/func.py", line 87, in locked\n    return func(inst, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/sql_db.py", line 682, in borrow\n    result = psycopg2.connect(\n             ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17-venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect\n    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npsycopg2.OperationalError: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "kyld_dev" does not exist\n\n'>
+2025-07-14 10:31:22,199 - INFO - Authentication successful, uid = 2
+2025-07-14 10:31:22,843 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-07-14 10:31:22,844 - WARNING - Could not find currency: False
+2025-07-14 10:31:22,933 - INFO - Found country: Thailand
+2025-07-14 10:32:52,832 - INFO - Authentication successful, uid = 2
+2025-07-14 10:32:53,500 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-07-14 10:32:53,501 - WARNING - Could not find currency: False
+2025-07-14 10:32:53,596 - INFO - Found country: Thailand
+2025-07-14 10:32:53,839 - ERROR - Error creating new vendor V0001: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/models.py", line 6016, in _update_cache\n    field_values = [(fields[name], value) for name, value in values.items() if name != \'id\']\n                     ~~~~~~^^^^^^\nKeyError: \'contact_name\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 466, in call_kw\n    result = _call_kw_model_create(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 444, in _call_kw_model_create\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-114>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 414, in _model_create_multi\n    return create(self, [arg])\n           ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/account/models/partner.py", line 733, in create\n    return super().create(vals_list)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-101>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/partner_autocomplete/models/res_partner.py", line 212, in create\n    partners = super(ResPartner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-22>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/models/res_partner.py", line 752, in create\n    partners = super(Partner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-49>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mail/models/mail_thread.py", line 259, in create\n    threads = super(MailThread, self).create(vals_list)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-0>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4565, in create\n    new_vals_list = self._prepare_create_values(vals_list)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4732, in _prepare_create_values\n    self._add_precomputed_values(result_vals_list)\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in _add_precomputed_values\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in <genexpr>\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n                                     ^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 6456, in new\n    record._update_cache(values, validate=False)\n  File "/opt/instance1/odoo17/odoo/models.py", line 6018, in _update_cache\n    raise ValueError("Invalid field %r on model %r" % (e.args[0], self._name))\nValueError: Invalid field \'contact_name\' on model \'res.partner\'\n'>
+2025-07-14 10:32:53,844 - WARNING - Could not find currency: False
+2025-07-14 10:32:53,949 - INFO - Found country: Thailand
+2025-07-14 10:32:54,123 - ERROR - Error creating new vendor V0002: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/models.py", line 6016, in _update_cache\n    field_values = [(fields[name], value) for name, value in values.items() if name != \'id\']\n                     ~~~~~~^^^^^^\nKeyError: \'contact_name\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 466, in call_kw\n    result = _call_kw_model_create(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 444, in _call_kw_model_create\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-114>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 414, in _model_create_multi\n    return create(self, [arg])\n           ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/account/models/partner.py", line 733, in create\n    return super().create(vals_list)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-101>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/partner_autocomplete/models/res_partner.py", line 212, in create\n    partners = super(ResPartner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-22>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/models/res_partner.py", line 752, in create\n    partners = super(Partner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-49>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mail/models/mail_thread.py", line 259, in create\n    threads = super(MailThread, self).create(vals_list)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-0>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4565, in create\n    new_vals_list = self._prepare_create_values(vals_list)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4732, in _prepare_create_values\n    self._add_precomputed_values(result_vals_list)\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in _add_precomputed_values\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in <genexpr>\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n                                     ^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 6456, in new\n    record._update_cache(values, validate=False)\n  File "/opt/instance1/odoo17/odoo/models.py", line 6018, in _update_cache\n    raise ValueError("Invalid field %r on model %r" % (e.args[0], self._name))\nValueError: Invalid field \'contact_name\' on model \'res.partner\'\n'>
+2025-07-14 10:32:54,125 - WARNING - Could not find currency: False
+2025-07-14 10:32:54,216 - INFO - Found country: Thailand
+2025-07-14 10:32:54,372 - ERROR - Error creating new vendor V0003: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/models.py", line 6016, in _update_cache\n    field_values = [(fields[name], value) for name, value in values.items() if name != \'id\']\n                     ~~~~~~^^^^^^\nKeyError: \'contact_name\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 466, in call_kw\n    result = _call_kw_model_create(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 444, in _call_kw_model_create\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-114>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 414, in _model_create_multi\n    return create(self, [arg])\n           ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/account/models/partner.py", line 733, in create\n    return super().create(vals_list)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-101>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/partner_autocomplete/models/res_partner.py", line 212, in create\n    partners = super(ResPartner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-22>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/models/res_partner.py", line 752, in create\n    partners = super(Partner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-49>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mail/models/mail_thread.py", line 259, in create\n    threads = super(MailThread, self).create(vals_list)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-0>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4565, in create\n    new_vals_list = self._prepare_create_values(vals_list)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4732, in _prepare_create_values\n    self._add_precomputed_values(result_vals_list)\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in _add_precomputed_values\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in <genexpr>\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n                                     ^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 6456, in new\n    record._update_cache(values, validate=False)\n  File "/opt/instance1/odoo17/odoo/models.py", line 6018, in _update_cache\n    raise ValueError("Invalid field %r on model %r" % (e.args[0], self._name))\nValueError: Invalid field \'contact_name\' on model \'res.partner\'\n'>
+2025-07-14 10:32:54,375 - WARNING - Could not find currency: False
+2025-07-14 10:32:54,473 - INFO - Found country: Thailand
+2025-07-14 10:32:54,636 - ERROR - Error creating new vendor V0004: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/models.py", line 6016, in _update_cache\n    field_values = [(fields[name], value) for name, value in values.items() if name != \'id\']\n                     ~~~~~~^^^^^^\nKeyError: \'contact_name\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 466, in call_kw\n    result = _call_kw_model_create(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 444, in _call_kw_model_create\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-114>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 414, in _model_create_multi\n    return create(self, [arg])\n           ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/account/models/partner.py", line 733, in create\n    return super().create(vals_list)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-101>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/partner_autocomplete/models/res_partner.py", line 212, in create\n    partners = super(ResPartner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-22>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/models/res_partner.py", line 752, in create\n    partners = super(Partner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-49>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mail/models/mail_thread.py", line 259, in create\n    threads = super(MailThread, self).create(vals_list)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-0>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4565, in create\n    new_vals_list = self._prepare_create_values(vals_list)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4732, in _prepare_create_values\n    self._add_precomputed_values(result_vals_list)\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in _add_precomputed_values\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in <genexpr>\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n                                     ^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 6456, in new\n    record._update_cache(values, validate=False)\n  File "/opt/instance1/odoo17/odoo/models.py", line 6018, in _update_cache\n    raise ValueError("Invalid field %r on model %r" % (e.args[0], self._name))\nValueError: Invalid field \'contact_name\' on model \'res.partner\'\n'>
+2025-07-14 10:32:54,637 - WARNING - Could not find currency: False
+2025-07-14 10:32:54,745 - INFO - Found country: Thailand
+2025-07-14 10:32:54,982 - ERROR - Error creating new vendor V0005: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/models.py", line 6016, in _update_cache\n    field_values = [(fields[name], value) for name, value in values.items() if name != \'id\']\n                     ~~~~~~^^^^^^\nKeyError: \'contact_name\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 466, in call_kw\n    result = _call_kw_model_create(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 444, in _call_kw_model_create\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-114>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 414, in _model_create_multi\n    return create(self, [arg])\n           ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/account/models/partner.py", line 733, in create\n    return super().create(vals_list)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-101>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/partner_autocomplete/models/res_partner.py", line 212, in create\n    partners = super(ResPartner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-22>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/models/res_partner.py", line 752, in create\n    partners = super(Partner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-49>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mail/models/mail_thread.py", line 259, in create\n    threads = super(MailThread, self).create(vals_list)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-0>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4565, in create\n    new_vals_list = self._prepare_create_values(vals_list)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4732, in _prepare_create_values\n    self._add_precomputed_values(result_vals_list)\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in _add_precomputed_values\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in <genexpr>\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n                                     ^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 6456, in new\n    record._update_cache(values, validate=False)\n  File "/opt/instance1/odoo17/odoo/models.py", line 6018, in _update_cache\n    raise ValueError("Invalid field %r on model %r" % (e.args[0], self._name))\nValueError: Invalid field \'contact_name\' on model \'res.partner\'\n'>
+2025-07-14 10:32:54,984 - WARNING - Could not find currency: False
+2025-07-14 10:32:55,089 - INFO - Found country: Thailand
+2025-07-14 10:32:55,245 - ERROR - Error creating new vendor V0006: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/models.py", line 6016, in _update_cache\n    field_values = [(fields[name], value) for name, value in values.items() if name != \'id\']\n                     ~~~~~~^^^^^^\nKeyError: \'contact_name\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 466, in call_kw\n    result = _call_kw_model_create(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 444, in _call_kw_model_create\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-114>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 414, in _model_create_multi\n    return create(self, [arg])\n           ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/account/models/partner.py", line 733, in create\n    return super().create(vals_list)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-101>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/partner_autocomplete/models/res_partner.py", line 212, in create\n    partners = super(ResPartner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-22>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/models/res_partner.py", line 752, in create\n    partners = super(Partner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-49>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mail/models/mail_thread.py", line 259, in create\n    threads = super(MailThread, self).create(vals_list)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-0>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4565, in create\n    new_vals_list = self._prepare_create_values(vals_list)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4732, in _prepare_create_values\n    self._add_precomputed_values(result_vals_list)\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in _add_precomputed_values\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in <genexpr>\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n                                     ^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 6456, in new\n    record._update_cache(values, validate=False)\n  File "/opt/instance1/odoo17/odoo/models.py", line 6018, in _update_cache\n    raise ValueError("Invalid field %r on model %r" % (e.args[0], self._name))\nValueError: Invalid field \'contact_name\' on model \'res.partner\'\n'>
+2025-07-14 10:32:55,246 - WARNING - Could not find currency: False
+2025-07-14 10:33:09,832 - INFO - Authentication successful, uid = 2
+2025-07-14 10:33:10,414 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-07-14 10:33:10,415 - WARNING - Could not find currency: False
+2025-07-14 10:33:10,507 - INFO - Found country: Thailand
+2025-07-14 10:33:10,671 - ERROR - Error creating new vendor V0001: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/models.py", line 6016, in _update_cache\n    field_values = [(fields[name], value) for name, value in values.items() if name != \'id\']\n                     ~~~~~~^^^^^^\nKeyError: \'contact_name\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 466, in call_kw\n    result = _call_kw_model_create(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 444, in _call_kw_model_create\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-114>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 414, in _model_create_multi\n    return create(self, [arg])\n           ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/account/models/partner.py", line 733, in create\n    return super().create(vals_list)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-101>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/partner_autocomplete/models/res_partner.py", line 212, in create\n    partners = super(ResPartner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-22>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/models/res_partner.py", line 752, in create\n    partners = super(Partner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-49>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mail/models/mail_thread.py", line 259, in create\n    threads = super(MailThread, self).create(vals_list)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-0>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4565, in create\n    new_vals_list = self._prepare_create_values(vals_list)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4732, in _prepare_create_values\n    self._add_precomputed_values(result_vals_list)\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in _add_precomputed_values\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in <genexpr>\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n                                     ^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 6456, in new\n    record._update_cache(values, validate=False)\n  File "/opt/instance1/odoo17/odoo/models.py", line 6018, in _update_cache\n    raise ValueError("Invalid field %r on model %r" % (e.args[0], self._name))\nValueError: Invalid field \'contact_name\' on model \'res.partner\'\n'>
+2025-07-14 10:33:10,672 - WARNING - Could not find currency: False
+2025-07-14 10:33:10,750 - INFO - Found country: Thailand
+2025-07-14 10:33:10,937 - ERROR - Error creating new vendor V0002: <Fault 1: 'Traceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/models.py", line 6016, in _update_cache\n    field_values = [(fields[name], value) for name, value in values.items() if name != \'id\']\n                     ~~~~~~^^^^^^\nKeyError: \'contact_name\'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 147, in xmlrpc_2\n    response = self._xmlrpc(service)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/controllers/rpc.py", line 127, in _xmlrpc\n    result = dispatch_rpc(service, method, params)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/http.py", line 389, in dispatch_rpc\n    return dispatch(method, params)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 37, in dispatch\n    res = execute_kw(db, uid, *params[3:])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 59, in execute_kw\n    return execute(db, uid, obj, method, *args, **kw or {})\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 65, in execute\n    res = execute_cr(cr, uid, obj, method, *args, **kw)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 50, in execute_cr\n    result = retrying(partial(odoo.api.call_kw, recs, method, args, kw), env)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/service/model.py", line 133, in retrying\n    result = func()\n             ^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 466, in call_kw\n    result = _call_kw_model_create(method, model, args, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/api.py", line 444, in _call_kw_model_create\n    result = method(recs, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-114>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 414, in _model_create_multi\n    return create(self, [arg])\n           ^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/account/models/partner.py", line 733, in create\n    return super().create(vals_list)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-101>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/partner_autocomplete/models/res_partner.py", line 212, in create\n    partners = super(ResPartner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-22>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/addons/base/models/res_partner.py", line 752, in create\n    partners = super(Partner, self).create(vals_list)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-49>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/addons/mail/models/mail_thread.py", line 259, in create\n    threads = super(MailThread, self).create(vals_list)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<decorator-gen-0>", line 2, in create\n  File "/opt/instance1/odoo17/odoo/api.py", line 415, in _model_create_multi\n    return create(self, arg)\n           ^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4565, in create\n    new_vals_list = self._prepare_create_values(vals_list)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4732, in _prepare_create_values\n    self._add_precomputed_values(result_vals_list)\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in _add_precomputed_values\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 4760, in <genexpr>\n    records = self.browse().concat(*(self.new(vals) for vals in vals_list_todo))\n                                     ^^^^^^^^^^^^^^\n  File "/opt/instance1/odoo17/odoo/models.py", line 6456, in new\n    record._update_cache(values, validate=False)\n  File "/opt/instance1/odoo17/odoo/models.py", line 6018, in _update_cache\n    raise ValueError("Invalid field %r on model %r" % (e.args[0], self._name))\nValueError: Invalid field \'contact_name\' on model \'res.partner\'\n'>
+2025-07-14 10:33:10,939 - WARNING - Could not find currency: False
+2025-07-14 10:33:11,031 - INFO - Found country: Thailand
+2025-07-14 10:33:57,841 - INFO - Authentication successful, uid = 2
+2025-07-14 10:33:58,448 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-07-14 10:33:58,449 - WARNING - Could not find currency: False
+2025-07-14 10:33:58,539 - INFO - Found country: Thailand
+2025-07-14 10:33:58,913 - INFO - Created new vendor - Reference: V0001, Name: บริษัท โคราชการไฟฟ้า (2539) จำกัด, ID: 183
+2025-07-14 10:33:58,915 - WARNING - Could not find currency: False
+2025-07-14 10:33:59,020 - INFO - Found country: Thailand
+2025-07-14 10:33:59,304 - INFO - Created new vendor - Reference: V0002, Name: นาย ธนายุทธ ชนะบำรุง, ID: 184
+2025-07-14 10:33:59,306 - WARNING - Could not find currency: False
+2025-07-14 10:33:59,403 - INFO - Found country: Thailand
+2025-07-14 10:33:59,663 - INFO - Created new vendor - Reference: V0003, Name: บริษัท พาคอน พรีแคสเตอร์ จำกัด, ID: 185
+2025-07-14 10:33:59,663 - WARNING - Could not find currency: False
+2025-07-14 10:33:59,750 - INFO - Found country: Thailand
+2025-07-14 10:33:59,928 - INFO - Created new vendor - Reference: V0004, Name: บริษัท พรีคอน (ประเทศไทย) จำกัด, ID: 186
+2025-07-14 10:33:59,929 - WARNING - Could not find currency: False
+2025-07-14 10:34:00,014 - INFO - Found country: Thailand
+2025-07-14 10:34:00,354 - INFO - Created new vendor - Reference: V0005, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด สำนักงานใหญ่, ID: 187
+2025-07-14 10:34:00,355 - WARNING - Could not find currency: False
+2025-07-14 10:34:00,461 - INFO - Found country: Thailand
+2025-07-14 10:34:00,710 - INFO - Created new vendor - Reference: V0006, Name: ร้าน ไพฑูลย์ค้าวัสดุก่อสร้าง, ID: 188
+2025-07-14 10:34:00,712 - WARNING - Could not find currency: False
+2025-07-14 10:34:00,822 - INFO - Found country: Thailand
+2025-07-14 10:34:01,021 - INFO - Created new vendor - Reference: V0007, Name: บริษัท ยูโร สตีล จำกัด, ID: 189
+2025-07-14 10:34:01,022 - WARNING - Could not find currency: False
+2025-07-14 10:34:01,127 - INFO - Found country: Thailand
+2025-07-14 10:34:01,432 - INFO - Created new vendor - Reference: V0008, Name: บริษัท ยิ่งเจริญ โฮมมาร์ท ปากช่อง จำกัด, ID: 190
+2025-07-14 10:34:01,434 - WARNING - Could not find currency: False
+2025-07-14 10:34:01,555 - INFO - Found country: Thailand
+2025-07-14 10:34:01,773 - INFO - Created new vendor - Reference: V0009, Name: นาย ธีรดณย์  สุภาลี, ID: 191
+2025-07-14 10:34:01,776 - WARNING - Could not find currency: False
+2025-07-14 10:34:01,854 - INFO - Found country: Thailand
+2025-07-14 10:34:02,063 - INFO - Created new vendor - Reference: V0010, Name: บริษัท มหาราช คอนกรีต จำกัด สำนักงานใหญ่, ID: 192
+2025-07-14 10:34:02,065 - WARNING - Could not find currency: False
+2025-07-14 10:34:02,162 - INFO - Found country: Thailand
+2025-07-14 10:34:02,422 - INFO - Created new vendor - Reference: V0011, Name: บริษัท ไทย มาชิตะ โฮลดิ้ง จำกัด, ID: 193
+2025-07-14 10:34:02,425 - WARNING - Could not find currency: False
+2025-07-14 10:34:02,534 - INFO - Found country: Thailand
+2025-07-14 10:42:35,334 - INFO - Authentication successful, uid = 2
+2025-07-14 10:42:35,982 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-07-14 10:42:35,983 - WARNING - Could not find currency: False
+2025-07-14 10:42:37,314 - INFO - Found country: Thailand
+2025-07-14 10:42:37,635 - INFO - Created new vendor - Reference: V0001, Name: บริษัท โคราชการไฟฟ้า (2539) จำกัด, ID: 195
+2025-07-14 10:42:37,637 - WARNING - Could not find currency: False
+2025-07-14 10:42:37,724 - INFO - Found country: Thailand
+2025-07-14 10:42:37,940 - INFO - Created new vendor - Reference: V0002, Name: นาย ธนายุทธ ชนะบำรุง, ID: 196
+2025-07-14 10:42:37,942 - WARNING - Could not find currency: False
+2025-07-14 10:42:38,025 - INFO - Found country: Thailand
+2025-07-14 10:42:38,254 - INFO - Created new vendor - Reference: V0003, Name: บริษัท พาคอน พรีแคสเตอร์ จำกัด, ID: 197
+2025-07-14 10:42:38,255 - WARNING - Could not find currency: False
+2025-07-14 10:42:38,340 - INFO - Found country: Thailand
+2025-07-14 10:42:38,554 - INFO - Created new vendor - Reference: V0004, Name: บริษัท พรีคอน (ประเทศไทย) จำกัด, ID: 198
+2025-07-14 10:42:38,556 - WARNING - Could not find currency: False
+2025-07-14 10:42:38,646 - INFO - Found country: Thailand
+2025-07-14 10:42:38,939 - INFO - Created new vendor - Reference: V0005, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด สำนักงานใหญ่, ID: 199
+2025-07-14 10:42:38,940 - WARNING - Could not find currency: False
+2025-07-14 10:42:39,035 - INFO - Found country: Thailand
+2025-07-14 10:42:39,315 - INFO - Created new vendor - Reference: V0006, Name: ร้าน ไพฑูลย์ค้าวัสดุก่อสร้าง, ID: 200
+2025-07-14 10:42:39,315 - WARNING - Could not find currency: False
+2025-07-14 10:42:39,421 - INFO - Found country: Thailand
+2025-07-14 10:42:39,667 - INFO - Created new vendor - Reference: V0007, Name: บริษัท ยูโร สตีล จำกัด, ID: 201
+2025-07-14 10:42:39,669 - WARNING - Could not find currency: False
+2025-07-14 10:42:39,766 - INFO - Found country: Thailand
+2025-07-14 10:42:40,130 - INFO - Created new vendor - Reference: V0008, Name: บริษัท ยิ่งเจริญ โฮมมาร์ท ปากช่อง จำกัด, ID: 202
+2025-07-14 10:42:40,133 - WARNING - Could not find currency: False
+2025-07-14 10:42:40,224 - INFO - Found country: Thailand
+2025-07-14 10:42:40,409 - INFO - Created new vendor - Reference: V0009, Name: นาย ธีรดณย์  สุภาลี, ID: 203
+2025-07-14 10:42:40,410 - WARNING - Could not find currency: False
+2025-07-14 10:42:40,495 - INFO - Found country: Thailand
+2025-07-14 10:42:40,734 - INFO - Created new vendor - Reference: V0010, Name: บริษัท มหาราช คอนกรีต จำกัด สำนักงานใหญ่, ID: 204
+2025-07-14 10:42:40,736 - WARNING - Could not find currency: False
+2025-07-14 10:42:40,837 - INFO - Found country: Thailand
+2025-07-14 10:42:41,097 - INFO - Created new vendor - Reference: V0011, Name: บริษัท ไทย มาชิตะ โฮลดิ้ง จำกัด, ID: 205
+2025-07-14 10:42:41,098 - WARNING - Could not find currency: False
+2025-07-14 10:42:41,192 - INFO - Found country: Thailand
+2025-07-14 10:42:41,417 - INFO - Created new vendor - Reference: V0012, Name: บริษัท โมเก้น จำกัด, ID: 206
+2025-07-14 10:42:41,418 - WARNING - Could not find currency: False
+2025-07-14 10:42:41,503 - INFO - Found country: Thailand
+2025-07-14 10:42:41,699 - INFO - Created new vendor - Reference: V0013, Name: บริษัท โรมัน แอนด์ วินเทจ โปรดักส์ จำกัด, ID: 207
+2025-07-14 10:42:41,700 - WARNING - Could not find currency: False
+2025-07-14 10:42:41,833 - INFO - Found country: Thailand
+2025-07-14 10:42:42,098 - INFO - Created new vendor - Reference: V0014, Name: นาย ทวีชัย สิทธิภา, ID: 208
+2025-07-14 10:42:42,100 - WARNING - Could not find currency: False
+2025-07-14 10:42:42,199 - INFO - Found country: Thailand
+2025-07-14 10:42:42,426 - INFO - Created new vendor - Reference: V0015, Name: ร้าน อาร์ซีแบบเหล็ก, ID: 209
+2025-07-14 10:42:42,427 - WARNING - Could not find currency: False
+2025-07-14 10:42:42,516 - INFO - Found country: Thailand
+2025-07-14 10:42:42,769 - INFO - Created new vendor - Reference: V0016, Name: บริษัท ดี สแควร์ กรุ๊ป จำกัด, ID: 210
+2025-07-14 10:42:42,769 - WARNING - Could not find currency: False
+2025-07-14 10:47:00,849 - INFO - Authentication successful, uid = 2
+2025-07-14 10:47:00,891 - INFO - partner_code field already exists in res.partner model
+2025-07-14 10:47:01,502 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-07-14 10:47:01,502 - INFO - Processing partner code: V0001
+2025-07-14 10:47:01,503 - WARNING - Could not find currency: False
+2025-07-14 10:47:01,581 - INFO - Found country: Thailand
+2025-07-14 10:47:01,816 - INFO - Created new vendor - Reference: V0001, Name: บริษัท โคราชการไฟฟ้า (2539) จำกัด, ID: 211
+2025-07-14 10:47:01,819 - INFO - Processing partner code: V0002
+2025-07-14 10:47:01,821 - WARNING - Could not find currency: False
+2025-07-14 10:47:01,912 - INFO - Found country: Thailand
+2025-07-14 10:47:02,146 - INFO - Created new vendor - Reference: V0002, Name: นาย ธนายุทธ ชนะบำรุง, ID: 212
+2025-07-14 10:47:02,146 - INFO - Processing partner code: V0003
+2025-07-14 10:47:02,147 - WARNING - Could not find currency: False
+2025-07-14 10:47:02,230 - INFO - Found country: Thailand
+2025-07-14 10:47:02,401 - INFO - Created new vendor - Reference: V0003, Name: บริษัท พาคอน พรีแคสเตอร์ จำกัด, ID: 213
+2025-07-14 10:47:02,402 - INFO - Processing partner code: V0004
+2025-07-14 10:47:02,402 - WARNING - Could not find currency: False
+2025-07-14 10:47:02,485 - INFO - Found country: Thailand
+2025-07-14 10:47:02,668 - INFO - Created new vendor - Reference: V0004, Name: บริษัท พรีคอน (ประเทศไทย) จำกัด, ID: 214
+2025-07-14 10:47:02,669 - INFO - Processing partner code: V0005
+2025-07-14 10:47:02,670 - WARNING - Could not find currency: False
+2025-07-14 10:47:02,752 - INFO - Found country: Thailand
+2025-07-14 10:47:03,069 - INFO - Created new vendor - Reference: V0005, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด สำนักงานใหญ่, ID: 215
+2025-07-14 10:47:03,072 - INFO - Processing partner code: V0006
+2025-07-14 10:47:03,073 - WARNING - Could not find currency: False
+2025-07-14 10:52:01,210 - INFO - Authentication successful, uid = 2
+2025-07-14 10:52:01,269 - INFO - partner_code field already exists in res.partner model
+2025-07-14 10:52:01,865 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-07-14 10:52:01,866 - INFO - Processing partner code: V0001
+2025-07-14 10:52:01,866 - WARNING - Could not find currency: False
+2025-07-14 10:52:01,945 - INFO - Found country: Thailand
+2025-07-14 10:52:02,191 - INFO - Created new vendor - Reference: V0001, Name: บริษัท โคราชการไฟฟ้า (2539) จำกัด, ID: 216
+2025-07-14 10:52:02,191 - INFO - Processing partner code: V0002
+2025-07-14 10:52:02,192 - WARNING - Could not find currency: False
+2025-07-14 10:52:02,292 - INFO - Found country: Thailand
+2025-07-14 10:52:02,537 - INFO - Created new vendor - Reference: V0002, Name: นาย ธนายุทธ ชนะบำรุง, ID: 217
+2025-07-14 10:52:02,538 - INFO - Processing partner code: V0003
+2025-07-14 10:52:02,538 - WARNING - Could not find currency: False
+2025-07-14 10:52:02,627 - INFO - Found country: Thailand
+2025-07-14 10:52:02,895 - INFO - Created new vendor - Reference: V0003, Name: บริษัท พาคอน พรีแคสเตอร์ จำกัด, ID: 218
+2025-07-14 10:52:02,896 - INFO - Processing partner code: V0004
+2025-07-14 10:52:02,897 - WARNING - Could not find currency: False
+2025-07-14 10:52:03,001 - INFO - Found country: Thailand
+2025-07-14 10:52:03,281 - INFO - Created new vendor - Reference: V0004, Name: บริษัท พรีคอน (ประเทศไทย) จำกัด, ID: 219
+2025-07-14 10:52:03,283 - INFO - Processing partner code: V0005
+2025-07-14 10:52:03,284 - WARNING - Could not find currency: False
+2025-07-14 10:52:03,384 - INFO - Found country: Thailand
+2025-07-14 10:52:03,686 - INFO - Created new vendor - Reference: V0005, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด สำนักงานใหญ่, ID: 220
+2025-07-14 10:52:03,688 - INFO - Processing partner code: V0006
+2025-07-14 10:52:03,689 - WARNING - Could not find currency: False
+2025-07-14 10:52:03,794 - INFO - Found country: Thailand
+2025-07-14 10:52:04,065 - INFO - Created new vendor - Reference: V0006, Name: ร้าน ไพฑูลย์ค้าวัสดุก่อสร้าง, ID: 221
+2025-07-14 10:52:04,067 - INFO - Processing partner code: V0007
+2025-07-14 10:52:04,068 - WARNING - Could not find currency: False
+2025-07-14 10:52:04,167 - INFO - Found country: Thailand
+2025-07-14 10:52:04,424 - INFO - Created new vendor - Reference: V0007, Name: บริษัท ยูโร สตีล จำกัด, ID: 222
+2025-07-14 10:52:04,425 - INFO - Processing partner code: V0008
+2025-07-14 10:52:04,425 - WARNING - Could not find currency: False
+2025-07-14 10:52:04,524 - INFO - Found country: Thailand
+2025-07-14 10:52:04,871 - INFO - Created new vendor - Reference: V0008, Name: บริษัท ยิ่งเจริญ โฮมมาร์ท ปากช่อง จำกัด, ID: 223
+2025-07-14 10:52:04,871 - INFO - Processing partner code: V0009
+2025-07-14 10:52:04,872 - WARNING - Could not find currency: False
+2025-07-14 10:52:04,965 - INFO - Found country: Thailand
+2025-07-14 10:52:05,205 - INFO - Created new vendor - Reference: V0009, Name: นาย ธีรดณย์  สุภาลี, ID: 224
+2025-07-14 10:52:05,205 - INFO - Processing partner code: V0010
+2025-07-14 10:52:05,206 - WARNING - Could not find currency: False
+2025-07-14 10:52:05,287 - INFO - Found country: Thailand
+2025-07-14 10:52:05,545 - INFO - Created new vendor - Reference: V0010, Name: บริษัท มหาราช คอนกรีต จำกัด สำนักงานใหญ่, ID: 225
+2025-07-14 10:52:05,546 - INFO - Processing partner code: V0011
+2025-07-14 10:52:05,546 - WARNING - Could not find currency: False
+2025-07-14 10:52:05,643 - INFO - Found country: Thailand
+2025-07-14 10:52:05,888 - INFO - Created new vendor - Reference: V0011, Name: บริษัท ไทย มาชิตะ โฮลดิ้ง จำกัด, ID: 226
+2025-07-14 10:52:05,889 - INFO - Processing partner code: V0012
+2025-07-14 10:52:05,889 - WARNING - Could not find currency: False
+2025-07-14 10:52:05,967 - INFO - Found country: Thailand
+2025-07-14 10:52:06,186 - INFO - Created new vendor - Reference: V0012, Name: บริษัท โมเก้น จำกัด, ID: 227
+2025-07-14 10:52:06,187 - INFO - Processing partner code: V0013
+2025-07-14 10:52:06,187 - WARNING - Could not find currency: False
+2025-07-14 10:52:06,269 - INFO - Found country: Thailand
+2025-07-14 10:52:06,552 - INFO - Created new vendor - Reference: V0013, Name: บริษัท โรมัน แอนด์ วินเทจ โปรดักส์ จำกัด, ID: 228
+2025-07-14 10:52:06,553 - INFO - Processing partner code: V0014
+2025-07-14 10:52:06,553 - WARNING - Could not find currency: False
+2025-07-14 10:52:06,670 - INFO - Found country: Thailand
+2025-07-14 10:52:06,894 - INFO - Created new vendor - Reference: V0014, Name: นาย ทวีชัย สิทธิภา, ID: 229
+2025-07-14 10:52:06,895 - INFO - Processing partner code: V0015
+2025-07-14 10:52:06,895 - WARNING - Could not find currency: False
+2025-07-14 10:52:06,978 - INFO - Found country: Thailand
+2025-07-14 10:52:07,216 - INFO - Created new vendor - Reference: V0015, Name: ร้าน อาร์ซีแบบเหล็ก, ID: 230
+2025-07-14 10:52:07,217 - INFO - Processing partner code: V0016
+2025-07-14 10:52:07,217 - WARNING - Could not find currency: False
+2025-07-14 10:52:07,332 - INFO - Found country: Thailand
+2025-07-14 10:52:07,548 - INFO - Created new vendor - Reference: V0016, Name: บริษัท ดี สแควร์ กรุ๊ป จำกัด, ID: 231
+2025-07-14 10:52:07,549 - INFO - Processing partner code: V0017
+2025-07-14 10:52:07,549 - WARNING - Could not find currency: False
+2025-07-14 10:52:07,636 - INFO - Found country: Thailand
+2025-07-14 10:52:07,902 - INFO - Created new vendor - Reference: V0017, Name: บริษัท พงศ์เพชรคลังวัสดุก่อสร้าง จำกัด, ID: 232
+2025-07-14 10:52:07,904 - INFO - Processing partner code: V0018
+2025-07-14 10:52:07,905 - WARNING - Could not find currency: False
+2025-07-14 10:52:08,001 - INFO - Found country: Thailand
+2025-07-14 10:52:08,279 - INFO - Created new vendor - Reference: V0018, Name: ร้าน เด่นชัยอลูมิเนียม, ID: 233
+2025-07-14 10:52:08,280 - INFO - Processing partner code: V0019
+2025-07-14 10:52:08,280 - WARNING - Could not find currency: False
+2025-07-14 10:52:08,379 - INFO - Found country: Thailand
+2025-07-14 10:52:08,628 - INFO - Created new vendor - Reference: V0019, Name: นาย สมชาย ช้างหน่าย, ID: 234
+2025-07-14 10:52:08,629 - INFO - Processing partner code: V0020
+2025-07-14 10:52:08,629 - WARNING - Could not find currency: False
+2025-07-14 10:52:08,732 - INFO - Found country: Thailand
+2025-07-14 10:52:08,955 - INFO - Created new vendor - Reference: V0020, Name: สวนชัชวาลพันธุ์ไม้, ID: 235
+2025-07-14 10:52:08,956 - INFO - Processing partner code: V0021
+2025-07-14 10:52:08,957 - WARNING - Could not find currency: False
+2025-07-14 10:52:09,055 - INFO - Found country: Thailand
+2025-07-14 10:52:09,307 - INFO - Created new vendor - Reference: V0021, Name: สวนทีที พันธุ์ไม้, ID: 236
+2025-07-14 10:52:09,308 - INFO - Processing partner code: V0022
+2025-07-14 10:52:09,308 - WARNING - Could not find currency: False
+2025-07-14 10:52:09,414 - INFO - Found country: Thailand
+2025-07-14 10:52:09,681 - INFO - Created new vendor - Reference: V0022, Name: บริษัท เอส.ดี.เอ็ม. จำกัด, ID: 237
+2025-07-14 10:52:09,683 - INFO - Processing partner code: V0023
+2025-07-14 10:52:09,683 - WARNING - Could not find currency: False
+2025-07-14 10:52:09,795 - INFO - Found country: Thailand
+2025-07-14 10:52:10,056 - INFO - Created new vendor - Reference: V0023, Name: นางสาวประวีณ์นุช จารุกาล (บอลลูน), ID: 238
+2025-07-14 10:52:10,057 - INFO - Processing partner code: V0024
+2025-07-14 10:52:10,058 - WARNING - Could not find currency: False
+2025-07-14 10:52:10,140 - INFO - Found country: Thailand
+2025-07-14 10:52:10,397 - INFO - Created new vendor - Reference: V0024, Name: บริษัท ไบโอนิค ซิสเต็ม จำกัด, ID: 239
+2025-07-14 10:52:10,399 - INFO - Processing partner code: V0025
+2025-07-14 10:52:10,400 - WARNING - Could not find currency: False
+2025-07-14 10:52:10,500 - INFO - Found country: Thailand
+2025-07-14 10:52:10,785 - INFO - Created new vendor - Reference: V0025, Name: บริษัท ศ.ศิริ ไบโอแมส จำกัด, ID: 240
+2025-07-14 10:52:10,787 - INFO - Processing partner code: V0026
+2025-07-14 10:52:10,788 - WARNING - Could not find currency: False
+2025-07-14 10:52:10,887 - INFO - Found country: Thailand
+2025-07-14 10:52:11,113 - INFO - Created new vendor - Reference: V0026, Name: บริษัท เหล็กร่มเกล้า จำกัด, ID: 241
+2025-07-14 10:52:11,114 - INFO - Processing partner code: V0027
+2025-07-14 10:52:11,115 - WARNING - Could not find currency: False
+2025-07-14 10:52:11,219 - INFO - Found country: Thailand
+2025-07-14 10:52:11,468 - INFO - Created new vendor - Reference: V0027, Name: บริษัท ย่งง้วนเหล็กกล้า จำกัด, ID: 242
+2025-07-14 10:52:11,469 - INFO - Processing partner code: V0028
+2025-07-14 10:52:11,469 - WARNING - Could not find currency: False
+2025-07-14 10:52:11,547 - INFO - Found country: Thailand
+2025-07-14 10:52:11,769 - INFO - Created new vendor - Reference: V0028, Name: ร้านแสนเจริญค้าไม้, ID: 243
+2025-07-14 10:52:11,769 - INFO - Processing partner code: V0029
+2025-07-14 10:52:11,770 - WARNING - Could not find currency: False
+2025-07-14 10:52:11,893 - INFO - Found country: Thailand
+2025-07-14 10:52:12,217 - INFO - Created new vendor - Reference: V0029, Name: บริษัท แพนสยาม แมนูแฟคเจอริ่ง จำกัด, ID: 244
+2025-07-14 10:52:12,218 - INFO - Processing partner code: V0030
+2025-07-14 10:52:12,218 - WARNING - Could not find currency: False
+2025-07-14 10:52:12,318 - INFO - Found country: Thailand
+2025-07-14 10:52:12,577 - INFO - Created new vendor - Reference: V0030, Name: น.ส.พลอยไพลิน เดชสันเทียะ, ID: 245
+2025-07-14 10:52:12,578 - INFO - Processing partner code: V0031
+2025-07-14 10:52:12,579 - WARNING - Could not find currency: False
+2025-07-14 10:52:12,676 - INFO - Found country: Thailand
+2025-07-14 10:52:12,905 - INFO - Created new vendor - Reference: V0031, Name: ห้างหุ้นส่วนจำกัด เอส ดับบลิว เพสท์ เมเนจเม้นท์, ID: 246
+2025-07-14 10:52:12,906 - INFO - Processing partner code: V0032
+2025-07-14 10:52:12,907 - WARNING - Could not find currency: False
+2025-07-14 10:52:12,992 - INFO - Found country: Thailand
+2025-07-14 10:52:13,221 - INFO - Created new vendor - Reference: V0032, Name: บริษัท ธนธารคอนกรีต จำกัด, ID: 247
+2025-07-14 10:52:13,222 - INFO - Processing partner code: V0033
+2025-07-14 10:52:13,222 - WARNING - Could not find currency: False
+2025-07-14 10:52:13,305 - INFO - Found country: Thailand
+2025-07-14 10:52:13,511 - INFO - Created new vendor - Reference: V0033, Name: ห้างหุ้นส่วนจำกัด ทรัพย์ทวีคูณ การไฟฟ้า, ID: 248
+2025-07-14 10:52:13,513 - INFO - Processing partner code: V0034
+2025-07-14 10:52:13,514 - WARNING - Could not find currency: False
+2025-07-14 10:52:13,603 - INFO - Found country: Thailand
+2025-07-14 10:52:13,912 - INFO - Created new vendor - Reference: V0034, Name: บริษัท ต้นสน มอร์ตาร์ จำกัด, ID: 249
+2025-07-14 10:52:13,915 - INFO - Processing partner code: V0035
+2025-07-14 10:52:13,917 - WARNING - Could not find currency: False
+2025-07-14 10:52:14,042 - INFO - Found country: Thailand
+2025-07-14 10:52:14,278 - INFO - Created new vendor - Reference: V0035, Name: บริษัท สตาร์มาร์คแมนูแฟคเชอร์ริ่ง จำกัด, ID: 250
+2025-07-14 10:52:14,280 - INFO - Processing partner code: V0036
+2025-07-14 10:52:14,282 - WARNING - Could not find currency: False
+2025-07-14 10:52:14,383 - INFO - Found country: Thailand
+2025-07-14 10:52:14,610 - INFO - Created new vendor - Reference: V0036, Name: นายเฉลิมชัย  ทิพจันทร์, ID: 251
+2025-07-14 10:52:14,610 - INFO - Processing partner code: V0037
+2025-07-14 10:52:14,611 - WARNING - Could not find currency: False
+2025-07-14 10:52:14,716 - INFO - Found country: Thailand
+2025-07-14 10:52:14,929 - INFO - Created new vendor - Reference: V0037, Name: นางส้มโอ สุนทรวิภาต, ID: 252
+2025-07-14 10:52:14,930 - INFO - Processing partner code: V0038
+2025-07-14 10:52:14,931 - WARNING - Could not find currency: False
+2025-07-14 10:52:15,013 - INFO - Found country: Thailand
+2025-07-14 10:52:15,248 - INFO - Created new vendor - Reference: V0038, Name: ร้าน ไร่หญ้าโกวิท, ID: 253
+2025-07-14 10:52:15,251 - INFO - Processing partner code: V0039
+2025-07-14 10:52:15,252 - WARNING - Could not find currency: False
+2025-07-14 10:52:15,353 - INFO - Found country: Thailand
+2025-07-14 10:52:15,639 - INFO - Created new vendor - Reference: V0039, Name: บริษัท อิมมัส ดีไซน์ จำกัด สำนักงานใหญ่, ID: 254
+2025-07-14 10:52:15,640 - INFO - Processing partner code: V0040
+2025-07-14 10:52:15,640 - WARNING - Could not find currency: False
+2025-07-14 10:52:15,938 - INFO - Found country: Thailand
+2025-07-14 10:52:17,044 - INFO - Created new vendor - Reference: V0040, Name: บริษัท อาร์ซีเอ็ม 88 จำกัด (สาขา 00001), ID: 255
+2025-07-14 10:52:17,046 - INFO - Processing partner code: V0041
+2025-07-14 10:52:17,047 - WARNING - Could not find currency: False
+2025-07-14 10:52:17,248 - INFO - Found country: Thailand
+2025-07-14 10:52:17,604 - INFO - Created new vendor - Reference: V0041, Name: บริษัท แกรนด์ โฮมมาร์ท จำกัด สำนักงานใหญ่, ID: 256
+2025-07-14 10:52:17,605 - INFO - Processing partner code: V0042
+2025-07-14 10:52:17,605 - WARNING - Could not find currency: False
+2025-07-14 10:52:17,746 - INFO - Found country: Thailand
+2025-07-14 10:52:18,143 - INFO - Created new vendor - Reference: V0042, Name: บริษัท เวิลด์ คอนเนคท์ กลาส แอนด์ อิเลคทริค จำกัด, ID: 257
+2025-07-14 10:52:18,144 - INFO - Processing partner code: V0043
+2025-07-14 10:52:18,144 - WARNING - Could not find currency: False
+2025-07-14 10:52:18,257 - INFO - Found country: Thailand
+2025-07-14 10:52:18,563 - INFO - Created new vendor - Reference: V0043, Name: บริษัท บำรุงไทยเคหะภัณฑ์ จำกัด สำนักงานใหญ่, ID: 258
+2025-07-14 10:52:18,565 - INFO - Processing partner code: V0044
+2025-07-14 10:52:18,566 - WARNING - Could not find currency: False
+2025-07-14 10:52:18,679 - INFO - Found country: Thailand
+2025-07-14 10:52:18,932 - INFO - Created new vendor - Reference: V0044, Name: บริษัท คิงส์ ออฟ วอเตอร์ จำกัด สำนักงานใหญ่, ID: 259
+2025-07-14 10:52:18,934 - INFO - Processing partner code: V0045
+2025-07-14 10:52:18,935 - WARNING - Could not find currency: False
+2025-07-14 10:52:19,027 - INFO - Found country: Thailand
+2025-07-14 10:52:19,295 - INFO - Created new vendor - Reference: V0045, Name: บริษัท ธรรมดี เคมิคอล จำกัด สำนักงานใหญ่, ID: 260
+2025-07-14 10:52:19,296 - INFO - Processing partner code: V0046
+2025-07-14 10:52:19,297 - WARNING - Could not find currency: False
+2025-07-14 10:52:19,402 - INFO - Found country: Thailand
+2025-07-14 10:52:19,818 - INFO - Created new vendor - Reference: V0046, Name: บริษัท เฮเฟเล่ (ประเทศไทย) จำกัด, ID: 261
+2025-07-14 10:52:19,819 - INFO - Processing partner code: V0047
+2025-07-14 10:52:19,819 - WARNING - Could not find currency: False
+2025-07-14 10:52:19,923 - INFO - Found country: Thailand
+2025-07-14 10:52:20,185 - INFO - Created new vendor - Reference: V0047, Name: บริษัท ไอ.โอ.ดีไซน์ แอนด์ โฮม จำกัด, ID: 262
+2025-07-14 10:52:20,188 - INFO - Processing partner code: V0048
+2025-07-14 10:52:20,189 - WARNING - Could not find currency: False
+2025-07-14 10:52:20,283 - INFO - Found country: Thailand
+2025-07-14 10:52:20,581 - INFO - Created new vendor - Reference: V0048, Name: บริษัท วัฒนชัย (1993) จำกัด, ID: 263
+2025-07-14 10:52:20,582 - INFO - Processing partner code: V0049
+2025-07-14 10:52:20,583 - WARNING - Could not find currency: False
+2025-07-14 10:52:20,678 - INFO - Found country: Thailand
+2025-07-14 10:52:20,967 - INFO - Created new vendor - Reference: V0049, Name: บริษัท ออฟฟิศเวิร์ค จำกัด สำนักงานใหญ่, ID: 264
+2025-07-14 10:52:20,970 - INFO - Processing partner code: V0050
+2025-07-14 10:52:20,971 - WARNING - Could not find currency: False
+2025-07-14 10:52:21,051 - INFO - Found country: Thailand
+2025-07-14 10:52:21,302 - INFO - Created new vendor - Reference: V0050, Name: บริษัท เพื่อนเกษตรปากช่อง จำกัด, ID: 265
+2025-07-14 10:52:21,304 - INFO - Processing partner code: V0051
+2025-07-14 10:52:21,305 - WARNING - Could not find currency: False
+2025-07-14 10:52:21,417 - INFO - Found country: Thailand
+2025-07-14 10:52:21,805 - INFO - Created new vendor - Reference: V0051, Name: บริษัท เมต้า ทรัส จำกัด, ID: 266
+2025-07-14 10:52:21,807 - INFO - Processing partner code: V0052
+2025-07-14 10:52:21,808 - WARNING - Could not find currency: False
+2025-07-14 10:52:21,919 - INFO - Found country: Thailand
+2025-07-14 10:52:22,166 - INFO - Created new vendor - Reference: V0052, Name: บริษัท บรรจุทรัพย์ เซอร์วิส จำกัด สำนักงานใหญ่, ID: 267
+2025-07-14 10:52:22,168 - INFO - Processing partner code: V0053
+2025-07-14 10:52:22,169 - WARNING - Could not find currency: False
+2025-07-14 10:52:22,265 - INFO - Found country: Thailand
+2025-07-14 10:52:22,509 - INFO - Created new vendor - Reference: V0053, Name: บริษัท วิชั่น กลาส แอนด์ ดอร์ อินดัสเทรียล จำกัด สำนักงานใหญ่, ID: 268
+2025-07-14 10:52:22,510 - INFO - Processing partner code: V0054
+2025-07-14 10:52:22,510 - WARNING - Could not find currency: False
+2025-07-14 10:52:22,604 - INFO - Found country: Thailand
+2025-07-14 10:52:22,854 - INFO - Created new vendor - Reference: V0054, Name: บริษัท กระทิง เมทัลชีท (ปากช่อง) จำกัด, ID: 269
+2025-07-14 10:52:22,856 - INFO - Processing partner code: V0055
+2025-07-14 10:52:22,856 - WARNING - Could not find currency: False
+2025-07-14 10:52:22,956 - INFO - Found country: Thailand
+2025-07-14 10:52:23,206 - INFO - Created new vendor - Reference: V0055, Name: บริษัท จีโอเทค เอ็นจิเนียริ่ง จำกัด สำนักงานใหญ่, ID: 270
+2025-07-14 10:52:23,208 - INFO - Processing partner code: V0056
+2025-07-14 10:52:23,209 - WARNING - Could not find currency: False
+2025-07-14 10:52:23,305 - INFO - Found country: Thailand
+2025-07-14 10:52:23,528 - INFO - Created new vendor - Reference: V0056, Name: บริษัท ธนภูมิ พลาสแพ็ค จำกัด สำนักงานใหญ่, ID: 271
+2025-07-14 10:52:23,528 - INFO - Processing partner code: V0057
+2025-07-14 10:52:23,529 - WARNING - Could not find currency: False
+2025-07-14 10:52:23,614 - INFO - Found country: Thailand
+2025-07-14 10:52:23,880 - INFO - Created new vendor - Reference: V0057, Name: บริษัท ซิกมา เมทัล จำกัด, ID: 272
+2025-07-14 10:52:23,881 - INFO - Processing partner code: V0058
+2025-07-14 10:52:23,881 - WARNING - Could not find currency: False
+2025-07-14 10:52:23,976 - INFO - Found country: Thailand
+2025-07-14 10:52:24,279 - INFO - Created new vendor - Reference: V0058, Name: บริษัท พัทธวรรณ จำกัด, ID: 273
+2025-07-14 10:52:24,281 - INFO - Processing partner code: V0059
+2025-07-14 10:52:24,281 - WARNING - Could not find currency: False
+2025-07-14 10:52:24,378 - INFO - Found country: Thailand
+2025-07-14 10:52:24,633 - INFO - Created new vendor - Reference: V0059, Name: บริษัท ซีอาร์ซี ไทวัสดุ จำกัด (สาขาปากช่อง 00069), ID: 274
+2025-07-14 10:52:24,634 - INFO - Processing partner code: V0060
+2025-07-14 10:52:24,635 - WARNING - Could not find currency: False
+2025-07-14 10:52:24,740 - INFO - Found country: Thailand
+2025-07-14 10:52:25,021 - INFO - Created new vendor - Reference: V0060, Name: บริษัท แม เนจ อาร์ท จำกัด, ID: 275
+2025-07-14 10:52:25,023 - INFO - Processing partner code: V0061
+2025-07-14 10:52:25,024 - WARNING - Could not find currency: False
+2025-07-14 10:52:25,112 - INFO - Found country: Thailand
+2025-07-14 10:52:25,380 - INFO - Created new vendor - Reference: V0061, Name: บริษัท บ้านไร่วัสดุ จำกัด, ID: 276
+2025-07-14 10:52:25,381 - INFO - Processing partner code: V0062
+2025-07-14 10:52:25,382 - WARNING - Could not find currency: False
+2025-07-14 10:52:25,478 - INFO - Found country: Thailand
+2025-07-14 10:52:25,758 - INFO - Created new vendor - Reference: V0062, Name: บริษัท ไทชิน คอนสตรัคชั่น จำกัด, ID: 277
+2025-07-14 10:52:25,759 - INFO - Processing partner code: V0063
+2025-07-14 10:52:25,760 - WARNING - Could not find currency: False
+2025-07-14 10:52:25,844 - INFO - Found country: Thailand
+2025-07-14 10:52:26,176 - INFO - Created new vendor - Reference: V0063, Name: บริษัท พลิค เฟิร์สตัน (ประเทศไทย) จำกัด, ID: 278
+2025-07-14 10:52:26,177 - INFO - Processing partner code: V0064
+2025-07-14 10:52:26,178 - WARNING - Could not find currency: False
+2025-07-14 10:52:26,334 - INFO - Found country: Thailand
+2025-07-14 10:52:26,636 - INFO - Created new vendor - Reference: V0064, Name: บริษัท พี เอส ที คอนกรีต จำกัด, ID: 279
+2025-07-14 10:52:26,637 - INFO - Processing partner code: V0065
+2025-07-14 10:52:26,637 - WARNING - Could not find currency: False
+2025-07-14 10:52:26,742 - INFO - Found country: Thailand
+2025-07-14 10:52:27,130 - INFO - Created new vendor - Reference: V0065, Name: บริษัท ออลล์เว็บ เทคโนโลยี่ จำกัด, ID: 280
+2025-07-14 10:52:27,131 - INFO - Processing partner code: V0066
+2025-07-14 10:52:27,131 - WARNING - Could not find currency: False
+2025-07-14 10:52:27,233 - INFO - Found country: Thailand
+2025-07-14 10:52:27,517 - INFO - Created new vendor - Reference: V0066, Name: บริษัท นครินทร์ไวนิล จำกัด สำนักงานใหญ่, ID: 281
+2025-07-14 10:52:27,518 - INFO - Processing partner code: V0067
+2025-07-14 10:52:27,518 - WARNING - Could not find currency: False
+2025-07-14 10:52:27,608 - INFO - Found country: Thailand
+2025-07-14 10:52:27,890 - INFO - Created new vendor - Reference: V0067, Name: บริษัท เนสโค่ สตีล จำกัด สำนักงานใหญ่, ID: 282
+2025-07-14 10:52:27,892 - INFO - Processing partner code: V0068
+2025-07-14 10:52:27,892 - WARNING - Could not find currency: False
+2025-07-14 10:52:28,025 - INFO - Found country: Thailand
+2025-07-14 10:52:28,521 - INFO - Created new vendor - Reference: V0068, Name: บริษัท พา คอน พรีแคสเตอร์ จำกัด, ID: 283
+2025-07-14 10:52:28,522 - INFO - Processing partner code: V0069
+2025-07-14 10:52:28,522 - WARNING - Could not find currency: False
+2025-07-14 10:52:28,655 - INFO - Found country: Thailand
+2025-07-14 10:52:28,883 - INFO - Created new vendor - Reference: V0069, Name: บริษัท ไทยยูเนี่ยนวอเตอร์ จำกัด, ID: 284
+2025-07-14 10:52:28,884 - INFO - Processing partner code: V0070
+2025-07-14 10:52:28,885 - WARNING - Could not find currency: False
+2025-07-14 10:52:28,968 - INFO - Found country: Thailand
+2025-07-14 10:52:36,309 - INFO - Created new vendor - Reference: V0070, Name: บริษัท ไทย-ออสท์ อะลูมิเนียม จำกัด (สาขา 00003), ID: 285
+2025-07-14 10:52:36,311 - INFO - Processing partner code: V0071
+2025-07-14 10:52:36,312 - WARNING - Could not find currency: False
+2025-07-14 10:52:37,159 - INFO - Found country: Thailand
+2025-07-14 10:52:37,551 - INFO - Created new vendor - Reference: V0071, Name: บริษัท ส.สุขภัณฑ์ โฮมเมท จำกัด สำนักงานใหญ่, ID: 286
+2025-07-14 10:52:37,552 - INFO - Processing partner code: V0072
+2025-07-14 10:52:37,552 - WARNING - Could not find currency: False
+2025-07-14 10:52:37,684 - INFO - Found country: Thailand
+2025-07-14 10:52:37,900 - INFO - Created new vendor - Reference: V0072, Name: บริษัท วีไอพี แอนด์ พูล กรุ๊ป จำกัด สำนักงานใหญ่, ID: 287
+2025-07-14 10:52:37,901 - INFO - Processing partner code: V0073
+2025-07-14 10:52:37,901 - WARNING - Could not find currency: False
+2025-07-14 10:52:38,046 - INFO - Found country: Thailand
+2025-07-14 10:52:38,373 - INFO - Created new vendor - Reference: V0073, Name: บริษัท เค.โอ.ที. จำกัด  (สาขา 00001), ID: 288
+2025-07-14 10:52:38,374 - INFO - Processing partner code: V0074
+2025-07-14 10:52:38,374 - WARNING - Could not find currency: False
+2025-07-14 10:52:38,496 - INFO - Found country: Thailand
+2025-07-14 10:52:38,734 - INFO - Created new vendor - Reference: V0074, Name: บริษัท เวโลบัส จำกัด, ID: 289
+2025-07-14 10:52:38,735 - INFO - Processing partner code: V0075
+2025-07-14 10:52:38,735 - WARNING - Could not find currency: False
+2025-07-14 10:52:38,813 - INFO - Found country: Thailand
+2025-07-14 10:52:39,210 - INFO - Created new vendor - Reference: V0075, Name: บริษัท เขียนอักษรการพิมพ์ จำกัด สำนักงานใหญ่, ID: 290
+2025-07-14 10:52:39,211 - INFO - Processing partner code: V0076
+2025-07-14 10:52:39,212 - WARNING - Could not find currency: False
+2025-07-14 10:52:39,340 - INFO - Found country: Thailand
+2025-07-14 10:52:39,597 - INFO - Created new vendor - Reference: V0076, Name: บริษัท ดัคท์ เอ็กเซล จำกัด, ID: 291
+2025-07-14 10:52:39,597 - INFO - Processing partner code: V0077
+2025-07-14 10:52:39,598 - WARNING - Could not find currency: False
+2025-07-14 10:52:39,704 - INFO - Found country: Thailand
+2025-07-14 10:52:39,965 - INFO - Created new vendor - Reference: V0077, Name: บริษัท สตีเบล เอลทรอน เอเซีย จำกัด สำนักงานใหญ่, ID: 292
+2025-07-14 10:52:39,966 - INFO - Processing partner code: V0078
+2025-07-14 10:52:39,967 - WARNING - Could not find currency: False
+2025-07-14 10:52:40,063 - INFO - Found country: Thailand
+2025-07-14 10:52:40,377 - INFO - Created new vendor - Reference: V0078, Name: บริษัท สิทธิยงวัฒนา จำกัด สำนักงานใหญ่, ID: 293
+2025-07-14 10:52:40,379 - INFO - Processing partner code: V0079
+2025-07-14 10:52:40,380 - WARNING - Could not find currency: False
+2025-07-14 10:52:40,493 - INFO - Found country: Thailand
+2025-07-14 10:52:40,735 - INFO - Created new vendor - Reference: V0079, Name: บริษัท โฮม โปรดักส์ เซ็นเตอร์ จำกัด (มหาชน) (สาขาเขาใหญ่ 00040), ID: 294
+2025-07-14 10:52:40,736 - INFO - Processing partner code: V0080
+2025-07-14 10:52:40,737 - WARNING - Could not find currency: False
+2025-07-14 10:52:40,820 - INFO - Found country: Thailand
+2025-07-14 10:52:41,032 - INFO - Created new vendor - Reference: V0080, Name: บริษัท แสงไทยเมทัลชีท จำกัด, ID: 295
+2025-07-14 10:52:41,032 - INFO - Processing partner code: V0081
+2025-07-14 10:52:41,033 - WARNING - Could not find currency: False
+2025-07-14 10:52:41,119 - INFO - Found country: Thailand
+2025-07-14 10:52:41,381 - INFO - Created new vendor - Reference: V0081, Name: บริษัท นวพลาสติกอุตสาหกรรม จำกัด สำนักงานใหญ่, ID: 296
+2025-07-14 10:52:41,382 - INFO - Processing partner code: V0082
+2025-07-14 10:52:41,382 - WARNING - Could not find currency: False
+2025-07-14 10:52:41,481 - INFO - Found country: Thailand
+2025-07-14 10:52:41,809 - INFO - Created new vendor - Reference: V0082, Name: บริษัท ลีโอวูด จำกัด (มหาชน) สำนักงานใหญ่, ID: 297
+2025-07-14 10:52:41,810 - INFO - Processing partner code: V0083
+2025-07-14 10:52:41,811 - WARNING - Could not find currency: False
+2025-07-14 10:52:42,019 - INFO - Found country: Thailand
+2025-07-14 10:52:42,653 - INFO - Created new vendor - Reference: V0083, Name: บริษัท สมาร์ทเทค เอ็นเตอร์ไพรส์ จำกัด, ID: 298
+2025-07-14 10:52:42,654 - INFO - Processing partner code: V0084
+2025-07-14 10:52:42,654 - WARNING - Could not find currency: False
+2025-07-14 10:52:42,998 - INFO - Found country: Thailand
+2025-07-14 10:52:43,326 - INFO - Created new vendor - Reference: V0084, Name: บริษัท บางกอก เอกสยาม จำกัด สำนักงานใหญ่, ID: 299
+2025-07-14 10:52:43,327 - INFO - Processing partner code: V0085
+2025-07-14 10:52:43,328 - WARNING - Could not find currency: False
+2025-07-14 10:52:43,429 - INFO - Found country: Thailand
+2025-07-14 10:52:43,740 - INFO - Created new vendor - Reference: V0085, Name: บริษัท โอคาวะ อิเล็คทริค จำกัด, ID: 300
+2025-07-14 10:52:43,740 - INFO - Processing partner code: V0086
+2025-07-14 10:52:43,741 - WARNING - Could not find currency: False
+2025-07-14 10:52:43,839 - INFO - Found country: Thailand
+2025-07-14 10:52:44,081 - INFO - Created new vendor - Reference: V0086, Name: บริษัท สมาร์ท แอนด์ ไบรท์ จำกัด, ID: 301
+2025-07-14 10:52:44,082 - INFO - Processing partner code: V0087
+2025-07-14 10:52:44,082 - WARNING - Could not find currency: False
+2025-07-14 10:52:44,186 - INFO - Found country: Thailand
+2025-07-14 10:52:44,440 - INFO - Created new vendor - Reference: V0087, Name: บริษัท ร้อคสแตนด์ จำกัด, ID: 302
+2025-07-14 10:52:44,441 - INFO - Processing partner code: V0088
+2025-07-14 10:52:44,443 - WARNING - Could not find currency: False
+2025-07-14 10:52:44,520 - INFO - Found country: Thailand
+2025-07-14 10:52:44,719 - INFO - Created new vendor - Reference: V0088, Name: บริษัท พี.ไว จำกัด สำนักงานใหญ่, ID: 303
+2025-07-14 10:52:44,720 - INFO - Processing partner code: V0089
+2025-07-14 10:52:44,720 - WARNING - Could not find currency: False
+2025-07-14 10:52:44,818 - INFO - Found country: Thailand
+2025-07-14 10:52:45,021 - INFO - Created new vendor - Reference: V0089, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สำนักงานใหญ่, ID: 304
+2025-07-14 10:52:45,022 - INFO - Processing partner code: V0090
+2025-07-14 10:52:45,022 - WARNING - Could not find currency: False
+2025-07-14 10:52:45,109 - INFO - Found country: Thailand
+2025-07-14 10:52:45,350 - INFO - Created new vendor - Reference: V0090, Name: บริษัท สีสวย ผ้าม่าน จำกัด, ID: 305
+2025-07-14 10:52:45,350 - INFO - Processing partner code: V0091
+2025-07-14 10:52:45,351 - WARNING - Could not find currency: False
+2025-07-14 10:52:45,441 - INFO - Found country: Thailand
+2025-07-14 10:52:45,698 - INFO - Created new vendor - Reference: V0091, Name: บริษัท สามัคคี ผลิตภัณฑ์ คอนกรีต จำกัด สำนักงานใหญ่, ID: 306
+2025-07-14 10:52:45,699 - INFO - Processing partner code: V0092
+2025-07-14 10:52:45,700 - WARNING - Could not find currency: False
+2025-07-14 10:52:45,812 - INFO - Found country: Thailand
+2025-07-14 10:52:46,272 - INFO - Created new vendor - Reference: V0092, Name: บริษัท ไทยอุตสาหกรรมเครื่องปั้นดินเผา จำกัด สำนักงานใหญ่, ID: 307
+2025-07-14 10:52:46,272 - INFO - Processing partner code: V0093
+2025-07-14 10:52:46,273 - WARNING - Could not find currency: False
+2025-07-14 10:52:46,378 - INFO - Found country: Thailand
+2025-07-14 10:52:47,023 - INFO - Created new vendor - Reference: V0093, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) (สาขาราชพฤกษ์ 00014), ID: 308
+2025-07-14 10:52:47,027 - INFO - Processing partner code: V0094
+2025-07-14 10:52:47,029 - WARNING - Could not find currency: False
+2025-07-14 10:52:47,304 - INFO - Found country: Thailand
+2025-07-14 10:52:47,943 - INFO - Created new vendor - Reference: V0094, Name: บริษัท อาร์พีซี ทูลมาร์ท จำกัด  สำนักงานใหญ่, ID: 309
+2025-07-14 10:52:47,944 - INFO - Processing partner code: V0095
+2025-07-14 10:52:47,944 - WARNING - Could not find currency: False
+2025-07-14 10:52:48,031 - INFO - Found country: Thailand
+2025-07-14 10:52:48,322 - INFO - Created new vendor - Reference: V0095, Name: บริษัท เอส เจ เจ เพอร์เฟค รูฟ จำกัด, ID: 310
+2025-07-14 10:52:48,322 - INFO - Processing partner code: V0096
+2025-07-14 10:52:48,323 - WARNING - Could not find currency: False
+2025-07-14 10:52:48,423 - INFO - Found country: Thailand
+2025-07-14 10:52:48,722 - INFO - Created new vendor - Reference: V0096, Name: บริษัท โพลี่ กรุ๊ป (โคราช) จำกัด, ID: 311
+2025-07-14 10:52:48,722 - INFO - Processing partner code: V0097
+2025-07-14 10:52:48,723 - WARNING - Could not find currency: False
+2025-07-14 10:52:48,852 - INFO - Found country: Thailand
+2025-07-14 10:52:49,066 - INFO - Created new vendor - Reference: V0097, Name: บริษัท ศิวะบุตร จำกัด, ID: 312
+2025-07-14 10:52:49,067 - INFO - Processing partner code: V0098
+2025-07-14 10:52:49,067 - WARNING - Could not find currency: False
+2025-07-14 10:52:49,151 - INFO - Found country: Thailand
+2025-07-14 10:52:49,416 - INFO - Created new vendor - Reference: V0098, Name: บริษัท ปูนซิเมนต์ไทย (ท่าหลวง) จำกัด (โรงงานท่าหลวง), ID: 313
+2025-07-14 10:52:49,416 - INFO - Processing partner code: V0099
+2025-07-14 10:52:49,417 - WARNING - Could not find currency: False
+2025-07-14 10:52:49,511 - INFO - Found country: Thailand
+2025-07-14 10:52:49,741 - INFO - Created new vendor - Reference: V0099, Name: บริษัท ซีเจพี อินเตอร์เนชั่นแนล จำกัด สำนักงานใหญ่, ID: 314
+2025-07-14 10:52:49,742 - INFO - Processing partner code: V0100
+2025-07-14 10:52:49,742 - WARNING - Could not find currency: False
+2025-07-14 10:52:49,851 - INFO - Found country: Thailand
+2025-07-14 10:52:50,100 - INFO - Created new vendor - Reference: V0100, Name: บริษัท โอเวอร์ซี อลูมินั่ม จำกัด, ID: 315
+2025-07-14 10:52:50,102 - INFO - Processing partner code: V0101
+2025-07-14 10:52:50,103 - WARNING - Could not find currency: False
+2025-07-14 10:52:50,189 - INFO - Found country: Thailand
+2025-07-14 10:52:50,495 - INFO - Created new vendor - Reference: V0101, Name: บริษัท พี.เอส.เอ็ม ฮาร์ดแวร์ จำกัด, ID: 316
+2025-07-14 10:52:50,497 - INFO - Processing partner code: V0102
+2025-07-14 10:52:50,497 - WARNING - Could not find currency: False
+2025-07-14 10:52:50,608 - INFO - Found country: Thailand
+2025-07-14 10:52:50,869 - INFO - Created new vendor - Reference: V0102, Name: บริษัท ที กรุ๊ป เอ็นจิเนียแอนด์แมชชีนทูล จำกัด สำนักงานใหญ่, ID: 317
+2025-07-14 10:52:50,870 - INFO - Processing partner code: V0103
+2025-07-14 10:52:50,870 - WARNING - Could not find currency: False
+2025-07-14 10:52:50,977 - INFO - Found country: Thailand
+2025-07-14 10:52:51,196 - INFO - Created new vendor - Reference: V0103, Name: บริษัท พีพี แอนด์ วาย อีควิปเม้นท์ จำกัด, ID: 318
+2025-07-14 10:52:51,197 - INFO - Processing partner code: V0104
+2025-07-14 10:52:51,198 - WARNING - Could not find currency: False
+2025-07-14 10:52:51,301 - INFO - Found country: Thailand
+2025-07-14 10:52:51,529 - INFO - Created new vendor - Reference: V0104, Name: บริษัท ผลิตภัณฑ์คอนกรีตชลบุรี จำกัด (มหาชน), ID: 319
+2025-07-14 10:52:51,531 - INFO - Processing partner code: V0105
+2025-07-14 10:52:51,532 - WARNING - Could not find currency: False
+2025-07-14 10:52:51,617 - INFO - Found country: Thailand
+2025-07-14 10:52:51,848 - INFO - Created new vendor - Reference: V0105, Name: บริษัท ศรีพิพัฒน์ วัสดุก่อสร้าง จำกัด, ID: 320
+2025-07-14 10:52:51,849 - INFO - Processing partner code: V0106
+2025-07-14 10:52:51,850 - WARNING - Could not find currency: False
+2025-07-14 10:52:51,957 - INFO - Found country: Thailand
+2025-07-14 10:52:52,245 - INFO - Created new vendor - Reference: V0106, Name: บริษัท โอวาท โปร แอนด์ ควิก จำกัด สำนักงานใหญ่, ID: 321
+2025-07-14 10:52:52,247 - INFO - Processing partner code: V0107
+2025-07-14 10:52:52,248 - WARNING - Could not find currency: False
+2025-07-14 10:52:52,356 - INFO - Found country: Thailand
+2025-07-14 10:52:52,558 - INFO - Created new vendor - Reference: V0107, Name: บริษัท บุญถาวร เซ็นทรัลโฮม (โคราช) จำกัด, ID: 322
+2025-07-14 10:52:52,559 - INFO - Processing partner code: V0108
+2025-07-14 10:52:52,559 - WARNING - Could not find currency: False
+2025-07-14 10:52:52,643 - INFO - Found country: Thailand
+2025-07-14 10:52:52,935 - INFO - Created new vendor - Reference: V0108, Name: บริษัท อิฐแดง 2009 จำกัด สำนักงานใหญ่, ID: 323
+2025-07-14 10:52:52,937 - INFO - Processing partner code: V0109
+2025-07-14 10:52:52,939 - WARNING - Could not find currency: False
+2025-07-14 10:52:53,039 - INFO - Found country: Thailand
+2025-07-14 10:52:53,285 - INFO - Created new vendor - Reference: V0109, Name: บริษัท วอลเตอร์ เวนติเลชั่น จำกัด, ID: 324
+2025-07-14 10:52:53,286 - INFO - Processing partner code: V0110
+2025-07-14 10:52:53,287 - WARNING - Could not find currency: False
+2025-07-14 10:52:53,371 - INFO - Found country: Thailand
+2025-07-14 10:52:53,646 - INFO - Created new vendor - Reference: V0110, Name: บริษัท พร้อมไพศาล มาร์เก็ตติ้ง จำกัด, ID: 325
+2025-07-14 10:52:53,648 - INFO - Processing partner code: V0111
+2025-07-14 10:52:53,649 - WARNING - Could not find currency: False
+2025-07-14 10:52:53,759 - INFO - Found country: Thailand
+2025-07-14 10:52:54,011 - INFO - Created new vendor - Reference: V0111, Name: บริษัท ตังนำเกษตร จำกัด สำนักงานใหญ่, ID: 326
+2025-07-14 10:52:54,013 - INFO - Processing partner code: V0112
+2025-07-14 10:52:54,013 - WARNING - Could not find currency: False
+2025-07-14 10:52:54,148 - INFO - Found country: Thailand
+2025-07-14 10:52:54,409 - INFO - Created new vendor - Reference: V0112, Name: บริษัท เอสเคซี เอ็นจิเนียริ่ง จำกัด, ID: 327
+2025-07-14 10:52:54,410 - INFO - Processing partner code: V0113
+2025-07-14 10:52:54,411 - WARNING - Could not find currency: False
+2025-07-14 10:52:54,556 - INFO - Found country: Thailand
+2025-07-14 10:52:54,803 - INFO - Created new vendor - Reference: V0113, Name: บริษัท ดูโฮม จำกัด (มหาชน) (สาขา 00002), ID: 328
+2025-07-14 10:52:54,804 - INFO - Processing partner code: V0114
+2025-07-14 10:52:54,804 - WARNING - Could not find currency: False
+2025-07-14 10:52:54,902 - INFO - Found country: Thailand
+2025-07-14 10:52:55,144 - INFO - Created new vendor - Reference: V0114, Name: บริษัท แฮปปี้ เซิร์ฟ จำกัด, ID: 329
+2025-07-14 10:52:55,146 - INFO - Processing partner code: V0115
+2025-07-14 10:52:55,148 - WARNING - Could not find currency: False
+2025-07-14 10:52:55,240 - INFO - Found country: Thailand
+2025-07-14 10:52:55,470 - INFO - Created new vendor - Reference: V0115, Name: บริษัท เอสซีจี ดิสทริบิวชั่น จำกัด สำนักงานใหญ่, ID: 330
+2025-07-14 10:52:55,471 - INFO - Processing partner code: V0116
+2025-07-14 10:52:55,471 - WARNING - Could not find currency: False
+2025-07-14 10:52:55,691 - INFO - Found country: Thailand
+2025-07-14 10:52:55,898 - INFO - Created new vendor - Reference: V0116, Name: บริษัท พราว เมกเกอร์ จำกัด, ID: 331
+2025-07-14 10:52:55,899 - INFO - Processing partner code: V0117
+2025-07-14 10:52:55,899 - WARNING - Could not find currency: False
+2025-07-14 10:52:55,985 - INFO - Found country: Thailand
+2025-07-14 10:52:56,187 - INFO - Created new vendor - Reference: V0117, Name: ห้างหุ้นส่วนจำกัด เลิศไพบูลย์, ID: 332
+2025-07-14 10:52:56,187 - INFO - Import completed successfully
