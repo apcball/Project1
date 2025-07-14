@@ -19,8 +19,8 @@ failed_updates_file = f'failed_updates_{current_time}.csv'
 failed_updates = []
 
 # Odoo connection parameters
-url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+url = 'http://mogdev.work:8069'
+db = 'KYLD_DEV'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -42,7 +42,7 @@ def read_excel_file():
     """Read the Excel file and return a DataFrame"""
     try:
         print("Reading Excel file...")
-        df = pd.read_excel('Data_file/Product_service.xlsx')
+        df = pd.read_excel('Data_file/Product_service_KYLD.xlsx')
         print(f"Successfully read {len(df)} rows from Excel file")
         
         # Print column names for debugging
