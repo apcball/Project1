@@ -7,8 +7,8 @@ import requests
 import time
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-server_url = 'http://mogth.work:8069'
-database = 'MOG_LIVE'
+server_url = 'http://mogdev.work:8069'
+database = 'KYLD_DEV2'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -106,51 +106,115 @@ if not uid or not models:
     sys.exit(1)
 
 def search_category(category_path):
-    """ค้นหาหรือสร้าง category จาก path"""
+    """ค้นหาหรือสร้าง category จาก path โดยตรวจสอบการซ้ำอย่างละเอียด"""
     if pd.isna(category_path):
         return False
     
-    categories = category_path.split('/')
+    # แยก path และทำความสะอาดข้อมูล
+    categories = [cat.strip() for cat in category_path.split('/') if cat.strip()]
     parent_id = False
     current_id = False
     
     for category in categories:
-        category = category.strip()
-        if category:
-            domain = [('name', '=', category)]
+        # ลบช่องว่างซ้ำซ้อนและทำความสะอาดข้อมูล
+        clean_category = ' '.join(category.split())
+        
+        try:
+            # 1. ค้นหาด้วย exact match ก่อน
+            domain = ['|', '|',
+                ('name', '=', clean_category),
+                ('name', '=', category.strip()),
+                ('complete_name', '=', clean_category)
+            ]
             if parent_id:
-                domain.append(('parent_id', '=', parent_id))
-            
-            try:
-                category_ids = models.execute_kw(
-                    database, uid, password, 'product.category', 'search', [domain]
-                )
-            except Exception as e:
-                print(f"Error searching category {category}: {e}")
-                if not ensure_connection():
-                    return False
-                continue
-            
-            if category_ids:
-                current_id = category_ids[0]
+                domain = ['&', ('parent_id', '=', parent_id)] + domain
             else:
-                # สร้าง category ใหม่
+                domain = ['&', ('parent_id', '=', False)] + domain
+                
+            category_ids = models.execute_kw(
+                database, uid, password, 'product.category', 'search',
+                [domain]
+            )
+            
+            # 2. ถ้าไม่เจอ ลองค้นหาด้วย case-insensitive และ partial match
+            if not category_ids:
+                domain = ['|', '|', '|',
+                    ('name', '=ilike', clean_category),
+                    ('name', 'ilike', clean_category),
+                    ('complete_name', 'ilike', clean_category),
+                    ('complete_name', '=ilike', clean_category)
+                ]
+                if parent_id:
+                    domain = ['&', ('parent_id', '=', parent_id)] + domain
+                else:
+                    domain = ['&', ('parent_id', '=', False)] + domain
+                    
+                category_ids = models.execute_kw(
+                    database, uid, password, 'product.category', 'search',
+                    [domain]
+                )
+                
+                # 3. ถ้ายังไม่เจอ ลองค้นหาโดยไม่สนใจ parent
+                if not category_ids:
+                    domain = ['|', '|',
+                        ('name', '=ilike', clean_category),
+                        ('name', 'ilike', clean_category),
+                        ('complete_name', 'ilike', clean_category)
+                    ]
+                    category_ids = models.execute_kw(
+                        database, uid, password, 'product.category', 'search',
+                        [domain]
+                    )
+                    
+                    if category_ids:
+                        # ถ้าเจอหลายรายการ เลือกรายการที่มี parent ตรงกัน
+                        if len(category_ids) > 1 and parent_id:
+                            for cat_id in category_ids:
+                                cat_info = models.execute_kw(
+                                    database, uid, password, 'product.category', 'read',
+                                    [cat_id], {'fields': ['parent_id']}
+                                )
+                                if cat_info and cat_info[0]['parent_id'] and cat_info[0]['parent_id'][0] == parent_id:
+                                    category_ids = [cat_id]
+                                    break
+            
+            # 4. ถ้ายังไม่เจอ ให้สร้างใหม่
+            if not category_ids:
                 vals = {
-                    'name': category,
+                    'name': clean_category,
                     'parent_id': parent_id
                 }
-                try:
-                    current_id = models.execute_kw(
-                        database, uid, password, 'product.category', 'create', [vals]
-                    )
-                except Exception as e:
-                    print(f"Error creating category {category}: {e}")
-                    if not ensure_connection():
-                        return False
-                    continue
+                current_id = models.execute_kw(
+                    database, uid, password, 'product.category', 'create',
+                    [vals]
+                )
+                print(f"Created new category: {clean_category}")
+            else:
+                current_id = category_ids[0]
             
             parent_id = current_id
-    
+            
+        except Exception as e:
+            print(f"Error processing category {clean_category}: {e}")
+            if not ensure_connection():
+                return False
+            return False
+            
+        try:
+            category_ids = models.execute_kw(
+                database, uid, password, 'product.category', 'search', [domain]
+            )
+        except Exception as e:
+            print(f"Error searching category {category}: {e}")
+            if not ensure_connection():
+                return False
+            continue
+        if category_ids:
+            current_id = category_ids[0]
+            parent_id = current_id
+        else:
+            # If not found, stop and return False
+            return False
     return current_id
 
 def search_uom(uom_name):
@@ -299,28 +363,28 @@ def create_or_update_product(row, mode='create'):
         return False
     
     # เตรียมข้อมูลสำหรับสร้าง/อัพเดทสินค้า
+    # กำหนด detailed_type จากข้อมูล
+    detailed_type_val = (
+        'service' if ('detailed_type' in row and not pd.isna(row['detailed_type']) and str(row['detailed_type']).strip().lower() == 'service')
+        else 'product' if ('detailed_type' in row and not pd.isna(row['detailed_type']) and str(row['detailed_type']).strip().lower() == 'storable product')
+        else 'product'
+    )
     vals = {
         'default_code': default_code,
         'name': name,
-        'type': 'product',  # stockable product
-        'detailed_type': 'product',
+        'type': detailed_type_val,  # ให้ type ตรงกับ detailed_type
+        'detailed_type': detailed_type_val,
+        'list_price': 0.0,  # ตั้งค่าราคาขายเป็น 0
+        'standard_price': 0.0  # ตั้งค่าต้นทุนเป็น 0
     }
-    
-    # ตั้งค่า list_price (ราคาขาย) ถ้ามี
-    if 'list_price' in row and not pd.isna(row['list_price']):
-        try:
-            list_price = float(row['list_price'])
-            vals['list_price'] = list_price
-        except (ValueError, TypeError):
-            print(f"Warning: Invalid list price for {default_code}")
-    
-    # ตั้งค่า standard_price (ต้นทุน) ถ้ามี
-    if 'standard_price' in row and not pd.isna(row['standard_price']):
-        try:
-            standard_price = float(row['standard_price'])
-            vals['standard_price'] = standard_price
-        except (ValueError, TypeError):
-            print(f"Warning: Invalid standard price for {default_code}")
+    # กำหนด sale_ok (can be sold)
+    if 'sale_ok' in row:
+        sale_ok_val = str(row['sale_ok']).strip().upper() if not pd.isna(row['sale_ok']) else ''
+        vals['sale_ok'] = True if sale_ok_val == 'TRUE' else False
+    # กำหนด can_be_expensed
+    if 'can_be_expensed' in row:
+        expensed_val = str(row['can_be_expensed']).strip().upper() if not pd.isna(row['can_be_expensed']) else ''
+        vals['can_be_expensed'] = True if expensed_val == 'TRUE' else False
     
     # ตั้งค่า category
     if 'categ_id' in row and not pd.isna(row['categ_id']):
@@ -349,7 +413,7 @@ def create_or_update_product(row, mode='create'):
             print(f"Warning: {error}")
     
     try:
-        if existing_product and mode == 'update':
+        if existing_product:
             # อัพเดทสินค้าที่มีอยู่
             product_id = existing_product[0]['id']
             models.execute_kw(
@@ -358,7 +422,7 @@ def create_or_update_product(row, mode='create'):
             )
             print(f"Updated product: {default_code}")
             return product_id
-        elif not existing_product and mode == 'create':
+        else:
             # สร้างสินค้าใหม่
             product_id = models.execute_kw(
                 database, uid, password, 'product.template', 'create',
@@ -366,12 +430,6 @@ def create_or_update_product(row, mode='create'):
             )
             print(f"Created product: {default_code}")
             return product_id
-        elif existing_product and mode == 'create':
-            print(f"Product {default_code} already exists")
-            return False
-        else:
-            print(f"Product {default_code} not found for update")
-            return False
     except Exception as e:
         print(f"Error {'updating' if mode == 'update' else 'creating'} product {default_code}: {e}")
         if not ensure_connection():
