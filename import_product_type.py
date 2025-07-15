@@ -19,8 +19,8 @@ failed_updates_file = f'failed_updates_{current_time}.csv'
 failed_updates = []
 
 # Odoo connection parameters
-url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+url = 'http://mogdev.work:8069'
+db = 'KYLD_DEV2'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 

@@ -381,10 +381,12 @@ def create_or_update_product(row, mode='create'):
     if 'sale_ok' in row:
         sale_ok_val = str(row['sale_ok']).strip().upper() if not pd.isna(row['sale_ok']) else ''
         vals['sale_ok'] = True if sale_ok_val == 'TRUE' else False
-    # กำหนด can_be_expensed
-    if 'can_be_expensed' in row:
-        expensed_val = str(row['can_be_expensed']).strip().upper() if not pd.isna(row['can_be_expensed']) else ''
-        vals['can_be_expensed'] = True if expensed_val == 'TRUE' else False
+    # กำหนด can_be_expensed (ค่าว่าง = False, TRUE = True)
+    vals['can_be_expensed'] = False  # ค่าเริ่มต้นเป็น False
+    if 'can_be_expensed' in row and not pd.isna(row['can_be_expensed']):
+        expensed_val = str(row['can_be_expensed']).strip().upper()
+        if expensed_val == 'TRUE':
+            vals['can_be_expensed'] = True
     
     # ตั้งค่า category
     if 'categ_id' in row and not pd.isna(row['categ_id']):
@@ -441,6 +443,26 @@ def process_excel_file(file_path, mode='create', resume_from=0):
     try:
         # อ่านไฟล์ Excel
         df = pd.read_excel(file_path)
+        
+        # ลบแถวที่มีค่าว่างทั้งหมด
+        df = df.dropna(how='all')
+        
+        # แปลง NaN เป็นค่าว่าง
+        df = df.fillna('')
+        
+        # ตัดช่องว่างที่อาจมีใน default_code และ name
+        if 'default_code' in df.columns:
+            df['default_code'] = df['default_code'].astype(str).str.strip()
+        if 'name' in df.columns:
+            df['name'] = df['name'].astype(str).str.strip()
+        
+        # กรองเฉพาะแถวที่มีรหัสสินค้าหรือชื่อสินค้า
+        mask = (df['default_code'].str.len() > 0) | (df['name'].str.len() > 0)
+        df = df[mask]
+        
+        if df.empty:
+            print("ไม่พบข้อมูลสินค้าในไฟล์ Excel")
+            return
         
         # ตรวจสอบคอลัมน์ที่จำเป็น
         required_columns = ['default_code', 'name']
