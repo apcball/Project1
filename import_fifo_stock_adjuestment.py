@@ -13,7 +13,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/FG10 Adjuestment-03.xlsx'
+EXCEL_FILE = 'Data_file/FG10 Adjuestment-02-1.xlsx'
 # Default picking type (Delivery Orders for delivery operations)
 DEFAULT_PICKING_TYPE = 'Delivery Orders'
 # Default source location - None means we'll use the column value or the picking type's default
@@ -838,7 +838,7 @@ def get_customer_shipping_info(models, uid, partner_id):
 
 if __name__ == "__main__":
     try:        # You can change these parameters based on your delivery import requirements
-        EXCEL_FILE = 'Data_file/FG10 Adjuestment-03.xlsx'
+        EXCEL_FILE = 'Data_file/FG10 Adjuestment-02-1.xlsx'
         DEFAULT_PICKING_TYPE = 'Delivery Orders'  # Use 'Delivery Orders' for delivery operations
         # Note: The 'picking_type_id' column in the Excel file is now used as the Source Location
         

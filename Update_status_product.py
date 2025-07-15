@@ -16,8 +16,8 @@ logging.basicConfig(
 )
 
 # --- Connection Settings ---g
-url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+url = 'http://mogdev.work:8069'
+db = 'KYLD_DEV'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -55,6 +55,8 @@ def read_excel_file():
         ref_possible_names = ['internal reference', 'Internal Reference', 'default_code', 'Default Code', 'Internal_Reference']
         # Possible column names for can be sold
         sold_possible_names = ['can be sold', 'Can be Sold', 'sale_ok', 'Sale Ok', 'Can_be_Sold']
+        # Possible column names for can be expensed
+        expensed_possible_names = ['can be expensed', 'Can be Expensed', 'can_be_expensed', 'Can_be_Expensed', 'expensed']
         
         for col in ref_possible_names:
             if col in columns:
@@ -65,9 +67,17 @@ def read_excel_file():
             if col in columns:
                 can_be_sold_column = col
                 break
+
+        can_be_expensed_column = None
+        for col in expensed_possible_names:
+            if col in columns:
+                can_be_expensed_column = col
+                break
         
         if internal_ref_column is None or can_be_sold_column is None:
             raise ValueError(f"Could not find required columns. Available columns: {columns}")
+        if can_be_expensed_column is None:
+            logging.warning("Could not find 'can be expensed' column. Defaulting to False for all products.")
             
         # Get the data as a dictionary
         products_data = []
@@ -80,14 +90,24 @@ def read_excel_file():
                 else:
                     can_be_sold_value = bool(can_be_sold_value)
                 
+                # Convert the can_be_expensed value to boolean
+                if can_be_expensed_column:
+                    can_be_expensed_value = row[can_be_expensed_column]
+                    if isinstance(can_be_expensed_value, str):
+                        can_be_expensed_value = can_be_expensed_value.upper() in ['TRUE', '1', 'YES', 'Y']
+                    else:
+                        can_be_expensed_value = bool(can_be_expensed_value)
+                else:
+                    can_be_expensed_value = False
                 products_data.append({
                     'default_code': str(row[internal_ref_column]).strip(),
                     'sale_ok': can_be_sold_value
+                    , 'can_be_expensed': can_be_expensed_value
                 })
                 
                 # Log the read values
                 logging.info(f"Read from Excel - Product [{str(row[internal_ref_column]).strip()}] "
-                           f"Can be sold: {can_be_sold_value}")
+                           f"Can be sold: {can_be_sold_value}, Can be expensed: {can_be_expensed_value}")
         
         logging.info(f"Successfully read {len(products_data)} products from Excel file")
         return products_data
@@ -123,19 +143,27 @@ def update_products(models, uid, products_data):
                 product = product_map[internal_ref]
                 current_status = product['sale_ok']
                 new_status = excel_data['sale_ok']
+                # Get can_be_expensed value from excel_data
+                can_be_expensed_value = excel_data.get('can_be_expensed', False)
                 
+                # Prepare update values
+                update_vals = {}
                 if current_status != new_status:
+                    update_vals['sale_ok'] = new_status
+                # Always update can_be_expensed (or you can check for changes if you want)
+                update_vals['can_be_expensed'] = can_be_expensed_value
+                if update_vals:
                     result = models.execute_kw(db, uid, password,
                         'product.template', 'write',
-                        [[product['id']], {'sale_ok': new_status}]
+                        [[product['id']], update_vals]
                     )
                     if result:
                         updated_count += 1
                         logging.info(f"Product [{internal_ref}] updated - "
-                                   f"Can be sold: {current_status} -> {new_status}")
+                                   f"Update values: {update_vals}")
                 else:
                     logging.info(f"Product [{internal_ref}] no change needed - "
-                               f"Current status: {current_status}")
+                               f"Current status: sale_ok={current_status}, can_be_expensed={can_be_expensed_value}")
         
         # Log summary
         logging.info(f"Successfully updated {updated_count} products")
