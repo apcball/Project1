@@ -53,14 +53,14 @@ def update_invoice_partner_from_excel(excel_path):
             print(f"Row {idx+2}: Missing Display_name or Partner Code, skipping.")
             continue
 
-        # Find the invoice or credit note by name (Display_name)
+        # Find the invoice, bill, or credit note by name (Display_name)
         invoice_ids = models.execute_kw(
             db, uid, password,
             'account.move', 'search',
-            [[['name', '=', display_name], ['move_type', 'in', ['out_invoice', 'out_refund']]]]
+            [[['name', '=', display_name], ['move_type', 'in', ['out_invoice', 'out_refund', 'in_invoice', 'in_refund']]]]
         )
         if not invoice_ids:
-            print(f"Invoice or credit note '{display_name}' not found.")
+            print(f"Invoice, bill, or credit note '{display_name}' not found.")
             continue
 
         # Check Partner Code validity first
@@ -143,7 +143,7 @@ def update_invoice_partner_from_excel(excel_path):
             else:
                 print(f"Found partner by code '{search_code}': {partner_ids}")
 
-        # Update the partner on the invoice
+        # Update the partner on the invoice or bill
         try:
             result = models.execute_kw(
                 db, uid, password,
@@ -151,11 +151,11 @@ def update_invoice_partner_from_excel(excel_path):
                 [invoice_ids, {'partner_id': partner_ids[0]}]
             )
             if result:
-                print(f"Updated invoice '{display_name}' with partner '{partner_code}'.")
+                print(f"Updated invoice/bill '{display_name}' with partner '{partner_code}'.")
             else:
-                print(f"Failed to update invoice '{display_name}'.")
+                print(f"Failed to update invoice/bill '{display_name}'.")
         except xmlrpc.client.Fault as e:
-            print(f"Could not update invoice '{display_name}': {e}")
+            print(f"Could not update invoice/bill '{display_name}': {e}")
             continue
 
 # Example usage:
@@ -167,5 +167,5 @@ if __name__ == "__main__":
     }
     update_customer_by_partner_code(partner_code, update_vals)
 
-    excel_path = r"C:\Users\Ball\Documents\Git_apcball\Project1\Data_file\Account OB partner code.xlsx"
+    excel_path = r"C:\Users\Ball\Documents\Git_apcball\Project1\Data_file\Account OB partner code1.xlsx"
     update_invoice_partner_from_excel(excel_path)

@@ -181,12 +181,8 @@ def update_operation_bom(uid, models, data):
     return success_count, error_count, skipped_count
 
 def main():
-    # Check command line arguments
-    if len(sys.argv) < 2:
-        print("Please provide the Excel file path")
-        return
-        
-    excel_file = sys.argv[1]
+    # ระบุ path ของไฟล์ Excel ตรงนี้ได้เลย
+    excel_file = r"C:\Users\Ball\Documents\Git_apcball\Project1\Data_file\operation_bu2_นุ่น04062025.xlsx"
     
     # Connect to Odoo
     uid, models = connect_to_odoo()
