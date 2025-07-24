@@ -20,11 +20,7 @@ failed_updates = []
 
 # Odoo connection parameters
 url = 'http://mogdev.work:8069'
-<<<<<<< HEAD
 db = 'KYLD_DEV2'
-=======
-db = 'KYLD_DEV'
->>>>>>> 3da2cedc13e21a4d2e95ee0cb79555b06f1bfb77
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
