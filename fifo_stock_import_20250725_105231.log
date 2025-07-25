@@ -1,0 +1,24 @@
+2025-07-25 10:52:34,080 - INFO - Successfully connected to Odoo as user ID: 2
+2025-07-25 10:52:36,353 - INFO - Odoo version: 17.0.1.3
+2025-07-25 10:52:36,500 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-07-25 10:52:36,900 - INFO - Successfully read Excel file with 1 rows
+2025-07-25 10:52:36,901 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-07-25 10:52:36,903 - INFO - Processed sequence column
+2025-07-25 10:52:36,905 - INFO - scheduled_date dtype: datetime64[ns]
+2025-07-25 10:52:36,905 - INFO - scheduled_date sample: 2025-03-03 00:00:00
+2025-07-25 10:52:36,909 - INFO - Converted scheduled_date to string format. Sample: 2025-03-03 00:00:00
+2025-07-25 10:52:36,911 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-07-25 10:52:36,913 - INFO - Using 'origin' column to identify transfer groups
+2025-07-25 10:52:36,917 - INFO - Excel file validation and data filling completed successfully
+2025-07-25 10:52:42,594 - INFO - Searching for location: 'RM02/Stock'
+2025-07-25 10:52:42,733 - INFO - Found location with complete_name match: 'RM02/Stock' for 'RM02/Stock'
+2025-07-25 10:52:45,861 - INFO - Found partner ID 16630 for 'MOG-OB'
+2025-07-25 10:52:46,136 - INFO - Created transfer for date 2025-03-03 00:00:00 sequence 39 with picking ID 11412
+2025-07-25 10:52:46,139 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': '2025-03-03 00:00:00', 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-03 00:00:00'), 'origin': 'BOJ0001585', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-SPC-14301280-2111A', 'product_uom_qty': 1, 'price_unit': 3689.49, 'sequence': 39, 'scheduled_date_orig': Timestamp('2025-03-03 00:00:00')}
+2025-07-25 10:52:46,140 - INFO - Searching for product with code: 'NFG03-SPC-14301280-2111A' and old code: 'NFG03-SPC-14301280-2111A'
+2025-07-25 10:52:46,227 - INFO - Found product with exact match on default_code: 'NFG03-SPC-14301280-2111A'
+2025-07-25 10:52:46,764 - INFO - Added product NFG03-SPC-14301280-2111A with quantity 1.0 to picking 11412
+2025-07-25 10:52:46,765 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 10:52:46,985 - INFO - Re-updated dates before confirming picking 11412: 2025-03-03 00:00:00
+2025-07-25 10:52:47,989 - INFO - Confirmed transfer 11412 with forced date context
+2025-07-25 10:52:47,990 - INFO - Import completed: 1 success, 0 failed.

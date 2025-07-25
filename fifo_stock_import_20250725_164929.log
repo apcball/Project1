@@ -1,0 +1,49 @@
+2025-07-25 16:49:32,712 - INFO - Successfully connected to Odoo as user ID: 2
+2025-07-25 16:49:32,756 - INFO - Odoo version: 17.0.1.3
+2025-07-25 16:49:32,876 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-07-25 16:49:33,196 - INFO - Successfully read Excel file with 6 rows
+2025-07-25 16:49:33,196 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-07-25 16:49:33,198 - INFO - Processed sequence column
+2025-07-25 16:49:33,199 - INFO - scheduled_date dtype: datetime64[ns]
+2025-07-25 16:49:33,199 - INFO - scheduled_date sample: 2025-03-31 00:00:00
+2025-07-25 16:49:33,201 - INFO - Converted scheduled_date to string format. Sample: 2025-03-31 00:00:00
+2025-07-25 16:49:33,202 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-07-25 16:49:33,203 - INFO - Using 'origin' column to identify transfer groups
+2025-07-25 16:49:33,208 - INFO - Excel file validation and data filling completed successfully
+2025-07-25 16:49:33,398 - INFO - Searching for location: 'Partners/Customers'
+2025-07-25 16:49:33,444 - INFO - Found customer location for 'Partners/Customers'
+2025-07-25 16:49:33,508 - INFO - Found partner ID 16670 for 'MOG-OB-Delivary'
+2025-07-25 16:49:33,743 - INFO - Created transfer for date 2025-03-31 00:00:00 sequence 1 with picking ID 11518
+2025-07-25 16:49:33,744 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'BROJ0003117', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA02-White-Gloss', 'product_uom_qty': 15, 'price_unit': nan, 'sequence': 1, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:49:33,745 - INFO - Searching for product with code: 'MA02-White-Gloss' and old code: 'MA02-White-Gloss'
+2025-07-25 16:49:34,028 - INFO - Found product with exact match on old_product_code: 'MA02-White-Gloss'
+2025-07-25 16:49:34,556 - INFO - Added product MA02-White-Gloss with quantity 15.0 to picking 11518
+2025-07-25 16:49:34,557 - INFO - Move locations - Source: 924, Dest: 5
+2025-07-25 16:49:34,557 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'BROJ0003117', 'location_dest_id': 'Partners/Customers', 'product_id': 'NMA01-120-HMR-2440-15', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 2, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:49:34,558 - INFO - Searching for product with code: 'NMA01-120-HMR-2440-15' and old code: 'NMA01-120-HMR-2440-15'
+2025-07-25 16:49:34,830 - INFO - Found product with exact match on old_product_code: 'NMA01-120-HMR-2440-15'
+2025-07-25 16:49:35,219 - INFO - Added product NMA01-120-HMR-2440-15 with quantity 3.0 to picking 11518
+2025-07-25 16:49:35,220 - INFO - Move locations - Source: 924, Dest: 5
+2025-07-25 16:49:35,220 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'BROJ0003369', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA01-168A12202440A', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 3, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:49:35,221 - INFO - Searching for product with code: 'MA01-168A12202440A' and old code: 'MA01-168A12202440A'
+2025-07-25 16:49:35,711 - INFO - Found product with exact match on old_product_code: 'MA01-168A12202440A'
+2025-07-25 16:49:36,022 - INFO - Added product MA01-168A12202440A with quantity 3.0 to picking 11518
+2025-07-25 16:49:36,023 - INFO - Move locations - Source: 924, Dest: 5
+2025-07-25 16:49:36,023 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'BROJ0003367', 'location_dest_id': 'Partners/Customers', 'product_id': 'NMA01-120-HMR-2440-15', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 4, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:49:36,024 - INFO - Searching for product with code: 'NMA01-120-HMR-2440-15' and old code: 'NMA01-120-HMR-2440-15'
+2025-07-25 16:49:36,296 - INFO - Found product with exact match on old_product_code: 'NMA01-120-HMR-2440-15'
+2025-07-25 16:49:36,701 - INFO - Added product NMA01-120-HMR-2440-15 with quantity 3.0 to picking 11518
+2025-07-25 16:49:36,702 - INFO - Move locations - Source: 924, Dest: 5
+2025-07-25 16:49:36,702 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'BROJ0003367', 'location_dest_id': 'Partners/Customers', 'product_id': 'NMA01-H04-DSW-4451-SMA-0.8', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 5, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:49:36,703 - INFO - Searching for product with code: 'NMA01-H04-DSW-4451-SMA-0.8' and old code: 'NMA01-H04-DSW-4451-SMA-0.8'
+2025-07-25 16:49:36,969 - INFO - Found product with exact match on old_product_code: 'NMA01-H04-DSW-4451-SMA-0.8'
+2025-07-25 16:49:37,225 - INFO - Added product NMA01-H04-DSW-4451-SMA-0.8 with quantity 3.0 to picking 11518
+2025-07-25 16:49:37,225 - INFO - Move locations - Source: 924, Dest: 5
+2025-07-25 16:49:37,226 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'BROJ0003369', 'location_dest_id': 'Partners/Customers', 'product_id': 'NMA01-H04-DSW-4451-SMA-0.8', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 6, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:49:37,226 - INFO - Searching for product with code: 'NMA01-H04-DSW-4451-SMA-0.8' and old code: 'NMA01-H04-DSW-4451-SMA-0.8'
+2025-07-25 16:49:37,460 - INFO - Found product with exact match on old_product_code: 'NMA01-H04-DSW-4451-SMA-0.8'
+2025-07-25 16:49:37,761 - INFO - Added product NMA01-H04-DSW-4451-SMA-0.8 with quantity 6.0 to picking 11518
+2025-07-25 16:49:37,761 - INFO - Move locations - Source: 924, Dest: 5
+2025-07-25 16:49:37,906 - INFO - Re-updated dates before confirming picking 11518: 2025-03-31 00:00:00
+2025-07-25 16:49:38,834 - INFO - Confirmed transfer 11518 with forced date context
+2025-07-25 16:49:38,835 - INFO - Import completed: 1 success, 0 failed.

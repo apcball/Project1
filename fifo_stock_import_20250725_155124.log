@@ -1,0 +1,348 @@
+2025-07-25 15:51:26,050 - INFO - Successfully connected to Odoo as user ID: 2
+2025-07-25 15:51:26,124 - INFO - Odoo version: 17.0.1.3
+2025-07-25 15:51:26,256 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-07-25 15:51:26,608 - INFO - Successfully read Excel file with 144 rows
+2025-07-25 15:51:26,608 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-07-25 15:51:26,610 - INFO - Processed sequence column
+2025-07-25 15:51:26,612 - INFO - scheduled_date dtype: datetime64[ns]
+2025-07-25 15:51:26,612 - INFO - scheduled_date sample: 2025-03-05 00:00:00
+2025-07-25 15:51:26,615 - INFO - Converted scheduled_date to string format. Sample: 2025-03-05 00:00:00
+2025-07-25 15:51:26,616 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-07-25 15:51:26,616 - INFO - Using 'origin' column to identify transfer groups
+2025-07-25 15:51:26,643 - INFO - Excel file validation and data filling completed successfully
+2025-07-25 15:51:26,733 - INFO - Searching for location: 'FG30/Stock'
+2025-07-25 15:51:26,966 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-07-25 15:51:27,042 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 15:51:27,203 - INFO - Created transfer for date 2025-03-05 00:00:00 sequence 1 with picking ID 11500
+2025-07-25 15:51:27,204 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'ACS0021100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 1, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:27,204 - INFO - Searching for product with code: 'ACS0021100' and old code: 'ACS0021100'
+2025-07-25 15:51:27,271 - INFO - Found product with exact match on default_code: 'ACS0021100'
+2025-07-25 15:51:27,750 - INFO - Added product ACS0021100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:27,750 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:27,751 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'FCA0068100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 2, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:27,751 - INFO - Searching for product with code: 'FCA0068100' and old code: 'FCA0068100'
+2025-07-25 15:51:27,817 - INFO - Found product with exact match on default_code: 'FCA0068100'
+2025-07-25 15:51:28,116 - INFO - Added product FCA0068100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:28,117 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:28,119 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800071', 'location_dest_id': 'FG30/Stock', 'product_id': 'FCA0096100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 3, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:28,120 - INFO - Searching for product with code: 'FCA0096100' and old code: 'FCA0096100'
+2025-07-25 15:51:28,180 - INFO - Found product with exact match on default_code: 'FCA0096100'
+2025-07-25 15:51:28,485 - INFO - Added product FCA0096100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:28,486 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:28,487 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'FCS0004100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 4, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:28,487 - INFO - Searching for product with code: 'FCS0004100' and old code: 'FCS0004100'
+2025-07-25 15:51:28,536 - INFO - Found product with exact match on default_code: 'FCS0004100'
+2025-07-25 15:51:28,781 - INFO - Added product FCS0004100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:28,781 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:28,782 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'FDP0008A100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 5, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:28,782 - INFO - Searching for product with code: 'FDP0008A100' and old code: 'FDP0008A100'
+2025-07-25 15:51:28,854 - INFO - Found product with exact match on default_code: 'FDP0008A100'
+2025-07-25 15:51:29,214 - INFO - Added product FDP0008A100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:29,215 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:29,216 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800071', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU00640300', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 6, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:29,217 - INFO - Searching for product with code: 'FU00640300' and old code: 'FU00640300'
+2025-07-25 15:51:29,279 - INFO - Found product with exact match on default_code: 'FU00640300'
+2025-07-25 15:51:29,565 - INFO - Added product FU00640300 with quantity 1.0 to picking 11500
+2025-07-25 15:51:29,565 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:29,566 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800071', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU043AQC160', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 7, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:29,566 - INFO - Searching for product with code: 'FU043AQC160' and old code: 'FU043AQC160'
+2025-07-25 15:51:29,619 - INFO - Found product with exact match on default_code: 'FU043AQC160'
+2025-07-25 15:51:29,951 - INFO - Added product FU043AQC160 with quantity 1.0 to picking 11500
+2025-07-25 15:51:29,952 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:29,952 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'HSW0002100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 8, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:29,952 - INFO - Searching for product with code: 'HSW0002100' and old code: 'HSW0002100'
+2025-07-25 15:51:30,021 - INFO - Found product with exact match on default_code: 'HSW0002100'
+2025-07-25 15:51:30,299 - INFO - Added product HSW0002100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:30,301 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:30,303 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800071', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA0433101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 9, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:30,306 - INFO - Searching for product with code: 'MA0433101' and old code: 'MA0433101'
+2025-07-25 15:51:30,357 - INFO - Found product with exact match on default_code: 'MA0433101'
+2025-07-25 15:51:30,731 - INFO - Added product MA0433101 with quantity 1.0 to picking 11500
+2025-07-25 15:51:30,732 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:30,734 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800071', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA0641C110', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 10, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:30,735 - INFO - Searching for product with code: 'MA0641C110' and old code: 'MA0641C110'
+2025-07-25 15:51:30,794 - INFO - Found product with exact match on default_code: 'MA0641C110'
+2025-07-25 15:51:31,030 - INFO - Added product MA0641C110 with quantity 1.0 to picking 11500
+2025-07-25 15:51:31,031 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:31,032 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA0723BEC10000', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 11, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:31,032 - INFO - Searching for product with code: 'MA0723BEC10000' and old code: 'MA0723BEC10000'
+2025-07-25 15:51:31,083 - INFO - Found product with exact match on default_code: 'MA0723BEC10000'
+2025-07-25 15:51:31,298 - INFO - Added product MA0723BEC10000 with quantity 1.0 to picking 11500
+2025-07-25 15:51:31,299 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:31,300 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800073', 'location_dest_id': 'FG30/Stock', 'product_id': 'MAC020C11', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 12, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:31,300 - INFO - Searching for product with code: 'MAC020C11' and old code: 'MAC020C11'
+2025-07-25 15:51:31,346 - INFO - Found product with exact match on default_code: 'MAC020C11'
+2025-07-25 15:51:31,567 - INFO - Added product MAC020C11 with quantity 1.0 to picking 11500
+2025-07-25 15:51:31,567 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:31,568 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'MO0050EX1210', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 13, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:31,568 - INFO - Searching for product with code: 'MO0050EX1210' and old code: 'MO0050EX1210'
+2025-07-25 15:51:31,611 - INFO - Found product with exact match on default_code: 'MO0050EX1210'
+2025-07-25 15:51:31,837 - INFO - Added product MO0050EX1210 with quantity 1.0 to picking 11500
+2025-07-25 15:51:31,838 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:31,840 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800070', 'location_dest_id': 'FG30/Stock', 'product_id': 'MTK00031112', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 14, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:31,842 - INFO - Searching for product with code: 'MTK00031112' and old code: 'MTK00031112'
+2025-07-25 15:51:31,887 - INFO - Found product with exact match on default_code: 'MTK00031112'
+2025-07-25 15:51:32,115 - INFO - Added product MTK00031112 with quantity 1.0 to picking 11500
+2025-07-25 15:51:32,115 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:32,116 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'SBS0001100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 15, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:32,116 - INFO - Searching for product with code: 'SBS0001100' and old code: 'SBS0001100'
+2025-07-25 15:51:32,162 - INFO - Found product with exact match on default_code: 'SBS0001100'
+2025-07-25 15:51:32,416 - INFO - Added product SBS0001100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:32,417 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:32,417 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'SP0035100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 16, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:32,418 - INFO - Searching for product with code: 'SP0035100' and old code: 'SP0035100'
+2025-07-25 15:51:32,468 - INFO - Found product with exact match on default_code: 'SP0035100'
+2025-07-25 15:51:32,705 - INFO - Added product SP0035100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:32,705 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:32,706 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800071', 'location_dest_id': 'FG30/Stock', 'product_id': 'SP0129100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 17, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:32,706 - INFO - Searching for product with code: 'SP0129100' and old code: 'SP0129100'
+2025-07-25 15:51:32,754 - INFO - Found product with exact match on default_code: 'SP0129100'
+2025-07-25 15:51:33,010 - INFO - Added product SP0129100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:33,010 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:33,011 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-05 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-05 00:00:00'), 'origin': 'BG-6800072', 'location_dest_id': 'FG30/Stock', 'product_id': 'SWH009100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 18, 'scheduled_date_orig': Timestamp('2025-03-05 00:00:00')}
+2025-07-25 15:51:33,011 - INFO - Searching for product with code: 'SWH009100' and old code: 'SWH009100'
+2025-07-25 15:51:33,066 - INFO - Found product with exact match on default_code: 'SWH009100'
+2025-07-25 15:51:33,318 - INFO - Added product SWH009100 with quantity 1.0 to picking 11500
+2025-07-25 15:51:33,318 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:33,465 - INFO - Re-updated dates before confirming picking 11500: 2025-03-05 00:00:00
+2025-07-25 15:51:34,652 - INFO - Confirmed transfer 11500 with forced date context
+2025-07-25 15:51:34,738 - INFO - Searching for location: 'FG30/Stock'
+2025-07-25 15:51:34,895 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-07-25 15:51:34,951 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 15:51:35,094 - INFO - Created transfer for date 2025-03-06 00:00:00 sequence 19 with picking ID 11501
+2025-07-25 15:51:35,096 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-06 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-06 00:00:00'), 'origin': 'BG-6800074', 'location_dest_id': 'FG30/Stock', 'product_id': 'ACF000111A', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 19, 'scheduled_date_orig': Timestamp('2025-03-06 00:00:00')}
+2025-07-25 15:51:35,096 - INFO - Searching for product with code: 'ACF000111A' and old code: 'ACF000111A'
+2025-07-25 15:51:35,144 - INFO - Found product with exact match on default_code: 'ACF000111A'
+2025-07-25 15:51:35,495 - INFO - Added product ACF000111A with quantity 1.0 to picking 11501
+2025-07-25 15:51:35,495 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:35,495 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-06 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-06 00:00:00'), 'origin': 'BG-6800075', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU000F11207', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 20, 'scheduled_date_orig': Timestamp('2025-03-06 00:00:00')}
+2025-07-25 15:51:35,496 - INFO - Searching for product with code: 'FU000F11207' and old code: 'FU000F11207'
+2025-07-25 15:51:35,560 - INFO - Found product with exact match on default_code: 'FU000F11207'
+2025-07-25 15:51:35,872 - INFO - Added product FU000F11207 with quantity 1.0 to picking 11501
+2025-07-25 15:51:35,872 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:35,873 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-06 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-06 00:00:00'), 'origin': 'BG-6800076', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU0033FC1560', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 21, 'scheduled_date_orig': Timestamp('2025-03-06 00:00:00')}
+2025-07-25 15:51:35,873 - INFO - Searching for product with code: 'FU0033FC1560' and old code: 'FU0033FC1560'
+2025-07-25 15:51:35,942 - INFO - Found product with exact match on default_code: 'FU0033FC1560'
+2025-07-25 15:51:36,261 - INFO - Added product FU0033FC1560 with quantity 1.0 to picking 11501
+2025-07-25 15:51:36,263 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:36,264 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-06 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-06 00:00:00'), 'origin': 'BG-6800076', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA332B1101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 22, 'scheduled_date_orig': Timestamp('2025-03-06 00:00:00')}
+2025-07-25 15:51:36,266 - INFO - Searching for product with code: 'MA332B1101' and old code: 'MA332B1101'
+2025-07-25 15:51:36,338 - INFO - Found product with exact match on default_code: 'MA332B1101'
+2025-07-25 15:51:36,681 - INFO - Added product MA332B1101 with quantity 1.0 to picking 11501
+2025-07-25 15:51:36,681 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:36,682 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-06 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-06 00:00:00'), 'origin': 'BG-6800075', 'location_dest_id': 'FG30/Stock', 'product_id': 'MAM011C117', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 23, 'scheduled_date_orig': Timestamp('2025-03-06 00:00:00')}
+2025-07-25 15:51:36,682 - INFO - Searching for product with code: 'MAM011C117' and old code: 'MAM011C117'
+2025-07-25 15:51:36,742 - INFO - Found product with exact match on default_code: 'MAM011C117'
+2025-07-25 15:51:36,990 - INFO - Added product MAM011C117 with quantity 1.0 to picking 11501
+2025-07-25 15:51:36,990 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:37,120 - INFO - Re-updated dates before confirming picking 11501: 2025-03-06 00:00:00
+2025-07-25 15:51:37,748 - INFO - Confirmed transfer 11501 with forced date context
+2025-07-25 15:51:37,836 - INFO - Searching for location: 'FG30/Stock'
+2025-07-25 15:51:37,958 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-07-25 15:51:38,014 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 15:51:38,137 - INFO - Created transfer for date 2025-03-08 00:00:00 sequence 24 with picking ID 11502
+2025-07-25 15:51:38,138 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'F00018FC12', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 24, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:38,139 - INFO - Searching for product with code: 'F00018FC12' and old code: 'F00018FC12'
+2025-07-25 15:51:38,195 - INFO - Found product with exact match on default_code: 'F00018FC12'
+2025-07-25 15:51:38,457 - INFO - Added product F00018FC12 with quantity 1.0 to picking 11502
+2025-07-25 15:51:38,458 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:38,458 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800081', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU0025IR180', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 25, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:38,459 - INFO - Searching for product with code: 'FU0025IR180' and old code: 'FU0025IR180'
+2025-07-25 15:51:38,511 - INFO - Found product with exact match on default_code: 'FU0025IR180'
+2025-07-25 15:51:38,733 - INFO - Added product FU0025IR180 with quantity 1.0 to picking 11502
+2025-07-25 15:51:38,734 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:38,734 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU0033FC1560', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 26, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:38,735 - INFO - Searching for product with code: 'FU0033FC1560' and old code: 'FU0033FC1560'
+2025-07-25 15:51:38,787 - INFO - Found product with exact match on default_code: 'FU0033FC1560'
+2025-07-25 15:51:39,027 - INFO - Added product FU0033FC1560 with quantity 1.0 to picking 11502
+2025-07-25 15:51:39,029 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:39,030 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU0043E8C161', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 27, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:39,031 - INFO - Searching for product with code: 'FU0043E8C161' and old code: 'FU0043E8C161'
+2025-07-25 15:51:39,082 - INFO - Found product with exact match on default_code: 'FU0043E8C161'
+2025-07-25 15:51:39,315 - INFO - Added product FU0043E8C161 with quantity 1.0 to picking 11502
+2025-07-25 15:51:39,316 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:39,316 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA0433101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 28, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:39,317 - INFO - Searching for product with code: 'MA0433101' and old code: 'MA0433101'
+2025-07-25 15:51:39,375 - INFO - Found product with exact match on default_code: 'MA0433101'
+2025-07-25 15:51:39,644 - INFO - Added product MA0433101 with quantity 1.0 to picking 11502
+2025-07-25 15:51:39,645 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:39,646 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA0597C110', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 29, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:39,646 - INFO - Searching for product with code: 'MA0597C110' and old code: 'MA0597C110'
+2025-07-25 15:51:39,691 - INFO - Found product with exact match on default_code: 'MA0597C110'
+2025-07-25 15:51:39,959 - INFO - Added product MA0597C110 with quantity 1.0 to picking 11502
+2025-07-25 15:51:39,960 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:39,961 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA332B1101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 30, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:39,961 - INFO - Searching for product with code: 'MA332B1101' and old code: 'MA332B1101'
+2025-07-25 15:51:40,028 - INFO - Found product with exact match on default_code: 'MA332B1101'
+2025-07-25 15:51:40,310 - INFO - Added product MA332B1101 with quantity 1.0 to picking 11502
+2025-07-25 15:51:40,310 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:40,311 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800081', 'location_dest_id': 'FG30/Stock', 'product_id': 'MAE06DR101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 31, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:40,312 - INFO - Searching for product with code: 'MAE06DR101' and old code: 'MAE06DR101'
+2025-07-25 15:51:40,371 - INFO - Found product with exact match on default_code: 'MAE06DR101'
+2025-07-25 15:51:40,648 - INFO - Added product MAE06DR101 with quantity 1.0 to picking 11502
+2025-07-25 15:51:40,649 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:40,650 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'MAM011C117', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 32, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:40,651 - INFO - Searching for product with code: 'MAM011C117' and old code: 'MAM011C117'
+2025-07-25 15:51:40,729 - INFO - Found product with exact match on default_code: 'MAM011C117'
+2025-07-25 15:51:41,088 - INFO - Added product MAM011C117 with quantity 1.0 to picking 11502
+2025-07-25 15:51:41,089 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:41,089 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800080', 'location_dest_id': 'FG30/Stock', 'product_id': 'MM099C1000', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 33, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:41,089 - INFO - Searching for product with code: 'MM099C1000' and old code: 'MM099C1000'
+2025-07-25 15:51:41,171 - INFO - Found product with exact match on default_code: 'MM099C1000'
+2025-07-25 15:51:41,562 - INFO - Added product MM099C1000 with quantity 1.0 to picking 11502
+2025-07-25 15:51:41,562 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:41,563 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800078', 'location_dest_id': 'FG30/Stock', 'product_id': 'MO0870NDC10000', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 34, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:41,564 - INFO - Searching for product with code: 'MO0870NDC10000' and old code: 'MO0870NDC10000'
+2025-07-25 15:51:41,641 - INFO - Found product with exact match on default_code: 'MO0870NDC10000'
+2025-07-25 15:51:42,038 - INFO - Added product MO0870NDC10000 with quantity 1.0 to picking 11502
+2025-07-25 15:51:42,039 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:42,042 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'MO31EPS1710', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 35, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:42,043 - INFO - Searching for product with code: 'MO31EPS1710' and old code: 'MO31EPS1710'
+2025-07-25 15:51:42,117 - INFO - Found product with exact match on default_code: 'MO31EPS1710'
+2025-07-25 15:51:42,462 - INFO - Added product MO31EPS1710 with quantity 1.0 to picking 11502
+2025-07-25 15:51:42,463 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:42,463 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-08 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-08 00:00:00'), 'origin': 'BG-6800079', 'location_dest_id': 'FG30/Stock', 'product_id': 'MSW0012103', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 36, 'scheduled_date_orig': Timestamp('2025-03-08 00:00:00')}
+2025-07-25 15:51:42,464 - INFO - Searching for product with code: 'MSW0012103' and old code: 'MSW0012103'
+2025-07-25 15:51:42,616 - INFO - Found product with exact match on default_code: 'MSW0012103'
+2025-07-25 15:51:42,956 - INFO - Added product MSW0012103 with quantity 1.0 to picking 11502
+2025-07-25 15:51:42,957 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:43,147 - INFO - Re-updated dates before confirming picking 11502: 2025-03-08 00:00:00
+2025-07-25 15:51:44,096 - INFO - Confirmed transfer 11502 with forced date context
+2025-07-25 15:51:44,162 - INFO - Searching for location: 'FG30/Stock'
+2025-07-25 15:51:44,428 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-07-25 15:51:44,473 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 15:51:44,578 - INFO - Created transfer for date 2025-03-11 00:00:00 sequence 37 with picking ID 11503
+2025-07-25 15:51:44,579 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800084', 'location_dest_id': 'FG30/Stock', 'product_id': 'ACS0048120', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 37, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:44,579 - INFO - Searching for product with code: 'ACS0048120' and old code: 'ACS0048120'
+2025-07-25 15:51:44,626 - INFO - Found product with exact match on default_code: 'ACS0048120'
+2025-07-25 15:51:44,845 - INFO - Added product ACS0048120 with quantity 1.0 to picking 11503
+2025-07-25 15:51:44,845 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:44,846 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800084', 'location_dest_id': 'FG30/Stock', 'product_id': 'FCA0069101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 38, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:44,847 - INFO - Searching for product with code: 'FCA0069101' and old code: 'FCA0069101'
+2025-07-25 15:51:44,885 - INFO - Found product with exact match on default_code: 'FCA0069101'
+2025-07-25 15:51:45,091 - INFO - Added product FCA0069101 with quantity 1.0 to picking 11503
+2025-07-25 15:51:45,092 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:45,095 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800084', 'location_dest_id': 'FG30/Stock', 'product_id': 'FCB0101000', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 39, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:45,096 - INFO - Searching for product with code: 'FCB0101000' and old code: 'FCB0101000'
+2025-07-25 15:51:45,139 - INFO - Found product with exact match on default_code: 'FCB0101000'
+2025-07-25 15:51:45,412 - INFO - Added product FCB0101000 with quantity 1.0 to picking 11503
+2025-07-25 15:51:45,412 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:45,412 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800083', 'location_dest_id': 'FG30/Stock', 'product_id': 'FD0009A100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 40, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:45,413 - INFO - Searching for product with code: 'FD0009A100' and old code: 'FD0009A100'
+2025-07-25 15:51:45,473 - INFO - Found product with exact match on default_code: 'FD0009A100'
+2025-07-25 15:51:45,767 - INFO - Added product FD0009A100 with quantity 1.0 to picking 11503
+2025-07-25 15:51:45,787 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:45,807 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800084', 'location_dest_id': 'FG30/Stock', 'product_id': 'FD0012A100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 41, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:45,820 - INFO - Searching for product with code: 'FD0012A100' and old code: 'FD0012A100'
+2025-07-25 15:51:45,899 - INFO - Found product with exact match on default_code: 'FD0012A100'
+2025-07-25 15:51:46,195 - INFO - Added product FD0012A100 with quantity 1.0 to picking 11503
+2025-07-25 15:51:46,195 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:46,196 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800082', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU0043E8C161', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 42, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:46,196 - INFO - Searching for product with code: 'FU0043E8C161' and old code: 'FU0043E8C161'
+2025-07-25 15:51:46,255 - INFO - Found product with exact match on default_code: 'FU0043E8C161'
+2025-07-25 15:51:46,553 - INFO - Added product FU0043E8C161 with quantity 1.0 to picking 11503
+2025-07-25 15:51:46,553 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:46,554 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800082', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA0433101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 43, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:46,555 - INFO - Searching for product with code: 'MA0433101' and old code: 'MA0433101'
+2025-07-25 15:51:46,614 - INFO - Found product with exact match on default_code: 'MA0433101'
+2025-07-25 15:51:46,915 - INFO - Added product MA0433101 with quantity 1.0 to picking 11503
+2025-07-25 15:51:46,916 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:46,918 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800083', 'location_dest_id': 'FG30/Stock', 'product_id': 'RS00006110', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 44, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:46,919 - INFO - Searching for product with code: 'RS00006110' and old code: 'RS00006110'
+2025-07-25 15:51:46,985 - INFO - Found product with exact match on default_code: 'RS00006110'
+2025-07-25 15:51:47,309 - INFO - Added product RS00006110 with quantity 1.0 to picking 11503
+2025-07-25 15:51:47,309 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:47,310 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800084', 'location_dest_id': 'FG30/Stock', 'product_id': 'RS00048120', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 45, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:47,310 - INFO - Searching for product with code: 'RS00048120' and old code: 'RS00048120'
+2025-07-25 15:51:47,379 - INFO - Found product with exact match on default_code: 'RS00048120'
+2025-07-25 15:51:47,694 - INFO - Added product RS00048120 with quantity 1.0 to picking 11503
+2025-07-25 15:51:47,694 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:47,695 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800084', 'location_dest_id': 'FG30/Stock', 'product_id': 'SPV0481100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 46, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:47,695 - INFO - Searching for product with code: 'SPV0481100' and old code: 'SPV0481100'
+2025-07-25 15:51:47,757 - INFO - Found product with exact match on default_code: 'SPV0481100'
+2025-07-25 15:51:48,101 - INFO - Added product SPV0481100 with quantity 1.0 to picking 11503
+2025-07-25 15:51:48,102 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:48,102 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800084', 'location_dest_id': 'FG30/Stock', 'product_id': 'SWR0006101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 47, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:48,103 - INFO - Searching for product with code: 'SWR0006101' and old code: 'SWR0006101'
+2025-07-25 15:51:48,195 - INFO - Found product with exact match on default_code: 'SWR0006101'
+2025-07-25 15:51:48,557 - INFO - Added product SWR0006101 with quantity 1.0 to picking 11503
+2025-07-25 15:51:48,558 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:48,558 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BG-6800084', 'location_dest_id': 'FG30/Stock', 'product_id': 'WB0006114', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 48, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 15:51:48,559 - INFO - Searching for product with code: 'WB0006114' and old code: 'WB0006114'
+2025-07-25 15:51:48,619 - INFO - Found product with exact match on default_code: 'WB0006114'
+2025-07-25 15:51:48,922 - INFO - Added product WB0006114 with quantity 1.0 to picking 11503
+2025-07-25 15:51:48,922 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:49,112 - INFO - Re-updated dates before confirming picking 11503: 2025-03-11 00:00:00
+2025-07-25 15:51:50,048 - INFO - Confirmed transfer 11503 with forced date context
+2025-07-25 15:51:50,123 - INFO - Searching for location: 'FG30/Stock'
+2025-07-25 15:51:50,235 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-07-25 15:51:50,289 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 15:51:50,403 - INFO - Created transfer for date 2025-03-13 00:00:00 sequence 49 with picking ID 11504
+2025-07-25 15:51:50,404 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-13 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-13 00:00:00'), 'origin': 'BG-6800009', 'location_dest_id': 'FG30/Stock', 'product_id': 'NFG03-H4-W1-FF22-65', 'product_uom_qty': 5.28, 'price_unit': nan, 'sequence': 49, 'scheduled_date_orig': Timestamp('2025-03-13 00:00:00')}
+2025-07-25 15:51:50,405 - INFO - Searching for product with code: 'NFG03-H4-W1-FF22-65' and old code: 'NFG03-H4-W1-FF22-65'
+2025-07-25 15:51:50,595 - INFO - Found product with exact match on old_product_code: 'NFG03-H4-W1-FF22-65'
+2025-07-25 15:51:50,863 - INFO - Added product NFG03-H4-W1-FF22-65 with quantity 5.28 to picking 11504
+2025-07-25 15:51:50,864 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:51,019 - INFO - Re-updated dates before confirming picking 11504: 2025-03-13 00:00:00
+2025-07-25 15:51:51,473 - INFO - Confirmed transfer 11504 with forced date context
+2025-07-25 15:51:51,557 - INFO - Searching for location: 'FG30/Stock'
+2025-07-25 15:51:51,703 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-07-25 15:51:51,776 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 15:51:51,920 - INFO - Created transfer for date 2025-03-15 00:00:00 sequence 50 with picking ID 11505
+2025-07-25 15:51:51,923 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-15 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-15 00:00:00'), 'origin': 'BG-6800085', 'location_dest_id': 'FG30/Stock', 'product_id': 'FD0001100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 50, 'scheduled_date_orig': Timestamp('2025-03-15 00:00:00')}
+2025-07-25 15:51:51,924 - INFO - Searching for product with code: 'FD0001100' and old code: 'FD0001100'
+2025-07-25 15:51:51,984 - INFO - Found product with exact match on default_code: 'FD0001100'
+2025-07-25 15:51:52,307 - INFO - Added product FD0001100 with quantity 1.0 to picking 11505
+2025-07-25 15:51:52,307 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:52,308 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-15 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-15 00:00:00'), 'origin': 'BG-6800085', 'location_dest_id': 'FG30/Stock', 'product_id': 'FD0009A100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 51, 'scheduled_date_orig': Timestamp('2025-03-15 00:00:00')}
+2025-07-25 15:51:52,308 - INFO - Searching for product with code: 'FD0009A100' and old code: 'FD0009A100'
+2025-07-25 15:51:52,365 - INFO - Found product with exact match on default_code: 'FD0009A100'
+2025-07-25 15:51:52,685 - INFO - Added product FD0009A100 with quantity 1.0 to picking 11505
+2025-07-25 15:51:52,685 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:52,686 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-15 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-15 00:00:00'), 'origin': 'BG-6800085', 'location_dest_id': 'FG30/Stock', 'product_id': 'FD0022A100', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 52, 'scheduled_date_orig': Timestamp('2025-03-15 00:00:00')}
+2025-07-25 15:51:52,686 - INFO - Searching for product with code: 'FD0022A100' and old code: 'FD0022A100'
+2025-07-25 15:51:52,738 - INFO - Found product with exact match on default_code: 'FD0022A100'
+2025-07-25 15:51:53,053 - INFO - Added product FD0022A100 with quantity 1.0 to picking 11505
+2025-07-25 15:51:53,053 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:53,232 - INFO - Re-updated dates before confirming picking 11505: 2025-03-15 00:00:00
+2025-07-25 15:51:53,992 - INFO - Confirmed transfer 11505 with forced date context
+2025-07-25 15:51:54,097 - INFO - Searching for location: 'FG30/Stock'
+2025-07-25 15:51:54,241 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-07-25 15:51:54,298 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 15:51:54,437 - INFO - Created transfer for date 2025-03-17 00:00:00 sequence 53 with picking ID 11506
+2025-07-25 15:51:54,438 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-17 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-17 00:00:00'), 'origin': 'BG-6800086', 'location_dest_id': 'FG30/Stock', 'product_id': 'FCA0066101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 53, 'scheduled_date_orig': Timestamp('2025-03-17 00:00:00')}
+2025-07-25 15:51:54,439 - INFO - Searching for product with code: 'FCA0066101' and old code: 'FCA0066101'
+2025-07-25 15:51:54,504 - INFO - Found product with exact match on default_code: 'FCA0066101'
+2025-07-25 15:51:54,824 - INFO - Added product FCA0066101 with quantity 1.0 to picking 11506
+2025-07-25 15:51:54,824 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:54,825 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-17 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-17 00:00:00'), 'origin': 'BG-6800088', 'location_dest_id': 'FG30/Stock', 'product_id': 'FU0043E8C161', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 54, 'scheduled_date_orig': Timestamp('2025-03-17 00:00:00')}
+2025-07-25 15:51:54,825 - INFO - Searching for product with code: 'FU0043E8C161' and old code: 'FU0043E8C161'
+2025-07-25 15:51:54,879 - INFO - Found product with exact match on default_code: 'FU0043E8C161'
+2025-07-25 15:51:55,203 - INFO - Added product FU0043E8C161 with quantity 1.0 to picking 11506
+2025-07-25 15:51:55,204 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:55,205 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-17 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-17 00:00:00'), 'origin': 'BG-6800088', 'location_dest_id': 'FG30/Stock', 'product_id': 'MA0433101', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 55, 'scheduled_date_orig': Timestamp('2025-03-17 00:00:00')}
+2025-07-25 15:51:55,206 - INFO - Searching for product with code: 'MA0433101' and old code: 'MA0433101'
+2025-07-25 15:51:55,276 - INFO - Found product with exact match on default_code: 'MA0433101'
+2025-07-25 15:51:55,621 - INFO - Added product MA0433101 with quantity 1.0 to picking 11506
+2025-07-25 15:51:55,621 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:55,622 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-17 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-17 00:00:00'), 'origin': 'BG-6800087', 'location_dest_id': 'FG30/Stock', 'product_id': 'MAC023C11', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 56, 'scheduled_date_orig': Timestamp('2025-03-17 00:00:00')}
+2025-07-25 15:51:55,623 - INFO - Searching for product with code: 'MAC023C11' and old code: 'MAC023C11'
+2025-07-25 15:51:55,687 - INFO - Found product with exact match on default_code: 'MAC023C11'
+2025-07-25 15:51:56,040 - INFO - Added product MAC023C11 with quantity 1.0 to picking 11506
+2025-07-25 15:51:56,041 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:56,044 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-17 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-17 00:00:00'), 'origin': 'BG-6800088', 'location_dest_id': 'FG30/Stock', 'product_id': 'MAM011C112', 'product_uom_qty': 3.0, 'price_unit': nan, 'sequence': 57, 'scheduled_date_orig': Timestamp('2025-03-17 00:00:00')}
+2025-07-25 15:51:56,047 - INFO - Searching for product with code: 'MAM011C112' and old code: 'MAM011C112'
+2025-07-25 15:51:56,119 - INFO - Found product with exact match on default_code: 'MAM011C112'
+2025-07-25 15:51:56,408 - INFO - Added product MAM011C112 with quantity 3.0 to picking 11506
+2025-07-25 15:51:56,408 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:56,409 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-17 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-17 00:00:00'), 'origin': 'BG-6800088', 'location_dest_id': 'FG30/Stock', 'product_id': 'MMU150OC60', 'product_uom_qty': 1.0, 'price_unit': nan, 'sequence': 58, 'scheduled_date_orig': Timestamp('2025-03-17 00:00:00')}
+2025-07-25 15:51:56,411 - INFO - Searching for product with code: 'MMU150OC60' and old code: 'MMU150OC60'
+2025-07-25 15:51:56,459 - INFO - Found product with exact match on default_code: 'MMU150OC60'
+2025-07-25 15:51:56,730 - INFO - Added product MMU150OC60 with quantity 1.0 to picking 11506
+2025-07-25 15:51:56,730 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:56,731 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-17 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-17 00:00:00'), 'origin': 'BG-6800088', 'location_dest_id': 'FG30/Stock', 'product_id': 'WB0006114', 'product_uom_qty': 3.0, 'price_unit': nan, 'sequence': 59, 'scheduled_date_orig': Timestamp('2025-03-17 00:00:00')}
+2025-07-25 15:51:56,731 - INFO - Searching for product with code: 'WB0006114' and old code: 'WB0006114'
+2025-07-25 15:51:56,787 - INFO - Found product with exact match on default_code: 'WB0006114'
+2025-07-25 15:51:57,012 - INFO - Added product WB0006114 with quantity 3.0 to picking 11506
+2025-07-25 15:51:57,012 - INFO - Move locations - Source: 14, Dest: 1022
+2025-07-25 15:51:57,126 - INFO - Re-updated dates before confirming picking 11506: 2025-03-17 00:00:00

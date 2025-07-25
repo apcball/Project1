@@ -1,0 +1,34 @@
+2025-07-25 11:07:11,839 - INFO - Successfully connected to Odoo as user ID: 2
+2025-07-25 11:07:12,902 - INFO - Odoo version: 17.0.1.3
+2025-07-25 11:07:12,991 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-07-25 11:07:13,297 - INFO - Successfully read Excel file with 3 rows
+2025-07-25 11:07:13,297 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-07-25 11:07:13,308 - INFO - Processed sequence column
+2025-07-25 11:07:13,313 - INFO - scheduled_date dtype: datetime64[ns]
+2025-07-25 11:07:13,314 - INFO - scheduled_date sample: 2025-03-11 00:00:00
+2025-07-25 11:07:13,315 - INFO - Converted scheduled_date to string format. Sample: 2025-03-11 00:00:00
+2025-07-25 11:07:13,316 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-07-25 11:07:13,317 - INFO - Using 'origin' column to identify transfer groups
+2025-07-25 11:07:13,321 - INFO - Excel file validation and data filling completed successfully
+2025-07-25 11:07:13,402 - INFO - Searching for location: 'RM02/Stock'
+2025-07-25 11:07:17,101 - INFO - Found location with complete_name match: 'RM02/Stock' for 'RM02/Stock'
+2025-07-25 11:07:17,141 - INFO - Found partner ID 16630 for 'MOG-OB'
+2025-07-25 11:07:17,234 - INFO - Created transfer for date 2025-03-11 00:00:00 sequence 116 with picking ID 11416
+2025-07-25 11:07:17,235 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BOJ0001656', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-141SPC2001700-AS', 'product_uom_qty': 26, 'price_unit': 163.089930769231, 'sequence': 116, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 11:07:17,235 - INFO - Searching for product with code: 'NFG03-141SPC2001700-AS' and old code: 'NFG03-141SPC2001700-AS'
+2025-07-25 11:07:17,274 - INFO - Found product with exact match on default_code: 'NFG03-141SPC2001700-AS'
+2025-07-25 11:07:17,437 - INFO - Added product NFG03-141SPC2001700-AS with quantity 26.0 to picking 11416
+2025-07-25 11:07:17,437 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:07:17,438 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BOJ0001659', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-143SPC12001200-IDO-AL', 'product_uom_qty': 2, 'price_unit': 1684.0096, 'sequence': 143, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 11:07:17,438 - INFO - Searching for product with code: 'NFG03-143SPC12001200-IDO-AL' and old code: 'NFG03-143SPC12001200-IDO-AL'
+2025-07-25 11:07:17,466 - INFO - Found product with exact match on default_code: 'NFG03-143SPC12001200-IDO-AL'
+2025-07-25 11:07:17,593 - INFO - Added product NFG03-143SPC12001200-IDO-AL with quantity 2.0 to picking 11416
+2025-07-25 11:07:17,594 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:07:17,594 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'BOJ0001659', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-143SPC12001200-IDO-BL', 'product_uom_qty': 2, 'price_unit': 1684.0096, 'sequence': 146, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 11:07:17,595 - INFO - Searching for product with code: 'NFG03-143SPC12001200-IDO-BL' and old code: 'NFG03-143SPC12001200-IDO-BL'
+2025-07-25 11:07:17,623 - INFO - Found product with exact match on default_code: 'NFG03-143SPC12001200-IDO-BL'
+2025-07-25 11:07:17,730 - INFO - Added product NFG03-143SPC12001200-IDO-BL with quantity 2.0 to picking 11416
+2025-07-25 11:07:17,731 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:07:18,126 - INFO - Re-updated dates before confirming picking 11416: 2025-03-11 00:00:00
+2025-07-25 11:07:19,759 - INFO - Confirmed transfer 11416 with forced date context
+2025-07-25 11:07:19,759 - INFO - Import completed: 1 success, 0 failed.

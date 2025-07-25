@@ -1,0 +1,639 @@
+2025-07-25 16:33:06,839 - INFO - Successfully connected to Odoo as user ID: 2
+2025-07-25 16:33:06,867 - INFO - Odoo version: 17.0.1.3
+2025-07-25 16:33:06,963 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-07-25 16:33:07,407 - INFO - Successfully read Excel file with 124 rows
+2025-07-25 16:33:07,407 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-07-25 16:33:07,409 - INFO - Processed sequence column
+2025-07-25 16:33:07,413 - INFO - scheduled_date dtype: datetime64[ns]
+2025-07-25 16:33:07,414 - INFO - scheduled_date sample: 2025-03-31 00:00:00
+2025-07-25 16:33:07,417 - INFO - Converted scheduled_date to string format. Sample: 2025-03-31 00:00:00
+2025-07-25 16:33:07,418 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-07-25 16:33:07,418 - INFO - Using 'origin' column to identify transfer groups
+2025-07-25 16:33:07,476 - INFO - Excel file validation and data filling completed successfully
+2025-07-25 16:33:07,590 - INFO - Searching for location: 'Partners/Customers'
+2025-07-25 16:33:07,618 - INFO - Found customer location for 'Partners/Customers'
+2025-07-25 16:33:07,687 - INFO - Found partner ID 16670 for 'MOG-OB-Delivary'
+2025-07-25 16:33:07,786 - INFO - Created transfer for date 2025-03-31 00:00:00 sequence 1 with picking ID 11515
+2025-07-25 16:33:07,790 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126565', 'location_dest_id': 'Partners/Customers', 'product_id': 'AC0051101', 'product_uom_qty': 200, 'price_unit': nan, 'sequence': 1, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:07,791 - INFO - Searching for product with code: 'AC0051101' and old code: 'AC0051101'
+2025-07-25 16:33:07,828 - INFO - Found product with exact match on default_code: 'AC0051101'
+2025-07-25 16:33:08,005 - INFO - Added product AC0051101 with quantity 200.0 to picking 11515
+2025-07-25 16:33:08,006 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:08,008 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126566', 'location_dest_id': 'Partners/Customers', 'product_id': 'AC0053101', 'product_uom_qty': 100, 'price_unit': nan, 'sequence': 2, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:08,010 - INFO - Searching for product with code: 'AC0053101' and old code: 'AC0053101'
+2025-07-25 16:33:08,078 - INFO - Found product with exact match on default_code: 'AC0053101'
+2025-07-25 16:33:08,236 - INFO - Added product AC0053101 with quantity 100.0 to picking 11515
+2025-07-25 16:33:08,236 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:08,237 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126550', 'location_dest_id': 'Partners/Customers', 'product_id': 'AC0063101', 'product_uom_qty': 160, 'price_unit': nan, 'sequence': 3, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:08,238 - INFO - Searching for product with code: 'AC0063101' and old code: 'AC0063101'
+2025-07-25 16:33:08,267 - INFO - Found product with exact match on default_code: 'AC0063101'
+2025-07-25 16:33:08,389 - INFO - Added product AC0063101 with quantity 160.0 to picking 11515
+2025-07-25 16:33:08,390 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:08,391 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126552', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA183A101', 'product_uom_qty': 26, 'price_unit': nan, 'sequence': 4, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:08,391 - INFO - Searching for product with code: 'MA183A101' and old code: 'MA183A101'
+2025-07-25 16:33:08,491 - INFO - Found product with exact match on default_code: 'MA183A101'
+2025-07-25 16:33:08,647 - INFO - Added product MA183A101 with quantity 26.0 to picking 11515
+2025-07-25 16:33:08,647 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:08,648 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126565', 'location_dest_id': 'Partners/Customers', 'product_id': 'SP0032100', 'product_uom_qty': 200, 'price_unit': nan, 'sequence': 5, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:08,648 - INFO - Searching for product with code: 'SP0032100' and old code: 'SP0032100'
+2025-07-25 16:33:08,680 - INFO - Found product with exact match on default_code: 'SP0032100'
+2025-07-25 16:33:08,794 - INFO - Added product SP0032100 with quantity 200.0 to picking 11515
+2025-07-25 16:33:08,794 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:08,794 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126566', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPO004100', 'product_uom_qty': 100, 'price_unit': nan, 'sequence': 6, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:08,795 - INFO - Searching for product with code: 'SPO004100' and old code: 'SPO004100'
+2025-07-25 16:33:08,821 - INFO - Found product with exact match on default_code: 'SPO004100'
+2025-07-25 16:33:08,928 - INFO - Added product SPO004100 with quantity 100.0 to picking 11515
+2025-07-25 16:33:08,929 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:08,929 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126550', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPO005100', 'product_uom_qty': 160, 'price_unit': nan, 'sequence': 7, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:08,930 - INFO - Searching for product with code: 'SPO005100' and old code: 'SPO005100'
+2025-07-25 16:33:08,955 - INFO - Found product with exact match on default_code: 'SPO005100'
+2025-07-25 16:33:09,085 - INFO - Added product SPO005100 with quantity 160.0 to picking 11515
+2025-07-25 16:33:09,085 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:09,085 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126550', 'location_dest_id': 'Partners/Customers', 'product_id': 'BAC23335363', 'product_uom_qty': 160, 'price_unit': nan, 'sequence': 8, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:09,086 - INFO - Searching for product with code: 'BAC23335363' and old code: 'BAC23335363'
+2025-07-25 16:33:09,194 - INFO - Found product with exact match on old_product_code: 'BAC23335363'
+2025-07-25 16:33:09,350 - INFO - Added product BAC23335363 with quantity 160.0 to picking 11515
+2025-07-25 16:33:09,350 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:09,350 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126566', 'location_dest_id': 'Partners/Customers', 'product_id': 'BAC23335363', 'product_uom_qty': 100, 'price_unit': nan, 'sequence': 9, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:09,351 - INFO - Searching for product with code: 'BAC23335363' and old code: 'BAC23335363'
+2025-07-25 16:33:09,463 - INFO - Found product with exact match on old_product_code: 'BAC23335363'
+2025-07-25 16:33:09,590 - INFO - Added product BAC23335363 with quantity 100.0 to picking 11515
+2025-07-25 16:33:09,590 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:09,591 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126552', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA183A', 'product_uom_qty': 26, 'price_unit': nan, 'sequence': 10, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:09,592 - INFO - Searching for product with code: 'BMA183A' and old code: 'BMA183A'
+2025-07-25 16:33:09,737 - INFO - Found product with exact match on old_product_code: 'BMA183A'
+2025-07-25 16:33:09,895 - INFO - Added product BMA183A with quantity 26.0 to picking 11515
+2025-07-25 16:33:09,896 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:09,896 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126565', 'location_dest_id': 'Partners/Customers', 'product_id': 'BAC051', 'product_uom_qty': 200, 'price_unit': nan, 'sequence': 11, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:09,896 - INFO - Searching for product with code: 'BAC051' and old code: 'BAC051'
+2025-07-25 16:33:10,007 - INFO - Found product with exact match on old_product_code: 'BAC051'
+2025-07-25 16:33:10,135 - INFO - Added product BAC051 with quantity 200.0 to picking 11515
+2025-07-25 16:33:10,135 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:10,136 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126551', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0174101', 'product_uom_qty': 40, 'price_unit': nan, 'sequence': 12, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:10,136 - INFO - Searching for product with code: 'MA0174101' and old code: 'MA0174101'
+2025-07-25 16:33:10,170 - INFO - Found product with exact match on default_code: 'MA0174101'
+2025-07-25 16:33:10,302 - INFO - Added product MA0174101 with quantity 40.0 to picking 11515
+2025-07-25 16:33:10,302 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:10,303 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126551', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA174', 'product_uom_qty': 40, 'price_unit': nan, 'sequence': 13, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:10,303 - INFO - Searching for product with code: 'BMA174' and old code: 'BMA174'
+2025-07-25 16:33:10,419 - INFO - Found product with exact match on old_product_code: 'BMA174'
+2025-07-25 16:33:10,580 - INFO - Added product BMA174 with quantity 40.0 to picking 11515
+2025-07-25 16:33:10,582 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:10,583 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126556', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT057EX1210', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 14, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:10,585 - INFO - Searching for product with code: 'MT057EX1210' and old code: 'MT057EX1210'
+2025-07-25 16:33:10,626 - INFO - Found product with exact match on default_code: 'MT057EX1210'
+2025-07-25 16:33:10,782 - INFO - Added product MT057EX1210 with quantity 8.0 to picking 11515
+2025-07-25 16:33:10,783 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:10,784 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126553', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT055ECO', 'product_uom_qty': 23, 'price_unit': nan, 'sequence': 15, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:10,786 - INFO - Searching for product with code: 'BMT055ECO' and old code: 'BMT055ECO'
+2025-07-25 16:33:10,946 - INFO - Found product with exact match on old_product_code: 'BMT055ECO'
+2025-07-25 16:33:11,153 - INFO - Added product BMT055ECO with quantity 23.0 to picking 11515
+2025-07-25 16:33:11,154 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:11,155 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126553', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT055E1210', 'product_uom_qty': 23, 'price_unit': nan, 'sequence': 16, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:11,156 - INFO - Searching for product with code: 'MT055E1210' and old code: 'MT055E1210'
+2025-07-25 16:33:11,196 - INFO - Found product with exact match on default_code: 'MT055E1210'
+2025-07-25 16:33:11,409 - INFO - Added product MT055E1210 with quantity 23.0 to picking 11515
+2025-07-25 16:33:11,409 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:11,410 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126556', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT057ECOTCI', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 17, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:11,410 - INFO - Searching for product with code: 'BMT057ECOTCI' and old code: 'BMT057ECOTCI'
+2025-07-25 16:33:11,595 - INFO - Found product with exact match on old_product_code: 'BMT057ECOTCI'
+2025-07-25 16:33:11,814 - INFO - Added product BMT057ECOTCI with quantity 8.0 to picking 11515
+2025-07-25 16:33:11,815 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:11,817 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126567', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00431210', 'product_uom_qty': 52, 'price_unit': nan, 'sequence': 18, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:11,818 - INFO - Searching for product with code: 'MT00431210' and old code: 'MT00431210'
+2025-07-25 16:33:11,872 - INFO - Found product with exact match on default_code: 'MT00431210'
+2025-07-25 16:33:12,057 - INFO - Added product MT00431210 with quantity 52.0 to picking 11515
+2025-07-25 16:33:12,057 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:12,058 - INFO - Processing Excel row 19: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'PBL0009843', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0566C111', 'product_uom_qty': 7, 'price_unit': nan, 'sequence': 19, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:12,058 - INFO - Searching for product with code: 'MA0566C111' and old code: 'MA0566C111'
+2025-07-25 16:33:12,097 - INFO - Found product with exact match on default_code: 'MA0566C111'
+2025-07-25 16:33:12,268 - INFO - Added product MA0566C111 with quantity 7.0 to picking 11515
+2025-07-25 16:33:12,268 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:12,269 - INFO - Processing Excel row 20: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126553', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 23, 'price_unit': nan, 'sequence': 20, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:12,269 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:12,311 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:12,505 - INFO - Added product MT541S101 with quantity 23.0 to picking 11515
+2025-07-25 16:33:12,505 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:12,506 - INFO - Processing Excel row 21: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126556', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 21, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:12,506 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:12,538 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:12,721 - INFO - Added product MT541S101 with quantity 8.0 to picking 11515
+2025-07-25 16:33:12,721 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:12,722 - INFO - Processing Excel row 22: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126556', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0056200', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 22, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:12,722 - INFO - Searching for product with code: 'SPW0056200' and old code: 'SPW0056200'
+2025-07-25 16:33:12,762 - INFO - Found product with exact match on default_code: 'SPW0056200'
+2025-07-25 16:33:12,958 - INFO - Added product SPW0056200 with quantity 8.0 to picking 11515
+2025-07-25 16:33:12,959 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:12,959 - INFO - Processing Excel row 23: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126567', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 52, 'price_unit': nan, 'sequence': 23, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:12,960 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:13,188 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:13,399 - INFO - Added product BMT414344TCI with quantity 52.0 to picking 11515
+2025-07-25 16:33:13,399 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:13,400 - INFO - Processing Excel row 24: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126553', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 23, 'price_unit': nan, 'sequence': 24, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:13,400 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:13,448 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:13,665 - INFO - Added product PACK000239 with quantity 23.0 to picking 11515
+2025-07-25 16:33:13,666 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:13,666 - INFO - Processing Excel row 25: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126556', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 25, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:13,667 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:13,708 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:13,892 - INFO - Added product PACK000239 with quantity 8.0 to picking 11515
+2025-07-25 16:33:13,893 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:13,893 - INFO - Processing Excel row 26: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126553', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0054110', 'product_uom_qty': 23, 'price_unit': nan, 'sequence': 26, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:13,894 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2025-07-25 16:33:13,931 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2025-07-25 16:33:14,136 - INFO - Added product SPW0054110 with quantity 23.0 to picking 11515
+2025-07-25 16:33:14,136 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:14,137 - INFO - Processing Excel row 27: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'MV-0107497', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0212201.', 'product_uom_qty': 16, 'price_unit': nan, 'sequence': 27, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:14,138 - INFO - Searching for product with code: 'MA0212201.' and old code: 'MA0212201.'
+2025-07-25 16:33:14,180 - INFO - Found product with exact match on default_code: 'MA0212201.'
+2025-07-25 16:33:14,441 - INFO - Added product MA0212201. with quantity 16.0 to picking 11515
+2025-07-25 16:33:14,442 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:14,442 - INFO - Processing Excel row 28: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126675', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00441210', 'product_uom_qty': 15, 'price_unit': nan, 'sequence': 28, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:14,442 - INFO - Searching for product with code: 'MT00441210' and old code: 'MT00441210'
+2025-07-25 16:33:14,491 - INFO - Found product with exact match on default_code: 'MT00441210'
+2025-07-25 16:33:14,742 - INFO - Added product MT00441210 with quantity 15.0 to picking 11515
+2025-07-25 16:33:14,742 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:14,743 - INFO - Processing Excel row 29: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126675', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 15, 'price_unit': nan, 'sequence': 29, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:14,743 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:14,935 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:15,164 - INFO - Added product BMT414344TCI with quantity 15.0 to picking 11515
+2025-07-25 16:33:15,165 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:15,165 - INFO - Processing Excel row 30: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126700', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT055ECO', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 30, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:15,166 - INFO - Searching for product with code: 'BMT055ECO' and old code: 'BMT055ECO'
+2025-07-25 16:33:15,333 - INFO - Found product with exact match on old_product_code: 'BMT055ECO'
+2025-07-25 16:33:15,511 - INFO - Added product BMT055ECO with quantity 35.0 to picking 11515
+2025-07-25 16:33:15,512 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:15,512 - INFO - Processing Excel row 31: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126700', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT055E1210', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 31, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:15,512 - INFO - Searching for product with code: 'MT055E1210' and old code: 'MT055E1210'
+2025-07-25 16:33:15,612 - INFO - Found product with exact match on default_code: 'MT055E1210'
+2025-07-25 16:33:15,810 - INFO - Added product MT055E1210 with quantity 35.0 to picking 11515
+2025-07-25 16:33:15,811 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:15,812 - INFO - Processing Excel row 32: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126700', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 32, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:15,813 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:15,850 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:16,079 - INFO - Added product MT541S101 with quantity 35.0 to picking 11515
+2025-07-25 16:33:16,080 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:16,080 - INFO - Processing Excel row 33: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126700', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 33, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:16,081 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:16,124 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:16,298 - INFO - Added product PACK000239 with quantity 35.0 to picking 11515
+2025-07-25 16:33:16,299 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:16,301 - INFO - Processing Excel row 34: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126700', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0054110', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 34, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:16,303 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2025-07-25 16:33:16,347 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2025-07-25 16:33:16,563 - INFO - Added product SPW0054110 with quantity 35.0 to picking 11515
+2025-07-25 16:33:16,564 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:16,566 - INFO - Processing Excel row 35: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126702', 'location_dest_id': 'Partners/Customers', 'product_id': 'AC0063101', 'product_uom_qty': 120, 'price_unit': nan, 'sequence': 35, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:16,567 - INFO - Searching for product with code: 'AC0063101' and old code: 'AC0063101'
+2025-07-25 16:33:16,609 - INFO - Found product with exact match on default_code: 'AC0063101'
+2025-07-25 16:33:16,843 - INFO - Added product AC0063101 with quantity 120.0 to picking 11515
+2025-07-25 16:33:16,844 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:16,845 - INFO - Processing Excel row 36: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126705', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA183A101', 'product_uom_qty': 15, 'price_unit': nan, 'sequence': 36, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:16,845 - INFO - Searching for product with code: 'MA183A101' and old code: 'MA183A101'
+2025-07-25 16:33:16,897 - INFO - Found product with exact match on default_code: 'MA183A101'
+2025-07-25 16:33:17,162 - INFO - Added product MA183A101 with quantity 15.0 to picking 11515
+2025-07-25 16:33:17,163 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:17,163 - INFO - Processing Excel row 37: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126702', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPO005100', 'product_uom_qty': 120, 'price_unit': nan, 'sequence': 37, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:17,163 - INFO - Searching for product with code: 'SPO005100' and old code: 'SPO005100'
+2025-07-25 16:33:17,224 - INFO - Found product with exact match on default_code: 'SPO005100'
+2025-07-25 16:33:17,464 - INFO - Added product SPO005100 with quantity 120.0 to picking 11515
+2025-07-25 16:33:17,464 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:17,465 - INFO - Processing Excel row 38: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126702', 'location_dest_id': 'Partners/Customers', 'product_id': 'BAC23335363', 'product_uom_qty': 120, 'price_unit': nan, 'sequence': 38, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:17,465 - INFO - Searching for product with code: 'BAC23335363' and old code: 'BAC23335363'
+2025-07-25 16:33:17,628 - INFO - Found product with exact match on old_product_code: 'BAC23335363'
+2025-07-25 16:33:17,849 - INFO - Added product BAC23335363 with quantity 120.0 to picking 11515
+2025-07-25 16:33:17,849 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:17,850 - INFO - Processing Excel row 39: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126705', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA183A', 'product_uom_qty': 15, 'price_unit': nan, 'sequence': 39, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:17,850 - INFO - Searching for product with code: 'BMA183A' and old code: 'BMA183A'
+2025-07-25 16:33:18,022 - INFO - Found product with exact match on old_product_code: 'BMA183A'
+2025-07-25 16:33:18,219 - INFO - Added product BMA183A with quantity 15.0 to picking 11515
+2025-07-25 16:33:18,220 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:18,220 - INFO - Processing Excel row 40: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126703', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0302201', 'product_uom_qty': 40, 'price_unit': nan, 'sequence': 40, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:18,221 - INFO - Searching for product with code: 'MA0302201' and old code: 'MA0302201'
+2025-07-25 16:33:18,264 - INFO - Found product with exact match on default_code: 'MA0302201'
+2025-07-25 16:33:18,476 - INFO - Added product MA0302201 with quantity 40.0 to picking 11515
+2025-07-25 16:33:18,478 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:18,480 - INFO - Processing Excel row 41: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126703', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA302BA', 'product_uom_qty': 40, 'price_unit': nan, 'sequence': 41, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:18,481 - INFO - Searching for product with code: 'BMA302BA' and old code: 'BMA302BA'
+2025-07-25 16:33:18,648 - INFO - Found product with exact match on old_product_code: 'BMA302BA'
+2025-07-25 16:33:18,865 - INFO - Added product BMA302BA with quantity 40.0 to picking 11515
+2025-07-25 16:33:18,867 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:18,869 - INFO - Processing Excel row 42: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126704', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00431210', 'product_uom_qty': 111, 'price_unit': nan, 'sequence': 42, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:18,871 - INFO - Searching for product with code: 'MT00431210' and old code: 'MT00431210'
+2025-07-25 16:33:18,925 - INFO - Found product with exact match on default_code: 'MT00431210'
+2025-07-25 16:33:19,098 - INFO - Added product MT00431210 with quantity 111.0 to picking 11515
+2025-07-25 16:33:19,098 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:19,099 - INFO - Processing Excel row 43: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126704', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 111, 'price_unit': nan, 'sequence': 43, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:19,099 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:19,269 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:19,472 - INFO - Added product BMT414344TCI with quantity 111.0 to picking 11515
+2025-07-25 16:33:19,473 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:19,473 - INFO - Processing Excel row 44: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126770', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0302201', 'product_uom_qty': 26, 'price_unit': nan, 'sequence': 44, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:19,474 - INFO - Searching for product with code: 'MA0302201' and old code: 'MA0302201'
+2025-07-25 16:33:19,523 - INFO - Found product with exact match on default_code: 'MA0302201'
+2025-07-25 16:33:19,741 - INFO - Added product MA0302201 with quantity 26.0 to picking 11515
+2025-07-25 16:33:19,742 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:19,744 - INFO - Processing Excel row 45: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126770', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA302BA', 'product_uom_qty': 26, 'price_unit': nan, 'sequence': 45, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:19,744 - INFO - Searching for product with code: 'BMA302BA' and old code: 'BMA302BA'
+2025-07-25 16:33:19,964 - INFO - Found product with exact match on old_product_code: 'BMA302BA'
+2025-07-25 16:33:20,216 - INFO - Added product BMA302BA with quantity 26.0 to picking 11515
+2025-07-25 16:33:20,216 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:20,217 - INFO - Processing Excel row 46: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126771', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00431210', 'product_uom_qty': 13, 'price_unit': nan, 'sequence': 46, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:20,218 - INFO - Searching for product with code: 'MT00431210' and old code: 'MT00431210'
+2025-07-25 16:33:20,256 - INFO - Found product with exact match on default_code: 'MT00431210'
+2025-07-25 16:33:20,506 - INFO - Added product MT00431210 with quantity 13.0 to picking 11515
+2025-07-25 16:33:20,507 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:20,507 - INFO - Processing Excel row 47: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'PBL0009918', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0566C111', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 47, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:20,508 - INFO - Searching for product with code: 'MA0566C111' and old code: 'MA0566C111'
+2025-07-25 16:33:20,569 - INFO - Found product with exact match on default_code: 'MA0566C111'
+2025-07-25 16:33:20,872 - INFO - Added product MA0566C111 with quantity 6.0 to picking 11515
+2025-07-25 16:33:20,872 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:20,873 - INFO - Processing Excel row 48: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126771', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 13, 'price_unit': nan, 'sequence': 48, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:20,873 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:21,169 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:21,474 - INFO - Added product BMT414344TCI with quantity 13.0 to picking 11515
+2025-07-25 16:33:21,475 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:21,477 - INFO - Processing Excel row 49: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'MV-0107521', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT55TC101', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 49, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:21,479 - INFO - Searching for product with code: 'MT55TC101' and old code: 'MT55TC101'
+2025-07-25 16:33:21,545 - INFO - Found product with exact match on default_code: 'MT55TC101'
+2025-07-25 16:33:21,819 - INFO - Added product MT55TC101 with quantity 20.0 to picking 11515
+2025-07-25 16:33:21,820 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:21,821 - INFO - Processing Excel row 50: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126855', 'location_dest_id': 'Partners/Customers', 'product_id': 'AC0053101', 'product_uom_qty': 40, 'price_unit': nan, 'sequence': 50, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:21,822 - INFO - Searching for product with code: 'AC0053101' and old code: 'AC0053101'
+2025-07-25 16:33:21,875 - INFO - Found product with exact match on default_code: 'AC0053101'
+2025-07-25 16:33:22,185 - INFO - Added product AC0053101 with quantity 40.0 to picking 11515
+2025-07-25 16:33:22,187 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:22,189 - INFO - Processing Excel row 51: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126855', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPO004100', 'product_uom_qty': 40, 'price_unit': nan, 'sequence': 51, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:22,190 - INFO - Searching for product with code: 'SPO004100' and old code: 'SPO004100'
+2025-07-25 16:33:22,265 - INFO - Found product with exact match on default_code: 'SPO004100'
+2025-07-25 16:33:22,596 - INFO - Added product SPO004100 with quantity 40.0 to picking 11515
+2025-07-25 16:33:22,597 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:22,597 - INFO - Processing Excel row 52: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126855', 'location_dest_id': 'Partners/Customers', 'product_id': 'BAC23335363', 'product_uom_qty': 40, 'price_unit': nan, 'sequence': 52, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:22,598 - INFO - Searching for product with code: 'BAC23335363' and old code: 'BAC23335363'
+2025-07-25 16:33:22,863 - INFO - Found product with exact match on old_product_code: 'BAC23335363'
+2025-07-25 16:33:23,175 - INFO - Added product BAC23335363 with quantity 40.0 to picking 11515
+2025-07-25 16:33:23,176 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:23,178 - INFO - Processing Excel row 53: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126800', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT055ECO', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 53, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:23,180 - INFO - Searching for product with code: 'BMT055ECO' and old code: 'BMT055ECO'
+2025-07-25 16:33:23,429 - INFO - Found product with exact match on old_product_code: 'BMT055ECO'
+2025-07-25 16:33:23,750 - INFO - Added product BMT055ECO with quantity 6.0 to picking 11515
+2025-07-25 16:33:23,750 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:23,751 - INFO - Processing Excel row 54: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126800', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT055E1210', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 54, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:23,751 - INFO - Searching for product with code: 'MT055E1210' and old code: 'MT055E1210'
+2025-07-25 16:33:23,807 - INFO - Found product with exact match on default_code: 'MT055E1210'
+2025-07-25 16:33:24,066 - INFO - Added product MT055E1210 with quantity 6.0 to picking 11515
+2025-07-25 16:33:24,066 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:24,067 - INFO - Processing Excel row 55: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'PBL0009931', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0566C111', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 55, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:24,067 - INFO - Searching for product with code: 'MA0566C111' and old code: 'MA0566C111'
+2025-07-25 16:33:24,116 - INFO - Found product with exact match on default_code: 'MA0566C111'
+2025-07-25 16:33:24,347 - INFO - Added product MA0566C111 with quantity 3.0 to picking 11515
+2025-07-25 16:33:24,347 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:24,348 - INFO - Processing Excel row 56: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126800', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 56, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:24,348 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:24,400 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:24,674 - INFO - Added product MT541S101 with quantity 6.0 to picking 11515
+2025-07-25 16:33:24,674 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:24,675 - INFO - Processing Excel row 57: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126800', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 57, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:24,676 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:24,724 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:24,957 - INFO - Added product PACK000239 with quantity 6.0 to picking 11515
+2025-07-25 16:33:24,958 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:24,959 - INFO - Processing Excel row 58: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126800', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0054110', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 58, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:24,959 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2025-07-25 16:33:25,009 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2025-07-25 16:33:25,214 - INFO - Added product SPW0054110 with quantity 6.0 to picking 11515
+2025-07-25 16:33:25,214 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:25,215 - INFO - Processing Excel row 59: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126918', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0302201', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 59, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:25,215 - INFO - Searching for product with code: 'MA0302201' and old code: 'MA0302201'
+2025-07-25 16:33:25,257 - INFO - Found product with exact match on default_code: 'MA0302201'
+2025-07-25 16:33:25,486 - INFO - Added product MA0302201 with quantity 10.0 to picking 11515
+2025-07-25 16:33:25,486 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:25,487 - INFO - Processing Excel row 60: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126918', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA302BA', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 60, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:25,487 - INFO - Searching for product with code: 'BMA302BA' and old code: 'BMA302BA'
+2025-07-25 16:33:25,647 - INFO - Found product with exact match on old_product_code: 'BMA302BA'
+2025-07-25 16:33:25,795 - INFO - Added product BMA302BA with quantity 10.0 to picking 11515
+2025-07-25 16:33:25,799 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:25,803 - INFO - Processing Excel row 61: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126917', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0174101', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 61, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:25,804 - INFO - Searching for product with code: 'MA0174101' and old code: 'MA0174101'
+2025-07-25 16:33:25,837 - INFO - Found product with exact match on default_code: 'MA0174101'
+2025-07-25 16:33:25,946 - INFO - Added product MA0174101 with quantity 30.0 to picking 11515
+2025-07-25 16:33:25,947 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:25,947 - INFO - Processing Excel row 62: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126917', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA174', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 62, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:25,948 - INFO - Searching for product with code: 'BMA174' and old code: 'BMA174'
+2025-07-25 16:33:26,042 - INFO - Found product with exact match on old_product_code: 'BMA174'
+2025-07-25 16:33:26,153 - INFO - Added product BMA174 with quantity 30.0 to picking 11515
+2025-07-25 16:33:26,153 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:26,154 - INFO - Processing Excel row 63: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126916', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT055ECO', 'product_uom_qty': 28, 'price_unit': nan, 'sequence': 63, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:26,155 - INFO - Searching for product with code: 'BMT055ECO' and old code: 'BMT055ECO'
+2025-07-25 16:33:26,266 - INFO - Found product with exact match on old_product_code: 'BMT055ECO'
+2025-07-25 16:33:26,380 - INFO - Added product BMT055ECO with quantity 28.0 to picking 11515
+2025-07-25 16:33:26,380 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:26,381 - INFO - Processing Excel row 64: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126916', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT055E1210', 'product_uom_qty': 28, 'price_unit': nan, 'sequence': 64, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:26,381 - INFO - Searching for product with code: 'MT055E1210' and old code: 'MT055E1210'
+2025-07-25 16:33:26,410 - INFO - Found product with exact match on default_code: 'MT055E1210'
+2025-07-25 16:33:26,520 - INFO - Added product MT055E1210 with quantity 28.0 to picking 11515
+2025-07-25 16:33:26,521 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:26,522 - INFO - Processing Excel row 65: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126916', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 28, 'price_unit': nan, 'sequence': 65, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:26,522 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:26,558 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:26,676 - INFO - Added product MT541S101 with quantity 28.0 to picking 11515
+2025-07-25 16:33:26,676 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:26,677 - INFO - Processing Excel row 66: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126916', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 28, 'price_unit': nan, 'sequence': 66, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:26,677 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:26,726 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:27,044 - INFO - Added product PACK000239 with quantity 28.0 to picking 11515
+2025-07-25 16:33:27,044 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:27,044 - INFO - Processing Excel row 67: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126916', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0054110', 'product_uom_qty': 28, 'price_unit': nan, 'sequence': 67, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:27,045 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2025-07-25 16:33:27,101 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2025-07-25 16:33:27,426 - INFO - Added product SPW0054110 with quantity 28.0 to picking 11515
+2025-07-25 16:33:27,426 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:27,427 - INFO - Processing Excel row 68: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126943', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0302201', 'product_uom_qty': 29, 'price_unit': nan, 'sequence': 68, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:27,428 - INFO - Searching for product with code: 'MA0302201' and old code: 'MA0302201'
+2025-07-25 16:33:27,491 - INFO - Found product with exact match on default_code: 'MA0302201'
+2025-07-25 16:33:27,812 - INFO - Added product MA0302201 with quantity 29.0 to picking 11515
+2025-07-25 16:33:27,813 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:27,813 - INFO - Processing Excel row 69: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126943', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA302BA', 'product_uom_qty': 29, 'price_unit': nan, 'sequence': 69, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:27,814 - INFO - Searching for product with code: 'BMA302BA' and old code: 'BMA302BA'
+2025-07-25 16:33:28,054 - INFO - Found product with exact match on old_product_code: 'BMA302BA'
+2025-07-25 16:33:28,385 - INFO - Added product BMA302BA with quantity 29.0 to picking 11515
+2025-07-25 16:33:28,386 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:28,387 - INFO - Processing Excel row 70: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'PBL0010008', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0566C111', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 70, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:28,387 - INFO - Searching for product with code: 'MA0566C111' and old code: 'MA0566C111'
+2025-07-25 16:33:28,467 - INFO - Found product with exact match on default_code: 'MA0566C111'
+2025-07-25 16:33:28,792 - INFO - Added product MA0566C111 with quantity 3.0 to picking 11515
+2025-07-25 16:33:28,793 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:28,795 - INFO - Processing Excel row 71: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126942', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00411210', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 71, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:28,796 - INFO - Searching for product with code: 'MT00411210' and old code: 'MT00411210'
+2025-07-25 16:33:28,866 - INFO - Found product with exact match on default_code: 'MT00411210'
+2025-07-25 16:33:29,142 - INFO - Added product MT00411210 with quantity 30.0 to picking 11515
+2025-07-25 16:33:29,142 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:29,143 - INFO - Processing Excel row 72: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126942', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 72, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:29,143 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:29,469 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:29,766 - INFO - Added product BMT414344TCI with quantity 30.0 to picking 11515
+2025-07-25 16:33:29,768 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:29,769 - INFO - Processing Excel row 73: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126936', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 73, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:29,770 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:29,844 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:30,306 - INFO - Added product PACK000239 with quantity 1.0 to picking 11515
+2025-07-25 16:33:30,308 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:30,310 - INFO - Processing Excel row 74: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0126936', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT056ECO', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 74, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:30,311 - INFO - Searching for product with code: 'BMT056ECO' and old code: 'BMT056ECO'
+2025-07-25 16:33:30,609 - INFO - Found product with exact match on old_product_code: 'BMT056ECO'
+2025-07-25 16:33:30,928 - INFO - Added product BMT056ECO with quantity 1.0 to picking 11515
+2025-07-25 16:33:30,929 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:30,931 - INFO - Processing Excel row 75: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127005', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0302201', 'product_uom_qty': 27, 'price_unit': nan, 'sequence': 75, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:30,933 - INFO - Searching for product with code: 'MA0302201' and old code: 'MA0302201'
+2025-07-25 16:33:30,993 - INFO - Found product with exact match on default_code: 'MA0302201'
+2025-07-25 16:33:31,257 - INFO - Added product MA0302201 with quantity 27.0 to picking 11515
+2025-07-25 16:33:31,258 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:31,260 - INFO - Processing Excel row 76: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127005', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA302BA', 'product_uom_qty': 27, 'price_unit': nan, 'sequence': 76, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:31,262 - INFO - Searching for product with code: 'BMA302BA' and old code: 'BMA302BA'
+2025-07-25 16:33:31,500 - INFO - Found product with exact match on old_product_code: 'BMA302BA'
+2025-07-25 16:33:31,823 - INFO - Added product BMA302BA with quantity 27.0 to picking 11515
+2025-07-25 16:33:31,824 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:31,824 - INFO - Processing Excel row 77: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'MV-0107589', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0212201.', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 77, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:31,825 - INFO - Searching for product with code: 'MA0212201.' and old code: 'MA0212201.'
+2025-07-25 16:33:31,881 - INFO - Found product with exact match on default_code: 'MA0212201.'
+2025-07-25 16:33:32,142 - INFO - Added product MA0212201. with quantity 5.0 to picking 11515
+2025-07-25 16:33:32,142 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:32,143 - INFO - Processing Excel row 78: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127004', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT055ECO', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 78, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:32,143 - INFO - Searching for product with code: 'BMT055ECO' and old code: 'BMT055ECO'
+2025-07-25 16:33:32,352 - INFO - Found product with exact match on old_product_code: 'BMT055ECO'
+2025-07-25 16:33:32,624 - INFO - Added product BMT055ECO with quantity 14.0 to picking 11515
+2025-07-25 16:33:32,624 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:32,625 - INFO - Processing Excel row 79: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127004', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT055E1210', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 79, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:32,625 - INFO - Searching for product with code: 'MT055E1210' and old code: 'MT055E1210'
+2025-07-25 16:33:32,682 - INFO - Found product with exact match on default_code: 'MT055E1210'
+2025-07-25 16:33:32,956 - INFO - Added product MT055E1210 with quantity 14.0 to picking 11515
+2025-07-25 16:33:32,956 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:32,957 - INFO - Processing Excel row 80: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127007', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00441210', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 80, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:32,958 - INFO - Searching for product with code: 'MT00441210' and old code: 'MT00441210'
+2025-07-25 16:33:33,020 - INFO - Found product with exact match on default_code: 'MT00441210'
+2025-07-25 16:33:33,316 - INFO - Added product MT00441210 with quantity 30.0 to picking 11515
+2025-07-25 16:33:33,316 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:33,317 - INFO - Processing Excel row 81: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'PBL0010014', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0566C111', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 81, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:33,317 - INFO - Searching for product with code: 'MA0566C111' and old code: 'MA0566C111'
+2025-07-25 16:33:33,376 - INFO - Found product with exact match on default_code: 'MA0566C111'
+2025-07-25 16:33:33,697 - INFO - Added product MA0566C111 with quantity 8.0 to picking 11515
+2025-07-25 16:33:33,698 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:33,701 - INFO - Processing Excel row 82: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127006', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00411210', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 82, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:33,702 - INFO - Searching for product with code: 'MT00411210' and old code: 'MT00411210'
+2025-07-25 16:33:33,794 - INFO - Found product with exact match on default_code: 'MT00411210'
+2025-07-25 16:33:34,175 - INFO - Added product MT00411210 with quantity 20.0 to picking 11515
+2025-07-25 16:33:34,176 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:34,177 - INFO - Processing Excel row 83: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127004', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 83, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:34,177 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:34,251 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:34,595 - INFO - Added product MT541S101 with quantity 14.0 to picking 11515
+2025-07-25 16:33:34,596 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:34,597 - INFO - Processing Excel row 84: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127006', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 84, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:34,598 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:34,849 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:35,162 - INFO - Added product BMT414344TCI with quantity 20.0 to picking 11515
+2025-07-25 16:33:35,163 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:35,165 - INFO - Processing Excel row 85: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127007', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 85, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:35,168 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:35,404 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:35,685 - INFO - Added product BMT414344TCI with quantity 30.0 to picking 11515
+2025-07-25 16:33:35,686 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:35,688 - INFO - Processing Excel row 86: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127004', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 86, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:35,692 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:35,744 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:36,028 - INFO - Added product PACK000239 with quantity 14.0 to picking 11515
+2025-07-25 16:33:36,028 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:36,029 - INFO - Processing Excel row 87: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127004', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0054110', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 87, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:36,029 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2025-07-25 16:33:36,091 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2025-07-25 16:33:36,354 - INFO - Added product SPW0054110 with quantity 14.0 to picking 11515
+2025-07-25 16:33:36,355 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:36,355 - INFO - Processing Excel row 88: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'MV-0107599', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA302BA', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 88, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:36,355 - INFO - Searching for product with code: 'BMA302BA' and old code: 'BMA302BA'
+2025-07-25 16:33:36,588 - INFO - Found product with exact match on old_product_code: 'BMA302BA'
+2025-07-25 16:33:36,897 - INFO - Added product BMA302BA with quantity 1.0 to picking 11515
+2025-07-25 16:33:36,898 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:36,901 - INFO - Processing Excel row 89: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'MV-0107603', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA575C110', 'product_uom_qty': 16, 'price_unit': nan, 'sequence': 89, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:36,902 - INFO - Searching for product with code: 'MA575C110' and old code: 'MA575C110'
+2025-07-25 16:33:36,961 - INFO - Found product with exact match on default_code: 'MA575C110'
+2025-07-25 16:33:37,305 - INFO - Added product MA575C110 with quantity 16.0 to picking 11515
+2025-07-25 16:33:37,307 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:37,309 - INFO - Processing Excel row 90: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127102', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0014101', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 90, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:37,310 - INFO - Searching for product with code: 'MA0014101' and old code: 'MA0014101'
+2025-07-25 16:33:37,388 - INFO - Found product with exact match on default_code: 'MA0014101'
+2025-07-25 16:33:37,738 - INFO - Added product MA0014101 with quantity 5.0 to picking 11515
+2025-07-25 16:33:37,739 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:37,740 - INFO - Processing Excel row 91: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127103', 'location_dest_id': 'Partners/Customers', 'product_id': 'AC0063101', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 91, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:37,740 - INFO - Searching for product with code: 'AC0063101' and old code: 'AC0063101'
+2025-07-25 16:33:37,806 - INFO - Found product with exact match on default_code: 'AC0063101'
+2025-07-25 16:33:38,149 - INFO - Added product AC0063101 with quantity 20.0 to picking 11515
+2025-07-25 16:33:38,149 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:38,150 - INFO - Processing Excel row 92: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127102', 'location_dest_id': 'Partners/Customers', 'product_id': 'SP0017100', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 92, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:38,151 - INFO - Searching for product with code: 'SP0017100' and old code: 'SP0017100'
+2025-07-25 16:33:38,205 - INFO - Found product with exact match on default_code: 'SP0017100'
+2025-07-25 16:33:38,494 - INFO - Added product SP0017100 with quantity 5.0 to picking 11515
+2025-07-25 16:33:38,495 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:38,496 - INFO - Processing Excel row 93: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127104', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA183A101', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 93, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:38,497 - INFO - Searching for product with code: 'MA183A101' and old code: 'MA183A101'
+2025-07-25 16:33:38,549 - INFO - Found product with exact match on default_code: 'MA183A101'
+2025-07-25 16:33:38,839 - INFO - Added product MA183A101 with quantity 8.0 to picking 11515
+2025-07-25 16:33:38,839 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:38,840 - INFO - Processing Excel row 94: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127103', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPO005100', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 94, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:38,840 - INFO - Searching for product with code: 'SPO005100' and old code: 'SPO005100'
+2025-07-25 16:33:38,960 - INFO - Found product with exact match on default_code: 'SPO005100'
+2025-07-25 16:33:39,272 - INFO - Added product SPO005100 with quantity 20.0 to picking 11515
+2025-07-25 16:33:39,273 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:39,273 - INFO - Processing Excel row 95: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127103', 'location_dest_id': 'Partners/Customers', 'product_id': 'BAC23335363', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 95, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:39,274 - INFO - Searching for product with code: 'BAC23335363' and old code: 'BAC23335363'
+2025-07-25 16:33:39,549 - INFO - Found product with exact match on old_product_code: 'BAC23335363'
+2025-07-25 16:33:39,852 - INFO - Added product BAC23335363 with quantity 20.0 to picking 11515
+2025-07-25 16:33:39,853 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:39,855 - INFO - Processing Excel row 96: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127104', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA183A', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 96, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:39,856 - INFO - Searching for product with code: 'BMA183A' and old code: 'BMA183A'
+2025-07-25 16:33:40,090 - INFO - Found product with exact match on old_product_code: 'BMA183A'
+2025-07-25 16:33:40,401 - INFO - Added product BMA183A with quantity 8.0 to picking 11515
+2025-07-25 16:33:40,402 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:40,402 - INFO - Processing Excel row 97: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127102', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA014', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 97, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:40,402 - INFO - Searching for product with code: 'BMA014' and old code: 'BMA014'
+2025-07-25 16:33:40,644 - INFO - Found product with exact match on old_product_code: 'BMA014'
+2025-07-25 16:33:40,975 - INFO - Added product BMA014 with quantity 5.0 to picking 11515
+2025-07-25 16:33:40,976 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:40,978 - INFO - Processing Excel row 98: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127113', 'location_dest_id': 'Partners/Customers', 'product_id': 'MTK00031112', 'product_uom_qty': 25, 'price_unit': nan, 'sequence': 98, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:40,979 - INFO - Searching for product with code: 'MTK00031112' and old code: 'MTK00031112'
+2025-07-25 16:33:41,048 - INFO - Found product with exact match on default_code: 'MTK00031112'
+2025-07-25 16:33:41,410 - INFO - Added product MTK00031112 with quantity 25.0 to picking 11515
+2025-07-25 16:33:41,411 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:41,412 - INFO - Processing Excel row 99: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127113', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMTK03', 'product_uom_qty': 22, 'price_unit': nan, 'sequence': 99, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:41,412 - INFO - Searching for product with code: 'BMTK03' and old code: 'BMTK03'
+2025-07-25 16:33:41,662 - INFO - Found product with exact match on old_product_code: 'BMTK03'
+2025-07-25 16:33:41,973 - INFO - Added product BMTK03 with quantity 22.0 to picking 11515
+2025-07-25 16:33:41,974 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:41,976 - INFO - Processing Excel row 100: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127151', 'location_dest_id': 'Partners/Customers', 'product_id': 'AC0013100', 'product_uom_qty': 169, 'price_unit': nan, 'sequence': 100, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:41,977 - INFO - Searching for product with code: 'AC0013100' and old code: 'AC0013100'
+2025-07-25 16:33:42,038 - INFO - Found product with exact match on default_code: 'AC0013100'
+2025-07-25 16:33:42,392 - INFO - Added product AC0013100 with quantity 169.0 to picking 11515
+2025-07-25 16:33:42,393 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:42,395 - INFO - Processing Excel row 101: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127152', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA183A101', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 101, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:42,397 - INFO - Searching for product with code: 'MA183A101' and old code: 'MA183A101'
+2025-07-25 16:33:42,479 - INFO - Found product with exact match on default_code: 'MA183A101'
+2025-07-25 16:33:42,863 - INFO - Added product MA183A101 with quantity 10.0 to picking 11515
+2025-07-25 16:33:42,864 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:42,866 - INFO - Processing Excel row 102: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127152', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMA183A', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 102, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:42,867 - INFO - Searching for product with code: 'BMA183A' and old code: 'BMA183A'
+2025-07-25 16:33:43,171 - INFO - Found product with exact match on old_product_code: 'BMA183A'
+2025-07-25 16:33:43,481 - INFO - Added product BMA183A with quantity 10.0 to picking 11515
+2025-07-25 16:33:43,482 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:43,484 - INFO - Processing Excel row 103: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127151', 'location_dest_id': 'Partners/Customers', 'product_id': 'BAC13', 'product_uom_qty': 169, 'price_unit': nan, 'sequence': 103, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:43,485 - INFO - Searching for product with code: 'BAC13' and old code: 'BAC13'
+2025-07-25 16:33:43,668 - INFO - Found product with exact match on old_product_code: 'BAC13'
+2025-07-25 16:33:43,923 - INFO - Added product BAC13 with quantity 169.0 to picking 11515
+2025-07-25 16:33:43,924 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:43,924 - INFO - Processing Excel row 104: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'MV-0107633', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0212201.', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 104, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:43,925 - INFO - Searching for product with code: 'MA0212201.' and old code: 'MA0212201.'
+2025-07-25 16:33:43,978 - INFO - Found product with exact match on default_code: 'MA0212201.'
+2025-07-25 16:33:44,220 - INFO - Added product MA0212201. with quantity 6.0 to picking 11515
+2025-07-25 16:33:44,221 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:44,221 - INFO - Processing Excel row 105: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127133', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT057EX1210', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 105, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:44,222 - INFO - Searching for product with code: 'MT057EX1210' and old code: 'MT057EX1210'
+2025-07-25 16:33:44,274 - INFO - Found product with exact match on default_code: 'MT057EX1210'
+2025-07-25 16:33:44,595 - INFO - Added product MT057EX1210 with quantity 14.0 to picking 11515
+2025-07-25 16:33:44,595 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:44,596 - INFO - Processing Excel row 106: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127156', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT057EX1210', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 106, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:44,596 - INFO - Searching for product with code: 'MT057EX1210' and old code: 'MT057EX1210'
+2025-07-25 16:33:44,656 - INFO - Found product with exact match on default_code: 'MT057EX1210'
+2025-07-25 16:33:44,977 - INFO - Added product MT057EX1210 with quantity 6.0 to picking 11515
+2025-07-25 16:33:44,978 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:44,979 - INFO - Processing Excel row 107: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127155', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT055ECO', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 107, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:44,979 - INFO - Searching for product with code: 'BMT055ECO' and old code: 'BMT055ECO'
+2025-07-25 16:33:45,285 - INFO - Found product with exact match on old_product_code: 'BMT055ECO'
+2025-07-25 16:33:45,573 - INFO - Added product BMT055ECO with quantity 20.0 to picking 11515
+2025-07-25 16:33:45,573 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:45,574 - INFO - Processing Excel row 108: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127155', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT055E1210', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 108, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:45,575 - INFO - Searching for product with code: 'MT055E1210' and old code: 'MT055E1210'
+2025-07-25 16:33:45,626 - INFO - Found product with exact match on default_code: 'MT055E1210'
+2025-07-25 16:33:45,906 - INFO - Added product MT055E1210 with quantity 20.0 to picking 11515
+2025-07-25 16:33:45,907 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:45,907 - INFO - Processing Excel row 109: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127133', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT057ECOTCI', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 109, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:45,908 - INFO - Searching for product with code: 'BMT057ECOTCI' and old code: 'BMT057ECOTCI'
+2025-07-25 16:33:46,092 - INFO - Found product with exact match on old_product_code: 'BMT057ECOTCI'
+2025-07-25 16:33:46,365 - INFO - Added product BMT057ECOTCI with quantity 14.0 to picking 11515
+2025-07-25 16:33:46,365 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:46,366 - INFO - Processing Excel row 110: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127156', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT057ECOTCI', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 110, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:46,366 - INFO - Searching for product with code: 'BMT057ECOTCI' and old code: 'BMT057ECOTCI'
+2025-07-25 16:33:46,582 - INFO - Found product with exact match on old_product_code: 'BMT057ECOTCI'
+2025-07-25 16:33:46,916 - INFO - Added product BMT057ECOTCI with quantity 6.0 to picking 11515
+2025-07-25 16:33:46,917 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:46,917 - INFO - Processing Excel row 111: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127154', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00431210', 'product_uom_qty': 50, 'price_unit': nan, 'sequence': 111, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:46,918 - INFO - Searching for product with code: 'MT00431210' and old code: 'MT00431210'
+2025-07-25 16:33:46,981 - INFO - Found product with exact match on default_code: 'MT00431210'
+2025-07-25 16:33:47,305 - INFO - Added product MT00431210 with quantity 50.0 to picking 11515
+2025-07-25 16:33:47,306 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:47,307 - INFO - Processing Excel row 112: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'PBL0010079', 'location_dest_id': 'Partners/Customers', 'product_id': 'MA0566C111', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 112, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:47,307 - INFO - Searching for product with code: 'MA0566C111' and old code: 'MA0566C111'
+2025-07-25 16:33:47,378 - INFO - Found product with exact match on default_code: 'MA0566C111'
+2025-07-25 16:33:47,659 - INFO - Added product MA0566C111 with quantity 8.0 to picking 11515
+2025-07-25 16:33:47,659 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:47,660 - INFO - Processing Excel row 113: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127153', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT00411210', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 113, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:47,662 - INFO - Searching for product with code: 'MT00411210' and old code: 'MT00411210'
+2025-07-25 16:33:47,717 - INFO - Found product with exact match on default_code: 'MT00411210'
+2025-07-25 16:33:48,033 - INFO - Added product MT00411210 with quantity 10.0 to picking 11515
+2025-07-25 16:33:48,033 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:48,034 - INFO - Processing Excel row 114: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127133', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 114, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:48,034 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:48,092 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:48,440 - INFO - Added product MT541S101 with quantity 14.0 to picking 11515
+2025-07-25 16:33:48,441 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:48,443 - INFO - Processing Excel row 115: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127155', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 115, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:48,444 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:48,545 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:48,913 - INFO - Added product MT541S101 with quantity 20.0 to picking 11515
+2025-07-25 16:33:48,914 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:48,915 - INFO - Processing Excel row 116: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127156', 'location_dest_id': 'Partners/Customers', 'product_id': 'MT541S101', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 116, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:48,915 - INFO - Searching for product with code: 'MT541S101' and old code: 'MT541S101'
+2025-07-25 16:33:48,980 - INFO - Found product with exact match on default_code: 'MT541S101'
+2025-07-25 16:33:49,311 - INFO - Added product MT541S101 with quantity 6.0 to picking 11515
+2025-07-25 16:33:49,312 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:49,314 - INFO - Processing Excel row 117: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127133', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0056200', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 117, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:49,315 - INFO - Searching for product with code: 'SPW0056200' and old code: 'SPW0056200'
+2025-07-25 16:33:49,370 - INFO - Found product with exact match on default_code: 'SPW0056200'
+2025-07-25 16:33:49,684 - INFO - Added product SPW0056200 with quantity 14.0 to picking 11515
+2025-07-25 16:33:49,684 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:49,685 - INFO - Processing Excel row 118: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127156', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0056200', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 118, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:49,685 - INFO - Searching for product with code: 'SPW0056200' and old code: 'SPW0056200'
+2025-07-25 16:33:49,737 - INFO - Found product with exact match on default_code: 'SPW0056200'
+2025-07-25 16:33:50,107 - INFO - Added product SPW0056200 with quantity 6.0 to picking 11515
+2025-07-25 16:33:50,108 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:50,109 - INFO - Processing Excel row 119: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127153', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 119, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:50,110 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:50,330 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:50,615 - INFO - Added product BMT414344TCI with quantity 10.0 to picking 11515
+2025-07-25 16:33:50,615 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:50,616 - INFO - Processing Excel row 120: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127154', 'location_dest_id': 'Partners/Customers', 'product_id': 'BMT414344TCI', 'product_uom_qty': 50, 'price_unit': nan, 'sequence': 120, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:50,616 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2025-07-25 16:33:50,816 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2025-07-25 16:33:51,090 - INFO - Added product BMT414344TCI with quantity 50.0 to picking 11515
+2025-07-25 16:33:51,090 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:51,090 - INFO - Processing Excel row 121: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127133', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 121, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:51,091 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:51,144 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:51,421 - INFO - Added product PACK000239 with quantity 14.0 to picking 11515
+2025-07-25 16:33:51,422 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:51,423 - INFO - Processing Excel row 122: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127155', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 122, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:51,424 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:51,483 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:51,792 - INFO - Added product PACK000239 with quantity 20.0 to picking 11515
+2025-07-25 16:33:51,792 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:51,792 - INFO - Processing Excel row 123: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127156', 'location_dest_id': 'Partners/Customers', 'product_id': 'PACK000239', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 123, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:51,793 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2025-07-25 16:33:51,852 - INFO - Found product with exact match on default_code: 'PACK000239'
+2025-07-25 16:33:52,120 - INFO - Added product PACK000239 with quantity 6.0 to picking 11515
+2025-07-25 16:33:52,122 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:52,124 - INFO - Processing Excel row 124: {'partner_id': 'MOG-OB-Delivary', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB-Deliveries', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'ROJ0127155', 'location_dest_id': 'Partners/Customers', 'product_id': 'SPW0054110', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 124, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:33:52,125 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2025-07-25 16:33:52,181 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2025-07-25 16:33:52,524 - INFO - Added product SPW0054110 with quantity 20.0 to picking 11515
+2025-07-25 16:33:52,524 - INFO - Move locations - Source: 925, Dest: 5
+2025-07-25 16:33:52,778 - INFO - Re-updated dates before confirming picking 11515: 2025-03-31 00:00:00
+2025-07-25 16:34:02,814 - INFO - Confirmed transfer 11515 with forced date context
+2025-07-25 16:34:02,815 - INFO - Import completed: 1 success, 0 failed.

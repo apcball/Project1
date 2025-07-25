@@ -1,0 +1,62 @@
+2025-07-25 16:14:10,645 - INFO - Successfully connected to Odoo as user ID: 2
+2025-07-25 16:14:10,774 - INFO - Odoo version: 17.0.1.3
+2025-07-25 16:14:11,035 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-07-25 16:14:11,351 - INFO - Successfully read Excel file with 5 rows
+2025-07-25 16:14:11,352 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-07-25 16:14:11,358 - INFO - Processed sequence column
+2025-07-25 16:14:11,360 - INFO - scheduled_date dtype: datetime64[ns]
+2025-07-25 16:14:11,360 - INFO - scheduled_date sample: 2025-03-11 00:00:00
+2025-07-25 16:14:11,362 - INFO - Converted scheduled_date to string format. Sample: 2025-03-11 00:00:00
+2025-07-25 16:14:11,363 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-07-25 16:14:11,364 - INFO - Using 'origin' column to identify transfer groups
+2025-07-25 16:14:11,369 - INFO - Excel file validation and data filling completed successfully
+2025-07-25 16:14:11,482 - INFO - Searching for location: 'RM03/TCI'
+2025-07-25 16:14:11,738 - INFO - Found location with complete_name match: 'RM03/TCI' for 'RM03/TCI'
+2025-07-25 16:14:11,820 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 16:14:12,035 - INFO - Created transfer for date 2025-03-11 00:00:00 sequence 1 with picking ID 11511
+2025-07-25 16:14:12,036 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'MV-0107478', 'location_dest_id': 'RM03/TCI', 'product_id': 'MA662B101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 1, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 16:14:12,037 - INFO - Searching for product with code: 'MA662B101' and old code: 'MA662B101'
+2025-07-25 16:14:12,099 - INFO - Found product with exact match on default_code: 'MA662B101'
+2025-07-25 16:14:12,525 - INFO - Added product MA662B101 with quantity 2.0 to picking 11511
+2025-07-25 16:14:12,525 - INFO - Move locations - Source: 14, Dest: 925
+2025-07-25 16:14:12,526 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-11 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-11 00:00:00'), 'origin': 'MV-0107478', 'location_dest_id': 'RM03/TCI', 'product_id': 'MA662P101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 2, 'scheduled_date_orig': Timestamp('2025-03-11 00:00:00')}
+2025-07-25 16:14:12,526 - INFO - Searching for product with code: 'MA662P101' and old code: 'MA662P101'
+2025-07-25 16:14:12,580 - INFO - Found product with exact match on default_code: 'MA662P101'
+2025-07-25 16:14:12,976 - INFO - Added product MA662P101 with quantity 1.0 to picking 11511
+2025-07-25 16:14:12,977 - INFO - Move locations - Source: 14, Dest: 925
+2025-07-25 16:14:13,128 - INFO - Re-updated dates before confirming picking 11511: 2025-03-11 00:00:00
+2025-07-25 16:14:13,667 - INFO - Confirmed transfer 11511 with forced date context
+2025-07-25 16:14:13,750 - INFO - Searching for location: 'RM03/TCI'
+2025-07-25 16:14:13,859 - INFO - Found location with complete_name match: 'RM03/TCI' for 'RM03/TCI'
+2025-07-25 16:14:13,895 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 16:14:14,004 - INFO - Created transfer for date 2025-03-14 00:00:00 sequence 3 with picking ID 11512
+2025-07-25 16:14:14,006 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-14 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-14 00:00:00'), 'origin': 'MV-0107520', 'location_dest_id': 'RM03/TCI', 'product_id': 'MA575C110', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 3, 'scheduled_date_orig': Timestamp('2025-03-14 00:00:00')}
+2025-07-25 16:14:14,007 - INFO - Searching for product with code: 'MA575C110' and old code: 'MA575C110'
+2025-07-25 16:14:14,047 - INFO - Found product with exact match on default_code: 'MA575C110'
+2025-07-25 16:14:14,230 - INFO - Added product MA575C110 with quantity 2.0 to picking 11512
+2025-07-25 16:14:14,231 - INFO - Move locations - Source: 14, Dest: 925
+2025-07-25 16:14:14,376 - INFO - Re-updated dates before confirming picking 11512: 2025-03-14 00:00:00
+2025-07-25 16:14:14,879 - INFO - Confirmed transfer 11512 with forced date context
+2025-07-25 16:14:14,954 - INFO - Searching for location: 'RM03/TCI'
+2025-07-25 16:14:15,082 - INFO - Found location with complete_name match: 'RM03/TCI' for 'RM03/TCI'
+2025-07-25 16:14:15,129 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 16:14:15,289 - INFO - Created transfer for date 2025-03-25 00:00:00 sequence 4 with picking ID 11513
+2025-07-25 16:14:15,291 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'MV-0107597', 'location_dest_id': 'RM03/TCI', 'product_id': 'FCA0059100', 'product_uom_qty': 16, 'price_unit': nan, 'sequence': 4, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 16:14:15,293 - INFO - Searching for product with code: 'FCA0059100' and old code: 'FCA0059100'
+2025-07-25 16:14:15,347 - INFO - Found product with exact match on default_code: 'FCA0059100'
+2025-07-25 16:14:15,585 - INFO - Added product FCA0059100 with quantity 16.0 to picking 11513
+2025-07-25 16:14:15,585 - INFO - Move locations - Source: 14, Dest: 925
+2025-07-25 16:14:15,738 - INFO - Re-updated dates before confirming picking 11513: 2025-03-25 00:00:00
+2025-07-25 16:14:15,884 - INFO - Confirmed transfer 11513 with forced date context
+2025-07-25 16:14:15,935 - INFO - Searching for location: 'RM03/TCI'
+2025-07-25 16:14:16,008 - INFO - Found location with complete_name match: 'RM03/TCI' for 'RM03/TCI'
+2025-07-25 16:14:16,037 - INFO - Found partner ID 16663 for 'MOG-OB-Transfer'
+2025-07-25 16:14:16,086 - INFO - Created transfer for date 2025-03-31 00:00:00 sequence 5 with picking ID 11514
+2025-07-25 16:14:16,087 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB-Transfer', 'scheduled_date': Timestamp('2025-03-31 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-31 00:00:00'), 'origin': 'MV-0107632', 'location_dest_id': 'RM03/TCI', 'product_id': 'MA575C110', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 5, 'scheduled_date_orig': Timestamp('2025-03-31 00:00:00')}
+2025-07-25 16:14:16,087 - INFO - Searching for product with code: 'MA575C110' and old code: 'MA575C110'
+2025-07-25 16:14:16,120 - INFO - Found product with exact match on default_code: 'MA575C110'
+2025-07-25 16:14:16,249 - INFO - Added product MA575C110 with quantity 8.0 to picking 11514
+2025-07-25 16:14:16,249 - INFO - Move locations - Source: 14, Dest: 925
+2025-07-25 16:14:16,310 - INFO - Re-updated dates before confirming picking 11514: 2025-03-31 00:00:00
+2025-07-25 16:14:16,477 - INFO - Confirmed transfer 11514 with forced date context
+2025-07-25 16:14:16,477 - INFO - Import completed: 4 success, 0 failed.

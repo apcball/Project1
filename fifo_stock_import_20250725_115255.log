@@ -1,0 +1,59 @@
+2025-07-25 11:52:56,007 - INFO - Successfully connected to Odoo as user ID: 2
+2025-07-25 11:52:56,899 - INFO - Odoo version: 17.0.1.3
+2025-07-25 11:52:57,838 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-07-25 11:52:58,156 - INFO - Successfully read Excel file with 8 rows
+2025-07-25 11:52:58,156 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-07-25 11:52:58,158 - INFO - Processed sequence column
+2025-07-25 11:52:58,159 - INFO - scheduled_date dtype: datetime64[ns]
+2025-07-25 11:52:58,159 - INFO - scheduled_date sample: 2025-03-25 00:00:00
+2025-07-25 11:52:58,161 - INFO - Converted scheduled_date to string format. Sample: 2025-03-25 00:00:00
+2025-07-25 11:52:58,161 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-07-25 11:52:58,162 - INFO - Using 'origin' column to identify transfer groups
+2025-07-25 11:52:58,168 - INFO - Excel file validation and data filling completed successfully
+2025-07-25 11:52:59,152 - INFO - Searching for location: 'RM02/Stock'
+2025-07-25 11:53:01,121 - INFO - Found location with complete_name match: 'RM02/Stock' for 'RM02/Stock'
+2025-07-25 11:53:01,192 - INFO - Found partner ID 16630 for 'MOG-OB'
+2025-07-25 11:53:01,418 - INFO - Created transfer for date 2025-03-25 00:00:00 sequence 309 with picking ID 11422
+2025-07-25 11:53:01,422 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'BOJ0001722', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-NT-1821500-5802', 'product_uom_qty': 2, 'price_unit': 35.9355, 'sequence': 309, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 11:53:01,426 - INFO - Searching for product with code: 'NFG03-NT-1821500-5802' and old code: 'NFG03-NT-1821500-5802'
+2025-07-25 11:53:01,502 - INFO - Found product with exact match on default_code: 'NFG03-NT-1821500-5802'
+2025-07-25 11:53:01,884 - INFO - Added product NFG03-NT-1821500-5802 with quantity 2.0 to picking 11422
+2025-07-25 11:53:01,885 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:53:01,887 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'BOJ0001722', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-NT-1821500-5802', 'product_uom_qty': 4, 'price_unit': 35.935475, 'sequence': 310, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 11:53:01,888 - INFO - Searching for product with code: 'NFG03-NT-1821500-5802' and old code: 'NFG03-NT-1821500-5802'
+2025-07-25 11:53:01,934 - INFO - Found product with exact match on default_code: 'NFG03-NT-1821500-5802'
+2025-07-25 11:53:02,284 - INFO - Added product NFG03-NT-1821500-5802 with quantity 4.0 to picking 11422
+2025-07-25 11:53:02,284 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:53:02,285 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'BOJ0001723', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-NT-1821500-5802', 'product_uom_qty': 10, 'price_unit': 27.18773, 'sequence': 311, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 11:53:02,285 - INFO - Searching for product with code: 'NFG03-NT-1821500-5802' and old code: 'NFG03-NT-1821500-5802'
+2025-07-25 11:53:02,327 - INFO - Found product with exact match on default_code: 'NFG03-NT-1821500-5802'
+2025-07-25 11:53:02,603 - INFO - Added product NFG03-NT-1821500-5802 with quantity 10.0 to picking 11422
+2025-07-25 11:53:02,603 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:53:02,604 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'BOJ0001722', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-NT-2201200-5802', 'product_uom_qty': 2, 'price_unit': 35.58445, 'sequence': 313, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 11:53:02,604 - INFO - Searching for product with code: 'NFG03-NT-2201200-5802' and old code: 'NFG03-NT-2201200-5802'
+2025-07-25 11:53:02,646 - INFO - Found product with exact match on default_code: 'NFG03-NT-2201200-5802'
+2025-07-25 11:53:02,868 - INFO - Added product NFG03-NT-2201200-5802 with quantity 2.0 to picking 11422
+2025-07-25 11:53:02,868 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:53:02,869 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'BOJ0001722', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-NT-2201200-5802', 'product_uom_qty': 4, 'price_unit': 35.58445, 'sequence': 314, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 11:53:02,869 - INFO - Searching for product with code: 'NFG03-NT-2201200-5802' and old code: 'NFG03-NT-2201200-5802'
+2025-07-25 11:53:02,930 - INFO - Found product with exact match on default_code: 'NFG03-NT-2201200-5802'
+2025-07-25 11:53:03,110 - INFO - Added product NFG03-NT-2201200-5802 with quantity 4.0 to picking 11422
+2025-07-25 11:53:03,111 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:53:03,114 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'BOJ0001723', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG03-NT-2201200-5802', 'product_uom_qty': 5, 'price_unit': 26.92216, 'sequence': 315, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 11:53:03,115 - INFO - Searching for product with code: 'NFG03-NT-2201200-5802' and old code: 'NFG03-NT-2201200-5802'
+2025-07-25 11:53:03,171 - INFO - Found product with exact match on default_code: 'NFG03-NT-2201200-5802'
+2025-07-25 11:53:03,510 - INFO - Added product NFG03-NT-2201200-5802 with quantity 5.0 to picking 11422
+2025-07-25 11:53:03,510 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:53:03,511 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'BOJ0001737', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG09-F01-0001-027', 'product_uom_qty': 1, 'price_unit': 1480.5497, 'sequence': 332, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 11:53:03,511 - INFO - Searching for product with code: 'NFG09-F01-0001-027' and old code: 'NFG09-F01-0001-027'
+2025-07-25 11:53:03,563 - INFO - Found product with exact match on default_code: 'NFG09-F01-0001-027'
+2025-07-25 11:53:03,807 - INFO - Added product NFG09-F01-0001-027 with quantity 1.0 to picking 11422
+2025-07-25 11:53:03,808 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:53:03,808 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-03-25 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-03-25 00:00:00'), 'origin': 'BOJ0001738', 'location_dest_id': 'RM02/Stock', 'product_id': 'NFG09-F01-0001-027', 'product_uom_qty': 1, 'price_unit': 1480.5497, 'sequence': 333, 'scheduled_date_orig': Timestamp('2025-03-25 00:00:00')}
+2025-07-25 11:53:03,809 - INFO - Searching for product with code: 'NFG09-F01-0001-027' and old code: 'NFG09-F01-0001-027'
+2025-07-25 11:53:03,856 - INFO - Found product with exact match on default_code: 'NFG09-F01-0001-027'
+2025-07-25 11:53:04,118 - INFO - Added product NFG09-F01-0001-027 with quantity 1.0 to picking 11422
+2025-07-25 11:53:04,119 - INFO - Move locations - Source: 14, Dest: 181
+2025-07-25 11:53:04,428 - INFO - Re-updated dates before confirming picking 11422: 2025-03-25 00:00:00
+2025-07-25 11:53:05,727 - INFO - Confirmed transfer 11422 with forced date context
+2025-07-25 11:53:05,728 - INFO - Import completed: 1 success, 0 failed.
