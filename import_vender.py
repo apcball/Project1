@@ -17,11 +17,11 @@ logger = logging.getLogger(__name__)
 
 # Configuration
 CONFIG = {
-    'url': 'http://mogdev.work:8069',
-    'db': 'KYLD_DEV2',  # Changed to match the actual database name
+    'url': 'http://mogth.work:8069',
+    'db': 'MOG_LIVE',  # Changed to match the actual database name
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
-    'excel_path': 'Data_file/Vender_import by KYLD.xlsx'
+    'excel_path': 'Data_file/Vender_import by MOG.xlsx'
 }
 
 def connect_to_odoo():
@@ -140,12 +140,14 @@ def get_account_id(models, uid, account_identifier, account_type):
 def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     """Clean and prepare vendor data"""
     
-    # Determine if company based on name prefix
+    # Determine if company based on is_company column if present, otherwise by name prefix
     name = str(row.get('name', '')).strip() if not pd.isna(row.get('name')) else ''
-    is_company = True if name.startswith('บริษัท') else False
-    company_type = 'company' if is_company else 'person'
-
-    company_type = 'company' if is_company else 'person'
+    if 'is_company' in row:
+        is_company = bool(row.get('is_company', False))
+        company_type = 'company' if is_company else 'individual'
+    else:
+        is_company = True if name.startswith('บริษัท') else False
+        company_type = 'company' if is_company else 'person'
 
     # Get partner group, type, and office
     partner_group = str(row.get('Vendor Group', '')).strip() if not pd.isna(row.get('Vendor Group')) else ''
@@ -333,8 +335,7 @@ def clean_vendor_data(row: pd.Series, models: Any, uid: int) -> Dict[str, Any]:
     if vat:
         # Remove any spaces and special characters
         vat = ''.join(c for c in vat if c.isalnum())
-        # Add 'TH' prefix if not present
-        vat = f"TH{vat}" if not vat.startswith('TH') else vat
+        # vat = f"TH{vat}" if not vat.startswith('TH') else vat  # <--- ลบหรือคอมเมนต์บรรทัดนี้
     
     # Get country ID for Thailand
     country_id = False
