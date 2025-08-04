@@ -12,7 +12,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/ob_stockFG10/ST01-Deli.xlsx'
+EXCEL_FILE = 'Data_file/ob_stockFG10/FG40-Deli2.xlsx'
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -614,7 +614,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Data_file/ob_stockFG10/ST01-Deli.xlsx'
+        EXCEL_FILE = 'Data_file/ob_stockFG10/FG40-Deli2.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move

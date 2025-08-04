@@ -6,8 +6,8 @@ import os
 from dotenv import load_dotenv
 
 # Odoo connection parameters - define these first
-url = 'http://mogdev.work:8069'
-db = 'KYLD_DEV2'
+url = 'http://mogth.work:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -310,7 +310,7 @@ def create_or_update_category(category_data, processed_categories):
 def main():
     try:
         # Excel file path
-        file_path = os.path.join('Data_file', 'KYLD Product Category update R4.xlsx')
+        file_path = os.path.join('Data_file', 'MOG Product Category update R1.xlsx')
         print(f"Looking for file at: {os.path.abspath(file_path)}")
         
         if not os.path.exists(file_path):
