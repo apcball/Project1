@@ -112,10 +112,13 @@ def main():
             continue
 
         try:
-            # Find the bill by name and move_type = in_invoice
+            # Find the bill by name and move_type = in_invoice OR in_refund
+            # Search for vendor bills or refunds with the given name.
+            # Domain must be a flat list where '|' precedes the two alternatives.
+            domain = ['|', ['move_type', '=', 'in_invoice'], ['move_type', '=', 'in_refund'], ['name', '=', number]]
             bills = models.execute_kw(DB, uid, PASSWORD,
                                       'account.move', 'search_read',
-                                      [[['name', '=', number], ['move_type', '=', 'in_invoice']]],
+                                      [domain],
                                       {'fields': ['id', 'state', 'name']})
             if not bills:
                 log_result(log_file, number, expense_account, 'not_found', 'no_bill')

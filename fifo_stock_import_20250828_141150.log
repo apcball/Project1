@@ -1,0 +1,25 @@
+2025-08-28 14:11:52,093 - INFO - Successfully connected to Odoo as user ID: 2
+2025-08-28 14:11:52,911 - INFO - Odoo version: 17.0.1.3
+2025-08-28 14:11:52,971 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-08-28 14:11:53,284 - INFO - Successfully read Excel file with 1 rows
+2025-08-28 14:11:53,284 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-08-28 14:11:53,286 - INFO - Processed sequence column
+2025-08-28 14:11:53,287 - INFO - scheduled_date dtype: datetime64[ns]
+2025-08-28 14:11:53,288 - INFO - scheduled_date sample: 2025-02-28 00:00:00
+2025-08-28 14:11:53,290 - INFO - Converted scheduled_date to string format. Sample: 2025-02-28 00:00:00
+2025-08-28 14:11:53,291 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-08-28 14:11:53,292 - INFO - Using 'origin' column to identify transfer groups
+2025-08-28 14:11:53,297 - INFO - Excel file validation and data filling completed successfully
+2025-08-28 14:11:54,261 - INFO - Searching for location: 'RM01/Stock'
+2025-08-28 14:11:54,325 - INFO - Found location with complete_name match: 'RM01/Stock' for 'RM01/Stock'
+2025-08-28 14:11:54,426 - WARNING - Partner 'MOG-คลังวัตถุดิบ 1' not found. Creating new partner.
+2025-08-28 14:11:54,548 - INFO - Created new partner 'MOG-คลังวัตถุดิบ 1' with ID 18344
+2025-08-28 14:11:54,617 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 780 with picking ID 15360
+2025-08-28 14:11:54,619 - INFO - Processing Excel row 1: {'partner_id': 'MOG-คลังวัตถุดิบ 1', 'scheduled_date': '2025-02-28 00:00:00', 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-02-28 00:00:00'), 'origin': 'คลังวัตถุดิบ1-1', 'location_dest_id': 'RM01/Stock', 'product_id': 'MA0702201', 'product_uom_qty': 1, 'price_unit': 974, 'sequence': 780, 'scheduled_date_orig': Timestamp('2025-02-28 00:00:00')}
+2025-08-28 14:11:54,620 - INFO - Searching for product with code: 'MA0702201' and old code: 'MA0702201'
+2025-08-28 14:11:55,501 - INFO - Found product with exact match on default_code: 'MA0702201'
+2025-08-28 14:11:56,519 - INFO - Added product MA0702201 with quantity 1.0 to picking 15360
+2025-08-28 14:11:56,520 - INFO - Move locations - Source: 14, Dest: 173
+2025-08-28 14:11:56,579 - INFO - Re-updated dates before confirming picking 15360: 2025-02-28 00:00:00
+2025-08-28 14:11:56,955 - INFO - Confirmed transfer 15360 with forced date context
+2025-08-28 14:11:56,956 - INFO - Import completed: 1 success, 0 failed.
