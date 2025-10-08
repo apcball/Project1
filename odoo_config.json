@@ -1,0 +1,12 @@
+{
+    "odoo": {
+        "url": "http://localhost:8069",
+        "database": "your_database_name",
+        "username": "your_username",
+        "password": "your_password"
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "odoo_employee_updates.log"
+    }
+}
