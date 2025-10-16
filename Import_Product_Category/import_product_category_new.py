@@ -301,7 +301,7 @@ def read_excel_file(file_path):
 # ------------------------------------------------------------
 def main():
     # ปรับ path ได้ผ่าน ENV: EXCEL_PATH
-    file_path = os.getenv('EXCEL_PATH', os.path.join('Data_file', 'ProductCategoryupdate.xlsx'))
+    file_path = os.getenv('EXCEL_PATH', os.path.join('Import_Product_Category', 'ProductCategoryupdate.xlsx'))
     abs_path = os.path.abspath(file_path)
     print(f"Looking for file at: {abs_path}")
     if not os.path.exists(file_path):
