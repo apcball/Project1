@@ -7,8 +7,8 @@ import requests
 import time
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-server_url = 'http://mogdev.work:8069'
-database = 'KYLD_DEV2'
+server_url = 'http://kyld.site:8069'
+database = 'KYLD_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
