@@ -298,16 +298,21 @@ def process_image(image_path, product_hint=None):
                             if low in f.lower():
                                 chosen = os.path.join(image_path, f)
                                 break
-                    if not chosen and len(files) == 1:
-                        chosen = os.path.join(image_path, files[0])
-                    if not chosen and files:
-                        # fallback to first image-like file by extension
-                        for f in files:
-                            if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', '.webp')):
-                                chosen = os.path.join(image_path, f)
-                                break
-                    if not chosen:
-                        return False, f"ไม่พบไฟล์รูปภาพภายในโฟลเดอร์: {image_path}"
+                        # If a product_hint was provided but no files matched, skip the image
+                        if not chosen:
+                            return False, f"No image filename matches hint '{product_hint}' in folder: {image_path}"
+                    else:
+                        # No product_hint provided: fall back to previous behavior
+                        if len(files) == 1:
+                            chosen = os.path.join(image_path, files[0])
+                        if not chosen and files:
+                            # fallback to first image-like file by extension
+                            for f in files:
+                                if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', '.webp')):
+                                    chosen = os.path.join(image_path, f)
+                                    break
+                        if not chosen:
+                            return False, f"ไม่พบไฟล์รูปภาพภายในโฟลเดอร์: {image_path}"
                     image_path = chosen
                 except Exception as e:
                     return False, f"Error reading directory: {str(e)}"
@@ -331,7 +336,7 @@ def process_image(image_path, product_hint=None):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Import_Product/import_product_bu12.xlsx'
+excel_file = 'Import_Product/import_product.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
@@ -714,7 +719,7 @@ if failed_imports:
     
     # กำหนดชื่อไฟล์ Excel ที่จะบันทึก
     timestamp = pd.Timestamp.now().strftime("%Y%m%d_%H%M%S")
-    failed_excel_file = f'Project1/Data_file/failed_imports_{timestamp}.xlsx'
+    failed_excel_file = f'Project1/Import_Product/failed_imports_{timestamp}.xlsx'
     
     # Ensure directory exists then save Excel
     failed_dir = os.path.dirname(failed_excel_file)
