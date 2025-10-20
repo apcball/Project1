@@ -2,7 +2,7 @@ import xmlrpc.client
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+db = 'MOG_SETUP'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
