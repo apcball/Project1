@@ -251,8 +251,12 @@ def search_tags(tag_field_value):
             search_tags._cache[k] = []
     return unique
 
-def process_image(image_path):
-    """แปลงไฟล์รูปภาพเป็น base64"""
+def process_image(image_path, product_hint=None):
+    """แปลงไฟล์รูปภาพเป็น base64
+
+    If image_path is a directory, attempt to pick a file inside. If product_hint is provided,
+    prefer files that include the hint (default_code or name) in the filename.
+    """
     if pd.isna(image_path):
         return False, "No image path provided"
     
@@ -282,9 +286,35 @@ def process_image(image_path):
             
             print(f"กำลังอ่านรูปภาพจาก: {image_path}")
             
+            # If path is a directory, try to find an image file inside
+            if os.path.isdir(image_path):
+                try:
+                    files = [f for f in os.listdir(image_path) if os.path.isfile(os.path.join(image_path, f))]
+                    # prefer files that contain product_hint
+                    chosen = None
+                    if product_hint:
+                        low = str(product_hint).lower()
+                        for f in files:
+                            if low in f.lower():
+                                chosen = os.path.join(image_path, f)
+                                break
+                    if not chosen and len(files) == 1:
+                        chosen = os.path.join(image_path, files[0])
+                    if not chosen and files:
+                        # fallback to first image-like file by extension
+                        for f in files:
+                            if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', '.webp')):
+                                chosen = os.path.join(image_path, f)
+                                break
+                    if not chosen:
+                        return False, f"ไม่พบไฟล์รูปภาพภายในโฟลเดอร์: {image_path}"
+                    image_path = chosen
+                except Exception as e:
+                    return False, f"Error reading directory: {str(e)}"
+
             if not os.path.exists(image_path):
                 return False, f"ไม่พบไฟล์รูปภาพ: {image_path}"
-            
+
             try:
                 with open(image_path, 'rb') as image_file:
                     image_data = base64.b64encode(image_file.read())
@@ -410,12 +440,14 @@ for index, row in df.iterrows():
             print(f"  - Name: {existing_product['name']}")
             print("  กำลังอัพเดทข้อมูล...")
 
-            # อ่านค่า sale_ok, purchase_ok, active (default เป็น False ถ้าไม่ระบุค่า)
-            sale_ok_value = parse_boolean_field(row.get('sale_ok'), default=False)
-            purchase_ok_value = parse_boolean_field(row.get('purchase_ok'), default=False)
-            active_value = parse_boolean_field(row.get('active'), default=False)
+            # For updates: only change boolean flags if the Excel row provides them.
+            # This prevents unintentionally archiving products when the sheet leaves
+            # the 'active' column empty.
+            sale_ok_provided = pd.notna(row.get('sale_ok'))
+            purchase_ok_provided = pd.notna(row.get('purchase_ok'))
+            active_provided = pd.notna(row.get('active'))
 
-            # เตรียมข้อมูลสำหรับอัพเดท
+            # เตรียมข้อมูลสำหรับอัพเดท (do not include booleans here unless provided)
             update_data = {
                 'name': str(row['name']).strip() if pd.notna(row['name']) else existing_product['name'],
                 'name_eng': str(row['name_eng']).strip() if pd.notna(row['name_eng']) else '',
@@ -427,9 +459,7 @@ for index, row in df.iterrows():
                 'list_price': float(str(row['list_price']).replace(',', '')) if pd.notna(row['list_price']) else 0.0,
                 'standard_price': float(str(row['standard_price']).replace(',', '')) if pd.notna(row['standard_price']) else 0.0,
                 'normal_price': float(str(row['normal_price']).replace(',', '')) if pd.notna(row.get('normal_price')) else 0.0,
-                'sale_ok': sale_ok_value,
-                'purchase_ok': purchase_ok_value,
-                'active': active_value,
+                # sale_ok, purchase_ok, active: set below only if provided in the sheet
                 'can_be_expensed': True if pd.notna(row.get('can_be_expensed')) and str(row.get('can_be_expensed')).strip().lower() in ('yes', 'true', '1', 'y', 't', '1.0') else False,
                 'description': str(row['description']).strip() if pd.notna(row['description']) else '',
                 'gross_width': float(str(row['gross_width']).replace(',', '')) if pd.notna(row['gross_width']) else 0.0,
@@ -474,12 +504,25 @@ for index, row in df.iterrows():
             # ตรวจสอบและอัพเดทรูปภาพ
             if pd.notna(row.get('image')):
                 print(f"  กำลังอัพเดทรูปภาพ: {row['image']}")
-                image_data, error_msg = process_image(row['image'])
+                sku_hint = str(row.get('sku')).strip() if pd.notna(row.get('sku')) and str(row.get('sku')).strip() else default_code
+                image_data, error_msg = process_image(row['image'], product_hint=sku_hint)
                 if image_data:
                     update_data['image_1920'] = image_data
                     print("  ✓ ประมวลผลรูปภาพสำเร็จ")
                 else:
                     print(f"  ⚠ ไม่สามารถประมวลผลรูปภาพ: {error_msg}")
+
+            # Now conditionally set boolean flags only when the Excel provides them
+            try:
+                if sale_ok_provided:
+                    update_data['sale_ok'] = parse_boolean_field(row.get('sale_ok'), default=False)
+                if purchase_ok_provided:
+                    update_data['purchase_ok'] = parse_boolean_field(row.get('purchase_ok'), default=False)
+                if active_provided:
+                    update_data['active'] = parse_boolean_field(row.get('active'), default=False)
+            except Exception:
+                # If parsing fails, skip setting the boolean(s) and continue
+                pass
 
             try:
                 # อัพเดทข้อมูลสินค้า
@@ -585,7 +628,8 @@ for index, row in df.iterrows():
         # ตรวจสอบและแสดงข้อมูลรูปภาพ
         if pd.notna(row.get('image')):
             print(f"  รูปภาพ: {row['image']}")
-            image_data, error_msg = process_image(row['image'])
+            sku_hint = str(row.get('sku')).strip() if pd.notna(row.get('sku')) and str(row.get('sku')).strip() else default_code
+            image_data, error_msg = process_image(row['image'], product_hint=sku_hint)
             if image_data:
                 product_data['image_1920'] = image_data
                 print("  ✓ ประมวลผลรูปภาพสำเร็จ")
