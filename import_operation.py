@@ -182,7 +182,7 @@ def update_operation_bom(uid, models, data):
 
 def main():
     # ระบุ path ของไฟล์ Excel ตรงนี้ได้เลย
-    excel_file = r"C:\Users\Ball\Documents\Git_apcball\Project1\Data_file\operation_bu2_นุ่น04062025.xlsx"
+    excel_file = r"/Users/ball/Git_apcball/Project1/Data_file/operation_bu2_นุ่น04062025.xlsx"
     
     # Connect to Odoo
     uid, models = connect_to_odoo()
