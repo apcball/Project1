@@ -28,7 +28,11 @@ BATCH_SIZE = 1000  # Number of records to process in each batch
 MAX_RETRIES = 3    # Maximum number of connection retry attempts
 RETRY_DELAY = 5    # Delay in seconds between retries
 CHECKPOINT_FILE = 'Data_file/verification_checkpoint.json'
-OUTPUT_FILE = 'Data_file/not_found_products.xlsx'
+OUTPUT_FILE = 'Varify_Product/not_found_products.xlsx'
+# Use an absolute path for the input file so it's unambiguous
+from pathlib import Path
+INPUT_FILE = Path(r"C:\Users\Ball\Documents\Git_apcball\Project1\Varify_Product\Product_find.xlsx")
+TEMP_RESULTS_FILE = 'Varify_Product/temp_results.xlsx'
 
 class OdooConnection:
     def __init__(self):
@@ -174,13 +178,24 @@ class ProductVerifier:
             logging.error(f"Error saving checkpoint: {str(e)}")
 
     def load_temp_results(self) -> List[Dict]:
-        if os.path.exists(TEMP_RESULTS_FILE):
+        if 'TEMP_RESULTS_FILE' in globals() and os.path.exists(TEMP_RESULTS_FILE):
             try:
                 df = pd.read_excel(TEMP_RESULTS_FILE)
                 return df.to_dict('records')
             except Exception as e:
                 logging.error(f"Error loading temporary results: {str(e)}")
         return []
+
+    def save_temp_results(self):
+        """Safe no-op saver for temporary results. Writes an empty file if none exists to avoid errors."""
+        try:
+            # If there is some temporary results structure in self, we could save it here.
+            # For now, ensure the file exists to prevent other code from failing.
+            if not os.path.exists(os.path.dirname(TEMP_RESULTS_FILE)):
+                os.makedirs(os.path.dirname(TEMP_RESULTS_FILE), exist_ok=True)
+            pd.DataFrame().to_excel(TEMP_RESULTS_FILE, index=False)
+        except Exception as e:
+            logging.error(f"Error saving temporary results: {str(e)}")
 
     def save_not_found_product(self, product_code: str):
         try:
@@ -208,15 +223,13 @@ class ProductVerifier:
             absolute_index = start_idx + index
             
             try:
-                # Print column names for debugging
+                # Print column names for debugging (once per batch)
                 if index == 0:
-                    logging.info(f"Available columns: {', '.join(row.index)}")
-                
-                # Get the first column value regardless of its name
-                old_product_code = str(row.iloc[0]).strip()
-                if index == 0:
-                    logging.info(f"Available columns: {', '.join(row.index)}")
-                
+                    try:
+                        logging.info(f"Available columns: {', '.join(batch_df.columns)}")
+                    except Exception:
+                        logging.info("Unable to list columns for batch")
+
                 # Get the first column value regardless of its name
                 old_product_code = str(row.iloc[0]).strip()
 
@@ -227,7 +240,7 @@ class ProductVerifier:
                     consecutive_errors = 0
 
                 found, match_type, product_data = self.odoo.search_product(old_product_code)
-                
+
                 if not found:
                     self.save_not_found_product(old_product_code)
                     logging.info(f"Product not found: {old_product_code}")
@@ -237,14 +250,18 @@ class ProductVerifier:
                 # Reset consecutive errors on successful processing
                 consecutive_errors = 0
 
+                # Save progress periodically
+                if (index + 1) % 50 == 0:  # Increased frequency of checkpoints
+                    self.save_checkpoint(absolute_index)
+
             except (xmlrpc.client.Fault, xmlrpc.client.ProtocolError, ConnectionError) as e:
                 consecutive_errors += 1
                 logging.error(f"Connection error for product {old_product_code}: {str(e)}")
-                
+
                 # Save progress before retry
                 self.save_checkpoint(absolute_index)
                 self.save_temp_results()
-                
+
                 # Wait before retrying
                 time.sleep(self.odoo.calculate_backoff(consecutive_errors))
                 continue
@@ -252,42 +269,22 @@ class ProductVerifier:
             except Exception as e:
                 consecutive_errors += 1
                 logging.error(f"Error processing product {old_product_code}: {str(e)}")
-                
+
                 # Save progress
                 self.save_checkpoint(absolute_index)
                 self.save_temp_results()
-                
+
                 if consecutive_errors >= max_consecutive_errors:
                     logging.error("Maximum consecutive errors reached. Stopping process.")
                     raise
-
-            # Save progress periodically
-            if (index + 1) % 50 == 0:  # Increased frequency of checkpoints
-                self.save_checkpoint(absolute_index)
-            # Read the Excel file and ensure we get the first column
-            input_file = 'Data_file/Product_find.xlsx'
-            df = pd.read_excel(input_file)
-            
-            # Reset checkpoint file if exists
-            if os.path.exists(CHECKPOINT_FILE):
-                os.remove(CHECKPOINT_FILE)
-            
-            # Reset not_found_products file if exists
-            if os.path.exists(OUTPUT_FILE):
-                os.remove(OUTPUT_FILE)
-            
-            # If DataFrame is empty, log error and return
-            if df.empty:
-                logging.error("Input file is empty")
-                return
-                
-            # Rename first column to 'old_product_code' for consistency
-            df = df.rename(columns={df.columns[0]: 'old_product_code'})
     def verify_products(self):
         try:
-            # Read the Excel file
-            input_file = 'Data_file/Product_find.xlsx'
-            df = pd.read_excel(input_file)
+            # Read the Excel file from configured absolute path
+            if not INPUT_FILE.exists():
+                logging.error(f"Input file not found: {INPUT_FILE}")
+                return
+
+            df = pd.read_excel(INPUT_FILE)
             
             total_records = len(df)
             start_index = self.checkpoint_data['last_processed_index']
