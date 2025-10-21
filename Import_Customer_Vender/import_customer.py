@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'url': 'http://mogth.work:8069',
-    'db': 'MOG_Backup',
+    'db': 'MOG_SETUP',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'excel_path': 'Import_Customer_Vender/vender_import_rev1.xlsx'
