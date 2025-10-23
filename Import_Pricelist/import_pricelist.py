@@ -412,7 +412,7 @@ def main():
         sys.exit(1)
 
     # Excel file path
-    excel_file = 'Import_Pricelist/import_pricelist.xlsx'
+    excel_file = 'Data_file/import_pricelist.xlsx'
     
     # Import pricelist
     if importer.import_pricelist(excel_file):
