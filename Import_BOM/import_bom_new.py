@@ -6,7 +6,7 @@ import logging
 
 # Odoo connection parameters
 HOST = 'http://mogth.work:8069'
-DB = 'MOG_SETUP'
+DB = 'MOG_Pretest'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
@@ -26,7 +26,7 @@ def read_excel_template():
     """Read and validate the Excel template"""
     try:
         # Read the Excel file
-        df = pd.read_excel('Import_BOM/import_bom_BU1.xlsx')
+        df = pd.read_excel('Import_BOM/import_bom_BU2.xlsx')
         
         # Clean up the data
         df = df.fillna('')  # Replace NaN with empty string
@@ -324,6 +324,21 @@ def process_dataframe(models, uid, df, dry_run=True):
     qty_col = cols.get('product_qty') or cols.get('product_quantity') or cols.get('product_qty')
     type_col = cols.get('type')
 
+    # Ensure rows where parent product cell is blank continue the previous product.
+    # Some templates list the parent product once and then several component rows with
+    # an empty parent cell — forward-fill so grouping attaches those component rows
+    # to the correct parent product.
+    try:
+        # work on a copy to avoid mutating caller's DataFrame
+        df = df.copy()
+        # treat empty strings as NaN so ffill works consistently
+        df[parent_col] = df[parent_col].replace('', np.nan)
+        # use assignment instead of inplace to avoid pandas chained-assignment / FutureWarning
+        df[parent_col] = df[parent_col].ffill()
+    except Exception:
+        # if anything goes wrong, continue with original df (best-effort)
+        pass
+
     # Group by parent product
     grouped = df.groupby(parent_col)
     for parent_code, group in grouped:
@@ -411,7 +426,7 @@ def process_dataframe(models, uid, df, dry_run=True):
             ensure_bom_line(models, uid, bom_id, comp, qty, uom_id=uom_id)
 
 
-def main(excel_path='Import_BOM/import_bom_BU1.xlsx', dry_run=True):
+def main(excel_path='Import_BOM/import_bom_BU2.xlsx', dry_run=True):
     _read_config_from_file()
     df = None
     try:
@@ -430,5 +445,6 @@ def main(excel_path='Import_BOM/import_bom_BU1.xlsx', dry_run=True):
 
 if __name__ == '__main__':
     # quick manual run: dry_run=True to inspect changes without modifying Odoo
-    main(dry_run=True)
+    main(dry_run=False)
+
 
