@@ -6,7 +6,7 @@ import logging
 
 # Odoo connection parameters
 HOST = 'http://mogth.work:8069'
-DB = 'MOG_Pretest'
+DB = 'MOG_SETUP'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
