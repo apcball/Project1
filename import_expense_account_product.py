@@ -28,7 +28,7 @@ import xmlrpc.client
 DEFAULT_CONFIG = {
     "odoo": {
         "url": "http://mogth.work:8069",
-        "database": "MOG_Pretest1",
+        "database": "MOG_SETUP",
         "username": "apichart@mogen.co.th",
         "password": "471109538"
     }
@@ -160,7 +160,7 @@ def get_account_map(models, db, uid, password, codes):
 
 def main():
     parser = argparse.ArgumentParser(description='Import expense account for products')
-    parser.add_argument('file', nargs='?', default='Data_file/สินค้าระหว่างทาง.xlsx', help='CSV/XLSX input file')
+    parser.add_argument('file', nargs='?', default='Data_file/สินค้าระหว่างทาง1.xlsx', help='CSV/XLSX input file')
     parser.add_argument('--dry-run', action='store_true', help="Don't write to Odoo; just report actions")
     parser.add_argument('--config', default='odoo_config.json', help='Path to odoo_config.json')
     # Allow overriding connection details via CLI for quick runs

@@ -7,7 +7,7 @@ import requests
 
 # --- ตั้งค่าการเชื่อมต่อ Odoo ---
 server_url = 'http://mogth.work:8069'
-database = 'MOG_SETUP'
+database = 'MOG_Pretest1'
 username = 'apichart@mogen.co.th'
 password = '471109538'
  
@@ -336,7 +336,7 @@ def process_image(image_path, product_hint=None):
 failed_imports = []
 
 # --- อ่านข้อมูลจากไฟล์ Excel ---
-excel_file = 'Import_Product/import_product_นุ่น.xlsx'
+excel_file = 'Import_Product/import_product_expens.xlsx'
 try:
     df = pd.read_excel(excel_file)
     print(f"Excel file '{excel_file}' read successfully. Number of rows = {len(df)}")
