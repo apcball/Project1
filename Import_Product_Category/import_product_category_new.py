@@ -18,8 +18,8 @@ import openpyxl
 from urllib.parse import urlparse
 
 # ------------ Load config (ไม่พึ่ง dotenv) ------------
-URL = os.getenv('ODOO_URL', 'http://mogth.work:8069')
-DB = os.getenv('ODOO_DB', 'MOG_SETUP')
+URL = os.getenv('ODOO_URL', 'http://kyld.site:8069')
+DB = os.getenv('ODOO_DB', 'KYLD_LIVE')
 USERNAME = os.getenv('ODOO_USER', 'apichart@mogen.co.th')
 PASSWORD = os.getenv('ODOO_PASSWORD', '471109538')
 
@@ -301,7 +301,7 @@ def read_excel_file(file_path):
 # ------------------------------------------------------------
 def main():
     # ปรับ path ได้ผ่าน ENV: EXCEL_PATH
-    file_path = os.getenv('EXCEL_PATH', os.path.join('Import_Product_Category', 'ProductCategoryupdate.xlsx'))
+    file_path = os.getenv('EXCEL_PATH', os.path.join('Import_Product_Category', 'ProductCategorykyld.xlsx'))
     abs_path = os.path.abspath(file_path)
     print(f"Looking for file at: {abs_path}")
     if not os.path.exists(file_path):

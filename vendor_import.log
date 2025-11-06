@@ -4050,3 +4050,67 @@
 2025-08-04 17:08:11,217 - INFO - Found country: Thailand
 2025-08-04 17:08:11,372 - INFO - Created new vendor - Reference: V1542, Name: บจ. ทรัพย์สิริรัตน์ สำนักงานใหญ่, ID: 17528
 2025-08-04 17:08:11,373 - INFO - Import completed successfully
+2025-11-06 08:19:25,811 - INFO - Authentication successful, uid = 2
+2025-11-06 08:19:25,855 - INFO - partner_code field already exists in res.partner model
+2025-11-06 08:19:26,477 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-11-06 08:19:26,482 - INFO - Processing partner code: V0118
+2025-11-06 08:19:26,482 - WARNING - Could not find currency: False
+2025-11-06 08:19:26,576 - INFO - Found country: Thailand
+2025-11-06 08:19:26,999 - INFO - Created new vendor - Reference: V0118, Name: บริษัท อุตสาหกรรมเกลือบริสุทธิ์ จำกัด, ID: 370
+2025-11-06 08:19:27,001 - INFO - Processing partner code: V0119
+2025-11-06 08:19:27,002 - WARNING - Could not find currency: False
+2025-11-06 08:19:27,097 - INFO - Found country: Thailand
+2025-11-06 08:19:27,328 - INFO - Created new vendor - Reference: V0119, Name: นายก้องกังวาล สิทธิภา, ID: 371
+2025-11-06 08:19:27,330 - INFO - Processing partner code: V0120
+2025-11-06 08:19:27,331 - WARNING - Could not find currency: False
+2025-11-06 08:19:27,398 - INFO - Found country: Thailand
+2025-11-06 08:19:27,604 - INFO - Created new vendor - Reference: V0120, Name: นาคราช อิงค์เจ็ท, ID: 372
+2025-11-06 08:19:27,606 - INFO - Processing partner code: V0121
+2025-11-06 08:19:27,607 - WARNING - Could not find currency: False
+2025-11-06 08:19:27,700 - INFO - Found country: Thailand
+2025-11-06 08:19:28,051 - INFO - Created new vendor - Reference: V0121, Name: นาย เสรี ศรีเมือง, ID: 373
+2025-11-06 08:19:28,052 - INFO - Processing partner code: V0122
+2025-11-06 08:19:28,052 - WARNING - Could not find currency: False
+2025-11-06 08:19:28,128 - INFO - Found country: Thailand
+2025-11-06 08:19:28,446 - INFO - Created new vendor - Reference: V0122, Name: สวนสุรียา, ID: 374
+2025-11-06 08:19:28,447 - INFO - Processing partner code: V0123
+2025-11-06 08:19:28,447 - WARNING - Could not find currency: False
+2025-11-06 08:19:28,519 - INFO - Found country: Thailand
+2025-11-06 08:19:28,948 - INFO - Created new vendor - Reference: V0123, Name: บริษัท รุจิราพร ลอนดี้ จำกัด, ID: 375
+2025-11-06 08:19:28,950 - INFO - Processing partner code: V0124
+2025-11-06 08:19:28,951 - WARNING - Could not find currency: False
+2025-11-06 08:19:29,019 - INFO - Found country: Thailand
+2025-11-06 08:19:29,292 - INFO - Created new vendor - Reference: V0124, Name: นาง สมยา วรเลข, ID: 376
+2025-11-06 08:19:29,292 - INFO - Import completed successfully
+2025-11-06 08:22:00,609 - INFO - Authentication successful, uid = 2
+2025-11-06 08:22:00,652 - INFO - partner_code field already exists in res.partner model
+2025-11-06 08:22:01,238 - INFO - Excel file read successfully. Columns: ['partner_code', 'name', 'company_type', 'is_company', '_id/id', 'street', 'street2', 'city', 'state_id', 'zip', 'country_code', 'vat = Tex ID', 'phone', 'mobile', 'Contact Name', 'property_payment_term_id', 'customer_rank', 'active', 'country_id', 'property_account_receivable_id', 'property_account_payable_id']
+2025-11-06 08:22:01,238 - INFO - Processing partner code: V0118
+2025-11-06 08:22:01,239 - WARNING - Could not find currency: False
+2025-11-06 08:22:01,314 - INFO - Found country: Thailand
+2025-11-06 08:22:01,629 - INFO - Created new vendor - Reference: V0118, Name: บริษัท อุตสาหกรรมเกลือบริสุทธิ์ จำกัด, ID: 428
+2025-11-06 08:22:01,631 - INFO - Processing partner code: V0119
+2025-11-06 08:22:01,632 - WARNING - Could not find currency: False
+2025-11-06 08:22:01,709 - INFO - Found country: Thailand
+2025-11-06 08:22:01,970 - INFO - Created new vendor - Reference: V0119, Name: นายก้องกังวาล สิทธิภา, ID: 429
+2025-11-06 08:22:01,972 - INFO - Processing partner code: V0120
+2025-11-06 08:22:01,972 - WARNING - Could not find currency: False
+2025-11-06 08:22:02,029 - INFO - Found country: Thailand
+2025-11-06 08:22:02,304 - INFO - Created new vendor - Reference: V0120, Name: นาคราช อิงค์เจ็ท, ID: 430
+2025-11-06 08:22:02,305 - INFO - Processing partner code: V0121
+2025-11-06 08:22:02,305 - WARNING - Could not find currency: False
+2025-11-06 08:22:02,363 - INFO - Found country: Thailand
+2025-11-06 08:22:02,597 - INFO - Created new vendor - Reference: V0121, Name: นาย เสรี ศรีเมือง, ID: 431
+2025-11-06 08:22:02,599 - INFO - Processing partner code: V0122
+2025-11-06 08:22:02,600 - WARNING - Could not find currency: False
+2025-11-06 08:22:02,673 - INFO - Found country: Thailand
+2025-11-06 08:22:02,910 - INFO - Created new vendor - Reference: V0122, Name: สวนสุรียา, ID: 432
+2025-11-06 08:22:02,911 - INFO - Processing partner code: V0123
+2025-11-06 08:22:02,911 - WARNING - Could not find currency: False
+2025-11-06 08:22:02,991 - INFO - Found country: Thailand
+2025-11-06 08:22:03,268 - INFO - Created new vendor - Reference: V0123, Name: บริษัท รุจิราพร ลอนดี้ จำกัด, ID: 433
+2025-11-06 08:22:03,271 - INFO - Processing partner code: V0124
+2025-11-06 08:22:03,272 - WARNING - Could not find currency: False
+2025-11-06 08:22:03,353 - INFO - Found country: Thailand
+2025-11-06 08:22:03,639 - INFO - Created new vendor - Reference: V0124, Name: นาง สมยา วรเลข, ID: 434
+2025-11-06 08:22:03,640 - INFO - Import completed successfully

@@ -17,11 +17,11 @@ logger = logging.getLogger(__name__)
 
 # Configuration
 CONFIG = {
-    'url': 'http://mogth.work:8069',
-    'db': 'MOG_LIVE',  # Changed to match the actual database name
+    'url': 'http://kyld.site:8069',
+    'db': 'KYLD_LIVE',  # Changed to match the actual database name
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
-    'excel_path': 'Data_file/Vender_import by MOG.xlsx'
+    'excel_path': 'Import_Customer_Vender/Vender_import by KYLD.xlsx'
 }
 
 def connect_to_odoo():
