@@ -27,7 +27,7 @@ CONFIG = {
     'password': '471109538',
     'log_dir': 'Import_SO/logs',
     'data_file': 'Import_SO/Template_SO.xlsx',
-    'dry_run': True
+    'dry_run': False
 }
 
 # Global variables for logging
