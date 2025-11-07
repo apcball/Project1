@@ -460,19 +460,63 @@ def get_warehouse_data(warehouse_name):
     
     try:
         warehouse_name = str(warehouse_name).strip()
+        print(f"DEBUG: Searching for warehouse with name: '{warehouse_name}'")
+        print(f"DEBUG: Warehouse name length: {len(warehouse_name)}")
+        print(f"DEBUG: Warehouse name repr: {repr(warehouse_name)}")
+        
+        # First try exact match
+        print("DEBUG: Trying exact match search...")
         warehouse_ids = models.execute_kw(
             CONFIG['database'], uid, CONFIG['password'], 'stock.warehouse', 'search',
-            [[['name', 'ilike', warehouse_name]]]
+            [[['name', '=', warehouse_name]]]
         )
+        print(f"DEBUG: Exact match found warehouse IDs: {warehouse_ids}")
+        
+        # If exact match fails, try ilike
+        if not warehouse_ids:
+            print("DEBUG: Exact match failed, trying ilike search...")
+            warehouse_ids = models.execute_kw(
+                CONFIG['database'], uid, CONFIG['password'], 'stock.warehouse', 'search',
+                [[['name', 'ilike', warehouse_name]]]
+            )
+            print(f"DEBUG: ILIKE match found warehouse IDs: {warehouse_ids}")
         
         if warehouse_ids:
-            warehouse_data = models.execute_kw(
+            # Get all matching warehouses to check for multiple matches
+            all_warehouses = models.execute_kw(
                 CONFIG['database'], uid, CONFIG['password'], 'stock.warehouse', 'read',
-                [warehouse_ids[0]], 
+                warehouse_ids,
+                {'fields': ['id', 'name']}
+            )
+            print(f"DEBUG: All matching warehouses: {all_warehouses}")
+            
+            # Try to find exact match among results
+            for warehouse in all_warehouses:
+                if warehouse['name'] == warehouse_name:
+                    print(f"DEBUG: Found exact match: {warehouse}")
+                    return warehouse
+            
+            # If no exact match, return first result
+            print(f"DEBUG: No exact match found, returning first result: {all_warehouses[0]}")
+            return all_warehouses[0]
+        
+        # If no warehouse found, try to get default warehouse
+        print("DEBUG: No warehouses found, trying to get default warehouse...")
+        default_warehouse_ids = models.execute_kw(
+            CONFIG['database'], uid, CONFIG['password'], 'stock.warehouse', 'search',
+            [[['company_id', '=', 1]], {'limit': 1}]
+        )
+        
+        if default_warehouse_ids:
+            default_warehouse = models.execute_kw(
+                CONFIG['database'], uid, CONFIG['password'], 'stock.warehouse', 'read',
+                [default_warehouse_ids[0]],
                 {'fields': ['id', 'name']}
             )[0]
-            return warehouse_data
+            print(f"DEBUG: Using default warehouse: {default_warehouse}")
+            return default_warehouse
         
+        print("DEBUG: No warehouses found at all")
         return None
     except Exception as e:
         print(f"Error processing warehouse {warehouse_name}: {e}")
@@ -846,12 +890,16 @@ def create_sale_order(ref_name, rows):
             return False
         
         # Get warehouse data
-        warehouse_data = get_warehouse_data(first_row.get('warehouse_id'))
+        warehouse_id_value = first_row.get('warehouse_id')
+        print(f"DEBUG: SO {ref_name} - warehouse_id from Excel: {repr(warehouse_id_value)}")
+        warehouse_data = get_warehouse_data(warehouse_id_value)
         if not warehouse_data:
-            log_error(ref_name, rows[0]['index'] + 2, 'Warehouse Error', 
-                     f"Warehouse not found: {first_row.get('warehouse_id')}", first_row)
+            log_error(ref_name, rows[0]['index'] + 2, 'Warehouse Error',
+                     f"Warehouse not found: {warehouse_id_value}", first_row)
             error_count += 1
             return False
+        else:
+            print(f"DEBUG: SO {ref_name} - Selected warehouse: ID={warehouse_data['id']}, Name={repr(warehouse_data['name'])}")
         
         # Get pricelist data
         pricelist_data = get_pricelist_data(first_row.get('pricelist_id'))
