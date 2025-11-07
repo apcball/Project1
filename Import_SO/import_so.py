@@ -950,6 +950,35 @@ def create_sale_order(ref_name, rows):
                          f"Product not found: {row.get('product_id')}/{row.get('old_product_code')}", row)
                 continue
             
+            # Handle discount percentage - check for both 'discount' and 'discount ' (with trailing space)
+            discount_value = row.get('discount')
+            discount_space_value = row.get('discount ')  # Excel template has trailing space
+            
+            # Use discount from 'discount ' column first (Excel template format), then 'discount' column
+            # Convert to percentage format: if user enters 5, it should be stored as 5 (not 0.05)
+            final_discount = 0.0
+            if not pd.isna(discount_space_value):
+                discount_num = validate_number(discount_space_value)
+                # If discount is less than 1, convert to percentage (e.g., 0.05 -> 5)
+                # If discount is 1 or more, use as-is (e.g., 5 -> 5)
+                if 0 < discount_num < 1:
+                    final_discount = discount_num * 100
+                else:
+                    final_discount = discount_num
+            elif not pd.isna(discount_value):
+                discount_num = validate_number(discount_value)
+                # Same conversion logic for 'discount' column
+                if 0 < discount_num < 1:
+                    final_discount = discount_num * 100
+                else:
+                    final_discount = discount_num
+            
+            # Handle discount fixed amount
+            discount_fixed_value = row.get('discount_fixed')
+            final_discount_fixed = 0.0
+            if not pd.isna(discount_fixed_value):
+                final_discount_fixed = validate_number(discount_fixed_value)
+            
             # Prepare order line
             order_line = {
                 'product_id': product_data['id'],
@@ -958,8 +987,8 @@ def create_sale_order(ref_name, rows):
                 'price_unit': validate_number(row.get('price_unit')),
                 'product_uom': product_data['uom_id'][0] if product_data.get('uom_id') else 1,
                 'sequence': len(order_lines) + 1,
-                'discount': validate_number(row.get('discount')) if not pd.isna(row.get('discount')) else 0.0,
-                'discount_fixed': validate_number(row.get('discount_fixed')) if not pd.isna(row.get('discount_fixed')) else 0.0,
+                'discount': final_discount,
+                'discount_fixed': final_discount_fixed,
                 'tax_id': get_tax_data(row.get('tax_id')) if not pd.isna(row.get('tax_id')) else [],
             }
             
