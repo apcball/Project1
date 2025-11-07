@@ -52,6 +52,94 @@ DRY_RUN = False  # Toggle for dry run mode
 LOG_ERRORS = True  # Enable error logging
 SHOW_PROGRESS = True  # Show real-time progress
 
+# Import mode selection
+# Options: 'bill', 'refund', or 'both'
+# 'bill' - Import only bills from 'Bill' sheet
+# 'refund' - Import only refunds from 'Refund' sheet
+# 'both' - Import both bills and refunds from their respective sheets
+IMPORT_MODE = 'refund'  # Default to bill import mode
+
+def show_help():
+    """Display help information about using the script"""
+    print("\n" + "="*60)
+    print("BILL AND REFUND IMPORT SCRIPT - HELP")
+    print("="*60)
+    print("\nUSAGE:")
+    print("  python import_bill.py [mode]")
+    print("\nMODES:")
+    print("  bill    - Import only bills from 'Bill' sheet")
+    print("  refund  - Import only refunds from 'Refund' sheet")
+    print("  both    - Import both bills and refunds from their respective sheets")
+    print("\nEXAMPLES:")
+    print("  python import_bill.py bill     # Import only bills")
+    print("  python import_bill.py refund   # Import only refunds")
+    print("  python import_bill.py both     # Import both bills and refunds")
+    print("  python import_bill.py          # Interactive mode selection")
+    print("\nCONFIGURATION:")
+    print("  - Set DRY_RUN = True to test without importing data")
+    print("  - Set LOG_ERRORS = False to disable logging")
+    print("  - Set SHOW_PROGRESS = False to disable progress display")
+    print("\nEXCEL FILE:")
+    print(f"  Default: {data_file}")
+    print("  The Excel file should contain 'Bill' and/or 'Refund' sheets")
+    print("  Each sheet must have the required columns:")
+    print("    - name (Document Number)")
+    print("    - partner_id (Vendor Name)")
+    print("    - invoice_date (Document Date)")
+    print("    - account_id (Account Code)")
+    print("    - quantity (Quantity)")
+    print("    - price_unit (Price per Unit)")
+    print("\n" + "="*60)
+
+def get_import_mode():
+    """Prompt user to select import mode if not already set"""
+    global IMPORT_MODE
+    
+    # Check for help flag
+    if len(sys.argv) > 1 and sys.argv[1].lower() in ['help', '-h', '--help']:
+        show_help()
+        sys.exit(0)
+    
+    # Check if mode is already set in environment or command line args
+    if len(sys.argv) > 1:
+        mode_arg = sys.argv[1].lower()
+        if mode_arg in ['bill', 'refund', 'both']:
+            IMPORT_MODE = mode_arg
+            print(f"Import mode set from command line: {IMPORT_MODE}")
+            return
+        elif mode_arg not in ['help', '-h', '--help']:
+            print(f"Invalid mode: {mode_arg}")
+            print("Use 'python import_bill.py help' for usage information.")
+            sys.exit(1)
+    
+    # Interactive mode selection
+    print("\nSelect import mode:")
+    print("1. Import Bills only (from 'Bill' sheet)")
+    print("2. Import Refunds only (from 'Refund' sheet)")
+    print("3. Import both Bills and Refunds (from both sheets)")
+    
+    while True:
+        try:
+            choice = input("Enter your choice (1-3): ").strip()
+            if choice == '1':
+                IMPORT_MODE = 'bill'
+                break
+            elif choice == '2':
+                IMPORT_MODE = 'refund'
+                break
+            elif choice == '3':
+                IMPORT_MODE = 'both'
+                break
+            else:
+                print("Invalid choice. Please enter 1, 2, or 3.")
+        except KeyboardInterrupt:
+            print("\nOperation cancelled by user.")
+            sys.exit(0)
+        except:
+            print("Invalid input. Please enter a number between 1 and 3.")
+    
+    print(f"Selected import mode: {IMPORT_MODE}")
+
 def convert_date_format(date_str):
     """Convert date string from various formats to YYYY-MM-DD format"""
     if not date_str or pd.isna(date_str):
@@ -133,7 +221,7 @@ def clean_and_validate_data(value, field_name, max_length=500):
     return truncate_string(cleaned_value, max_length)
 
 def read_excel_file():
-    """Read and validate Excel file"""
+    """Read and validate Excel file based on import mode"""
     if not os.path.exists(data_file):
         raise FileNotFoundError(f"Excel file not found at {data_file}")
     
@@ -156,36 +244,72 @@ def read_excel_file():
         'note': 1000,           # หมายเหตุ
     }
     
-    # Read Excel file with explicit date parsing
-    df = pd.read_excel(data_file, sheet_name='Bill', dtype={'invoice_date': str, 'date': str})
+    # Determine which sheet(s) to read based on import mode
+    sheets_to_read = []
+    if IMPORT_MODE == 'bill':
+        sheets_to_read.append('Bill')
+    elif IMPORT_MODE == 'refund':
+        sheets_to_read.append('Refund')
+    elif IMPORT_MODE == 'both':
+        sheets_to_read.extend(['Bill', 'Refund'])
+    else:
+        raise ValueError(f"Invalid IMPORT_MODE: {IMPORT_MODE}. Must be 'bill', 'refund', or 'both'")
     
-    # Convert date columns to proper date format
-    for date_col in ['invoice_date', 'date']:
-        if date_col in df.columns:
-            df[date_col] = df[date_col].apply(lambda x: convert_date_format(x) if pd.notna(x) else None)
+    all_dataframes = []
     
-    print("\nColumns in Excel file:", df.columns.tolist())
+    for sheet_name in sheets_to_read:
+        try:
+            print(f"\nReading sheet: {sheet_name}")
+            # Read Excel file with explicit date parsing
+            df = pd.read_excel(data_file, sheet_name=sheet_name, dtype={'invoice_date': str, 'date': str})
+            
+            # Add a column to track the document type
+            df['document_type'] = 'bill' if sheet_name == 'Bill' else 'refund'
+            
+            # Convert date columns to proper date format
+            for date_col in ['invoice_date', 'date']:
+                if date_col in df.columns:
+                    df[date_col] = df[date_col].apply(lambda x: convert_date_format(x) if pd.notna(x) else None)
+            
+            print(f"Columns in {sheet_name} sheet:", df.columns.tolist())
+            
+            # Verify required columns
+            required_columns = ['name', 'partner_id', 'invoice_date', 'account_id', 'quantity', 'price_unit']
+            missing_columns = [col for col in required_columns if col not in df.columns]
+            if missing_columns:
+                raise ValueError(f"Required columns not found in {sheet_name} sheet: {', '.join(missing_columns)}")
+            
+            # Clean and validate data
+            for column in df.columns:
+                if column in field_limits:
+                    df[column] = df[column].apply(
+                        lambda x: clean_and_validate_data(x, column, field_limits[column])
+                    )
+            
+            # Convert numeric columns
+            numeric_columns = ['quantity', 'price_unit']
+            for col in numeric_columns:
+                if col in df.columns:
+                    df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+            
+            all_dataframes.append(df)
+            print(f"Successfully read {len(df)} rows from {sheet_name} sheet")
+            
+        except Exception as e:
+            print(f"Error reading sheet {sheet_name}: {str(e)}")
+            if IMPORT_MODE != 'both':
+                raise  # Re-raise error if not in 'both' mode
     
-    # Verify required columns
-    required_columns = ['name', 'partner_id', 'invoice_date', 'account_id', 'quantity', 'price_unit']
-    missing_columns = [col for col in required_columns if col not in df.columns]
-    if missing_columns:
-        raise ValueError(f"Required columns not found in Excel file: {', '.join(missing_columns)}")
+    if not all_dataframes:
+        raise ValueError("No data could be read from any sheet")
     
-    # Clean and validate data
-    for column in df.columns:
-        if column in field_limits:
-            df[column] = df[column].apply(
-                lambda x: clean_and_validate_data(x, column, field_limits[column])
-            )
-    
-    # Convert numeric columns
-    numeric_columns = ['quantity', 'price_unit']
-    for col in numeric_columns:
-        if col in df.columns:
-            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
-    
-    return df
+    # Combine all dataframes if multiple sheets were read
+    if len(all_dataframes) > 1:
+        combined_df = pd.concat(all_dataframes, ignore_index=True)
+        print(f"Combined {len(all_dataframes)} sheets with total of {len(combined_df)} rows")
+        return combined_df
+    else:
+        return all_dataframes[0]
 
 def get_or_create_vendor(uid, models, vendor_name, partner_code=None, old_partner_code=None):
     """Search for existing vendor by partner_code or old_partner_code, or create new one"""
@@ -338,24 +462,27 @@ def get_journal_id(uid, models, journal_name):
         print(f"Error finding journal: {str(e)}")
         return default_journal_id
 
-def find_existing_bill(uid, models, document_number):
-    """Find existing bill by document number"""
+def find_existing_document(uid, models, document_number, document_type='bill'):
+    """Find existing bill or refund by document number and type"""
     if not document_number:
         return None
+    
+    # Determine move_type based on document type
+    move_type = 'in_invoice' if document_type == 'bill' else 'in_refund'
     
     # Build search domain
     domain = [
         ['name', '=', document_number],
-        ['move_type', '=', 'in_invoice']
+        ['move_type', '=', move_type]
     ]
     
-    # Search for existing bill
-    bill_ids = models.execute_kw(db, uid, password,
+    # Search for existing document
+    doc_ids = models.execute_kw(db, uid, password,
         'account.move', 'search_read',
         [domain],
         {'fields': ['id', 'state', 'partner_id', 'invoice_date']})
     
-    return bill_ids[0] if bill_ids else None
+    return doc_ids[0] if doc_ids else None
 
 def create_import_log():
     """Create or get import log file"""
@@ -367,13 +494,21 @@ def create_import_log():
         os.makedirs(log_dir)
     
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    log_file = f'{log_dir}/bill_import_log_{timestamp}.csv'
+    
+    # Create log file name based on import mode
+    if IMPORT_MODE == 'bill':
+        log_file = f'{log_dir}/bill_import_log_{timestamp}.csv'
+    elif IMPORT_MODE == 'refund':
+        log_file = f'{log_dir}/refund_import_log_{timestamp}.csv'
+    else:
+        log_file = f'{log_dir}/bill_refund_import_log_{timestamp}.csv'
     
     # Create log file with headers
     with open(log_file, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow([
             'Timestamp',
+            'Document Type',
             'Document Number',
             'Vendor Name',
             'Status',
@@ -392,6 +527,7 @@ def log_import_result(log_file, data, status, message, row_number):
             writer = csv.writer(f)
             writer.writerow([
                 datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                data.get('document_type', 'bill').capitalize(),
                 data.get('document_number', ''),
                 data.get('vendor_name', ''),
                 status,
@@ -409,154 +545,173 @@ def display_progress(current, total, message=""):
         if current == total:
             print()  # New line when complete
 
-def update_or_create_bill(uid, models, bill_data):
-    """Update existing bill or create new one"""
+def update_or_create_document(uid, models, document_data):
+    """Update existing bill/refund or create new one"""
     try:
+        # Get document type from data or default to 'bill'
+        document_type = document_data.get('document_type', 'bill')
+        doc_type_name = 'bill' if document_type == 'bill' else 'refund'
+        
         # Skip processing in dry run mode
         if DRY_RUN:
-            print(f"[DRY RUN] Would process bill: {bill_data['document_number']}")
-            return f"DRY_RUN_BILL_{bill_data['document_number']}"
+            print(f"[DRY RUN] Would process {doc_type_name}: {document_data['document_number']}")
+            return f"DRY_RUN_{doc_type_name.upper()}_{document_data['document_number']}"
         
-        # Check if bill already exists
-        existing_bill = find_existing_bill(uid, models, bill_data['document_number'])
+        # Check if document already exists
+        existing_doc = find_existing_document(uid, models, document_data['document_number'], document_type)
         
         # Get or create vendor
-        vendor_id = get_or_create_vendor(uid, models, bill_data['vendor_name'],
-                                     bill_data.get('partner_code'), bill_data.get('old_partner_code'))
+        vendor_id = get_or_create_vendor(uid, models, document_data['vendor_name'],
+                                     document_data.get('partner_code'), document_data.get('old_partner_code'))
         if not vendor_id:
             print("Failed to get or create vendor")
             return False
 
         # Find account by code
         account_id = None
-        if bill_data.get('account_id'):
-            account_id = find_account_by_code(uid, models, bill_data['account_id'])
+        if document_data.get('account_id'):
+            account_id = find_account_by_code(uid, models, document_data['account_id'])
             if not account_id:
-                print(f"Warning: Account not found with code: {bill_data['account_id']}")
+                print(f"Warning: Account not found with code: {document_data['account_id']}")
 
-        # Prepare bill line
-        bill_line = {
-            'name': bill_data['label'] or f"Line for {bill_data['document_number']}",
-            'quantity': bill_data['quantity'],
-            'price_unit': bill_data['price_unit'],
+        # Prepare document line
+        doc_line = {
+            'name': document_data['label'] or f"Line for {document_data['document_number']}",
+            'quantity': document_data['quantity'],
+            'price_unit': document_data['price_unit'],
         }
         
         # Add account if found
         if account_id:
-            bill_line['account_id'] = account_id
+            doc_line['account_id'] = account_id
 
-        if existing_bill:
-            print(f"Found existing bill with number: {bill_data['document_number']}")
+        if existing_doc:
+            print(f"Found existing {doc_type_name} with number: {document_data['document_number']}")
             
-            # Check if bill is in draft state
-            if existing_bill['state'] != 'draft':
-                print(f"Cannot update bill {bill_data['document_number']} as it is not in draft state")
+            # Check if document is in draft state
+            if existing_doc['state'] != 'draft':
+                print(f"Cannot update {doc_type_name} {document_data['document_number']} as it is not in draft state")
                 return False
 
-            # Add new line to existing bill
+            # Add new line to existing document
             update_vals = {
-                'invoice_line_ids': [(0, 0, bill_line)],
+                'invoice_line_ids': [(0, 0, doc_line)],
             }
 
             # Update header fields only if they are different
-            existing_bill_data = models.execute_kw(db, uid, password,
+            existing_doc_data = models.execute_kw(db, uid, password,
                 'account.move', 'read',
-                [existing_bill['id']],
+                [existing_doc['id']],
                 {'fields': ['partner_id', 'invoice_date', 'ref', 'payment_reference', 'narration']})
 
-            if existing_bill_data:
-                current_data = existing_bill_data[0]
+            if existing_doc_data:
+                current_data = existing_doc_data[0]
                 
                 # Only update header fields if they are different or not set
                 if current_data['partner_id'] and current_data['partner_id'][0] != vendor_id:
                     update_vals['partner_id'] = vendor_id
-                if not current_data['invoice_date'] or current_data['invoice_date'] != bill_data['invoice_date']:
-                    update_vals['invoice_date'] = bill_data['invoice_date']
-                if not current_data['ref'] or current_data['ref'] != bill_data.get('ref', ''):
-                    update_vals['ref'] = bill_data.get('ref', '')
-                if not current_data['payment_reference'] or current_data['payment_reference'] != bill_data.get('payment_reference', ''):
-                    update_vals['payment_reference'] = bill_data.get('payment_reference', '')
-                if bill_data.get('note') and (not current_data['narration'] or current_data['narration'] != bill_data['note']):
-                    update_vals['narration'] = bill_data['note']
+                if not current_data['invoice_date'] or current_data['invoice_date'] != document_data['invoice_date']:
+                    update_vals['invoice_date'] = document_data['invoice_date']
+                if not current_data['ref'] or current_data['ref'] != document_data.get('ref', ''):
+                    update_vals['ref'] = document_data.get('ref', '')
+                if not current_data['payment_reference'] or current_data['payment_reference'] != document_data.get('payment_reference', ''):
+                    update_vals['payment_reference'] = document_data.get('payment_reference', '')
+                if document_data.get('note') and (not current_data['narration'] or current_data['narration'] != document_data['note']):
+                    update_vals['narration'] = document_data['note']
 
             if not DRY_RUN:
                 models.execute_kw(db, uid, password,
                     'account.move', 'write',
-                    [[existing_bill['id']], update_vals])
-                print(f"Successfully added line to existing bill: {existing_bill['id']}")
+                    [[existing_doc['id']], update_vals])
+                print(f"Successfully added line to existing {doc_type_name}: {existing_doc['id']}")
             else:
-                print(f"[DRY RUN] Would add line to existing bill: {existing_bill['id']}")
+                print(f"[DRY RUN] Would add line to existing {doc_type_name}: {existing_doc['id']}")
             
-            return existing_bill['id']
+            return existing_doc['id']
         else:
-            # Create new bill
+            # Create new document
             # Get journal_id
-            journal_id = get_journal_id(uid, models, bill_data.get('journal'))
+            journal_id = get_journal_id(uid, models, document_data.get('journal'))
             
             print(f"Using journal_id: {journal_id}")
             
-            bill_vals = {
-                'move_type': 'in_invoice',
+            # Determine move_type based on document type
+            move_type = 'in_invoice' if document_type == 'bill' else 'in_refund'
+            
+            doc_vals = {
+                'move_type': move_type,
                 'partner_id': vendor_id,
-                'invoice_date': bill_data['invoice_date'],
-                'date': bill_data.get('date', bill_data['invoice_date']),  # Use accounting date if provided
-                'name': bill_data['document_number'],
-                'ref': bill_data.get('ref', ''),  # Reference field
-                'payment_reference': bill_data.get('payment_reference', ''),  # Payment reference field
+                'invoice_date': document_data['invoice_date'],
+                'date': document_data.get('date', document_data['invoice_date']),  # Use accounting date if provided
+                'name': document_data['document_number'],
+                'ref': document_data.get('ref', ''),  # Reference field
+                'payment_reference': document_data.get('payment_reference', ''),  # Payment reference field
                 'journal_id': journal_id,  # Journal field
-                'narration': bill_data.get('note', ''),
-                'invoice_line_ids': [(0, 0, bill_line)],
+                'narration': document_data.get('note', ''),
+                'invoice_line_ids': [(0, 0, doc_line)],
             }
 
             if not DRY_RUN:
                 try:
-                    bill_id = models.execute_kw(db, uid, password,
+                    doc_id = models.execute_kw(db, uid, password,
                         'account.move', 'create',
-                        [bill_vals])
+                        [doc_vals])
 
-                    if bill_id:
-                        print(f"Successfully created new bill with ID: {bill_id}")
-                        # Verify the bill was created properly
-                        created_bill = models.execute_kw(db, uid, password,
+                    if doc_id:
+                        print(f"Successfully created new {doc_type_name} with ID: {doc_id}")
+                        # Verify the document was created properly
+                        created_doc = models.execute_kw(db, uid, password,
                             'account.move', 'search_read',
-                            [[['id', '=', bill_id]]],
+                            [[['id', '=', doc_id]]],
                             {'fields': ['id', 'state', 'name']})
-                        if created_bill:
-                            print(f"Bill {created_bill[0]['name']} created in {created_bill[0]['state']} state")
-                            return bill_id
+                        if created_doc:
+                            print(f"{doc_type_name.capitalize()} {created_doc[0]['name']} created in {created_doc[0]['state']} state")
+                            return doc_id
                         else:
-                            print("Warning: Bill created but verification failed")
-                            return bill_id
+                            print(f"Warning: {doc_type_name.capitalize()} created but verification failed")
+                            return doc_id
                     else:
-                        print("Failed to create bill - no ID returned")
+                        print(f"Failed to create {doc_type_name} - no ID returned")
                         return False
 
                 except xmlrpc.client.Fault as fault:
-                    print(f"XMLRPC Fault while creating bill: {fault.faultString}")
+                    print(f"XMLRPC Fault while creating {doc_type_name}: {fault.faultString}")
                     if 'access' in fault.faultString.lower():
                         print("Access rights issue detected - please check user permissions")
                     return False
                 except Exception as e:
-                    print(f"Unexpected error while creating bill: {str(e)}")
-                    print(f"Bill values that caused error: {bill_vals}")
+                    print(f"Unexpected error while creating {doc_type_name}: {str(e)}")
+                    print(f"{doc_type_name.capitalize()} values that caused error: {doc_vals}")
                     return False
             else:
-                print(f"[DRY RUN] Would create new bill with values: {bill_vals}")
-                return f"DRY_RUN_BILL_{bill_data['document_number']}"
+                print(f"[DRY RUN] Would create new {doc_type_name} with values: {doc_vals}")
+                return f"DRY_RUN_{doc_type_name.upper()}_{document_data['document_number']}"
 
     except Exception as e:
-        print(f"Error processing bill: {str(e)}")
+        print(f"Error processing {doc_type_name}: {str(e)}")
         return False
 
 
 def main():
-    """Main function to orchestrate the bill import process"""
+    """Main function to orchestrate the bill/refund import process"""
     try:
+        # Get import mode from user or command line
+        get_import_mode()
+        
+        # Determine process name based on import mode
+        if IMPORT_MODE == 'bill':
+            process_name = "BILL IMPORT PROCESS"
+        elif IMPORT_MODE == 'refund':
+            process_name = "REFUND IMPORT PROCESS"
+        else:
+            process_name = "BILL AND REFUND IMPORT PROCESS"
+        
         safe_print(f"{'='*60}")
-        safe_print(f"BILL IMPORT PROCESS")
+        safe_print(f"{process_name}")
         safe_print(f"{'='*60}")
         safe_print(f"Database: {db}")
         safe_print(f"Data File: {data_file}")
+        safe_print(f"Import Mode: {IMPORT_MODE}")
         safe_print(f"Dry Run Mode: {'ON' if DRY_RUN else 'OFF'}")
         safe_print(f"{'='*60}")
         
@@ -617,7 +772,8 @@ def main():
                     
                     try:
                         # Clean and prepare data with validation
-                        bill_data = {
+                        document_data = {
+                            'document_type': row.get('document_type', 'bill'),  # Get document type from row
                             'invoice_date': invoice_date if pd.notna(invoice_date) else None,
                             'date': row.get('date') if pd.notna(row.get('date')) else invoice_date,
                             'vendor_name': clean_and_validate_data(row['partner_id'], 'partner_id'),
@@ -634,26 +790,28 @@ def main():
                             'account_id': clean_and_validate_data(row.get('account_id'), 'account_id'),
                         }
 
-                        safe_print(f"\nProcessing line {row_number}:")
-                        safe_print(f"  Vendor: {bill_data['vendor_name']}")
-                        safe_print(f"  Account: {bill_data['account_id']}")
-                        safe_print(f"  Quantity: {bill_data['quantity']}")
-                        safe_print(f"  Price: {bill_data['price_unit']}")
-                        safe_print(f"  Description: {bill_data['label']}")
+                        doc_type_name = document_data['document_type'].capitalize()
+                        safe_print(f"\nProcessing {doc_type_name.lower()} line {row_number}:")
+                        safe_print(f"  Type: {doc_type_name}")
+                        safe_print(f"  Vendor: {document_data['vendor_name']}")
+                        safe_print(f"  Account: {document_data['account_id']}")
+                        safe_print(f"  Quantity: {document_data['quantity']}")
+                        safe_print(f"  Price: {document_data['price_unit']}")
+                        safe_print(f"  Description: {document_data['label']}")
 
-                        # Process the bill
-                        result = update_or_create_bill(uid, models, bill_data)
+                        # Process the document (bill or refund)
+                        result = update_or_create_document(uid, models, document_data)
                         if result:
                             message = "Successfully processed"
                             safe_print(f"  ✓ {message}")
                             if log_file:
-                                log_import_result(log_file, bill_data, 'Success', message, row_number)
+                                log_import_result(log_file, document_data, 'Success', message, row_number)
                             success_count += 1
                         else:
                             message = "Failed to process"
                             safe_print(f"  ✗ {message}")
                             if log_file:
-                                log_import_result(log_file, bill_data, 'Error', message, row_number)
+                                log_import_result(log_file, document_data, 'Error', message, row_number)
                             error_count += 1
 
                         # Update progress
