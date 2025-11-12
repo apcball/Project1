@@ -18,8 +18,8 @@ import openpyxl
 from urllib.parse import urlparse
 
 # ------------ Load config (ไม่พึ่ง dotenv) ------------
-URL = os.getenv('ODOO_URL', 'http://kyld.site:8069')
-DB = os.getenv('ODOO_DB', 'KYLD_LIVE')
+URL = os.getenv('ODOO_URL', 'http://mogth.work:8069')
+DB = os.getenv('ODOO_DB', 'MOG_Pretest1')
 USERNAME = os.getenv('ODOO_USER', 'apichart@mogen.co.th')
 PASSWORD = os.getenv('ODOO_PASSWORD', '471109538')
 
@@ -156,10 +156,6 @@ def ensure_category_path(path_str):
                 'property_cost_method': 'fifo',
                 'property_valuation': 'manual_periodic',
                 # ตัด properties สต๊อกให้ว่าง (ไม่ลงบัญชีอัตโนมัติ)
-                'property_stock_account_input_categ_id': False,
-                'property_stock_account_output_categ_id': False,
-                'property_stock_valuation_account_id': False,
-                'property_stock_journal': False,
                 'property_account_income_categ_id': False,
                 'property_account_expense_categ_id': False,
             }]
@@ -201,10 +197,6 @@ def upsert_category(leaf_name, parent_id, vals_extra, key_cache):
         'parent_id': parent_id or False,
         'property_cost_method': vals_extra.get('property_cost_method', 'fifo'),
         'property_valuation': vals_extra.get('property_valuation', 'manual_periodic'),
-        'property_stock_account_input_categ_id': False,
-        'property_stock_account_output_categ_id': False,
-        'property_stock_valuation_account_id': False,
-        'property_stock_journal': False,
     }
 
     if vals_extra.get('income_account_id'):
@@ -214,6 +206,17 @@ def upsert_category(leaf_name, parent_id, vals_extra, key_cache):
 
     if existing:
         cat_id = existing[0]['id']
+        # Check if category has products
+        has_products = models.execute_kw(
+            DB, uid, PASSWORD,
+            'product.product', 'search_count',
+            [[['categ_id', '=', cat_id]]]
+        ) > 0
+        if has_products:
+            base_vals = {
+                'name': leaf_name,
+                'parent_id': parent_id or False,
+            }
         current = models.execute_kw(
             DB, uid, PASSWORD,
             'product.category', 'read',
@@ -301,7 +304,7 @@ def read_excel_file(file_path):
 # ------------------------------------------------------------
 def main():
     # ปรับ path ได้ผ่าน ENV: EXCEL_PATH
-    file_path = os.getenv('EXCEL_PATH', os.path.join('Import_Product_Category', 'ProductCategorykyld.xlsx'))
+    file_path = os.getenv('EXCEL_PATH', os.path.join('Import_Product_Category', 'ProductCategoryupdate.xlsx'))
     abs_path = os.path.abspath(file_path)
     print(f"Looking for file at: {abs_path}")
     if not os.path.exists(file_path):
