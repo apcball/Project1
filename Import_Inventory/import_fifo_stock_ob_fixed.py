@@ -7,12 +7,12 @@ import os
 
 # Odoo connection parameters
 HOST = 'http://mogth.work:8069'
-DB = 'MOG_LIVE'
+DB = 'MOG_Pretest1'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Data_file/วัตถุดิบ1-1.xlsx'
+EXCEL_FILE = 'Import_Inventory/Template_OB_Inventory - Copy.xlsx'
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -98,9 +98,14 @@ def read_excel_file():
         # Fix the picking type name in the DataFrame
         if 'picking_type_id' in df.columns:
             df['picking_type_id'] = df['picking_type_id'].replace('My Company: OB FIFO', 'OB FIFO')
-            logger.info("Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'")
+            df['picking_type_id'] = df['picking_type_id'].replace('คลังวัตถุดิบ 2: OB FIFO', 'OB FIFO')
+            logger.info("Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'")
         
-        # Check for required columns
+        # Check for required columns - use default_code as product_id if product_id doesn't exist
+        if 'product_id' not in df.columns and 'default_code' in df.columns:
+            df['product_id'] = df['default_code']
+            logger.info("Using 'default_code' column as 'product_id'")
+        
         required_fields = ['product_id', 'product_uom_qty']
         missing_columns = [field for field in required_fields if field not in df.columns]
         if missing_columns:
@@ -203,10 +208,19 @@ def get_or_create_partner(models, uid, partner_name):
         logger.error(f"Error finding/creating partner '{partner_name}': {str(e)}")
         return False
 
+# Cache for location lookups to reduce API calls
+location_cache = {}
+
 def get_location_id(models, uid, location_name):
-    """Get location ID by name - improved version"""
+    """Get location ID by name - improved version with caching"""
     try:
         location_name = str(location_name).strip()
+        
+        # Check cache first
+        if location_name in location_cache:
+            logger.info(f"Using cached location ID for: '{location_name}'")
+            return location_cache[location_name]
+            
         logger.info(f"Searching for location: '{location_name}'")
 
         # ถ้าเป็น Customers หรือ Partners/Customers ให้หา usage = 'customer'
@@ -218,9 +232,11 @@ def get_location_id(models, uid, location_name):
             )
             if location_ids:
                 logger.info(f"Found customer location for '{location_name}'")
+                location_cache[location_name] = location_ids[0]
                 return location_ids[0]
             else:
                 logger.error(f"Customer location not found for '{location_name}'")
+                location_cache[location_name] = False
                 return False
 
         # ถ้าเป็น Vendors หรือ Partners/Vendors ให้หา usage = 'supplier'
@@ -232,9 +248,11 @@ def get_location_id(models, uid, location_name):
             )
             if location_ids:
                 logger.info(f"Found supplier location for '{location_name}'")
+                location_cache[location_name] = location_ids[0]
                 return location_ids[0]
             else:
                 logger.error(f"Supplier location not found for '{location_name}'")
+                location_cache[location_name] = False
                 return False
 
         # First try exact match
@@ -245,6 +263,7 @@ def get_location_id(models, uid, location_name):
         
         if location_ids:
             logger.info(f"Found location with exact match: '{location_name}'")
+            location_cache[location_name] = location_ids[0]
             return location_ids[0]
         
         # Try with complete_name for hierarchical locations
@@ -260,6 +279,7 @@ def get_location_id(models, uid, location_name):
                 {'fields': ['name', 'complete_name']}
             )
             logger.info(f"Found location with complete_name match: '{location_data[0].get('complete_name', location_data[0]['name'])}' for '{location_name}'")
+            location_cache[location_name] = location_ids[0]
             return location_ids[0]
         
         # Try with ilike search if exact match fails
@@ -275,6 +295,7 @@ def get_location_id(models, uid, location_name):
                 {'fields': ['name']}
             )
             logger.info(f"Found location '{location_data[0]['name']}' using ilike search for '{location_name}'")
+            location_cache[location_name] = location_ids[0]
             return location_ids[0]
         
         # Special case for 'FG50/Stock' - try to find 'Stock' or similar
@@ -302,6 +323,7 @@ def get_location_id(models, uid, location_name):
                     {'fields': ['name']}
                 )
                 logger.warning(f"Using '{stock_locations[0]['name']}' as fallback for '{location_name}'. Please verify this is correct.")
+                location_cache[location_name] = stock_location_ids[0]
                 return stock_location_ids[0]
         
         # If no location found, list available locations to help user
@@ -317,19 +339,32 @@ def get_location_id(models, uid, location_name):
         # Use the first available stock location as a last resort
         if available_locations:
             logger.warning(f"Using '{available_locations[0]['name']}' as a last resort for '{location_name}'")
+            location_cache[location_name] = available_locations[0]['id']
             return available_locations[0]['id']
         
+        location_cache[location_name] = False
         return False
     except Exception as e:
         logger.error(f"Error finding location '{location_name}': {str(e)}")
+        location_cache[location_name] = False
         return False
+# Cache for product lookups to reduce API calls
+product_cache = {}
+
 def get_product_id(models, uid, default_code, old_product_code=None):
-    """Get product ID by default_code or old_product_code using ilike search"""
+    """Get product ID by default_code or old_product_code using ilike search with caching"""
     try:
         # Ensure default_code and old_product_code are strings and strip whitespace
         default_code = str(default_code).strip()
         if old_product_code:
             old_product_code = str(old_product_code).strip()
+        
+        # Check cache first
+        cache_key = f"{default_code}_{old_product_code or ''}"
+        if cache_key in product_cache:
+            logger.info(f"Using cached product ID for code: '{default_code}'")
+            return product_cache[cache_key]
+        
         logger.info(f"Searching for product with code: '{default_code}' and old code: '{old_product_code}'")
 
         # First try exact match on default_code
@@ -339,6 +374,7 @@ def get_product_id(models, uid, default_code, old_product_code=None):
                                         )
         if product_ids:
             logger.info(f"Found product with exact match on default_code: '{default_code}'")
+            product_cache[cache_key] = product_ids[0]
             return product_ids[0]
 
         # Try with ilike search if exact match fails
@@ -353,6 +389,7 @@ def get_product_id(models, uid, default_code, old_product_code=None):
                                              {'fields': ['default_code', 'name']}
                                              )
             logger.info(f"Found product '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' using ilike search for '{default_code}'")
+            product_cache[cache_key] = product_ids[0]
             return product_ids[0]
 
         # If still not found, try searching by old_product_code (exact and ilike)
@@ -364,6 +401,7 @@ def get_product_id(models, uid, default_code, old_product_code=None):
                                             )
             if product_ids:
                 logger.info(f"Found product with exact match on old_product_code: '{old_product_code}'")
+                product_cache[cache_key] = product_ids[0]
                 return product_ids[0]
 
             # ilike match
@@ -378,6 +416,7 @@ def get_product_id(models, uid, default_code, old_product_code=None):
                                                  {'fields': ['default_code', 'name']}
                                                  )
                 logger.info(f"Found product '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' using ilike search for old_product_code '{old_product_code}'")
+                product_cache[cache_key] = product_ids[0]
                 return product_ids[0]
 
         # If still not found, try searching by name
@@ -392,25 +431,38 @@ def get_product_id(models, uid, default_code, old_product_code=None):
                                              {'fields': ['default_code', 'name']}
                                              )
             logger.info(f"Found product by name: '{product_data[0]['name']}' with code '{product_data[0]['default_code']}' for search term '{default_code}'")
+            product_cache[cache_key] = product_ids[0]
             return product_ids[0]
 
         logger.error(f"Product not found with code or name: '{default_code}' or old code: '{old_product_code}'")
+        product_cache[cache_key] = False
         return False
     except Exception as e:
         logger.error(f"Error finding product '{default_code}' or old code '{old_product_code}': {str(e)}")
+        product_cache[cache_key] = False
         return False
 
+# Cache for UoM lookups to reduce API calls
+uom_cache = {}
+
 def get_uom_id(models, uid, product_id):
-    """Get UoM ID for a product"""
+    """Get UoM ID for a product with caching"""
     try:
+        # Check cache first
+        if product_id in uom_cache:
+            return uom_cache[product_id]
+            
         product_data = models.execute_kw(DB, uid, PASSWORD,
             'product.product', 'read',
             [product_id],
             {'fields': ['uom_id']}
         )
-        return product_data[0]['uom_id'][0] if product_data else False
+        uom_id = product_data[0]['uom_id'][0] if product_data else False
+        uom_cache[product_id] = uom_id
+        return uom_id
     except Exception as e:
         logger.error(f"Error getting UoM for product ID {product_id}: {str(e)}")
+        uom_cache[product_id] = False
         return False
 
 def create_internal_transfers(uid, models, df):
@@ -493,6 +545,9 @@ def create_internal_transfers(uid, models, df):
             )
             logger.info(f"Created transfer for date {date_str} sequence {sequence} with picking ID {picking_id}")
 
+            # Prepare all moves for batch creation
+            moves_to_create = []
+            
             # วนลูปแต่ละบรรทัดใน group (แม้รหัสซ้ำก็สร้าง move ใหม่ทุกบรรทัด)
             for idx, row in group_df.iterrows():
                 try:
@@ -527,7 +582,7 @@ def create_internal_transfers(uid, models, df):
                     row_dest_location_id = dest_location_id  # ใช้ค่าจาก first_row เป็น default
                     
                     # ถ้า row นี้มี location_dest_id ต่างจาก first_row ให้หาใหม่
-                    if (pd.notna(row_dest_location) and str(row_dest_location).strip() != "" and 
+                    if (pd.notna(row_dest_location) and str(row_dest_location).strip() != "" and
                         str(row_dest_location).strip() != str(first_row.get('location_dest_id', '')).strip()):
                         row_dest_location_id = get_location_id(models, uid, str(row_dest_location).strip())
                         logger.info(f"Row {idx+1} has different destination: {row_dest_location}")
@@ -567,16 +622,35 @@ def create_internal_transfers(uid, models, df):
                         except (ValueError, TypeError):
                             logger.warning(f"Invalid price_unit value for product {product_code}: {row['price_unit']}")
 
-                    move_id = models.execute_kw(DB, uid, PASSWORD,
-                        'stock.move', 'create',
-                        [move_vals]
-                    )
-                    logger.info(f"Added product {product_code} with quantity {quantity} to picking {picking_id}")
+                    moves_to_create.append(move_vals)
+                    logger.info(f"Prepared product {product_code} with quantity {quantity} for batch creation")
                     logger.info(f"Move locations - Source: {source_location_id}, Dest: {move_vals.get('location_dest_id', 'NOT SET')}")
 
                 except Exception as e:
                     logger.error(f"Error processing row {idx+1}: {str(e)}")
                     failed_transfers += 1
+            
+            # Create all moves in batch
+            if moves_to_create:
+                try:
+                    move_ids = models.execute_kw(DB, uid, PASSWORD,
+                        'stock.move', 'create',
+                        [moves_to_create]
+                    )
+                    logger.info(f"Created {len(move_ids)} moves in batch for picking {picking_id}")
+                except Exception as e:
+                    logger.error(f"Error creating batch moves: {str(e)}")
+                    # Fallback to creating moves one by one
+                    for move_vals in moves_to_create:
+                        try:
+                            move_id = models.execute_kw(DB, uid, PASSWORD,
+                                'stock.move', 'create',
+                                [move_vals]
+                            )
+                            logger.info(f"Created move for product {move_vals['product_id']} with ID {move_id}")
+                        except Exception as e:
+                            logger.error(f"Error creating individual move: {str(e)}")
+                            failed_transfers += 1
 
             # Confirm picking หลังจากเพิ่ม move ครบ
             try:
@@ -614,7 +688,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Data_file/วัตถุดิบ1-1.xlsx'
+        EXCEL_FILE = 'Import_Inventory/Template_OB_Inventory - Copy.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move

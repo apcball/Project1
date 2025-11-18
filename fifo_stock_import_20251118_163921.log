@@ -1,0 +1,426 @@
+2025-11-18 16:39:22,587 - INFO - Successfully connected to Odoo as user ID: 2
+2025-11-18 16:39:22,676 - INFO - Odoo version: 17.0.1.3
+2025-11-18 16:39:22,891 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-11-18 16:39:23,214 - INFO - Successfully read Excel file with 92 rows
+2025-11-18 16:39:23,215 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence']
+2025-11-18 16:39:23,216 - INFO - Processed sequence column
+2025-11-18 16:39:23,218 - INFO - scheduled_date dtype: datetime64[ns]
+2025-11-18 16:39:23,219 - INFO - scheduled_date sample: 2025-11-18 00:00:00
+2025-11-18 16:39:23,221 - INFO - Converted scheduled_date to string format. Sample: 2025-11-18 00:00:00
+2025-11-18 16:39:23,222 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2025-11-18 16:39:23,222 - INFO - Using 'default_code' column as 'product_id'
+2025-11-18 16:39:23,223 - INFO - Using 'origin' column to identify transfer groups
+2025-11-18 16:39:23,227 - INFO - Excel file validation and data filling completed successfully
+2025-11-18 16:39:23,363 - INFO - Searching for location: 'RM02/Stock'
+2025-11-18 16:39:23,531 - INFO - Found location with complete_name match: 'RM02/Stock' for 'RM02/Stock'
+2025-11-18 16:39:23,609 - INFO - Found partner ID 2160 for 'MOGEN_OB'
+2025-11-18 16:39:23,707 - INFO - Created transfer for date 2025-11-18 00:00:00 sequence 1 with picking ID 66
+2025-11-18 16:39:23,710 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 303020015, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 1, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 303020015}
+2025-11-18 16:39:23,711 - INFO - Searching for product with code: '303020015' and old code: '303020015'
+2025-11-18 16:39:23,777 - INFO - Found product with exact match on default_code: '303020015'
+2025-11-18 16:39:23,907 - INFO - Prepared product 303020015 with quantity 100.0 for batch creation
+2025-11-18 16:39:23,908 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:23,909 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 406010066, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 2, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 406010066}
+2025-11-18 16:39:23,910 - INFO - Searching for product with code: '406010066' and old code: '406010066'
+2025-11-18 16:39:24,002 - INFO - Found product with exact match on default_code: '406010066'
+2025-11-18 16:39:24,124 - INFO - Prepared product 406010066 with quantity 100.0 for batch creation
+2025-11-18 16:39:24,125 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:24,127 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 402020002, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 3, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 402020002}
+2025-11-18 16:39:24,128 - INFO - Searching for product with code: '402020002' and old code: '402020002'
+2025-11-18 16:39:24,305 - INFO - Found product with exact match on default_code: '402020002'
+2025-11-18 16:39:24,496 - INFO - Prepared product 402020002 with quantity 100.0 for batch creation
+2025-11-18 16:39:24,497 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:24,497 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 402020003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 4, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 402020003}
+2025-11-18 16:39:24,498 - INFO - Searching for product with code: '402020003' and old code: '402020003'
+2025-11-18 16:39:24,614 - INFO - Found product with exact match on default_code: '402020003'
+2025-11-18 16:39:24,748 - INFO - Prepared product 402020003 with quantity 100.0 for batch creation
+2025-11-18 16:39:24,750 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:24,752 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 402020001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 5, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 402020001}
+2025-11-18 16:39:24,752 - INFO - Searching for product with code: '402020001' and old code: '402020001'
+2025-11-18 16:39:24,871 - INFO - Found product with exact match on default_code: '402020001'
+2025-11-18 16:39:25,007 - INFO - Prepared product 402020001 with quantity 100.0 for batch creation
+2025-11-18 16:39:25,008 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:25,010 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409090004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 6, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409090004}
+2025-11-18 16:39:25,011 - INFO - Searching for product with code: '409090004' and old code: '409090004'
+2025-11-18 16:39:25,128 - INFO - Found product with exact match on default_code: '409090004'
+2025-11-18 16:39:25,263 - INFO - Prepared product 409090004 with quantity 100.0 for batch creation
+2025-11-18 16:39:25,264 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:25,266 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409060002, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 7, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409060002}
+2025-11-18 16:39:25,267 - INFO - Searching for product with code: '409060002' and old code: '409060002'
+2025-11-18 16:39:25,385 - INFO - Found product with exact match on default_code: '409060002'
+2025-11-18 16:39:25,511 - INFO - Prepared product 409060002 with quantity 100.0 for batch creation
+2025-11-18 16:39:25,513 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:25,514 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409040001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 8, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409040001}
+2025-11-18 16:39:25,515 - INFO - Searching for product with code: '409040001' and old code: '409040001'
+2025-11-18 16:39:25,645 - INFO - Found product with exact match on default_code: '409040001'
+2025-11-18 16:39:25,827 - INFO - Prepared product 409040001 with quantity 100.0 for batch creation
+2025-11-18 16:39:25,828 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:25,829 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409230007, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 9, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409230007}
+2025-11-18 16:39:25,831 - INFO - Searching for product with code: '409230007' and old code: '409230007'
+2025-11-18 16:39:25,969 - INFO - Found product with exact match on default_code: '409230007'
+2025-11-18 16:39:26,112 - INFO - Prepared product 409230007 with quantity 100.0 for batch creation
+2025-11-18 16:39:26,113 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:26,115 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250068, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 10, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250068}
+2025-11-18 16:39:26,116 - INFO - Searching for product with code: '409250068' and old code: '409250068'
+2025-11-18 16:39:26,258 - INFO - Found product with exact match on default_code: '409250068'
+2025-11-18 16:39:26,431 - INFO - Prepared product 409250068 with quantity 100.0 for batch creation
+2025-11-18 16:39:26,432 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:26,434 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409110001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 11, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409110001}
+2025-11-18 16:39:26,435 - INFO - Searching for product with code: '409110001' and old code: '409110001'
+2025-11-18 16:39:26,568 - INFO - Found product with exact match on default_code: '409110001'
+2025-11-18 16:39:26,715 - INFO - Prepared product 409110001 with quantity 100.0 for batch creation
+2025-11-18 16:39:26,717 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:26,718 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409180005, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 12, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409180005}
+2025-11-18 16:39:26,720 - INFO - Searching for product with code: '409180005' and old code: '409180005'
+2025-11-18 16:39:26,846 - INFO - Found product with exact match on default_code: '409180005'
+2025-11-18 16:39:26,986 - INFO - Prepared product 409180005 with quantity 100.0 for batch creation
+2025-11-18 16:39:26,987 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:26,987 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 408010002, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 13, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 408010002}
+2025-11-18 16:39:26,988 - INFO - Searching for product with code: '408010002' and old code: '408010002'
+2025-11-18 16:39:27,102 - INFO - Found product with exact match on default_code: '408010002'
+2025-11-18 16:39:27,240 - INFO - Prepared product 408010002 with quantity 100.0 for batch creation
+2025-11-18 16:39:27,241 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:27,241 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250031, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 14, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250031}
+2025-11-18 16:39:27,242 - INFO - Searching for product with code: '409250031' and old code: '409250031'
+2025-11-18 16:39:27,369 - INFO - Found product with exact match on default_code: '409250031'
+2025-11-18 16:39:27,503 - INFO - Prepared product 409250031 with quantity 100.0 for batch creation
+2025-11-18 16:39:27,503 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:27,505 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409150003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 15, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409150003}
+2025-11-18 16:39:27,506 - INFO - Searching for product with code: '409150003' and old code: '409150003'
+2025-11-18 16:39:27,625 - INFO - Found product with exact match on default_code: '409150003'
+2025-11-18 16:39:27,767 - INFO - Prepared product 409150003 with quantity 100.0 for batch creation
+2025-11-18 16:39:27,767 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:27,768 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409030003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 16, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409030003}
+2025-11-18 16:39:27,768 - INFO - Searching for product with code: '409030003' and old code: '409030003'
+2025-11-18 16:39:27,890 - INFO - Found product with exact match on default_code: '409030003'
+2025-11-18 16:39:28,047 - INFO - Prepared product 409030003 with quantity 100.0 for batch creation
+2025-11-18 16:39:28,048 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:28,050 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409050001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 17, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409050001}
+2025-11-18 16:39:28,051 - INFO - Searching for product with code: '409050001' and old code: '409050001'
+2025-11-18 16:39:28,187 - INFO - Found product with exact match on default_code: '409050001'
+2025-11-18 16:39:28,319 - INFO - Prepared product 409050001 with quantity 100.0 for batch creation
+2025-11-18 16:39:28,319 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:28,320 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409130001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 18, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409130001}
+2025-11-18 16:39:28,321 - INFO - Searching for product with code: '409130001' and old code: '409130001'
+2025-11-18 16:39:28,476 - INFO - Found product with exact match on default_code: '409130001'
+2025-11-18 16:39:28,627 - INFO - Prepared product 409130001 with quantity 100.0 for batch creation
+2025-11-18 16:39:28,628 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:28,631 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 411040003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 19, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 411040003}
+2025-11-18 16:39:28,632 - INFO - Searching for product with code: '411040003' and old code: '411040003'
+2025-11-18 16:39:28,754 - INFO - Found product with exact match on default_code: '411040003'
+2025-11-18 16:39:28,883 - INFO - Prepared product 411040003 with quantity 100.0 for batch creation
+2025-11-18 16:39:28,884 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:28,885 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 301010006, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 20, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 301010006}
+2025-11-18 16:39:28,886 - INFO - Searching for product with code: '301010006' and old code: '301010006'
+2025-11-18 16:39:29,005 - INFO - Found product with exact match on default_code: '301010006'
+2025-11-18 16:39:29,157 - INFO - Prepared product 301010006 with quantity 100.0 for batch creation
+2025-11-18 16:39:29,158 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:29,160 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 411050005, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 21, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 411050005}
+2025-11-18 16:39:29,161 - INFO - Searching for product with code: '411050005' and old code: '411050005'
+2025-11-18 16:39:29,304 - INFO - Found product with exact match on default_code: '411050005'
+2025-11-18 16:39:29,457 - INFO - Prepared product 411050005 with quantity 100.0 for batch creation
+2025-11-18 16:39:29,458 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:29,460 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 410060007, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 22, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 410060007}
+2025-11-18 16:39:29,462 - INFO - Searching for product with code: '410060007' and old code: '410060007'
+2025-11-18 16:39:29,580 - INFO - Found product with exact match on default_code: '410060007'
+2025-11-18 16:39:29,719 - INFO - Prepared product 410060007 with quantity 100.0 for batch creation
+2025-11-18 16:39:29,721 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:29,723 - INFO - Processing Excel row 23: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 411050004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 23, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 411050004}
+2025-11-18 16:39:29,724 - INFO - Searching for product with code: '411050004' and old code: '411050004'
+2025-11-18 16:39:29,834 - INFO - Found product with exact match on default_code: '411050004'
+2025-11-18 16:39:29,953 - INFO - Prepared product 411050004 with quantity 100.0 for batch creation
+2025-11-18 16:39:29,955 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:29,957 - INFO - Processing Excel row 24: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 411040004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 24, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 411040004}
+2025-11-18 16:39:29,958 - INFO - Searching for product with code: '411040004' and old code: '411040004'
+2025-11-18 16:39:30,061 - INFO - Found product with exact match on default_code: '411040004'
+2025-11-18 16:39:30,179 - INFO - Prepared product 411040004 with quantity 100.0 for batch creation
+2025-11-18 16:39:30,180 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:30,182 - INFO - Processing Excel row 25: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 410060004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 25, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 410060004}
+2025-11-18 16:39:30,184 - INFO - Searching for product with code: '410060004' and old code: '410060004'
+2025-11-18 16:39:30,312 - INFO - Found product with exact match on default_code: '410060004'
+2025-11-18 16:39:30,423 - INFO - Prepared product 410060004 with quantity 100.0 for batch creation
+2025-11-18 16:39:30,423 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:30,425 - INFO - Processing Excel row 26: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250051, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 26, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250051}
+2025-11-18 16:39:30,425 - INFO - Searching for product with code: '409250051' and old code: '409250051'
+2025-11-18 16:39:30,521 - INFO - Found product with exact match on default_code: '409250051'
+2025-11-18 16:39:30,659 - INFO - Prepared product 409250051 with quantity 100.0 for batch creation
+2025-11-18 16:39:30,660 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:30,661 - INFO - Processing Excel row 27: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250055, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 27, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250055}
+2025-11-18 16:39:30,662 - INFO - Searching for product with code: '409250055' and old code: '409250055'
+2025-11-18 16:39:30,761 - INFO - Found product with exact match on default_code: '409250055'
+2025-11-18 16:39:30,813 - INFO - Prepared product 409250055 with quantity 100.0 for batch creation
+2025-11-18 16:39:30,813 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:30,814 - INFO - Processing Excel row 28: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250050, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 28, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250050}
+2025-11-18 16:39:30,814 - INFO - Searching for product with code: '409250050' and old code: '409250050'
+2025-11-18 16:39:30,863 - INFO - Found product with exact match on default_code: '409250050'
+2025-11-18 16:39:30,925 - INFO - Prepared product 409250050 with quantity 100.0 for batch creation
+2025-11-18 16:39:30,926 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:30,927 - INFO - Processing Excel row 29: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409170019, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 29, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409170019}
+2025-11-18 16:39:30,927 - INFO - Searching for product with code: '409170019' and old code: '409170019'
+2025-11-18 16:39:30,976 - INFO - Found product with exact match on default_code: '409170019'
+2025-11-18 16:39:31,026 - INFO - Prepared product 409170019 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,027 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,027 - INFO - Processing Excel row 30: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 303020015, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 30, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 303020015}
+2025-11-18 16:39:31,028 - INFO - Using cached product ID for code: '303020015'
+2025-11-18 16:39:31,028 - INFO - Prepared product 303020015 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,028 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,029 - INFO - Processing Excel row 31: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 406010066, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 31, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 406010066}
+2025-11-18 16:39:31,029 - INFO - Using cached product ID for code: '406010066'
+2025-11-18 16:39:31,029 - INFO - Prepared product 406010066 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,030 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,030 - INFO - Processing Excel row 32: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 402020002, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 32, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 402020002}
+2025-11-18 16:39:31,030 - INFO - Using cached product ID for code: '402020002'
+2025-11-18 16:39:31,031 - INFO - Prepared product 402020002 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,031 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,032 - INFO - Processing Excel row 33: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 402020003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 33, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 402020003}
+2025-11-18 16:39:31,032 - INFO - Using cached product ID for code: '402020003'
+2025-11-18 16:39:31,033 - INFO - Prepared product 402020003 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,033 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,033 - INFO - Processing Excel row 34: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 402020001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 34, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 402020001}
+2025-11-18 16:39:31,034 - INFO - Using cached product ID for code: '402020001'
+2025-11-18 16:39:31,034 - INFO - Prepared product 402020001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,034 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,035 - INFO - Processing Excel row 35: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409090004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 35, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409090004}
+2025-11-18 16:39:31,035 - INFO - Using cached product ID for code: '409090004'
+2025-11-18 16:39:31,035 - INFO - Prepared product 409090004 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,035 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,036 - INFO - Processing Excel row 36: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409060002, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 36, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409060002}
+2025-11-18 16:39:31,036 - INFO - Using cached product ID for code: '409060002'
+2025-11-18 16:39:31,038 - INFO - Prepared product 409060002 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,039 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,041 - INFO - Processing Excel row 37: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409040001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 37, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409040001}
+2025-11-18 16:39:31,042 - INFO - Using cached product ID for code: '409040001'
+2025-11-18 16:39:31,043 - INFO - Prepared product 409040001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,043 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,044 - INFO - Processing Excel row 38: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409230007, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 38, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409230007}
+2025-11-18 16:39:31,045 - INFO - Using cached product ID for code: '409230007'
+2025-11-18 16:39:31,045 - INFO - Prepared product 409230007 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,045 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,046 - INFO - Processing Excel row 39: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250068, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 39, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250068}
+2025-11-18 16:39:31,046 - INFO - Using cached product ID for code: '409250068'
+2025-11-18 16:39:31,047 - INFO - Prepared product 409250068 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,047 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,047 - INFO - Processing Excel row 40: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409110001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 40, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409110001}
+2025-11-18 16:39:31,047 - INFO - Using cached product ID for code: '409110001'
+2025-11-18 16:39:31,048 - INFO - Prepared product 409110001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,048 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,049 - INFO - Processing Excel row 41: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409180005, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 41, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409180005}
+2025-11-18 16:39:31,049 - INFO - Using cached product ID for code: '409180005'
+2025-11-18 16:39:31,049 - INFO - Prepared product 409180005 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,050 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,050 - INFO - Processing Excel row 42: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 408010002, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 42, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 408010002}
+2025-11-18 16:39:31,050 - INFO - Using cached product ID for code: '408010002'
+2025-11-18 16:39:31,051 - INFO - Prepared product 408010002 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,051 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,051 - INFO - Processing Excel row 43: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250031, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 43, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250031}
+2025-11-18 16:39:31,052 - INFO - Using cached product ID for code: '409250031'
+2025-11-18 16:39:31,052 - INFO - Prepared product 409250031 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,052 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,054 - INFO - Processing Excel row 44: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409150003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 44, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409150003}
+2025-11-18 16:39:31,055 - INFO - Using cached product ID for code: '409150003'
+2025-11-18 16:39:31,056 - INFO - Prepared product 409150003 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,058 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,060 - INFO - Processing Excel row 45: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409030003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 45, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409030003}
+2025-11-18 16:39:31,061 - INFO - Using cached product ID for code: '409030003'
+2025-11-18 16:39:31,062 - INFO - Prepared product 409030003 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,063 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,064 - INFO - Processing Excel row 46: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409050001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 46, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409050001}
+2025-11-18 16:39:31,065 - INFO - Using cached product ID for code: '409050001'
+2025-11-18 16:39:31,065 - INFO - Prepared product 409050001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,065 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,066 - INFO - Processing Excel row 47: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409130001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 47, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409130001}
+2025-11-18 16:39:31,066 - INFO - Using cached product ID for code: '409130001'
+2025-11-18 16:39:31,066 - INFO - Prepared product 409130001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,067 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,067 - INFO - Processing Excel row 48: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 411040003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 48, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 411040003}
+2025-11-18 16:39:31,067 - INFO - Using cached product ID for code: '411040003'
+2025-11-18 16:39:31,068 - INFO - Prepared product 411040003 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,068 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,068 - INFO - Processing Excel row 49: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 301010006, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 49, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 301010006}
+2025-11-18 16:39:31,069 - INFO - Using cached product ID for code: '301010006'
+2025-11-18 16:39:31,069 - INFO - Prepared product 301010006 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,069 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,071 - INFO - Processing Excel row 50: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 411050005, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 50, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 411050005}
+2025-11-18 16:39:31,073 - INFO - Using cached product ID for code: '411050005'
+2025-11-18 16:39:31,073 - INFO - Prepared product 411050005 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,074 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,076 - INFO - Processing Excel row 51: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 410060007, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 51, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 410060007}
+2025-11-18 16:39:31,077 - INFO - Using cached product ID for code: '410060007'
+2025-11-18 16:39:31,077 - INFO - Prepared product 410060007 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,078 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,079 - INFO - Processing Excel row 52: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 411050004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 52, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 411050004}
+2025-11-18 16:39:31,080 - INFO - Using cached product ID for code: '411050004'
+2025-11-18 16:39:31,080 - INFO - Prepared product 411050004 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,080 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,081 - INFO - Processing Excel row 53: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 411040004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 53, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 411040004}
+2025-11-18 16:39:31,081 - INFO - Using cached product ID for code: '411040004'
+2025-11-18 16:39:31,081 - INFO - Prepared product 411040004 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,082 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,082 - INFO - Processing Excel row 54: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 410060004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 54, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 410060004}
+2025-11-18 16:39:31,082 - INFO - Using cached product ID for code: '410060004'
+2025-11-18 16:39:31,083 - INFO - Prepared product 410060004 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,083 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,083 - INFO - Processing Excel row 55: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250051, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 55, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250051}
+2025-11-18 16:39:31,084 - INFO - Using cached product ID for code: '409250051'
+2025-11-18 16:39:31,084 - INFO - Prepared product 409250051 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,085 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,085 - INFO - Processing Excel row 56: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250055, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 56, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250055}
+2025-11-18 16:39:31,086 - INFO - Using cached product ID for code: '409250055'
+2025-11-18 16:39:31,086 - INFO - Prepared product 409250055 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,086 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,087 - INFO - Processing Excel row 57: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250050, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 57, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250050}
+2025-11-18 16:39:31,088 - INFO - Using cached product ID for code: '409250050'
+2025-11-18 16:39:31,088 - INFO - Prepared product 409250050 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,089 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,091 - INFO - Processing Excel row 58: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409170019, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 58, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409170019}
+2025-11-18 16:39:31,092 - INFO - Using cached product ID for code: '409170019'
+2025-11-18 16:39:31,092 - INFO - Prepared product 409170019 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,093 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,093 - INFO - Processing Excel row 59: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250054, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 59, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250054}
+2025-11-18 16:39:31,094 - INFO - Searching for product with code: '409250054' and old code: '409250054'
+2025-11-18 16:39:31,148 - INFO - Found product with exact match on default_code: '409250054'
+2025-11-18 16:39:31,209 - INFO - Prepared product 409250054 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,210 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,210 - INFO - Processing Excel row 60: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 304010030, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 60, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 304010030}
+2025-11-18 16:39:31,210 - INFO - Searching for product with code: '304010030' and old code: '304010030'
+2025-11-18 16:39:31,274 - INFO - Found product with exact match on default_code: '304010030'
+2025-11-18 16:39:31,335 - INFO - Prepared product 304010030 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,336 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,336 - INFO - Processing Excel row 61: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 406010104, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 61, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 406010104}
+2025-11-18 16:39:31,337 - INFO - Searching for product with code: '406010104' and old code: '406010104'
+2025-11-18 16:39:31,426 - INFO - Found product with exact match on default_code: '406010104'
+2025-11-18 16:39:31,504 - INFO - Prepared product 406010104 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,504 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,505 - INFO - Processing Excel row 62: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 406010107, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 62, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 406010107}
+2025-11-18 16:39:31,506 - INFO - Searching for product with code: '406010107' and old code: '406010107'
+2025-11-18 16:39:31,556 - INFO - Found product with exact match on default_code: '406010107'
+2025-11-18 16:39:31,609 - INFO - Prepared product 406010107 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,615 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,615 - INFO - Processing Excel row 63: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 413010293, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 63, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 413010293}
+2025-11-18 16:39:31,616 - INFO - Searching for product with code: '413010293' and old code: '413010293'
+2025-11-18 16:39:31,674 - INFO - Found product with exact match on default_code: '413010293'
+2025-11-18 16:39:31,749 - INFO - Prepared product 413010293 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,750 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,750 - INFO - Processing Excel row 64: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409040001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 64, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409040001}
+2025-11-18 16:39:31,751 - INFO - Using cached product ID for code: '409040001'
+2025-11-18 16:39:31,751 - INFO - Prepared product 409040001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,752 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,752 - INFO - Processing Excel row 65: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409150003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 65, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409150003}
+2025-11-18 16:39:31,752 - INFO - Using cached product ID for code: '409150003'
+2025-11-18 16:39:31,753 - INFO - Prepared product 409150003 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,753 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,754 - INFO - Processing Excel row 66: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409030003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 66, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409030003}
+2025-11-18 16:39:31,754 - INFO - Using cached product ID for code: '409030003'
+2025-11-18 16:39:31,754 - INFO - Prepared product 409030003 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,755 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,755 - INFO - Processing Excel row 67: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409050001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 67, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409050001}
+2025-11-18 16:39:31,756 - INFO - Using cached product ID for code: '409050001'
+2025-11-18 16:39:31,756 - INFO - Prepared product 409050001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,756 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,757 - INFO - Processing Excel row 68: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409180009, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 68, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409180009}
+2025-11-18 16:39:31,757 - INFO - Searching for product with code: '409180009' and old code: '409180009'
+2025-11-18 16:39:31,815 - INFO - Found product with exact match on default_code: '409180009'
+2025-11-18 16:39:31,877 - INFO - Prepared product 409180009 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,878 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,878 - INFO - Processing Excel row 69: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409110001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 69, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409110001}
+2025-11-18 16:39:31,878 - INFO - Using cached product ID for code: '409110001'
+2025-11-18 16:39:31,879 - INFO - Prepared product 409110001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,879 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,879 - INFO - Processing Excel row 70: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409090004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 70, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409090004}
+2025-11-18 16:39:31,880 - INFO - Using cached product ID for code: '409090004'
+2025-11-18 16:39:31,880 - INFO - Prepared product 409090004 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,880 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,880 - INFO - Processing Excel row 71: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409190001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 71, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409190001}
+2025-11-18 16:39:31,881 - INFO - Searching for product with code: '409190001' and old code: '409190001'
+2025-11-18 16:39:31,939 - INFO - Found product with exact match on default_code: '409190001'
+2025-11-18 16:39:31,996 - INFO - Prepared product 409190001 with quantity 100.0 for batch creation
+2025-11-18 16:39:31,997 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:31,997 - INFO - Processing Excel row 72: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 'SP0029810001', 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 72, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 'SP0029810001'}
+2025-11-18 16:39:31,997 - INFO - Searching for product with code: 'SP0029810001' and old code: 'SP0029810001'
+2025-11-18 16:39:32,051 - INFO - Found product with exact match on default_code: 'SP0029810001'
+2025-11-18 16:39:32,113 - INFO - Prepared product SP0029810001 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,113 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,114 - INFO - Processing Excel row 73: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409230007, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 73, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409230007}
+2025-11-18 16:39:32,114 - INFO - Using cached product ID for code: '409230007'
+2025-11-18 16:39:32,114 - INFO - Prepared product 409230007 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,115 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,115 - INFO - Processing Excel row 74: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409060002, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 74, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409060002}
+2025-11-18 16:39:32,115 - INFO - Using cached product ID for code: '409060002'
+2025-11-18 16:39:32,116 - INFO - Prepared product 409060002 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,116 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,116 - INFO - Processing Excel row 75: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409170019, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 75, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409170019}
+2025-11-18 16:39:32,117 - INFO - Using cached product ID for code: '409170019'
+2025-11-18 16:39:32,117 - INFO - Prepared product 409170019 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,117 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,118 - INFO - Processing Excel row 76: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409090004, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 76, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409090004}
+2025-11-18 16:39:32,118 - INFO - Using cached product ID for code: '409090004'
+2025-11-18 16:39:32,118 - INFO - Prepared product 409090004 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,118 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,119 - INFO - Processing Excel row 77: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409190001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 77, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409190001}
+2025-11-18 16:39:32,119 - INFO - Using cached product ID for code: '409190001'
+2025-11-18 16:39:32,121 - INFO - Prepared product 409190001 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,122 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,122 - INFO - Processing Excel row 78: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 'SP0029810001', 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 78, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 'SP0029810001'}
+2025-11-18 16:39:32,123 - INFO - Using cached product ID for code: 'SP0029810001'
+2025-11-18 16:39:32,123 - INFO - Prepared product SP0029810001 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,123 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,124 - INFO - Processing Excel row 79: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409230007, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 79, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409230007}
+2025-11-18 16:39:32,124 - INFO - Using cached product ID for code: '409230007'
+2025-11-18 16:39:32,124 - INFO - Prepared product 409230007 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,125 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,125 - INFO - Processing Excel row 80: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409060002, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 80, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409060002}
+2025-11-18 16:39:32,127 - INFO - Using cached product ID for code: '409060002'
+2025-11-18 16:39:32,127 - INFO - Prepared product 409060002 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,128 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,128 - INFO - Processing Excel row 81: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409170019, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 81, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409170019}
+2025-11-18 16:39:32,129 - INFO - Using cached product ID for code: '409170019'
+2025-11-18 16:39:32,129 - INFO - Prepared product 409170019 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,129 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,130 - INFO - Processing Excel row 82: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409250054, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 82, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409250054}
+2025-11-18 16:39:32,130 - INFO - Using cached product ID for code: '409250054'
+2025-11-18 16:39:32,131 - INFO - Prepared product 409250054 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,131 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,131 - INFO - Processing Excel row 83: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 304010030, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 83, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 304010030}
+2025-11-18 16:39:32,131 - INFO - Using cached product ID for code: '304010030'
+2025-11-18 16:39:32,132 - INFO - Prepared product 304010030 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,132 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,133 - INFO - Processing Excel row 84: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 406010104, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 84, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 406010104}
+2025-11-18 16:39:32,133 - INFO - Using cached product ID for code: '406010104'
+2025-11-18 16:39:32,133 - INFO - Prepared product 406010104 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,134 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,134 - INFO - Processing Excel row 85: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 406010107, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 85, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 406010107}
+2025-11-18 16:39:32,135 - INFO - Using cached product ID for code: '406010107'
+2025-11-18 16:39:32,135 - INFO - Prepared product 406010107 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,135 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,136 - INFO - Processing Excel row 86: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 413010293, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 86, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 413010293}
+2025-11-18 16:39:32,136 - INFO - Using cached product ID for code: '413010293'
+2025-11-18 16:39:32,137 - INFO - Prepared product 413010293 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,137 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,138 - INFO - Processing Excel row 87: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409040001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 87, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409040001}
+2025-11-18 16:39:32,139 - INFO - Using cached product ID for code: '409040001'
+2025-11-18 16:39:32,139 - INFO - Prepared product 409040001 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,140 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,140 - INFO - Processing Excel row 88: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409150003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 88, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409150003}
+2025-11-18 16:39:32,141 - INFO - Using cached product ID for code: '409150003'
+2025-11-18 16:39:32,141 - INFO - Prepared product 409150003 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,141 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,142 - INFO - Processing Excel row 89: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409030003, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 89, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409030003}
+2025-11-18 16:39:32,142 - INFO - Using cached product ID for code: '409030003'
+2025-11-18 16:39:32,143 - INFO - Prepared product 409030003 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,143 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,144 - INFO - Processing Excel row 90: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409050001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 90, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409050001}
+2025-11-18 16:39:32,144 - INFO - Using cached product ID for code: '409050001'
+2025-11-18 16:39:32,144 - INFO - Prepared product 409050001 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,145 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,145 - INFO - Processing Excel row 91: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409180009, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 91, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409180009}
+2025-11-18 16:39:32,146 - INFO - Using cached product ID for code: '409180009'
+2025-11-18 16:39:32,146 - INFO - Prepared product 409180009 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,147 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,147 - INFO - Processing Excel row 92: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-18 00:00:00'), 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-11-18 00:00:00'), 'origin': 'คลังวัถุดิบ2', 'location_dest_id': 'RM02/Stock', 'default_code': 409110001, 'product_uom_qty': 100, 'price_unit': 100, 'sequence': 92, 'scheduled_date_orig': Timestamp('2025-11-18 00:00:00'), 'product_id': 409110001}
+2025-11-18 16:39:32,148 - INFO - Using cached product ID for code: '409110001'
+2025-11-18 16:39:32,148 - INFO - Prepared product 409110001 with quantity 100.0 for batch creation
+2025-11-18 16:39:32,148 - INFO - Move locations - Source: 4, Dest: 116
+2025-11-18 16:39:32,487 - INFO - Created 92 moves in batch for picking 66
+2025-11-18 16:39:32,607 - INFO - Re-updated dates before confirming picking 66: 2025-11-18 00:00:00
+2025-11-18 16:39:34,269 - INFO - Confirmed transfer 66 with forced date context
+2025-11-18 16:39:34,270 - INFO - Import completed: 1 success, 0 failed.

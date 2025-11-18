@@ -1,0 +1,25 @@
+2025-11-18 16:28:01,609 - INFO - Successfully connected to Odoo as user ID: 2
+2025-11-18 16:28:02,526 - INFO - Odoo version: 17.0.1.3
+2025-11-18 16:28:03,807 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-11-18 16:28:04,176 - INFO - Successfully read Excel file with 1 rows
+2025-11-18 16:28:04,177 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'product_id', 'product_uom_qty', 'price_unit', 'sequence']
+2025-11-18 16:28:04,180 - INFO - Processed sequence column
+2025-11-18 16:28:04,182 - INFO - scheduled_date dtype: datetime64[ns]
+2025-11-18 16:28:04,184 - INFO - scheduled_date sample: 2025-02-28 00:00:00
+2025-11-18 16:28:04,189 - INFO - Converted scheduled_date to string format. Sample: 2025-02-28 00:00:00
+2025-11-18 16:28:04,190 - INFO - Fixed picking type name from 'My Company: OB FIFO' to 'OB FIFO'
+2025-11-18 16:28:04,191 - INFO - Using 'origin' column to identify transfer groups
+2025-11-18 16:28:04,218 - INFO - Excel file validation and data filling completed successfully
+2025-11-18 16:28:04,394 - INFO - Searching for location: 'FG30/Stock'
+2025-11-18 16:28:05,409 - INFO - Found location with complete_name match: 'FG30/Stock' for 'FG30/Stock'
+2025-11-18 16:28:05,633 - WARNING - Partner 'MOG-สินค้าโชว์' not found. Creating new partner.
+2025-11-18 16:28:05,881 - INFO - Created new partner 'MOG-สินค้าโชว์' with ID 2161
+2025-11-18 16:28:06,012 - INFO - Created transfer for date 2025-02-28 00:00:00 sequence 702 with picking ID 62
+2025-11-18 16:28:06,025 - INFO - Processing Excel row 1: {'partner_id': 'MOG-สินค้าโชว์', 'scheduled_date': '2025-02-28 00:00:00', 'picking_type_id': 'OB FIFO', 'date_done': Timestamp('2025-02-28 00:00:00'), 'origin': 'สินค้าโชว์1-11', 'location_dest_id': 'FG30/Stock', 'product_id': 'VT0012201', 'product_uom_qty': 1, 'price_unit': 382.7211, 'sequence': 702, 'scheduled_date_orig': Timestamp('2025-02-28 00:00:00')}
+2025-11-18 16:28:06,026 - INFO - Searching for product with code: 'VT0012201' and old code: 'VT0012201'
+2025-11-18 16:28:06,095 - INFO - Found product with exact match on default_code: 'VT0012201'
+2025-11-18 16:28:06,317 - INFO - Added product VT0012201 with quantity 1.0 to picking 62
+2025-11-18 16:28:06,318 - INFO - Move locations - Source: 4, Dest: 68
+2025-11-18 16:28:06,411 - INFO - Re-updated dates before confirming picking 62: 2025-02-28 00:00:00
+2025-11-18 16:28:06,791 - INFO - Confirmed transfer 62 with forced date context
+2025-11-18 16:28:06,792 - INFO - Import completed: 1 success, 0 failed.
