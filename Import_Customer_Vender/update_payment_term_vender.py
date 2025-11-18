@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'url': 'http://mogth.work:8069',
-    'db': 'Test_import',  # Changed to match the actual database name
+    'db': 'MOG_SETUP',  # Changed to match the actual database name
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'excel_path': 'Import_Customer_Vender/Update Vender Payment Term.xlsx'
