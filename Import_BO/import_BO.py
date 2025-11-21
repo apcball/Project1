@@ -48,9 +48,9 @@ error_messages = []
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
-db = 'Test_import'
-username = 'apichart@mogen.co.th'
-password = '471109538'
+db = 'MOG_SETUP'
+username = 'napaporn@mogen.co.th'
+password = 'mogen'
 
 class Logger:
     def __init__(self):
@@ -405,7 +405,7 @@ def search_product(default_code=None, old_product_code=None):
                 print(f"Found product with default_code: {default_code}")
                 return product_ids[0]
 
-        # Step 2: Search by old_product_code
+        # Step 2: Search by old_product_code (if default_code didn't find anything)
         if old_product_code and not pd.isna(old_product_code):
             product_ids = models.execute_kw(
                 db, uid, password, 'product.product', 'search',
@@ -413,6 +413,17 @@ def search_product(default_code=None, old_product_code=None):
             )
             if product_ids:
                 print(f"Found product with old_product_code: {old_product_code}")
+                return product_ids[0]
+        
+        # Step 3: If default_code was provided but not found, try searching by old_product_code field
+        # with the default_code value (some products might have old_product_code equal to default_code)
+        if default_code and not pd.isna(default_code):
+            product_ids = models.execute_kw(
+                db, uid, password, 'product.product', 'search',
+                [[['old_product_code', '=', str(default_code).strip()]]]
+            )
+            if product_ids:
+                print(f"Found product with old_product_code matching default_code: {default_code}")
                 return product_ids[0]
         
         print(f"Product not found for codes: default_code={default_code}, old_product_code={old_product_code}")
