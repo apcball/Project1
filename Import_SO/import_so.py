@@ -22,7 +22,7 @@ from pathlib import Path
 # Global configuration
 CONFIG = {
     'server_url': 'http://mogth.work:8069',
-    'database': 'Test_import',
+    'database': 'MOG_SETUP',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_SO/logs',
@@ -247,6 +247,11 @@ def format_date(date_str):
     try:
         if isinstance(date_str, (datetime, pd.Timestamp)):
             return date_str.strftime('%Y-%m-%d')
+        elif isinstance(date_str, (int, float)):
+            # Handle Excel serial date format (e.g., 45554 represents a date)
+            # Excel date: 1 = 1900-01-01, so convert to datetime
+            excel_epoch = datetime(1899, 12, 30)  # Excel's base date
+            return (excel_epoch + pd.Timedelta(days=date_str)).strftime('%Y-%m-%d')
         elif isinstance(date_str, str):
             try:
                 return datetime.strptime(date_str, '%Y-%m-%d').strftime('%Y-%m-%d')
@@ -292,77 +297,139 @@ def get_partner_by_codes(partner_code, old_code_partner, partner_name):
     """ค้นหาข้อมูลลูกค้าจาก partner_code และ old_code_partner"""
     print(f"DEBUG: get_partner_by_codes called with partner_code={partner_code}, old_code_partner={old_code_partner}, partner_name={partner_name}")
     
-    if pd.isna(partner_code) and pd.isna(old_code_partner):
-        print("DEBUG: Both partner_code and old_code_partner are NaN")
+    if pd.isna(partner_code) and pd.isna(old_code_partner) and pd.isna(partner_name):
+        print("DEBUG: All partner lookup fields are NaN")
         return None
     
     try:
-        # Priority 1: Try partner_code exact match
+        # Priority 1: Try partner_code field (custom field in Odoo)
         if not pd.isna(partner_code):
             partner_code = str(partner_code).strip()
-            print(f"DEBUG: Searching for partner with code: '{partner_code}'")
+            print(f"DEBUG: Searching for partner with partner_code: '{partner_code}'")
+            
+            # Try exact match on partner_code field first
             partner_ids = models.execute_kw(
                 CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'search',
-                [[['ref', '=', partner_code]]]
+                [[['partner_code', '=', partner_code]]]
             )
-            print(f"DEBUG: Found partner IDs: {partner_ids}")
+            print(f"DEBUG: Exact match partner_code search found: {partner_ids}")
+            
+            # If not found, try ilike (case-insensitive contains)
+            if not partner_ids:
+                partner_ids = models.execute_kw(
+                    CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'search',
+                    [[['partner_code', 'ilike', partner_code]]]
+                )
+                print(f"DEBUG: ILIKE match partner_code search found: {partner_ids}")
             
             if partner_ids:
                 partner_data = models.execute_kw(
                     CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'read',
                     [partner_ids[0]],
-                    {'fields': ['id', 'name', 'ref']}
+                    {'fields': ['id', 'name', 'partner_code', 'old_code_partner']}
                 )[0]
-                print(f"Found partner by code: {partner_code} -> {partner_data['name']}")
+                print(f"Found partner by partner_code: {partner_code} -> {partner_data['name']}")
                 return partner_data
             else:
-                print(f"DEBUG: No partner found with code: '{partner_code}'")
+                print(f"DEBUG: No partner found with partner_code: '{partner_code}'")
         
-        # Priority 2: Try old_code_partner exact match
+        # Priority 2: Try old_code_partner field (custom field in Odoo)
         if not pd.isna(old_code_partner):
             old_code = str(old_code_partner).strip()
-            print(f"DEBUG: Searching for partner with old code: '{old_code}'")
-            # Search in ref field (partner code)
+            print(f"DEBUG: Searching for partner with old_code_partner: '{old_code}'")
+            
+            # Try exact match on old_code_partner field first
             partner_ids = models.execute_kw(
                 CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'search',
-                [[['ref', '=', old_code]]]
+                [[['old_code_partner', '=', old_code]]]
             )
-            print(f"DEBUG: Found partner IDs: {partner_ids}")
+            print(f"DEBUG: Exact match old_code_partner search found: {partner_ids}")
+            
+            # If not found, try ilike
+            if not partner_ids:
+                partner_ids = models.execute_kw(
+                    CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'search',
+                    [[['old_code_partner', 'ilike', old_code]]]
+                )
+                print(f"DEBUG: ILIKE match old_code_partner search found: {partner_ids}")
             
             if partner_ids:
                 partner_data = models.execute_kw(
                     CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'read',
                     [partner_ids[0]],
-                    {'fields': ['id', 'name', 'ref']}
+                    {'fields': ['id', 'name', 'partner_code', 'old_code_partner']}
                 )[0]
-                print(f"Found partner by old code: {old_code} -> {partner_data['name']}")
+                print(f"Found partner by old_code_partner: {old_code} -> {partner_data['name']}")
                 return partner_data
             else:
-                print(f"DEBUG: No partner found with old code: '{old_code}'")
+                print(f"DEBUG: No partner found with old_code_partner: '{old_code}'")
         
-        # Priority 3: Try partner_name exact match
+        # Priority 3: Try partner_name with flexible matching
         if not pd.isna(partner_name):
             name = str(partner_name).strip()
+            # Normalize spaces - replace multiple spaces with single space
+            name = ' '.join(name.split())
             print(f"DEBUG: Searching for partner with name: '{name}'")
+            
+            # Try exact match first
             partner_ids = models.execute_kw(
                 CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'search',
                 [[['name', '=', name]]]
             )
-            print(f"DEBUG: Found partner IDs by name: {partner_ids}")
+            print(f"DEBUG: Exact match name search found: {partner_ids}")
+            
+            # If not found, try ilike (case-insensitive contains)
+            if not partner_ids:
+                partner_ids = models.execute_kw(
+                    CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'search',
+                    [[['name', 'ilike', name]]]
+                )
+                print(f"DEBUG: ILIKE match name search found: {partner_ids}")
+            
+            # If still not found, search by partial name (first part)
+            if not partner_ids and len(name) > 10:
+                partial_name = name[:20]  # Search by first 20 characters
+                partner_ids = models.execute_kw(
+                    CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'search',
+                    [[['name', 'ilike', partial_name]]]
+                )
+                print(f"DEBUG: Partial match name search found: {partner_ids}")
             
             if partner_ids:
-                partner_data = models.execute_kw(
-                    CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'read',
-                    [partner_ids[0]],
-                    {'fields': ['id', 'name', 'ref']}
-                )[0]
-                print(f"Found partner by name: {name} -> {partner_data['name']}")
-                return partner_data
+                # If multiple matches, try to find exact match
+                if len(partner_ids) > 1:
+                    print(f"DEBUG: Found {len(partner_ids)} partners, trying to find exact match")
+                    all_partners = models.execute_kw(
+                        CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'read',
+                        [partner_ids],
+                        {'fields': ['id', 'name', 'partner_code', 'old_code_partner']}
+                    )
+                    
+                    # Try exact match
+                    for partner in all_partners:
+                        partner_name_normalized = ' '.join(partner['name'].split())
+                        if partner_name_normalized == name:
+                            print(f"Found exact match partner: {partner['name']}")
+                            return partner
+                    
+                    # Use first match
+                    print(f"Using first match: {all_partners[0]['name']}")
+                    return all_partners[0]
+                else:
+                    partner_data = models.execute_kw(
+                        CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'read',
+                        [partner_ids[0]],
+                        {'fields': ['id', 'name', 'partner_code', 'old_code_partner']}
+                    )[0]
+                    print(f"Found partner by name: {name} -> {partner_data['name']}")
+                    return partner_data
+            else:
+                print(f"DEBUG: No partner found with name: '{name}'")
         
         # If not found, log missing partner
         print(f"DEBUG: Partner not found, logging missing partner")
         log_missing_partner(
-            partner_code if not pd.isna(partner_code) else old_code_partner,
+            partner_code if not pd.isna(partner_code) else old_code_partner if not pd.isna(old_code_partner) else 'N/A',
             partner_name if not pd.isna(partner_name) else 'N/A'
         )
         
@@ -393,10 +460,10 @@ def get_product_by_codes(product_id, old_product_code, product_name):
                     [product_ids[0]], 
                     {'fields': [
                         'id', 'name', 'default_code', 'list_price', 'uom_id',
-                        'taxes_id', 'description_sale'
+                        'uom_po_id', 'taxes_id', 'description_sale'
                     ]}
                 )[0]
-                print(f"Found product by code: {product_code} -> {product_data['name']}")
+                print(f"Found product by code: {product_code} -> {product_data['name']} (UOM: {product_data.get('uom_id')})")
                 return product_data
         
         # Priority 2: Try old_product_code in default_code field
@@ -414,10 +481,10 @@ def get_product_by_codes(product_id, old_product_code, product_name):
                     [product_ids[0]],
                     {'fields': [
                         'id', 'name', 'default_code', 'list_price', 'uom_id',
-                        'taxes_id', 'description_sale'
+                        'uom_po_id', 'taxes_id', 'description_sale'
                     ]}
                 )[0]
-                print(f"Found product by old code: {old_code} -> {product_data['name']}")
+                print(f"Found product by old code: {old_code} -> {product_data['name']} (UOM: {product_data.get('uom_id')})")
                 return product_data
         
         # Priority 3: Try product_name exact match
@@ -434,10 +501,10 @@ def get_product_by_codes(product_id, old_product_code, product_name):
                     [product_ids[0]], 
                     {'fields': [
                         'id', 'name', 'default_code', 'list_price', 'uom_id',
-                        'taxes_id', 'description_sale'
+                        'uom_po_id', 'taxes_id', 'description_sale'
                     ]}
                 )[0]
-                print(f"Found product by name: {name} -> {product_data['name']}")
+                print(f"Found product by name: {name} -> {product_data['name']} (UOM: {product_data.get('uom_id')})")
                 return product_data
         
         # If product not found, log it
@@ -485,7 +552,7 @@ def get_warehouse_data(warehouse_name):
             # Get all matching warehouses to check for multiple matches
             all_warehouses = models.execute_kw(
                 CONFIG['database'], uid, CONFIG['password'], 'stock.warehouse', 'read',
-                warehouse_ids,
+                [warehouse_ids],
                 {'fields': ['id', 'name']}
             )
             print(f"DEBUG: All matching warehouses: {all_warehouses}")
@@ -746,11 +813,20 @@ def get_shipping_address(address_name, parent_id):
             )
         
         if address_ids:
-            all_addresses = models.execute_kw(
-                CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'read',
-                [address_ids],
-                {'fields': ['id', 'name', 'parent_id', 'type']}
-            )
+            # Use read with proper Odoo RPC syntax - wrap address_ids in a list
+            try:
+                all_addresses = models.execute_kw(
+                    CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'read',
+                    [address_ids],
+                    {'fields': ['id', 'name', 'parent_id', 'type']}
+                )
+            except Exception as read_error:
+                print(f"DEBUG: Error reading addresses: {read_error}")
+                all_addresses = []
+            
+            # Ensure all_addresses is a list
+            if not isinstance(all_addresses, list):
+                all_addresses = [all_addresses]
             
             selected_address = None
             
@@ -888,30 +964,16 @@ def create_sale_order(ref_name, rows):
         
         print(f"DEBUG: Template format: {is_template_format}, Update format: {is_update_format}")
         
-        if is_template_format:
-            print(f"DEBUG: partner_code value: {first_row.get('partner_code')}")
-            print(f"DEBUG: old_code_partner value: {first_row.get('old_code_partner')}")
-            print(f"DEBUG: partner_id value: {first_row.get('partner_id')}")
-            
-            # Get partner data using template format
-            partner_data = get_partner_by_codes(
-                first_row.get('partner_code'),
-                first_row.get('old_code_partner'),
-                first_row.get('partner_id')
-            )
-        elif is_update_format:
-            print(f"DEBUG: partner_id value: {first_row.get('partner_id')}")
-            
-            # For update format, partner_id contains the partner name
-            # We need to search by name directly
-            partner_name = first_row.get('partner_id')
-            if not pd.isna(partner_name):
-                partner_data = get_partner_by_codes(None, None, partner_name)
-            else:
-                partner_data = None
-        else:
-            print("DEBUG: Unknown Excel format - cannot determine partner lookup method")
-            partner_data = None
+        # Get partner data using partner_code and old_code_partner only (ignore partner_id)
+        print(f"DEBUG: partner_code value: {first_row.get('partner_code')}")
+        print(f"DEBUG: old_code_partner value: {first_row.get('old_code_partner')}")
+        
+        # Get partner data using template format - only use partner_code and old_code_partner
+        partner_data = get_partner_by_codes(
+            first_row.get('partner_code'),
+            first_row.get('old_code_partner'),
+            None  # Ignore partner_id field
+        )
         
         if not partner_data:
             log_error(ref_name, rows[0]['index'] + 2, 'Partner Error', 
@@ -1028,12 +1090,21 @@ def create_sale_order(ref_name, rows):
             if tax_data is None:
                 tax_data = []
             
+            # Get the sales unit (uom_id) from product
+            # For sale orders, we should use the product's sales UOM
+            product_uom_id = 1  # Default to Units
+            if product_data.get('uom_id'):
+                if isinstance(product_data['uom_id'], (list, tuple)):
+                    product_uom_id = product_data['uom_id'][0]
+                else:
+                    product_uom_id = product_data['uom_id']
+            
             order_line = {
                 'product_id': product_data['id'],
                 'name': truncate_string(row.get('product_name') if not pd.isna(row.get('product_name')) else product_data['name']),
                 'product_uom_qty': validate_number(row.get('product_uom_qty')),
                 'price_unit': validate_number(row.get('price_unit')),
-                'product_uom': product_data['uom_id'][0] if product_data.get('uom_id') else 1,
+                'product_uom': product_uom_id,
                 'sequence': len(order_lines) + 1,
                 'discount': final_discount,
                 'discount_fixed': final_discount_fixed,
@@ -1079,27 +1150,60 @@ def create_sale_order(ref_name, rows):
                 success_count += 1
                 return True
             
-            # Get existing order state
+            # Get existing order state and data
             so_data = models.execute_kw(
                 CONFIG['database'], uid, CONFIG['password'], 'sale.order', 'read',
-                [existing_so[0]], {'fields': ['state']}
+                [existing_so[0]], {'fields': ['state', 'order_line']}
             )[0]
             
-            # Check if order is confirmed
-            if so_data['state'] != 'draft':
+            print(f"DEBUG: Existing SO state: {so_data['state']}")
+            print(f"DEBUG: Existing SO has {len(so_data.get('order_line', []))} order lines")
+            
+            # Check if order is confirmed or has been sent
+            if so_data['state'] not in ('draft', 'sent'):
                 log_error(ref_name, rows[0]['index'] + 2, 'Update Error', 
                          f"Cannot update confirmed sale order (State: {so_data['state']})", first_row)
+                print(f"DEBUG: Cannot update SO in state: {so_data['state']}")
                 error_count += 1
                 return False
             
-            # Update existing SO
-            result = models.execute_kw(
-                CONFIG['database'], uid, CONFIG['password'], 'sale.order', 'write',
-                [existing_so[0], so_vals]
-            )
+            # For draft orders, clear existing order lines and update with new ones
+            if so_data['state'] == 'draft':
+                print(f"DEBUG: Updating draft SO {ref_name}: removing old lines and adding new ones")
+                
+                # Delete existing order lines using the correct Odoo API syntax
+                existing_line_ids = so_data.get('order_line', [])
+                if existing_line_ids:
+                    try:
+                        # Correct way to call unlink() with IDs
+                        models.execute_kw(
+                            CONFIG['database'], uid, CONFIG['password'], 'sale.order.line', 'unlink',
+                            [existing_line_ids]
+                        )
+                        print(f"DEBUG: Deleted {len(existing_line_ids)} existing order lines")
+                    except Exception as e:
+                        print(f"DEBUG: Error deleting order lines: {e}")
+                        # Continue anyway - try to update the SO
+                
+                # Update SO with new data and order lines
+                result = models.execute_kw(
+                    CONFIG['database'], uid, CONFIG['password'], 'sale.order', 'write',
+                    [existing_so[0], so_vals]
+                )
+            else:
+                # For sent orders, only update header information (not order lines)
+                print(f"DEBUG: Updating sent SO {ref_name}: updating header only")
+                
+                # Prepare header update only (without order_line)
+                so_vals_header = {k: v for k, v in so_vals.items() if k != 'order_line'}
+                
+                result = models.execute_kw(
+                    CONFIG['database'], uid, CONFIG['password'], 'sale.order', 'write',
+                    [existing_so[0], so_vals_header]
+                )
             
             if result:
-                print(f"Updated existing SO: {ref_name}")
+                print(f"Updated existing SO: {ref_name} (State: {so_data['state']})")
                 success_count += 1
                 return True
             else:
