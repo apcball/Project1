@@ -1,0 +1,43 @@
+2025-11-21 22:21:55,695 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-11-21 22:21:55,695 - INFO - 
+================================================================================
+2025-11-21 22:21:55,695 - INFO - Starting import from: Import_PO/Template_PO_new1.xlsx
+2025-11-21 22:21:55,695 - INFO - Dry-run mode: False
+2025-11-21 22:21:55,695 - INFO - ================================================================================
+2025-11-21 22:21:55,871 - INFO - ✓ Excel file loaded: 8 total rows
+2025-11-21 22:21:55,871 - INFO - ✓ All required columns found
+2025-11-21 22:21:55,871 - INFO - ✓ Found 5 purchase orders to process
+2025-11-21 22:21:55,871 - INFO - --------------------------------------------------------------------------------
+2025-11-21 22:21:55,871 - INFO - [1/5] Processing PO: BPD-6700364 (2 lines)
+2025-11-21 22:21:56,540 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 22:21:57,738 - INFO - Created PO BPD-6700364 with ID 485
+2025-11-21 22:21:57,739 - INFO -   ✓ Created PO BPD-6700364 with ID 485
+2025-11-21 22:21:57,739 - INFO - [2/5] Processing PO: BPD-6800308 (1 lines)
+2025-11-21 22:21:58,517 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:21:59,685 - ERROR - Error creating PO BPD-6800308: <Fault 2: "The unit of measure Units defined on the order line doesn't belong to the same category as the unit of measure ม้วน defined on the product. Please correct the unit of measure defined on the order line or on the product, they should belong to the same category.">
+2025-11-21 22:21:59,686 - ERROR -   ✗ Error creating PO BPD-6800308: <Fault 2: "The unit of measure Units defined on the order line doesn't belong to the same category as the unit of measure ม้วน defined on the product. Please correct the unit of measure defined on the order line or on the product, they should belong to the same category.">
+2025-11-21 22:21:59,691 - INFO - [3/5] Processing PO: BPD-6800383 (1 lines)
+2025-11-21 22:22:00,859 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:22:01,702 - INFO - Created PO BPD-6800383 with ID 487
+2025-11-21 22:22:01,702 - INFO -   ✓ Created PO BPD-6800383 with ID 487
+2025-11-21 22:22:01,703 - INFO - [4/5] Processing PO: BPD-6800603 (3 lines)
+2025-11-21 22:22:02,582 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:22:05,378 - INFO - Created PO BPD-6800603 with ID 488
+2025-11-21 22:22:05,379 - INFO -   ✓ Created PO BPD-6800603 with ID 488
+2025-11-21 22:22:05,380 - INFO - [5/5] Processing PO: BPD-6800833 (1 lines)
+2025-11-21 22:22:06,322 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:22:07,876 - INFO - Created PO BPD-6800833 with ID 489
+2025-11-21 22:22:07,877 - INFO -   ✓ Created PO BPD-6800833 with ID 489
+2025-11-21 22:22:07,877 - INFO - --------------------------------------------------------------------------------
+2025-11-21 22:22:07,877 - INFO - 
+================================================================================
+2025-11-21 22:22:07,877 - INFO - IMPORT SUMMARY
+2025-11-21 22:22:07,877 - INFO - ================================================================================
+2025-11-21 22:22:07,877 - INFO - Total POs processed: 5
+2025-11-21 22:22:07,878 - INFO - ✓ Successful:        4
+2025-11-21 22:22:07,878 - INFO - ✗ Failed:            1
+2025-11-21 22:22:07,878 - INFO - Success rate:        80.0%
+2025-11-21 22:22:07,926 - INFO - 
+! Error details saved to: Import_PO/logs/po_errors_20251121_222154.xlsx
+2025-11-21 22:22:07,926 - INFO - ================================================================================
+

@@ -1,0 +1,41 @@
+2025-11-21 22:28:43,163 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-11-21 22:28:43,163 - INFO - 
+================================================================================
+2025-11-21 22:28:43,164 - INFO - Starting import from: Import_PO/Template_PO_new1.xlsx
+2025-11-21 22:28:43,164 - INFO - Dry-run mode: False
+2025-11-21 22:28:43,164 - INFO - ================================================================================
+2025-11-21 22:28:43,343 - INFO - ✓ Excel file loaded: 8 total rows
+2025-11-21 22:28:43,344 - INFO - ✓ All required columns found
+2025-11-21 22:28:43,344 - INFO - ✓ Found 5 purchase orders to process
+2025-11-21 22:28:43,344 - INFO - --------------------------------------------------------------------------------
+2025-11-21 22:28:43,344 - INFO - [1/5] Processing PO: BPD-6700364 (2 lines)
+2025-11-21 22:28:44,304 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 22:28:45,775 - INFO - PO BPD-6700364 already exists (ID: 485), skipping update
+2025-11-21 22:28:45,775 - INFO -   ✓ PO BPD-6700364 already exists, skipped
+2025-11-21 22:28:45,776 - INFO - [2/5] Processing PO: BPD-6800308 (1 lines)
+2025-11-21 22:28:46,808 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:28:47,625 - INFO - PO BPD-6800308 already exists (ID: 491), skipping update
+2025-11-21 22:28:47,626 - INFO -   ✓ PO BPD-6800308 already exists, skipped
+2025-11-21 22:28:47,626 - INFO - [3/5] Processing PO: BPD-6800383 (1 lines)
+2025-11-21 22:28:48,797 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:28:49,578 - INFO - PO BPD-6800383 already exists (ID: 487), skipping update
+2025-11-21 22:28:49,578 - INFO -   ✓ PO BPD-6800383 already exists, skipped
+2025-11-21 22:28:49,579 - INFO - [4/5] Processing PO: BPD-6800603 (3 lines)
+2025-11-21 22:28:50,707 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:28:53,096 - INFO - PO BPD-6800603 already exists (ID: 488), skipping update
+2025-11-21 22:28:53,097 - INFO -   ✓ PO BPD-6800603 already exists, skipped
+2025-11-21 22:28:53,097 - INFO - [5/5] Processing PO: BPD-6800833 (1 lines)
+2025-11-21 22:28:54,107 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:28:54,834 - INFO - PO BPD-6800833 already exists (ID: 489), skipping update
+2025-11-21 22:28:54,834 - INFO -   ✓ PO BPD-6800833 already exists, skipped
+2025-11-21 22:28:54,834 - INFO - --------------------------------------------------------------------------------
+2025-11-21 22:28:54,835 - INFO - 
+================================================================================
+2025-11-21 22:28:54,835 - INFO - IMPORT SUMMARY
+2025-11-21 22:28:54,835 - INFO - ================================================================================
+2025-11-21 22:28:54,835 - INFO - Total POs processed: 5
+2025-11-21 22:28:54,835 - INFO - ✓ Successful:        5
+2025-11-21 22:28:54,835 - INFO - ✗ Failed:            0
+2025-11-21 22:28:54,835 - INFO - Success rate:        100.0%
+2025-11-21 22:28:54,836 - INFO - ================================================================================
+

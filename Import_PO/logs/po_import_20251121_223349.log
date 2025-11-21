@@ -1,0 +1,49 @@
+2025-11-21 22:33:51,974 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-11-21 22:33:51,974 - INFO - 
+================================================================================
+2025-11-21 22:33:51,975 - INFO - Starting import from: Import_PO/Template_PO_new1.xlsx
+2025-11-21 22:33:51,975 - INFO - Dry-run mode: True
+2025-11-21 22:33:51,975 - INFO - ================================================================================
+2025-11-21 22:33:52,158 - INFO - ✓ Excel file loaded: 8 total rows
+2025-11-21 22:33:52,158 - INFO - ✓ All required columns found
+2025-11-21 22:33:52,159 - INFO - ✓ Found 5 purchase orders to process
+2025-11-21 22:33:52,159 - INFO - --------------------------------------------------------------------------------
+2025-11-21 22:33:52,159 - INFO - [1/5] Processing PO: BPD-6700364 (2 lines)
+2025-11-21 22:33:53,275 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 22:33:53,845 - INFO - Found tax by amount: 0.0 -> ID 5
+2025-11-21 22:33:54,792 - INFO - Found tax by amount: 0.0 -> ID 5
+2025-11-21 22:33:54,792 - INFO - DRY RUN: Would update PO BPD-6700364 with 2 lines
+2025-11-21 22:33:54,792 - INFO -   ✓ DRY RUN: Would update PO BPD-6700364
+2025-11-21 22:33:54,792 - INFO - [2/5] Processing PO: BPD-6800308 (1 lines)
+2025-11-21 22:33:55,927 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:33:57,057 - INFO - Found tax by amount*100: 7.000000000000001 -> ID 3
+2025-11-21 22:33:57,057 - INFO - DRY RUN: Would update PO BPD-6800308 with 1 lines
+2025-11-21 22:33:57,057 - INFO -   ✓ DRY RUN: Would update PO BPD-6800308
+2025-11-21 22:33:57,058 - INFO - [3/5] Processing PO: BPD-6800383 (1 lines)
+2025-11-21 22:33:58,127 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:33:59,255 - INFO - Found tax by amount*100: 7.000000000000001 -> ID 3
+2025-11-21 22:33:59,256 - INFO - DRY RUN: Would update PO BPD-6800383 with 1 lines
+2025-11-21 22:33:59,256 - INFO -   ✓ DRY RUN: Would update PO BPD-6800383
+2025-11-21 22:33:59,257 - INFO - [4/5] Processing PO: BPD-6800603 (3 lines)
+2025-11-21 22:34:00,451 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:34:01,408 - INFO - Found tax by amount*100: 7.000000000000001 -> ID 3
+2025-11-21 22:34:02,420 - INFO - Found tax by amount*100: 7.000000000000001 -> ID 3
+2025-11-21 22:34:03,461 - INFO - Found tax by amount*100: 7.000000000000001 -> ID 3
+2025-11-21 22:34:03,462 - INFO - DRY RUN: Would update PO BPD-6800603 with 3 lines
+2025-11-21 22:34:03,462 - INFO -   ✓ DRY RUN: Would update PO BPD-6800603
+2025-11-21 22:34:03,462 - INFO - [5/5] Processing PO: BPD-6800833 (1 lines)
+2025-11-21 22:34:04,613 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 22:34:05,252 - INFO - Found tax by amount*100: 7.000000000000001 -> ID 3
+2025-11-21 22:34:05,253 - INFO - DRY RUN: Would update PO BPD-6800833 with 1 lines
+2025-11-21 22:34:05,253 - INFO -   ✓ DRY RUN: Would update PO BPD-6800833
+2025-11-21 22:34:05,253 - INFO - --------------------------------------------------------------------------------
+2025-11-21 22:34:05,253 - INFO - 
+================================================================================
+2025-11-21 22:34:05,254 - INFO - IMPORT SUMMARY
+2025-11-21 22:34:05,254 - INFO - ================================================================================
+2025-11-21 22:34:05,254 - INFO - Total POs processed: 5
+2025-11-21 22:34:05,254 - INFO - ✓ Successful:        5
+2025-11-21 22:34:05,254 - INFO - ✗ Failed:            0
+2025-11-21 22:34:05,254 - INFO - Success rate:        100.0%
+2025-11-21 22:34:05,254 - INFO - ================================================================================
+

@@ -15,7 +15,7 @@ CONFIG = {
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_PO/logs',
-    'data_file': 'Import_PO/Template_PO_new.xlsx',
+    'data_file': 'Import_PO/Template_PO_new1.xlsx',
     'dry_run': False
 }
 
@@ -129,49 +129,92 @@ class POImporter:
         
     def search_product(self, old_product_code=None, default_code=None):
         """Search for product by old_product_code or default_code"""
+        # Helper to normalize codes (strip Excel float artifacts like '60201050003.0')
+        def _normalize_code(val):
+            if val is None:
+                return None
+            s = str(val).strip()
+            # If looks like an integer with '.0' suffix from Excel, strip it
+            if s.endswith('.0'):
+                core = s[:-2]
+                if core.isdigit():
+                    return core
+            return s
+
         # Clean input values
-        old_product_code = str(old_product_code).strip() if pd.notna(old_product_code) and old_product_code else None
-        default_code = str(default_code).strip() if pd.notna(default_code) and default_code else None
-        
+        old_product_code = _normalize_code(old_product_code) if (pd.notna(old_product_code) and old_product_code) else None
+        default_code = _normalize_code(default_code) if (pd.notna(default_code) and default_code) else None
         if not old_product_code and not default_code:
             return None
-            
+
         try:
-            # Try default_code first
+            # Priority 1: Try to find using old_product_code field in Odoo
+            if old_product_code:
+                domain = [('old_product_code', '=', old_product_code)]
+                product_ids = self.models.execute_kw(
+                    self.db, self.uid, self.password,
+                    'product.product', 'search', [domain]
+                )
+
+                if product_ids and len(product_ids) > 0:
+                    product_data = self.models.execute_kw(
+                        self.db, self.uid, self.password,
+                        'product.product', 'read', [product_ids[0]],
+                        {'fields': ['id', 'name', 'default_code', 'old_product_code', 'uom_id']}
+                    )
+                    self.logger.debug(f"Found product using old_product_code: {old_product_code}")
+                    return product_data[0]
+
+                # Fallback: try match old_product_code against default_code or barcode
+                domain = ['|', ('default_code', '=', old_product_code), ('barcode', '=', old_product_code)]
+                product_ids = self.models.execute_kw(
+                    self.db, self.uid, self.password,
+                    'product.product', 'search', [domain]
+                )
+                if product_ids:
+                    product_data = self.models.execute_kw(
+                        self.db, self.uid, self.password,
+                        'product.product', 'read', [product_ids[0]],
+                        {'fields': ['id', 'name', 'default_code', 'old_product_code', 'uom_id']}
+                    )
+                    self.logger.debug(f"Found product by fallback for old_product_code: {old_product_code}")
+                    return product_data[0]
+
+            # Priority 2: Try to find using default_code field
             if default_code:
                 domain = [('default_code', '=', default_code)]
                 product_ids = self.models.execute_kw(
                     self.db, self.uid, self.password,
                     'product.product', 'search', [domain]
                 )
-                
+
                 if product_ids and len(product_ids) > 0:
                     product_data = self.models.execute_kw(
                         self.db, self.uid, self.password,
                         'product.product', 'read', [product_ids[0]],
-                        {'fields': ['id', 'name', 'default_code']}
+                        {'fields': ['id', 'name', 'default_code', 'old_product_code', 'uom_id']}
                     )
+                    self.logger.debug(f"Found product using default_code: {default_code}")
                     return product_data[0]
-            
-            # Try old_product_code (assuming it's also stored in 'default_code' field)
-            if old_product_code:
-                domain = [('default_code', '=', old_product_code)]
+
+                # Fallback: try default_code against barcode too
+                domain = ['|', ('barcode', '=', default_code), ('default_code', '=', default_code)]
                 product_ids = self.models.execute_kw(
                     self.db, self.uid, self.password,
                     'product.product', 'search', [domain]
                 )
-                
-                if product_ids and len(product_ids) > 0:
+                if product_ids:
                     product_data = self.models.execute_kw(
                         self.db, self.uid, self.password,
                         'product.product', 'read', [product_ids[0]],
-                        {'fields': ['id', 'name', 'default_code']}
+                        {'fields': ['id', 'name', 'default_code', 'old_product_code', 'uom_id']}
                     )
+                    self.logger.debug(f"Found product by fallback for default_code: {default_code}")
                     return product_data[0]
-                
+
         except Exception as e:
             self.logger.error(f"Error searching product: {str(e)}")
-            
+
         return None
         
     def search_purchase_order(self, ref_name):
@@ -200,20 +243,42 @@ class POImporter:
         
     def create_purchase_order_line(self, product_id, name, price_unit, fixed_discount, product_qty, date_planned):
         """Create purchase order line data"""
+        # Accept either product id or product dict
+        product_id_val = None
+        product_uom = 1
+        if isinstance(product_id, dict):
+            product_id_val = product_id.get('id')
+            # product may have 'uom_id' as [id, name] or an int
+            uom = product_id.get('uom_id')
+            if uom:
+                try:
+                    # handle list-like or int
+                    if isinstance(uom, (list, tuple)) and len(uom) > 0:
+                        product_uom = int(uom[0])
+                    else:
+                        product_uom = int(uom)
+                except Exception:
+                    product_uom = 1
+        else:
+            try:
+                product_id_val = int(product_id)
+            except Exception:
+                product_id_val = product_id
+
         line_data = {
-            'product_id': product_id,
+            'product_id': product_id_val,
             'name': name,
             'price_unit': self.to_float(price_unit, 0.0),
             'product_qty': self.to_float(product_qty, 1.0),
             'date_planned': self.parse_date(date_planned),
-            'product_uom': 1,  # Default UOM
+            'product_uom': product_uom,
         }
 
         # Discount should be float (percent)
         disc = self.to_float(fixed_discount, 0.0)
         if disc and disc != 0.0:
             line_data['discount'] = disc
-            
+
         return line_data
         
     def process_po_group(self, group):
@@ -277,26 +342,56 @@ class POImporter:
             if not product:
                 return False, f"Product not found for old_product_code: {row.get('old_product_code')}, default_code: {row.get('default_code')}"
                 
-            # Create order line
+            # Create order line (pass full product dict so we can read product.uom_id)
             line_data = self.create_purchase_order_line(
-                product['id'],
-                row.get('name', product['name']),
+                product,
+                row.get('product_id', row.get('name', product.get('name'))),
                 row.get('price_unit'),
                 row.get('fixed_discount'),
                 row.get('product_qty'),
                 row.get('date_planned')
             )
-            if row.get('texs_id'):
-                # resolve taxes (accept id or name)
-                tax_val = row.get('texs_id')
-                if isinstance(tax_val, (list, tuple)):
-                    tax_ids = [self.resolve_m2o('account.tax', t, ['name', 'description']) for t in tax_val]
-                    tax_ids = [t for t in tax_ids if t]
+            # Map tax column: accept 'texs_id' (legacy typo) or 'taxes_id'
+            tax_raw = None
+            if 'texs_id' in row and pd.notna(row.get('texs_id')):
+                tax_raw = row.get('texs_id')
+            elif 'taxes_id' in row and pd.notna(row.get('taxes_id')):
+                tax_raw = row.get('taxes_id')
+
+            if tax_raw is not None:
+                tax_ids = []
+
+                # If already a list/tuple of IDs or values
+                if isinstance(tax_raw, (list, tuple)):
+                    candidates = list(tax_raw)
+                elif isinstance(tax_raw, str) and ',' in tax_raw:
+                    # comma separated string like '7%,0%' or '1,2'
+                    candidates = [c.strip() for c in tax_raw.split(',') if c.strip()]
                 else:
-                    resolved = self.resolve_m2o('account.tax', tax_val, ['name', 'description'])
-                    tax_ids = [resolved] if resolved else []
+                    candidates = [tax_raw]
+
+                # Try to interpret candidates as integer IDs first
+                for t in candidates:
+                    if t is None or (isinstance(t, float) and pd.isna(t)):
+                        continue
+                    # numeric id
+                    try:
+                        tid = int(t)
+                        if tid > 0:
+                            tax_ids.append(tid)
+                            continue
+                    except Exception:
+                        pass
+
+                    # Otherwise resolve by percentage/name
+                    tax_id = self.resolve_tax(t)
+                    if tax_id:
+                        tax_ids.append(tax_id)
+
                 if tax_ids:
+                    # set many2many using (6, 0, [ids])
                     line_data['taxes_id'] = [(6, 0, tax_ids)]
+                    self.logger.debug(f"  Applied taxes: {tax_ids} for value: {tax_raw}")
             lines.append(line_data)
         
         try:
@@ -306,10 +401,41 @@ class POImporter:
                 return True, f"DRY RUN: Would {action} PO {ref_name}"
                 
             if existing_po_id:
-                # PO already exists - don't update it, just skip
-                # (Odoo locks most fields once PO is confirmed)
-                self.logger.info(f"PO {ref_name} already exists (ID: {existing_po_id}), skipping update")
-                return True, f"PO {ref_name} already exists, skipped"
+                # PO already exists - update the order lines with taxes
+                self.logger.info(f"PO {ref_name} already exists (ID: {existing_po_id}), updating taxes on order lines")
+                
+                # Get existing order lines
+                existing_lines = self.models.execute_kw(
+                    self.db, self.uid, self.password,
+                    'purchase.order.line', 'search_read',
+                    [[('order_id', '=', existing_po_id)]],
+                    {'fields': ['id', 'product_id', 'sequence']}
+                )
+                
+                # Update each line with tax information
+                updated_count = 0
+                for idx, line_data in enumerate(lines):
+                    if idx < len(existing_lines):
+                        line_id = existing_lines[idx]['id']
+                        
+                        # Prepare update data (only taxes)
+                        update_data = {}
+                        if 'taxes_id' in line_data:
+                            update_data['taxes_id'] = line_data['taxes_id']
+                        
+                        if update_data:
+                            try:
+                                self.models.execute_kw(
+                                    self.db, self.uid, self.password,
+                                    'purchase.order.line', 'write',
+                                    [[line_id], update_data]
+                                )
+                                updated_count += 1
+                                self.logger.debug(f"  Updated line {line_id} with taxes")
+                            except Exception as e:
+                                self.logger.warning(f"  Could not update line {line_id}: {str(e)}")
+                
+                return True, f"Updated {updated_count} lines in PO {ref_name}"
             else:
                 # Create new PO with all data
                 po_create_data['order_line'] = [(0, 0, line) for line in lines]
@@ -447,6 +573,136 @@ class POImporter:
             self.logger.debug(f"resolve_currency lookup failed for {currency_value}: {e}")
 
         return self.get_default_currency()
+
+    def resolve_tax(self, tax_value):
+        """Resolve tax by name, amount (percentage), or ID.
+        
+        Tax values can be:
+        - Tax ID (integer): return as-is
+        - Tax name: "7%", "0%", etc.
+        - Tax amount: 7, 0.07, "7", "0.07"
+        
+        Returns the tax ID or None if not found.
+        """
+        if tax_value is None or (isinstance(tax_value, float) and pd.isna(tax_value)):
+            return None
+
+        # If already an int or numeric id string, return it directly
+        try:
+            tax_id = int(tax_value)
+            if tax_id > 0:
+                return tax_id
+        except Exception:
+            pass
+
+        try:
+            val_str = str(tax_value).strip()
+
+            # Try to interpret percentage values safely.
+            # Support: '7%', '7', 7, '0%', '0'
+            amount = None
+            if val_str.endswith('%'):
+                # '7%' -> 0.07
+                num = val_str.rstrip('%').strip()
+                try:
+                    amount = float(num) / 100.0
+                except Exception:
+                    amount = None
+            else:
+                # Try numeric forms: '7' -> 0.07, '0.07' -> 0.07
+                try:
+                    parsed = float(val_str)
+                    # If the value looks like percent (greater than 1) treat as percent
+                    if parsed > 1:
+                        amount = parsed / 100.0
+                    else:
+                        amount = parsed
+                except Exception:
+                    amount = None
+
+            # If we have a normalized amount (Odoo stores tax.amount as 0.07 for 7%)
+            if amount is not None:
+                # Try exact match first
+                domain = [('amount', '=', amount), ('type_tax_use', '=', 'purchase')]
+                tax_ids = self.models.execute_kw(
+                    self.db, self.uid, self.password,
+                    'account.tax', 'search', [domain]
+                )
+                if tax_ids:
+                    self.logger.info(f"Found tax by amount: {amount} -> ID {tax_ids[0]}")
+                    return tax_ids[0]
+
+                # Fallback: allow small tolerance for floating point differences
+                eps = 0.0001
+                domain = [('amount', '>=', amount - eps), ('amount', '<=', amount + eps), ('type_tax_use', '=', 'purchase')]
+                tax_ids = self.models.execute_kw(
+                    self.db, self.uid, self.password,
+                    'account.tax', 'search', [domain]
+                )
+                if tax_ids:
+                    self.logger.info(f"Found tax by amount (tolerance): {amount} -> ID {tax_ids[0]}")
+                    return tax_ids[0]
+
+                # Additional fallback: some databases store percentage as whole numbers (e.g., 7.0)
+                try:
+                    amt_hundred = amount * 100.0
+                    domain = [('amount', '=', amt_hundred), ('type_tax_use', '=', 'purchase')]
+                    tax_ids = self.models.execute_kw(
+                        self.db, self.uid, self.password,
+                        'account.tax', 'search', [domain]
+                    )
+                    if tax_ids:
+                        self.logger.info(f"Found tax by amount*100: {amt_hundred} -> ID {tax_ids[0]}")
+                        return tax_ids[0]
+                except Exception:
+                    pass
+
+                # Last resort: try without type_tax_use constraint
+                domain = [('amount', '=', amount)]
+                tax_ids = self.models.execute_kw(
+                    self.db, self.uid, self.password,
+                    'account.tax', 'search', [domain]
+                )
+                if tax_ids:
+                    self.logger.info(f"Found tax by amount without type filter: {amount} -> ID {tax_ids[0]}")
+                    return tax_ids[0]
+
+            # Fallback: search by name (e.g., '7%') or partial name match
+            name_search = val_str
+            if not name_search.endswith('%'):
+                # If original was numeric like '7' or '7.0', try '7%'
+                try:
+                    _ = float(val_str)
+                    name_search = f"{val_str}%"
+                except Exception:
+                    pass
+
+            # Exact name match
+            domain = [('name', '=', name_search), ('type_tax_use', '=', 'purchase')]
+            tax_ids = self.models.execute_kw(
+                self.db, self.uid, self.password,
+                'account.tax', 'search', [domain]
+            )
+            if tax_ids:
+                self.logger.info(f"Found tax by name: '{name_search}' -> ID {tax_ids[0]}")
+                return tax_ids[0]
+
+            # Partial name match (case-insensitive, contains)
+            domain = [('name', 'ilike', name_search), ('type_tax_use', '=', 'purchase')]
+            tax_ids = self.models.execute_kw(
+                self.db, self.uid, self.password,
+                'account.tax', 'search', [domain]
+            )
+            if tax_ids:
+                self.logger.info(f"Found tax by partial name: '{name_search}' -> ID {tax_ids[0]}")
+                return tax_ids[0]
+
+            self.logger.info(f"Tax not found for value: {tax_value}")
+
+        except Exception as e:
+            self.logger.debug(f"Error resolving tax '{tax_value}': {str(e)[:200]}")
+
+        return None
 
     def resolve_picking_type(self, picking_type_value):
         """Resolve picking type by warehouse name.
