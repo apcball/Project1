@@ -11,11 +11,11 @@ import logging
 # Global configuration
 CONFIG = {
     'server_url': 'http://mogth.work:8069',
-    'database': 'Test_import',
+    'database': 'MOG_SETUP',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_PO/logs',
-    'data_file': 'Import_PO/Template_PO_new1.xlsx',
+    'data_file': 'Import_PO/Template_PO_new.xlsx',
     'dry_run': False
 }
 
