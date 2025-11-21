@@ -166,6 +166,56 @@ def main():
         # Rename columns based on mapping
         df = df.rename(columns=column_mapping)
         print(f"\nExcel columns after mapping: {df.columns.tolist()}")
+
+        # Determine which column contains the PO name and ensure we have a 'name' column
+        candidate_po_cols = ['name', 'ref_name', 'ref', 'po_number', 'order', 'order_ref', 'purchase_order']
+        cols_lc_map = {c.strip().lower(): c for c in df.columns}
+        po_col = None
+
+        def non_empty_count(col_name):
+            try:
+                series = df[col_name]
+            except Exception:
+                return 0
+            non_empty = series.dropna().astype(str).str.strip()
+            non_empty = non_empty[non_empty != '']
+            return len(non_empty)
+
+        # Pick the candidate column with the most non-empty values
+        best_col = None
+        best_count = 0
+        for cand in candidate_po_cols:
+            if cand in cols_lc_map:
+                cnt = non_empty_count(cols_lc_map[cand])
+                if cnt > best_count:
+                    best_count = cnt
+                    best_col = cols_lc_map[cand]
+        if best_count > 0:
+            po_col = best_col
+
+        # flexible fallback: look for columns containing keywords and choose the one with most data
+        if not po_col:
+            for c in df.columns:
+                lc = c.strip().lower()
+                if 'ref' in lc or 'po' in lc or 'order' in lc:
+                    cnt = non_empty_count(c)
+                    if cnt > best_count:
+                        best_count = cnt
+                        best_col = c
+            if best_count > 0:
+                po_col = best_col
+
+        if po_col:
+            if po_col != 'name':
+                df['name'] = df[po_col].astype(str)
+                print(f"Using column '{po_col}' as PO name (copied to 'name').")
+            else:
+                df['name'] = df['name'].astype(str)
+                print("Using existing 'name' column for PO grouping.")
+        else:
+            # create synthetic PO names if none present
+            df['name'] = [f"PO_generated_{i+1}" for i in range(len(df))]
+            print("No PO name column found; generated 'name' values.")
         
         # Process each PO individually
         for po_name, po_group in df.groupby('name'):
@@ -202,7 +252,7 @@ def main():
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
-db = 'MOG_LIVE'
+db = 'Test_import'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -278,6 +328,7 @@ def search_product(product_value):
     product_value = product_value.strip()
     
     try:
+        # 1) Exact match on default_code
         product_ids = models.execute_kw(
             db, uid, password, 'product.product', 'search',
             [[['default_code', '=', product_value]]]
@@ -286,6 +337,7 @@ def search_product(product_value):
             print(f"Found product with default_code: {product_value}")
             return product_ids
 
+        # 2) Exact match on old_product_code
         product_ids = models.execute_kw(
             db, uid, password, 'product.product', 'search',
             [[['old_product_code', '=', product_value]]]
@@ -293,7 +345,47 @@ def search_product(product_value):
         if product_ids:
             print(f"Found product with old_product_code: {product_value}")
             return product_ids
-        
+
+        # 3) Exact match on barcode
+        product_ids = models.execute_kw(
+            db, uid, password, 'product.product', 'search',
+            [[['barcode', '=', product_value]]]
+        )
+        if product_ids:
+            print(f"Found product with barcode: {product_value}")
+            return product_ids
+
+        # 4) Partial / ilike on default_code or name (return up to 5 candidates)
+        product_ids = models.execute_kw(
+            db, uid, password, 'product.product', 'search',
+            [[
+                '|',
+                ('default_code', 'ilike', product_value),
+                ('name', 'ilike', product_value)
+            ]],
+            {'limit': 5}
+        )
+        if product_ids:
+            print(f"Found product(s) by partial match for: {product_value} -> {product_ids}")
+            return product_ids
+
+        # 5) Try splitting the value and search by longer parts
+        parts = re.split(r"[\s\-_]+", product_value)
+        for part in parts:
+            if len(part) >= 3:
+                product_ids = models.execute_kw(
+                    db, uid, password, 'product.product', 'search',
+                    [[
+                        '|',
+                        ('default_code', 'ilike', part),
+                        ('name', 'ilike', part)
+                    ]],
+                    {'limit': 5}
+                )
+                if product_ids:
+                    print(f"Found product(s) by part '{part}' for: {product_value} -> {product_ids}")
+                    return product_ids
+
         print(f"Product not found: {product_value}")
         return []
         
@@ -343,6 +435,51 @@ def get_tax_id(tax_value):
     except Exception as e:
         print(f"Error getting tax ID: {e}")
         return False
+
+def detect_header_and_read(excel_file, expected_fields, max_header_rows=6):
+    """Try multiple header rows to locate the real column names.
+
+    It will attempt to read the file with header=0..max_header_rows-1 and
+    pick the first header row that contains at least one expected field.
+    If none found, it will fallback to reading with header=None and use the
+    first non-empty row as header.
+    """
+    expected_lc = {f.lower() for f in expected_fields}
+    for header in range(max_header_rows):
+        try:
+            temp = pd.read_excel(excel_file, header=header)
+        except Exception:
+            continue
+        cols = [str(c).strip().lower() for c in temp.columns]
+        # count how many expected fields appear in these columns
+        matches = sum(1 for c in cols if c in expected_lc)
+        if matches >= 1:
+            print(f"Detected header row at index {header}. Columns: {temp.columns.tolist()}")
+            return temp
+
+    # Fallback: read without header and promote first non-empty row to header
+    try:
+        temp = pd.read_excel(excel_file, header=None)
+        # find first row with at least one non-null value
+        header_row = None
+        for i in range(min(10, len(temp))):
+            row_vals = temp.iloc[i].tolist()
+            if any((not pd.isna(v) and str(v).strip() != '') for v in row_vals):
+                header_row = i
+                break
+        if header_row is not None:
+            new_cols = [str(v).strip() if not pd.isna(v) else '' for v in temp.iloc[header_row].tolist()]
+            temp = temp.iloc[header_row + 1 :].copy()
+            temp.columns = new_cols
+            temp = temp.reset_index(drop=True)
+            print(f"Used row {header_row} as header (fallback). Columns: {temp.columns.tolist()}")
+            return temp
+    except Exception as e:
+        print(f"Header detection fallback failed: {e}")
+
+    # As a last resort, try reading normally and return whatever we have
+    print("Could not detect header automatically; returning raw read (header=0)")
+    return pd.read_excel(excel_file)
 
 def search_picking_type(picking_type_value):
     """Search for picking type in Odoo with enhanced search capabilities"""
@@ -595,7 +732,19 @@ def process_single_po(po_group):
         
         # Process each line
         for idx, line in po_group.iterrows():
-            product_ids = search_product(line['old_product_code'])
+            # Determine best identifier from available columns
+            candidate_fields = ['old_product_code', 'default_code', 'product_id', 'name']
+            product_identifier = None
+            for f in candidate_fields:
+                if f in line and pd.notna(line[f]) and str(line[f]).strip() != '':
+                    product_identifier = str(line[f]).strip()
+                    break
+
+            if not product_identifier:
+                logger.log_error(po_name, idx, 'N/A', 'No product identifier present in row', 'product_identifier_missing')
+                continue
+
+            product_ids = search_product(product_identifier)
             if not product_ids:
                 all_products_found = False
                 logger.log_missing_product(po_name, idx, line['old_product_code'])
@@ -656,8 +805,13 @@ def main():
     
     try:
         # Read Excel file
-        excel_file = 'Data_file/import_PO_04.xlsx'
-        df = pd.read_excel(excel_file)
+        excel_file = 'Import_PO/Template_PO_new.xlsx'
+        # Use header detection to handle templates where header isn't the first row
+        df = detect_header_and_read(excel_file, [
+            'name', 'date_order', 'partner_code', 'partner_id', 'date_planned',
+            'old_product_code', 'product_id', 'price_unit', 'product_qty',
+            'picking_type_id', 'texs_id', 'notes', 'description'
+        ])
         print(f"\nOriginal Excel columns: {df.columns.tolist()}")
         print(f"\nExcel file '{excel_file}' read successfully. Number of rows = {len(df)}")
         
@@ -682,6 +836,35 @@ def main():
         df = df.rename(columns=column_mapping)
         print(f"\nExcel columns after mapping: {df.columns.tolist()}")
         
+        # Determine which column contains the PO name and ensure we have a 'name' column
+        candidate_po_cols = ['name', 'ref_name', 'ref', 'po_number', 'order', 'order_ref', 'purchase_order']
+        cols_lc_map = {c.strip().lower(): c for c in df.columns}
+        po_col = None
+        for cand in candidate_po_cols:
+            if cand in cols_lc_map:
+                po_col = cols_lc_map[cand]
+                break
+
+        # flexible fallback: look for columns containing keywords
+        if not po_col:
+            for c in df.columns:
+                lc = c.strip().lower()
+                if 'ref' in lc or 'po' in lc or 'order' in lc:
+                    po_col = c
+                    break
+
+        if po_col:
+            if po_col != 'name':
+                df['name'] = df[po_col].astype(str)
+                print(f"Using column '{po_col}' as PO name (copied to 'name').")
+            else:
+                df['name'] = df['name'].astype(str)
+                print("Using existing 'name' column for PO grouping.")
+        else:
+            # create synthetic PO names if none present
+            df['name'] = [f"PO_generated_{i+1}" for i in range(len(df))]
+            print("No PO name column found; generated 'name' values.")
+
         # Process each PO individually
         for po_name, po_group in df.groupby('name'):
             print(f"\n{'='*50}")

@@ -1,0 +1,54 @@
+2025-11-21 21:31:45,990 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-11-21 21:31:45,992 - INFO - 
+================================================================================
+2025-11-21 21:31:45,992 - INFO - Starting import from: Import_PO/Template_PO_new.xlsx
+2025-11-21 21:31:45,992 - INFO - Dry-run mode: False
+2025-11-21 21:31:45,992 - INFO - ================================================================================
+2025-11-21 21:31:46,187 - INFO - ✓ Excel file loaded: 298 total rows
+2025-11-21 21:31:46,187 - INFO - ✓ All required columns found
+2025-11-21 21:31:46,190 - INFO - ✓ Found 126 purchase orders to process
+2025-11-21 21:31:46,190 - INFO - --------------------------------------------------------------------------------
+2025-11-21 21:31:46,190 - INFO - [1/126] Processing PO: BPD-6700364 (2 lines)
+2025-11-21 21:31:47,143 - ERROR -   ✗ Product not found for old_product_code: NSVH2-02-172, default_code: nan
+2025-11-21 21:31:47,148 - INFO - [2/126] Processing PO: BPD-6800308 (1 lines)
+2025-11-21 21:31:48,159 - ERROR -   ✗ Product not found for old_product_code: RSF8-804-0001-001, default_code: nan
+2025-11-21 21:31:48,162 - INFO - [3/126] Processing PO: BPD-6800383 (1 lines)
+2025-11-21 21:31:49,150 - ERROR -   ✗ Product not found for old_product_code: NFG01-F01-0001-PS99, default_code: nan
+2025-11-21 21:31:49,153 - INFO - [4/126] Processing PO: BPD-6800603 (3 lines)
+2025-11-21 21:31:50,419 - ERROR -   ✗ Product not found for old_product_code: MA01-H03-GT12002400U, default_code: nan
+2025-11-21 21:31:50,423 - INFO - [5/126] Processing PO: BPD-6800833 (1 lines)
+2025-11-21 21:31:51,350 - ERROR -   ✗ Product not found for old_product_code: SF02-201-0002-005, default_code: nan
+2025-11-21 21:31:51,353 - INFO - [6/126] Processing PO: BPD-6800859 (2 lines)
+2025-11-21 21:31:52,400 - ERROR -   ✗ Product not found for old_product_code: NFG05-H4-W1-2355, default_code: nan
+2025-11-21 21:31:52,402 - INFO - [7/126] Processing PO: BPD-6800865 (5 lines)
+2025-11-21 21:31:53,526 - ERROR -   ✗ Product not found for old_product_code: NFG05-GL-622-650, default_code: nan
+2025-11-21 21:31:53,528 - INFO - [8/126] Processing PO: BPD-6800867 (1 lines)
+2025-11-21 21:31:54,473 - ERROR -   ✗ Product not found for old_product_code: NSF01-101-0001-114, default_code: nan
+2025-11-21 21:31:54,476 - INFO - [9/126] Processing PO: BPD-6800872 (1 lines)
+2025-11-21 21:31:55,416 - ERROR -   ✗ Product not found for old_product_code: NSF02-203-0001-011, default_code: nan
+2025-11-21 21:31:55,419 - INFO - [10/126] Processing PO: BPD-6800873 (1 lines)
+2025-11-21 21:31:56,566 - ERROR -   ✗ Product not found for old_product_code: RSF8-804-0002-001, default_code: nan
+2025-11-21 21:31:56,569 - INFO - [11/126] Processing PO: BPD-6800876 (3 lines)
+2025-11-21 21:31:57,505 - ERROR -   ✗ Product not found for old_product_code: RFC9-910-0002-014/U, default_code: nan
+2025-11-21 21:31:57,508 - INFO - [12/126] Processing PO: BPO-6700023 (1 lines)
+2025-11-21 21:31:58,919 - INFO - Created PO BPO-6700023 with ID 415
+2025-11-21 21:31:58,920 - INFO -   ✓ Created PO BPO-6700023 with ID 415
+2025-11-21 21:31:58,920 - INFO - [13/126] Processing PO: BPO-6700107 (9 lines)
+2025-11-21 21:32:03,632 - INFO - Created PO BPO-6700107 with ID 416
+2025-11-21 21:32:03,633 - INFO -   ✓ Created PO BPO-6700107 with ID 416
+2025-11-21 21:32:03,633 - INFO - [14/126] Processing PO: BPO-6700132 (2 lines)
+2025-11-21 21:32:06,111 - INFO - Created PO BPO-6700132 with ID 417
+2025-11-21 21:32:06,112 - INFO -   ✓ Created PO BPO-6700132 with ID 417
+2025-11-21 21:32:06,112 - INFO - [15/126] Processing PO: BPO-6700155 (7 lines)
+2025-11-21 21:32:09,676 - INFO - Created PO BPO-6700155 with ID 418
+2025-11-21 21:32:09,677 - INFO -   ✓ Created PO BPO-6700155 with ID 418
+2025-11-21 21:32:09,677 - INFO - [16/126] Processing PO: BPO-6700156 (1 lines)
+2025-11-21 21:32:11,288 - INFO - Created PO BPO-6700156 with ID 419
+2025-11-21 21:32:11,288 - INFO -   ✓ Created PO BPO-6700156 with ID 419
+2025-11-21 21:32:11,288 - INFO - [17/126] Processing PO: BPO-6700214 (2 lines)
+2025-11-21 21:32:13,565 - INFO - Created PO BPO-6700214 with ID 420
+2025-11-21 21:32:13,565 - INFO -   ✓ Created PO BPO-6700214 with ID 420
+2025-11-21 21:32:13,565 - INFO - [18/126] Processing PO: BPO-6700314 (7 lines)
+2025-11-21 21:32:16,943 - INFO - Created PO BPO-6700314 with ID 421
+2025-11-21 21:32:16,944 - INFO -   ✓ Created PO BPO-6700314 with ID 421
+2025-11-21 21:32:16,944 - INFO - [19/126] Processing PO: BPO-6800003 (1 lines)

@@ -1,0 +1,111 @@
+2025-11-21 21:37:01,161 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-11-21 21:37:01,162 - INFO - 
+================================================================================
+2025-11-21 21:37:01,162 - INFO - Starting import from: Import_PO/Template_PO_new.xlsx
+2025-11-21 21:37:01,162 - INFO - Dry-run mode: False
+2025-11-21 21:37:01,163 - INFO - ================================================================================
+2025-11-21 21:37:01,355 - INFO - ✓ Excel file loaded: 298 total rows
+2025-11-21 21:37:01,355 - INFO - ✓ All required columns found
+2025-11-21 21:37:01,356 - INFO - ✓ Found 126 purchase orders to process
+2025-11-21 21:37:01,356 - INFO - --------------------------------------------------------------------------------
+2025-11-21 21:37:01,356 - INFO - [1/126] Processing PO: BPD-6700364 (2 lines)
+2025-11-21 21:37:02,475 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:02,659 - ERROR -   ✗ Product not found for old_product_code: NSVH2-02-172, default_code: nan
+2025-11-21 21:37:02,663 - INFO - [2/126] Processing PO: BPD-6800308 (1 lines)
+2025-11-21 21:37:03,724 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 21:37:03,926 - ERROR -   ✗ Product not found for old_product_code: RSF8-804-0001-001, default_code: nan
+2025-11-21 21:37:03,930 - INFO - [3/126] Processing PO: BPD-6800383 (1 lines)
+2025-11-21 21:37:04,962 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 21:37:05,155 - ERROR -   ✗ Product not found for old_product_code: NFG01-F01-0001-PS99, default_code: nan
+2025-11-21 21:37:05,156 - INFO - [4/126] Processing PO: BPD-6800603 (3 lines)
+2025-11-21 21:37:06,213 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 21:37:06,775 - ERROR -   ✗ Product not found for old_product_code: MA01-H03-GT12002400U, default_code: nan
+2025-11-21 21:37:06,779 - INFO - [5/126] Processing PO: BPD-6800833 (1 lines)
+2025-11-21 21:37:07,852 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 21:37:08,068 - ERROR -   ✗ Product not found for old_product_code: SF02-201-0002-005, default_code: nan
+2025-11-21 21:37:08,070 - INFO - [6/126] Processing PO: BPD-6800859 (2 lines)
+2025-11-21 21:37:09,103 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 21:37:09,291 - ERROR -   ✗ Product not found for old_product_code: NFG05-H4-W1-2355, default_code: nan
+2025-11-21 21:37:09,292 - INFO - [7/126] Processing PO: BPD-6800865 (5 lines)
+2025-11-21 21:37:10,510 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 21:37:10,693 - ERROR -   ✗ Product not found for old_product_code: NFG05-GL-622-650, default_code: nan
+2025-11-21 21:37:10,696 - INFO - [8/126] Processing PO: BPD-6800867 (1 lines)
+2025-11-21 21:37:11,734 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 21:37:11,870 - ERROR -   ✗ Product not found for old_product_code: NSF01-101-0001-114, default_code: nan
+2025-11-21 21:37:11,872 - INFO - [9/126] Processing PO: BPD-6800872 (1 lines)
+2025-11-21 21:37:12,790 - INFO - Using picking_type_id: คลังสิ้นเปลืองโรงงาน: Receipts (ID: 181)
+2025-11-21 21:37:12,995 - ERROR -   ✗ Product not found for old_product_code: NSF02-203-0001-011, default_code: nan
+2025-11-21 21:37:12,997 - INFO - [10/126] Processing PO: BPD-6800873 (1 lines)
+2025-11-21 21:37:14,230 - INFO - Using picking_type_id: คลังสิ้นเปลืองโรงงาน: Receipts (ID: 181)
+2025-11-21 21:37:14,404 - ERROR -   ✗ Product not found for old_product_code: RSF8-804-0002-001, default_code: nan
+2025-11-21 21:37:14,407 - INFO - [11/126] Processing PO: BPD-6800876 (3 lines)
+2025-11-21 21:37:15,446 - INFO - Using picking_type_id: คลังวัตถุดิบ 2: Receipts (ID: 131)
+2025-11-21 21:37:15,610 - ERROR -   ✗ Product not found for old_product_code: RFC9-910-0002-014/U, default_code: nan
+2025-11-21 21:37:15,613 - INFO - [12/126] Processing PO: BPO-6700023 (1 lines)
+2025-11-21 21:37:16,672 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:16,936 - INFO - PO BPO-6700023 already exists (ID: 415), skipping update
+2025-11-21 21:37:16,936 - INFO -   ✓ PO BPO-6700023 already exists, skipped
+2025-11-21 21:37:16,936 - INFO - [13/126] Processing PO: BPO-6700107 (9 lines)
+2025-11-21 21:37:17,641 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:19,993 - INFO - PO BPO-6700107 already exists (ID: 416), skipping update
+2025-11-21 21:37:19,993 - INFO -   ✓ PO BPO-6700107 already exists, skipped
+2025-11-21 21:37:19,994 - INFO - [14/126] Processing PO: BPO-6700132 (2 lines)
+2025-11-21 21:37:20,807 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:21,251 - INFO - PO BPO-6700132 already exists (ID: 417), skipping update
+2025-11-21 21:37:21,251 - INFO -   ✓ PO BPO-6700132 already exists, skipped
+2025-11-21 21:37:21,251 - INFO - [15/126] Processing PO: BPO-6700155 (7 lines)
+2025-11-21 21:37:21,925 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:23,522 - INFO - PO BPO-6700155 already exists (ID: 418), skipping update
+2025-11-21 21:37:23,523 - INFO -   ✓ PO BPO-6700155 already exists, skipped
+2025-11-21 21:37:23,523 - INFO - [16/126] Processing PO: BPO-6700156 (1 lines)
+2025-11-21 21:37:24,214 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:24,477 - INFO - PO BPO-6700156 already exists (ID: 419), skipping update
+2025-11-21 21:37:24,478 - INFO -   ✓ PO BPO-6700156 already exists, skipped
+2025-11-21 21:37:24,478 - INFO - [17/126] Processing PO: BPO-6700214 (2 lines)
+2025-11-21 21:37:25,179 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:25,935 - INFO - PO BPO-6700214 already exists (ID: 420), skipping update
+2025-11-21 21:37:25,935 - INFO -   ✓ PO BPO-6700214 already exists, skipped
+2025-11-21 21:37:25,935 - INFO - [18/126] Processing PO: BPO-6700314 (7 lines)
+2025-11-21 21:37:26,972 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:28,882 - INFO - PO BPO-6700314 already exists (ID: 421), skipping update
+2025-11-21 21:37:28,883 - INFO -   ✓ PO BPO-6700314 already exists, skipped
+2025-11-21 21:37:28,883 - INFO - [19/126] Processing PO: BPO-6800003 (1 lines)
+2025-11-21 21:37:29,725 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:30,726 - ERROR -   ✗ Product not found for old_product_code: 522803-02, default_code: SELE79
+2025-11-21 21:37:30,728 - INFO - [20/126] Processing PO: BPO-6800005 (1 lines)
+2025-11-21 21:37:31,560 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:32,289 - INFO - Created PO BPO-6800005 with ID 422
+2025-11-21 21:37:32,290 - INFO -   ✓ Created PO BPO-6800005 with ID 422
+2025-11-21 21:37:32,290 - INFO - [21/126] Processing PO: BPO-6800045 (2 lines)
+2025-11-21 21:37:33,026 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:33,900 - INFO - Created PO BPO-6800045 with ID 423
+2025-11-21 21:37:33,900 - INFO -   ✓ Created PO BPO-6800045 with ID 423
+2025-11-21 21:37:33,901 - INFO - [22/126] Processing PO: BPO-6800046 (2 lines)
+2025-11-21 21:37:34,560 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:35,409 - INFO - Created PO BPO-6800046 with ID 424
+2025-11-21 21:37:35,409 - INFO -   ✓ Created PO BPO-6800046 with ID 424
+2025-11-21 21:37:35,409 - INFO - [23/126] Processing PO: BPO-6800055 (5 lines)
+2025-11-21 21:37:36,199 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:38,578 - INFO - Created PO BPO-6800055 with ID 425
+2025-11-21 21:37:38,578 - INFO -   ✓ Created PO BPO-6800055 with ID 425
+2025-11-21 21:37:38,578 - INFO - [24/126] Processing PO: BPO-6800071 (3 lines)
+2025-11-21 21:37:39,482 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:39,873 - ERROR -   ✗ Product not found for old_product_code: 514001, default_code: COS028
+2025-11-21 21:37:39,876 - INFO - [25/126] Processing PO: BPO-6800097 (7 lines)
+2025-11-21 21:37:40,891 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:43,805 - INFO - Created PO BPO-6800097 with ID 426
+2025-11-21 21:37:43,806 - INFO -   ✓ Created PO BPO-6800097 with ID 426
+2025-11-21 21:37:43,806 - INFO - [26/126] Processing PO: BPO-6800115 (7 lines)
+2025-11-21 21:37:44,646 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:48,751 - INFO - Created PO BPO-6800115 with ID 427
+2025-11-21 21:37:48,753 - INFO -   ✓ Created PO BPO-6800115 with ID 427
+2025-11-21 21:37:48,753 - INFO - [27/126] Processing PO: BPO-6800117 (7 lines)
+2025-11-21 21:37:49,458 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:52,013 - INFO - Created PO BPO-6800117 with ID 428
+2025-11-21 21:37:52,013 - INFO -   ✓ Created PO BPO-6800117 with ID 428
+2025-11-21 21:37:52,014 - INFO - [28/126] Processing PO: BPO-6800149 (2 lines)
+2025-11-21 21:37:52,832 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
+2025-11-21 21:37:53,942 - INFO - Created PO BPO-6800149 with ID 429
+2025-11-21 21:37:53,943 - INFO -   ✓ Created PO BPO-6800149 with ID 429
+2025-11-21 21:37:53,943 - INFO - [29/126] Processing PO: BPO-6800151 (2 lines)
+2025-11-21 21:37:54,732 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 2: Receipts (ID: 61)
