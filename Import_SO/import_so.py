@@ -26,7 +26,7 @@ CONFIG = {
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_SO/logs',
-    'data_file': 'Import_SO/Template_SO.xlsx',
+    'data_file': 'Import_SO/Template_SO1.xlsx',
     'dry_run': False
 }
 
@@ -666,13 +666,43 @@ def get_team_data(team_name):
         return None
 
 
+def get_default_tax():
+    """Get default 7% tax from system"""
+    try:
+        # Search for 7% tax
+        tax_ids = models.execute_kw(
+            CONFIG['database'], uid, CONFIG['password'], 'account.tax', 'search',
+            [[['name', 'ilike', '7%']]]
+        )
+        
+        if tax_ids:
+            return [(6, 0, [tax_ids[0]])]
+        
+        # If 7% not found, try to get any active tax
+        tax_ids = models.execute_kw(
+            CONFIG['database'], uid, CONFIG['password'], 'account.tax', 'search',
+            [[['active', '=', True], ['amount', '=', 7.0]]], {'limit': 1}
+        )
+        
+        if tax_ids:
+            return [(6, 0, [tax_ids[0]])]
+        
+        return []
+    except Exception as e:
+        print(f"Error getting default tax: {e}")
+        return []
+
+
 def get_tax_data(tax_name):
     """ค้นหา Tax จากชื่อ"""
     if pd.isna(tax_name):
-        return []
+        return None
     
     try:
         tax_name = str(tax_name).strip()
+        if not tax_name:
+            return None
+            
         tax_ids = models.execute_kw(
             CONFIG['database'], uid, CONFIG['password'], 'account.tax', 'search',
             [[['name', 'ilike', tax_name]]]
@@ -681,10 +711,10 @@ def get_tax_data(tax_name):
         if tax_ids:
             return [(6, 0, tax_ids)]
         
-        return []
+        return None
     except Exception as e:
         print(f"Error processing tax {tax_name}: {e}")
-        return []
+        return None
 
 
 def get_shipping_address(address_name, parent_id):
@@ -980,6 +1010,24 @@ def create_sale_order(ref_name, rows):
                 final_discount_fixed = validate_number(discount_fixed_value)
             
             # Prepare order line
+            # Get tax data - priority: Excel tax_id > product defaults > default 7% tax
+            tax_data = None
+            
+            if not pd.isna(row.get('tax_id')):
+                # Try to get tax from Excel
+                tax_data = get_tax_data(row.get('tax_id'))
+            
+            if tax_data is None and product_data.get('taxes_id'):
+                # Use product default taxes
+                tax_data = [(6, 0, product_data.get('taxes_id', []))]
+            
+            if tax_data is None:
+                # Use default 7% tax
+                tax_data = get_default_tax()
+            
+            if tax_data is None:
+                tax_data = []
+            
             order_line = {
                 'product_id': product_data['id'],
                 'name': truncate_string(row.get('product_name') if not pd.isna(row.get('product_name')) else product_data['name']),
@@ -989,7 +1037,7 @@ def create_sale_order(ref_name, rows):
                 'sequence': len(order_lines) + 1,
                 'discount': final_discount,
                 'discount_fixed': final_discount_fixed,
-                'tax_id': get_tax_data(row.get('tax_id')) if not pd.isna(row.get('tax_id')) else [],
+                'tax_id': tax_data,
             }
             
             order_lines.append((0, 0, order_line))
