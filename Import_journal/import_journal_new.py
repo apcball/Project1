@@ -90,6 +90,9 @@ def read_excel_file():
     # Clean custom_reference
     df['custom_reference'] = df['custom_reference'].fillna('').astype(str).str.strip()
     
+    # Clean reference column - handle empty values properly
+    df['reference'] = df['reference'].fillna('').astype(str).str.strip()
+    
     # Clean document number and ensure it's not empty
     df['document_number'] = df['document_number'].astype(str).str.strip()
     
@@ -309,17 +312,19 @@ def process_document_group(uid, models, doc_group):
         total_credit = sum(line[2]['credit'] for line in move_lines)
         print(f"Total debit: {total_debit}, Total credit: {total_credit}")
 
-        # Prepare move data
+        # Prepare move data - leave reference empty if no data
+        ref_value = str(first_row['reference']).strip() if first_row['reference'] and str(first_row['reference']).strip() != '' else ''
+        
         move_data = {
-            'ref': str(first_row['reference']).strip() if first_row['reference'] else str(first_row['document_number']).strip(),
+            'ref': ref_value,  # This will be empty string if no reference data
             'name': str(first_row['document_number']).strip(),
             'date': first_row['date'].strftime('%Y-%m-%d'),
             'journal_id': journal['id'],
             'line_ids': move_lines,
         }
         
-        # Add custom_reference if it exists
-        if first_row['custom_reference']:
+        # Add custom_reference if it exists and is not empty
+        if first_row['custom_reference'] and str(first_row['custom_reference']).strip() != '':
             move_data['custom_reference'] = str(first_row['custom_reference']).strip()
 
         print(f"Creating move with ref: {move_data['ref']}")
