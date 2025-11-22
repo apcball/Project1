@@ -1,0 +1,14 @@
+timestamp,document_number,reference,custom_reference,journal,partner_code,old_partner_code,partner_name,account_debit,account_credit,debit,credit,move_id,status,message
+2025-11-22 16:37:32,,,,,,,,,,,,,INFO,Successfully connected to Odoo
+2025-11-22 16:37:32,,,,,,,,,,,,,INFO,Successfully read Excel file with 469 rows
+2025-11-22 16:37:34,BOEP6708018,,OB,สมุดรายวันค้างจ่าย,,I001,บริษัท ไอดอล ซิสเท่ม จำกัด (สำนักงานใหญ่),900001,214102,274427.63,274427.63,1531,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:36,BOEP6708022,,OB,สมุดรายวันค้างจ่าย,,I001,บริษัท ไอดอล ซิสเท่ม จำกัด (สำนักงานใหญ่),900001,214102,802.5,802.5,1532,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:38,BOEP6709022,,OB,สมุดรายวันค้างจ่าย,,I001,บริษัท ไอดอล ซิสเท่ม จำกัด (สำนักงานใหญ่),900001,214102,171639.52,171639.52,1533,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:40,BOEP6710014,,OB,สมุดรายวันค้างจ่าย,,I001,บริษัท ไอดอล ซิสเท่ม จำกัด (สำนักงานใหญ่),900001,214102,171888.41,171888.41,1534,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:41,BOEP6711019,,OB,สมุดรายวันค้างจ่าย,,I001,บริษัท ไอดอล ซิสเท่ม จำกัด (สำนักงานใหญ่),900001,214102,162952.66,162952.66,1535,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:43,BOEP6712021,,OB,สมุดรายวันค้างจ่าย,,I001,บริษัท ไอดอล ซิสเท่ม จำกัด (สำนักงานใหญ่),900001,214102,118072.11,118072.11,1536,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:46,BOEP6712024,,OB,สมุดรายวันค้างจ่าย,,I001,บริษัท ไอดอล ซิสเท่ม จำกัด (สำนักงานใหญ่),900001,214102,1294.7,1294.7,1537,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:48,BOEP6801017,,OB,สมุดรายวันค้างจ่าย,V01507,,คุณ พรเพ็ชร วสันตกิจกำจร,900001,214102,1360.0,1360.0,1538,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:49,BOEP6805001,BPV-6811001,OB,สมุดรายวันค้างจ่าย,V01507,,คุณ พรเพ็ชร วสันตกิจกำจร,900001,214102,714980.0,714980.0,1539,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:51,BOEP6805002,BPV-6811002,OB,สมุดรายวันค้างจ่าย,V01508,,นายวรพลพันธ์ เสื่ออินทร์,900001,214102,136400.0,136400.0,1540,SUCCESS,Journal entry created successfully
+2025-11-22 16:37:53,BOEP6805003,BPV-6811003,OB,สมุดรายวันค้างจ่าย,V01509,,นายราช ครัวจัตุรัส,900001,214102,60000.0,60000.0,1541,SUCCESS,Journal entry created successfully

@@ -6,7 +6,7 @@ import os
 
 # --- Connection Settings ---
 url = 'http://mogth.work:8069'
-db = 'Test_import'
+db = 'MOG_SETUP'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -181,10 +181,25 @@ def find_partner_by_code(uid, models, partner_code, old_partner_code=None, partn
     old_partner_code = str(old_partner_code).strip() if old_partner_code and not pd.isna(old_partner_code) and old_partner_code != 'nan' and old_partner_code.strip() else None
     partner_name = str(partner_name).strip() if partner_name and not pd.isna(partner_name) else None
     
-    print(f"Searching for partner - partner_code: {partner_code}, old_partner_code: {old_partner_code}, name: {partner_name}")
+    print(f"=== PARTNER SEARCH DEBUG ===")
+    print(f"Input values - partner_code: '{partner_code}', old_partner_code: '{old_partner_code}', name: '{partner_name}'")
+    
+    # First, check if old_code_partner field exists in the database
+    try:
+        fields_info = models.execute_kw(db, uid, password, 'res.partner', 'fields_get', [], {})
+        has_old_code_partner_field = 'old_code_partner' in fields_info
+        has_partner_code_field = 'partner_code' in fields_info
+        print(f"Database field check - partner_code field exists: {has_partner_code_field}, old_code_partner field exists: {has_old_code_partner_field}")
+        if has_old_code_partner_field:
+            print(f"old_code_partner field type: {fields_info['old_code_partner'].get('type', 'unknown')}")
+    except Exception as e:
+        print(f"Error checking database fields: {e}")
+        has_old_code_partner_field = False
+        has_partner_code_field = True  # Assume it exists based on current code
     
     # First try exact match with partner_code field
-    if partner_code:
+    if partner_code and has_partner_code_field:
+        print(f"Attempting search: partner_code field = '{partner_code}'")
         partner_id = models.execute_kw(db, uid, password,
             'res.partner', 'search',
             [[['partner_code', '=', partner_code]]])
@@ -192,13 +207,32 @@ def find_partner_by_code(uid, models, partner_code, old_partner_code=None, partn
         if partner_id:
             partner_data = models.execute_kw(db, uid, password,
                 'res.partner', 'read',
-                [partner_id[0]], {'fields': ['id', 'name', 'partner_code']})
-            print(f"Found partner by partner_code: {partner_data[0]}")
+                [partner_id[0]], {'fields': ['id', 'name', 'partner_code', 'old_code_partner']})
+            print(f"✓ FOUND partner by partner_code: {partner_data[0]}")
             return partner_data[0]
+        else:
+            print(f"✗ No match found for partner_code = '{partner_code}'")
+    
+    # Try exact match with old_partner_code in old_code_partner field (if it exists)
+    if old_partner_code and has_old_code_partner_field:
+        print(f"Attempting search: old_code_partner field = '{old_partner_code}'")
+        partner_id = models.execute_kw(db, uid, password,
+            'res.partner', 'search',
+            [[['old_code_partner', '=', old_partner_code]]])
+        
+        if partner_id:
+            partner_data = models.execute_kw(db, uid, password,
+                'res.partner', 'read',
+                [partner_id[0]], {'fields': ['id', 'name', 'partner_code', 'old_code_partner']})
+            print(f"✓ FOUND partner by old_code_partner: {partner_data[0]}")
+            return partner_data[0]
+        else:
+            print(f"✗ No match found for old_code_partner = '{old_partner_code}'")
     
     # If not found, try exact match with old_partner_code value in partner_code field
-    # (since old_partner_code field doesn't exist in Odoo, we search for it in partner_code field)
-    if old_partner_code:
+    # (current logic - keeping for comparison)
+    if old_partner_code and has_partner_code_field:
+        print(f"Attempting search: partner_code field = '{old_partner_code}' (using old_partner_code value)")
         partner_id = models.execute_kw(db, uid, password,
             'res.partner', 'search',
             [[['partner_code', '=', old_partner_code]]])
@@ -206,12 +240,15 @@ def find_partner_by_code(uid, models, partner_code, old_partner_code=None, partn
         if partner_id:
             partner_data = models.execute_kw(db, uid, password,
                 'res.partner', 'read',
-                [partner_id[0]], {'fields': ['id', 'name', 'partner_code']})
-            print(f"Found partner by old_partner_code (searched in partner_code field): {partner_data[0]}")
+                [partner_id[0]], {'fields': ['id', 'name', 'partner_code', 'old_code_partner']})
+            print(f"✓ FOUND partner by old_partner_code (searched in partner_code field): {partner_data[0]}")
             return partner_data[0]
+        else:
+            print(f"✗ No match found for partner_code = '{old_partner_code}' (using old_partner_code value)")
     
     # If not found by codes, try exact match with name
     if partner_name:
+        print(f"Attempting search: name field = '{partner_name}'")
         partner_id = models.execute_kw(db, uid, password,
             'res.partner', 'search',
             [[['name', '=', partner_name]]])
@@ -219,11 +256,14 @@ def find_partner_by_code(uid, models, partner_code, old_partner_code=None, partn
         if partner_id:
             partner_data = models.execute_kw(db, uid, password,
                 'res.partner', 'read',
-                [partner_id[0]], {'fields': ['id', 'name', 'partner_code']})
-            print(f"Found partner by name: {partner_data[0]}")
+                [partner_id[0]], {'fields': ['id', 'name', 'partner_code', 'old_code_partner']})
+            print(f"✓ FOUND partner by name: {partner_data[0]}")
             return partner_data[0]
+        else:
+            print(f"✗ No match found for name = '{partner_name}'")
         
         # Try partial match with name
+        print(f"Attempting search: name field ilike '{partner_name}'")
         partner_id = models.execute_kw(db, uid, password,
             'res.partner', 'search',
             [[['name', 'ilike', partner_name]]])
@@ -231,11 +271,17 @@ def find_partner_by_code(uid, models, partner_code, old_partner_code=None, partn
         if partner_id:
             partner_data = models.execute_kw(db, uid, password,
                 'res.partner', 'read',
-                [partner_id[0]], {'fields': ['id', 'name', 'partner_code']})
-            print(f"Found partner by partial name: {partner_data[0]}")
+                [partner_id[0]], {'fields': ['id', 'name', 'partner_code', 'old_code_partner']})
+            print(f"✓ FOUND partner by partial name: {partner_data[0]}")
             return partner_data[0]
+        else:
+            print(f"✗ No match found for name ilike '{partner_name}'")
     
-    print(f"Partner not found with partner_code: {partner_code}, old_partner_code: {old_partner_code} or name: {partner_name}")
+    print(f"=== PARTNER SEARCH FAILED ===")
+    print(f"No partner found with any of the following:")
+    print(f"  - partner_code: '{partner_code}'")
+    print(f"  - old_partner_code: '{old_partner_code}'")
+    print(f"  - name: '{partner_name}'")
     return None
 
 def process_document_group(uid, models, doc_group):
