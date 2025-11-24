@@ -26,7 +26,7 @@ CONFIG = {
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_SO/logs',
-    'data_file': 'Import_SO/Template_SO1.xlsx',
+    'data_file': 'Import_SO/Template_SO_new1.xlsx',
     'dry_run': False
 }
 
