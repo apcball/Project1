@@ -32,13 +32,13 @@ def safe_print(text):
             print(safe_text)
 
 # --- Connection Settings ---
-url = 'http://mogth.work:8069'
-db = 'MOG_SETUP'
+url = 'http://160.187.249.148:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
 # Data file path
-data_file = r'/Users/ball/Git_apcball/Project1/Import_Accounting/Template_Bill_Refund เจ้าหนี้ในประเทศ.xlsx'
+data_file = r'/Users/ball/Git_apcball/Project1/Import_Accounting/Template_Bill_Refunds.xlsx'
 
 # Function to connect to Odoo
 def connect_to_odoo():
