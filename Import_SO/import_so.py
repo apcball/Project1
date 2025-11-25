@@ -21,12 +21,12 @@ from pathlib import Path
 
 # Global configuration
 CONFIG = {
-    'server_url': 'http://mogth.work:8069',
-    'database': 'MOG_SETUP',
+    'server_url': 'http://160.187.249.148:8069',
+    'database': 'MOG_LIVE',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_SO/logs',
-    'data_file': 'Import_SO/Template_SO_new1.xlsx',
+    'data_file': 'Import_SO/Template_SO_RET.xlsx',
     'dry_run': False
 }
 
