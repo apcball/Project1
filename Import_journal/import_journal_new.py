@@ -5,8 +5,8 @@ from datetime import datetime
 import os
 
 # --- Connection Settings ---
-url = 'http://mogth.work:8069'
-db = 'MOG_SETUP'
+url = 'http://160.187.249.148:8069'
+db = 'MOG_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -21,7 +21,7 @@ def read_excel_file():
     # Try to find the Excel file in current directory or Import_journal subdirectory
     file_path = 'import_journal_ค้างจ่าย.xlsx'
     if not os.path.exists(file_path):
-        file_path = 'Import_journal/import_journal_ค้างจ่าย.xlsx'
+        file_path = 'Import_journal/import_journal_ลูกหนี้อื่น.xlsx'
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Excel file not found at {file_path}")
     
