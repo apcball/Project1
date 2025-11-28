@@ -6,8 +6,8 @@ from datetime import datetime
 import os
 
 # Odoo connection parameters
-HOST = 'http://119.59.102.189:8069'
-DB = 'MOG_TEST'
+HOST = 'http://160.187.249.148:8069'
+DB = 'MOG_LIVE3'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
@@ -688,7 +688,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Import_Inventory/2.คลังDynasty.xlsx'
+        EXCEL_FILE = 'Import_Inventory/15.-3.12 คลังสินค้าโชว์.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move

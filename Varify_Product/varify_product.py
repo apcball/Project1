@@ -19,7 +19,7 @@ logging.basicConfig(
 
 # --- Connection Settings ---
 url = 'http://160.187.249.148:8069'
-db = 'MOG_LIVE'
+db = 'MOG_LIVE3'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
