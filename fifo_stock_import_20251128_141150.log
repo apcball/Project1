@@ -1,0 +1,74 @@
+2025-11-28 14:11:51,026 - INFO - Successfully connected to Odoo as user ID: 2
+2025-11-28 14:11:51,094 - INFO - Odoo version: 17.0.1.3
+2025-11-28 14:11:51,218 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-11-28 14:11:51,549 - INFO - Successfully read Excel file with 11 rows
+2025-11-28 14:11:51,549 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2025-11-28 14:11:51,551 - INFO - Processed sequence column
+2025-11-28 14:11:51,552 - INFO - scheduled_date dtype: datetime64[ns]
+2025-11-28 14:11:51,552 - INFO - scheduled_date sample: 2025-11-30 00:00:00
+2025-11-28 14:11:51,554 - INFO - Converted scheduled_date to string format. Sample: 2025-11-30 00:00:00
+2025-11-28 14:11:51,555 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2025-11-28 14:11:51,555 - INFO - Using 'default_code' column as 'product_id'
+2025-11-28 14:11:51,556 - INFO - Using 'origin' column to identify transfer groups
+2025-11-28 14:11:51,561 - INFO - Excel file validation and data filling completed successfully
+2025-11-28 14:11:51,705 - INFO - Searching for location: 'FG20/Stock'
+2025-11-28 14:11:52,338 - INFO - Found location with complete_name match: 'FG20/Stock' for 'FG20/Stock'
+2025-11-28 14:11:52,408 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2025-11-28 14:11:52,497 - INFO - Created transfer for date 2025-11-30 00:00:00 sequence 1 with picking ID 55
+2025-11-28 14:11:52,500 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-553CD1-2-ราวตั้งพื้น', 'product_uom_qty': 0.0199999999999996, 'price_unit': 5621.615000000112, 'sequence': 1, 'date': Timestamp('2025-07-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-553CD1-2-ราวตั้งพื้น'}
+2025-11-28 14:11:52,501 - INFO - Searching for product with code: '3FG-553CD1-2-ราวตั้งพื้น' and old code: '3FG-553CD1-2-ราวตั้งพื้น'
+2025-11-28 14:11:52,580 - INFO - Found product with exact match on default_code: '3FG-553CD1-2-ราวตั้งพื้น'
+2025-11-28 14:11:52,691 - INFO - Prepared product 3FG-553CD1-2-ราวตั้งพื้น with quantity 0.0199999999999996 for batch creation
+2025-11-28 14:11:52,692 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:52,692 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH-135MC1', 'product_uom_qty': 1.0, 'price_unit': 1797.7767, 'sequence': 2, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-LH-135MC1'}
+2025-11-28 14:11:52,693 - INFO - Searching for product with code: '3FG-LH-135MC1' and old code: '3FG-LH-135MC1'
+2025-11-28 14:11:53,253 - INFO - Found product with exact match on default_code: '3FG-LH-135MC1'
+2025-11-28 14:11:53,328 - INFO - Prepared product 3FG-LH-135MC1 with quantity 1.0 for batch creation
+2025-11-28 14:11:53,329 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:53,329 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH-135MC1', 'product_uom_qty': 1.0, 'price_unit': 2264.6326, 'sequence': 3, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-LH-135MC1'}
+2025-11-28 14:11:53,330 - INFO - Using cached product ID for code: '3FG-LH-135MC1'
+2025-11-28 14:11:53,330 - INFO - Prepared product 3FG-LH-135MC1 with quantity 1.0 for batch creation
+2025-11-28 14:11:53,330 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:53,331 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH-152MC1', 'product_uom_qty': 1.0, 'price_unit': 4668.1187, 'sequence': 4, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-LH-152MC1'}
+2025-11-28 14:11:53,331 - INFO - Searching for product with code: '3FG-LH-152MC1' and old code: '3FG-LH-152MC1'
+2025-11-28 14:11:53,398 - INFO - Found product with exact match on default_code: '3FG-LH-152MC1'
+2025-11-28 14:11:53,487 - INFO - Prepared product 3FG-LH-152MC1 with quantity 1.0 for batch creation
+2025-11-28 14:11:53,489 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:53,490 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-0001-หอดูดาว2', 'product_uom_qty': 1.0, 'price_unit': 77943.7657, 'sequence': 5, 'date': Timestamp('2025-11-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-0001-หอดูดาว2'}
+2025-11-28 14:11:53,492 - INFO - Searching for product with code: '3FG-0001-หอดูดาว2' and old code: '3FG-0001-หอดูดาว2'
+2025-11-28 14:11:53,563 - INFO - Found product with exact match on default_code: '3FG-0001-หอดูดาว2'
+2025-11-28 14:11:53,682 - INFO - Prepared product 3FG-0001-หอดูดาว2 with quantity 1.0 for batch creation
+2025-11-28 14:11:53,683 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:53,684 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH0045-289FE1-2', 'product_uom_qty': 1.0, 'price_unit': 24734.2873, 'sequence': 6, 'date': Timestamp('2025-11-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-LH0045-289FE1-2'}
+2025-11-28 14:11:53,686 - INFO - Searching for product with code: '3FG-LH0045-289FE1-2' and old code: '3FG-LH0045-289FE1-2'
+2025-11-28 14:11:53,757 - INFO - Found product with exact match on default_code: '3FG-LH0045-289FE1-2'
+2025-11-28 14:11:53,834 - INFO - Prepared product 3FG-LH0045-289FE1-2 with quantity 1.0 for batch creation
+2025-11-28 14:11:53,836 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:53,838 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-0001-TYPE-C-2', 'product_uom_qty': 2.0, 'price_unit': 4350.5364, 'sequence': 7, 'date': Timestamp('2025-11-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-0001-TYPE-C-2'}
+2025-11-28 14:11:53,839 - INFO - Searching for product with code: '3FG-0001-TYPE-C-2' and old code: '3FG-0001-TYPE-C-2'
+2025-11-28 14:11:53,909 - INFO - Found product with exact match on default_code: '3FG-0001-TYPE-C-2'
+2025-11-28 14:11:53,977 - INFO - Prepared product 3FG-0001-TYPE-C-2 with quantity 2.0 for batch creation
+2025-11-28 14:11:53,977 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:53,978 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-0001-TYPE-C-3', 'product_uom_qty': 2.0, 'price_unit': 2877.36125, 'sequence': 8, 'date': Timestamp('2025-11-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-0001-TYPE-C-3'}
+2025-11-28 14:11:53,978 - INFO - Searching for product with code: '3FG-0001-TYPE-C-3' and old code: '3FG-0001-TYPE-C-3'
+2025-11-28 14:11:54,049 - INFO - Found product with exact match on default_code: '3FG-0001-TYPE-C-3'
+2025-11-28 14:11:54,123 - INFO - Prepared product 3FG-0001-TYPE-C-3 with quantity 2.0 for batch creation
+2025-11-28 14:11:54,124 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:54,125 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-0001-TYPE-C-3', 'product_uom_qty': 1.0, 'price_unit': 1144.5961, 'sequence': 9, 'date': Timestamp('2025-11-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-0001-TYPE-C-3'}
+2025-11-28 14:11:54,126 - INFO - Using cached product ID for code: '3FG-0001-TYPE-C-3'
+2025-11-28 14:11:54,126 - INFO - Prepared product 3FG-0001-TYPE-C-3 with quantity 1.0 for batch creation
+2025-11-28 14:11:54,127 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:54,128 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-0001-TYPE-C', 'product_uom_qty': 1.0, 'price_unit': 28645.7638, 'sequence': 10, 'date': Timestamp('2025-11-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-0001-TYPE-C'}
+2025-11-28 14:11:54,129 - INFO - Searching for product with code: '3FG-0001-TYPE-C' and old code: '3FG-0001-TYPE-C'
+2025-11-28 14:11:54,203 - INFO - Found product with exact match on default_code: '3FG-0001-TYPE-C'
+2025-11-28 14:11:54,274 - INFO - Prepared product 3FG-0001-TYPE-C with quantity 1.0 for batch creation
+2025-11-28 14:11:54,275 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:54,275 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'FG20-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-0001-TYPE-C-1', 'product_uom_qty': 1.0, 'price_unit': 19097.1759, 'sequence': 11, 'date': Timestamp('2025-11-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': '3FG-0001-TYPE-C-1'}
+2025-11-28 14:11:54,276 - INFO - Searching for product with code: '3FG-0001-TYPE-C-1' and old code: '3FG-0001-TYPE-C-1'
+2025-11-28 14:11:54,370 - INFO - Found product with exact match on default_code: '3FG-0001-TYPE-C-1'
+2025-11-28 14:11:54,451 - INFO - Prepared product 3FG-0001-TYPE-C-1 with quantity 1.0 for batch creation
+2025-11-28 14:11:54,452 - INFO - Move locations - Source: 4, Dest: 60
+2025-11-28 14:11:54,691 - INFO - Created 11 moves in batch for picking 55
+2025-11-28 14:11:54,778 - INFO - Re-updated dates before confirming picking 55: 2025-11-30 00:00:00
+2025-11-28 14:11:55,840 - INFO - Confirmed transfer 55 with forced date context
+2025-11-28 14:11:55,842 - INFO - Import completed: 1 success, 0 failed.

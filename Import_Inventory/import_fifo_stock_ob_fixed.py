@@ -688,7 +688,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Import_Inventory/15.-3.12 คลังสินค้าโชว์.xlsx'
+        EXCEL_FILE = 'Import_Inventory/16.-4.7 คลังสินค้าสำเร็จรูป 1.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move
