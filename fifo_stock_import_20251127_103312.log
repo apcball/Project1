@@ -1,0 +1,831 @@
+2025-11-27 10:33:12,846 - INFO - Successfully connected to Odoo as user ID: 2
+2025-11-27 10:33:12,910 - INFO - Odoo version: 17.0.1.3
+2025-11-27 10:33:13,046 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-11-27 10:33:13,375 - INFO - Successfully read Excel file with 189 rows
+2025-11-27 10:33:13,375 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2025-11-27 10:33:13,377 - INFO - Processed sequence column
+2025-11-27 10:33:13,379 - INFO - scheduled_date dtype: datetime64[ns]
+2025-11-27 10:33:13,380 - INFO - scheduled_date sample: 2025-11-30 00:00:00
+2025-11-27 10:33:13,382 - INFO - Converted scheduled_date to string format. Sample: 2025-11-30 00:00:00
+2025-11-27 10:33:13,383 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2025-11-27 10:33:13,384 - INFO - Using 'default_code' column as 'product_id'
+2025-11-27 10:33:13,384 - INFO - Using 'origin' column to identify transfer groups
+2025-11-27 10:33:13,388 - INFO - Excel file validation and data filling completed successfully
+2025-11-27 10:33:13,555 - INFO - Searching for location: 'RM12/Stock'
+2025-11-27 10:33:13,771 - INFO - Found location with complete_name match: 'RM12/Stock' for 'RM12/Stock'
+2025-11-27 10:33:13,845 - INFO - Found partner ID 4956 for 'MOGEN_OB'
+2025-11-27 10:33:13,938 - INFO - Created transfer for date 2025-11-30 00:00:00 sequence 1 with picking ID 25
+2025-11-27 10:33:13,943 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212P101', 'product_uom_qty': 1, 'price_unit': 43.3665, 'sequence': 1, 'date': Timestamp('2022-01-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212P101'}
+2025-11-27 10:33:13,944 - INFO - Searching for product with code: 'MA212P101' and old code: 'MA212P101'
+2025-11-27 10:33:14,014 - INFO - Found product with exact match on default_code: 'MA212P101'
+2025-11-27 10:33:14,084 - INFO - Prepared product MA212P101 with quantity 1.0 for batch creation
+2025-11-27 10:33:14,085 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,085 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 1, 'price_unit': 953.0243, 'sequence': 2, 'date': Timestamp('2022-01-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:14,086 - INFO - Searching for product with code: 'MA0502C110' and old code: 'MA0502C110'
+2025-11-27 10:33:14,158 - INFO - Found product with exact match on default_code: 'MA0502C110'
+2025-11-27 10:33:14,232 - INFO - Prepared product MA0502C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:14,233 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,233 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 2, 'price_unit': 93.5548, 'sequence': 3, 'date': Timestamp('2022-01-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:14,234 - INFO - Searching for product with code: 'MA212B101' and old code: 'MA212B101'
+2025-11-27 10:33:14,310 - INFO - Found product with exact match on default_code: 'MA212B101'
+2025-11-27 10:33:14,395 - INFO - Prepared product MA212B101 with quantity 2.0 for batch creation
+2025-11-27 10:33:14,396 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,398 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0241101', 'product_uom_qty': 2, 'price_unit': 459.0907, 'sequence': 4, 'date': Timestamp('2022-01-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0241101'}
+2025-11-27 10:33:14,400 - INFO - Searching for product with code: 'MA0241101' and old code: 'MA0241101'
+2025-11-27 10:33:14,476 - INFO - Found product with exact match on default_code: 'MA0241101'
+2025-11-27 10:33:14,554 - INFO - Prepared product MA0241101 with quantity 2.0 for batch creation
+2025-11-27 10:33:14,555 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,557 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14BS101', 'product_uom_qty': 1, 'price_unit': 1295.2739, 'sequence': 5, 'date': Timestamp('2022-01-28 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14BS101'}
+2025-11-27 10:33:14,558 - INFO - Searching for product with code: 'MT14BS101' and old code: 'MT14BS101'
+2025-11-27 10:33:14,632 - INFO - Found product with exact match on default_code: 'MT14BS101'
+2025-11-27 10:33:14,708 - INFO - Prepared product MT14BS101 with quantity 1.0 for batch creation
+2025-11-27 10:33:14,708 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,709 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT014B+101', 'product_uom_qty': 1, 'price_unit': 781.2228, 'sequence': 6, 'date': Timestamp('2022-02-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT014B+101'}
+2025-11-27 10:33:14,710 - INFO - Searching for product with code: 'MT014B+101' and old code: 'MT014B+101'
+2025-11-27 10:33:14,784 - INFO - Found product with exact match on default_code: 'MT014B+101'
+2025-11-27 10:33:14,869 - INFO - Prepared product MT014B+101 with quantity 1.0 for batch creation
+2025-11-27 10:33:14,870 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,871 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT014B+101', 'product_uom_qty': 2, 'price_unit': 436.57055, 'sequence': 7, 'date': Timestamp('2022-02-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT014B+101'}
+2025-11-27 10:33:14,873 - INFO - Using cached product ID for code: 'MT014B+101'
+2025-11-27 10:33:14,874 - INFO - Prepared product MT014B+101 with quantity 2.0 for batch creation
+2025-11-27 10:33:14,875 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,877 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 2, 'price_unit': 85.4655, 'sequence': 8, 'date': Timestamp('2022-02-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:14,879 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:14,881 - INFO - Prepared product MA212B101 with quantity 2.0 for batch creation
+2025-11-27 10:33:14,882 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,883 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212P101', 'product_uom_qty': 1, 'price_unit': 42.3848, 'sequence': 9, 'date': Timestamp('2022-02-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212P101'}
+2025-11-27 10:33:14,885 - INFO - Using cached product ID for code: 'MA212P101'
+2025-11-27 10:33:14,886 - INFO - Prepared product MA212P101 with quantity 1.0 for batch creation
+2025-11-27 10:33:14,887 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:14,889 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 2, 'price_unit': 681.7159, 'sequence': 10, 'date': Timestamp('2022-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:14,892 - INFO - Searching for product with code: 'MT14ETCF10' and old code: 'MT14ETCF10'
+2025-11-27 10:33:14,968 - INFO - Found product with exact match on default_code: 'MT14ETCF10'
+2025-11-27 10:33:15,039 - INFO - Prepared product MT14ETCF10 with quantity 2.0 for batch creation
+2025-11-27 10:33:15,040 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,041 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 85.4655, 'sequence': 11, 'date': Timestamp('2022-03-07 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:15,042 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:15,043 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,044 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,045 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0532C110', 'product_uom_qty': 1, 'price_unit': 1367.74, 'sequence': 12, 'date': Timestamp('2022-03-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0532C110'}
+2025-11-27 10:33:15,046 - INFO - Searching for product with code: 'MA0532C110' and old code: 'MA0532C110'
+2025-11-27 10:33:15,130 - INFO - Found product with exact match on default_code: 'MA0532C110'
+2025-11-27 10:33:15,213 - INFO - Prepared product MA0532C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,214 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,216 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 85.4655, 'sequence': 13, 'date': Timestamp('2022-03-14 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:15,217 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:15,219 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,220 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,223 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 4, 'price_unit': 713.027025, 'sequence': 14, 'date': Timestamp('2022-03-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:15,225 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:15,227 - INFO - Prepared product MT14ETCF10 with quantity 4.0 for batch creation
+2025-11-27 10:33:15,228 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,230 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 85.4655, 'sequence': 15, 'date': Timestamp('2022-04-02 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:15,231 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:15,233 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,234 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,236 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': 1060.2129, 'sequence': 16, 'date': Timestamp('2022-04-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:15,237 - INFO - Searching for product with code: 'MA0154101' and old code: 'MA0154101'
+2025-11-27 10:33:15,318 - INFO - Found product with exact match on default_code: 'MA0154101'
+2025-11-27 10:33:15,396 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,397 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,397 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212P101', 'product_uom_qty': 2, 'price_unit': 42.38475, 'sequence': 17, 'date': Timestamp('2022-04-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212P101'}
+2025-11-27 10:33:15,398 - INFO - Using cached product ID for code: 'MA212P101'
+2025-11-27 10:33:15,398 - INFO - Prepared product MA212P101 with quantity 2.0 for batch creation
+2025-11-27 10:33:15,398 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,399 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 1, 'price_unit': 901.9008, 'sequence': 18, 'date': Timestamp('2022-04-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:15,399 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:15,399 - INFO - Prepared product MA0502C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,400 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,400 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212P101', 'product_uom_qty': 1, 'price_unit': 223.6673, 'sequence': 19, 'date': Timestamp('2022-04-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212P101'}
+2025-11-27 10:33:15,400 - INFO - Using cached product ID for code: 'MA212P101'
+2025-11-27 10:33:15,401 - INFO - Prepared product MA212P101 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,401 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,401 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MU0003101', 'product_uom_qty': 8, 'price_unit': 1285.966625, 'sequence': 20, 'date': Timestamp('2022-04-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MU0003101'}
+2025-11-27 10:33:15,401 - INFO - Searching for product with code: 'MU0003101' and old code: 'MU0003101'
+2025-11-27 10:33:15,472 - INFO - Found product with exact match on default_code: 'MU0003101'
+2025-11-27 10:33:15,543 - INFO - Prepared product MU0003101 with quantity 8.0 for batch creation
+2025-11-27 10:33:15,543 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,543 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 3, 'price_unit': 387.859, 'sequence': 21, 'date': Timestamp('2022-04-25 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:15,544 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:15,544 - INFO - Prepared product MT14ETCF10 with quantity 3.0 for batch creation
+2025-11-27 10:33:15,544 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,545 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 477.5701, 'sequence': 22, 'date': Timestamp('2022-04-27 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:15,545 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:15,545 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,546 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,546 - INFO - Processing Excel row 23: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 711.2318, 'sequence': 23, 'date': Timestamp('2022-04-27 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:15,546 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:15,547 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,547 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,547 - INFO - Processing Excel row 24: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 4, 'price_unit': 628.929175, 'sequence': 24, 'date': Timestamp('2022-05-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:15,548 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:15,548 - INFO - Prepared product MT14ETCF10 with quantity 4.0 for batch creation
+2025-11-27 10:33:15,548 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,549 - INFO - Processing Excel row 25: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 85.4655, 'sequence': 25, 'date': Timestamp('2022-05-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:15,549 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:15,549 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:15,550 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,550 - INFO - Processing Excel row 26: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO12SP101', 'product_uom_qty': 2, 'price_unit': 2713.274, 'sequence': 26, 'date': Timestamp('2022-05-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO12SP101'}
+2025-11-27 10:33:15,550 - INFO - Searching for product with code: 'MO12SP101' and old code: 'MO12SP101'
+2025-11-27 10:33:15,626 - INFO - Found product with exact match on default_code: 'MO12SP101'
+2025-11-27 10:33:15,704 - INFO - Prepared product MO12SP101 with quantity 2.0 for batch creation
+2025-11-27 10:33:15,705 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,706 - INFO - Processing Excel row 27: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00381210', 'product_uom_qty': 4, 'price_unit': 3001.46885, 'sequence': 27, 'date': Timestamp('2022-05-23 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00381210'}
+2025-11-27 10:33:15,707 - INFO - Searching for product with code: 'MO00381210' and old code: 'MO00381210'
+2025-11-27 10:33:15,791 - INFO - Found product with exact match on default_code: 'MO00381210'
+2025-11-27 10:33:15,865 - INFO - Prepared product MO00381210 with quantity 4.0 for batch creation
+2025-11-27 10:33:15,865 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:15,865 - INFO - Processing Excel row 28: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA266B201', 'product_uom_qty': 2, 'price_unit': 537.7415, 'sequence': 28, 'date': Timestamp('2022-05-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA266B201'}
+2025-11-27 10:33:15,866 - INFO - Searching for product with code: 'MA266B201' and old code: 'MA266B201'
+2025-11-27 10:33:15,948 - INFO - Found product with exact match on default_code: 'MA266B201'
+2025-11-27 10:33:16,022 - INFO - Prepared product MA266B201 with quantity 2.0 for batch creation
+2025-11-27 10:33:16,022 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,022 - INFO - Processing Excel row 29: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': 1086.2485, 'sequence': 29, 'date': Timestamp('2022-05-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:16,023 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:16,023 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,024 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,024 - INFO - Processing Excel row 30: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 5, 'price_unit': 695.73014, 'sequence': 30, 'date': Timestamp('2022-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:16,025 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:16,025 - INFO - Prepared product MT14ETCF10 with quantity 5.0 for batch creation
+2025-11-27 10:33:16,025 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,026 - INFO - Processing Excel row 31: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 2, 'price_unit': 1027.9214, 'sequence': 31, 'date': Timestamp('2022-06-10 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:16,026 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:16,026 - INFO - Prepared product MA0502C110 with quantity 2.0 for batch creation
+2025-11-27 10:33:16,027 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,027 - INFO - Processing Excel row 32: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO26B102', 'product_uom_qty': 3, 'price_unit': 2095.5555666666664, 'sequence': 32, 'date': Timestamp('2022-06-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO26B102'}
+2025-11-27 10:33:16,027 - INFO - Searching for product with code: 'MO26B102' and old code: 'MO26B102'
+2025-11-27 10:33:16,097 - INFO - Found product with exact match on default_code: 'MO26B102'
+2025-11-27 10:33:16,187 - INFO - Prepared product MO26B102 with quantity 3.0 for batch creation
+2025-11-27 10:33:16,187 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,188 - INFO - Processing Excel row 33: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 2, 'price_unit': 1033.091, 'sequence': 33, 'date': Timestamp('2022-06-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:16,189 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:16,189 - INFO - Prepared product MA0502C110 with quantity 2.0 for batch creation
+2025-11-27 10:33:16,189 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,190 - INFO - Processing Excel row 34: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00401210', 'product_uom_qty': 1, 'price_unit': 3239.6842, 'sequence': 34, 'date': Timestamp('2022-06-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00401210'}
+2025-11-27 10:33:16,190 - INFO - Searching for product with code: 'MO00401210' and old code: 'MO00401210'
+2025-11-27 10:33:16,266 - INFO - Found product with exact match on default_code: 'MO00401210'
+2025-11-27 10:33:16,344 - INFO - Prepared product MO00401210 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,344 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,344 - INFO - Processing Excel row 35: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00401210', 'product_uom_qty': 1, 'price_unit': 3169.0722, 'sequence': 35, 'date': Timestamp('2022-06-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00401210'}
+2025-11-27 10:33:16,345 - INFO - Using cached product ID for code: 'MO00401210'
+2025-11-27 10:33:16,345 - INFO - Prepared product MO00401210 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,345 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,346 - INFO - Processing Excel row 36: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 481.6768, 'sequence': 36, 'date': Timestamp('2022-06-23 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:16,346 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:16,346 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,347 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,347 - INFO - Processing Excel row 37: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 3, 'price_unit': 86.07196666666665, 'sequence': 37, 'date': Timestamp('2022-06-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:16,347 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:16,348 - INFO - Prepared product MA212B101 with quantity 3.0 for batch creation
+2025-11-27 10:33:16,348 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,348 - INFO - Processing Excel row 38: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212P101', 'product_uom_qty': 1, 'price_unit': 40.7301, 'sequence': 38, 'date': Timestamp('2022-06-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212P101'}
+2025-11-27 10:33:16,349 - INFO - Using cached product ID for code: 'MA212P101'
+2025-11-27 10:33:16,349 - INFO - Prepared product MA212P101 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,349 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,350 - INFO - Processing Excel row 39: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 2, 'price_unit': 4972.7492, 'sequence': 39, 'date': Timestamp('2022-06-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:16,350 - INFO - Searching for product with code: 'MO00421210' and old code: 'MO00421210'
+2025-11-27 10:33:16,421 - INFO - Found product with exact match on default_code: 'MO00421210'
+2025-11-27 10:33:16,491 - INFO - Prepared product MO00421210 with quantity 2.0 for batch creation
+2025-11-27 10:33:16,492 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,492 - INFO - Processing Excel row 40: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT21NBS01', 'product_uom_qty': 5, 'price_unit': 1138.14332, 'sequence': 40, 'date': Timestamp('2022-07-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT21NBS01'}
+2025-11-27 10:33:16,493 - INFO - Searching for product with code: 'MT21NBS01' and old code: 'MT21NBS01'
+2025-11-27 10:33:16,567 - INFO - Found product with exact match on default_code: 'MT21NBS01'
+2025-11-27 10:33:16,641 - INFO - Prepared product MT21NBS01 with quantity 5.0 for batch creation
+2025-11-27 10:33:16,642 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,643 - INFO - Processing Excel row 41: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00381211', 'product_uom_qty': 1, 'price_unit': 2939.2054, 'sequence': 41, 'date': Timestamp('2022-07-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00381211'}
+2025-11-27 10:33:16,644 - INFO - Searching for product with code: 'MO00381211' and old code: 'MO00381211'
+2025-11-27 10:33:16,714 - INFO - Found product with exact match on default_code: 'MO00381211'
+2025-11-27 10:33:16,791 - INFO - Prepared product MO00381211 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,791 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,792 - INFO - Processing Excel row 42: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 2, 'price_unit': 4047.5898, 'sequence': 42, 'date': Timestamp('2022-07-08 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:16,792 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:16,793 - INFO - Prepared product MO00421210 with quantity 2.0 for batch creation
+2025-11-27 10:33:16,793 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,794 - INFO - Processing Excel row 43: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 703.9104, 'sequence': 43, 'date': Timestamp('2022-07-08 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:16,795 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:16,795 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,796 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,797 - INFO - Processing Excel row 44: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 481.6768, 'sequence': 44, 'date': Timestamp('2022-07-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:16,797 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:16,798 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,799 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,799 - INFO - Processing Excel row 45: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 719.6963, 'sequence': 45, 'date': Timestamp('2022-07-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:16,800 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:16,801 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,801 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,802 - INFO - Processing Excel row 46: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MU00071010', 'product_uom_qty': 1, 'price_unit': 900.9348, 'sequence': 46, 'date': Timestamp('2022-08-02 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MU00071010'}
+2025-11-27 10:33:16,803 - INFO - Searching for product with code: 'MU00071010' and old code: 'MU00071010'
+2025-11-27 10:33:16,885 - INFO - Found product with exact match on default_code: 'MU00071010'
+2025-11-27 10:33:16,957 - INFO - Prepared product MU00071010 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,958 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,959 - INFO - Processing Excel row 47: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 1, 'price_unit': 1047.8004, 'sequence': 47, 'date': Timestamp('2022-08-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:16,959 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:16,960 - INFO - Prepared product MA0502C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,960 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,961 - INFO - Processing Excel row 48: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 2, 'price_unit': 108.6997, 'sequence': 48, 'date': Timestamp('2022-08-08 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:16,961 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:16,962 - INFO - Prepared product MA212B101 with quantity 2.0 for batch creation
+2025-11-27 10:33:16,962 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,963 - INFO - Processing Excel row 49: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 3, 'price_unit': 704.7981666666666, 'sequence': 49, 'date': Timestamp('2022-08-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:16,963 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:16,964 - INFO - Prepared product MT14ETCF10 with quantity 3.0 for batch creation
+2025-11-27 10:33:16,964 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,965 - INFO - Processing Excel row 50: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 103.6095, 'sequence': 50, 'date': Timestamp('2022-08-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:16,965 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:16,966 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,966 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,967 - INFO - Processing Excel row 51: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212P101', 'product_uom_qty': 1, 'price_unit': 40.9301, 'sequence': 51, 'date': Timestamp('2022-08-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212P101'}
+2025-11-27 10:33:16,967 - INFO - Using cached product ID for code: 'MA212P101'
+2025-11-27 10:33:16,968 - INFO - Prepared product MA212P101 with quantity 1.0 for batch creation
+2025-11-27 10:33:16,968 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,969 - INFO - Processing Excel row 52: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 2, 'price_unit': 103.0413, 'sequence': 52, 'date': Timestamp('2022-08-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:16,969 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:16,970 - INFO - Prepared product MA212B101 with quantity 2.0 for batch creation
+2025-11-27 10:33:16,971 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,972 - INFO - Processing Excel row 53: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 2, 'price_unit': 380.7809, 'sequence': 53, 'date': Timestamp('2022-08-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:16,972 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:16,972 - INFO - Prepared product MA212B101 with quantity 2.0 for batch creation
+2025-11-27 10:33:16,973 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,973 - INFO - Processing Excel row 54: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 3, 'price_unit': 741.1287666666667, 'sequence': 54, 'date': Timestamp('2022-08-29 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:16,974 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:16,974 - INFO - Prepared product MT14ETCF10 with quantity 3.0 for batch creation
+2025-11-27 10:33:16,975 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:16,975 - INFO - Processing Excel row 55: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA322B101', 'product_uom_qty': 2, 'price_unit': 937.937, 'sequence': 55, 'date': Timestamp('2022-08-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA322B101'}
+2025-11-27 10:33:16,976 - INFO - Searching for product with code: 'MA322B101' and old code: 'MA322B101'
+2025-11-27 10:33:17,049 - INFO - Found product with exact match on default_code: 'MA322B101'
+2025-11-27 10:33:17,129 - INFO - Prepared product MA322B101 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,129 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,131 - INFO - Processing Excel row 56: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0343101(W)', 'product_uom_qty': 1, 'price_unit': 976.4028, 'sequence': 56, 'date': Timestamp('2022-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0343101(W)'}
+2025-11-27 10:33:17,131 - INFO - Searching for product with code: 'MA0343101(W)' and old code: 'MA0343101(W)'
+2025-11-27 10:33:17,201 - INFO - Found product with exact match on default_code: 'MA0343101(W)'
+2025-11-27 10:33:17,284 - INFO - Prepared product MA0343101(W) with quantity 1.0 for batch creation
+2025-11-27 10:33:17,285 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,286 - INFO - Processing Excel row 57: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 738.4561, 'sequence': 57, 'date': Timestamp('2022-09-07 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,286 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,287 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,288 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,288 - INFO - Processing Excel row 58: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14BS101', 'product_uom_qty': 2, 'price_unit': 1295.2739, 'sequence': 58, 'date': Timestamp('2022-09-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14BS101'}
+2025-11-27 10:33:17,289 - INFO - Using cached product ID for code: 'MT14BS101'
+2025-11-27 10:33:17,290 - INFO - Prepared product MT14BS101 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,290 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,291 - INFO - Processing Excel row 59: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 738.4562, 'sequence': 59, 'date': Timestamp('2022-09-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,292 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,292 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,293 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,293 - INFO - Processing Excel row 60: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 755.3181, 'sequence': 60, 'date': Timestamp('2022-09-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,294 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,295 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,295 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,296 - INFO - Processing Excel row 61: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 103.6095, 'sequence': 61, 'date': Timestamp('2022-09-14 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:17,296 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:17,297 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,297 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,298 - INFO - Processing Excel row 62: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212P101', 'product_uom_qty': 1, 'price_unit': 46.153, 'sequence': 62, 'date': Timestamp('2022-09-14 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212P101'}
+2025-11-27 10:33:17,299 - INFO - Using cached product ID for code: 'MA212P101'
+2025-11-27 10:33:17,299 - INFO - Prepared product MA212P101 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,300 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,301 - INFO - Processing Excel row 63: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 83.338, 'sequence': 63, 'date': Timestamp('2022-09-16 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:17,301 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:17,302 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,302 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,302 - INFO - Processing Excel row 64: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA322B101', 'product_uom_qty': 2, 'price_unit': 949.9146, 'sequence': 64, 'date': Timestamp('2022-09-16 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA322B101'}
+2025-11-27 10:33:17,303 - INFO - Using cached product ID for code: 'MA322B101'
+2025-11-27 10:33:17,303 - INFO - Prepared product MA322B101 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,304 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,304 - INFO - Processing Excel row 65: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00381211', 'product_uom_qty': 1, 'price_unit': 2855.3041, 'sequence': 65, 'date': Timestamp('2022-09-16 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00381211'}
+2025-11-27 10:33:17,305 - INFO - Using cached product ID for code: 'MO00381211'
+2025-11-27 10:33:17,305 - INFO - Prepared product MO00381211 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,305 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,306 - INFO - Processing Excel row 66: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MU00071010', 'product_uom_qty': 1, 'price_unit': 900.9348, 'sequence': 66, 'date': Timestamp('2022-09-16 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MU00071010'}
+2025-11-27 10:33:17,307 - INFO - Using cached product ID for code: 'MU00071010'
+2025-11-27 10:33:17,307 - INFO - Prepared product MU00071010 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,308 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,309 - INFO - Processing Excel row 67: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14BS101', 'product_uom_qty': 4, 'price_unit': 1452.023125, 'sequence': 67, 'date': Timestamp('2022-09-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14BS101'}
+2025-11-27 10:33:17,310 - INFO - Using cached product ID for code: 'MT14BS101'
+2025-11-27 10:33:17,311 - INFO - Prepared product MT14BS101 with quantity 4.0 for batch creation
+2025-11-27 10:33:17,311 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,312 - INFO - Processing Excel row 68: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 3, 'price_unit': 752.0072333333333, 'sequence': 68, 'date': Timestamp('2022-09-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,312 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,313 - INFO - Prepared product MT14ETCF10 with quantity 3.0 for batch creation
+2025-11-27 10:33:17,313 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,314 - INFO - Processing Excel row 69: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': 1066.047, 'sequence': 69, 'date': Timestamp('2022-09-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:17,314 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:17,314 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,315 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,315 - INFO - Processing Excel row 70: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 3, 'price_unit': 746.8426, 'sequence': 70, 'date': Timestamp('2022-09-27 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,316 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,316 - INFO - Prepared product MT14ETCF10 with quantity 3.0 for batch creation
+2025-11-27 10:33:17,316 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,317 - INFO - Processing Excel row 71: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT21NBS01', 'product_uom_qty': 1, 'price_unit': 1195.9725, 'sequence': 71, 'date': Timestamp('2022-09-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT21NBS01'}
+2025-11-27 10:33:17,317 - INFO - Using cached product ID for code: 'MT21NBS01'
+2025-11-27 10:33:17,318 - INFO - Prepared product MT21NBS01 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,318 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,319 - INFO - Processing Excel row 72: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14BS101', 'product_uom_qty': 2, 'price_unit': 1608.77235, 'sequence': 72, 'date': Timestamp('2022-10-03 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14BS101'}
+2025-11-27 10:33:17,319 - INFO - Using cached product ID for code: 'MT14BS101'
+2025-11-27 10:33:17,319 - INFO - Prepared product MT14BS101 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,320 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,320 - INFO - Processing Excel row 73: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 746.8426, 'sequence': 73, 'date': Timestamp('2022-10-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,321 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,321 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,321 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,322 - INFO - Processing Excel row 74: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 2, 'price_unit': 4574.4228, 'sequence': 74, 'date': Timestamp('2022-10-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:17,322 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:17,323 - INFO - Prepared product MO00421210 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,323 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,324 - INFO - Processing Excel row 75: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 431.0939, 'sequence': 75, 'date': Timestamp('2022-10-25 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,324 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,325 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,325 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,326 - INFO - Processing Excel row 76: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0532C110', 'product_uom_qty': 1, 'price_unit': 1317.0227, 'sequence': 76, 'date': Timestamp('2022-11-07 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0532C110'}
+2025-11-27 10:33:17,327 - INFO - Using cached product ID for code: 'MA0532C110'
+2025-11-27 10:33:17,327 - INFO - Prepared product MA0532C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,327 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,328 - INFO - Processing Excel row 77: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0532C110', 'product_uom_qty': 1, 'price_unit': 1108.7628, 'sequence': 77, 'date': Timestamp('2022-11-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0532C110'}
+2025-11-27 10:33:17,328 - INFO - Using cached product ID for code: 'MA0532C110'
+2025-11-27 10:33:17,328 - INFO - Prepared product MA0532C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,329 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,329 - INFO - Processing Excel row 78: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 1, 'price_unit': 910.0102, 'sequence': 78, 'date': Timestamp('2022-11-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:17,329 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:17,330 - INFO - Prepared product MA0502C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,330 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,330 - INFO - Processing Excel row 79: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0532C110', 'product_uom_qty': 1, 'price_unit': 1317.0227, 'sequence': 79, 'date': Timestamp('2022-12-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0532C110'}
+2025-11-27 10:33:17,331 - INFO - Using cached product ID for code: 'MA0532C110'
+2025-11-27 10:33:17,331 - INFO - Prepared product MA0532C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,332 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,332 - INFO - Processing Excel row 80: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 1, 'price_unit': 4375.1114, 'sequence': 80, 'date': Timestamp('2022-12-09 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:17,332 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:17,333 - INFO - Prepared product MO00421210 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,333 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,333 - INFO - Processing Excel row 81: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0532C110', 'product_uom_qty': 1, 'price_unit': 1353.6434, 'sequence': 81, 'date': Timestamp('2022-12-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0532C110'}
+2025-11-27 10:33:17,334 - INFO - Using cached product ID for code: 'MA0532C110'
+2025-11-27 10:33:17,334 - INFO - Prepared product MA0532C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,334 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,334 - INFO - Processing Excel row 82: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212B101', 'product_uom_qty': 1, 'price_unit': 106.677, 'sequence': 82, 'date': Timestamp('2022-12-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212B101'}
+2025-11-27 10:33:17,335 - INFO - Using cached product ID for code: 'MA212B101'
+2025-11-27 10:33:17,335 - INFO - Prepared product MA212B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,335 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,336 - INFO - Processing Excel row 83: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA212P101', 'product_uom_qty': 1, 'price_unit': 45.1973, 'sequence': 83, 'date': Timestamp('2022-12-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA212P101'}
+2025-11-27 10:33:17,336 - INFO - Using cached product ID for code: 'MA212P101'
+2025-11-27 10:33:17,337 - INFO - Prepared product MA212P101 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,337 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,338 - INFO - Processing Excel row 84: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA322B101', 'product_uom_qty': 2, 'price_unit': 943.8393, 'sequence': 84, 'date': Timestamp('2022-12-16 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA322B101'}
+2025-11-27 10:33:17,338 - INFO - Using cached product ID for code: 'MA322B101'
+2025-11-27 10:33:17,338 - INFO - Prepared product MA322B101 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,339 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,339 - INFO - Processing Excel row 85: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'FD0012A100', 'product_uom_qty': 12, 'price_unit': 273.58069166666667, 'sequence': 85, 'date': Timestamp('2022-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'FD0012A100'}
+2025-11-27 10:33:17,340 - INFO - Searching for product with code: 'FD0012A100' and old code: 'FD0012A100'
+2025-11-27 10:33:17,411 - INFO - Found product with exact match on default_code: 'FD0012A100'
+2025-11-27 10:33:17,488 - INFO - Prepared product FD0012A100 with quantity 12.0 for batch creation
+2025-11-27 10:33:17,489 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,489 - INFO - Processing Excel row 86: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA322B101', 'product_uom_qty': 1, 'price_unit': 908.5157, 'sequence': 86, 'date': Timestamp('2022-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA322B101'}
+2025-11-27 10:33:17,490 - INFO - Using cached product ID for code: 'MA322B101'
+2025-11-27 10:33:17,490 - INFO - Prepared product MA322B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,490 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,491 - INFO - Processing Excel row 87: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 2, 'price_unit': 743.10325, 'sequence': 87, 'date': Timestamp('2022-12-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,491 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,492 - INFO - Prepared product MT14ETCF10 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,492 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,492 - INFO - Processing Excel row 88: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 1, 'price_unit': 4257.5337, 'sequence': 88, 'date': Timestamp('2022-12-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:17,493 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:17,493 - INFO - Prepared product MO00421210 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,493 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,494 - INFO - Processing Excel row 89: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'ACS0048120', 'product_uom_qty': 3, 'price_unit': 387.7817333333333, 'sequence': 89, 'date': Timestamp('2022-12-27 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'ACS0048120'}
+2025-11-27 10:33:17,494 - INFO - Searching for product with code: 'ACS0048120' and old code: 'ACS0048120'
+2025-11-27 10:33:17,567 - INFO - Found product with exact match on default_code: 'ACS0048120'
+2025-11-27 10:33:17,652 - INFO - Prepared product ACS0048120 with quantity 3.0 for batch creation
+2025-11-27 10:33:17,653 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,655 - INFO - Processing Excel row 90: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 746.976, 'sequence': 90, 'date': Timestamp('2023-01-23 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,657 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,658 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,659 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,660 - INFO - Processing Excel row 91: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 1, 'price_unit': 880.6283, 'sequence': 91, 'date': Timestamp('2023-01-25 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:17,661 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:17,662 - INFO - Prepared product MA0502C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,662 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,663 - INFO - Processing Excel row 92: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 2, 'price_unit': 880.6283, 'sequence': 92, 'date': Timestamp('2023-01-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:17,664 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:17,665 - INFO - Prepared product MA0502C110 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,665 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,666 - INFO - Processing Excel row 93: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 2, 'price_unit': 1099.1482, 'sequence': 93, 'date': Timestamp('2023-02-02 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:17,667 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:17,668 - INFO - Prepared product MA0154101 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,668 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,669 - INFO - Processing Excel row 94: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 2, 'price_unit': 1043.39075, 'sequence': 94, 'date': Timestamp('2023-02-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:17,670 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:17,672 - INFO - Prepared product MA0154101 with quantity 2.0 for batch creation
+2025-11-27 10:33:17,672 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,673 - INFO - Processing Excel row 95: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0493C110', 'product_uom_qty': 1, 'price_unit': 1052.2944, 'sequence': 95, 'date': Timestamp('2023-02-07 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0493C110'}
+2025-11-27 10:33:17,673 - INFO - Searching for product with code: 'MA0493C110' and old code: 'MA0493C110'
+2025-11-27 10:33:17,746 - INFO - Found product with exact match on default_code: 'MA0493C110'
+2025-11-27 10:33:17,812 - INFO - Prepared product MA0493C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,813 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,813 - INFO - Processing Excel row 96: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0532C110', 'product_uom_qty': 1, 'price_unit': 1290.3039, 'sequence': 96, 'date': Timestamp('2023-02-10 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0532C110'}
+2025-11-27 10:33:17,814 - INFO - Using cached product ID for code: 'MA0532C110'
+2025-11-27 10:33:17,814 - INFO - Prepared product MA0532C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,814 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,815 - INFO - Processing Excel row 97: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'FD0012A100', 'product_uom_qty': 11, 'price_unit': 269.1164909090909, 'sequence': 97, 'date': Timestamp('2023-02-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'FD0012A100'}
+2025-11-27 10:33:17,815 - INFO - Using cached product ID for code: 'FD0012A100'
+2025-11-27 10:33:17,815 - INFO - Prepared product FD0012A100 with quantity 11.0 for batch creation
+2025-11-27 10:33:17,816 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,816 - INFO - Processing Excel row 98: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 5, 'price_unit': 676.88428, 'sequence': 98, 'date': Timestamp('2023-02-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,816 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,817 - INFO - Prepared product MT14ETCF10 with quantity 5.0 for batch creation
+2025-11-27 10:33:17,817 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,817 - INFO - Processing Excel row 99: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 709.1347, 'sequence': 99, 'date': Timestamp('2023-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:17,818 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:17,818 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,818 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,819 - INFO - Processing Excel row 100: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0048101', 'product_uom_qty': 1, 'price_unit': 893.6483, 'sequence': 100, 'date': Timestamp('2023-03-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0048101'}
+2025-11-27 10:33:17,819 - INFO - Searching for product with code: 'MA0048101' and old code: 'MA0048101'
+2025-11-27 10:33:17,892 - INFO - Found product with exact match on default_code: 'MA0048101'
+2025-11-27 10:33:17,967 - INFO - Prepared product MA0048101 with quantity 1.0 for batch creation
+2025-11-27 10:33:17,967 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:17,968 - INFO - Processing Excel row 101: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0603F12', 'product_uom_qty': 1, 'price_unit': 1368.3258, 'sequence': 101, 'date': Timestamp('2023-04-03 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0603F12'}
+2025-11-27 10:33:17,968 - INFO - Searching for product with code: 'MA0603F12' and old code: 'MA0603F12'
+2025-11-27 10:33:18,043 - INFO - Found product with exact match on default_code: 'MA0603F12'
+2025-11-27 10:33:18,118 - INFO - Prepared product MA0603F12 with quantity 1.0 for batch creation
+2025-11-27 10:33:18,119 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:18,121 - INFO - Processing Excel row 102: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO0032101', 'product_uom_qty': 1, 'price_unit': 2446.0324, 'sequence': 102, 'date': Timestamp('2023-04-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO0032101'}
+2025-11-27 10:33:18,123 - INFO - Searching for product with code: 'MO0032101' and old code: 'MO0032101'
+2025-11-27 10:33:18,197 - INFO - Found product with exact match on default_code: 'MO0032101'
+2025-11-27 10:33:18,272 - INFO - Prepared product MO0032101 with quantity 1.0 for batch creation
+2025-11-27 10:33:18,272 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:18,273 - INFO - Processing Excel row 103: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT38FBS101', 'product_uom_qty': 1, 'price_unit': 1736.9783, 'sequence': 103, 'date': Timestamp('2023-04-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT38FBS101'}
+2025-11-27 10:33:18,273 - INFO - Searching for product with code: 'MT38FBS101' and old code: 'MT38FBS101'
+2025-11-27 10:33:18,343 - INFO - Found product with exact match on default_code: 'MT38FBS101'
+2025-11-27 10:33:18,419 - INFO - Prepared product MT38FBS101 with quantity 1.0 for batch creation
+2025-11-27 10:33:18,419 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:18,420 - INFO - Processing Excel row 104: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'FCA0001103', 'product_uom_qty': 34, 'price_unit': 378.66109117647056, 'sequence': 104, 'date': Timestamp('2023-04-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'FCA0001103'}
+2025-11-27 10:33:18,421 - INFO - Searching for product with code: 'FCA0001103' and old code: 'FCA0001103'
+2025-11-27 10:33:18,497 - INFO - Found product with exact match on default_code: 'FCA0001103'
+2025-11-27 10:33:18,572 - INFO - Prepared product FCA0001103 with quantity 34.0 for batch creation
+2025-11-27 10:33:18,573 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:18,574 - INFO - Processing Excel row 105: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA266P201', 'product_uom_qty': 1, 'price_unit': 249.112, 'sequence': 105, 'date': Timestamp('2023-05-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA266P201'}
+2025-11-27 10:33:18,575 - INFO - Searching for product with code: 'MA266P201' and old code: 'MA266P201'
+2025-11-27 10:33:18,690 - INFO - Found product with exact match on default_code: 'MA266P201'
+2025-11-27 10:33:18,761 - INFO - Prepared product MA266P201 with quantity 1.0 for batch creation
+2025-11-27 10:33:18,762 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:18,762 - INFO - Processing Excel row 106: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00501210', 'product_uom_qty': 1, 'price_unit': 3288.9424, 'sequence': 106, 'date': Timestamp('2023-05-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00501210'}
+2025-11-27 10:33:18,763 - INFO - Searching for product with code: 'MO00501210' and old code: 'MO00501210'
+2025-11-27 10:33:18,831 - INFO - Found product with exact match on default_code: 'MO00501210'
+2025-11-27 10:33:18,912 - INFO - Prepared product MO00501210 with quantity 1.0 for batch creation
+2025-11-27 10:33:18,913 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:18,915 - INFO - Processing Excel row 107: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'ACS0481120', 'product_uom_qty': 1, 'price_unit': 138.8728, 'sequence': 107, 'date': Timestamp('2023-05-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'ACS0481120'}
+2025-11-27 10:33:18,916 - INFO - Searching for product with code: 'ACS0481120' and old code: 'ACS0481120'
+2025-11-27 10:33:18,988 - INFO - Found product with exact match on default_code: 'ACS0481120'
+2025-11-27 10:33:19,066 - INFO - Prepared product ACS0481120 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,067 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,068 - INFO - Processing Excel row 108: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO031N1310', 'product_uom_qty': 2, 'price_unit': 2818.5492, 'sequence': 108, 'date': Timestamp('2023-06-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO031N1310'}
+2025-11-27 10:33:19,069 - INFO - Searching for product with code: 'MO031N1310' and old code: 'MO031N1310'
+2025-11-27 10:33:19,138 - INFO - Found product with exact match on default_code: 'MO031N1310'
+2025-11-27 10:33:19,208 - INFO - Prepared product MO031N1310 with quantity 2.0 for batch creation
+2025-11-27 10:33:19,209 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,210 - INFO - Processing Excel row 109: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': 772.2802, 'sequence': 109, 'date': Timestamp('2023-06-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B1101'}
+2025-11-27 10:33:19,210 - INFO - Searching for product with code: 'MA332B1101' and old code: 'MA332B1101'
+2025-11-27 10:33:19,292 - INFO - Found product with exact match on default_code: 'MA332B1101'
+2025-11-27 10:33:19,371 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,372 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,372 - INFO - Processing Excel row 110: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': 975.6157, 'sequence': 110, 'date': Timestamp('2023-06-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:19,373 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:19,373 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,373 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,374 - INFO - Processing Excel row 111: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': 774.4695, 'sequence': 111, 'date': Timestamp('2023-06-28 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B1101'}
+2025-11-27 10:33:19,374 - INFO - Using cached product ID for code: 'MA332B1101'
+2025-11-27 10:33:19,375 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,375 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,375 - INFO - Processing Excel row 112: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': 1235.1476, 'sequence': 112, 'date': Timestamp('2023-06-29 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:19,376 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:19,376 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,376 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,376 - INFO - Processing Excel row 113: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0433101B', 'product_uom_qty': 5, 'price_unit': 1410.96344, 'sequence': 113, 'date': Timestamp('2023-07-03 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0433101B'}
+2025-11-27 10:33:19,377 - INFO - Searching for product with code: 'MA0433101B' and old code: 'MA0433101B'
+2025-11-27 10:33:19,444 - INFO - Found product with exact match on default_code: 'MA0433101B'
+2025-11-27 10:33:19,521 - INFO - Prepared product MA0433101B with quantity 5.0 for batch creation
+2025-11-27 10:33:19,521 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,522 - INFO - Processing Excel row 114: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT38FBS101', 'product_uom_qty': 1, 'price_unit': 1861.6439, 'sequence': 114, 'date': Timestamp('2023-07-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT38FBS101'}
+2025-11-27 10:33:19,522 - INFO - Using cached product ID for code: 'MT38FBS101'
+2025-11-27 10:33:19,522 - INFO - Prepared product MT38FBS101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,523 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,523 - INFO - Processing Excel row 115: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': 793.8108, 'sequence': 115, 'date': Timestamp('2023-07-07 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B1101'}
+2025-11-27 10:33:19,523 - INFO - Using cached product ID for code: 'MA332B1101'
+2025-11-27 10:33:19,524 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,524 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,524 - INFO - Processing Excel row 116: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 1, 'price_unit': 1089.388, 'sequence': 116, 'date': Timestamp('2023-07-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:19,524 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:19,525 - INFO - Prepared product MA0502C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,525 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,525 - INFO - Processing Excel row 117: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0532C110', 'product_uom_qty': 1, 'price_unit': 1311.9376, 'sequence': 117, 'date': Timestamp('2023-07-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0532C110'}
+2025-11-27 10:33:19,526 - INFO - Using cached product ID for code: 'MA0532C110'
+2025-11-27 10:33:19,526 - INFO - Prepared product MA0532C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,526 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,527 - INFO - Processing Excel row 118: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00501210', 'product_uom_qty': 1, 'price_unit': 2692.1011, 'sequence': 118, 'date': Timestamp('2023-07-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00501210'}
+2025-11-27 10:33:19,527 - INFO - Using cached product ID for code: 'MO00501210'
+2025-11-27 10:33:19,528 - INFO - Prepared product MO00501210 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,528 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,528 - INFO - Processing Excel row 119: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0048101', 'product_uom_qty': 1, 'price_unit': 974.7347, 'sequence': 119, 'date': Timestamp('2023-07-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0048101'}
+2025-11-27 10:33:19,529 - INFO - Using cached product ID for code: 'MA0048101'
+2025-11-27 10:33:19,529 - INFO - Prepared product MA0048101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,529 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,530 - INFO - Processing Excel row 120: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0241101', 'product_uom_qty': 1, 'price_unit': 468.5001, 'sequence': 120, 'date': Timestamp('2023-08-04 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0241101'}
+2025-11-27 10:33:19,530 - INFO - Using cached product ID for code: 'MA0241101'
+2025-11-27 10:33:19,530 - INFO - Prepared product MA0241101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,531 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,531 - INFO - Processing Excel row 121: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 1, 'price_unit': 1089.388, 'sequence': 121, 'date': Timestamp('2023-08-09 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:19,531 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:19,532 - INFO - Prepared product MA0502C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,532 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,532 - INFO - Processing Excel row 122: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'FCA085100', 'product_uom_qty': 1, 'price_unit': 1989.0378, 'sequence': 122, 'date': Timestamp('2023-08-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'FCA085100'}
+2025-11-27 10:33:19,533 - INFO - Searching for product with code: 'FCA085100' and old code: 'FCA085100'
+2025-11-27 10:33:19,608 - INFO - Found product with exact match on default_code: 'FCA085100'
+2025-11-27 10:33:19,680 - INFO - Prepared product FCA085100 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,681 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,682 - INFO - Processing Excel row 123: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'FCA085100', 'product_uom_qty': 1, 'price_unit': 1989.0378, 'sequence': 123, 'date': Timestamp('2023-08-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'FCA085100'}
+2025-11-27 10:33:19,683 - INFO - Using cached product ID for code: 'FCA085100'
+2025-11-27 10:33:19,683 - INFO - Prepared product FCA085100 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,684 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,685 - INFO - Processing Excel row 124: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00401210', 'product_uom_qty': 1, 'price_unit': 3407.7042, 'sequence': 124, 'date': Timestamp('2023-08-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00401210'}
+2025-11-27 10:33:19,686 - INFO - Using cached product ID for code: 'MO00401210'
+2025-11-27 10:33:19,686 - INFO - Prepared product MO00401210 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,687 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,689 - INFO - Processing Excel row 125: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 1, 'price_unit': 2618.1851, 'sequence': 125, 'date': Timestamp('2023-08-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:19,690 - INFO - Searching for product with code: 'MO049EX1210' and old code: 'MO049EX1210'
+2025-11-27 10:33:19,761 - INFO - Found product with exact match on default_code: 'MO049EX1210'
+2025-11-27 10:33:19,844 - INFO - Prepared product MO049EX1210 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,844 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,845 - INFO - Processing Excel row 126: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 1, 'price_unit': 4857.5803, 'sequence': 126, 'date': Timestamp('2023-08-29 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:19,845 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:19,846 - INFO - Prepared product MO00421210 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,846 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,846 - INFO - Processing Excel row 127: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00521210', 'product_uom_qty': 1, 'price_unit': 2335.779, 'sequence': 127, 'date': Timestamp('2023-09-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00521210'}
+2025-11-27 10:33:19,847 - INFO - Searching for product with code: 'MO00521210' and old code: 'MO00521210'
+2025-11-27 10:33:19,924 - INFO - Found product with exact match on default_code: 'MO00521210'
+2025-11-27 10:33:19,992 - INFO - Prepared product MO00521210 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,992 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,993 - INFO - Processing Excel row 128: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': 949.4131, 'sequence': 128, 'date': Timestamp('2023-09-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:19,994 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:19,994 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2025-11-27 10:33:19,995 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:19,995 - INFO - Processing Excel row 129: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B101', 'product_uom_qty': 1, 'price_unit': 973.6701, 'sequence': 129, 'date': Timestamp('2023-09-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B101'}
+2025-11-27 10:33:19,996 - INFO - Searching for product with code: 'MA332B101' and old code: 'MA332B101'
+2025-11-27 10:33:20,063 - INFO - Found product with exact match on default_code: 'MA332B101'
+2025-11-27 10:33:20,133 - INFO - Prepared product MA332B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,134 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,134 - INFO - Processing Excel row 130: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': 799.1978, 'sequence': 130, 'date': Timestamp('2023-09-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B1101'}
+2025-11-27 10:33:20,135 - INFO - Using cached product ID for code: 'MA332B1101'
+2025-11-27 10:33:20,135 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,136 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,137 - INFO - Processing Excel row 131: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MAE06DL101', 'product_uom_qty': 4, 'price_unit': 2312.84015, 'sequence': 131, 'date': Timestamp('2023-09-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MAE06DL101'}
+2025-11-27 10:33:20,137 - INFO - Searching for product with code: 'MAE06DL101' and old code: 'MAE06DL101'
+2025-11-27 10:33:20,204 - INFO - Found product with exact match on default_code: 'MAE06DL101'
+2025-11-27 10:33:20,280 - INFO - Prepared product MAE06DL101 with quantity 4.0 for batch creation
+2025-11-27 10:33:20,281 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,281 - INFO - Processing Excel row 132: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B101', 'product_uom_qty': 3, 'price_unit': 1043.0384999999999, 'sequence': 132, 'date': Timestamp('2023-10-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B101'}
+2025-11-27 10:33:20,282 - INFO - Using cached product ID for code: 'MA332B101'
+2025-11-27 10:33:20,282 - INFO - Prepared product MA332B101 with quantity 3.0 for batch creation
+2025-11-27 10:33:20,282 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,283 - INFO - Processing Excel row 133: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'RS00003101', 'product_uom_qty': 7, 'price_unit': 78.38775714285714, 'sequence': 133, 'date': Timestamp('2023-10-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'RS00003101'}
+2025-11-27 10:33:20,283 - INFO - Searching for product with code: 'RS00003101' and old code: 'RS00003101'
+2025-11-27 10:33:20,349 - INFO - Found product with exact match on default_code: 'RS00003101'
+2025-11-27 10:33:20,417 - INFO - Prepared product RS00003101 with quantity 7.0 for batch creation
+2025-11-27 10:33:20,417 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,418 - INFO - Processing Excel row 134: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 2, 'price_unit': 1156.2836, 'sequence': 134, 'date': Timestamp('2023-10-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:20,418 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:20,419 - INFO - Prepared product MA0154101 with quantity 2.0 for batch creation
+2025-11-27 10:33:20,419 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,420 - INFO - Processing Excel row 135: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 1, 'price_unit': 643.1029, 'sequence': 135, 'date': Timestamp('2023-10-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:20,420 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:20,420 - INFO - Prepared product MT14ETCF10 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,421 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,421 - INFO - Processing Excel row 136: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': 911.2013, 'sequence': 136, 'date': Timestamp('2023-10-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:20,421 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:20,422 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,422 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,422 - INFO - Processing Excel row 137: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00521210', 'product_uom_qty': 1, 'price_unit': 2363.7081, 'sequence': 137, 'date': Timestamp('2023-10-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00521210'}
+2025-11-27 10:33:20,423 - INFO - Using cached product ID for code: 'MO00521210'
+2025-11-27 10:33:20,423 - INFO - Prepared product MO00521210 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,424 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,424 - INFO - Processing Excel row 138: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 1, 'price_unit': 2726.7833, 'sequence': 138, 'date': Timestamp('2023-10-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:20,425 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:20,425 - INFO - Prepared product MO049EX1210 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,425 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,426 - INFO - Processing Excel row 139: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00401210', 'product_uom_qty': 1, 'price_unit': 3339.9844, 'sequence': 139, 'date': Timestamp('2023-11-04 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00401210'}
+2025-11-27 10:33:20,426 - INFO - Using cached product ID for code: 'MO00401210'
+2025-11-27 10:33:20,427 - INFO - Prepared product MO00401210 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,427 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,428 - INFO - Processing Excel row 140: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 1, 'price_unit': 3229.6527, 'sequence': 140, 'date': Timestamp('2023-11-09 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:20,429 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:20,429 - INFO - Prepared product MO049EX1210 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,430 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,430 - INFO - Processing Excel row 141: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT38FBS101', 'product_uom_qty': 1, 'price_unit': 1802.8997, 'sequence': 141, 'date': Timestamp('2023-11-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT38FBS101'}
+2025-11-27 10:33:20,431 - INFO - Using cached product ID for code: 'MT38FBS101'
+2025-11-27 10:33:20,431 - INFO - Prepared product MT38FBS101 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,431 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,432 - INFO - Processing Excel row 142: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MU00071010', 'product_uom_qty': 1, 'price_unit': 894.3148, 'sequence': 142, 'date': Timestamp('2023-11-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MU00071010'}
+2025-11-27 10:33:20,432 - INFO - Using cached product ID for code: 'MU00071010'
+2025-11-27 10:33:20,432 - INFO - Prepared product MU00071010 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,433 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,433 - INFO - Processing Excel row 143: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MT14ETCF10', 'product_uom_qty': 2, 'price_unit': 764.38705, 'sequence': 143, 'date': Timestamp('2023-11-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14ETCF10'}
+2025-11-27 10:33:20,434 - INFO - Using cached product ID for code: 'MT14ETCF10'
+2025-11-27 10:33:20,434 - INFO - Prepared product MT14ETCF10 with quantity 2.0 for batch creation
+2025-11-27 10:33:20,434 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,435 - INFO - Processing Excel row 144: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MAE081R110', 'product_uom_qty': 2, 'price_unit': 2719.3881, 'sequence': 144, 'date': Timestamp('2023-11-29 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MAE081R110'}
+2025-11-27 10:33:20,435 - INFO - Searching for product with code: 'MAE081R110' and old code: 'MAE081R110'
+2025-11-27 10:33:20,508 - INFO - Found product with exact match on default_code: 'MAE081R110'
+2025-11-27 10:33:20,580 - INFO - Prepared product MAE081R110 with quantity 2.0 for batch creation
+2025-11-27 10:33:20,580 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,581 - INFO - Processing Excel row 145: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'ACS004410B', 'product_uom_qty': 69, 'price_unit': 154.41242028985508, 'sequence': 145, 'date': Timestamp('2023-11-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'ACS004410B'}
+2025-11-27 10:33:20,581 - INFO - Searching for product with code: 'ACS004410B' and old code: 'ACS004410B'
+2025-11-27 10:33:20,652 - INFO - Found product with exact match on default_code: 'ACS004410B'
+2025-11-27 10:33:20,725 - INFO - Prepared product ACS004410B with quantity 69.0 for batch creation
+2025-11-27 10:33:20,725 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,726 - INFO - Processing Excel row 146: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'SWH008101', 'product_uom_qty': 1, 'price_unit': 199.2486, 'sequence': 146, 'date': Timestamp('2023-12-02 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SWH008101'}
+2025-11-27 10:33:20,726 - INFO - Searching for product with code: 'SWH008101' and old code: 'SWH008101'
+2025-11-27 10:33:20,792 - INFO - Found product with exact match on default_code: 'SWH008101'
+2025-11-27 10:33:20,859 - INFO - Prepared product SWH008101 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,860 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,862 - INFO - Processing Excel row 147: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': 968.9239, 'sequence': 147, 'date': Timestamp('2023-12-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 10:33:20,863 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 10:33:20,863 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2025-11-27 10:33:20,864 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:20,865 - INFO - Processing Excel row 148: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00691110', 'product_uom_qty': 1, 'price_unit': 2252.1328, 'sequence': 148, 'date': Timestamp('2024-01-16 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00691110'}
+2025-11-27 10:33:20,866 - INFO - Searching for product with code: 'MO00691110' and old code: 'MO00691110'
+2025-11-27 10:33:20,931 - INFO - Found product with exact match on default_code: 'MO00691110'
+2025-11-27 10:33:21,000 - INFO - Prepared product MO00691110 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,001 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,001 - INFO - Processing Excel row 149: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MM097001', 'product_uom_qty': 1, 'price_unit': 1418.9689, 'sequence': 149, 'date': Timestamp('2024-01-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MM097001'}
+2025-11-27 10:33:21,002 - INFO - Searching for product with code: 'MM097001' and old code: 'MM097001'
+2025-11-27 10:33:21,066 - INFO - Found product with exact match on default_code: 'MM097001'
+2025-11-27 10:33:21,139 - INFO - Prepared product MM097001 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,139 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,139 - INFO - Processing Excel row 150: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 1, 'price_unit': 3017.4512, 'sequence': 150, 'date': Timestamp('2024-02-23 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:21,140 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:21,140 - INFO - Prepared product MO049EX1210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,140 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,141 - INFO - Processing Excel row 151: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MM0105001', 'product_uom_qty': 1, 'price_unit': 802.1141, 'sequence': 151, 'date': Timestamp('2024-03-23 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MM0105001'}
+2025-11-27 10:33:21,141 - INFO - Searching for product with code: 'MM0105001' and old code: 'MM0105001'
+2025-11-27 10:33:21,208 - INFO - Found product with exact match on default_code: 'MM0105001'
+2025-11-27 10:33:21,282 - INFO - Prepared product MM0105001 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,282 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,283 - INFO - Processing Excel row 152: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B101', 'product_uom_qty': 1, 'price_unit': 971.8929, 'sequence': 152, 'date': Timestamp('2024-04-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B101'}
+2025-11-27 10:33:21,283 - INFO - Using cached product ID for code: 'MA332B101'
+2025-11-27 10:33:21,283 - INFO - Prepared product MA332B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,284 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,284 - INFO - Processing Excel row 153: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00501210', 'product_uom_qty': 1, 'price_unit': 3235.6242, 'sequence': 153, 'date': Timestamp('2024-04-25 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00501210'}
+2025-11-27 10:33:21,284 - INFO - Using cached product ID for code: 'MO00501210'
+2025-11-27 10:33:21,285 - INFO - Prepared product MO00501210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,285 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,286 - INFO - Processing Excel row 154: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00691110', 'product_uom_qty': 1, 'price_unit': 1863.7283, 'sequence': 154, 'date': Timestamp('2024-05-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00691110'}
+2025-11-27 10:33:21,286 - INFO - Using cached product ID for code: 'MO00691110'
+2025-11-27 10:33:21,286 - INFO - Prepared product MO00691110 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,286 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,287 - INFO - Processing Excel row 155: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00691110', 'product_uom_qty': 2, 'price_unit': 1969.0033, 'sequence': 155, 'date': Timestamp('2024-07-09 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00691110'}
+2025-11-27 10:33:21,287 - INFO - Using cached product ID for code: 'MO00691110'
+2025-11-27 10:33:21,288 - INFO - Prepared product MO00691110 with quantity 2.0 for batch creation
+2025-11-27 10:33:21,288 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,289 - INFO - Processing Excel row 156: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA322B101', 'product_uom_qty': 1, 'price_unit': 876.2012, 'sequence': 156, 'date': Timestamp('2024-07-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA322B101'}
+2025-11-27 10:33:21,289 - INFO - Using cached product ID for code: 'MA322B101'
+2025-11-27 10:33:21,290 - INFO - Prepared product MA322B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,290 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,291 - INFO - Processing Excel row 157: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 1, 'price_unit': 2932.9582, 'sequence': 157, 'date': Timestamp('2024-07-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:21,291 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:21,291 - INFO - Prepared product MO049EX1210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,292 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,293 - INFO - Processing Excel row 158: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 1, 'price_unit': 5001.4182, 'sequence': 158, 'date': Timestamp('2024-07-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:21,293 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:21,294 - INFO - Prepared product MO00421210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,294 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,294 - INFO - Processing Excel row 159: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00691110', 'product_uom_qty': 1, 'price_unit': 2302.4186, 'sequence': 159, 'date': Timestamp('2024-07-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00691110'}
+2025-11-27 10:33:21,295 - INFO - Using cached product ID for code: 'MO00691110'
+2025-11-27 10:33:21,295 - INFO - Prepared product MO00691110 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,295 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,296 - INFO - Processing Excel row 160: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 2, 'price_unit': 2662.2815, 'sequence': 160, 'date': Timestamp('2024-07-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:21,296 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:21,297 - INFO - Prepared product MO049EX1210 with quantity 2.0 for batch creation
+2025-11-27 10:33:21,297 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,297 - INFO - Processing Excel row 161: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'RS0007101', 'product_uom_qty': 1, 'price_unit': 218.2812, 'sequence': 161, 'date': Timestamp('2024-08-03 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'RS0007101'}
+2025-11-27 10:33:21,298 - INFO - Searching for product with code: 'RS0007101' and old code: 'RS0007101'
+2025-11-27 10:33:21,363 - INFO - Found product with exact match on default_code: 'RS0007101'
+2025-11-27 10:33:21,431 - INFO - Prepared product RS0007101 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,431 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,432 - INFO - Processing Excel row 162: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'RS0007101', 'product_uom_qty': 1, 'price_unit': 218.2812, 'sequence': 162, 'date': Timestamp('2024-08-03 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'RS0007101'}
+2025-11-27 10:33:21,432 - INFO - Using cached product ID for code: 'RS0007101'
+2025-11-27 10:33:21,433 - INFO - Prepared product RS0007101 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,433 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,433 - INFO - Processing Excel row 163: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 1, 'price_unit': 5001.4182, 'sequence': 163, 'date': Timestamp('2024-08-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:21,434 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:21,434 - INFO - Prepared product MO00421210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,434 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,435 - INFO - Processing Excel row 164: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'FU0033FC1560', 'product_uom_qty': 3, 'price_unit': 1151.9195, 'sequence': 164, 'date': Timestamp('2024-08-10 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'FU0033FC1560'}
+2025-11-27 10:33:21,435 - INFO - Searching for product with code: 'FU0033FC1560' and old code: 'FU0033FC1560'
+2025-11-27 10:33:21,511 - INFO - Found product with exact match on default_code: 'FU0033FC1560'
+2025-11-27 10:33:21,588 - INFO - Prepared product FU0033FC1560 with quantity 3.0 for batch creation
+2025-11-27 10:33:21,589 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,589 - INFO - Processing Excel row 165: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 2, 'price_unit': 2676.89605, 'sequence': 165, 'date': Timestamp('2024-08-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:21,590 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:21,590 - INFO - Prepared product MO049EX1210 with quantity 2.0 for batch creation
+2025-11-27 10:33:21,590 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,591 - INFO - Processing Excel row 166: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 1, 'price_unit': 2676.896, 'sequence': 166, 'date': Timestamp('2024-08-19 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:21,591 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:21,592 - INFO - Prepared product MO049EX1210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,592 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,592 - INFO - Processing Excel row 167: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA0502C110', 'product_uom_qty': 1, 'price_unit': 962.0358, 'sequence': 167, 'date': Timestamp('2024-09-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0502C110'}
+2025-11-27 10:33:21,593 - INFO - Using cached product ID for code: 'MA0502C110'
+2025-11-27 10:33:21,593 - INFO - Prepared product MA0502C110 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,593 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,594 - INFO - Processing Excel row 168: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 2, 'price_unit': 5001.41825, 'sequence': 168, 'date': Timestamp('2024-09-07 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:21,594 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:21,594 - INFO - Prepared product MO00421210 with quantity 2.0 for batch creation
+2025-11-27 10:33:21,595 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,595 - INFO - Processing Excel row 169: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 1, 'price_unit': 5001.4182, 'sequence': 169, 'date': Timestamp('2024-09-10 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:21,595 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:21,596 - INFO - Prepared product MO00421210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,596 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,597 - INFO - Processing Excel row 170: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 2, 'price_unit': 3364.43895, 'sequence': 170, 'date': Timestamp('2024-09-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:21,597 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:21,597 - INFO - Prepared product MO049EX1210 with quantity 2.0 for batch creation
+2025-11-27 10:33:21,597 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,598 - INFO - Processing Excel row 171: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA142B101', 'product_uom_qty': 1, 'price_unit': 509.0342, 'sequence': 171, 'date': Timestamp('2024-09-27 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA142B101'}
+2025-11-27 10:33:21,598 - INFO - Searching for product with code: 'MA142B101' and old code: 'MA142B101'
+2025-11-27 10:33:21,663 - INFO - Found product with exact match on default_code: 'MA142B101'
+2025-11-27 10:33:21,737 - INFO - Prepared product MA142B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,737 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,739 - INFO - Processing Excel row 172: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': 770.9061, 'sequence': 172, 'date': Timestamp('2024-10-28 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B1101'}
+2025-11-27 10:33:21,739 - INFO - Using cached product ID for code: 'MA332B1101'
+2025-11-27 10:33:21,740 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,740 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,740 - INFO - Processing Excel row 173: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00691110', 'product_uom_qty': 1, 'price_unit': 2074.8878, 'sequence': 173, 'date': Timestamp('2024-10-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00691110'}
+2025-11-27 10:33:21,741 - INFO - Using cached product ID for code: 'MO00691110'
+2025-11-27 10:33:21,742 - INFO - Prepared product MO00691110 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,742 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,743 - INFO - Processing Excel row 174: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00691110', 'product_uom_qty': 1, 'price_unit': 2327.9679, 'sequence': 174, 'date': Timestamp('2024-11-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00691110'}
+2025-11-27 10:33:21,743 - INFO - Using cached product ID for code: 'MO00691110'
+2025-11-27 10:33:21,744 - INFO - Prepared product MO00691110 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,744 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,745 - INFO - Processing Excel row 175: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MM097001', 'product_uom_qty': 11, 'price_unit': 1526.958709090909, 'sequence': 175, 'date': Timestamp('2024-11-28 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MM097001'}
+2025-11-27 10:33:21,745 - INFO - Using cached product ID for code: 'MM097001'
+2025-11-27 10:33:21,746 - INFO - Prepared product MM097001 with quantity 11.0 for batch creation
+2025-11-27 10:33:21,746 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,746 - INFO - Processing Excel row 176: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 1, 'price_unit': 4075.6912, 'sequence': 176, 'date': Timestamp('2024-11-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:21,747 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:21,747 - INFO - Prepared product MO00421210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,748 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,748 - INFO - Processing Excel row 177: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00521210', 'product_uom_qty': 1, 'price_unit': 2534.8438, 'sequence': 177, 'date': Timestamp('2024-12-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00521210'}
+2025-11-27 10:33:21,749 - INFO - Using cached product ID for code: 'MO00521210'
+2025-11-27 10:33:21,749 - INFO - Prepared product MO00521210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,749 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,750 - INFO - Processing Excel row 178: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00691110', 'product_uom_qty': 1, 'price_unit': 2063.984, 'sequence': 178, 'date': Timestamp('2024-12-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00691110'}
+2025-11-27 10:33:21,751 - INFO - Using cached product ID for code: 'MO00691110'
+2025-11-27 10:33:21,751 - INFO - Prepared product MO00691110 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,751 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,752 - INFO - Processing Excel row 179: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO049EX1210', 'product_uom_qty': 1, 'price_unit': 2748.028, 'sequence': 179, 'date': Timestamp('2024-12-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO049EX1210'}
+2025-11-27 10:33:21,752 - INFO - Using cached product ID for code: 'MO049EX1210'
+2025-11-27 10:33:21,753 - INFO - Prepared product MO049EX1210 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,753 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,753 - INFO - Processing Excel row 180: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MSW0011102', 'product_uom_qty': 1, 'price_unit': 3320.043, 'sequence': 180, 'date': Timestamp('2025-01-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MSW0011102'}
+2025-11-27 10:33:21,754 - INFO - Searching for product with code: 'MSW0011102' and old code: 'MSW0011102'
+2025-11-27 10:33:21,822 - INFO - Found product with exact match on default_code: 'MSW0011102'
+2025-11-27 10:33:21,891 - INFO - Prepared product MSW0011102 with quantity 1.0 for batch creation
+2025-11-27 10:33:21,892 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:21,893 - INFO - Processing Excel row 181: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO0049S110', 'product_uom_qty': 5, 'price_unit': 290.54494, 'sequence': 181, 'date': Timestamp('2025-01-23 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO0049S110'}
+2025-11-27 10:33:21,893 - INFO - Searching for product with code: 'MO0049S110' and old code: 'MO0049S110'
+2025-11-27 10:33:21,956 - INFO - Found product with exact match on default_code: 'MO0049S110'
+2025-11-27 10:33:22,023 - INFO - Prepared product MO0049S110 with quantity 5.0 for batch creation
+2025-11-27 10:33:22,023 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:22,024 - INFO - Processing Excel row 182: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA142B101', 'product_uom_qty': 1, 'price_unit': 518.9052, 'sequence': 182, 'date': Timestamp('2025-01-27 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA142B101'}
+2025-11-27 10:33:22,024 - INFO - Using cached product ID for code: 'MA142B101'
+2025-11-27 10:33:22,025 - INFO - Prepared product MA142B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:22,025 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:22,026 - INFO - Processing Excel row 183: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA142B101', 'product_uom_qty': 7, 'price_unit': 496.0802, 'sequence': 183, 'date': Timestamp('2025-02-14 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA142B101'}
+2025-11-27 10:33:22,026 - INFO - Using cached product ID for code: 'MA142B101'
+2025-11-27 10:33:22,027 - INFO - Prepared product MA142B101 with quantity 7.0 for batch creation
+2025-11-27 10:33:22,027 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:22,027 - INFO - Processing Excel row 184: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MM078C1039', 'product_uom_qty': 1, 'price_unit': 2975.4403, 'sequence': 184, 'date': Timestamp('2025-04-05 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MM078C1039'}
+2025-11-27 10:33:22,028 - INFO - Searching for product with code: 'MM078C1039' and old code: 'MM078C1039'
+2025-11-27 10:33:22,095 - INFO - Found product with exact match on default_code: 'MM078C1039'
+2025-11-27 10:33:22,169 - INFO - Prepared product MM078C1039 with quantity 1.0 for batch creation
+2025-11-27 10:33:22,169 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:22,170 - INFO - Processing Excel row 185: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA142B101', 'product_uom_qty': 1, 'price_unit': 468.8617, 'sequence': 185, 'date': Timestamp('2025-06-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA142B101'}
+2025-11-27 10:33:22,171 - INFO - Using cached product ID for code: 'MA142B101'
+2025-11-27 10:33:22,171 - INFO - Prepared product MA142B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:22,172 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:22,172 - INFO - Processing Excel row 186: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO00421210', 'product_uom_qty': 4, 'price_unit': 4075.69115, 'sequence': 186, 'date': Timestamp('2025-07-04 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO00421210'}
+2025-11-27 10:33:22,173 - INFO - Using cached product ID for code: 'MO00421210'
+2025-11-27 10:33:22,173 - INFO - Prepared product MO00421210 with quantity 4.0 for batch creation
+2025-11-27 10:33:22,174 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:22,174 - INFO - Processing Excel row 187: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MO0050EX1210', 'product_uom_qty': 3, 'price_unit': 2940.687066666667, 'sequence': 187, 'date': Timestamp('2025-07-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO0050EX1210'}
+2025-11-27 10:33:22,175 - INFO - Searching for product with code: 'MO0050EX1210' and old code: 'MO0050EX1210'
+2025-11-27 10:33:22,243 - INFO - Found product with exact match on default_code: 'MO0050EX1210'
+2025-11-27 10:33:22,333 - INFO - Prepared product MO0050EX1210 with quantity 3.0 for batch creation
+2025-11-27 10:33:22,333 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:22,333 - INFO - Processing Excel row 188: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA142B101', 'product_uom_qty': 1, 'price_unit': 460.5047, 'sequence': 188, 'date': Timestamp('2025-08-26 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA142B101'}
+2025-11-27 10:33:22,334 - INFO - Using cached product ID for code: 'MA142B101'
+2025-11-27 10:33:22,334 - INFO - Prepared product MA142B101 with quantity 1.0 for batch creation
+2025-11-27 10:33:22,334 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:22,335 - INFO - Processing Excel row 189: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'RM12-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังรอเคลม ต่างประเทศ', 'location_dest_id': 'RM12/Stock', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': 726.0098, 'sequence': 189, 'date': Timestamp('2025-09-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA332B1101'}
+2025-11-27 10:33:22,335 - INFO - Using cached product ID for code: 'MA332B1101'
+2025-11-27 10:33:22,335 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2025-11-27 10:33:22,336 - INFO - Move locations - Source: 14, Dest: 140
+2025-11-27 10:33:23,816 - INFO - Created 189 moves in batch for picking 25
+2025-11-27 10:33:23,924 - INFO - Re-updated dates before confirming picking 25: 2025-11-30 00:00:00
+2025-11-27 10:33:25,049 - INFO - Confirmed transfer 25 with forced date context
+2025-11-27 10:33:25,050 - INFO - Import completed: 1 success, 0 failed.

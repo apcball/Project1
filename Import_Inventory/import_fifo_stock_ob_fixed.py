@@ -6,8 +6,8 @@ from datetime import datetime
 import os
 
 # Odoo connection parameters
-HOST = 'http://mogth.work:8069'
-DB = 'MOG_Pretest1'
+HOST = 'http://119.59.102.189:8069'
+DB = 'MOG_TEST'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
@@ -595,7 +595,7 @@ def create_internal_transfers(uid, models, df):
                         'picking_id': picking_id,
                         'location_id': source_location_id,
                         'sequence': int(row['sequence']) if 'sequence' in row and pd.notna(row['sequence']) else 10,
-                        'description_picking': f"Excel Row {idx+1} | Seq:{row['sequence']} | Product:{product_code}",
+                        'description_picking': f"Row {idx+1} | Seq:{row['sequence']} | Date:{row.get('date',)}",
                     }
                     
                     # ใส่ location_dest_id - ถ้าไม่มีให้ใช้ default location จาก picking type
@@ -688,7 +688,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Import_Inventory/Template_OB_Inventory - Copy.xlsx'
+        EXCEL_FILE = 'Import_Inventory/2.คลังDynasty.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move

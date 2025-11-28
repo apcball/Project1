@@ -1,0 +1,678 @@
+2025-11-27 09:49:39,129 - INFO - Successfully connected to Odoo as user ID: 2
+2025-11-27 09:49:40,124 - INFO - Odoo version: 17.0.1.3
+2025-11-27 09:49:40,287 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-11-27 09:49:40,851 - INFO - Successfully read Excel file with 147 rows
+2025-11-27 09:49:40,851 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2025-11-27 09:49:40,859 - INFO - Processed sequence column
+2025-11-27 09:49:40,877 - INFO - scheduled_date dtype: datetime64[ns]
+2025-11-27 09:49:40,878 - INFO - scheduled_date sample: 2025-11-30 00:00:00
+2025-11-27 09:49:40,881 - INFO - Converted scheduled_date to string format. Sample: 2025-11-30 00:00:00
+2025-11-27 09:49:40,882 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2025-11-27 09:49:40,883 - INFO - Using 'default_code' column as 'product_id'
+2025-11-27 09:49:40,883 - INFO - Using 'origin' column to identify transfer groups
+2025-11-27 09:49:40,896 - INFO - Excel file validation and data filling completed successfully
+2025-11-27 09:49:41,977 - INFO - Searching for location: 'DS01/Stock'
+2025-11-27 09:49:42,232 - INFO - Found location with complete_name match: 'DS01/Stock' for 'DS01/Stock'
+2025-11-27 09:49:43,276 - WARNING - Partner 'MOGEN_OB' not found. Creating new partner.
+2025-11-27 09:49:43,477 - INFO - Created new partner 'MOGEN_OB' with ID 2199
+2025-11-27 09:49:43,602 - INFO - Created transfer for date 2025-11-30 00:00:00 sequence 1 with picking ID 24
+2025-11-27 09:49:43,604 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'DLEE30100', 'product_uom_qty': 1, 'price_unit': 8000.0, 'sequence': 1, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'DLEE30100'}
+2025-11-27 09:49:43,604 - INFO - Searching for product with code: 'DLEE30100' and old code: 'DLEE30100'
+2025-11-27 09:49:43,705 - INFO - Found product with exact match on default_code: 'DLEE30100'
+2025-11-27 09:49:43,794 - INFO - Prepared product DLEE30100 with quantity 1.0 for batch creation
+2025-11-27 09:49:43,794 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:43,795 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0035101', 'product_uom_qty': 15, 'price_unit': 213.17294666666666, 'sequence': 2, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0035101'}
+2025-11-27 09:49:43,795 - INFO - Searching for product with code: 'MA0035101' and old code: 'MA0035101'
+2025-11-27 09:49:43,878 - INFO - Found product with exact match on default_code: 'MA0035101'
+2025-11-27 09:49:43,969 - INFO - Prepared product MA0035101 with quantity 15.0 for batch creation
+2025-11-27 09:49:43,969 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:43,970 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0054101', 'product_uom_qty': 304, 'price_unit': 316.9488832236842, 'sequence': 3, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0054101'}
+2025-11-27 09:49:43,970 - INFO - Searching for product with code: 'MA0054101' and old code: 'MA0054101'
+2025-11-27 09:49:44,066 - INFO - Found product with exact match on default_code: 'MA0054101'
+2025-11-27 09:49:44,160 - INFO - Prepared product MA0054101 with quantity 304.0 for batch creation
+2025-11-27 09:49:44,161 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:44,162 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0185101', 'product_uom_qty': 25, 'price_unit': 108.164184, 'sequence': 4, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0185101'}
+2025-11-27 09:49:44,162 - INFO - Searching for product with code: 'MA0185101' and old code: 'MA0185101'
+2025-11-27 09:49:44,247 - INFO - Found product with exact match on default_code: 'MA0185101'
+2025-11-27 09:49:44,331 - INFO - Prepared product MA0185101 with quantity 25.0 for batch creation
+2025-11-27 09:49:44,332 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:44,333 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA154B101', 'product_uom_qty': 35, 'price_unit': 324.4489885714286, 'sequence': 5, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA154B101'}
+2025-11-27 09:49:44,334 - INFO - Searching for product with code: 'MA154B101' and old code: 'MA154B101'
+2025-11-27 09:49:44,412 - INFO - Found product with exact match on default_code: 'MA154B101'
+2025-11-27 09:49:44,503 - INFO - Prepared product MA154B101 with quantity 35.0 for batch creation
+2025-11-27 09:49:44,504 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:44,506 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA172P101', 'product_uom_qty': 12, 'price_unit': 412.25597500000003, 'sequence': 6, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA172P101'}
+2025-11-27 09:49:44,507 - INFO - Searching for product with code: 'MA172P101' and old code: 'MA172P101'
+2025-11-27 09:49:44,597 - INFO - Found product with exact match on default_code: 'MA172P101'
+2025-11-27 09:49:44,714 - INFO - Prepared product MA172P101 with quantity 12.0 for batch creation
+2025-11-27 09:49:44,715 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:44,716 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA266B201', 'product_uom_qty': 1, 'price_unit': 799.7925, 'sequence': 7, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA266B201'}
+2025-11-27 09:49:44,716 - INFO - Searching for product with code: 'MA266B201' and old code: 'MA266B201'
+2025-11-27 09:49:44,804 - INFO - Found product with exact match on default_code: 'MA266B201'
+2025-11-27 09:49:44,905 - INFO - Prepared product MA266B201 with quantity 1.0 for batch creation
+2025-11-27 09:49:44,906 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:44,906 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MAE06L101', 'product_uom_qty': 48, 'price_unit': 2512.430225, 'sequence': 8, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MAE06L101'}
+2025-11-27 09:49:44,907 - INFO - Searching for product with code: 'MAE06L101' and old code: 'MAE06L101'
+2025-11-27 09:49:44,999 - INFO - Found product with exact match on default_code: 'MAE06L101'
+2025-11-27 09:49:45,107 - INFO - Prepared product MAE06L101 with quantity 48.0 for batch creation
+2025-11-27 09:49:45,107 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:45,109 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MAE06L101', 'product_uom_qty': 56, 'price_unit': 1945.9919607142856, 'sequence': 9, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MAE06L101'}
+2025-11-27 09:49:45,110 - INFO - Using cached product ID for code: 'MAE06L101'
+2025-11-27 09:49:45,111 - INFO - Prepared product MAE06L101 with quantity 56.0 for batch creation
+2025-11-27 09:49:45,112 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:45,113 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MSP016100', 'product_uom_qty': 1, 'price_unit': 419.1425, 'sequence': 10, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MSP016100'}
+2025-11-27 09:49:45,114 - INFO - Searching for product with code: 'MSP016100' and old code: 'MSP016100'
+2025-11-27 09:49:45,197 - INFO - Found product with exact match on default_code: 'MSP016100'
+2025-11-27 09:49:45,284 - INFO - Prepared product MSP016100 with quantity 1.0 for batch creation
+2025-11-27 09:49:45,284 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:45,285 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT14TC101', 'product_uom_qty': 80, 'price_unit': 473.54054125000005, 'sequence': 11, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14TC101'}
+2025-11-27 09:49:45,286 - INFO - Searching for product with code: 'MT14TC101' and old code: 'MT14TC101'
+2025-11-27 09:49:45,373 - INFO - Found product with exact match on default_code: 'MT14TC101'
+2025-11-27 09:49:45,473 - INFO - Prepared product MT14TC101 with quantity 80.0 for batch creation
+2025-11-27 09:49:45,474 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:45,476 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT14TC101', 'product_uom_qty': 9, 'price_unit': 730.1317444444444, 'sequence': 12, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14TC101'}
+2025-11-27 09:49:45,478 - INFO - Using cached product ID for code: 'MT14TC101'
+2025-11-27 09:49:45,479 - INFO - Prepared product MT14TC101 with quantity 9.0 for batch creation
+2025-11-27 09:49:45,480 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:45,482 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT21HBS01', 'product_uom_qty': 3, 'price_unit': 13993.566066666666, 'sequence': 13, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT21HBS01'}
+2025-11-27 09:49:45,484 - INFO - Searching for product with code: 'MT21HBS01' and old code: 'MT21HBS01'
+2025-11-27 09:49:45,570 - INFO - Found product with exact match on default_code: 'MT21HBS01'
+2025-11-27 09:49:45,658 - INFO - Prepared product MT21HBS01 with quantity 3.0 for batch creation
+2025-11-27 09:49:45,658 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:45,659 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT3456BS101', 'product_uom_qty': 16, 'price_unit': 2288.4627375, 'sequence': 14, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT3456BS101'}
+2025-11-27 09:49:45,660 - INFO - Searching for product with code: 'MT3456BS101' and old code: 'MT3456BS101'
+2025-11-27 09:49:45,749 - INFO - Found product with exact match on default_code: 'MT3456BS101'
+2025-11-27 09:49:45,841 - INFO - Prepared product MT3456BS101 with quantity 16.0 for batch creation
+2025-11-27 09:49:45,842 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:45,842 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT35TC101', 'product_uom_qty': 1, 'price_unit': 833.1577, 'sequence': 15, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT35TC101'}
+2025-11-27 09:49:45,843 - INFO - Searching for product with code: 'MT35TC101' and old code: 'MT35TC101'
+2025-11-27 09:49:45,925 - INFO - Found product with exact match on default_code: 'MT35TC101'
+2025-11-27 09:49:46,021 - INFO - Prepared product MT35TC101 with quantity 1.0 for batch creation
+2025-11-27 09:49:46,021 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:46,022 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 27, 'price_unit': 1883.7681777777777, 'sequence': 16, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:46,022 - INFO - Searching for product with code: 'MW011B101' and old code: 'MW011B101'
+2025-11-27 09:49:46,998 - INFO - Found product with exact match on default_code: 'MW011B101'
+2025-11-27 09:49:47,087 - INFO - Prepared product MW011B101 with quantity 27.0 for batch creation
+2025-11-27 09:49:47,088 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,089 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 1, 'price_unit': 1343.8252, 'sequence': 17, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:47,090 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:47,091 - INFO - Prepared product MW011B101 with quantity 1.0 for batch creation
+2025-11-27 09:49:47,092 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,093 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 6, 'price_unit': 484.1371, 'sequence': 18, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:47,094 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:47,095 - INFO - Prepared product MW011B101 with quantity 6.0 for batch creation
+2025-11-27 09:49:47,096 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,097 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 8, 'price_unit': 552.036375, 'sequence': 19, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:47,098 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:47,099 - INFO - Prepared product MW011B101 with quantity 8.0 for batch creation
+2025-11-27 09:49:47,099 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,101 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 25, 'price_unit': 1319.459768, 'sequence': 20, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:47,101 - INFO - Searching for product with code: 'MW031B101' and old code: 'MW031B101'
+2025-11-27 09:49:47,191 - INFO - Found product with exact match on default_code: 'MW031B101'
+2025-11-27 09:49:47,281 - INFO - Prepared product MW031B101 with quantity 25.0 for batch creation
+2025-11-27 09:49:47,282 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,282 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 6, 'price_unit': 1620.7148166666666, 'sequence': 21, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:47,283 - INFO - Using cached product ID for code: 'MW031B101'
+2025-11-27 09:49:47,283 - INFO - Prepared product MW031B101 with quantity 6.0 for batch creation
+2025-11-27 09:49:47,283 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,284 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SP00204100', 'product_uom_qty': 1, 'price_unit': 208.9056, 'sequence': 22, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SP00204100'}
+2025-11-27 09:49:47,284 - INFO - Searching for product with code: 'SP00204100' and old code: 'SP00204100'
+2025-11-27 09:49:47,368 - INFO - Found product with exact match on default_code: 'SP00204100'
+2025-11-27 09:49:47,464 - INFO - Prepared product SP00204100 with quantity 1.0 for batch creation
+2025-11-27 09:49:47,465 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,468 - INFO - Processing Excel row 23: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW042100', 'product_uom_qty': 9, 'price_unit': 215.73646666666667, 'sequence': 23, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW042100'}
+2025-11-27 09:49:47,470 - INFO - Searching for product with code: 'SPW042100' and old code: 'SPW042100'
+2025-11-27 09:49:47,562 - INFO - Found product with exact match on default_code: 'SPW042100'
+2025-11-27 09:49:47,657 - INFO - Prepared product SPW042100 with quantity 9.0 for batch creation
+2025-11-27 09:49:47,657 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,658 - INFO - Processing Excel row 24: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 3, 'price_unit': 41.471466666666664, 'sequence': 24, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,659 - INFO - Searching for product with code: 'SPW423100' and old code: 'SPW423100'
+2025-11-27 09:49:47,748 - INFO - Found product with exact match on default_code: 'SPW423100'
+2025-11-27 09:49:47,840 - INFO - Prepared product SPW423100 with quantity 3.0 for batch creation
+2025-11-27 09:49:47,840 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,841 - INFO - Processing Excel row 25: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 1, 'price_unit': 40.6771, 'sequence': 25, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,841 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,842 - INFO - Prepared product SPW423100 with quantity 1.0 for batch creation
+2025-11-27 09:49:47,842 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,843 - INFO - Processing Excel row 26: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 21, 'price_unit': 40.933509523809526, 'sequence': 26, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,843 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,844 - INFO - Prepared product SPW423100 with quantity 21.0 for batch creation
+2025-11-27 09:49:47,844 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,845 - INFO - Processing Excel row 27: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 22, 'price_unit': 40.65223636363636, 'sequence': 27, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,845 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,846 - INFO - Prepared product SPW423100 with quantity 22.0 for batch creation
+2025-11-27 09:49:47,847 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,847 - INFO - Processing Excel row 28: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 14, 'price_unit': 43.9674, 'sequence': 28, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,849 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,850 - INFO - Prepared product SPW423100 with quantity 14.0 for batch creation
+2025-11-27 09:49:47,850 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,852 - INFO - Processing Excel row 29: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 13, 'price_unit': 40.996184615384614, 'sequence': 29, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,852 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,853 - INFO - Prepared product SPW423100 with quantity 13.0 for batch creation
+2025-11-27 09:49:47,854 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,855 - INFO - Processing Excel row 30: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 17, 'price_unit': 41.067523529411766, 'sequence': 30, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,855 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,856 - INFO - Prepared product SPW423100 with quantity 17.0 for batch creation
+2025-11-27 09:49:47,856 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,857 - INFO - Processing Excel row 31: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 5, 'price_unit': 39.64984, 'sequence': 31, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,857 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,858 - INFO - Prepared product SPW423100 with quantity 5.0 for batch creation
+2025-11-27 09:49:47,858 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,859 - INFO - Processing Excel row 32: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 20, 'price_unit': 42.847095, 'sequence': 32, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,859 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,860 - INFO - Prepared product SPW423100 with quantity 20.0 for batch creation
+2025-11-27 09:49:47,860 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,861 - INFO - Processing Excel row 33: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW423100', 'product_uom_qty': 16, 'price_unit': 43.0630625, 'sequence': 33, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW423100'}
+2025-11-27 09:49:47,861 - INFO - Using cached product ID for code: 'SPW423100'
+2025-11-27 09:49:47,862 - INFO - Prepared product SPW423100 with quantity 16.0 for batch creation
+2025-11-27 09:49:47,862 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:47,863 - INFO - Processing Excel row 34: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPH002100', 'product_uom_qty': 1, 'price_unit': 116.5134, 'sequence': 34, 'date': Timestamp('2019-02-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPH002100'}
+2025-11-27 09:49:47,863 - INFO - Searching for product with code: 'SPH002100' and old code: 'SPH002100'
+2025-11-27 09:49:47,957 - INFO - Found product with exact match on default_code: 'SPH002100'
+2025-11-27 09:49:48,067 - INFO - Prepared product SPH002100 with quantity 1.0 for batch creation
+2025-11-27 09:49:48,068 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:48,069 - INFO - Processing Excel row 35: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 5, 'price_unit': 1219.92456, 'sequence': 35, 'date': Timestamp('2019-02-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:48,069 - INFO - Searching for product with code: 'MW041B101' and old code: 'MW041B101'
+2025-11-27 09:49:48,163 - INFO - Found product with exact match on default_code: 'MW041B101'
+2025-11-27 09:49:48,253 - INFO - Prepared product MW041B101 with quantity 5.0 for batch creation
+2025-11-27 09:49:48,254 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:48,254 - INFO - Processing Excel row 36: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 3, 'price_unit': 1620.8904666666667, 'sequence': 36, 'date': Timestamp('2019-02-25 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:48,255 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:48,255 - INFO - Prepared product MW041B101 with quantity 3.0 for batch creation
+2025-11-27 09:49:48,255 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:48,255 - INFO - Processing Excel row 37: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MAE223R110', 'product_uom_qty': 21, 'price_unit': 3041.8006095238097, 'sequence': 37, 'date': Timestamp('2019-03-23 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MAE223R110'}
+2025-11-27 09:49:48,256 - INFO - Searching for product with code: 'MAE223R110' and old code: 'MAE223R110'
+2025-11-27 09:49:48,351 - INFO - Found product with exact match on default_code: 'MAE223R110'
+2025-11-27 09:49:48,453 - INFO - Prepared product MAE223R110 with quantity 21.0 for batch creation
+2025-11-27 09:49:48,453 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:48,454 - INFO - Processing Excel row 38: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 30, 'price_unit': 6346.905376666667, 'sequence': 38, 'date': Timestamp('2019-04-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:48,454 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:48,455 - INFO - Prepared product MW041B101 with quantity 30.0 for batch creation
+2025-11-27 09:49:48,455 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:48,456 - INFO - Processing Excel row 39: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 9, 'price_unit': 3206.4718666666668, 'sequence': 39, 'date': Timestamp('2019-04-12 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:48,456 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:48,456 - INFO - Prepared product MW041B101 with quantity 9.0 for batch creation
+2025-11-27 09:49:48,457 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:48,457 - INFO - Processing Excel row 40: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0185101', 'product_uom_qty': 4, 'price_unit': 73.7201, 'sequence': 40, 'date': Timestamp('2019-05-27 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0185101'}
+2025-11-27 09:49:48,457 - INFO - Using cached product ID for code: 'MA0185101'
+2025-11-27 09:49:48,458 - INFO - Prepared product MA0185101 with quantity 4.0 for batch creation
+2025-11-27 09:49:48,458 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:48,459 - INFO - Processing Excel row 41: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT14TC101', 'product_uom_qty': 20, 'price_unit': 297.33945, 'sequence': 41, 'date': Timestamp('2019-05-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14TC101'}
+2025-11-27 09:49:48,459 - INFO - Using cached product ID for code: 'MT14TC101'
+2025-11-27 09:49:48,460 - INFO - Prepared product MT14TC101 with quantity 20.0 for batch creation
+2025-11-27 09:49:48,460 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:48,461 - INFO - Processing Excel row 42: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'AC0013100', 'product_uom_qty': 3, 'price_unit': 145.0, 'sequence': 42, 'date': Timestamp('2019-08-28 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'AC0013100'}
+2025-11-27 09:49:48,461 - INFO - Searching for product with code: 'AC0013100' and old code: 'AC0013100'
+2025-11-27 09:49:49,487 - INFO - Found product with exact match on default_code: 'AC0013100'
+2025-11-27 09:49:49,570 - INFO - Prepared product AC0013100 with quantity 3.0 for batch creation
+2025-11-27 09:49:49,571 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:49,571 - INFO - Processing Excel row 43: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 5, 'price_unit': 511.45097999999996, 'sequence': 43, 'date': Timestamp('2020-03-02 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:49,572 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:49,573 - INFO - Prepared product MW041B101 with quantity 5.0 for batch creation
+2025-11-27 09:49:49,573 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:49,574 - INFO - Processing Excel row 44: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 13, 'price_unit': 597.8139538461538, 'sequence': 44, 'date': Timestamp('2020-05-13 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:49,575 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:49,575 - INFO - Prepared product MW041B101 with quantity 13.0 for batch creation
+2025-11-27 09:49:49,576 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:49,577 - INFO - Processing Excel row 45: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MO511S101', 'product_uom_qty': 1, 'price_unit': 201.2878, 'sequence': 45, 'date': Timestamp('2020-12-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO511S101'}
+2025-11-27 09:49:49,577 - INFO - Searching for product with code: 'MO511S101' and old code: 'MO511S101'
+2025-11-27 09:49:49,661 - INFO - Found product with exact match on default_code: 'MO511S101'
+2025-11-27 09:49:49,752 - INFO - Prepared product MO511S101 with quantity 1.0 for batch creation
+2025-11-27 09:49:49,753 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:49,753 - INFO - Processing Excel row 46: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW141100', 'product_uom_qty': 5, 'price_unit': 105.86178, 'sequence': 46, 'date': Timestamp('2021-09-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW141100'}
+2025-11-27 09:49:49,754 - INFO - Searching for product with code: 'SPW141100' and old code: 'SPW141100'
+2025-11-27 09:49:49,833 - INFO - Found product with exact match on default_code: 'SPW141100'
+2025-11-27 09:49:49,928 - INFO - Prepared product SPW141100 with quantity 5.0 for batch creation
+2025-11-27 09:49:49,929 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:49,931 - INFO - Processing Excel row 47: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'ACS0002100', 'product_uom_qty': 1, 'price_unit': 118.5522, 'sequence': 47, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'ACS0002100'}
+2025-11-27 09:49:49,933 - INFO - Searching for product with code: 'ACS0002100' and old code: 'ACS0002100'
+2025-11-27 09:49:50,018 - INFO - Found product with exact match on default_code: 'ACS0002100'
+2025-11-27 09:49:50,461 - INFO - Prepared product ACS0002100 with quantity 1.0 for batch creation
+2025-11-27 09:49:50,462 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,464 - INFO - Processing Excel row 48: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0033101', 'product_uom_qty': 23, 'price_unit': 167.77971739130436, 'sequence': 48, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0033101'}
+2025-11-27 09:49:50,466 - INFO - Searching for product with code: 'MA0033101' and old code: 'MA0033101'
+2025-11-27 09:49:50,556 - INFO - Found product with exact match on default_code: 'MA0033101'
+2025-11-27 09:49:50,646 - INFO - Prepared product MA0033101 with quantity 23.0 for batch creation
+2025-11-27 09:49:50,647 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,649 - INFO - Processing Excel row 49: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0033101', 'product_uom_qty': 147, 'price_unit': 1124.545750340136, 'sequence': 49, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0033101'}
+2025-11-27 09:49:50,651 - INFO - Using cached product ID for code: 'MA0033101'
+2025-11-27 09:49:50,652 - INFO - Prepared product MA0033101 with quantity 147.0 for batch creation
+2025-11-27 09:49:50,653 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,655 - INFO - Processing Excel row 50: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0043101', 'product_uom_qty': 19, 'price_unit': 1059.2844, 'sequence': 50, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0043101'}
+2025-11-27 09:49:50,657 - INFO - Searching for product with code: 'MA0043101' and old code: 'MA0043101'
+2025-11-27 09:49:50,746 - INFO - Found product with exact match on default_code: 'MA0043101'
+2025-11-27 09:49:50,861 - INFO - Prepared product MA0043101 with quantity 19.0 for batch creation
+2025-11-27 09:49:50,862 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,864 - INFO - Processing Excel row 51: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0043101', 'product_uom_qty': 10, 'price_unit': 576.8986299999999, 'sequence': 51, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0043101'}
+2025-11-27 09:49:50,865 - INFO - Using cached product ID for code: 'MA0043101'
+2025-11-27 09:49:50,867 - INFO - Prepared product MA0043101 with quantity 10.0 for batch creation
+2025-11-27 09:49:50,868 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,870 - INFO - Processing Excel row 52: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0043101', 'product_uom_qty': 3, 'price_unit': 1223.5034333333333, 'sequence': 52, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0043101'}
+2025-11-27 09:49:50,871 - INFO - Using cached product ID for code: 'MA0043101'
+2025-11-27 09:49:50,872 - INFO - Prepared product MA0043101 with quantity 3.0 for batch creation
+2025-11-27 09:49:50,873 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,874 - INFO - Processing Excel row 53: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0054101', 'product_uom_qty': 54, 'price_unit': 1019.9481185185185, 'sequence': 53, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0054101'}
+2025-11-27 09:49:50,875 - INFO - Using cached product ID for code: 'MA0054101'
+2025-11-27 09:49:50,876 - INFO - Prepared product MA0054101 with quantity 54.0 for batch creation
+2025-11-27 09:49:50,877 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,878 - INFO - Processing Excel row 54: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0054101', 'product_uom_qty': 1, 'price_unit': 815.9552, 'sequence': 54, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0054101'}
+2025-11-27 09:49:50,878 - INFO - Using cached product ID for code: 'MA0054101'
+2025-11-27 09:49:50,879 - INFO - Prepared product MA0054101 with quantity 1.0 for batch creation
+2025-11-27 09:49:50,879 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,880 - INFO - Processing Excel row 55: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0054101', 'product_uom_qty': 49, 'price_unit': 826.0210816326531, 'sequence': 55, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0054101'}
+2025-11-27 09:49:50,881 - INFO - Using cached product ID for code: 'MA0054101'
+2025-11-27 09:49:50,881 - INFO - Prepared product MA0054101 with quantity 49.0 for batch creation
+2025-11-27 09:49:50,882 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:50,883 - INFO - Processing Excel row 56: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0091101', 'product_uom_qty': 43, 'price_unit': 800.8793488372092, 'sequence': 56, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0091101'}
+2025-11-27 09:49:50,883 - INFO - Searching for product with code: 'MA0091101' and old code: 'MA0091101'
+2025-11-27 09:49:50,968 - INFO - Found product with exact match on default_code: 'MA0091101'
+2025-11-27 09:49:51,072 - INFO - Prepared product MA0091101 with quantity 43.0 for batch creation
+2025-11-27 09:49:51,073 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:51,075 - INFO - Processing Excel row 57: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0113101', 'product_uom_qty': 4, 'price_unit': 1052.191525, 'sequence': 57, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0113101'}
+2025-11-27 09:49:51,076 - INFO - Searching for product with code: 'MA0113101' and old code: 'MA0113101'
+2025-11-27 09:49:51,166 - INFO - Found product with exact match on default_code: 'MA0113101'
+2025-11-27 09:49:51,263 - INFO - Prepared product MA0113101 with quantity 4.0 for batch creation
+2025-11-27 09:49:51,264 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:51,264 - INFO - Processing Excel row 58: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 176, 'price_unit': 903.7202215909091, 'sequence': 58, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 09:49:51,265 - INFO - Searching for product with code: 'MA0154101' and old code: 'MA0154101'
+2025-11-27 09:49:51,349 - INFO - Found product with exact match on default_code: 'MA0154101'
+2025-11-27 09:49:51,442 - INFO - Prepared product MA0154101 with quantity 176.0 for batch creation
+2025-11-27 09:49:51,444 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:51,445 - INFO - Processing Excel row 59: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0154101', 'product_uom_qty': 55, 'price_unit': 958.1091036363636, 'sequence': 59, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0154101'}
+2025-11-27 09:49:51,446 - INFO - Using cached product ID for code: 'MA0154101'
+2025-11-27 09:49:51,446 - INFO - Prepared product MA0154101 with quantity 55.0 for batch creation
+2025-11-27 09:49:51,447 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:51,447 - INFO - Processing Excel row 60: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0241101', 'product_uom_qty': 16, 'price_unit': 487.19851875, 'sequence': 60, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0241101'}
+2025-11-27 09:49:51,448 - INFO - Searching for product with code: 'MA0241101' and old code: 'MA0241101'
+2025-11-27 09:49:51,538 - INFO - Found product with exact match on default_code: 'MA0241101'
+2025-11-27 09:49:51,640 - INFO - Prepared product MA0241101 with quantity 16.0 for batch creation
+2025-11-27 09:49:51,641 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:51,643 - INFO - Processing Excel row 61: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA172P101', 'product_uom_qty': 76, 'price_unit': 592.6571144736841, 'sequence': 61, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA172P101'}
+2025-11-27 09:49:51,644 - INFO - Using cached product ID for code: 'MA172P101'
+2025-11-27 09:49:51,650 - INFO - Prepared product MA172P101 with quantity 76.0 for batch creation
+2025-11-27 09:49:51,650 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:51,651 - INFO - Processing Excel row 62: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA172P101', 'product_uom_qty': 1, 'price_unit': 504.6094, 'sequence': 62, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA172P101'}
+2025-11-27 09:49:51,651 - INFO - Using cached product ID for code: 'MA172P101'
+2025-11-27 09:49:51,652 - INFO - Prepared product MA172P101 with quantity 1.0 for batch creation
+2025-11-27 09:49:51,652 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:51,653 - INFO - Processing Excel row 63: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MO002S101', 'product_uom_qty': 1, 'price_unit': 621.775, 'sequence': 63, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO002S101'}
+2025-11-27 09:49:51,653 - INFO - Searching for product with code: 'MO002S101' and old code: 'MO002S101'
+2025-11-27 09:49:51,734 - INFO - Found product with exact match on default_code: 'MO002S101'
+2025-11-27 09:49:51,829 - INFO - Prepared product MO002S101 with quantity 1.0 for batch creation
+2025-11-27 09:49:51,831 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:51,833 - INFO - Processing Excel row 64: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MSP016300', 'product_uom_qty': 1, 'price_unit': 2707.8545, 'sequence': 64, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MSP016300'}
+2025-11-27 09:49:51,834 - INFO - Searching for product with code: 'MSP016300' and old code: 'MSP016300'
+2025-11-27 09:49:51,922 - INFO - Found product with exact match on default_code: 'MSP016300'
+2025-11-27 09:49:52,024 - INFO - Prepared product MSP016300 with quantity 1.0 for batch creation
+2025-11-27 09:49:52,026 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:52,028 - INFO - Processing Excel row 65: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT008TCF100', 'product_uom_qty': 24, 'price_unit': 273.53683333333333, 'sequence': 65, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT008TCF100'}
+2025-11-27 09:49:52,029 - INFO - Searching for product with code: 'MT008TCF100' and old code: 'MT008TCF100'
+2025-11-27 09:49:52,113 - INFO - Found product with exact match on default_code: 'MT008TCF100'
+2025-11-27 09:49:52,201 - INFO - Prepared product MT008TCF100 with quantity 24.0 for batch creation
+2025-11-27 09:49:52,203 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:52,205 - INFO - Processing Excel row 66: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT010B+101', 'product_uom_qty': 4, 'price_unit': 1427.2401, 'sequence': 66, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT010B+101'}
+2025-11-27 09:49:52,206 - INFO - Searching for product with code: 'MT010B+101' and old code: 'MT010B+101'
+2025-11-27 09:49:52,295 - INFO - Found product with exact match on default_code: 'MT010B+101'
+2025-11-27 09:49:52,399 - INFO - Prepared product MT010B+101 with quantity 4.0 for batch creation
+2025-11-27 09:49:52,400 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:52,402 - INFO - Processing Excel row 67: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT010B+101', 'product_uom_qty': 6, 'price_unit': 1520.69675, 'sequence': 67, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT010B+101'}
+2025-11-27 09:49:52,403 - INFO - Using cached product ID for code: 'MT010B+101'
+2025-11-27 09:49:52,405 - INFO - Prepared product MT010B+101 with quantity 6.0 for batch creation
+2025-11-27 09:49:52,406 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:52,408 - INFO - Processing Excel row 68: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT019BS01', 'product_uom_qty': 1, 'price_unit': 656.6411, 'sequence': 68, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT019BS01'}
+2025-11-27 09:49:52,409 - INFO - Searching for product with code: 'MT019BS01' and old code: 'MT019BS01'
+2025-11-27 09:49:52,716 - INFO - Found product 'MT19/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง' with code '3MT019BS01' using ilike search for 'MT019BS01'
+2025-11-27 09:49:52,815 - INFO - Prepared product MT019BS01 with quantity 1.0 for batch creation
+2025-11-27 09:49:52,816 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:52,818 - INFO - Processing Excel row 69: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT037TC101', 'product_uom_qty': 1, 'price_unit': 348.3746, 'sequence': 69, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT037TC101'}
+2025-11-27 09:49:52,819 - INFO - Searching for product with code: 'MT037TC101' and old code: 'MT037TC101'
+2025-11-27 09:49:52,909 - INFO - Found product with exact match on default_code: 'MT037TC101'
+2025-11-27 09:49:53,002 - INFO - Prepared product MT037TC101 with quantity 1.0 for batch creation
+2025-11-27 09:49:53,003 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:53,005 - INFO - Processing Excel row 70: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT037TC101', 'product_uom_qty': 1, 'price_unit': 280.687, 'sequence': 70, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT037TC101'}
+2025-11-27 09:49:53,006 - INFO - Using cached product ID for code: 'MT037TC101'
+2025-11-27 09:49:53,008 - INFO - Prepared product MT037TC101 with quantity 1.0 for batch creation
+2025-11-27 09:49:53,010 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:53,012 - INFO - Processing Excel row 71: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT14HTCF100', 'product_uom_qty': 20, 'price_unit': 8985.625035000001, 'sequence': 71, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14HTCF100'}
+2025-11-27 09:49:53,014 - INFO - Searching for product with code: 'MT14HTCF100' and old code: 'MT14HTCF100'
+2025-11-27 09:49:53,098 - INFO - Found product with exact match on default_code: 'MT14HTCF100'
+2025-11-27 09:49:53,202 - INFO - Prepared product MT14HTCF100 with quantity 20.0 for batch creation
+2025-11-27 09:49:53,203 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:53,205 - INFO - Processing Excel row 72: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT14TC101', 'product_uom_qty': 275, 'price_unit': 460.41182472727274, 'sequence': 72, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT14TC101'}
+2025-11-27 09:49:53,206 - INFO - Using cached product ID for code: 'MT14TC101'
+2025-11-27 09:49:53,209 - INFO - Prepared product MT14TC101 with quantity 275.0 for batch creation
+2025-11-27 09:49:53,210 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:53,212 - INFO - Processing Excel row 73: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT16TC101', 'product_uom_qty': 27, 'price_unit': 490.90106296296295, 'sequence': 73, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT16TC101'}
+2025-11-27 09:49:53,213 - INFO - Searching for product with code: 'MT16TC101' and old code: 'MT16TC101'
+2025-11-27 09:49:53,295 - INFO - Found product with exact match on default_code: 'MT16TC101'
+2025-11-27 09:49:53,389 - INFO - Prepared product MT16TC101 with quantity 27.0 for batch creation
+2025-11-27 09:49:53,390 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:53,392 - INFO - Processing Excel row 74: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT19ETCF100', 'product_uom_qty': 1, 'price_unit': 707.4023, 'sequence': 74, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT19ETCF100'}
+2025-11-27 09:49:53,393 - INFO - Searching for product with code: 'MT19ETCF100' and old code: 'MT19ETCF100'
+2025-11-27 09:49:53,482 - INFO - Found product with exact match on default_code: 'MT19ETCF100'
+2025-11-27 09:49:53,584 - INFO - Prepared product MT19ETCF100 with quantity 1.0 for batch creation
+2025-11-27 09:49:53,584 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:53,584 - INFO - Processing Excel row 75: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT21HB101', 'product_uom_qty': 5, 'price_unit': 988.4718999999999, 'sequence': 75, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT21HB101'}
+2025-11-27 09:49:53,585 - INFO - Searching for product with code: 'MT21HB101' and old code: 'MT21HB101'
+2025-11-27 09:49:53,677 - INFO - Found product with exact match on default_code: 'MT21HB101'
+2025-11-27 09:49:53,770 - INFO - Prepared product MT21HB101 with quantity 5.0 for batch creation
+2025-11-27 09:49:53,771 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:53,773 - INFO - Processing Excel row 76: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT30TCF100', 'product_uom_qty': 34, 'price_unit': 459.39175, 'sequence': 76, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT30TCF100'}
+2025-11-27 09:49:53,774 - INFO - Searching for product with code: 'MT30TCF100' and old code: 'MT30TCF100'
+2025-11-27 09:49:53,857 - INFO - Found product with exact match on default_code: 'MT30TCF100'
+2025-11-27 09:49:53,960 - INFO - Prepared product MT30TCF100 with quantity 34.0 for batch creation
+2025-11-27 09:49:53,962 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:53,963 - INFO - Processing Excel row 77: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT33TC101', 'product_uom_qty': 9, 'price_unit': 483.0039777777777, 'sequence': 77, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT33TC101'}
+2025-11-27 09:49:53,965 - INFO - Searching for product with code: 'MT33TC101' and old code: 'MT33TC101'
+2025-11-27 09:49:54,049 - INFO - Found product with exact match on default_code: 'MT33TC101'
+2025-11-27 09:49:54,136 - INFO - Prepared product MT33TC101 with quantity 9.0 for batch creation
+2025-11-27 09:49:54,140 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,141 - INFO - Processing Excel row 78: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT33TCF100', 'product_uom_qty': 100, 'price_unit': 689.0167999999999, 'sequence': 78, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT33TCF100'}
+2025-11-27 09:49:54,141 - INFO - Searching for product with code: 'MT33TCF100' and old code: 'MT33TCF100'
+2025-11-27 09:49:54,221 - INFO - Found product with exact match on default_code: 'MT33TCF100'
+2025-11-27 09:49:54,309 - INFO - Prepared product MT33TCF100 with quantity 100.0 for batch creation
+2025-11-27 09:49:54,310 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,312 - INFO - Processing Excel row 79: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT3456BS101', 'product_uom_qty': 1, 'price_unit': 944.02, 'sequence': 79, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT3456BS101'}
+2025-11-27 09:49:54,313 - INFO - Using cached product ID for code: 'MT3456BS101'
+2025-11-27 09:49:54,315 - INFO - Prepared product MT3456BS101 with quantity 1.0 for batch creation
+2025-11-27 09:49:54,316 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,318 - INFO - Processing Excel row 80: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 54, 'price_unit': 908.1932, 'sequence': 80, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:54,319 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:54,321 - INFO - Prepared product MW011B101 with quantity 54.0 for batch creation
+2025-11-27 09:49:54,322 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,324 - INFO - Processing Excel row 81: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 2, 'price_unit': 166.1288, 'sequence': 81, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:54,326 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:54,327 - INFO - Prepared product MW011B101 with quantity 2.0 for batch creation
+2025-11-27 09:49:54,328 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,329 - INFO - Processing Excel row 82: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 51, 'price_unit': 1210.1518, 'sequence': 82, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:54,330 - INFO - Using cached product ID for code: 'MW031B101'
+2025-11-27 09:49:54,331 - INFO - Prepared product MW031B101 with quantity 51.0 for batch creation
+2025-11-27 09:49:54,332 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,333 - INFO - Processing Excel row 83: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 14, 'price_unit': 1702.5742357142858, 'sequence': 83, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:54,334 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:54,335 - INFO - Prepared product MW041B101 with quantity 14.0 for batch creation
+2025-11-27 09:49:54,335 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,336 - INFO - Processing Excel row 84: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 4, 'price_unit': 1103.795075, 'sequence': 84, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:54,337 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:54,338 - INFO - Prepared product MW041B101 with quantity 4.0 for batch creation
+2025-11-27 09:49:54,338 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,339 - INFO - Processing Excel row 85: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SP0024100', 'product_uom_qty': 1, 'price_unit': 101.2818, 'sequence': 85, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SP0024100'}
+2025-11-27 09:49:54,340 - INFO - Searching for product with code: 'SP0024100' and old code: 'SP0024100'
+2025-11-27 09:49:54,428 - INFO - Found product with exact match on default_code: 'SP0024100'
+2025-11-27 09:49:54,521 - INFO - Prepared product SP0024100 with quantity 1.0 for batch creation
+2025-11-27 09:49:54,522 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,524 - INFO - Processing Excel row 86: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MO28B+F101', 'product_uom_qty': 3, 'price_unit': 3193.8627666666666, 'sequence': 86, 'date': Timestamp('2022-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO28B+F101'}
+2025-11-27 09:49:54,526 - INFO - Searching for product with code: 'MO28B+F101' and old code: 'MO28B+F101'
+2025-11-27 09:49:54,613 - INFO - Found product with exact match on default_code: 'MO28B+F101'
+2025-11-27 09:49:54,714 - INFO - Prepared product MO28B+F101 with quantity 3.0 for batch creation
+2025-11-27 09:49:54,715 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,718 - INFO - Processing Excel row 87: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 1, 'price_unit': 1268.8914, 'sequence': 87, 'date': Timestamp('2024-01-16 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:54,719 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:54,721 - INFO - Prepared product MW041B101 with quantity 1.0 for batch creation
+2025-11-27 09:49:54,721 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,724 - INFO - Processing Excel row 88: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT0033101', 'product_uom_qty': 1, 'price_unit': 2458.115, 'sequence': 88, 'date': Timestamp('2024-01-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT0033101'}
+2025-11-27 09:49:54,724 - INFO - Searching for product with code: 'MT0033101' and old code: 'MT0033101'
+2025-11-27 09:49:54,806 - INFO - Found product with exact match on default_code: 'MT0033101'
+2025-11-27 09:49:54,908 - INFO - Prepared product MT0033101 with quantity 1.0 for batch creation
+2025-11-27 09:49:54,910 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:54,912 - INFO - Processing Excel row 89: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0024101', 'product_uom_qty': 786, 'price_unit': 1146.1146910941477, 'sequence': 89, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0024101'}
+2025-11-27 09:49:54,913 - INFO - Searching for product with code: 'MA0024101' and old code: 'MA0024101'
+2025-11-27 09:49:55,009 - INFO - Found product with exact match on default_code: 'MA0024101'
+2025-11-27 09:49:55,105 - INFO - Prepared product MA0024101 with quantity 786.0 for batch creation
+2025-11-27 09:49:55,106 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:55,108 - INFO - Processing Excel row 90: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0153101', 'product_uom_qty': 100, 'price_unit': 458.27928999999995, 'sequence': 90, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0153101'}
+2025-11-27 09:49:55,109 - INFO - Searching for product with code: 'MA0153101' and old code: 'MA0153101'
+2025-11-27 09:49:55,214 - INFO - Found product with exact match on default_code: 'MA0153101'
+2025-11-27 09:49:55,317 - INFO - Prepared product MA0153101 with quantity 100.0 for batch creation
+2025-11-27 09:49:55,318 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:55,320 - INFO - Processing Excel row 91: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA035B101', 'product_uom_qty': 30, 'price_unit': 589.21623, 'sequence': 91, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA035B101'}
+2025-11-27 09:49:55,321 - INFO - Searching for product with code: 'MA035B101' and old code: 'MA035B101'
+2025-11-27 09:49:55,408 - INFO - Found product with exact match on default_code: 'MA035B101'
+2025-11-27 09:49:55,511 - INFO - Prepared product MA035B101 with quantity 30.0 for batch creation
+2025-11-27 09:49:55,512 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:55,512 - INFO - Processing Excel row 92: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA048P101', 'product_uom_qty': 31, 'price_unit': 886.9921741935483, 'sequence': 92, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA048P101'}
+2025-11-27 09:49:55,513 - INFO - Searching for product with code: 'MA048P101' and old code: 'MA048P101'
+2025-11-27 09:49:55,609 - INFO - Found product with exact match on default_code: 'MA048P101'
+2025-11-27 09:49:55,704 - INFO - Prepared product MA048P101 with quantity 31.0 for batch creation
+2025-11-27 09:49:55,705 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:55,707 - INFO - Processing Excel row 93: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA101L101', 'product_uom_qty': 27, 'price_unit': 727.4274444444445, 'sequence': 93, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA101L101'}
+2025-11-27 09:49:55,709 - INFO - Searching for product with code: 'MA101L101' and old code: 'MA101L101'
+2025-11-27 09:49:55,791 - INFO - Found product with exact match on default_code: 'MA101L101'
+2025-11-27 09:49:55,882 - INFO - Prepared product MA101L101 with quantity 27.0 for batch creation
+2025-11-27 09:49:55,883 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:55,885 - INFO - Processing Excel row 94: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA142B101', 'product_uom_qty': 195, 'price_unit': 184.52867384615382, 'sequence': 94, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA142B101'}
+2025-11-27 09:49:55,886 - INFO - Searching for product with code: 'MA142B101' and old code: 'MA142B101'
+2025-11-27 09:49:55,976 - INFO - Found product with exact match on default_code: 'MA142B101'
+2025-11-27 09:49:56,076 - INFO - Prepared product MA142B101 with quantity 195.0 for batch creation
+2025-11-27 09:49:56,077 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:56,079 - INFO - Processing Excel row 95: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA154A101', 'product_uom_qty': 168, 'price_unit': 779.3865476190476, 'sequence': 95, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA154A101'}
+2025-11-27 09:49:56,079 - INFO - Searching for product with code: 'MA154A101' and old code: 'MA154A101'
+2025-11-27 09:49:56,169 - INFO - Found product with exact match on default_code: 'MA154A101'
+2025-11-27 09:49:56,259 - INFO - Prepared product MA154A101 with quantity 168.0 for batch creation
+2025-11-27 09:49:56,260 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:56,261 - INFO - Processing Excel row 96: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MAE003101', 'product_uom_qty': 28, 'price_unit': 2899.279285714286, 'sequence': 96, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MAE003101'}
+2025-11-27 09:49:56,262 - INFO - Searching for product with code: 'MAE003101' and old code: 'MAE003101'
+2025-11-27 09:49:56,349 - INFO - Found product with exact match on default_code: 'MAE003101'
+2025-11-27 09:49:56,436 - INFO - Prepared product MAE003101 with quantity 28.0 for batch creation
+2025-11-27 09:49:56,437 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:56,439 - INFO - Processing Excel row 97: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MO045E1510', 'product_uom_qty': 1, 'price_unit': 19989.9698, 'sequence': 97, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MO045E1510'}
+2025-11-27 09:49:56,440 - INFO - Searching for product with code: 'MO045E1510' and old code: 'MO045E1510'
+2025-11-27 09:49:56,524 - INFO - Found product with exact match on default_code: 'MO045E1510'
+2025-11-27 09:49:56,617 - INFO - Prepared product MO045E1510 with quantity 1.0 for batch creation
+2025-11-27 09:49:56,619 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:56,621 - INFO - Processing Excel row 98: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT10BS101', 'product_uom_qty': 20, 'price_unit': 2518.73265, 'sequence': 98, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT10BS101'}
+2025-11-27 09:49:56,622 - INFO - Searching for product with code: 'MT10BS101' and old code: 'MT10BS101'
+2025-11-27 09:49:56,930 - INFO - Found product 'MT10/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง' with code '3MT10BS101' using ilike search for 'MT10BS101'
+2025-11-27 09:49:57,034 - INFO - Prepared product MT10BS101 with quantity 20.0 for batch creation
+2025-11-27 09:49:57,036 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:57,037 - INFO - Processing Excel row 99: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT22BS101', 'product_uom_qty': 1, 'price_unit': 821.7195, 'sequence': 99, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT22BS101'}
+2025-11-27 09:49:57,038 - INFO - Searching for product with code: 'MT22BS101' and old code: 'MT22BS101'
+2025-11-27 09:49:57,313 - INFO - Found product 'MT22/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง' with code '3MT22BS101' using ilike search for 'MT22BS101'
+2025-11-27 09:49:57,415 - INFO - Prepared product MT22BS101 with quantity 1.0 for batch creation
+2025-11-27 09:49:57,416 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:57,418 - INFO - Processing Excel row 100: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 58, 'price_unit': 912.24, 'sequence': 100, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:57,419 - INFO - Searching for product with code: 'MW021B101' and old code: 'MW021B101'
+2025-11-27 09:49:57,498 - INFO - Found product with exact match on default_code: 'MW021B101'
+2025-11-27 09:49:57,585 - INFO - Prepared product MW021B101 with quantity 58.0 for batch creation
+2025-11-27 09:49:57,586 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:57,588 - INFO - Processing Excel row 101: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MWH03B101', 'product_uom_qty': 2, 'price_unit': 1102.29, 'sequence': 101, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MWH03B101'}
+2025-11-27 09:49:57,589 - INFO - Searching for product with code: 'MWH03B101' and old code: 'MWH03B101'
+2025-11-27 09:49:57,676 - INFO - Found product with exact match on default_code: 'MWH03B101'
+2025-11-27 09:49:57,771 - INFO - Prepared product MWH03B101 with quantity 2.0 for batch creation
+2025-11-27 09:49:57,773 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:57,775 - INFO - Processing Excel row 102: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'SPW383100', 'product_uom_qty': 461, 'price_unit': 28.130526247288504, 'sequence': 102, 'date': Timestamp('2024-05-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'SPW383100'}
+2025-11-27 09:49:57,776 - INFO - Searching for product with code: 'SPW383100' and old code: 'SPW383100'
+2025-11-27 09:49:57,861 - INFO - Found product with exact match on default_code: 'SPW383100'
+2025-11-27 09:49:57,958 - INFO - Prepared product SPW383100 with quantity 461.0 for batch creation
+2025-11-27 09:49:57,960 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:57,961 - INFO - Processing Excel row 103: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT21NTC101', 'product_uom_qty': 19, 'price_unit': 393.9621473684211, 'sequence': 103, 'date': Timestamp('2024-07-31 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT21NTC101'}
+2025-11-27 09:49:57,963 - INFO - Searching for product with code: 'MT21NTC101' and old code: 'MT21NTC101'
+2025-11-27 09:49:58,054 - INFO - Found product with exact match on default_code: 'MT21NTC101'
+2025-11-27 09:49:58,143 - INFO - Prepared product MT21NTC101 with quantity 19.0 for batch creation
+2025-11-27 09:49:58,145 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,147 - INFO - Processing Excel row 104: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 34, 'price_unit': 1346.0022176470588, 'sequence': 104, 'date': Timestamp('2025-02-08 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:58,148 - INFO - Using cached product ID for code: 'MW031B101'
+2025-11-27 09:49:58,149 - INFO - Prepared product MW031B101 with quantity 34.0 for batch creation
+2025-11-27 09:49:58,150 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,152 - INFO - Processing Excel row 105: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 50, 'price_unit': 1342.791016, 'sequence': 105, 'date': Timestamp('2025-02-08 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:58,154 - INFO - Using cached product ID for code: 'MW031B101'
+2025-11-27 09:49:58,155 - INFO - Prepared product MW031B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,156 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,157 - INFO - Processing Excel row 106: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 50, 'price_unit': 1342.791016, 'sequence': 106, 'date': Timestamp('2025-02-08 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:58,158 - INFO - Using cached product ID for code: 'MW031B101'
+2025-11-27 09:49:58,159 - INFO - Prepared product MW031B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,159 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,160 - INFO - Processing Excel row 107: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 50, 'price_unit': 487.26446000000004, 'sequence': 107, 'date': Timestamp('2025-02-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,161 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,162 - INFO - Prepared product MW021B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,162 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,163 - INFO - Processing Excel row 108: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 50, 'price_unit': 487.26446000000004, 'sequence': 108, 'date': Timestamp('2025-02-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,164 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,164 - INFO - Prepared product MW021B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,165 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,166 - INFO - Processing Excel row 109: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 50, 'price_unit': 487.26446000000004, 'sequence': 109, 'date': Timestamp('2025-02-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,166 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,167 - INFO - Prepared product MW021B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,167 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,168 - INFO - Processing Excel row 110: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 50, 'price_unit': 489.86396, 'sequence': 110, 'date': Timestamp('2025-02-11 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,168 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,169 - INFO - Prepared product MW021B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,169 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,170 - INFO - Processing Excel row 111: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 50, 'price_unit': 482.065458, 'sequence': 111, 'date': Timestamp('2025-02-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,171 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,171 - INFO - Prepared product MW021B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,171 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,172 - INFO - Processing Excel row 112: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 50, 'price_unit': 482.06546000000003, 'sequence': 112, 'date': Timestamp('2025-02-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,172 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,173 - INFO - Prepared product MW021B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,173 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,174 - INFO - Processing Excel row 113: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 50, 'price_unit': 482.06546000000003, 'sequence': 113, 'date': Timestamp('2025-02-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,174 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,174 - INFO - Prepared product MW021B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,175 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,175 - INFO - Processing Excel row 114: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 51, 'price_unit': 481.26041568627454, 'sequence': 114, 'date': Timestamp('2025-02-15 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,176 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,176 - INFO - Prepared product MW021B101 with quantity 51.0 for batch creation
+2025-11-27 09:49:58,176 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,177 - INFO - Processing Excel row 115: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 406.833198, 'sequence': 115, 'date': Timestamp('2025-02-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,177 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,177 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,178 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,178 - INFO - Processing Excel row 116: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 722.0921739999999, 'sequence': 116, 'date': Timestamp('2025-02-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,179 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,179 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,179 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,180 - INFO - Processing Excel row 117: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 700.648992, 'sequence': 117, 'date': Timestamp('2025-02-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,180 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,180 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,181 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,181 - INFO - Processing Excel row 118: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 381.125584, 'sequence': 118, 'date': Timestamp('2025-02-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,182 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,182 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,182 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,183 - INFO - Processing Excel row 119: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 381.125584, 'sequence': 119, 'date': Timestamp('2025-02-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,183 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,183 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,184 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,184 - INFO - Processing Excel row 120: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 381.125584, 'sequence': 120, 'date': Timestamp('2025-02-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,185 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,185 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,185 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,186 - INFO - Processing Excel row 121: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 381.125584, 'sequence': 121, 'date': Timestamp('2025-02-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,186 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,186 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,187 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,187 - INFO - Processing Excel row 122: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 381.12558599999994, 'sequence': 122, 'date': Timestamp('2025-02-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,187 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,188 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,188 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,188 - INFO - Processing Excel row 123: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 381.12558599999994, 'sequence': 123, 'date': Timestamp('2025-02-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,189 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,189 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,189 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,190 - INFO - Processing Excel row 124: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 366.14057, 'sequence': 124, 'date': Timestamp('2025-02-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,190 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,190 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,191 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,191 - INFO - Processing Excel row 125: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 371.821658, 'sequence': 125, 'date': Timestamp('2025-02-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,191 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,192 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,192 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,192 - INFO - Processing Excel row 126: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 375.926584, 'sequence': 126, 'date': Timestamp('2025-02-22 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,193 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,193 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,193 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,194 - INFO - Processing Excel row 127: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 363.320152, 'sequence': 127, 'date': Timestamp('2025-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,194 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,194 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,195 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,195 - INFO - Processing Excel row 128: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 373.516186, 'sequence': 128, 'date': Timestamp('2025-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,195 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,196 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,196 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,196 - INFO - Processing Excel row 129: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 50, 'price_unit': 378.955542, 'sequence': 129, 'date': Timestamp('2025-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,197 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,197 - INFO - Prepared product MW011B101 with quantity 50.0 for batch creation
+2025-11-27 09:49:58,197 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,198 - INFO - Processing Excel row 130: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW011B101', 'product_uom_qty': 35, 'price_unit': 439.0468971428572, 'sequence': 130, 'date': Timestamp('2025-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW011B101'}
+2025-11-27 09:49:58,198 - INFO - Using cached product ID for code: 'MW011B101'
+2025-11-27 09:49:58,199 - INFO - Prepared product MW011B101 with quantity 35.0 for batch creation
+2025-11-27 09:49:58,199 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,199 - INFO - Processing Excel row 131: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MWH02B101', 'product_uom_qty': 3, 'price_unit': 1543.5129, 'sequence': 131, 'date': Timestamp('2025-02-28 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MWH02B101'}
+2025-11-27 09:49:58,200 - INFO - Searching for product with code: 'MWH02B101' and old code: 'MWH02B101'
+2025-11-27 09:49:58,281 - INFO - Found product with exact match on default_code: 'MWH02B101'
+2025-11-27 09:49:58,367 - INFO - Prepared product MWH02B101 with quantity 3.0 for batch creation
+2025-11-27 09:49:58,369 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,371 - INFO - Processing Excel row 132: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT20BS101', 'product_uom_qty': 5, 'price_unit': 1016.5563399999999, 'sequence': 132, 'date': Timestamp('2025-03-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT20BS101'}
+2025-11-27 09:49:58,372 - INFO - Searching for product with code: 'MT20BS101' and old code: 'MT20BS101'
+2025-11-27 09:49:58,637 - INFO - Found product 'MT20/B+S โถสุขภัณฑ์และฝารองนั่งพร้อมอุปกรณ์ติดตั้ง' with code '3MT20BS101' using ilike search for 'MT20BS101'
+2025-11-27 09:49:58,733 - INFO - Prepared product MT20BS101 with quantity 5.0 for batch creation
+2025-11-27 09:49:58,734 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,735 - INFO - Processing Excel row 133: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MT20BS101.', 'product_uom_qty': 1, 'price_unit': 806.5921, 'sequence': 133, 'date': Timestamp('2025-03-17 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MT20BS101.'}
+2025-11-27 09:49:58,735 - INFO - Searching for product with code: 'MT20BS101.' and old code: 'MT20BS101.'
+2025-11-27 09:49:58,827 - INFO - Found product with exact match on default_code: 'MT20BS101.'
+2025-11-27 09:49:58,923 - INFO - Prepared product MT20BS101. with quantity 1.0 for batch creation
+2025-11-27 09:49:58,924 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,924 - INFO - Processing Excel row 134: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW041B101', 'product_uom_qty': 30, 'price_unit': 1149.6052433333332, 'sequence': 134, 'date': Timestamp('2025-03-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW041B101'}
+2025-11-27 09:49:58,924 - INFO - Using cached product ID for code: 'MW041B101'
+2025-11-27 09:49:58,925 - INFO - Prepared product MW041B101 with quantity 30.0 for batch creation
+2025-11-27 09:49:58,925 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,925 - INFO - Processing Excel row 135: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW021B101', 'product_uom_qty': 6, 'price_unit': 1554.2552166666667, 'sequence': 135, 'date': Timestamp('2025-04-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW021B101'}
+2025-11-27 09:49:58,926 - INFO - Using cached product ID for code: 'MW021B101'
+2025-11-27 09:49:58,926 - INFO - Prepared product MW021B101 with quantity 6.0 for batch creation
+2025-11-27 09:49:58,926 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:58,927 - INFO - Processing Excel row 136: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MUS008B100', 'product_uom_qty': 6, 'price_unit': 984.20615, 'sequence': 136, 'date': Timestamp('2025-06-03 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MUS008B100'}
+2025-11-27 09:49:58,927 - INFO - Searching for product with code: 'MUS008B100' and old code: 'MUS008B100'
+2025-11-27 09:49:59,022 - INFO - Found product with exact match on default_code: 'MUS008B100'
+2025-11-27 09:49:59,112 - INFO - Prepared product MUS008B100 with quantity 6.0 for batch creation
+2025-11-27 09:49:59,113 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,113 - INFO - Processing Excel row 137: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW002BS101', 'product_uom_qty': 3, 'price_unit': 891.1879666666667, 'sequence': 137, 'date': Timestamp('2025-06-20 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW002BS101'}
+2025-11-27 09:49:59,114 - INFO - Searching for product with code: 'MW002BS101' and old code: 'MW002BS101'
+2025-11-27 09:49:59,195 - INFO - Found product with exact match on default_code: 'MW002BS101'
+2025-11-27 09:49:59,281 - INFO - Prepared product MW002BS101 with quantity 3.0 for batch creation
+2025-11-27 09:49:59,282 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,283 - INFO - Processing Excel row 138: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW002BS101', 'product_uom_qty': 29, 'price_unit': 681.9716724137932, 'sequence': 138, 'date': Timestamp('2025-06-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW002BS101'}
+2025-11-27 09:49:59,284 - INFO - Using cached product ID for code: 'MW002BS101'
+2025-11-27 09:49:59,285 - INFO - Prepared product MW002BS101 with quantity 29.0 for batch creation
+2025-11-27 09:49:59,286 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,287 - INFO - Processing Excel row 139: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW003B+101', 'product_uom_qty': 4, 'price_unit': 1670.9536, 'sequence': 139, 'date': Timestamp('2025-06-30 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW003B+101'}
+2025-11-27 09:49:59,287 - INFO - Searching for product with code: 'MW003B+101' and old code: 'MW003B+101'
+2025-11-27 09:49:59,373 - INFO - Found product with exact match on default_code: 'MW003B+101'
+2025-11-27 09:49:59,466 - INFO - Prepared product MW003B+101 with quantity 4.0 for batch creation
+2025-11-27 09:49:59,467 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,467 - INFO - Processing Excel row 140: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MA0185101', 'product_uom_qty': 1, 'price_unit': 288.1474, 'sequence': 140, 'date': Timestamp('2025-07-18 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MA0185101'}
+2025-11-27 09:49:59,468 - INFO - Using cached product ID for code: 'MA0185101'
+2025-11-27 09:49:59,469 - INFO - Prepared product MA0185101 with quantity 1.0 for batch creation
+2025-11-27 09:49:59,469 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,470 - INFO - Processing Excel row 141: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW002BS101', 'product_uom_qty': 16, 'price_unit': 636.4169125, 'sequence': 141, 'date': Timestamp('2025-07-29 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW002BS101'}
+2025-11-27 09:49:59,470 - INFO - Using cached product ID for code: 'MW002BS101'
+2025-11-27 09:49:59,471 - INFO - Prepared product MW002BS101 with quantity 16.0 for batch creation
+2025-11-27 09:49:59,471 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,472 - INFO - Processing Excel row 142: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 23, 'price_unit': 1308.3659913043477, 'sequence': 142, 'date': Timestamp('2025-08-06 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:59,473 - INFO - Using cached product ID for code: 'MW031B101'
+2025-11-27 09:49:59,474 - INFO - Prepared product MW031B101 with quantity 23.0 for batch creation
+2025-11-27 09:49:59,474 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,475 - INFO - Processing Excel row 143: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW002BS101', 'product_uom_qty': 28, 'price_unit': 614.8746142857143, 'sequence': 143, 'date': Timestamp('2025-08-21 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW002BS101'}
+2025-11-27 09:49:59,476 - INFO - Using cached product ID for code: 'MW002BS101'
+2025-11-27 09:49:59,477 - INFO - Prepared product MW002BS101 with quantity 28.0 for batch creation
+2025-11-27 09:49:59,478 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,479 - INFO - Processing Excel row 144: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 21, 'price_unit': 1268.9916476190476, 'sequence': 144, 'date': Timestamp('2025-08-28 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:59,479 - INFO - Using cached product ID for code: 'MW031B101'
+2025-11-27 09:49:59,480 - INFO - Prepared product MW031B101 with quantity 21.0 for batch creation
+2025-11-27 09:49:59,481 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,482 - INFO - Processing Excel row 145: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW002BS101', 'product_uom_qty': 23, 'price_unit': 635.9514608695652, 'sequence': 145, 'date': Timestamp('2025-09-10 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW002BS101'}
+2025-11-27 09:49:59,482 - INFO - Using cached product ID for code: 'MW002BS101'
+2025-11-27 09:49:59,483 - INFO - Prepared product MW002BS101 with quantity 23.0 for batch creation
+2025-11-27 09:49:59,483 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,484 - INFO - Processing Excel row 146: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW002BS101', 'product_uom_qty': 18, 'price_unit': 607.3340444444444, 'sequence': 146, 'date': Timestamp('2025-09-10 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW002BS101'}
+2025-11-27 09:49:59,485 - INFO - Using cached product ID for code: 'MW002BS101'
+2025-11-27 09:49:59,486 - INFO - Prepared product MW002BS101 with quantity 18.0 for batch creation
+2025-11-27 09:49:59,486 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:49:59,487 - INFO - Processing Excel row 147: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-11-30 00:00:00'), 'picking_type_id': 'DS01-OB', 'date_done': Timestamp('2025-11-30 00:00:00'), 'origin': 'คลังDead Stock', 'location_dest_id': 'DS01/Stock', 'default_code': 'MW031B101', 'product_uom_qty': 3, 'price_unit': 1866.4777000000001, 'sequence': 147, 'date': Timestamp('2025-11-04 00:00:00'), 'scheduled_date_orig': Timestamp('2025-11-30 00:00:00'), 'product_id': 'MW031B101'}
+2025-11-27 09:49:59,488 - INFO - Using cached product ID for code: 'MW031B101'
+2025-11-27 09:49:59,488 - INFO - Prepared product MW031B101 with quantity 3.0 for batch creation
+2025-11-27 09:49:59,489 - INFO - Move locations - Source: 14, Dest: 28
+2025-11-27 09:50:02,520 - INFO - Created 147 moves in batch for picking 24
+2025-11-27 09:50:02,710 - INFO - Re-updated dates before confirming picking 24: 2025-11-30 00:00:00
+2025-11-27 09:50:05,051 - INFO - Confirmed transfer 24 with forced date context
+2025-11-27 09:50:05,052 - INFO - Import completed: 1 success, 0 failed.
