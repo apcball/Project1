@@ -571,7 +571,7 @@ def get_warehouse_data(warehouse_name):
         print("DEBUG: No warehouses found, trying to get default warehouse...")
         default_warehouse_ids = models.execute_kw(
             CONFIG['database'], uid, CONFIG['password'], 'stock.warehouse', 'search',
-            [[['company_id', '=', 1]], {'limit': 1}]
+            [[['company_id', '=', 1]]], {'limit': 1}
         )
         
         if default_warehouse_ids:
@@ -694,7 +694,7 @@ def get_team_data(team_name):
         # Return default team or None if no team specified
         default_team_ids = models.execute_kw(
             CONFIG['database'], uid, CONFIG['password'], 'crm.team', 'search',
-            [[['name', 'ilike', 'sales']], {'limit': 1}]
+            [[['name', 'ilike', 'sales']]], {'limit': 1}
         )
         if default_team_ids:
             return models.execute_kw(
@@ -1074,19 +1074,16 @@ def create_sale_order(ref_name, rows):
             # Prepare order line
             # Get tax data - priority: Excel tax_id > product defaults > default 7% tax
             tax_data = None
-            
+
+            # If Excel provides a tax_id, use it. Otherwise, prefer product default taxes
+            # but DO NOT fall back to the global default 7% tax when the Excel cell is empty.
             if not pd.isna(row.get('tax_id')):
-                # Try to get tax from Excel
                 tax_data = get_tax_data(row.get('tax_id'))
-            
+
             if tax_data is None and product_data.get('taxes_id'):
-                # Use product default taxes
                 tax_data = [(6, 0, product_data.get('taxes_id', []))]
-            
-            if tax_data is None:
-                # Use default 7% tax
-                tax_data = get_default_tax()
-            
+
+            # If still None, leave taxes empty (do not insert default 7% VAT)
             if tax_data is None:
                 tax_data = []
             

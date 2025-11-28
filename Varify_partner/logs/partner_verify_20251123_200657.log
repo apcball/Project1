@@ -1,0 +1,8 @@
+2025-11-23 20:06:57,754 - INFO - Log file created: Varify_partner/logs/partner_verify_20251123_200657.log
+2025-11-23 20:07:01,066 - INFO - Successfully connected to Odoo as user ID: 2
+2025-11-23 20:07:01,239 - INFO - Starting verification from index 0
+2025-11-23 20:07:01,239 - INFO - Total records to process: 2585
+2025-11-23 20:07:01,239 - INFO - Processing batch 0-100 of 2585
+2025-11-23 20:07:04,445 - INFO - Partner not found in old_code_partner, searching in partner_code field: C00225
+2025-11-23 20:07:04,599 - INFO - Partner found by partner_code: C00225 - ID: 434, Name: บริษัท พรเจริญก่อสร้าง จำกัด
+2025-11-23 20:07:04,599 - INFO - Partner found: C00225 - ID: 434, Name: บริษัท พรเจริญก่อสร้าง จำกัด

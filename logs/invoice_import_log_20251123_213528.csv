@@ -1,0 +1,105 @@
+Timestamp,Document Type,Document Number,Customer Name,Status,Message,Row Number
+2025-11-23 21:35:28,Invoice,,,Error,Failed to process,2593
+2025-11-23 21:35:28,Bill,,,Error,Error processing document: [Errno 32] Broken pipe,2593
+2025-11-23 21:35:29,Invoice,21/2/4611,Haitam Trading&Contruction,Success,Successfully processed,2592
+2025-11-23 21:35:29,Bill,21/2/4611,,Error,Error processing document: [Errno 32] Broken pipe,2592
+2025-11-23 21:35:31,Invoice,25/3/4611,Haitam Trading&Contruction,Success,Successfully processed,2591
+2025-11-23 21:35:31,Bill,25/3/4611,,Error,Error processing document: [Errno 32] Broken pipe,2591
+2025-11-23 21:35:32,Invoice,ADJ6612009,บริษัท เดอ ฟอเรส แลนด์ จำกัด (สำนักงานใหญ่),Success,Successfully processed,2590
+2025-11-23 21:35:32,Bill,ADJ6612009,,Error,Error processing document: [Errno 32] Broken pipe,2590
+2025-11-23 21:35:35,Invoice,BIV-240067,บริษัท แอลเอช แอสเซท จำกัด,Success,Successfully processed,2589
+2025-11-23 21:35:35,Bill,BIV-240067,,Error,Error processing document: [Errno 32] Broken pipe,2589
+2025-11-23 21:35:37,Invoice,BIV-240131,บริษัท ก้าวต่อไป เฮ้าส์แอนด์ลิฟวิง จำกัด สำนักงานใหญ่,Success,Successfully processed,2588
+2025-11-23 21:35:37,Bill,BIV-240131,,Error,Error processing document: [Errno 32] Broken pipe,2588
+2025-11-23 21:35:38,Invoice,BIV-240284,บริษัท ช.ชยพลก่อสร้าง จำกัด (สำนักงานใหญ่),Success,Successfully processed,2587
+2025-11-23 21:35:38,Bill,BIV-240284,,Error,Error processing document: [Errno 32] Broken pipe,2587
+2025-11-23 21:35:40,Invoice,BIV-240285,บริษัท ช.ชยพลก่อสร้าง จำกัด (สำนักงานใหญ่),Success,Successfully processed,2586
+2025-11-23 21:35:40,Bill,BIV-240285,,Error,Error processing document: [Errno 32] Broken pipe,2586
+2025-11-23 21:35:41,Invoice,BIV-240465,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2585
+2025-11-23 21:35:41,Bill,BIV-240465,,Error,Error processing document: [Errno 32] Broken pipe,2585
+2025-11-23 21:35:42,Invoice,BIV-240498,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2584
+2025-11-23 21:35:42,Bill,BIV-240498,,Error,Error processing document: [Errno 32] Broken pipe,2584
+2025-11-23 21:35:44,Invoice,BIV-240499,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2583
+2025-11-23 21:35:44,Bill,BIV-240499,,Error,Error processing document: [Errno 32] Broken pipe,2583
+2025-11-23 21:35:45,Invoice,BIV-240500,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2582
+2025-11-23 21:35:45,Bill,BIV-240500,,Error,Error processing document: [Errno 32] Broken pipe,2582
+2025-11-23 21:35:46,Invoice,BIV-250003,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Error,Failed to process,2581
+2025-11-23 21:35:46,Bill,BIV-250003,,Error,Error processing document: [Errno 32] Broken pipe,2581
+2025-11-23 21:35:46,Invoice,BIV-250004,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Error,Failed to process,2580
+2025-11-23 21:35:46,Bill,BIV-250004,,Error,Error processing document: [Errno 32] Broken pipe,2580
+2025-11-23 21:35:47,Invoice,BIV-250011,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Error,Failed to process,2579
+2025-11-23 21:35:47,Bill,BIV-250011,,Error,Error processing document: [Errno 32] Broken pipe,2579
+2025-11-23 21:35:49,Invoice,BIV-250012,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2578
+2025-11-23 21:35:49,Bill,BIV-250012,,Error,Error processing document: [Errno 32] Broken pipe,2578
+2025-11-23 21:35:50,Invoice,BIV-250023,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2577
+2025-11-23 21:35:50,Bill,BIV-250023,,Error,Error processing document: [Errno 32] Broken pipe,2577
+2025-11-23 21:35:51,Invoice,BIV-250028,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2576
+2025-11-23 21:35:51,Bill,BIV-250028,,Error,Error processing document: [Errno 32] Broken pipe,2576
+2025-11-23 21:35:52,Invoice,BIV-250029,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2575
+2025-11-23 21:35:52,Bill,BIV-250029,,Error,Error processing document: [Errno 32] Broken pipe,2575
+2025-11-23 21:35:53,Invoice,BIV-250034,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2574
+2025-11-23 21:35:53,Bill,BIV-250034,,Error,Error processing document: [Errno 32] Broken pipe,2574
+2025-11-23 21:35:55,Invoice,BIV-250051,บริษัท ธนโชติ คอนเน็คชั่น จำกัด (สำนักงานใหญ่),Success,Successfully processed,2573
+2025-11-23 21:35:55,Bill,BIV-250051,,Error,Error processing document: [Errno 32] Broken pipe,2573
+2025-11-23 21:35:56,Invoice,BIV-250052,บริษัท ธนโชติ คอนเน็คชั่น จำกัด (สำนักงานใหญ่),Success,Successfully processed,2572
+2025-11-23 21:35:56,Bill,BIV-250052,,Error,Error processing document: [Errno 32] Broken pipe,2572
+2025-11-23 21:35:57,Invoice,BIV-250057,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2571
+2025-11-23 21:35:57,Bill,BIV-250057,,Error,Error processing document: [Errno 32] Broken pipe,2571
+2025-11-23 21:35:58,Invoice,BIV-250058,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2570
+2025-11-23 21:35:58,Bill,BIV-250058,,Error,Error processing document: [Errno 32] Broken pipe,2570
+2025-11-23 21:36:01,Invoice,BIV-250059,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2569
+2025-11-23 21:36:01,Bill,BIV-250059,,Error,Error processing document: [Errno 32] Broken pipe,2569
+2025-11-23 21:36:03,Invoice,BIV-250073,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2568
+2025-11-23 21:36:03,Bill,BIV-250073,,Error,Error processing document: [Errno 32] Broken pipe,2568
+2025-11-23 21:36:03,Invoice,BIV-250097,บริษัท ธนโชติ คอนเน็คชั่น จำกัด (สำนักงานใหญ่),Error,Failed to process,2567
+2025-11-23 21:36:03,Bill,BIV-250097,,Error,Error processing document: [Errno 32] Broken pipe,2567
+2025-11-23 21:36:04,Invoice,BIV-250098,บริษัท ธนโชติ คอนเน็คชั่น จำกัด (สำนักงานใหญ่),Error,Failed to process,2566
+2025-11-23 21:36:04,Bill,BIV-250098,,Error,Error processing document: [Errno 32] Broken pipe,2566
+2025-11-23 21:36:04,Invoice,BIV-250099,บริษัท ธนโชติ คอนเน็คชั่น จำกัด (สำนักงานใหญ่),Error,Failed to process,2565
+2025-11-23 21:36:04,Bill,BIV-250099,,Error,Error processing document: [Errno 32] Broken pipe,2565
+2025-11-23 21:36:05,Invoice,BIV-250100,บริษัท ธนโชติ คอนเน็คชั่น จำกัด (สำนักงานใหญ่),Error,Failed to process,2564
+2025-11-23 21:36:05,Bill,BIV-250100,,Error,Error processing document: [Errno 32] Broken pipe,2564
+2025-11-23 21:36:07,Invoice,BIV-250180,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2563
+2025-11-23 21:36:07,Bill,BIV-250180,,Error,Error processing document: [Errno 32] Broken pipe,2563
+2025-11-23 21:36:07,Invoice,BIV-250229,บริษัท ช.ชยพลก่อสร้าง จำกัด (สำนักงานใหญ่),Error,Failed to process,2562
+2025-11-23 21:36:07,Bill,BIV-250229,,Error,Error processing document: [Errno 32] Broken pipe,2562
+2025-11-23 21:36:08,Invoice,BIV-250277,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2561
+2025-11-23 21:36:08,Bill,BIV-250277,,Error,Error processing document: [Errno 32] Broken pipe,2561
+2025-11-23 21:36:10,Invoice,BIV-250410,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2560
+2025-11-23 21:36:10,Bill,BIV-250410,,Error,Error processing document: [Errno 32] Broken pipe,2560
+2025-11-23 21:36:11,Invoice,BIV-250467,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Error,Failed to process,2559
+2025-11-23 21:36:11,Bill,BIV-250467,,Error,Error processing document: [Errno 32] Broken pipe,2559
+2025-11-23 21:36:12,Invoice,BIV-250473,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2558
+2025-11-23 21:36:12,Bill,BIV-250473,,Error,Error processing document: [Errno 32] Broken pipe,2558
+2025-11-23 21:36:14,Invoice,BIV-250478,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2557
+2025-11-23 21:36:14,Bill,BIV-250478,,Error,Error processing document: [Errno 32] Broken pipe,2557
+2025-11-23 21:36:15,Invoice,BIV-250479,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2556
+2025-11-23 21:36:15,Bill,BIV-250479,,Error,Error processing document: [Errno 32] Broken pipe,2556
+2025-11-23 21:36:20,Invoice,BIV-250480,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2555
+2025-11-23 21:36:20,Bill,BIV-250480,,Error,Error processing document: [Errno 32] Broken pipe,2555
+2025-11-23 21:36:24,Invoice,BIV-250490,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2554
+2025-11-23 21:36:24,Bill,BIV-250490,,Error,Error processing document: [Errno 32] Broken pipe,2554
+2025-11-23 21:36:25,Invoice,BIV-250509,บริษัท มภัสกาญ คอนสตรัคชั่น 2015 จำกัด (สำนักงานใหญ่),Error,Failed to process,2553
+2025-11-23 21:36:25,Bill,BIV-250509,,Error,Error processing document: [Errno 32] Broken pipe,2553
+2025-11-23 21:36:26,Invoice,BIV-250531,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2552
+2025-11-23 21:36:26,Bill,BIV-250531,,Error,Error processing document: [Errno 32] Broken pipe,2552
+2025-11-23 21:36:27,Invoice,BIV-250546,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2551
+2025-11-23 21:36:27,Bill,BIV-250546,,Error,Error processing document: [Errno 32] Broken pipe,2551
+2025-11-23 21:36:30,Invoice,BIV-250549,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2550
+2025-11-23 21:36:30,Bill,BIV-250549,,Error,Error processing document: [Errno 32] Broken pipe,2550
+2025-11-23 21:36:32,Invoice,BIV-250550,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2549
+2025-11-23 21:36:32,Bill,BIV-250550,,Error,Error processing document: [Errno 32] Broken pipe,2549
+2025-11-23 21:36:34,Invoice,BIV-250551,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2548
+2025-11-23 21:36:34,Bill,BIV-250551,,Error,Error processing document: [Errno 32] Broken pipe,2548
+2025-11-23 21:36:36,Invoice,BIV-250584,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2547
+2025-11-23 21:36:36,Bill,BIV-250584,,Error,Error processing document: [Errno 32] Broken pipe,2547
+2025-11-23 21:36:38,Invoice,BIV-250596,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2546
+2025-11-23 21:36:38,Bill,BIV-250596,,Error,Error processing document: [Errno 32] Broken pipe,2546
+2025-11-23 21:36:40,Invoice,BIV-250605,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2545
+2025-11-23 21:36:40,Bill,BIV-250605,,Error,Error processing document: [Errno 32] Broken pipe,2545
+2025-11-23 21:36:42,Invoice,BIV-250606,บริษัท ไอดอล ซิสเท่ม จำกัด สำนักงานใหญ่,Success,Successfully processed,2544
+2025-11-23 21:36:42,Bill,BIV-250606,,Error,Error processing document: [Errno 32] Broken pipe,2544
+2025-11-23 21:36:42,Invoice,BIV-250610,บริษัท มภัสกาญ คอนสตรัคชั่น 2015 จำกัด (สำนักงานใหญ่),Error,Failed to process,2543
+2025-11-23 21:36:42,Bill,BIV-250610,,Error,Error processing document: [Errno 32] Broken pipe,2543
+2025-11-23 21:36:43,Invoice,BIV-250611,บริษัท วี.วี.ดับบลิว.คอนสตรัคชั่น จำกัด (สำนักงานใหญ่),Error,Failed to process,2542
+2025-11-23 21:36:43,Bill,BIV-250611,,Error,Error processing document: [Errno 32] Broken pipe,2542
