@@ -5,8 +5,8 @@ from datetime import datetime
 import os
 
 # --- Connection Settings ---
-url = 'http://160.187.249.148:8069'
-db = 'MOG_LIVE'
+url = 'http://119.59.102.189:8069'
+db = 'MOG_IMPORT'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 

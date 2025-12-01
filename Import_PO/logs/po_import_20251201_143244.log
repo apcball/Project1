@@ -1,0 +1,39 @@
+2025-12-01 14:32:45,637 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-12-01 14:32:45,638 - INFO - 
+================================================================================
+2025-12-01 14:32:45,638 - INFO - Starting import from: Import_PO/Template_PO_new.xlsx
+2025-12-01 14:32:45,638 - INFO - Dry-run mode: False
+2025-12-01 14:32:45,638 - INFO - ================================================================================
+2025-12-01 14:32:46,112 - INFO - --------------------------------------------------------------------------------
+2025-12-01 14:32:46,114 - INFO - [1/468] Processing PO: BOEP6708018 (1 lines)
+2025-12-01 14:32:46,332 - INFO - [2/468] Processing PO: BOEP6708022 (1 lines)
+2025-12-01 14:32:46,549 - INFO - [3/468] Processing PO: BOEP6709022 (1 lines)
+2025-12-01 14:32:46,729 - INFO - [4/468] Processing PO: BOEP6710014 (1 lines)
+2025-12-01 14:32:46,906 - INFO - [5/468] Processing PO: BOEP6711019 (1 lines)
+2025-12-01 14:32:47,106 - INFO - [6/468] Processing PO: BOEP6712021 (1 lines)
+2025-12-01 14:32:47,273 - INFO - [7/468] Processing PO: BOEP6712024 (1 lines)
+2025-12-01 14:32:47,450 - INFO - [8/468] Processing PO: BOEP6801017 (1 lines)
+2025-12-01 14:32:48,051 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:32:48,504 - INFO - Created PO BOEP6801017 with ID 127
+2025-12-01 14:32:48,513 - INFO - [9/468] Processing PO: BOEP6805001 (1 lines)
+2025-12-01 14:32:49,109 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:32:49,551 - INFO - Created PO BOEP6805001 with ID 128
+2025-12-01 14:32:49,556 - INFO - [10/468] Processing PO: BOEP6805002 (1 lines)
+2025-12-01 14:32:50,131 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:32:50,610 - INFO - Created PO BOEP6805002 with ID 129
+2025-12-01 14:32:50,619 - INFO - [11/468] Processing PO: BOEP6805003 (1 lines)
+2025-12-01 14:32:51,286 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:32:51,769 - INFO - Created PO BOEP6805003 with ID 130
+2025-12-01 14:32:51,772 - INFO - [12/468] Processing PO: BOEP6805004 (1 lines)
+2025-12-01 14:32:52,377 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:32:52,796 - INFO - Created PO BOEP6805004 with ID 131
+2025-12-01 14:32:52,806 - INFO - [13/468] Processing PO: BOEP6805005 (1 lines)
+2025-12-01 14:32:53,417 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:32:53,822 - INFO - Created PO BOEP6805005 with ID 132
+2025-12-01 14:32:53,829 - INFO - [14/468] Processing PO: BOEP6805006 (1 lines)
+2025-12-01 14:32:54,441 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:32:54,848 - INFO - Created PO BOEP6805006 with ID 133
+2025-12-01 14:32:54,855 - INFO - [15/468] Processing PO: BOEP6805007 (1 lines)
+2025-12-01 14:32:55,503 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:32:55,951 - INFO - Created PO BOEP6805007 with ID 134
+2025-12-01 14:32:55,961 - INFO - [16/468] Processing PO: BOEP6805008 (1 lines)

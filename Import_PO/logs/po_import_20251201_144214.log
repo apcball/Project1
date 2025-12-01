@@ -1,0 +1,78 @@
+2025-12-01 14:42:14,930 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-12-01 14:42:14,931 - INFO - 
+================================================================================
+2025-12-01 14:42:14,932 - INFO - Starting import from: Import_PO/Template_PO_new.xlsx
+2025-12-01 14:42:14,933 - INFO - Dry-run mode: False
+2025-12-01 14:42:14,933 - INFO - ================================================================================
+2025-12-01 14:42:15,444 - INFO - --------------------------------------------------------------------------------
+2025-12-01 14:42:15,446 - INFO - [1/468] Processing PO: BOEP6708018 (1 lines)
+2025-12-01 14:42:15,621 - INFO - [2/468] Processing PO: BOEP6708022 (1 lines)
+2025-12-01 14:42:15,779 - INFO - [3/468] Processing PO: BOEP6709022 (1 lines)
+2025-12-01 14:42:15,942 - INFO - [4/468] Processing PO: BOEP6710014 (1 lines)
+2025-12-01 14:42:16,121 - INFO - [5/468] Processing PO: BOEP6711019 (1 lines)
+2025-12-01 14:42:16,301 - INFO - [6/468] Processing PO: BOEP6712021 (1 lines)
+2025-12-01 14:42:16,471 - INFO - [7/468] Processing PO: BOEP6712024 (1 lines)
+2025-12-01 14:42:16,650 - INFO - [8/468] Processing PO: BOEP6801017 (1 lines)
+2025-12-01 14:42:17,388 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:17,701 - INFO - PO BOEP6801017 already exists (ID: 127), updating taxes on order lines
+2025-12-01 14:42:17,817 - INFO - [9/468] Processing PO: BOEP6805001 (1 lines)
+2025-12-01 14:42:18,514 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:18,763 - INFO - PO BOEP6805001 already exists (ID: 128), updating taxes on order lines
+2025-12-01 14:42:18,967 - INFO - [10/468] Processing PO: BOEP6805002 (1 lines)
+2025-12-01 14:42:19,645 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:19,824 - INFO - PO BOEP6805002 already exists (ID: 129), updating taxes on order lines
+2025-12-01 14:42:19,918 - INFO - [11/468] Processing PO: BOEP6805003 (1 lines)
+2025-12-01 14:42:20,501 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:20,714 - INFO - PO BOEP6805003 already exists (ID: 130), updating taxes on order lines
+2025-12-01 14:42:20,817 - INFO - [12/468] Processing PO: BOEP6805004 (1 lines)
+2025-12-01 14:42:21,406 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:21,585 - INFO - PO BOEP6805004 already exists (ID: 131), updating taxes on order lines
+2025-12-01 14:42:21,678 - INFO - [13/468] Processing PO: BOEP6805005 (1 lines)
+2025-12-01 14:42:22,307 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:22,479 - INFO - PO BOEP6805005 already exists (ID: 132), updating taxes on order lines
+2025-12-01 14:42:22,572 - INFO - [14/468] Processing PO: BOEP6805006 (1 lines)
+2025-12-01 14:42:23,186 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:23,361 - INFO - PO BOEP6805006 already exists (ID: 133), updating taxes on order lines
+2025-12-01 14:42:23,453 - INFO - [15/468] Processing PO: BOEP6805007 (1 lines)
+2025-12-01 14:42:24,080 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:24,290 - INFO - PO BOEP6805007 already exists (ID: 134), updating taxes on order lines
+2025-12-01 14:42:24,393 - INFO - [16/468] Processing PO: BOEP6805008 (1 lines)
+2025-12-01 14:42:24,975 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:25,379 - INFO - Created PO BOEP6805008 with ID 135
+2025-12-01 14:42:25,382 - INFO - [17/468] Processing PO: BOEP6805009 (1 lines)
+2025-12-01 14:42:25,973 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:26,376 - INFO - Created PO BOEP6805009 with ID 136
+2025-12-01 14:42:26,387 - INFO - [18/468] Processing PO: BOEP6805010 (1 lines)
+2025-12-01 14:42:26,983 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:27,395 - INFO - Created PO BOEP6805010 with ID 137
+2025-12-01 14:42:27,405 - INFO - [19/468] Processing PO: BOEP6805011 (1 lines)
+2025-12-01 14:42:28,016 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:28,443 - INFO - Created PO BOEP6805011 with ID 138
+2025-12-01 14:42:28,446 - INFO - [20/468] Processing PO: BOEP6805012 (1 lines)
+2025-12-01 14:42:29,095 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:29,538 - INFO - Created PO BOEP6805012 with ID 139
+2025-12-01 14:42:29,547 - INFO - [21/468] Processing PO: BOEP6805014 (1 lines)
+2025-12-01 14:42:30,261 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:30,726 - INFO - Created PO BOEP6805014 with ID 140
+2025-12-01 14:42:30,735 - INFO - [22/468] Processing PO: BOEP6805015 (1 lines)
+2025-12-01 14:42:31,350 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:31,735 - INFO - Created PO BOEP6805015 with ID 141
+2025-12-01 14:42:31,745 - INFO - [23/468] Processing PO: BOEP6805016 (1 lines)
+2025-12-01 14:42:32,394 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 14:42:32,852 - INFO - Created PO BOEP6805016 with ID 142
+2025-12-01 14:42:32,862 - INFO - [24/468] Processing PO: BOEP6810002 (1 lines)
+2025-12-01 14:42:33,055 - INFO - [25/468] Processing PO: CR18030032 (1 lines)
+2025-12-01 14:42:33,249 - INFO - [26/468] Processing PO: CR18060039 (1 lines)
+2025-12-01 14:42:33,442 - INFO - [27/468] Processing PO: CR18090037 (1 lines)
+2025-12-01 14:42:33,623 - INFO - [28/468] Processing PO: CR22020024 (1 lines)
+2025-12-01 14:42:33,812 - INFO - [29/468] Processing PO: CR22020025 (1 lines)
+2025-12-01 14:42:34,014 - INFO - [30/468] Processing PO: CR22020026 (1 lines)
+2025-12-01 14:42:34,222 - INFO - [31/468] Processing PO: CR22020027 (1 lines)
+2025-12-01 14:42:34,519 - INFO - [32/468] Processing PO: CR22030035 (1 lines)
+2025-12-01 14:42:34,701 - INFO - [33/468] Processing PO: CR22030036 (1 lines)
+2025-12-01 14:42:34,945 - INFO - [34/468] Processing PO: CR22040028 (1 lines)
+2025-12-01 14:42:35,125 - INFO - [35/468] Processing PO: CR22040029 (1 lines)
+2025-12-01 14:42:35,324 - INFO - [36/468] Processing PO: CR22050027 (1 lines)
+2025-12-01 14:42:35,549 - INFO - [37/468] Processing PO: CR22060036 (1 lines)
+2025-12-01 14:42:35,733 - INFO - [38/468] Processing PO: CR22070032 (1 lines)
+2025-12-01 14:42:35,951 - INFO - [39/468] Processing PO: CR22080026 (1 lines)
