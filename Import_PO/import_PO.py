@@ -10,8 +10,8 @@ import logging
 
 # Global configuration
 CONFIG = {
-    'server_url': 'http://mogth.work:8069',
-    'database': 'MOG_SETUP',
+    'server_url': 'http://119.59.102.189:8069',
+    'database': 'MOG_IMPORT',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_PO/logs',
@@ -47,11 +47,16 @@ class POImporter:
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler(log_file),
+                logging.FileHandler(log_file, encoding='utf-8'),
                 logging.StreamHandler(sys.stdout)
             ]
         )
         self.logger = logging.getLogger(__name__)
+        
+        # Set UTF-8 encoding for console handler to handle Unicode characters
+        for handler in self.logger.handlers:
+            if isinstance(handler, logging.StreamHandler) and handler.stream == sys.stdout:
+                handler.setStream(open(sys.stdout.fileno(), mode='w', encoding='utf-8', buffering=1))
         
         # Create error log file for failed imports
         self.error_log_file = log_dir / f"po_errors_{timestamp}.xlsx"
@@ -358,7 +363,8 @@ class POImporter:
             elif 'taxes_id' in row and pd.notna(row.get('taxes_id')):
                 tax_raw = row.get('taxes_id')
 
-            if tax_raw is not None:
+            # Only process taxes if tax_raw has a non-empty value
+            if tax_raw is not None and str(tax_raw).strip():
                 tax_ids = []
 
                 # If already a list/tuple of IDs or values
@@ -373,6 +379,9 @@ class POImporter:
                 # Try to interpret candidates as integer IDs first
                 for t in candidates:
                     if t is None or (isinstance(t, float) and pd.isna(t)):
+                        continue
+                    # Skip empty strings
+                    if isinstance(t, str) and not t.strip():
                         continue
                     # numeric id
                     try:

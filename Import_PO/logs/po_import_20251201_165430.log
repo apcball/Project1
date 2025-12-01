@@ -1,0 +1,426 @@
+2025-12-01 16:54:31,728 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-12-01 16:54:31,730 - INFO - 
+================================================================================
+2025-12-01 16:54:31,730 - INFO - Starting import from: Import_PO/Template_PO_new.xlsx
+2025-12-01 16:54:31,731 - INFO - Dry-run mode: False
+2025-12-01 16:54:31,732 - INFO - ================================================================================
+2025-12-01 16:54:32,200 - INFO - ✓ Excel file loaded: 468 total rows
+2025-12-01 16:54:32,200 - INFO - ✓ All required columns found
+2025-12-01 16:54:32,208 - INFO - ✓ Found 468 purchase orders to process
+2025-12-01 16:54:32,208 - INFO - --------------------------------------------------------------------------------
+2025-12-01 16:54:32,209 - INFO - [1/468] Processing PO: BOEP6708018 (1 lines)
+2025-12-01 16:54:32,375 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-01 16:54:32,384 - INFO - [2/468] Processing PO: BOEP6708022 (1 lines)
+2025-12-01 16:54:32,548 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-01 16:54:32,550 - INFO - [3/468] Processing PO: BOEP6709022 (1 lines)
+2025-12-01 16:54:32,706 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-01 16:54:32,712 - INFO - [4/468] Processing PO: BOEP6710014 (1 lines)
+2025-12-01 16:54:32,875 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-01 16:54:32,880 - INFO - [5/468] Processing PO: BOEP6711019 (1 lines)
+2025-12-01 16:54:33,035 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-01 16:54:33,038 - INFO - [6/468] Processing PO: BOEP6712021 (1 lines)
+2025-12-01 16:54:33,203 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-01 16:54:33,204 - INFO - [7/468] Processing PO: BOEP6712024 (1 lines)
+2025-12-01 16:54:33,390 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-01 16:54:33,392 - INFO - [8/468] Processing PO: BOEP6801017 (1 lines)
+2025-12-01 16:54:33,888 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:34,076 - INFO - PO BOEP6801017 already exists (ID: 143), updating taxes on order lines
+2025-12-01 16:54:34,162 - INFO -   ✓ Updated 0 lines in PO BOEP6801017
+2025-12-01 16:54:34,162 - INFO - [9/468] Processing PO: BOEP6805001 (1 lines)
+2025-12-01 16:54:34,670 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:34,846 - INFO - PO BOEP6805001 already exists (ID: 144), updating taxes on order lines
+2025-12-01 16:54:34,938 - INFO -   ✓ Updated 0 lines in PO BOEP6805001
+2025-12-01 16:54:34,938 - INFO - [10/468] Processing PO: BOEP6805002 (1 lines)
+2025-12-01 16:54:35,408 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:35,611 - INFO - PO BOEP6805002 already exists (ID: 145), updating taxes on order lines
+2025-12-01 16:54:35,697 - INFO -   ✓ Updated 0 lines in PO BOEP6805002
+2025-12-01 16:54:35,697 - INFO - [11/468] Processing PO: BOEP6805003 (1 lines)
+2025-12-01 16:54:36,192 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:36,374 - INFO - PO BOEP6805003 already exists (ID: 146), updating taxes on order lines
+2025-12-01 16:54:36,468 - INFO -   ✓ Updated 0 lines in PO BOEP6805003
+2025-12-01 16:54:36,469 - INFO - [12/468] Processing PO: BOEP6805004 (1 lines)
+2025-12-01 16:54:36,955 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:37,150 - INFO - PO BOEP6805004 already exists (ID: 147), updating taxes on order lines
+2025-12-01 16:54:37,252 - INFO -   ✓ Updated 0 lines in PO BOEP6805004
+2025-12-01 16:54:37,253 - INFO - [13/468] Processing PO: BOEP6805005 (1 lines)
+2025-12-01 16:54:37,763 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:37,963 - INFO - PO BOEP6805005 already exists (ID: 148), updating taxes on order lines
+2025-12-01 16:54:38,049 - INFO -   ✓ Updated 0 lines in PO BOEP6805005
+2025-12-01 16:54:38,050 - INFO - [14/468] Processing PO: BOEP6805006 (1 lines)
+2025-12-01 16:54:38,558 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:38,753 - INFO - PO BOEP6805006 already exists (ID: 149), updating taxes on order lines
+2025-12-01 16:54:38,839 - INFO -   ✓ Updated 0 lines in PO BOEP6805006
+2025-12-01 16:54:38,839 - INFO - [15/468] Processing PO: BOEP6805007 (1 lines)
+2025-12-01 16:54:39,317 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:39,489 - INFO - PO BOEP6805007 already exists (ID: 150), updating taxes on order lines
+2025-12-01 16:54:39,575 - INFO -   ✓ Updated 0 lines in PO BOEP6805007
+2025-12-01 16:54:39,576 - INFO - [16/468] Processing PO: BOEP6805008 (1 lines)
+2025-12-01 16:54:40,046 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:40,236 - INFO - PO BOEP6805008 already exists (ID: 151), updating taxes on order lines
+2025-12-01 16:54:40,319 - INFO -   ✓ Updated 0 lines in PO BOEP6805008
+2025-12-01 16:54:40,319 - INFO - [17/468] Processing PO: BOEP6805009 (1 lines)
+2025-12-01 16:54:40,803 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:40,973 - INFO - PO BOEP6805009 already exists (ID: 152), updating taxes on order lines
+2025-12-01 16:54:41,066 - INFO -   ✓ Updated 0 lines in PO BOEP6805009
+2025-12-01 16:54:41,067 - INFO - [18/468] Processing PO: BOEP6805010 (1 lines)
+2025-12-01 16:54:41,524 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:41,691 - INFO - PO BOEP6805010 already exists (ID: 153), updating taxes on order lines
+2025-12-01 16:54:41,778 - INFO -   ✓ Updated 0 lines in PO BOEP6805010
+2025-12-01 16:54:41,778 - INFO - [19/468] Processing PO: BOEP6805011 (1 lines)
+2025-12-01 16:54:42,251 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:42,432 - INFO - PO BOEP6805011 already exists (ID: 154), updating taxes on order lines
+2025-12-01 16:54:42,518 - INFO -   ✓ Updated 0 lines in PO BOEP6805011
+2025-12-01 16:54:42,519 - INFO - [20/468] Processing PO: BOEP6805012 (1 lines)
+2025-12-01 16:54:42,992 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:43,172 - INFO - PO BOEP6805012 already exists (ID: 155), updating taxes on order lines
+2025-12-01 16:54:43,257 - INFO -   ✓ Updated 0 lines in PO BOEP6805012
+2025-12-01 16:54:43,258 - INFO - [21/468] Processing PO: BOEP6805014 (1 lines)
+2025-12-01 16:54:43,720 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:43,937 - INFO - PO BOEP6805014 already exists (ID: 156), updating taxes on order lines
+2025-12-01 16:54:44,018 - INFO -   ✓ Updated 0 lines in PO BOEP6805014
+2025-12-01 16:54:44,019 - INFO - [22/468] Processing PO: BOEP6805015 (1 lines)
+2025-12-01 16:54:44,465 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:44,638 - INFO - PO BOEP6805015 already exists (ID: 157), updating taxes on order lines
+2025-12-01 16:54:44,727 - INFO -   ✓ Updated 0 lines in PO BOEP6805015
+2025-12-01 16:54:44,727 - INFO - [23/468] Processing PO: BOEP6805016 (1 lines)
+2025-12-01 16:54:45,215 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:45,390 - INFO - PO BOEP6805016 already exists (ID: 158), updating taxes on order lines
+2025-12-01 16:54:45,486 - INFO -   ✓ Updated 0 lines in PO BOEP6805016
+2025-12-01 16:54:45,488 - INFO - [24/468] Processing PO: BOEP6810002 (1 lines)
+2025-12-01 16:54:45,987 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:46,164 - INFO - PO BOEP6810002 already exists (ID: 159), updating taxes on order lines
+2025-12-01 16:54:46,261 - INFO -   ✓ Updated 0 lines in PO BOEP6810002
+2025-12-01 16:54:46,263 - INFO - [25/468] Processing PO: CR18030032 (1 lines)
+2025-12-01 16:54:46,749 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:46,930 - INFO - PO CR18030032 already exists (ID: 160), updating taxes on order lines
+2025-12-01 16:54:47,016 - INFO -   ✓ Updated 0 lines in PO CR18030032
+2025-12-01 16:54:47,016 - INFO - [26/468] Processing PO: CR18060039 (1 lines)
+2025-12-01 16:54:47,475 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:47,649 - INFO - PO CR18060039 already exists (ID: 161), updating taxes on order lines
+2025-12-01 16:54:47,730 - INFO -   ✓ Updated 0 lines in PO CR18060039
+2025-12-01 16:54:47,731 - INFO - [27/468] Processing PO: CR18090037 (1 lines)
+2025-12-01 16:54:48,224 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:48,410 - INFO - PO CR18090037 already exists (ID: 162), updating taxes on order lines
+2025-12-01 16:54:48,492 - INFO -   ✓ Updated 0 lines in PO CR18090037
+2025-12-01 16:54:48,493 - INFO - [28/468] Processing PO: CR22020024 (1 lines)
+2025-12-01 16:54:48,952 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:49,124 - INFO - PO CR22020024 already exists (ID: 163), updating taxes on order lines
+2025-12-01 16:54:49,217 - INFO -   ✓ Updated 0 lines in PO CR22020024
+2025-12-01 16:54:49,218 - INFO - [29/468] Processing PO: CR22020025 (1 lines)
+2025-12-01 16:54:49,703 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:49,881 - INFO - PO CR22020025 already exists (ID: 164), updating taxes on order lines
+2025-12-01 16:54:49,972 - INFO -   ✓ Updated 0 lines in PO CR22020025
+2025-12-01 16:54:49,973 - INFO - [30/468] Processing PO: CR22020026 (1 lines)
+2025-12-01 16:54:50,460 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:50,663 - INFO - PO CR22020026 already exists (ID: 165), updating taxes on order lines
+2025-12-01 16:54:50,748 - INFO -   ✓ Updated 0 lines in PO CR22020026
+2025-12-01 16:54:50,748 - INFO - [31/468] Processing PO: CR22020027 (1 lines)
+2025-12-01 16:54:51,217 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:51,380 - INFO - PO CR22020027 already exists (ID: 166), updating taxes on order lines
+2025-12-01 16:54:51,473 - INFO -   ✓ Updated 0 lines in PO CR22020027
+2025-12-01 16:54:51,474 - INFO - [32/468] Processing PO: CR22030035 (1 lines)
+2025-12-01 16:54:51,972 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:52,147 - INFO - PO CR22030035 already exists (ID: 167), updating taxes on order lines
+2025-12-01 16:54:52,231 - INFO -   ✓ Updated 0 lines in PO CR22030035
+2025-12-01 16:54:52,232 - INFO - [33/468] Processing PO: CR22030036 (1 lines)
+2025-12-01 16:54:52,709 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:52,878 - INFO - PO CR22030036 already exists (ID: 168), updating taxes on order lines
+2025-12-01 16:54:52,962 - INFO -   ✓ Updated 0 lines in PO CR22030036
+2025-12-01 16:54:52,963 - INFO - [34/468] Processing PO: CR22040028 (1 lines)
+2025-12-01 16:54:53,423 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:53,586 - INFO - PO CR22040028 already exists (ID: 169), updating taxes on order lines
+2025-12-01 16:54:53,670 - INFO -   ✓ Updated 0 lines in PO CR22040028
+2025-12-01 16:54:53,672 - INFO - [35/468] Processing PO: CR22040029 (1 lines)
+2025-12-01 16:54:54,144 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:54,316 - INFO - PO CR22040029 already exists (ID: 170), updating taxes on order lines
+2025-12-01 16:54:54,402 - INFO -   ✓ Updated 0 lines in PO CR22040029
+2025-12-01 16:54:54,403 - INFO - [36/468] Processing PO: CR22050027 (1 lines)
+2025-12-01 16:54:54,922 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:55,120 - INFO - PO CR22050027 already exists (ID: 171), updating taxes on order lines
+2025-12-01 16:54:55,208 - INFO -   ✓ Updated 0 lines in PO CR22050027
+2025-12-01 16:54:55,209 - INFO - [37/468] Processing PO: CR22060036 (1 lines)
+2025-12-01 16:54:55,702 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:55,876 - INFO - PO CR22060036 already exists (ID: 172), updating taxes on order lines
+2025-12-01 16:54:55,966 - INFO -   ✓ Updated 0 lines in PO CR22060036
+2025-12-01 16:54:55,967 - INFO - [38/468] Processing PO: CR22070032 (1 lines)
+2025-12-01 16:54:56,426 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:56,606 - INFO - PO CR22070032 already exists (ID: 173), updating taxes on order lines
+2025-12-01 16:54:56,700 - INFO -   ✓ Updated 0 lines in PO CR22070032
+2025-12-01 16:54:56,700 - INFO - [39/468] Processing PO: CR22080026 (1 lines)
+2025-12-01 16:54:57,167 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:57,344 - INFO - PO CR22080026 already exists (ID: 174), updating taxes on order lines
+2025-12-01 16:54:57,443 - INFO -   ✓ Updated 0 lines in PO CR22080026
+2025-12-01 16:54:57,444 - INFO - [40/468] Processing PO: CR22090030 (1 lines)
+2025-12-01 16:54:57,928 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:58,097 - INFO - PO CR22090030 already exists (ID: 175), updating taxes on order lines
+2025-12-01 16:54:58,185 - INFO -   ✓ Updated 0 lines in PO CR22090030
+2025-12-01 16:54:58,187 - INFO - [41/468] Processing PO: CR22090031 (1 lines)
+2025-12-01 16:54:58,664 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:58,850 - INFO - PO CR22090031 already exists (ID: 176), updating taxes on order lines
+2025-12-01 16:54:58,930 - INFO -   ✓ Updated 0 lines in PO CR22090031
+2025-12-01 16:54:58,931 - INFO - [42/468] Processing PO: CR22100024 (1 lines)
+2025-12-01 16:54:59,405 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:54:59,580 - INFO - PO CR22100024 already exists (ID: 177), updating taxes on order lines
+2025-12-01 16:54:59,665 - INFO -   ✓ Updated 0 lines in PO CR22100024
+2025-12-01 16:54:59,666 - INFO - [43/468] Processing PO: CR22110028 (1 lines)
+2025-12-01 16:55:00,138 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:00,330 - INFO - PO CR22110028 already exists (ID: 178), updating taxes on order lines
+2025-12-01 16:55:00,414 - INFO -   ✓ Updated 0 lines in PO CR22110028
+2025-12-01 16:55:00,415 - INFO - [44/468] Processing PO: CR23040027 (1 lines)
+2025-12-01 16:55:00,924 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:01,102 - INFO - PO CR23040027 already exists (ID: 179), updating taxes on order lines
+2025-12-01 16:55:01,195 - INFO -   ✓ Updated 0 lines in PO CR23040027
+2025-12-01 16:55:01,196 - INFO - [45/468] Processing PO: CR23040031 (1 lines)
+2025-12-01 16:55:01,677 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:01,848 - INFO - PO CR23040031 already exists (ID: 180), updating taxes on order lines
+2025-12-01 16:55:01,932 - INFO -   ✓ Updated 0 lines in PO CR23040031
+2025-12-01 16:55:01,933 - INFO - [46/468] Processing PO: CR23090039 (1 lines)
+2025-12-01 16:55:02,421 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:02,600 - INFO - PO CR23090039 already exists (ID: 181), updating taxes on order lines
+2025-12-01 16:55:02,688 - INFO -   ✓ Updated 0 lines in PO CR23090039
+2025-12-01 16:55:02,689 - INFO - [47/468] Processing PO: CR23110025 (1 lines)
+2025-12-01 16:55:03,166 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:03,334 - INFO - PO CR23110025 already exists (ID: 182), updating taxes on order lines
+2025-12-01 16:55:03,414 - INFO -   ✓ Updated 0 lines in PO CR23110025
+2025-12-01 16:55:03,415 - INFO - [48/468] Processing PO: CR23120031 (1 lines)
+2025-12-01 16:55:03,906 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:04,082 - INFO - PO CR23120031 already exists (ID: 183), updating taxes on order lines
+2025-12-01 16:55:04,164 - INFO -   ✓ Updated 0 lines in PO CR23120031
+2025-12-01 16:55:04,165 - INFO - [49/468] Processing PO: CR23120049 (1 lines)
+2025-12-01 16:55:04,638 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:04,802 - INFO - PO CR23120049 already exists (ID: 184), updating taxes on order lines
+2025-12-01 16:55:04,880 - INFO -   ✓ Updated 0 lines in PO CR23120049
+2025-12-01 16:55:04,880 - INFO - [50/468] Processing PO: CR23120050 (1 lines)
+2025-12-01 16:55:05,375 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:05,560 - INFO - PO CR23120050 already exists (ID: 185), updating taxes on order lines
+2025-12-01 16:55:05,654 - INFO -   ✓ Updated 0 lines in PO CR23120050
+2025-12-01 16:55:05,654 - INFO - [51/468] Processing PO: CR24010028 (1 lines)
+2025-12-01 16:55:06,126 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:06,290 - INFO - PO CR24010028 already exists (ID: 186), updating taxes on order lines
+2025-12-01 16:55:06,377 - INFO -   ✓ Updated 0 lines in PO CR24010028
+2025-12-01 16:55:06,377 - INFO - [52/468] Processing PO: CR24060025 (1 lines)
+2025-12-01 16:55:06,866 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:07,041 - INFO - PO CR24060025 already exists (ID: 187), updating taxes on order lines
+2025-12-01 16:55:07,135 - INFO -   ✓ Updated 0 lines in PO CR24060025
+2025-12-01 16:55:07,136 - INFO - [53/468] Processing PO: CR24060026 (1 lines)
+2025-12-01 16:55:07,640 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:07,808 - INFO - PO CR24060026 already exists (ID: 188), updating taxes on order lines
+2025-12-01 16:55:07,892 - INFO -   ✓ Updated 0 lines in PO CR24060026
+2025-12-01 16:55:07,893 - INFO - [54/468] Processing PO: CR24070016 (1 lines)
+2025-12-01 16:55:08,382 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:08,557 - INFO - PO CR24070016 already exists (ID: 189), updating taxes on order lines
+2025-12-01 16:55:08,641 - INFO -   ✓ Updated 0 lines in PO CR24070016
+2025-12-01 16:55:08,643 - INFO - [55/468] Processing PO: CR24070017 (1 lines)
+2025-12-01 16:55:09,110 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:09,281 - INFO - PO CR24070017 already exists (ID: 190), updating taxes on order lines
+2025-12-01 16:55:09,366 - INFO -   ✓ Updated 0 lines in PO CR24070017
+2025-12-01 16:55:09,367 - INFO - [56/468] Processing PO: CR24070054 (1 lines)
+2025-12-01 16:55:09,836 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:10,011 - INFO - PO CR24070054 already exists (ID: 191), updating taxes on order lines
+2025-12-01 16:55:10,094 - INFO -   ✓ Updated 0 lines in PO CR24070054
+2025-12-01 16:55:10,094 - INFO - [57/468] Processing PO: CR24070061 (1 lines)
+2025-12-01 16:55:10,566 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:10,734 - INFO - PO CR24070061 already exists (ID: 192), updating taxes on order lines
+2025-12-01 16:55:10,822 - INFO -   ✓ Updated 0 lines in PO CR24070061
+2025-12-01 16:55:10,823 - INFO - [58/468] Processing PO: CR24070062 (1 lines)
+2025-12-01 16:55:11,308 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:11,489 - INFO - PO CR24070062 already exists (ID: 193), updating taxes on order lines
+2025-12-01 16:55:11,573 - INFO -   ✓ Updated 0 lines in PO CR24070062
+2025-12-01 16:55:11,574 - INFO - [59/468] Processing PO: CR24070079 (1 lines)
+2025-12-01 16:55:12,067 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:12,227 - INFO - PO CR24070079 already exists (ID: 194), updating taxes on order lines
+2025-12-01 16:55:12,303 - INFO -   ✓ Updated 0 lines in PO CR24070079
+2025-12-01 16:55:12,304 - INFO - [60/468] Processing PO: CR24070080 (1 lines)
+2025-12-01 16:55:12,760 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:12,938 - INFO - PO CR24070080 already exists (ID: 195), updating taxes on order lines
+2025-12-01 16:55:13,023 - INFO -   ✓ Updated 0 lines in PO CR24070080
+2025-12-01 16:55:13,023 - INFO - [61/468] Processing PO: CR24080023 (1 lines)
+2025-12-01 16:55:13,496 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:13,655 - INFO - PO CR24080023 already exists (ID: 196), updating taxes on order lines
+2025-12-01 16:55:13,734 - INFO -   ✓ Updated 0 lines in PO CR24080023
+2025-12-01 16:55:13,735 - INFO - [62/468] Processing PO: CR24080025 (1 lines)
+2025-12-01 16:55:14,217 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:14,390 - INFO - PO CR24080025 already exists (ID: 197), updating taxes on order lines
+2025-12-01 16:55:14,480 - INFO -   ✓ Updated 0 lines in PO CR24080025
+2025-12-01 16:55:14,482 - INFO - [63/468] Processing PO: CR24080026 (1 lines)
+2025-12-01 16:55:14,998 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:15,176 - INFO - PO CR24080026 already exists (ID: 198), updating taxes on order lines
+2025-12-01 16:55:15,258 - INFO -   ✓ Updated 0 lines in PO CR24080026
+2025-12-01 16:55:15,258 - INFO - [64/468] Processing PO: CR24080071 (1 lines)
+2025-12-01 16:55:15,750 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:15,915 - INFO - PO CR24080071 already exists (ID: 199), updating taxes on order lines
+2025-12-01 16:55:16,006 - INFO -   ✓ Updated 0 lines in PO CR24080071
+2025-12-01 16:55:16,007 - INFO - [65/468] Processing PO: CR24090001 (1 lines)
+2025-12-01 16:55:16,479 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:16,670 - INFO - PO CR24090001 already exists (ID: 200), updating taxes on order lines
+2025-12-01 16:55:16,754 - INFO -   ✓ Updated 0 lines in PO CR24090001
+2025-12-01 16:55:16,755 - INFO - [66/468] Processing PO: CR24090027 (1 lines)
+2025-12-01 16:55:17,220 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:17,399 - INFO - PO CR24090027 already exists (ID: 201), updating taxes on order lines
+2025-12-01 16:55:17,481 - INFO -   ✓ Updated 0 lines in PO CR24090027
+2025-12-01 16:55:17,482 - INFO - [67/468] Processing PO: CR24090028 (1 lines)
+2025-12-01 16:55:17,956 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:18,127 - INFO - PO CR24090028 already exists (ID: 202), updating taxes on order lines
+2025-12-01 16:55:18,208 - INFO -   ✓ Updated 0 lines in PO CR24090028
+2025-12-01 16:55:18,209 - INFO - [68/468] Processing PO: CR24090029 (1 lines)
+2025-12-01 16:55:18,681 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:18,852 - INFO - PO CR24090029 already exists (ID: 203), updating taxes on order lines
+2025-12-01 16:55:18,931 - INFO -   ✓ Updated 0 lines in PO CR24090029
+2025-12-01 16:55:18,932 - INFO - [69/468] Processing PO: CR24090030 (1 lines)
+2025-12-01 16:55:19,406 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:19,567 - INFO - PO CR24090030 already exists (ID: 204), updating taxes on order lines
+2025-12-01 16:55:19,646 - INFO -   ✓ Updated 0 lines in PO CR24090030
+2025-12-01 16:55:19,648 - INFO - [70/468] Processing PO: CR24090031 (1 lines)
+2025-12-01 16:55:20,117 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:20,286 - INFO - PO CR24090031 already exists (ID: 205), updating taxes on order lines
+2025-12-01 16:55:20,372 - INFO -   ✓ Updated 0 lines in PO CR24090031
+2025-12-01 16:55:20,376 - INFO - [71/468] Processing PO: CR24090032 (1 lines)
+2025-12-01 16:55:20,836 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:20,997 - INFO - PO CR24090032 already exists (ID: 206), updating taxes on order lines
+2025-12-01 16:55:21,078 - INFO -   ✓ Updated 0 lines in PO CR24090032
+2025-12-01 16:55:21,079 - INFO - [72/468] Processing PO: CR24090033 (1 lines)
+2025-12-01 16:55:21,542 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:21,981 - INFO - Created PO CR24090033 with ID 207
+2025-12-01 16:55:21,982 - INFO -   ✓ Created PO CR24090033 with ID 207
+2025-12-01 16:55:21,983 - INFO - [73/468] Processing PO: CR24090034 (1 lines)
+2025-12-01 16:55:22,513 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:22,975 - INFO - Created PO CR24090034 with ID 208
+2025-12-01 16:55:22,976 - INFO -   ✓ Created PO CR24090034 with ID 208
+2025-12-01 16:55:22,977 - INFO - [74/468] Processing PO: CR24090035 (1 lines)
+2025-12-01 16:55:23,462 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:23,890 - INFO - Created PO CR24090035 with ID 209
+2025-12-01 16:55:23,891 - INFO -   ✓ Created PO CR24090035 with ID 209
+2025-12-01 16:55:23,892 - INFO - [75/468] Processing PO: CR24090048 (1 lines)
+2025-12-01 16:55:24,386 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:24,866 - INFO - Created PO CR24090048 with ID 210
+2025-12-01 16:55:24,867 - INFO -   ✓ Created PO CR24090048 with ID 210
+2025-12-01 16:55:24,867 - INFO - [76/468] Processing PO: CR24090051 (1 lines)
+2025-12-01 16:55:25,392 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:25,833 - INFO - Created PO CR24090051 with ID 211
+2025-12-01 16:55:25,833 - INFO -   ✓ Created PO CR24090051 with ID 211
+2025-12-01 16:55:25,833 - INFO - [77/468] Processing PO: CR24090053 (1 lines)
+2025-12-01 16:55:26,304 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:26,788 - INFO - Created PO CR24090053 with ID 212
+2025-12-01 16:55:26,789 - INFO -   ✓ Created PO CR24090053 with ID 212
+2025-12-01 16:55:26,790 - INFO - [78/468] Processing PO: CR24100029 (1 lines)
+2025-12-01 16:55:27,303 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:27,779 - INFO - Created PO CR24100029 with ID 213
+2025-12-01 16:55:27,780 - INFO -   ✓ Created PO CR24100029 with ID 213
+2025-12-01 16:55:27,781 - INFO - [79/468] Processing PO: CR24100033 (1 lines)
+2025-12-01 16:55:28,260 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:28,675 - INFO - Created PO CR24100033 with ID 214
+2025-12-01 16:55:28,676 - INFO -   ✓ Created PO CR24100033 with ID 214
+2025-12-01 16:55:28,677 - INFO - [80/468] Processing PO: CR24100034 (1 lines)
+2025-12-01 16:55:29,149 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:29,578 - INFO - Created PO CR24100034 with ID 215
+2025-12-01 16:55:29,579 - INFO -   ✓ Created PO CR24100034 with ID 215
+2025-12-01 16:55:29,580 - INFO - [81/468] Processing PO: CR24100035 (1 lines)
+2025-12-01 16:55:30,032 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:30,436 - INFO - Created PO CR24100035 with ID 216
+2025-12-01 16:55:30,436 - INFO -   ✓ Created PO CR24100035 with ID 216
+2025-12-01 16:55:30,437 - INFO - [82/468] Processing PO: CR24110021 (1 lines)
+2025-12-01 16:55:30,928 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:31,380 - INFO - Created PO CR24110021 with ID 217
+2025-12-01 16:55:31,380 - INFO -   ✓ Created PO CR24110021 with ID 217
+2025-12-01 16:55:31,381 - INFO - [83/468] Processing PO: CR24110022 (1 lines)
+2025-12-01 16:55:31,882 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:32,287 - INFO - Created PO CR24110022 with ID 218
+2025-12-01 16:55:32,289 - INFO -   ✓ Created PO CR24110022 with ID 218
+2025-12-01 16:55:32,290 - INFO - [84/468] Processing PO: CR24110026 (1 lines)
+2025-12-01 16:55:32,790 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:33,226 - INFO - Created PO CR24110026 with ID 219
+2025-12-01 16:55:33,226 - INFO -   ✓ Created PO CR24110026 with ID 219
+2025-12-01 16:55:33,227 - INFO - [85/468] Processing PO: CR24120030 (1 lines)
+2025-12-01 16:55:33,707 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:34,115 - INFO - Created PO CR24120030 with ID 220
+2025-12-01 16:55:34,116 - INFO -   ✓ Created PO CR24120030 with ID 220
+2025-12-01 16:55:34,117 - INFO - [86/468] Processing PO: CR24120032 (1 lines)
+2025-12-01 16:55:34,616 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:35,033 - INFO - Created PO CR24120032 with ID 221
+2025-12-01 16:55:35,034 - INFO -   ✓ Created PO CR24120032 with ID 221
+2025-12-01 16:55:35,034 - INFO - [87/468] Processing PO: CR24120037 (1 lines)
+2025-12-01 16:55:35,517 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:35,915 - INFO - Created PO CR24120037 with ID 222
+2025-12-01 16:55:35,916 - INFO -   ✓ Created PO CR24120037 with ID 222
+2025-12-01 16:55:35,917 - INFO - [88/468] Processing PO: CR24120040 (1 lines)
+2025-12-01 16:55:36,411 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:36,822 - INFO - Created PO CR24120040 with ID 223
+2025-12-01 16:55:36,822 - INFO -   ✓ Created PO CR24120040 with ID 223
+2025-12-01 16:55:36,823 - INFO - [89/468] Processing PO: CR24120046 (1 lines)
+2025-12-01 16:55:37,374 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:37,861 - INFO - Created PO CR24120046 with ID 224
+2025-12-01 16:55:37,862 - INFO -   ✓ Created PO CR24120046 with ID 224
+2025-12-01 16:55:37,863 - INFO - [90/468] Processing PO: CR25030025 (1 lines)
+2025-12-01 16:55:38,331 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:38,801 - INFO - Created PO CR25030025 with ID 225
+2025-12-01 16:55:38,802 - INFO -   ✓ Created PO CR25030025 with ID 225
+2025-12-01 16:55:38,803 - INFO - [91/468] Processing PO: CR25030026 (1 lines)
+2025-12-01 16:55:39,292 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:39,714 - INFO - Created PO CR25030026 with ID 226
+2025-12-01 16:55:39,715 - INFO -   ✓ Created PO CR25030026 with ID 226
+2025-12-01 16:55:39,716 - INFO - [92/468] Processing PO: CR25030027 (1 lines)
+2025-12-01 16:55:40,179 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:40,642 - INFO - Created PO CR25030027 with ID 227
+2025-12-01 16:55:40,643 - INFO -   ✓ Created PO CR25030027 with ID 227
+2025-12-01 16:55:40,644 - INFO - [93/468] Processing PO: CR25030028 (1 lines)
+2025-12-01 16:55:41,124 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:41,548 - INFO - Created PO CR25030028 with ID 228
+2025-12-01 16:55:41,549 - INFO -   ✓ Created PO CR25030028 with ID 228
+2025-12-01 16:55:41,549 - INFO - [94/468] Processing PO: CR25030029 (1 lines)
+2025-12-01 16:55:42,034 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:42,504 - INFO - Created PO CR25030029 with ID 229
+2025-12-01 16:55:42,505 - INFO -   ✓ Created PO CR25030029 with ID 229
+2025-12-01 16:55:42,506 - INFO - [95/468] Processing PO: CR25030032 (1 lines)
+2025-12-01 16:55:42,967 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:43,361 - INFO - Created PO CR25030032 with ID 230
+2025-12-01 16:55:43,362 - INFO -   ✓ Created PO CR25030032 with ID 230
+2025-12-01 16:55:43,363 - INFO - [96/468] Processing PO: CR25030033 (1 lines)
+2025-12-01 16:55:43,837 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:44,246 - INFO - Created PO CR25030033 with ID 231
+2025-12-01 16:55:44,247 - INFO -   ✓ Created PO CR25030033 with ID 231
+2025-12-01 16:55:44,247 - INFO - [97/468] Processing PO: CR25030034 (1 lines)
+2025-12-01 16:55:44,721 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:45,181 - INFO - Created PO CR25030034 with ID 232
+2025-12-01 16:55:45,182 - INFO -   ✓ Created PO CR25030034 with ID 232
+2025-12-01 16:55:45,184 - INFO - [98/468] Processing PO: CR25050012 (1 lines)
+2025-12-01 16:55:45,670 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:46,094 - INFO - Created PO CR25050012 with ID 233
+2025-12-01 16:55:46,095 - INFO -   ✓ Created PO CR25050012 with ID 233
+2025-12-01 16:55:46,096 - INFO - [99/468] Processing PO: CR25050013 (1 lines)
+2025-12-01 16:55:46,568 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:47,001 - INFO - Created PO CR25050013 with ID 234
+2025-12-01 16:55:47,002 - INFO -   ✓ Created PO CR25050013 with ID 234
+2025-12-01 16:55:47,004 - INFO - [100/468] Processing PO: CR25060011 (1 lines)
+2025-12-01 16:55:47,482 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:47,890 - INFO - Created PO CR25060011 with ID 235
+2025-12-01 16:55:47,891 - INFO -   ✓ Created PO CR25060011 with ID 235
+2025-12-01 16:55:47,892 - INFO - [101/468] Processing PO: CR25060012 (1 lines)
+2025-12-01 16:55:48,433 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:48,896 - INFO - Created PO CR25060012 with ID 236
+2025-12-01 16:55:48,897 - INFO -   ✓ Created PO CR25060012 with ID 236
+2025-12-01 16:55:48,899 - INFO - [102/468] Processing PO: CR25060013 (1 lines)
+2025-12-01 16:55:49,424 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:49,846 - INFO - Created PO CR25060013 with ID 237
+2025-12-01 16:55:49,847 - INFO -   ✓ Created PO CR25060013 with ID 237
+2025-12-01 16:55:49,848 - INFO - [103/468] Processing PO: CR25060014 (1 lines)
+2025-12-01 16:55:50,310 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:50,772 - INFO - Created PO CR25060014 with ID 238
+2025-12-01 16:55:50,773 - INFO -   ✓ Created PO CR25060014 with ID 238
+2025-12-01 16:55:50,773 - INFO - [104/468] Processing PO: CR25060015 (1 lines)
+2025-12-01 16:55:51,264 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:51,697 - INFO - Created PO CR25060015 with ID 239
+2025-12-01 16:55:51,697 - INFO -   ✓ Created PO CR25060015 with ID 239
+2025-12-01 16:55:51,698 - INFO - [105/468] Processing PO: CR25060016 (1 lines)
+2025-12-01 16:55:52,170 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:52,582 - INFO - Created PO CR25060016 with ID 240
+2025-12-01 16:55:52,583 - INFO -   ✓ Created PO CR25060016 with ID 240
+2025-12-01 16:55:52,583 - INFO - [106/468] Processing PO: CR25060017 (1 lines)
+2025-12-01 16:55:53,094 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:53,500 - INFO - Created PO CR25060017 with ID 241
+2025-12-01 16:55:53,500 - INFO -   ✓ Created PO CR25060017 with ID 241
+2025-12-01 16:55:53,500 - INFO - [107/468] Processing PO: CR25060018 (1 lines)
+2025-12-01 16:55:53,970 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 16:55:54,388 - INFO - Created PO CR25060018 with ID 242
+2025-12-01 16:55:54,389 - INFO -   ✓ Created PO CR25060018 with ID 242
+2025-12-01 16:55:54,389 - INFO - [108/468] Processing PO: CR25060020 (1 lines)
+2025-12-01 16:55:54,925 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)

@@ -1,0 +1,50 @@
+2025-12-01 15:30:07,949 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-12-01 15:30:07,950 - INFO - 
+================================================================================
+2025-12-01 15:30:07,950 - INFO - Starting import from: Import_PO/Template_PO_new.xlsx
+2025-12-01 15:30:07,950 - INFO - Dry-run mode: False
+2025-12-01 15:30:07,950 - INFO - ================================================================================
+2025-12-01 15:30:08,367 - INFO - OK Excel file loaded: 468 total rows
+2025-12-01 15:30:08,368 - INFO - OK All required columns found
+2025-12-01 15:30:08,382 - INFO - OK Found 468 purchase orders to process
+2025-12-01 15:30:08,382 - INFO - --------------------------------------------------------------------------------
+2025-12-01 15:30:08,384 - INFO - [1/468] Processing PO: BOEP6708018 (1 lines)
+2025-12-01 15:30:08,551 - ERROR -   ERROR Partner not found for old_code_partner: nan, partner_code: I001
+2025-12-01 15:30:08,560 - INFO - [2/468] Processing PO: BOEP6708022 (1 lines)
+2025-12-01 15:30:08,741 - ERROR -   ERROR Partner not found for old_code_partner: nan, partner_code: I001
+2025-12-01 15:30:08,745 - INFO - [3/468] Processing PO: BOEP6709022 (1 lines)
+2025-12-01 15:30:08,940 - ERROR -   ERROR Partner not found for old_code_partner: nan, partner_code: I001
+2025-12-01 15:30:08,945 - INFO - [4/468] Processing PO: BOEP6710014 (1 lines)
+2025-12-01 15:30:09,116 - ERROR -   ERROR Partner not found for old_code_partner: nan, partner_code: I001
+2025-12-01 15:30:09,117 - INFO - [5/468] Processing PO: BOEP6711019 (1 lines)
+2025-12-01 15:30:09,301 - ERROR -   ERROR Partner not found for old_code_partner: nan, partner_code: I001
+2025-12-01 15:30:09,306 - INFO - [6/468] Processing PO: BOEP6712021 (1 lines)
+2025-12-01 15:30:09,476 - ERROR -   ERROR Partner not found for old_code_partner: nan, partner_code: I001
+2025-12-01 15:30:09,479 - INFO - [7/468] Processing PO: BOEP6712024 (1 lines)
+2025-12-01 15:30:09,669 - ERROR -   ERROR Partner not found for old_code_partner: nan, partner_code: I001
+2025-12-01 15:30:09,674 - INFO - [8/468] Processing PO: BOEP6801017 (1 lines)
+2025-12-01 15:30:10,345 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 15:30:10,542 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-001
+2025-12-01 15:30:10,545 - INFO - [9/468] Processing PO: BOEP6805001 (1 lines)
+2025-12-01 15:30:11,282 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 15:30:11,500 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-001
+2025-12-01 15:30:11,505 - INFO - [10/468] Processing PO: BOEP6805002 (1 lines)
+2025-12-01 15:30:12,359 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 15:30:12,578 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-001
+2025-12-01 15:30:12,582 - INFO - [11/468] Processing PO: BOEP6805003 (1 lines)
+2025-12-01 15:30:13,477 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 15:30:13,729 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-001
+2025-12-01 15:30:13,736 - INFO - [12/468] Processing PO: BOEP6805004 (1 lines)
+2025-12-01 15:30:14,610 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 15:30:14,855 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-001
+2025-12-01 15:30:14,859 - INFO - [13/468] Processing PO: BOEP6805005 (1 lines)
+2025-12-01 15:30:15,513 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 15:30:15,713 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-001
+2025-12-01 15:30:15,717 - INFO - [14/468] Processing PO: BOEP6805006 (1 lines)
+2025-12-01 15:30:16,371 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 15:30:16,576 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-001
+2025-12-01 15:30:16,579 - INFO - [15/468] Processing PO: BOEP6805007 (1 lines)
+2025-12-01 15:30:17,373 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-01 15:30:17,580 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-001
+2025-12-01 15:30:17,585 - INFO - [16/468] Processing PO: BOEP6805008 (1 lines)
+2025-12-01 15:30:18,446 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)

@@ -1,0 +1,163 @@
+2025-12-01 15:41:35,280 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-12-01 15:41:35,282 - INFO - 
+================================================================================
+2025-12-01 15:41:35,283 - INFO - Starting import from: Import_PO/Template_PO_new.xlsx
+2025-12-01 15:41:35,284 - INFO - Dry-run mode: False
+2025-12-01 15:41:35,285 - INFO - ================================================================================
+2025-12-01 15:41:35,739 - INFO - OK Excel file loaded: 468 total rows
+2025-12-01 15:41:35,739 - INFO - OK All required columns found
+2025-12-01 15:41:35,748 - INFO - OK Found 468 purchase orders to process
+2025-12-01 15:41:35,748 - INFO - --------------------------------------------------------------------------------
+2025-12-01 15:41:35,749 - INFO - [1/468] Processing PO: BOEP6708018 (1 lines)
+2025-12-01 15:41:36,722 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-ค้างจ่าย
+2025-12-01 15:41:36,731 - INFO - [2/468] Processing PO: BOEP6708022 (1 lines)
+2025-12-01 15:41:37,611 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-ค้างจ่าย
+2025-12-01 15:41:37,616 - INFO - [3/468] Processing PO: BOEP6709022 (1 lines)
+2025-12-01 15:41:38,523 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-ค้างจ่าย
+2025-12-01 15:41:38,524 - INFO - [4/468] Processing PO: BOEP6710014 (1 lines)
+2025-12-01 15:41:39,320 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-ค้างจ่าย
+2025-12-01 15:41:39,326 - INFO - [5/468] Processing PO: BOEP6711019 (1 lines)
+2025-12-01 15:41:40,119 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-ค้างจ่าย
+2025-12-01 15:41:40,121 - INFO - [6/468] Processing PO: BOEP6712021 (1 lines)
+2025-12-01 15:41:41,004 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-ค้างจ่าย
+2025-12-01 15:41:41,006 - INFO - [7/468] Processing PO: BOEP6712024 (1 lines)
+2025-12-01 15:41:41,880 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-ค้างจ่าย
+2025-12-01 15:41:41,884 - INFO - [8/468] Processing PO: BOEP6801017 (1 lines)
+2025-12-01 15:41:42,172 - ERROR -   ERROR Partner not found for old_code_partner: V01507, partner_code: V01507
+2025-12-01 15:41:42,175 - INFO - [9/468] Processing PO: BOEP6805001 (1 lines)
+2025-12-01 15:41:42,478 - ERROR -   ERROR Partner not found for old_code_partner: V01507, partner_code: V01507
+2025-12-01 15:41:42,480 - INFO - [10/468] Processing PO: BOEP6805002 (1 lines)
+2025-12-01 15:41:42,773 - ERROR -   ERROR Partner not found for old_code_partner: V01508, partner_code: V01508
+2025-12-01 15:41:42,775 - INFO - [11/468] Processing PO: BOEP6805003 (1 lines)
+2025-12-01 15:41:43,058 - ERROR -   ERROR Partner not found for old_code_partner: V01509, partner_code: V01509
+2025-12-01 15:41:43,060 - INFO - [12/468] Processing PO: BOEP6805004 (1 lines)
+2025-12-01 15:41:43,349 - ERROR -   ERROR Partner not found for old_code_partner: V01510, partner_code: V01510
+2025-12-01 15:41:43,355 - INFO - [13/468] Processing PO: BOEP6805005 (1 lines)
+2025-12-01 15:41:43,656 - ERROR -   ERROR Partner not found for old_code_partner: V01511, partner_code: V01511
+2025-12-01 15:41:43,658 - INFO - [14/468] Processing PO: BOEP6805006 (1 lines)
+2025-12-01 15:41:43,941 - ERROR -   ERROR Partner not found for old_code_partner: V01512, partner_code: V01512
+2025-12-01 15:41:43,942 - INFO - [15/468] Processing PO: BOEP6805007 (1 lines)
+2025-12-01 15:41:44,267 - ERROR -   ERROR Partner not found for old_code_partner: V01513, partner_code: V01513
+2025-12-01 15:41:44,269 - INFO - [16/468] Processing PO: BOEP6805008 (1 lines)
+2025-12-01 15:41:44,544 - ERROR -   ERROR Partner not found for old_code_partner: V01514, partner_code: V01514
+2025-12-01 15:41:44,546 - INFO - [17/468] Processing PO: BOEP6805009 (1 lines)
+2025-12-01 15:41:44,836 - ERROR -   ERROR Partner not found for old_code_partner: V01515, partner_code: V01515
+2025-12-01 15:41:44,842 - INFO - [18/468] Processing PO: BOEP6805010 (1 lines)
+2025-12-01 15:41:45,117 - ERROR -   ERROR Partner not found for old_code_partner: V01516, partner_code: V01516
+2025-12-01 15:41:45,118 - INFO - [19/468] Processing PO: BOEP6805011 (1 lines)
+2025-12-01 15:41:45,381 - ERROR -   ERROR Partner not found for old_code_partner: V01517, partner_code: V01517
+2025-12-01 15:41:45,383 - INFO - [20/468] Processing PO: BOEP6805012 (1 lines)
+2025-12-01 15:41:45,673 - ERROR -   ERROR Partner not found for old_code_partner: V01518, partner_code: V01518
+2025-12-01 15:41:45,675 - INFO - [21/468] Processing PO: BOEP6805014 (1 lines)
+2025-12-01 15:41:45,960 - ERROR -   ERROR Partner not found for old_code_partner: V01519, partner_code: V01519
+2025-12-01 15:41:45,966 - INFO - [22/468] Processing PO: BOEP6805015 (1 lines)
+2025-12-01 15:41:46,268 - ERROR -   ERROR Partner not found for old_code_partner: V01520, partner_code: V01520
+2025-12-01 15:41:46,273 - INFO - [23/468] Processing PO: BOEP6805016 (1 lines)
+2025-12-01 15:41:46,560 - ERROR -   ERROR Partner not found for old_code_partner: V01521, partner_code: V01521
+2025-12-01 15:41:46,565 - INFO - [24/468] Processing PO: BOEP6810002 (1 lines)
+2025-12-01 15:41:47,424 - ERROR -   ERROR Product not found for old_product_code: nan, default_code: OB-ค้างจ่าย
+2025-12-01 15:41:47,426 - INFO - [25/468] Processing PO: CR18030032 (1 lines)
+2025-12-01 15:41:47,705 - ERROR -   ERROR Partner not found for old_code_partner: CSC002, partner_code: CSC002
+2025-12-01 15:41:47,707 - INFO - [26/468] Processing PO: CR18060039 (1 lines)
+2025-12-01 15:41:48,058 - ERROR -   ERROR Partner not found for old_code_partner: CSC002, partner_code: CSC002
+2025-12-01 15:41:48,063 - INFO - [27/468] Processing PO: CR18090037 (1 lines)
+2025-12-01 15:41:48,383 - ERROR -   ERROR Partner not found for old_code_partner: CSC002, partner_code: CSC002
+2025-12-01 15:41:48,384 - INFO - [28/468] Processing PO: CR22020024 (1 lines)
+2025-12-01 15:41:48,713 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:48,719 - INFO - [29/468] Processing PO: CR22020025 (1 lines)
+2025-12-01 15:41:49,012 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:49,018 - INFO - [30/468] Processing PO: CR22020026 (1 lines)
+2025-12-01 15:41:49,408 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:49,411 - INFO - [31/468] Processing PO: CR22020027 (1 lines)
+2025-12-01 15:41:49,724 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:49,728 - INFO - [32/468] Processing PO: CR22030035 (1 lines)
+2025-12-01 15:41:50,156 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:50,158 - INFO - [33/468] Processing PO: CR22030036 (1 lines)
+2025-12-01 15:41:50,499 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:50,502 - INFO - [34/468] Processing PO: CR22040028 (1 lines)
+2025-12-01 15:41:50,945 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:50,950 - INFO - [35/468] Processing PO: CR22040029 (1 lines)
+2025-12-01 15:41:51,260 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:51,265 - INFO - [36/468] Processing PO: CR22050027 (1 lines)
+2025-12-01 15:41:51,676 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:51,680 - INFO - [37/468] Processing PO: CR22060036 (1 lines)
+2025-12-01 15:41:52,006 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:52,009 - INFO - [38/468] Processing PO: CR22070032 (1 lines)
+2025-12-01 15:41:52,350 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:52,353 - INFO - [39/468] Processing PO: CR22080026 (1 lines)
+2025-12-01 15:41:52,694 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:52,697 - INFO - [40/468] Processing PO: CR22090030 (1 lines)
+2025-12-01 15:41:53,123 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:53,140 - INFO - [41/468] Processing PO: CR22090031 (1 lines)
+2025-12-01 15:41:53,489 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:53,491 - INFO - [42/468] Processing PO: CR22100024 (1 lines)
+2025-12-01 15:41:53,763 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:53,765 - INFO - [43/468] Processing PO: CR22110028 (1 lines)
+2025-12-01 15:41:54,041 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:54,046 - INFO - [44/468] Processing PO: CR23040027 (1 lines)
+2025-12-01 15:41:54,334 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:54,337 - INFO - [45/468] Processing PO: CR23040031 (1 lines)
+2025-12-01 15:41:54,629 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:54,635 - INFO - [46/468] Processing PO: CR23090039 (1 lines)
+2025-12-01 15:41:54,927 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:54,932 - INFO - [47/468] Processing PO: CR23110025 (1 lines)
+2025-12-01 15:41:55,233 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:55,235 - INFO - [48/468] Processing PO: CR23120031 (1 lines)
+2025-12-01 15:41:55,527 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:55,531 - INFO - [49/468] Processing PO: CR23120049 (1 lines)
+2025-12-01 15:41:55,833 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:55,838 - INFO - [50/468] Processing PO: CR23120050 (1 lines)
+2025-12-01 15:41:56,132 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:56,136 - INFO - [51/468] Processing PO: CR24010028 (1 lines)
+2025-12-01 15:41:56,482 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:56,485 - INFO - [52/468] Processing PO: CR24060025 (1 lines)
+2025-12-01 15:41:56,760 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:56,766 - INFO - [53/468] Processing PO: CR24060026 (1 lines)
+2025-12-01 15:41:57,066 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:57,067 - INFO - [54/468] Processing PO: CR24070016 (1 lines)
+2025-12-01 15:41:57,393 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:57,394 - INFO - [55/468] Processing PO: CR24070017 (1 lines)
+2025-12-01 15:41:57,704 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:57,709 - INFO - [56/468] Processing PO: CR24070054 (1 lines)
+2025-12-01 15:41:58,007 - ERROR -   ERROR Partner not found for old_code_partner: DOHUD01, partner_code: DOHUD01
+2025-12-01 15:41:58,013 - INFO - [57/468] Processing PO: CR24070061 (1 lines)
+2025-12-01 15:41:58,323 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:58,329 - INFO - [58/468] Processing PO: CR24070062 (1 lines)
+2025-12-01 15:41:58,665 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:58,668 - INFO - [59/468] Processing PO: CR24070079 (1 lines)
+2025-12-01 15:41:58,981 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:58,986 - INFO - [60/468] Processing PO: CR24070080 (1 lines)
+2025-12-01 15:41:59,331 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:59,333 - INFO - [61/468] Processing PO: CR24080023 (1 lines)
+2025-12-01 15:41:59,615 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:59,622 - INFO - [62/468] Processing PO: CR24080025 (1 lines)
+2025-12-01 15:41:59,887 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:41:59,890 - INFO - [63/468] Processing PO: CR24080026 (1 lines)
+2025-12-01 15:42:00,177 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:00,179 - INFO - [64/468] Processing PO: CR24080071 (1 lines)
+2025-12-01 15:42:00,466 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:00,467 - INFO - [65/468] Processing PO: CR24090001 (1 lines)
+2025-12-01 15:42:00,835 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:00,837 - INFO - [66/468] Processing PO: CR24090027 (1 lines)
+2025-12-01 15:42:01,138 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:01,142 - INFO - [67/468] Processing PO: CR24090028 (1 lines)
+2025-12-01 15:42:01,441 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:01,445 - INFO - [68/468] Processing PO: CR24090029 (1 lines)
+2025-12-01 15:42:01,725 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:01,727 - INFO - [69/468] Processing PO: CR24090030 (1 lines)
+2025-12-01 15:42:02,013 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:02,015 - INFO - [70/468] Processing PO: CR24090031 (1 lines)
+2025-12-01 15:42:02,333 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:02,339 - INFO - [71/468] Processing PO: CR24090032 (1 lines)
+2025-12-01 15:42:02,634 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:02,636 - INFO - [72/468] Processing PO: CR24090033 (1 lines)
+2025-12-01 15:42:02,931 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:02,932 - INFO - [73/468] Processing PO: CR24090034 (1 lines)
+2025-12-01 15:42:03,199 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:03,201 - INFO - [74/468] Processing PO: CR24090035 (1 lines)
+2025-12-01 15:42:03,459 - ERROR -   ERROR Partner not found for old_code_partner: BOO 035, partner_code: BOO 035
+2025-12-01 15:42:03,461 - INFO - [75/468] Processing PO: CR24090048 (1 lines)
+2025-12-01 15:42:03,754 - ERROR -   ERROR Partner not found for old_code_partner: BOON009, partner_code: BOON009
+2025-12-01 15:42:03,755 - INFO - [76/468] Processing PO: CR24090051 (1 lines)
+2025-12-01 15:42:04,053 - ERROR -   ERROR Partner not found for old_code_partner: YJR001, partner_code: YJR001
+2025-12-01 15:42:04,056 - INFO - [77/468] Processing PO: CR24090053 (1 lines)
