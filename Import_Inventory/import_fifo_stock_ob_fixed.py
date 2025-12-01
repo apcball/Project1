@@ -7,7 +7,7 @@ import os
 
 # Odoo connection parameters
 HOST = 'http://160.187.249.148:8069'
-DB = 'MOG_LIVE3'
+DB = 'MOG_LIVE'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
@@ -688,7 +688,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Import_Inventory/10.-4.5 คลังวัตถุดิบ 2.xlsx'
+        EXCEL_FILE = 'Import_Inventory/18.-2.2 คลังสิ้นเปลืองโรงงาน.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move

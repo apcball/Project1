@@ -19,7 +19,7 @@ logging.basicConfig(
 
 # --- Connection Settings ---
 url = 'http://160.187.249.148:8069'
-db = 'MOG_LIVE3'
+db = 'MOG_LIVE5'
 username = 'apichart@mogen.co.th'
 password = '471109538'
 
@@ -31,7 +31,7 @@ CHECKPOINT_FILE = 'Data_file/verification_checkpoint.json'
 OUTPUT_FILE = 'Varify_Product/not_found_products.xlsx'
 # Use an absolute path for the input file so it's unambiguous
 from pathlib import Path
-INPUT_FILE = Path(r"C:\Users\Ball\Documents\Git_apcball\Project1\Varify_Product\Product_find.xlsx")
+INPUT_FILE = Path(r"/Users/ball/Git_apcball/Project1/Varify_Product/Product_find.xlsx")
 TEMP_RESULTS_FILE = 'Varify_Product/temp_results.xlsx'
 
 class OdooConnection:
