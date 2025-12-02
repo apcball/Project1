@@ -1,0 +1,69 @@
+2025-12-02 07:57:57,218 - INFO - Successfully connected to Odoo as apichart@mogen.co.th
+2025-12-02 07:57:57,220 - INFO - 
+================================================================================
+2025-12-02 07:57:57,221 - INFO - Starting import from: Import_PO/Template_PO_new.xlsx
+2025-12-02 07:57:57,222 - INFO - Dry-run mode: False
+2025-12-02 07:57:57,223 - INFO - ================================================================================
+2025-12-02 07:57:57,682 - INFO - ✓ Excel file loaded: 468 total rows
+2025-12-02 07:57:57,682 - INFO - ✓ All required columns found
+2025-12-02 07:57:57,690 - INFO - ✓ Found 468 purchase orders to process
+2025-12-02 07:57:57,690 - INFO - --------------------------------------------------------------------------------
+2025-12-02 07:57:57,691 - INFO - [1/468] Processing PO: BOEP6708018 (1 lines)
+2025-12-02 07:57:57,768 - DEBUG -   Searching for partner: old_code=IDS001, partner_code=nan
+2025-12-02 07:57:57,857 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-02 07:57:57,861 - INFO - [2/468] Processing PO: BOEP6708022 (1 lines)
+2025-12-02 07:57:57,942 - DEBUG -   Searching for partner: old_code=IDS001, partner_code=nan
+2025-12-02 07:57:58,029 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-02 07:57:58,035 - INFO - [3/468] Processing PO: BOEP6709022 (1 lines)
+2025-12-02 07:57:58,113 - DEBUG -   Searching for partner: old_code=IDS001, partner_code=nan
+2025-12-02 07:57:58,196 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-02 07:57:58,197 - INFO - [4/468] Processing PO: BOEP6710014 (1 lines)
+2025-12-02 07:57:58,275 - DEBUG -   Searching for partner: old_code=IDS001, partner_code=nan
+2025-12-02 07:57:58,366 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-02 07:57:58,368 - INFO - [5/468] Processing PO: BOEP6711019 (1 lines)
+2025-12-02 07:57:58,450 - DEBUG -   Searching for partner: old_code=IDS001, partner_code=nan
+2025-12-02 07:57:58,546 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-02 07:57:58,550 - INFO - [6/468] Processing PO: BOEP6712021 (1 lines)
+2025-12-02 07:57:58,632 - DEBUG -   Searching for partner: old_code=IDS001, partner_code=nan
+2025-12-02 07:57:58,715 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-02 07:57:58,717 - INFO - [7/468] Processing PO: BOEP6712024 (1 lines)
+2025-12-02 07:57:58,794 - DEBUG -   Searching for partner: old_code=IDS001, partner_code=nan
+2025-12-02 07:57:58,887 - ERROR -   ✗ Partner not found for old_code_partner: IDS001, partner_code: nan
+2025-12-02 07:57:58,892 - INFO - [8/468] Processing PO: BOEP6801017 (1 lines)
+2025-12-02 07:57:58,968 - DEBUG -   Found existing PO ID: 287
+2025-12-02 07:57:58,973 - DEBUG -   Searching for partner: old_code=nan, partner_code=V01507
+2025-12-02 07:57:59,148 - DEBUG - Found partner using partner_code: V01507
+2025-12-02 07:57:59,230 - DEBUG - Resolving picking_type: 'คลังสินค้าสำเร็จรูป 1: Receipts'
+2025-12-02 07:57:59,233 - DEBUG -   Extracted warehouse name: 'คลังสินค้าสำเร็จรูป 1'
+2025-12-02 07:57:59,308 - DEBUG - ✓ Found warehouse: 'คลังสินค้าสำเร็จรูป 1' (ID: 1)
+2025-12-02 07:57:59,388 - DEBUG - ✓ Found picking_type ID 1 for warehouse: 'คลังสินค้าสำเร็จรูป 1'
+2025-12-02 07:57:59,388 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-02 07:57:59,576 - DEBUG - Found product using default_code: OB-ค้างจ่าย
+2025-12-02 07:57:59,580 - DEBUG -   texs_id raw value: nan | type: <class 'float'> | notna: False | str: 'nan' | strip: 'N/A'
+2025-12-02 07:57:59,581 - INFO - PO BOEP6801017 already exists (ID: 287), updating taxes on order lines
+2025-12-02 07:57:59,666 - INFO -   ✓ Updated 0 lines in PO BOEP6801017
+2025-12-02 07:57:59,667 - INFO - [9/468] Processing PO: BOEP6805001 (1 lines)
+2025-12-02 07:57:59,748 - DEBUG -   Found existing PO ID: 288
+2025-12-02 07:57:59,749 - DEBUG -   Searching for partner: old_code=nan, partner_code=V01507
+2025-12-02 07:57:59,925 - DEBUG - Found partner using partner_code: V01507
+2025-12-02 07:58:00,004 - DEBUG - Resolving picking_type: 'คลังสินค้าสำเร็จรูป 1: Receipts'
+2025-12-02 07:58:00,004 - DEBUG -   Extracted warehouse name: 'คลังสินค้าสำเร็จรูป 1'
+2025-12-02 07:58:00,087 - DEBUG - ✓ Found warehouse: 'คลังสินค้าสำเร็จรูป 1' (ID: 1)
+2025-12-02 07:58:00,172 - DEBUG - ✓ Found picking_type ID 1 for warehouse: 'คลังสินค้าสำเร็จรูป 1'
+2025-12-02 07:58:00,172 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-02 07:58:00,363 - DEBUG - Found product using default_code: OB-ค้างจ่าย
+2025-12-02 07:58:00,365 - DEBUG -   texs_id raw value: nan | type: <class 'float'> | notna: False | str: 'nan' | strip: 'N/A'
+2025-12-02 07:58:00,365 - INFO - PO BOEP6805001 already exists (ID: 288), updating taxes on order lines
+2025-12-02 07:58:00,454 - INFO -   ✓ Updated 0 lines in PO BOEP6805001
+2025-12-02 07:58:00,454 - INFO - [10/468] Processing PO: BOEP6805002 (1 lines)
+2025-12-02 07:58:00,543 - DEBUG -   Found existing PO ID: 289
+2025-12-02 07:58:00,544 - DEBUG -   Searching for partner: old_code=nan, partner_code=V01508
+2025-12-02 07:58:00,713 - DEBUG - Found partner using partner_code: V01508
+2025-12-02 07:58:00,786 - DEBUG - Resolving picking_type: 'คลังสินค้าสำเร็จรูป 1: Receipts'
+2025-12-02 07:58:00,786 - DEBUG -   Extracted warehouse name: 'คลังสินค้าสำเร็จรูป 1'
+2025-12-02 07:58:00,862 - DEBUG - ✓ Found warehouse: 'คลังสินค้าสำเร็จรูป 1' (ID: 1)
+2025-12-02 07:58:00,945 - DEBUG - ✓ Found picking_type ID 1 for warehouse: 'คลังสินค้าสำเร็จรูป 1'
+2025-12-02 07:58:00,945 - INFO - Using picking_type_id: คลังสินค้าสำเร็จรูป 1: Receipts (ID: 1)
+2025-12-02 07:58:01,119 - DEBUG - Found product using default_code: OB-ค้างจ่าย
+2025-12-02 07:58:01,120 - DEBUG -   texs_id raw value: nan | type: <class 'float'> | notna: False | str: 'nan' | strip: 'N/A'
+2025-12-02 07:58:01,121 - INFO - PO BOEP6805002 already exists (ID: 289), updating taxes on order lines

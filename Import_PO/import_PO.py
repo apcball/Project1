@@ -44,7 +44,7 @@ class POImporter:
         log_file = log_dir / f"po_import_{timestamp}.log"
         
         logging.basicConfig(
-            level=logging.INFO,
+            level=logging.DEBUG,
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
                 logging.FileHandler(log_file, encoding='utf-8'),
@@ -358,13 +358,25 @@ class POImporter:
             )
             # Map tax column: accept 'texs_id' (legacy typo) or 'taxes_id'
             tax_raw = None
-            if 'texs_id' in row and pd.notna(row.get('texs_id')):
-                tax_raw = row.get('texs_id')
-            elif 'taxes_id' in row and pd.notna(row.get('taxes_id')):
-                tax_raw = row.get('taxes_id')
+            
+            # Debug: log raw values from Excel
+            if 'texs_id' in row:
+                val = row.get('texs_id')
+                self.logger.debug(f"  texs_id raw value: {repr(val)} | type: {type(val)} | notna: {pd.notna(val)} | str: '{str(val)}' | strip: '{str(val).strip() if pd.notna(val) else 'N/A'}'")
+                if pd.notna(val) and str(val).strip():
+                    tax_raw = val
+                    self.logger.debug(f"  -> Setting tax_raw to: {repr(tax_raw)}")
+            
+            if 'taxes_id' in row and tax_raw is None:
+                val = row.get('taxes_id')
+                self.logger.debug(f"  taxes_id raw value: {repr(val)} | type: {type(val)} | notna: {pd.notna(val)} | str: '{str(val)}' | strip: '{str(val).strip() if pd.notna(val) else 'N/A'}'")
+                if pd.notna(val) and str(val).strip():
+                    tax_raw = val
+                    self.logger.debug(f"  -> Setting tax_raw to: {repr(tax_raw)}")
 
             # Only process taxes if tax_raw has a non-empty value
-            if tax_raw is not None and str(tax_raw).strip():
+            if tax_raw is not None:
+                self.logger.debug(f"  Processing taxes with tax_raw: {repr(tax_raw)}")
                 tax_ids = []
 
                 # If already a list/tuple of IDs or values
@@ -401,6 +413,10 @@ class POImporter:
                     # set many2many using (6, 0, [ids])
                     line_data['taxes_id'] = [(6, 0, tax_ids)]
                     self.logger.debug(f"  Applied taxes: {tax_ids} for value: {tax_raw}")
+                else:
+                    self.logger.debug(f"  No valid tax IDs found for value: {tax_raw}")
+            else:
+                self.logger.debug(f"  No tax data to process (tax_raw is None)")
             lines.append(line_data)
         
         try:
@@ -427,10 +443,14 @@ class POImporter:
                     if idx < len(existing_lines):
                         line_id = existing_lines[idx]['id']
                         
-                        # Prepare update data (only taxes)
+                        # Prepare update data
                         update_data = {}
                         if 'taxes_id' in line_data:
+                            # Has tax data - set it
                             update_data['taxes_id'] = line_data['taxes_id']
+                        else:
+                            # No tax data - clear existing taxes
+                            update_data['taxes_id'] = [(5, 0, 0)]  # Remove all taxes
                         
                         if update_data:
                             try:
@@ -440,7 +460,7 @@ class POImporter:
                                     [[line_id], update_data]
                                 )
                                 updated_count += 1
-                                self.logger.debug(f"  Updated line {line_id} with taxes")
+                                self.logger.debug(f"  Updated line {line_id} with taxes: {update_data}")
                             except Exception as e:
                                 self.logger.warning(f"  Could not update line {line_id}: {str(e)}")
                 
