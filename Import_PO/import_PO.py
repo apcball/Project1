@@ -10,8 +10,8 @@ import logging
 
 # Global configuration
 CONFIG = {
-    'server_url': 'http://119.59.102.189:8069',
-    'database': 'MOG_IMPORT',
+    'server_url': 'http://160.187.249.148:8069',
+    'database': 'MOG_LIVE',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_PO/logs',
@@ -416,7 +416,9 @@ class POImporter:
                 else:
                     self.logger.debug(f"  No valid tax IDs found for value: {tax_raw}")
             else:
-                self.logger.debug(f"  No tax data to process (tax_raw is None)")
+                # Explicitly set empty taxes to prevent Odoo defaults
+                line_data['taxes_id'] = [(5, 0, 0)]  # Clear all taxes
+                self.logger.debug(f"  No tax data to process (tax_raw is None) - clearing taxes")
             lines.append(line_data)
         
         try:

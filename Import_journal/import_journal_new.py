@@ -19,7 +19,7 @@ def connect_to_odoo():
 
 def read_excel_file():
     # Try to find the Excel file in current directory or Import_journal subdirectory
-    file_path = 'import_journal_ค้างจ่าย.xlsx'
+    file_path = 'import_journal_ค้างจ่าย1.xlsx'
     if not os.path.exists(file_path):
         file_path = 'Import_journal/import_journal_ลูกหนี้อื่น.xlsx'
     if not os.path.exists(file_path):

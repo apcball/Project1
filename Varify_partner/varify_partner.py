@@ -15,8 +15,8 @@ from typing import Tuple, List, Dict, Optional
 
 # Global configuration
 CONFIG = {
-    'server_url': 'http://mogth.work:8069',
-    'database': 'MOG_SETUP',
+    'server_url': 'http://160.187.249.148:8069',
+    'database': 'MOG_LIVE',
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Varify_partner/logs',

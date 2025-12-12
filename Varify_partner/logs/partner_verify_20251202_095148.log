@@ -1,0 +1,562 @@
+2025-12-02 09:51:48,220 - INFO - Log file created: Varify_partner/logs\partner_verify_20251202_095148.log
+2025-12-02 09:51:48,892 - INFO - Successfully connected to Odoo as user ID: 2
+2025-12-02 09:51:49,307 - INFO - Starting verification from index 0
+2025-12-02 09:51:49,307 - INFO - Total records to process: 275
+2025-12-02 09:51:49,307 - INFO - Processing batch 0-100 of 275
+2025-12-02 09:51:49,454 - INFO - Partner found by old_code_partner: VEN6600047 - ID: 1733, Name: บริษัท รักษาความปลอดภัย ซีเคอาร์ การ์ด จำกัด
+2025-12-02 09:51:49,454 - INFO - Partner found: VEN6600047 - ID: 1733, Name: บริษัท รักษาความปลอดภัย ซีเคอาร์ การ์ด จำกัด
+2025-12-02 09:51:49,600 - INFO - Partner found by old_code_partner: REL001 - ID: 964, Name: บริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด
+2025-12-02 09:51:49,601 - INFO - Partner found: REL001 - ID: 964, Name: บริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด
+2025-12-02 09:51:49,732 - INFO - Partner found by old_code_partner: ANOTHER - ID: 3683, Name: เจ้าหนี้การค้าอื่น
+2025-12-02 09:51:49,733 - INFO - Partner found: ANOTHER - ID: 3683, Name: เจ้าหนี้การค้าอื่น
+2025-12-02 09:51:49,885 - INFO - Partner found by old_code_partner: REL001 - ID: 964, Name: บริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด
+2025-12-02 09:51:49,886 - INFO - Partner found: REL001 - ID: 964, Name: บริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด
+2025-12-02 09:51:50,039 - INFO - Partner found by old_code_partner: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,040 - INFO - Partner found: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,193 - INFO - Partner found by old_code_partner: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,194 - INFO - Partner found: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,329 - INFO - Partner found by old_code_partner: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,329 - INFO - Partner found: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,477 - INFO - Partner found by old_code_partner: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,477 - INFO - Partner found: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,630 - INFO - Partner found by old_code_partner: ANOTHER - ID: 3683, Name: เจ้าหนี้การค้าอื่น
+2025-12-02 09:51:50,631 - INFO - Partner found: ANOTHER - ID: 3683, Name: เจ้าหนี้การค้าอื่น
+2025-12-02 09:51:50,762 - INFO - Partner found by old_code_partner: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,763 - INFO - Partner found: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:50,896 - INFO - Partner found by old_code_partner: ANOTHER - ID: 3683, Name: เจ้าหนี้การค้าอื่น
+2025-12-02 09:51:50,897 - INFO - Partner found: ANOTHER - ID: 3683, Name: เจ้าหนี้การค้าอื่น
+2025-12-02 09:51:51,045 - INFO - Partner found by old_code_partner: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:51,046 - INFO - Partner found: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:51:51,219 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,220 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,357 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,358 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,514 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,514 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,667 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,668 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,851 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,852 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,984 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:51,984 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:52,122 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:52,122 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:52,262 - INFO - Partner found by old_code_partner: HHO001 - ID: 3711, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:51:52,262 - INFO - Partner found: HHO001 - ID: 3711, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:51:52,439 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:52,439 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:52,575 - INFO - Partner found by old_code_partner: HHO001 - ID: 3711, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:51:52,576 - INFO - Partner found: HHO001 - ID: 3711, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:51:52,705 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:52,706 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:52,846 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:52,847 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:53,013 - INFO - Partner found by old_code_partner: HHO001 - ID: 3711, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:51:53,014 - INFO - Partner found: HHO001 - ID: 3711, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:51:53,146 - INFO - Partner found by old_code_partner: SHP001 - ID: 3712, Name: ห้างหุ้นส่วนจำกัด สหไพบูลย์ สุขภัณฑ์
+2025-12-02 09:51:53,146 - INFO - Partner found: SHP001 - ID: 3712, Name: ห้างหุ้นส่วนจำกัด สหไพบูลย์ สุขภัณฑ์
+2025-12-02 09:51:53,281 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:53,282 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:53,414 - INFO - Partner found by old_code_partner: SBD001 - ID: 1295, Name: บริษัท สบายดีโฮม จำกัด
+2025-12-02 09:51:53,414 - INFO - Partner found: SBD001 - ID: 1295, Name: บริษัท สบายดีโฮม จำกัด
+2025-12-02 09:51:53,568 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:53,568 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:53,739 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:53,740 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:53,881 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:53,881 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:54,013 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:54,013 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:54,176 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:54,177 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:54,320 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:54,320 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:54,453 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:54,454 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:54,585 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:54,585 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:54,751 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:54,753 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:54,910 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:54,910 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:55,061 - INFO - Partner found by old_code_partner: HHO001 - ID: 3711, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:51:55,062 - INFO - Partner found: HHO001 - ID: 3711, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:51:55,209 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:55,210 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:55,372 - INFO - Partner found by old_code_partner: BTV017 - ID: 780, Name: บริษัท บุญถาวร อินเตอร์เนชั่นแนล จำกัด
+2025-12-02 09:51:55,373 - INFO - Partner found: BTV017 - ID: 780, Name: บริษัท บุญถาวร อินเตอร์เนชั่นแนล จำกัด
+2025-12-02 09:51:55,520 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:55,520 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:55,650 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:55,651 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:55,800 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:55,801 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:55,960 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:55,961 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:56,120 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:56,121 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:56,254 - INFO - Partner found by old_code_partner: YOH002 - ID: 1214, Name: บริษัท ยงเฮ้าส์ จำกัด
+2025-12-02 09:51:56,255 - INFO - Partner found: YOH002 - ID: 1214, Name: บริษัท ยงเฮ้าส์ จำกัด
+2025-12-02 09:51:56,387 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:56,387 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:56,520 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:56,521 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:56,690 - INFO - Partner found by old_code_partner: VEN6500042 - ID: 1353, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:51:56,692 - INFO - Partner found: VEN6500042 - ID: 1353, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:51:56,836 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:56,837 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:56,972 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:56,973 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:57,111 - INFO - Partner found by old_code_partner: GHM001 - ID: 3713, Name: บริษัท แกรนด์โฮมมาร์ท กรุ๊ป จำกัด
+2025-12-02 09:51:57,112 - INFO - Partner found: GHM001 - ID: 3713, Name: บริษัท แกรนด์โฮมมาร์ท กรุ๊ป จำกัด
+2025-12-02 09:51:57,277 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:57,279 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:57,417 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:57,418 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:57,554 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:57,554 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:57,691 - INFO - Partner found by old_code_partner: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:51:57,692 - INFO - Partner found: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:51:57,860 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:57,861 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:58,008 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:58,009 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:58,145 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:58,145 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:58,275 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:58,275 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:58,422 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:58,422 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:51:58,563 - INFO - Partner found by old_code_partner: VEN6500042 - ID: 1353, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:51:58,564 - INFO - Partner found: VEN6500042 - ID: 1353, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:51:58,689 - INFO - Partner found by old_code_partner: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:51:58,689 - INFO - Partner found: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:51:58,817 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:58,817 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:58,958 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:58,959 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:59,128 - INFO - Partner found by old_code_partner: YLY001 - ID: 245, Name: ห้างหุ้นส่วนจำกัด ยะลาย่งฮวด
+2025-12-02 09:51:59,129 - INFO - Partner found: YLY001 - ID: 245, Name: ห้างหุ้นส่วนจำกัด ยะลาย่งฮวด
+2025-12-02 09:51:59,261 - INFO - Partner found by old_code_partner: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:51:59,261 - INFO - Partner found: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:51:59,409 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:59,409 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:59,539 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:59,539 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:51:59,698 - INFO - Partner found by old_code_partner: YLY001 - ID: 245, Name: ห้างหุ้นส่วนจำกัด ยะลาย่งฮวด
+2025-12-02 09:51:59,698 - INFO - Partner found: YLY001 - ID: 245, Name: ห้างหุ้นส่วนจำกัด ยะลาย่งฮวด
+2025-12-02 09:51:59,839 - INFO - Partner found by old_code_partner: VEN6500042 - ID: 1353, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:51:59,839 - INFO - Partner found: VEN6500042 - ID: 1353, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:51:59,980 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:51:59,980 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:00,116 - INFO - Partner found by old_code_partner: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:00,117 - INFO - Partner found: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:00,266 - INFO - Partner found by old_code_partner: BTV013 - ID: 778, Name: บริษัท บุญถาวรเซรามิค 2000 จำกัด
+2025-12-02 09:52:00,266 - INFO - Partner found: BTV013 - ID: 778, Name: บริษัท บุญถาวรเซรามิค 2000 จำกัด
+2025-12-02 09:52:00,412 - INFO - Partner found by old_code_partner: BTV016 - ID: 1521, Name: บริษัท บุญถาวรดีเวลลอปเม้นท์ จำกัด
+2025-12-02 09:52:00,412 - INFO - Partner found: BTV016 - ID: 1521, Name: บริษัท บุญถาวรดีเวลลอปเม้นท์ จำกัด
+2025-12-02 09:52:00,550 - INFO - Partner found by old_code_partner: BTV017 - ID: 780, Name: บริษัท บุญถาวร อินเตอร์เนชั่นแนล จำกัด
+2025-12-02 09:52:00,550 - INFO - Partner found: BTV017 - ID: 780, Name: บริษัท บุญถาวร อินเตอร์เนชั่นแนล จำกัด
+2025-12-02 09:52:00,679 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:52:00,680 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:52:00,832 - INFO - Partner found by old_code_partner: YLY001 - ID: 245, Name: ห้างหุ้นส่วนจำกัด ยะลาย่งฮวด
+2025-12-02 09:52:00,832 - INFO - Partner found: YLY001 - ID: 245, Name: ห้างหุ้นส่วนจำกัด ยะลาย่งฮวด
+2025-12-02 09:52:00,973 - INFO - Partner found by old_code_partner: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:52:00,973 - INFO - Partner found: MRH001 - ID: 3710, Name: บริษัท เมืองเลยบิ๊กโฮม จำกัด
+2025-12-02 09:52:01,103 - INFO - Partner found by old_code_partner: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:52:01,104 - INFO - Partner found: YUY001 - ID: 1377, Name: บริษัท ยุ่ยล้ง โฮมเอ็กซ์เพิร์ท จำกัด
+2025-12-02 09:52:01,234 - INFO - Partner found by old_code_partner: YLY001 - ID: 245, Name: ห้างหุ้นส่วนจำกัด ยะลาย่งฮวด
+2025-12-02 09:52:01,234 - INFO - Partner found: YLY001 - ID: 245, Name: ห้างหุ้นส่วนจำกัด ยะลาย่งฮวด
+2025-12-02 09:52:01,388 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:01,389 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:01,538 - INFO - Partner found by old_code_partner: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:01,538 - INFO - Partner found: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:01,677 - INFO - Partner found by old_code_partner: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:01,677 - INFO - Partner found: BTV004 - ID: 1519, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:01,814 - INFO - Partner found by old_code_partner: TSP004 - ID: 3714, Name: คุณทองสุก โพล้งซิน
+2025-12-02 09:52:01,815 - INFO - Partner found: TSP004 - ID: 3714, Name: คุณทองสุก โพล้งซิน
+2025-12-02 09:52:01,975 - INFO - Partner found by old_code_partner: BLS001 - ID: 1749, Name: บริษัท บิลเลี่ยนไทยซับพลายส์ จำกัด
+2025-12-02 09:52:01,975 - INFO - Partner found: BLS001 - ID: 1749, Name: บริษัท บิลเลี่ยนไทยซับพลายส์ จำกัด
+2025-12-02 09:52:02,122 - INFO - Partner found by old_code_partner: SVM001 - ID: 1219, Name: นางสาวศศิวิมล ชัยษา
+2025-12-02 09:52:02,123 - INFO - Partner found: SVM001 - ID: 1219, Name: นางสาวศศิวิมล ชัยษา
+2025-12-02 09:52:02,254 - INFO - Partner found by old_code_partner: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:02,254 - INFO - Partner found: SCG002 - ID: 989, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:02,388 - INFO - Partner found by old_code_partner: SCG004 - ID: 991, Name: บริษัท เอสซีจี เจดับเบิ้ลยูดี โลจิสติกส์ จำกัด (มหาชน)
+2025-12-02 09:52:02,389 - INFO - Partner found: SCG004 - ID: 991, Name: บริษัท เอสซีจี เจดับเบิ้ลยูดี โลจิสติกส์ จำกัด (มหาชน)
+2025-12-02 09:52:02,547 - INFO - Partner found by old_code_partner: SCG004 - ID: 991, Name: บริษัท เอสซีจี เจดับเบิ้ลยูดี โลจิสติกส์ จำกัด (มหาชน)
+2025-12-02 09:52:02,548 - INFO - Partner found: SCG004 - ID: 991, Name: บริษัท เอสซีจี เจดับเบิ้ลยูดี โลจิสติกส์ จำกัด (มหาชน)
+2025-12-02 09:52:02,693 - INFO - Partner found by old_code_partner: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:02,694 - INFO - Partner found: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:02,823 - INFO - Partner found by old_code_partner: AWN001 - ID: 743, Name: บริษัท แอดวานซ์ ไวร์เลส เน็ทเวอร์ค จำกัด
+2025-12-02 09:52:02,824 - INFO - Partner found: AWN001 - ID: 743, Name: บริษัท แอดวานซ์ ไวร์เลส เน็ทเวอร์ค จำกัด
+2025-12-02 09:52:02,959 - INFO - Partner found by old_code_partner: SVM001 - ID: 1219, Name: นางสาวศศิวิมล ชัยษา
+2025-12-02 09:52:02,959 - INFO - Partner found: SVM001 - ID: 1219, Name: นางสาวศศิวิมล ชัยษา
+2025-12-02 09:52:03,122 - INFO - Partner found by old_code_partner: STR001 - ID: 1638, Name: นายสุทร ทองประดับ
+2025-12-02 09:52:03,122 - INFO - Partner found: STR001 - ID: 1638, Name: นายสุทร ทองประดับ
+2025-12-02 09:52:03,272 - INFO - Partner found by old_code_partner: STM01 - ID: 2023, Name: บริษัท สตาร์มาร์คแมนูแฟคเชอร์ริ่ง จำกัด
+2025-12-02 09:52:03,273 - INFO - Partner found: STM01 - ID: 2023, Name: บริษัท สตาร์มาร์คแมนูแฟคเชอร์ริ่ง จำกัด
+2025-12-02 09:52:03,418 - INFO - Partner found by old_code_partner: BTV009 - ID: 1248, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพัทยา
+2025-12-02 09:52:03,419 - INFO - Partner found: BTV009 - ID: 1248, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพัทยา
+2025-12-02 09:52:03,560 - INFO - Partner found by old_code_partner: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:03,560 - INFO - Partner found: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:03,717 - INFO - Partner found by old_code_partner: SMT01 - ID: 2124, Name: คุณสมยศ ธรรมพัฒน์พงศ์
+2025-12-02 09:52:03,718 - INFO - Partner found: SMT01 - ID: 2124, Name: คุณสมยศ ธรรมพัฒน์พงศ์
+2025-12-02 09:52:03,868 - INFO - Partner found by old_code_partner: TSP004 - ID: 3714, Name: คุณทองสุก โพล้งซิน
+2025-12-02 09:52:03,868 - INFO - Partner found: TSP004 - ID: 3714, Name: คุณทองสุก โพล้งซิน
+2025-12-02 09:52:03,869 - INFO - Completed batch. Progress: 100/275
+2025-12-02 09:52:03,870 - INFO - Processing batch 100-200 of 275
+2025-12-02 09:52:04,003 - INFO - Partner found by old_code_partner: NUT001 - ID: 3715, Name: นางนุชสรา สุขจรมากุล
+2025-12-02 09:52:04,004 - INFO - Partner found: NUT001 - ID: 3715, Name: นางนุชสรา สุขจรมากุล
+2025-12-02 09:52:04,147 - INFO - Partner found by old_code_partner: STM01 - ID: 2023, Name: บริษัท สตาร์มาร์คแมนูแฟคเชอร์ริ่ง จำกัด
+2025-12-02 09:52:04,148 - INFO - Partner found: STM01 - ID: 2023, Name: บริษัท สตาร์มาร์คแมนูแฟคเชอร์ริ่ง จำกัด
+2025-12-02 09:52:04,297 - INFO - Partner found by old_code_partner: BLS001 - ID: 1749, Name: บริษัท บิลเลี่ยนไทยซับพลายส์ จำกัด
+2025-12-02 09:52:04,297 - INFO - Partner found: BLS001 - ID: 1749, Name: บริษัท บิลเลี่ยนไทยซับพลายส์ จำกัด
+2025-12-02 09:52:04,452 - INFO - Partner found by old_code_partner: BLS001 - ID: 1749, Name: บริษัท บิลเลี่ยนไทยซับพลายส์ จำกัด
+2025-12-02 09:52:04,452 - INFO - Partner found: BLS001 - ID: 1749, Name: บริษัท บิลเลี่ยนไทยซับพลายส์ จำกัด
+2025-12-02 09:52:04,584 - INFO - Partner found by old_code_partner: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:04,584 - INFO - Partner found: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:04,720 - INFO - Partner found by old_code_partner: HOM001 - ID: 372, Name: บริษัท ตึกน้ำเงินรีเทล จำกัด
+2025-12-02 09:52:04,720 - INFO - Partner found: HOM001 - ID: 372, Name: บริษัท ตึกน้ำเงินรีเทล จำกัด
+2025-12-02 09:52:04,855 - INFO - Partner found by old_code_partner: REL001 - ID: 964, Name: บริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด
+2025-12-02 09:52:04,856 - INFO - Partner found: REL001 - ID: 964, Name: บริษัท ทรู มูฟ เอช ยูนิเวอร์แซล คอมมิวนิเคชั่น จำกัด
+2025-12-02 09:52:05,039 - INFO - Partner found by old_code_partner: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:52:05,040 - INFO - Partner found: SPD001 - ID: 3709, Name: บริษัท สัมพันธ์พรเทรดดิ้ง จำกัด
+2025-12-02 09:52:05,174 - INFO - Partner found by old_code_partner: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:05,175 - INFO - Partner found: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:05,323 - INFO - Partner found by old_code_partner: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:05,324 - INFO - Partner found: OTHER - ID: 3684, Name: เจ้าหนี้การค้าในประเทศ
+2025-12-02 09:52:05,493 - INFO - Partner found by old_code_partner: CSC002 - ID: 226, Name: CSC COMPLEX CENTER SOLE CO.,LTD.
+2025-12-02 09:52:05,494 - INFO - Partner found: CSC002 - ID: 226, Name: CSC COMPLEX CENTER SOLE CO.,LTD.
+2025-12-02 09:52:05,641 - INFO - Partner found by old_code_partner: CSC002 - ID: 226, Name: CSC COMPLEX CENTER SOLE CO.,LTD.
+2025-12-02 09:52:05,641 - INFO - Partner found: CSC002 - ID: 226, Name: CSC COMPLEX CENTER SOLE CO.,LTD.
+2025-12-02 09:52:05,779 - INFO - Partner found by old_code_partner: CSC002 - ID: 226, Name: CSC COMPLEX CENTER SOLE CO.,LTD.
+2025-12-02 09:52:05,780 - INFO - Partner found: CSC002 - ID: 226, Name: CSC COMPLEX CENTER SOLE CO.,LTD.
+2025-12-02 09:52:05,914 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:05,915 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,083 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,084 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,234 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,234 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,373 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,374 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,504 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,504 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,671 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,671 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,823 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,824 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,957 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:06,958 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,109 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,110 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,269 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,270 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,411 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,412 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,540 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,540 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,671 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,672 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,816 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,816 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,997 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:07,997 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,133 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,134 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,272 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,273 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,410 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,410 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,588 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,589 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,726 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,726 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,864 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:08,865 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,018 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,019 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,179 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,180 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,327 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,327 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,462 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,463 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,616 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,616 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,784 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,785 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,921 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:09,921 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,054 - INFO - Partner found by old_code_partner: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:10,054 - INFO - Partner found: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:10,230 - INFO - Partner found by old_code_partner: YJR001 - ID: 241, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:52:10,230 - INFO - Partner found: YJR001 - ID: 241, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:52:10,397 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,398 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,545 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,546 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,677 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,677 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,817 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,817 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,985 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:10,986 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,120 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,120 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,253 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,253 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,409 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,410 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,565 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,565 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,718 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,719 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,856 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:11,857 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,029 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,029 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,188 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,188 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,327 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,328 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,466 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,467 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,640 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,641 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,813 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,814 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,954 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:12,956 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,092 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,093 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,227 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,228 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,419 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,420 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,553 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,555 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,690 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,691 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,825 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,826 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,982 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:13,983 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,134 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,135 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,270 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,270 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,403 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,403 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,559 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,560 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,708 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,709 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,864 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:14,864 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,000 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,001 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,172 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,173 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,320 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,321 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,457 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,458 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,624 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,625 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,793 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,794 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,952 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:15,954 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,091 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,092 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,245 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,246 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,412 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,413 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,545 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,547 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,683 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,684 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,812 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,813 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,963 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:16,964 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,114 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,115 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,245 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,246 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,376 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,377 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,505 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,506 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,671 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,671 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,815 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,817 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,988 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:17,989 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:18,120 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:18,121 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:18,282 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:18,282 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:18,413 - INFO - Partner found by old_code_partner: BOO001 - ID: 212, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพุทธมณฑล
+2025-12-02 09:52:18,414 - INFO - Partner found: BOO001 - ID: 212, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพุทธมณฑล
+2025-12-02 09:52:18,540 - INFO - Partner found by old_code_partner: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:18,540 - INFO - Partner found: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:18,668 - INFO - Partner found by old_code_partner: BOO003 - ID: 208, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาบางนา
+2025-12-02 09:52:18,669 - INFO - Partner found: BOO003 - ID: 208, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาบางนา
+2025-12-02 09:52:18,672 - INFO - Completed batch. Progress: 200/275
+2025-12-02 09:52:18,673 - INFO - Processing batch 200-275 of 275
+2025-12-02 09:52:18,831 - INFO - Partner found by old_code_partner: BOO005 - ID: 222, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:18,832 - INFO - Partner found: BOO005 - ID: 222, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:18,974 - INFO - Partner found by old_code_partner: BOO006 - ID: 209, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพระราม 2
+2025-12-02 09:52:18,975 - INFO - Partner found: BOO006 - ID: 209, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพระราม 2
+2025-12-02 09:52:19,101 - INFO - Partner found by old_code_partner: BOO007 - ID: 210, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพัทยา
+2025-12-02 09:52:19,101 - INFO - Partner found: BOO007 - ID: 210, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพัทยา
+2025-12-02 09:52:19,230 - INFO - Partner found by old_code_partner: BOO 014 - ID: 207, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเชียงใหม่
+2025-12-02 09:52:19,231 - INFO - Partner found: BOO 014 - ID: 207, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเชียงใหม่
+2025-12-02 09:52:19,391 - INFO - Partner found by old_code_partner: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:19,392 - INFO - Partner found: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:19,550 - INFO - Partner found by old_code_partner: BOO 020 - ID: 215, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาราชพฤกษ์
+2025-12-02 09:52:19,551 - INFO - Partner found: BOO 020 - ID: 215, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาราชพฤกษ์
+2025-12-02 09:52:19,695 - INFO - Partner found by old_code_partner: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:19,696 - INFO - Partner found: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:19,827 - INFO - Partner found by old_code_partner: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:19,829 - INFO - Partner found: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:19,962 - INFO - Partner found by old_code_partner: CSC002 - ID: 226, Name: CSC COMPLEX CENTER SOLE CO.,LTD.
+2025-12-02 09:52:19,963 - INFO - Partner found: CSC002 - ID: 226, Name: CSC COMPLEX CENTER SOLE CO.,LTD.
+2025-12-02 09:52:20,106 - INFO - Partner found by old_code_partner: BOO010 - ID: 206, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเกษตร-นวมินทร์
+2025-12-02 09:52:20,107 - INFO - Partner found: BOO010 - ID: 206, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเกษตร-นวมินทร์
+2025-12-02 09:52:20,260 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:20,261 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:20,423 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:20,424 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:20,555 - INFO - Partner found by old_code_partner: SBDH001 - ID: 235, Name: บริษัท สบายดีโฮม จำกัด
+2025-12-02 09:52:20,556 - INFO - Partner found: SBDH001 - ID: 235, Name: บริษัท สบายดีโฮม จำกัด
+2025-12-02 09:52:20,688 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:20,689 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:20,821 - INFO - Partner found by old_code_partner: BOO001 - ID: 212, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพุทธมณฑล
+2025-12-02 09:52:20,822 - INFO - Partner found: BOO001 - ID: 212, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพุทธมณฑล
+2025-12-02 09:52:20,982 - INFO - Partner found by old_code_partner: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:20,983 - INFO - Partner found: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:21,114 - INFO - Partner found by old_code_partner: BOO003 - ID: 208, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาบางนา
+2025-12-02 09:52:21,114 - INFO - Partner found: BOO003 - ID: 208, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาบางนา
+2025-12-02 09:52:21,244 - INFO - Partner found by old_code_partner: BOO005 - ID: 222, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:21,246 - INFO - Partner found: BOO005 - ID: 222, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:21,380 - INFO - Partner found by old_code_partner: BOO006 - ID: 209, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพระราม 2
+2025-12-02 09:52:21,381 - INFO - Partner found: BOO006 - ID: 209, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพระราม 2
+2025-12-02 09:52:21,538 - INFO - Partner found by old_code_partner: BOO007 - ID: 210, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพัทยา
+2025-12-02 09:52:21,539 - INFO - Partner found: BOO007 - ID: 210, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพัทยา
+2025-12-02 09:52:21,684 - INFO - Partner found by old_code_partner: BOO010 - ID: 206, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเกษตร-นวมินทร์
+2025-12-02 09:52:21,686 - INFO - Partner found: BOO010 - ID: 206, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเกษตร-นวมินทร์
+2025-12-02 09:52:21,820 - INFO - Partner found by old_code_partner: BOO013 - ID: 219, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาหัวหิน
+2025-12-02 09:52:21,821 - INFO - Partner found: BOO013 - ID: 219, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาหัวหิน
+2025-12-02 09:52:21,951 - INFO - Partner found by old_code_partner: BOO 014 - ID: 207, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเชียงใหม่
+2025-12-02 09:52:21,951 - INFO - Partner found: BOO 014 - ID: 207, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเชียงใหม่
+2025-12-02 09:52:22,096 - INFO - Partner found by old_code_partner: BOO 016 - ID: 220, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาอุดรธานี
+2025-12-02 09:52:22,097 - INFO - Partner found: BOO 016 - ID: 220, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาอุดรธานี
+2025-12-02 09:52:22,228 - INFO - Partner found by old_code_partner: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:22,229 - INFO - Partner found: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:22,390 - INFO - Partner found by old_code_partner: BOO 015 - ID: 218, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาสุราษฎร์ธานี
+2025-12-02 09:52:22,391 - INFO - Partner found: BOO 015 - ID: 218, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาสุราษฎร์ธานี
+2025-12-02 09:52:22,580 - INFO - Partner found by old_code_partner: BOO 020 - ID: 215, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาราชพฤกษ์
+2025-12-02 09:52:22,581 - INFO - Partner found: BOO 020 - ID: 215, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาราชพฤกษ์
+2025-12-02 09:52:22,712 - INFO - Partner found by old_code_partner: BOO001 - ID: 212, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพุทธมณฑล
+2025-12-02 09:52:22,713 - INFO - Partner found: BOO001 - ID: 212, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพุทธมณฑล
+2025-12-02 09:52:22,844 - INFO - Partner found by old_code_partner: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:22,844 - INFO - Partner found: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:22,991 - INFO - Partner found by old_code_partner: BOO003 - ID: 208, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาบางนา
+2025-12-02 09:52:22,991 - INFO - Partner found: BOO003 - ID: 208, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาบางนา
+2025-12-02 09:52:23,137 - INFO - Partner found by old_code_partner: BOO006 - ID: 209, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพระราม 2
+2025-12-02 09:52:23,138 - INFO - Partner found: BOO006 - ID: 209, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพระราม 2
+2025-12-02 09:52:23,263 - INFO - Partner found by old_code_partner: BOO005 - ID: 222, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:23,264 - INFO - Partner found: BOO005 - ID: 222, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:23,391 - INFO - Partner found by old_code_partner: BOO010 - ID: 206, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเกษตร-นวมินทร์
+2025-12-02 09:52:23,392 - INFO - Partner found: BOO010 - ID: 206, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเกษตร-นวมินทร์
+2025-12-02 09:52:23,523 - INFO - Partner found by old_code_partner: BOO013 - ID: 219, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาหัวหิน
+2025-12-02 09:52:23,525 - INFO - Partner found: BOO013 - ID: 219, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาหัวหิน
+2025-12-02 09:52:23,701 - INFO - Partner found by old_code_partner: BOO 014 - ID: 207, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเชียงใหม่
+2025-12-02 09:52:23,702 - INFO - Partner found: BOO 014 - ID: 207, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเชียงใหม่
+2025-12-02 09:52:23,834 - INFO - Partner found by old_code_partner: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:23,835 - INFO - Partner found: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:23,966 - INFO - Partner found by old_code_partner: BOO 015 - ID: 218, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาสุราษฎร์ธานี
+2025-12-02 09:52:23,967 - INFO - Partner found: BOO 015 - ID: 218, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาสุราษฎร์ธานี
+2025-12-02 09:52:24,098 - INFO - Partner found by old_code_partner: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:24,099 - INFO - Partner found: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:24,262 - INFO - Partner found by old_code_partner: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:24,263 - INFO - Partner found: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:24,409 - INFO - Partner found by old_code_partner: HOH002 - ID: 239, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:52:24,411 - INFO - Partner found: HOH002 - ID: 239, Name: บริษัท โฮมฮับ จำกัด
+2025-12-02 09:52:24,545 - INFO - Partner found by old_code_partner: SMC003 - ID: 238, Name: บริษัท ศิริมหาชัย โฮมเซ็นเตอร์ จำกัด
+2025-12-02 09:52:24,546 - INFO - Partner found: SMC003 - ID: 238, Name: บริษัท ศิริมหาชัย โฮมเซ็นเตอร์ จำกัด
+2025-12-02 09:52:24,674 - INFO - Partner found by old_code_partner: SMC003 - ID: 238, Name: บริษัท ศิริมหาชัย โฮมเซ็นเตอร์ จำกัด
+2025-12-02 09:52:24,676 - INFO - Partner found: SMC003 - ID: 238, Name: บริษัท ศิริมหาชัย โฮมเซ็นเตอร์ จำกัด
+2025-12-02 09:52:24,823 - INFO - Partner found by old_code_partner: BOO001 - ID: 212, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพุทธมณฑล
+2025-12-02 09:52:24,824 - INFO - Partner found: BOO001 - ID: 212, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพุทธมณฑล
+2025-12-02 09:52:24,972 - INFO - Partner found by old_code_partner: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:24,974 - INFO - Partner found: BOO0002 - ID: 214, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขารัชดา
+2025-12-02 09:52:25,104 - INFO - Partner found by old_code_partner: BOO003 - ID: 208, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาบางนา
+2025-12-02 09:52:25,104 - INFO - Partner found: BOO003 - ID: 208, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาบางนา
+2025-12-02 09:52:25,236 - INFO - Partner found by old_code_partner: BOO005 - ID: 222, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:25,237 - INFO - Partner found: BOO005 - ID: 222, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน)
+2025-12-02 09:52:25,388 - INFO - Partner found by old_code_partner: BOO006 - ID: 209, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพระราม 2
+2025-12-02 09:52:25,389 - INFO - Partner found: BOO006 - ID: 209, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาพระราม 2
+2025-12-02 09:52:25,551 - INFO - Partner found by old_code_partner: BOO010 - ID: 206, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเกษตร-นวมินทร์
+2025-12-02 09:52:25,552 - INFO - Partner found: BOO010 - ID: 206, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเกษตร-นวมินทร์
+2025-12-02 09:52:25,692 - INFO - Partner found by old_code_partner: BOO013 - ID: 219, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาหัวหิน
+2025-12-02 09:52:25,694 - INFO - Partner found: BOO013 - ID: 219, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาหัวหิน
+2025-12-02 09:52:25,826 - INFO - Partner found by old_code_partner: BOO 014 - ID: 207, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเชียงใหม่
+2025-12-02 09:52:25,827 - INFO - Partner found: BOO 014 - ID: 207, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาเชียงใหม่
+2025-12-02 09:52:25,992 - INFO - Partner found by old_code_partner: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:25,993 - INFO - Partner found: BOON009 - ID: 216, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาศูนย์กระจายสินค้ารังสิต
+2025-12-02 09:52:26,142 - INFO - Partner found by old_code_partner: BOO 015 - ID: 218, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาสุราษฎร์ธานี
+2025-12-02 09:52:26,142 - INFO - Partner found: BOO 015 - ID: 218, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาสุราษฎร์ธานี
+2025-12-02 09:52:26,272 - INFO - Partner found by old_code_partner: BOO 020 - ID: 215, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาราชพฤกษ์
+2025-12-02 09:52:26,274 - INFO - Partner found: BOO 020 - ID: 215, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาราชพฤกษ์
+2025-12-02 09:52:26,401 - INFO - Partner found by old_code_partner: BOO 029 - ID: 213, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาระยอง
+2025-12-02 09:52:26,402 - INFO - Partner found: BOO 029 - ID: 213, Name: บริษัท บุญถาวร รีเทล คอร์ปอเรชั่น จำกัด (มหาชน) สาขาระยอง
+2025-12-02 09:52:26,586 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:26,587 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:26,762 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:26,763 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:26,894 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:26,895 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,026 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,026 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,185 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,186 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,317 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,317 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,449 - INFO - Partner found by old_code_partner: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,450 - INFO - Partner found: BOO 035 - ID: 223, Name: บริษัท เอสซีจีโฮม รีเทล จำกัด
+2025-12-02 09:52:27,612 - INFO - Partner found by old_code_partner: MBH001 - ID: 921, Name: บริษัท มาเบิ้ล ฮาร์ดแวร์ จำกัด
+2025-12-02 09:52:27,612 - INFO - Partner found: MBH001 - ID: 921, Name: บริษัท มาเบิ้ล ฮาร์ดแวร์ จำกัด
+2025-12-02 09:52:27,776 - INFO - Partner found by old_code_partner: YJR001 - ID: 241, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:52:27,777 - INFO - Partner found: YJR001 - ID: 241, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:52:27,910 - INFO - Partner found by old_code_partner: YJR001 - ID: 241, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:52:27,912 - INFO - Partner found: YJR001 - ID: 241, Name: บริษัท ยิ่งเจริญ โปรแม็กซ์ จำกัด
+2025-12-02 09:52:28,053 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,054 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,200 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,201 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,387 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,388 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,523 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,524 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,676 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,677 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,811 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,813 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,986 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:28,987 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,130 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,131 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,263 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,264 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,403 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,404 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,566 - INFO - Partner found by old_code_partner: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,568 - INFO - Partner found: SVYSY001 - ID: 3716, Name: SOUVANNY  HOMECENTER  PUBLIC  COMPANY
+2025-12-02 09:52:29,569 - INFO - Completed batch. Progress: 275/275
+2025-12-02 09:52:29,570 - INFO - All partners were found in the system!
+2025-12-02 09:52:29,572 - INFO - Partner verification completed successfully!
