@@ -1,0 +1,256 @@
+2025-12-26 15:27:52,618 - INFO - Successfully connected to Odoo as user ID: 2
+2025-12-26 15:27:52,689 - INFO - Odoo version: 17.0.1.3
+2025-12-26 15:27:52,819 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2025-12-26 15:27:53,157 - INFO - Successfully read Excel file with 47 rows
+2025-12-26 15:27:53,157 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence']
+2025-12-26 15:27:53,160 - INFO - Processed sequence column
+2025-12-26 15:27:53,161 - INFO - scheduled_date dtype: datetime64[ns]
+2025-12-26 15:27:53,162 - INFO - scheduled_date sample: 2025-12-26 00:00:00
+2025-12-26 15:27:53,164 - INFO - Converted scheduled_date to string format. Sample: 2025-12-26 00:00:00
+2025-12-26 15:27:53,166 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2025-12-26 15:27:53,166 - INFO - Using 'default_code' column as 'product_id'
+2025-12-26 15:27:53,167 - INFO - Using 'origin' column to identify transfer groups
+2025-12-26 15:27:53,179 - INFO - Excel file validation and data filling completed successfully
+2025-12-26 15:27:53,346 - INFO - Searching for location: 'ST02/Stock'
+2025-12-26 15:27:53,563 - INFO - Found location with complete_name match: 'ST02/Stock' for 'ST02/Stock'
+2025-12-26 15:27:53,645 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2025-12-26 15:27:53,744 - INFO - Created transfer for date 2025-12-26 00:00:00 sequence 1 with picking ID 2997
+2025-12-26 15:27:53,746 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0210', 'product_uom_qty': 178, 'price_unit': 13, 'sequence': 1, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0210'}
+2025-12-26 15:27:53,747 - INFO - Searching for product with code: 'HSE0210' and old code: 'HSE0210'
+2025-12-26 15:27:53,828 - INFO - Found product with exact match on default_code: 'HSE0210'
+2025-12-26 15:27:53,935 - INFO - Prepared product HSE0210 with quantity 178.0 for batch creation
+2025-12-26 15:27:53,936 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:53,938 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0211', 'product_uom_qty': 11, 'price_unit': 240, 'sequence': 2, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0211'}
+2025-12-26 15:27:53,940 - INFO - Searching for product with code: 'HSE0211' and old code: 'HSE0211'
+2025-12-26 15:27:54,022 - INFO - Found product with exact match on default_code: 'HSE0211'
+2025-12-26 15:27:54,100 - INFO - Prepared product HSE0211 with quantity 11.0 for batch creation
+2025-12-26 15:27:54,101 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:54,102 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0215', 'product_uom_qty': 18, 'price_unit': 20, 'sequence': 3, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0215'}
+2025-12-26 15:27:54,103 - INFO - Searching for product with code: 'HSE0215' and old code: 'HSE0215'
+2025-12-26 15:27:54,174 - INFO - Found product with exact match on default_code: 'HSE0215'
+2025-12-26 15:27:54,246 - INFO - Prepared product HSE0215 with quantity 18.0 for batch creation
+2025-12-26 15:27:54,246 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:54,247 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0216', 'product_uom_qty': 2, 'price_unit': 50, 'sequence': 4, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0216'}
+2025-12-26 15:27:54,248 - INFO - Searching for product with code: 'HSE0216' and old code: 'HSE0216'
+2025-12-26 15:27:54,319 - INFO - Found product with exact match on default_code: 'HSE0216'
+2025-12-26 15:27:54,396 - INFO - Prepared product HSE0216 with quantity 2.0 for batch creation
+2025-12-26 15:27:54,397 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:54,399 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0218', 'product_uom_qty': 7, 'price_unit': 55, 'sequence': 5, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0218'}
+2025-12-26 15:27:54,400 - INFO - Searching for product with code: 'HSE0218' and old code: 'HSE0218'
+2025-12-26 15:27:54,484 - INFO - Found product with exact match on default_code: 'HSE0218'
+2025-12-26 15:27:54,571 - INFO - Prepared product HSE0218 with quantity 7.0 for batch creation
+2025-12-26 15:27:54,571 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:54,572 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0219', 'product_uom_qty': 4, 'price_unit': 28, 'sequence': 6, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0219'}
+2025-12-26 15:27:54,573 - INFO - Searching for product with code: 'HSE0219' and old code: 'HSE0219'
+2025-12-26 15:27:54,639 - INFO - Found product with exact match on default_code: 'HSE0219'
+2025-12-26 15:27:54,714 - INFO - Prepared product HSE0219 with quantity 4.0 for batch creation
+2025-12-26 15:27:54,714 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:54,715 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0220', 'product_uom_qty': 5, 'price_unit': 30, 'sequence': 7, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0220'}
+2025-12-26 15:27:54,716 - INFO - Searching for product with code: 'HSE0220' and old code: 'HSE0220'
+2025-12-26 15:27:54,788 - INFO - Found product with exact match on default_code: 'HSE0220'
+2025-12-26 15:27:54,861 - INFO - Prepared product HSE0220 with quantity 5.0 for batch creation
+2025-12-26 15:27:54,861 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:54,862 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0221', 'product_uom_qty': 604, 'price_unit': 10, 'sequence': 8, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0221'}
+2025-12-26 15:27:54,862 - INFO - Searching for product with code: 'HSE0221' and old code: 'HSE0221'
+2025-12-26 15:27:54,944 - INFO - Found product with exact match on default_code: 'HSE0221'
+2025-12-26 15:27:55,027 - INFO - Prepared product HSE0221 with quantity 604.0 for batch creation
+2025-12-26 15:27:55,027 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:55,028 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0222', 'product_uom_qty': 117, 'price_unit': 50, 'sequence': 9, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0222'}
+2025-12-26 15:27:55,028 - INFO - Searching for product with code: 'HSE0222' and old code: 'HSE0222'
+2025-12-26 15:27:55,103 - INFO - Found product with exact match on default_code: 'HSE0222'
+2025-12-26 15:27:55,178 - INFO - Prepared product HSE0222 with quantity 117.0 for batch creation
+2025-12-26 15:27:55,179 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:55,180 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0223', 'product_uom_qty': 10, 'price_unit': 40, 'sequence': 10, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0223'}
+2025-12-26 15:27:55,181 - INFO - Searching for product with code: 'HSE0223' and old code: 'HSE0223'
+2025-12-26 15:27:55,249 - INFO - Found product with exact match on default_code: 'HSE0223'
+2025-12-26 15:27:55,317 - INFO - Prepared product HSE0223 with quantity 10.0 for batch creation
+2025-12-26 15:27:55,318 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:55,319 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0224', 'product_uom_qty': 56, 'price_unit': 20, 'sequence': 11, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0224'}
+2025-12-26 15:27:55,320 - INFO - Searching for product with code: 'HSE0224' and old code: 'HSE0224'
+2025-12-26 15:27:55,389 - INFO - Found product with exact match on default_code: 'HSE0224'
+2025-12-26 15:27:55,482 - INFO - Prepared product HSE0224 with quantity 56.0 for batch creation
+2025-12-26 15:27:55,482 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:55,484 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0225', 'product_uom_qty': 27, 'price_unit': 7, 'sequence': 12, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0225'}
+2025-12-26 15:27:55,485 - INFO - Searching for product with code: 'HSE0225' and old code: 'HSE0225'
+2025-12-26 15:27:55,567 - INFO - Found product with exact match on default_code: 'HSE0225'
+2025-12-26 15:27:55,641 - INFO - Prepared product HSE0225 with quantity 27.0 for batch creation
+2025-12-26 15:27:55,641 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:55,642 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0272', 'product_uom_qty': 8, 'price_unit': 20, 'sequence': 13, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0272'}
+2025-12-26 15:27:55,643 - INFO - Searching for product with code: 'HSE0272' and old code: 'HSE0272'
+2025-12-26 15:27:55,714 - INFO - Found product with exact match on default_code: 'HSE0272'
+2025-12-26 15:27:55,788 - INFO - Prepared product HSE0272 with quantity 8.0 for batch creation
+2025-12-26 15:27:55,789 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:55,789 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0273', 'product_uom_qty': 4, 'price_unit': 10, 'sequence': 14, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0273'}
+2025-12-26 15:27:55,790 - INFO - Searching for product with code: 'HSE0273' and old code: 'HSE0273'
+2025-12-26 15:27:55,859 - INFO - Found product with exact match on default_code: 'HSE0273'
+2025-12-26 15:27:55,937 - INFO - Prepared product HSE0273 with quantity 4.0 for batch creation
+2025-12-26 15:27:55,937 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:55,938 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0274', 'product_uom_qty': 12, 'price_unit': 60, 'sequence': 15, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0274'}
+2025-12-26 15:27:55,939 - INFO - Searching for product with code: 'HSE0274' and old code: 'HSE0274'
+2025-12-26 15:27:56,020 - INFO - Found product with exact match on default_code: 'HSE0274'
+2025-12-26 15:27:56,095 - INFO - Prepared product HSE0274 with quantity 12.0 for batch creation
+2025-12-26 15:27:56,096 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:56,097 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0275', 'product_uom_qty': 3, 'price_unit': 15, 'sequence': 16, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0275'}
+2025-12-26 15:27:56,099 - INFO - Searching for product with code: 'HSE0275' and old code: 'HSE0275'
+2025-12-26 15:27:56,169 - INFO - Found product with exact match on default_code: 'HSE0275'
+2025-12-26 15:27:56,241 - INFO - Prepared product HSE0275 with quantity 3.0 for batch creation
+2025-12-26 15:27:56,242 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:56,242 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0276', 'product_uom_qty': 118, 'price_unit': 15, 'sequence': 17, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0276'}
+2025-12-26 15:27:56,243 - INFO - Searching for product with code: 'HSE0276' and old code: 'HSE0276'
+2025-12-26 15:27:56,315 - INFO - Found product with exact match on default_code: 'HSE0276'
+2025-12-26 15:27:56,393 - INFO - Prepared product HSE0276 with quantity 118.0 for batch creation
+2025-12-26 15:27:56,394 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:56,396 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0278', 'product_uom_qty': 15, 'price_unit': 160, 'sequence': 18, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0278'}
+2025-12-26 15:27:56,397 - INFO - Searching for product with code: 'HSE0278' and old code: 'HSE0278'
+2025-12-26 15:27:56,483 - INFO - Found product with exact match on default_code: 'HSE0278'
+2025-12-26 15:27:56,567 - INFO - Prepared product HSE0278 with quantity 15.0 for batch creation
+2025-12-26 15:27:56,567 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:56,568 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0279', 'product_uom_qty': 2, 'price_unit': 30, 'sequence': 19, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0279'}
+2025-12-26 15:27:56,568 - INFO - Searching for product with code: 'HSE0279' and old code: 'HSE0279'
+2025-12-26 15:27:56,641 - INFO - Found product with exact match on default_code: 'HSE0279'
+2025-12-26 15:27:56,720 - INFO - Prepared product HSE0279 with quantity 2.0 for batch creation
+2025-12-26 15:27:56,721 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:56,722 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0280', 'product_uom_qty': 10, 'price_unit': 20, 'sequence': 20, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0280'}
+2025-12-26 15:27:56,723 - INFO - Searching for product with code: 'HSE0280' and old code: 'HSE0280'
+2025-12-26 15:27:56,793 - INFO - Found product with exact match on default_code: 'HSE0280'
+2025-12-26 15:27:56,863 - INFO - Prepared product HSE0280 with quantity 10.0 for batch creation
+2025-12-26 15:27:56,864 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:56,864 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0281', 'product_uom_qty': 8, 'price_unit': 14, 'sequence': 21, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0281'}
+2025-12-26 15:27:56,865 - INFO - Searching for product with code: 'HSE0281' and old code: 'HSE0281'
+2025-12-26 15:27:56,942 - INFO - Found product with exact match on default_code: 'HSE0281'
+2025-12-26 15:27:57,032 - INFO - Prepared product HSE0281 with quantity 8.0 for batch creation
+2025-12-26 15:27:57,033 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:57,035 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0282', 'product_uom_qty': 100, 'price_unit': 20, 'sequence': 22, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0282'}
+2025-12-26 15:27:57,036 - INFO - Searching for product with code: 'HSE0282' and old code: 'HSE0282'
+2025-12-26 15:27:57,117 - INFO - Found product with exact match on default_code: 'HSE0282'
+2025-12-26 15:27:57,190 - INFO - Prepared product HSE0282 with quantity 100.0 for batch creation
+2025-12-26 15:27:57,191 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:57,191 - INFO - Processing Excel row 23: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0283', 'product_uom_qty': 2, 'price_unit': 20, 'sequence': 23, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0283'}
+2025-12-26 15:27:57,192 - INFO - Searching for product with code: 'HSE0283' and old code: 'HSE0283'
+2025-12-26 15:27:57,264 - INFO - Found product with exact match on default_code: 'HSE0283'
+2025-12-26 15:27:57,334 - INFO - Prepared product HSE0283 with quantity 2.0 for batch creation
+2025-12-26 15:27:57,334 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:57,335 - INFO - Processing Excel row 24: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0284', 'product_uom_qty': 2, 'price_unit': 30, 'sequence': 24, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0284'}
+2025-12-26 15:27:57,335 - INFO - Searching for product with code: 'HSE0284' and old code: 'HSE0284'
+2025-12-26 15:27:57,404 - INFO - Found product with exact match on default_code: 'HSE0284'
+2025-12-26 15:27:57,482 - INFO - Prepared product HSE0284 with quantity 2.0 for batch creation
+2025-12-26 15:27:57,484 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:57,485 - INFO - Processing Excel row 25: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0285', 'product_uom_qty': 2, 'price_unit': 15, 'sequence': 25, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0285'}
+2025-12-26 15:27:57,486 - INFO - Searching for product with code: 'HSE0285' and old code: 'HSE0285'
+2025-12-26 15:27:57,566 - INFO - Found product with exact match on default_code: 'HSE0285'
+2025-12-26 15:27:57,645 - INFO - Prepared product HSE0285 with quantity 2.0 for batch creation
+2025-12-26 15:27:57,645 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:57,646 - INFO - Processing Excel row 26: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0256', 'product_uom_qty': 11, 'price_unit': 15, 'sequence': 26, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0256'}
+2025-12-26 15:27:57,646 - INFO - Searching for product with code: 'HSE0256' and old code: 'HSE0256'
+2025-12-26 15:27:57,722 - INFO - Found product with exact match on default_code: 'HSE0256'
+2025-12-26 15:27:57,800 - INFO - Prepared product HSE0256 with quantity 11.0 for batch creation
+2025-12-26 15:27:57,801 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:57,803 - INFO - Processing Excel row 27: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0227', 'product_uom_qty': 15, 'price_unit': 130, 'sequence': 27, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0227'}
+2025-12-26 15:27:57,804 - INFO - Searching for product with code: 'HSE0227' and old code: 'HSE0227'
+2025-12-26 15:27:57,872 - INFO - Found product with exact match on default_code: 'HSE0227'
+2025-12-26 15:27:57,944 - INFO - Prepared product HSE0227 with quantity 15.0 for batch creation
+2025-12-26 15:27:57,944 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:57,945 - INFO - Processing Excel row 28: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0229', 'product_uom_qty': 110, 'price_unit': 13, 'sequence': 28, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0229'}
+2025-12-26 15:27:57,945 - INFO - Searching for product with code: 'HSE0229' and old code: 'HSE0229'
+2025-12-26 15:27:58,019 - INFO - Found product with exact match on default_code: 'HSE0229'
+2025-12-26 15:27:58,103 - INFO - Prepared product HSE0229 with quantity 110.0 for batch creation
+2025-12-26 15:27:58,104 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:58,105 - INFO - Processing Excel row 29: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0230', 'product_uom_qty': 29, 'price_unit': 76, 'sequence': 29, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0230'}
+2025-12-26 15:27:58,106 - INFO - Searching for product with code: 'HSE0230' and old code: 'HSE0230'
+2025-12-26 15:27:58,183 - INFO - Found product with exact match on default_code: 'HSE0230'
+2025-12-26 15:27:58,258 - INFO - Prepared product HSE0230 with quantity 29.0 for batch creation
+2025-12-26 15:27:58,259 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:58,260 - INFO - Processing Excel row 30: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0232', 'product_uom_qty': 100, 'price_unit': 10, 'sequence': 30, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0232'}
+2025-12-26 15:27:58,261 - INFO - Searching for product with code: 'HSE0232' and old code: 'HSE0232'
+2025-12-26 15:27:58,336 - INFO - Found product with exact match on default_code: 'HSE0232'
+2025-12-26 15:27:58,409 - INFO - Prepared product HSE0232 with quantity 100.0 for batch creation
+2025-12-26 15:27:58,410 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:58,411 - INFO - Processing Excel row 31: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0237', 'product_uom_qty': 3, 'price_unit': 1300, 'sequence': 31, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0237'}
+2025-12-26 15:27:58,412 - INFO - Searching for product with code: 'HSE0237' and old code: 'HSE0237'
+2025-12-26 15:27:58,478 - INFO - Found product with exact match on default_code: 'HSE0237'
+2025-12-26 15:27:58,561 - INFO - Prepared product HSE0237 with quantity 3.0 for batch creation
+2025-12-26 15:27:58,561 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:58,562 - INFO - Processing Excel row 32: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0238', 'product_uom_qty': 3, 'price_unit': 1000, 'sequence': 32, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0238'}
+2025-12-26 15:27:58,562 - INFO - Searching for product with code: 'HSE0238' and old code: 'HSE0238'
+2025-12-26 15:27:58,638 - INFO - Found product with exact match on default_code: 'HSE0238'
+2025-12-26 15:27:58,718 - INFO - Prepared product HSE0238 with quantity 3.0 for batch creation
+2025-12-26 15:27:58,719 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:58,720 - INFO - Processing Excel row 33: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0239', 'product_uom_qty': 22, 'price_unit': 50, 'sequence': 33, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0239'}
+2025-12-26 15:27:58,720 - INFO - Searching for product with code: 'HSE0239' and old code: 'HSE0239'
+2025-12-26 15:27:58,789 - INFO - Found product with exact match on default_code: 'HSE0239'
+2025-12-26 15:27:58,860 - INFO - Prepared product HSE0239 with quantity 22.0 for batch creation
+2025-12-26 15:27:58,860 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:58,861 - INFO - Processing Excel row 34: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0240', 'product_uom_qty': 16, 'price_unit': 140, 'sequence': 34, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0240'}
+2025-12-26 15:27:58,861 - INFO - Searching for product with code: 'HSE0240' and old code: 'HSE0240'
+2025-12-26 15:27:58,932 - INFO - Found product with exact match on default_code: 'HSE0240'
+2025-12-26 15:27:59,005 - INFO - Prepared product HSE0240 with quantity 16.0 for batch creation
+2025-12-26 15:27:59,006 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:59,007 - INFO - Processing Excel row 35: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0241', 'product_uom_qty': 11, 'price_unit': 145, 'sequence': 35, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0241'}
+2025-12-26 15:27:59,007 - INFO - Searching for product with code: 'HSE0241' and old code: 'HSE0241'
+2025-12-26 15:27:59,086 - INFO - Found product with exact match on default_code: 'HSE0241'
+2025-12-26 15:27:59,175 - INFO - Prepared product HSE0241 with quantity 11.0 for batch creation
+2025-12-26 15:27:59,176 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:59,177 - INFO - Processing Excel row 36: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0242', 'product_uom_qty': 28, 'price_unit': 65, 'sequence': 36, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0242'}
+2025-12-26 15:27:59,178 - INFO - Searching for product with code: 'HSE0242' and old code: 'HSE0242'
+2025-12-26 15:27:59,257 - INFO - Found product with exact match on default_code: 'HSE0242'
+2025-12-26 15:27:59,349 - INFO - Prepared product HSE0242 with quantity 28.0 for batch creation
+2025-12-26 15:27:59,350 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:59,351 - INFO - Processing Excel row 37: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0243', 'product_uom_qty': 12, 'price_unit': 150, 'sequence': 37, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0243'}
+2025-12-26 15:27:59,353 - INFO - Searching for product with code: 'HSE0243' and old code: 'HSE0243'
+2025-12-26 15:27:59,423 - INFO - Found product with exact match on default_code: 'HSE0243'
+2025-12-26 15:27:59,492 - INFO - Prepared product HSE0243 with quantity 12.0 for batch creation
+2025-12-26 15:27:59,492 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:59,493 - INFO - Processing Excel row 38: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0290', 'product_uom_qty': 7, 'price_unit': 4550, 'sequence': 38, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0290'}
+2025-12-26 15:27:59,494 - INFO - Searching for product with code: 'HSE0290' and old code: 'HSE0290'
+2025-12-26 15:27:59,563 - INFO - Found product with exact match on default_code: 'HSE0290'
+2025-12-26 15:27:59,638 - INFO - Prepared product HSE0290 with quantity 7.0 for batch creation
+2025-12-26 15:27:59,639 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:59,640 - INFO - Processing Excel row 39: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0291', 'product_uom_qty': 4, 'price_unit': 930, 'sequence': 39, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0291'}
+2025-12-26 15:27:59,641 - INFO - Searching for product with code: 'HSE0291' and old code: 'HSE0291'
+2025-12-26 15:27:59,715 - INFO - Found product with exact match on default_code: 'HSE0291'
+2025-12-26 15:27:59,798 - INFO - Prepared product HSE0291 with quantity 4.0 for batch creation
+2025-12-26 15:27:59,798 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:59,798 - INFO - Processing Excel row 40: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0292', 'product_uom_qty': 4, 'price_unit': 130, 'sequence': 40, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0292'}
+2025-12-26 15:27:59,799 - INFO - Searching for product with code: 'HSE0292' and old code: 'HSE0292'
+2025-12-26 15:27:59,879 - INFO - Found product with exact match on default_code: 'HSE0292'
+2025-12-26 15:27:59,971 - INFO - Prepared product HSE0292 with quantity 4.0 for batch creation
+2025-12-26 15:27:59,972 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:27:59,973 - INFO - Processing Excel row 41: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0293', 'product_uom_qty': 39, 'price_unit': 40, 'sequence': 41, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0293'}
+2025-12-26 15:27:59,975 - INFO - Searching for product with code: 'HSE0293' and old code: 'HSE0293'
+2025-12-26 15:28:00,068 - INFO - Found product with exact match on default_code: 'HSE0293'
+2025-12-26 15:28:00,148 - INFO - Prepared product HSE0293 with quantity 39.0 for batch creation
+2025-12-26 15:28:00,149 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:28:00,150 - INFO - Processing Excel row 42: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0294', 'product_uom_qty': 13, 'price_unit': 200, 'sequence': 42, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0294'}
+2025-12-26 15:28:00,151 - INFO - Searching for product with code: 'HSE0294' and old code: 'HSE0294'
+2025-12-26 15:28:00,229 - INFO - Found product with exact match on default_code: 'HSE0294'
+2025-12-26 15:28:00,310 - INFO - Prepared product HSE0294 with quantity 13.0 for batch creation
+2025-12-26 15:28:00,311 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:28:00,312 - INFO - Processing Excel row 43: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0298', 'product_uom_qty': 15, 'price_unit': 130, 'sequence': 43, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0298'}
+2025-12-26 15:28:00,313 - INFO - Searching for product with code: 'HSE0298' and old code: 'HSE0298'
+2025-12-26 15:28:00,398 - INFO - Found product with exact match on default_code: 'HSE0298'
+2025-12-26 15:28:00,489 - INFO - Prepared product HSE0298 with quantity 15.0 for batch creation
+2025-12-26 15:28:00,490 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:28:00,491 - INFO - Processing Excel row 44: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0299', 'product_uom_qty': 100, 'price_unit': 10, 'sequence': 44, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0299'}
+2025-12-26 15:28:00,492 - INFO - Searching for product with code: 'HSE0299' and old code: 'HSE0299'
+2025-12-26 15:28:00,562 - INFO - Found product with exact match on default_code: 'HSE0299'
+2025-12-26 15:28:00,642 - INFO - Prepared product HSE0299 with quantity 100.0 for batch creation
+2025-12-26 15:28:00,643 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:28:00,645 - INFO - Processing Excel row 45: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0302', 'product_uom_qty': 3, 'price_unit': 1300, 'sequence': 45, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0302'}
+2025-12-26 15:28:00,646 - INFO - Searching for product with code: 'HSE0302' and old code: 'HSE0302'
+2025-12-26 15:28:00,724 - INFO - Found product with exact match on default_code: 'HSE0302'
+2025-12-26 15:28:00,802 - INFO - Prepared product HSE0302 with quantity 3.0 for batch creation
+2025-12-26 15:28:00,802 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:28:00,803 - INFO - Processing Excel row 46: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0303', 'product_uom_qty': 3, 'price_unit': 1150, 'sequence': 46, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0303'}
+2025-12-26 15:28:00,804 - INFO - Searching for product with code: 'HSE0303' and old code: 'HSE0303'
+2025-12-26 15:28:00,879 - INFO - Found product with exact match on default_code: 'HSE0303'
+2025-12-26 15:28:00,964 - INFO - Prepared product HSE0303 with quantity 3.0 for batch creation
+2025-12-26 15:28:00,965 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:28:00,967 - INFO - Processing Excel row 47: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2025-12-26 00:00:00'), 'picking_type_id': 'ST02-OB', 'date_done': Timestamp('2025-12-26 00:00:00'), 'origin': 'คลังสิ้นเปลืองสำนักงาน เวชภัณฑ์ และ Safety', 'location_dest_id': 'ST02/Stock', 'default_code': 'HSE0304', 'product_uom_qty': 30, 'price_unit': 47, 'sequence': 47, 'scheduled_date_orig': Timestamp('2025-12-26 00:00:00'), 'product_id': 'HSE0304'}
+2025-12-26 15:28:00,968 - INFO - Searching for product with code: 'HSE0304' and old code: 'HSE0304'
+2025-12-26 15:28:01,053 - INFO - Found product with exact match on default_code: 'HSE0304'
+2025-12-26 15:28:01,130 - INFO - Prepared product HSE0304 with quantity 30.0 for batch creation
+2025-12-26 15:28:01,131 - INFO - Move locations - Source: 4, Dest: 164
+2025-12-26 15:28:01,890 - INFO - Created 47 moves in batch for picking 2997
+2025-12-26 15:28:02,031 - INFO - Re-updated dates before confirming picking 2997: 2025-12-26 00:00:00
+2025-12-26 15:28:02,542 - INFO - Confirmed transfer 2997 with forced date context
+2025-12-26 15:28:02,543 - INFO - Import completed: 1 success, 0 failed.
