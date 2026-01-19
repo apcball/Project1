@@ -265,6 +265,18 @@ class PricelistImporter:
             for col in df.columns:
                 logging.info(f"- {col}")
 
+            # Define column mapping
+            column_map = {
+                'default_code': 'default_code',
+                'date_start': 'date_start',
+                'end_date': 'end_date',
+                'compute_price': 'compute_price',
+                'percentage_price': 'percentage_price',
+                'base': 'base',
+                'min_quantity': 'min_quantity',
+                'fixed_price': 'fixed price'
+            }
+
             # Process each pricelist
             current_pricelist = None
             current_pricelist_id = None
@@ -332,14 +344,14 @@ class PricelistImporter:
                                 pass
 
                         # If product not found by ID, try default_code
-                        if not product_or_categ_id and pd.notna(row.get('default_code')):
+                        if not product_or_categ_id and pd.notna(row.get(column_map['default_code'])):
                             product_ids = self.execute_kw('product.template', 'search',
-                                [[('default_code', '=', str(row['default_code']))]])
+                                [[('default_code', '=', str(row[column_map['default_code']]))]])
                             if product_ids:
                                 product_or_categ_id = product_ids[0]
                         
                         if not product_or_categ_id:
-                            logging.error(f"ไม่พบสินค้า: {row.get('default_code', row.get('product_tmpl_id', 'N/A'))}")
+                            logging.error(f"ไม่พบสินค้า: {row.get(column_map['default_code'], row.get('product_tmpl_id', 'N/A'))}")
                             error_count += 1
                             continue
                     else:
@@ -347,27 +359,31 @@ class PricelistImporter:
                         product_or_categ_id = False
 
                     # Handle dates
-                    date_start = row.get('date_start', False)
-                    date_end = row.get('end_date', False)
+                    date_start = row.get(column_map['date_start'], False)
+                    date_end = row.get(column_map['end_date'], False)
                     
                     # Convert dates to string format if they exist
-                    if pd.notna(date_start):
+                    if pd.notna(date_start) and not isinstance(date_start, bool):
                         if isinstance(date_start, str):
                             date_start = pd.to_datetime(date_start).strftime('%Y-%m-%d')
+                        elif isinstance(date_start, (int, float)):
+                            date_start = pd.to_datetime(date_start, unit='D', origin='1899-12-30').strftime('%Y-%m-%d')
                         else:
                             date_start = date_start.strftime('%Y-%m-%d')
-                    if pd.notna(date_end):
+                    if pd.notna(date_end) and not isinstance(date_end, bool):
                         if isinstance(date_end, str):
                             date_end = pd.to_datetime(date_end).strftime('%Y-%m-%d')
+                        elif isinstance(date_end, (int, float)):
+                            date_end = pd.to_datetime(date_end, unit='D', origin='1899-12-30').strftime('%Y-%m-%d')
                         else:
                             date_end = date_end.strftime('%Y-%m-%d')
                     
                     # Get additional fields with proper type conversion and null handling
-                    compute_price = row.get('compute_price', 'fixed')
-                    percentage_price = float(row['percentage_price']) if pd.notna(row.get('percentage_price')) else 0
-                    base = row.get('base', 'list_price')
-                    min_quantity = int(row['min_quantity']) if pd.notna(row.get('min_quantity')) else 1
-                    fixed_price = float(row['fixed price']) if pd.notna(row.get('fixed price')) else 0.0
+                    compute_price = row.get(column_map['compute_price'], 'fixed')
+                    percentage_price = float(row[column_map['percentage_price']]) if pd.notna(row.get(column_map['percentage_price'])) else 0
+                    base = row.get(column_map['base'], 'list_price')
+                    min_quantity = int(row[column_map['min_quantity']]) if pd.notna(row.get(column_map['min_quantity'])) else 1
+                    fixed_price = float(row[column_map['fixed_price']]) if pd.notna(row.get(column_map['fixed_price'])) else 0.0
                     
                     if self.update_pricelist_item(
                         current_pricelist_id,
@@ -399,8 +415,8 @@ class PricelistImporter:
 
 def main():
     # --- ตั้งค่าการเชื่อมต่อ Odoo ---
-    HOST = 'http://mogth.work:8069'
-    DB = 'MOG_SETUP'
+    HOST = 'http://160.187.249.148:8069'
+    DB = 'MOG_UAT'
     USERNAME = 'apichart@mogen.co.th'
     PASSWORD = '471109538'
 
@@ -412,7 +428,7 @@ def main():
         sys.exit(1)
 
     # Excel file path
-    excel_file = 'Data_file/import_pricelist.xlsx'
+    excel_file = 'C:\\Users\\Ball\\Documents\\Git_apcball\\Project1\\Import_Pricelist\\import_pricelist.xlsx'
     
     # Import pricelist
     if importer.import_pricelist(excel_file):
