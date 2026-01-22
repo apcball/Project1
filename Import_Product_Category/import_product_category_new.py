@@ -18,10 +18,18 @@ import openpyxl
 from urllib.parse import urlparse
 
 # ------------ Load config (ไม่พึ่ง dotenv) ------------
-URL = os.getenv('ODOO_URL', 'http://mogth.work:8069')
-DB = os.getenv('ODOO_DB', 'MOG_Pretest1')
+URL = os.getenv('ODOO_URL', 'http://119.59.103.142:8069')
+DB = os.getenv('ODOO_DB', 'KYLD_LIVE')
 USERNAME = os.getenv('ODOO_USER', 'apichart@mogen.co.th')
 PASSWORD = os.getenv('ODOO_PASSWORD', '471109538')
+
+# ========== MULTI-COMPANY SETTING ==========
+# ตั้งค่า company ID ที่ต้องการ import ถ้า None = ใช้ user's default company
+ODOO_COMPANY_ID = 2  # เปลี่ยนเป็นเลขที่ต้องการ เช่น 1, 2, 3 ฯลฯ
+
+# ========== FORCE UPDATE SETTING ==========
+# ถ้า True จะอัพเดต Costing Method แม้ category มี products
+FORCE_UPDATE_COSTING = True  # เปลี่ยนเป็น False ถ้าต้องการหลีกเลี่ยงการเปลี่ยน costing method
 
 def normalize_base_url(u: str) -> str:
     # ตัดช่องว่าง/อัญประกาศ/เครื่องหมายพิเศษที่เผลอติดมา
@@ -105,7 +113,38 @@ def extract_account_code(cell):
 # ------------------------------------------------------------
 # XML-RPC helpers
 # ------------------------------------------------------------
-def get_account_id(account_code, company_id=None):
+def get_available_companies():
+    """Get list of all available companies."""
+    try:
+        companies = models.execute_kw(
+            DB, uid, PASSWORD,
+            'res.company', 'search_read',
+            [[]],
+            {'fields': ['id', 'name']}
+        )
+        return companies
+    except Exception as e:
+        print(f"Error fetching companies: {e}")
+        return []
+
+
+def get_user_company_id():
+    """Get the default company of the logged-in user."""
+    try:
+        users = models.execute_kw(
+            DB, uid, PASSWORD,
+            'res.users', 'read',
+            [[uid]],
+            {'fields': ['company_id', 'company_ids']}
+        )
+        if users and users[0].get('company_id'):
+            return users[0]['company_id'][0]
+    except Exception as e:
+        print(f"Error fetching user company: {e}")
+    return False
+
+
+def get_account_id(account_code, company_id=None, debug=False):
     """Find account by exact code (optional filter by company)."""
     if not account_code:
         return False
@@ -116,12 +155,19 @@ def get_account_id(account_code, company_id=None):
         DB, uid, PASSWORD,
         'account.account', 'search_read',
         [domain],
-        {'fields': ['id'], 'limit': 1}
+        {'fields': ['id', 'name'], 'limit': 1}
     )
-    return res[0]['id'] if res else False
+    if res:
+        if debug:
+            print(f"  ✓ Found account {account_code}: {res[0]['name']} (ID: {res[0]['id']})")
+        return res[0]['id']
+    else:
+        if debug:
+            print(f"  ✗ Account {account_code} NOT found (company_id={company_id})")
+        return False
 
 
-def ensure_category_path(path_str):
+def ensure_category_path(path_str, company_id=None):
     """
     Ensure PARENT chain exists. Return (parent_id, complete_name_of_parent)
     path_str: 'All / 0-FG SET / ...' (ไม่มี leaf)
@@ -132,44 +178,62 @@ def ensure_category_path(path_str):
     parts = [p.strip() for p in path_str.replace(' / ', '/').split('/') if p.strip()]
     parent_id = False
     complete = []
+    
+    # สร้าง context สำหรับ company
+    context = {
+        'allowed_company_ids': [company_id],
+        'force_company': company_id
+    } if company_id else {}
+    
     for p in parts:
         complete.append(p)
         comp_name = ' / '.join(complete)
-        # หาโดย complete_name ก่อน
+        # หาโดย complete_name ก่อน (ไม่ filter company_id เพราะไม่มี field)
+        domain = [['complete_name', '=', comp_name]]
         existing = models.execute_kw(
             DB, uid, PASSWORD,
             'product.category', 'search_read',
-            [[['complete_name', '=', comp_name]]],
+            [domain],
             {'fields': ['id'], 'limit': 1}
         )
         if existing:
             parent_id = existing[0]['id']
             continue
 
-        # ถ้าไม่พบ ให้สร้าง level นี้ใต้ parent ปัจจุบัน
+        # ถ้าไม่พบ ให้สร้าง level นี้ใต้ parent ปัจจุบัน (ด้วย context)
+        create_vals = {
+            'name': p,
+            'parent_id': parent_id or False,
+            'property_cost_method': 'fifo',
+            'property_valuation': 'manual_periodic',
+            # ตัด properties สต๊อกให้ว่าง (ไม่ลงบัญชีอัตโนมัติ)
+            'property_account_income_categ_id': False,
+            'property_account_expense_categ_id': False,
+        }
+        
         new_id = models.execute_kw(
             DB, uid, PASSWORD,
             'product.category', 'create',
-            [{
-                'name': p,
-                'parent_id': parent_id or False,
-                'property_cost_method': 'fifo',
-                'property_valuation': 'manual_periodic',
-                # ตัด properties สต๊อกให้ว่าง (ไม่ลงบัญชีอัตโนมัติ)
-                'property_account_income_categ_id': False,
-                'property_account_expense_categ_id': False,
-            }]
+            [create_vals],
+            {'context': context}
         )
-        print(f"Created parent: {comp_name}")
+        print(f"Created parent: {comp_name} (company {company_id})")
         parent_id = new_id
 
     return (parent_id, ' / '.join(parts))
 
 
-def upsert_category(leaf_name, parent_id, vals_extra, key_cache):
+def upsert_category(leaf_name, parent_id, vals_extra, key_cache, company_id=None):
     """
     Create/Update LEAF under parent; compare then write-if-diff; cache by complete_name.
+    Returns status string for tracking.
     """
+    # สร้าง context สำหรับ company - ใช้ allowed_company_ids เพื่อให้ properties ถูกเซ็ตถูก company
+    context = {
+        'allowed_company_ids': [company_id],
+        'force_company': company_id
+    } if company_id else {}
+    
     if parent_id:
         parent_rec = models.execute_kw(
             DB, uid, PASSWORD,
@@ -182,27 +246,33 @@ def upsert_category(leaf_name, parent_id, vals_extra, key_cache):
         complete_path = leaf_name
 
     if complete_path in key_cache:
-        return key_cache[complete_path]
+        return "Cached"
 
-    # หา leaf โดย complete_name
+    # หา leaf โดย complete_name (ไม่ filter company_id เพราะไม่มี field)
+    domain = [['complete_name', '=', complete_path]]
     existing = models.execute_kw(
         DB, uid, PASSWORD,
         'product.category', 'search_read',
-        [[['complete_name', '=', complete_path]]],
+        [domain],
         {'fields': ['id', 'name', 'parent_id'], 'limit': 1}
     )
 
+    # แยก base fields และ property fields
     base_vals = {
         'name': leaf_name,
         'parent_id': parent_id or False,
+    }
+    
+    # Property fields ที่ต้องเซ็ตด้วย context (company-dependent)
+    property_vals = {
         'property_cost_method': vals_extra.get('property_cost_method', 'fifo'),
         'property_valuation': vals_extra.get('property_valuation', 'manual_periodic'),
     }
-
+    
     if vals_extra.get('income_account_id'):
-        base_vals['property_account_income_categ_id'] = vals_extra['income_account_id']
+        property_vals['property_account_income_categ_id'] = vals_extra['income_account_id']
     if vals_extra.get('expense_account_id'):
-        base_vals['property_account_expense_categ_id'] = vals_extra['expense_account_id']
+        property_vals['property_account_expense_categ_id'] = vals_extra['expense_account_id']
 
     if existing:
         cat_id = existing[0]['id']
@@ -212,29 +282,59 @@ def upsert_category(leaf_name, parent_id, vals_extra, key_cache):
             'product.product', 'search_count',
             [[['categ_id', '=', cat_id]]]
         ) > 0
-        if has_products:
-            base_vals = {
-                'name': leaf_name,
-                'parent_id': parent_id or False,
+        
+        # อัพเดต base fields (ไม่ต้องใช้ context)
+        needs_base_write = False
+        if base_vals:
+            current_base = models.execute_kw(
+                DB, uid, PASSWORD,
+                'product.category', 'read',
+                [[cat_id]],
+                {'fields': list(base_vals.keys())}
+            )[0]
+            needs_base_write = any(current_base.get(k) != v for k, v in base_vals.items())
+            if needs_base_write:
+                models.execute_kw(
+                    DB, uid, PASSWORD,
+                    'product.category', 'write',
+                    [[cat_id], base_vals]
+                )
+        
+        # อัพเดต property fields ด้วย context (company-dependent)
+        # ถ้า FORCE_UPDATE_COSTING = False และมี products จะไม่อัพเดต costing method
+        if has_products and not FORCE_UPDATE_COSTING:
+            # ลบ costing method และ valuation ออก
+            property_vals_filtered = {
+                k: v for k, v in property_vals.items() 
+                if k not in ['property_cost_method', 'property_valuation']
             }
-        current = models.execute_kw(
-            DB, uid, PASSWORD,
-            'product.category', 'read',
-            [[cat_id]],
-            {'fields': list(base_vals.keys())}
-        )[0]
-        needs_write = any(current.get(k) != v for k, v in base_vals.items())
-        if needs_write:
-            models.execute_kw(DB, uid, PASSWORD, 'product.category', 'write', [[cat_id], base_vals])
-            print(f"Updated: {complete_path}")
         else:
-            print(f"No change: {complete_path}")
+            property_vals_filtered = property_vals
+            
+        if property_vals_filtered:
+            models.execute_kw(
+                DB, uid, PASSWORD,
+                'product.category', 'write',
+                [[cat_id], property_vals_filtered],
+                {'context': context}
+            )
+        
+        status = "Updated" if (needs_base_write or property_vals_filtered) else "No change"
+        print(f"  ✓ {'Updated' if needs_base_write or property_vals_filtered else 'No change'}: {complete_path} (company {company_id})")
     else:
-        cat_id = models.execute_kw(DB, uid, PASSWORD, 'product.category', 'create', [base_vals])
-        print(f"Created: {complete_path}")
+        # สร้างใหม่ - รวม base_vals + property_vals แล้ว create ด้วย context
+        all_vals = {**base_vals, **property_vals}
+        cat_id = models.execute_kw(
+            DB, uid, PASSWORD,
+            'product.category', 'create',
+            [all_vals],
+            {'context': context}
+        )
+        status = "Created"
+        print(f"  ✓ Created: {complete_path} (company {company_id})")
 
     key_cache[complete_path] = cat_id
-    return cat_id
+    return status
 
 
 # ------------------------------------------------------------
@@ -318,25 +418,45 @@ def main():
 
     print(f"Loaded {len(rows)} rows from Excel.")
 
-    # อ่าน company ของ user ปัจจุบัน (เพื่อช่วยแม็พบัญชีให้ถูกบริษัท)
-    company_id = False
-    try:
-        users = models.execute_kw(DB, uid, PASSWORD, 'res.users', 'read', [[uid]], {'fields': ['company_id']})
-        if users and users[0].get('company_id'):
-            company_id = users[0]['company_id'][0]
-    except Exception:
-        pass
+    # ====== MULTI-COMPANY SUPPORT ======
+    # รับ company_id ผ่าน ENV: ODOO_COMPANY_ID (เช่น ODOO_COMPANY_ID=2)
+    # ถ้าไม่ระบุ จะใช้ default company ของ user
+    if ODOO_COMPANY_ID:
+        try:
+            company_id = int(ODOO_COMPANY_ID)
+            print(f"[INFO] Using specified company ID: {company_id}")
+        except ValueError:
+            print(f"[WARNING] Invalid ODOO_COMPANY_ID '{ODOO_COMPANY_ID}', will use user's default company")
+            company_id = get_user_company_id()
+    else:
+        company_id = get_user_company_id()
+        if company_id:
+            print(f"[INFO] Using user's default company ID: {company_id}")
+        else:
+            print(f"[WARNING] Could not determine company, will use company_id=False")
+    
+    # Display available companies
+    companies = get_available_companies()
+    if companies:
+        company_list = ', '.join([f"{c['name']} (ID: {c['id']})" for c in companies])
+        print(f"[INFO] Available companies: {company_list}")
 
     cache = {}
-    for c in rows:
-        # 1) สร้าง PARENT chain ให้ครบ
+    created_count = 0
+    updated_count = 0
+    failed_count = 0
+    
+    for idx, c in enumerate(rows, 1):
+        print(f"\n[{idx}/{len(rows)}] Processing: {c['leaf_name']}")
+        
+        # 1) สร้าง PARENT chain ให้ครบ (ส่ง company_id)
         parent_id = False
         if c['parent_path']:
-            parent_id, _ = ensure_category_path(c['parent_path'])
+            parent_id, _ = ensure_category_path(c['parent_path'], company_id)
 
-        # 2) Map account code → account_id
-        income_id = get_account_id(c['income_code'], company_id) if c['income_code'] else False
-        expense_id = get_account_id(c['expense_code'], company_id) if c['expense_code'] else False
+        # 2) Map account code → account_id (with debug)
+        income_id = get_account_id(c['income_code'], company_id, debug=True) if c['income_code'] else False
+        expense_id = get_account_id(c['expense_code'], company_id, debug=True) if c['expense_code'] else False
 
         vals_extra = {
             'property_cost_method': c['property_cost_method'],
@@ -345,10 +465,26 @@ def main():
             'expense_account_id': expense_id or False,
         }
 
-        # 3) Upsert leaf
-        upsert_category(c['leaf_name'], parent_id, vals_extra, cache)
+        # 3) Upsert leaf (ส่ง company_id)
+        try:
+            result = upsert_category(c['leaf_name'], parent_id, vals_extra, cache, company_id)
+            if "Created" in result or "Updated" in result:
+                if "Created" in result:
+                    created_count += 1
+                else:
+                    updated_count += 1
+        except Exception as e:
+            print(f"  ✗ Error processing '{c['leaf_name']}': {e}")
+            failed_count += 1
 
-    print("Import completed successfully!")
+    print(f"\n{'='*60}")
+    print(f"Import Summary:")
+    print(f"  Created: {created_count}")
+    print(f"  Updated: {updated_count}")
+    print(f"  Failed: {failed_count}")
+    print(f"  Total: {len(rows)}")
+    print(f"{'='*60}")
+    print("Import completed!")
 
 
 if __name__ == "__main__":
