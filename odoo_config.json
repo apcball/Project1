@@ -1,12 +1,13 @@
 {
     "odoo": {
-        "url": "http://localhost:8069",
-        "database": "your_database_name",
-        "username": "your_username",
-        "password": "your_password"
+        "url": "http://kyld.site:8069",
+        "database": "KYLD_LIVE",
+        "username": "apichart@mogen.co.th",
+        "password": "471109538",
+        "company_id": 5
     },
     "logging": {
         "level": "INFO",
-        "file": "odoo_employee_updates.log"
+        "file": "chart_accounts_import.log"
     }
 }

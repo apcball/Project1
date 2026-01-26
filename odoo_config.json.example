@@ -3,10 +3,12 @@
         "url": "http://localhost:8069",
         "database": "your_database_name",
         "username": "your_username",
-        "password": "your_password"
+        "password": "your_password",
+        "company_id": null
     },
     "logging": {
         "level": "INFO",
         "file": "odoo_employee_updates.log"
-    }
+    },
+    "comment": "company_id can be a number (e.g., 1) or null to use the user's default company"
 }
