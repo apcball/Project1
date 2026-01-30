@@ -25,7 +25,7 @@ PASSWORD = os.getenv('ODOO_PASSWORD', '471109538')
 
 # ========== MULTI-COMPANY SETTING ==========
 # ตั้งค่า company ID ที่ต้องการ import ถ้า None = ใช้ user's default company
-ODOO_COMPANY_ID = 2  # เปลี่ยนเป็นเลขที่ต้องการ เช่น 1, 2, 3 ฯลฯ
+ODOO_COMPANY_ID = 5  # เปลี่ยนเป็นเลขที่ต้องการ เช่น 1, 2, 3 ฯลฯ
 
 # ========== FORCE UPDATE SETTING ==========
 # ถ้า True จะอัพเดต Costing Method แม้ category มี products

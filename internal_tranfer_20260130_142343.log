@@ -1,0 +1,131 @@
+2026-01-30 14:23:44,336 - INFO - Successfully connected to Odoo as user ID: 2
+2026-01-30 14:23:44,762 - INFO - Odoo version: 17.0.1.3
+2026-01-30 14:23:45,278 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-01-30 14:23:45,635 - INFO - Successfully read Excel file with 196 rows
+2026-01-30 14:23:45,635 - INFO - Excel columns: ['name', 'partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit']
+2026-01-30 14:23:45,644 - INFO - Added missing sequence column with default 0
+2026-01-30 14:23:45,649 - INFO - scheduled_date dtype: datetime64[ns]
+2026-01-30 14:23:45,650 - INFO - scheduled_date sample: 2024-01-06 00:00:00
+2026-01-30 14:23:45,655 - INFO - Converted scheduled_date to string format. Sample: 2024-01-06 00:00:00
+2026-01-30 14:23:45,657 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-01-30 14:23:45,658 - INFO - Using 'default_code' column as 'product_id'
+2026-01-30 14:23:45,659 - INFO - Using 'origin' column to identify transfer groups
+2026-01-30 14:23:45,714 - INFO - Excel file validation and data filling completed successfully
+2026-01-30 14:23:45,721 - INFO - Grouping by 'name' column
+2026-01-30 14:23:45,781 - INFO - Searching for location: 'FG40/Stock'
+2026-01-30 14:23:45,861 - INFO - Found location with complete_name match: 'FG40/Stock' for 'FG40/Stock'
+2026-01-30 14:23:45,892 - INFO - Found partner ID 8388 for 'MOG-IN'
+2026-01-30 14:23:45,937 - INFO - Created transfer for date 2025-03-19 00:00:00 sequence 0 with picking ID 5699
+2026-01-30 14:23:45,938 - INFO - Processing Excel row 1: {'name': 'BEMTN000005', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2025-03-19 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2025-03-19 00:00:00'), 'origin': 'ห้างหุ้นส่วนจำกัด วสุธา กิจการ (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG03-143SPC12001400-IDO', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2025-03-19 00:00:00'), 'product_id': 'NFG03-143SPC12001400-IDO'}
+2026-01-30 14:23:45,938 - INFO - Searching for product with code: 'NFG03-143SPC12001400-IDO' and old code: 'NFG03-143SPC12001400-IDO'
+2026-01-30 14:23:46,037 - INFO - Found product with exact match on old_product_code: 'NFG03-143SPC12001400-IDO'
+2026-01-30 14:23:46,084 - INFO - Prepared product NFG03-143SPC12001400-IDO with quantity 1.0 for batch creation
+2026-01-30 14:23:46,085 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:46,183 - INFO - Created 1 moves in batch for picking 5699
+2026-01-30 14:23:46,241 - INFO - Re-updated dates before confirming picking 5699: 2025-03-19 00:00:00
+2026-01-30 14:23:46,326 - INFO - Confirmed transfer 5699 with forced date context
+2026-01-30 14:23:46,384 - INFO - Using cached location ID for: 'FG40/Stock'
+2026-01-30 14:23:46,841 - INFO - Found partner ID 8388 for 'MOG-IN'
+2026-01-30 14:23:46,884 - INFO - Created transfer for date 2025-06-26 00:00:00 sequence 0 with picking ID 5700
+2026-01-30 14:23:46,900 - INFO - Processing Excel row 1: {'name': 'BEMTN000016', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2025-06-26 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2025-06-26 00:00:00'), 'origin': 'บริษัท ที.เอ.เฮ้าส์ จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG03-NT-12001200E-5802L', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2025-06-26 00:00:00'), 'product_id': 'NFG03-NT-12001200E-5802L'}
+2026-01-30 14:23:46,902 - INFO - Searching for product with code: 'NFG03-NT-12001200E-5802L' and old code: 'NFG03-NT-12001200E-5802L'
+2026-01-30 14:23:46,996 - INFO - Found product with exact match on old_product_code: 'NFG03-NT-12001200E-5802L'
+2026-01-30 14:23:47,028 - INFO - Prepared product NFG03-NT-12001200E-5802L with quantity 1.0 for batch creation
+2026-01-30 14:23:47,029 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:47,031 - INFO - Processing Excel row 2: {'name': 'BEMTN000016', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2025-06-26 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2025-06-26 00:00:00'), 'origin': 'บริษัท ที.เอ.เฮ้าส์ จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG03-NT-12001200F-5802L', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2025-06-26 00:00:00'), 'product_id': 'NFG03-NT-12001200F-5802L'}
+2026-01-30 14:23:47,032 - INFO - Searching for product with code: 'NFG03-NT-12001200F-5802L' and old code: 'NFG03-NT-12001200F-5802L'
+2026-01-30 14:23:47,128 - INFO - Found product with exact match on old_product_code: 'NFG03-NT-12001200F-5802L'
+2026-01-30 14:23:47,159 - INFO - Prepared product NFG03-NT-12001200F-5802L with quantity 1.0 for batch creation
+2026-01-30 14:23:47,160 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:47,711 - INFO - Created 2 moves in batch for picking 5700
+2026-01-30 14:23:47,760 - INFO - Re-updated dates before confirming picking 5700: 2025-06-26 00:00:00
+2026-01-30 14:23:47,850 - INFO - Confirmed transfer 5700 with forced date context
+2026-01-30 14:23:47,924 - INFO - Using cached location ID for: 'FG40/Stock'
+2026-01-30 14:23:47,967 - INFO - Found partner ID 8388 for 'MOG-IN'
+2026-01-30 14:23:48,043 - INFO - Created transfer for date 2025-08-29 00:00:00 sequence 0 with picking ID 5701
+2026-01-30 14:23:48,044 - INFO - Processing Excel row 1: {'name': 'BEMTN000025', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2025-08-29 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2025-08-29 00:00:00'), 'origin': 'บริษัท ธนโชติ คอนเน็คชั่น จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG02-32-095-A-5802-L', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2025-08-29 00:00:00'), 'product_id': 'NFG02-32-095-A-5802-L'}
+2026-01-30 14:23:48,044 - INFO - Searching for product with code: 'NFG02-32-095-A-5802-L' and old code: 'NFG02-32-095-A-5802-L'
+2026-01-30 14:23:48,138 - INFO - Found product with exact match on old_product_code: 'NFG02-32-095-A-5802-L'
+2026-01-30 14:23:48,608 - INFO - Prepared product NFG02-32-095-A-5802-L with quantity 1.0 for batch creation
+2026-01-30 14:23:48,608 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:48,700 - INFO - Created 1 moves in batch for picking 5701
+2026-01-30 14:23:48,744 - INFO - Re-updated dates before confirming picking 5701: 2025-08-29 00:00:00
+2026-01-30 14:23:48,814 - INFO - Confirmed transfer 5701 with forced date context
+2026-01-30 14:23:48,871 - INFO - Using cached location ID for: 'FG40/Stock'
+2026-01-30 14:23:48,898 - INFO - Found partner ID 8388 for 'MOG-IN'
+2026-01-30 14:23:48,936 - INFO - Created transfer for date 2025-10-20 00:00:00 sequence 0 with picking ID 5702
+2026-01-30 14:23:48,937 - INFO - Processing Excel row 1: {'name': 'BEMTN000030', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2025-10-20 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2025-10-20 00:00:00'), 'origin': 'บริษัท โชคชนายุทธ จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG03-NT-5301650-5802', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2025-10-20 00:00:00'), 'product_id': 'NFG03-NT-5301650-5802'}
+2026-01-30 14:23:48,938 - INFO - Searching for product with code: 'NFG03-NT-5301650-5802' and old code: 'NFG03-NT-5301650-5802'
+2026-01-30 14:23:49,030 - INFO - Found product with exact match on old_product_code: 'NFG03-NT-5301650-5802'
+2026-01-30 14:23:49,060 - INFO - Prepared product NFG03-NT-5301650-5802 with quantity 1.0 for batch creation
+2026-01-30 14:23:49,060 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:49,161 - INFO - Created 1 moves in batch for picking 5702
+2026-01-30 14:23:49,294 - INFO - Re-updated dates before confirming picking 5702: 2025-10-20 00:00:00
+2026-01-30 14:23:49,387 - INFO - Confirmed transfer 5702 with forced date context
+2026-01-30 14:23:49,438 - INFO - Using cached location ID for: 'FG40/Stock'
+2026-01-30 14:23:49,466 - INFO - Found partner ID 8388 for 'MOG-IN'
+2026-01-30 14:23:49,504 - INFO - Created transfer for date 2025-11-19 00:00:00 sequence 0 with picking ID 5703
+2026-01-30 14:23:49,505 - INFO - Processing Excel row 1: {'name': 'BEMTN000033', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2025-11-19 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2025-11-19 00:00:00'), 'origin': 'บริษัท แลนด์ แอนด์ เฮ้าส์ นอร์ธอีส จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG03-NT-2501200-5802', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2025-11-19 00:00:00'), 'product_id': 'NFG03-NT-2501200-5802'}
+2026-01-30 14:23:49,505 - INFO - Searching for product with code: 'NFG03-NT-2501200-5802' and old code: 'NFG03-NT-2501200-5802'
+2026-01-30 14:23:49,599 - INFO - Found product with exact match on old_product_code: 'NFG03-NT-2501200-5802'
+2026-01-30 14:23:49,629 - INFO - Prepared product NFG03-NT-2501200-5802 with quantity 1.0 for batch creation
+2026-01-30 14:23:49,629 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:49,711 - INFO - Created 1 moves in batch for picking 5703
+2026-01-30 14:23:49,839 - INFO - Re-updated dates before confirming picking 5703: 2025-11-19 00:00:00
+2026-01-30 14:23:49,963 - INFO - Confirmed transfer 5703 with forced date context
+2026-01-30 14:23:50,026 - INFO - Using cached location ID for: 'FG40/Stock'
+2026-01-30 14:23:50,054 - INFO - Found partner ID 8388 for 'MOG-IN'
+2026-01-30 14:23:50,090 - INFO - Created transfer for date 2026-01-22 00:00:00 sequence 0 with picking ID 5704
+2026-01-30 14:23:50,091 - INFO - Processing Excel row 1: {'name': 'BEMTN000034', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2026-01-22 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2026-01-22 00:00:00'), 'origin': 'บริษัท แลนด์ แอนด์ เฮ้าส์ จำกัด (มหาชน) (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG03-SPC-1501150-8019', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2026-01-22 00:00:00'), 'product_id': 'NFG03-SPC-1501150-8019'}
+2026-01-30 14:23:50,092 - INFO - Searching for product with code: 'NFG03-SPC-1501150-8019' and old code: 'NFG03-SPC-1501150-8019'
+2026-01-30 14:23:50,183 - INFO - Found product with exact match on old_product_code: 'NFG03-SPC-1501150-8019'
+2026-01-30 14:23:50,214 - INFO - Prepared product NFG03-SPC-1501150-8019 with quantity 2.0 for batch creation
+2026-01-30 14:23:50,215 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:50,217 - INFO - Processing Excel row 2: {'name': 'BEMTN000034', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2026-01-22 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2026-01-22 00:00:00'), 'origin': 'บริษัท แลนด์ แอนด์ เฮ้าส์ จำกัด (มหาชน) (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG03-SPC-2751150-8019', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2026-01-22 00:00:00'), 'product_id': 'NFG03-SPC-2751150-8019'}
+2026-01-30 14:23:50,219 - INFO - Searching for product with code: 'NFG03-SPC-2751150-8019' and old code: 'NFG03-SPC-2751150-8019'
+2026-01-30 14:23:50,313 - INFO - Found product with exact match on old_product_code: 'NFG03-SPC-2751150-8019'
+2026-01-30 14:23:50,350 - INFO - Prepared product NFG03-SPC-2751150-8019 with quantity 2.0 for batch creation
+2026-01-30 14:23:50,350 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:50,351 - INFO - Processing Excel row 3: {'name': 'BEMTN000034', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2026-01-22 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2026-01-22 00:00:00'), 'origin': 'บริษัท แลนด์ แอนด์ เฮ้าส์ จำกัด (มหาชน) (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG03-SPC-15001400-8019', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2026-01-22 00:00:00'), 'product_id': 'NFG03-SPC-15001400-8019'}
+2026-01-30 14:23:50,351 - INFO - Searching for product with code: 'NFG03-SPC-15001400-8019' and old code: 'NFG03-SPC-15001400-8019'
+2026-01-30 14:23:50,495 - INFO - Found product with exact match on old_product_code: 'NFG03-SPC-15001400-8019'
+2026-01-30 14:23:50,541 - INFO - Prepared product NFG03-SPC-15001400-8019 with quantity 1.0 for batch creation
+2026-01-30 14:23:50,542 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:50,611 - INFO - Created 3 moves in batch for picking 5704
+2026-01-30 14:23:50,653 - INFO - Re-updated dates before confirming picking 5704: 2026-01-22 00:00:00
+2026-01-30 14:23:50,756 - INFO - Confirmed transfer 5704 with forced date context
+2026-01-30 14:23:50,811 - INFO - Using cached location ID for: 'FG40/Stock'
+2026-01-30 14:23:50,842 - INFO - Found partner ID 8388 for 'MOG-IN'
+2026-01-30 14:23:50,879 - INFO - Created transfer for date 2026-01-29 00:00:00 sequence 0 with picking ID 5705
+2026-01-30 14:23:50,880 - INFO - Processing Excel row 1: {'name': 'BEMTN000035', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'บริษัท อินโน โฮม คอนสตรัคชั่น จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG05-GL-332-681', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': 'NFG05-GL-332-681'}
+2026-01-30 14:23:50,880 - INFO - Searching for product with code: 'NFG05-GL-332-681' and old code: 'NFG05-GL-332-681'
+2026-01-30 14:23:50,976 - INFO - Found product with exact match on old_product_code: 'NFG05-GL-332-681'
+2026-01-30 14:23:51,026 - INFO - Prepared product NFG05-GL-332-681 with quantity 1.0 for batch creation
+2026-01-30 14:23:51,026 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:51,027 - INFO - Processing Excel row 2: {'name': 'BEMTN000035', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'บริษัท อินโน โฮม คอนสตรัคชั่น จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG05-GL-603-650', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': 'NFG05-GL-603-650'}
+2026-01-30 14:23:51,027 - INFO - Searching for product with code: 'NFG05-GL-603-650' and old code: 'NFG05-GL-603-650'
+2026-01-30 14:23:51,565 - INFO - Found product with exact match on old_product_code: 'NFG05-GL-603-650'
+2026-01-30 14:23:51,595 - INFO - Prepared product NFG05-GL-603-650 with quantity 1.0 for batch creation
+2026-01-30 14:23:51,595 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:51,596 - INFO - Processing Excel row 3: {'name': 'BEMTN000035', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'บริษัท อินโน โฮม คอนสตรัคชั่น จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG05-GL-564-642', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': 'NFG05-GL-564-642'}
+2026-01-30 14:23:51,596 - INFO - Searching for product with code: 'NFG05-GL-564-642' and old code: 'NFG05-GL-564-642'
+2026-01-30 14:23:51,732 - INFO - Found product with exact match on old_product_code: 'NFG05-GL-564-642'
+2026-01-30 14:23:51,790 - INFO - Prepared product NFG05-GL-564-642 with quantity 1.0 for batch creation
+2026-01-30 14:23:51,791 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:51,794 - INFO - Processing Excel row 4: {'name': 'BEMTN000035', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'บริษัท อินโน โฮม คอนสตรัคชั่น จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG05-GL-622-650', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': 'NFG05-GL-622-650'}
+2026-01-30 14:23:51,795 - INFO - Searching for product with code: 'NFG05-GL-622-650' and old code: 'NFG05-GL-622-650'
+2026-01-30 14:23:51,889 - INFO - Found product with exact match on old_product_code: 'NFG05-GL-622-650'
+2026-01-30 14:23:51,918 - INFO - Prepared product NFG05-GL-622-650 with quantity 1.0 for batch creation
+2026-01-30 14:23:51,918 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:51,918 - INFO - Processing Excel row 5: {'name': 'BEMTN000035', 'partner_id': 'MOG-IN', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'FG10toFG40', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'บริษัท อินโน โฮม คอนสตรัคชั่น จำกัด (สำนักงานใหญ่)', 'location_dest_id': 'FG40/Stock', 'default_code': 'NFG05-GL-604-681', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': 'NFG05-GL-604-681'}
+2026-01-30 14:23:51,919 - INFO - Searching for product with code: 'NFG05-GL-604-681' and old code: 'NFG05-GL-604-681'
+2026-01-30 14:23:52,005 - INFO - Found product with exact match on old_product_code: 'NFG05-GL-604-681'
+2026-01-30 14:23:52,035 - INFO - Prepared product NFG05-GL-604-681 with quantity 1.0 for batch creation
+2026-01-30 14:23:52,035 - INFO - Move locations - Source: 8, Dest: 76
+2026-01-30 14:23:52,118 - INFO - Created 5 moves in batch for picking 5705
+2026-01-30 14:23:52,163 - INFO - Re-updated dates before confirming picking 5705: 2026-01-29 00:00:00
+2026-01-30 14:23:52,281 - INFO - Confirmed transfer 5705 with forced date context
+2026-01-30 14:23:52,371 - INFO - Using cached location ID for: 'FG40/Stock'
+2026-01-30 14:23:52,419 - INFO - Found partner ID 8388 for 'MOG-IN'
+2026-01-30 14:23:52,459 - ERROR - Error creating internal transfers: <Fault 2: 'The operation cannot be completed: Reference must be unique per company!'>
+2026-01-30 14:23:52,462 - ERROR - Fatal error: <Fault 2: 'The operation cannot be completed: Reference must be unique per company!'>
