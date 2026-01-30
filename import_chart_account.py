@@ -2,6 +2,7 @@ import xmlrpc.client
 import pandas as pd
 import sys
 import logging
+import json
 from pathlib import Path
 
 # ตั้งค่า logging
@@ -15,11 +16,30 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Odoo connection parameters
-url = 'http://mogdev.work:8069'
-db = 'KYLD_DEV2'
+# Odoo connection parameters (can be overridden by config file)
+url = 'http://kyld.site:8069'
+db = 'KYLD_LIVE'
 username = 'apichart@mogen.co.th'
 password = '471109538'
+company_id = None  # Will be set during connection or from config
+
+def load_config():
+    """โหลดการตั้งค่าจากไฟล์ config"""
+    global url, db, username, password, company_id
+    try:
+        config_path = Path('odoo_config.json')
+        if config_path.exists():
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+                if 'odoo' in config:
+                    url = config['odoo'].get('url', url)
+                    db = config['odoo'].get('database', db)
+                    username = config['odoo'].get('username', username)
+                    password = config['odoo'].get('password', password)
+                    company_id = config['odoo'].get('company_id', company_id)
+                    logger.info(f"โหลด config จาก {config_path}")
+    except Exception as e:
+        logger.warning(f"ไม่สามารถโหลด config: {str(e)}, ใช้ค่าเริ่มต้น")
 
 def connect_to_odoo():
     """เชื่อมต่อกับ Odoo"""
@@ -35,6 +55,50 @@ def connect_to_odoo():
     except Exception as e:
         logger.error(f"การเชื่อมต่อล้มเหลว: {str(e)}")
         return None, None
+
+def get_company_id(models, uid, company_name_or_id=None):
+    """ดึง company_id จากชื่อหรือ ID ของบริษัท"""
+    global company_id
+    
+    # ถ้ามีการระบุ company มาใน parameter
+    if company_name_or_id:
+        try:
+            # ลองแปลงเป็น ID ก่อน
+            cid = int(company_name_or_id)
+            company_exists = models.execute_kw(db, uid, password,
+                'res.company', 'search_count',
+                [[['id', '=', cid]]]
+            )
+            if company_exists:
+                company_id = cid
+                logger.info(f"ใช้ company_id: {company_id}")
+                return company_id
+        except (ValueError, TypeError):
+            # ค้นหาจากชื่อบริษัท
+            company_ids = models.execute_kw(db, uid, password,
+                'res.company', 'search',
+                [[['name', 'ilike', company_name_or_id]]]
+            )
+            if company_ids:
+                company_id = company_ids[0]
+                logger.info(f"พบบริษัท '{company_name_or_id}' ด้วย ID: {company_id}")
+                return company_id
+    
+    # ถ้ายังไม่มี company_id ให้ใช้ company เริ่มต้นของ user
+    if not company_id:
+        try:
+            user_info = models.execute_kw(db, uid, password,
+                'res.users', 'read',
+                [[uid]], {'fields': ['company_id']}
+            )
+            if user_info and user_info[0].get('company_id'):
+                company_id = user_info[0]['company_id'][0]
+                company_name = user_info[0]['company_id'][1]
+                logger.info(f"ใช้ company เริ่มต้น: {company_name} (ID: {company_id})")
+        except Exception as e:
+            logger.warning(f"ไม่สามารถดึง company เริ่มต้นได้: {str(e)}")
+    
+    return company_id
 
 def get_account_type(account_type):
     """แปลงประเภทบัญชีให้ตรงกับ Odoo 17"""
@@ -104,6 +168,10 @@ def prepare_account_data(row, models, uid):
         'name': str(row['name']).strip() if pd.notna(row['name']) else '',
         'account_type': account_type,
     }
+    
+    # เพิ่ม company_id ถ้ามีการระบุ
+    if company_id:
+        account_data['company_id'] = company_id
 
     # Set reconcile=True for receivable and payable accounts
     if account_type in ['asset_receivable', 'liability_payable']:
@@ -123,16 +191,26 @@ def prepare_account_data(row, models, uid):
 
     return account_data
 
-def import_or_update_accounts():
-    """นำเข้าหรืออัพเดทข้อมูลบัญชี"""
+def import_or_update_accounts(company_name_or_id=None):
+    """นำเข้าหรืออัพเดทข้อมูลบัญชี
+    
+    Args:
+        company_name_or_id: ชื่อหรือ ID ของบริษัทที่ต้องการนำเข้า (ถ้าไม่ระบุจะใช้ค่าจาก config หรือ company เริ่มต้น)
+    """
     try:
+        # โหลด config file
+        load_config()
+        
         # เชื่อมต่อกับ Odoo
         uid, models = connect_to_odoo()
         if not uid or not models:
             return
+        
+        # ดึง company_id
+        get_company_id(models, uid, company_name_or_id)
 
         # อ่านไฟล์ Excel
-        file_path = Path(r"C:\Users\Ball\Documents\Git_apcball\Project1\Data_file\Chart_Of_Account_kyld2.xlsx")
+        file_path = Path(r"Data_file/Chart_Of_Account_kyld2.xlsx")
         logger.info(f"กำลังอ่านไฟล์ Excel: {file_path}")
         
         df = pd.read_excel(file_path)
@@ -141,14 +219,25 @@ def import_or_update_accounts():
         # สถิติการนำเข้า
         stats = {'total': 0, 'created': 0, 'updated': 0, 'errors': 0}
 
-        # ดึงข้อมูลบัญชีทั้งหมดที่มีในระบบ
+        # ดึงข้อมูลบัญชีทั้งหมดที่มีในระบบ (กรองตาม company ถ้ามี)
+        domain = []
+        if company_id:
+            domain.append(['company_id', '=', company_id])
+            logger.info(f"กรองบัญชีสำหรับ company_id: {company_id}")
+        
         existing_accounts = models.execute_kw(db, uid, password,
             'account.account', 'search_read',
-            [[]], {'fields': ['code', 'id']}
+            [domain], {'fields': ['code', 'id', 'company_id']}
         )
         
-        # สร้าง dictionary ของบัญชีที่มีอยู่
-        existing_account_dict = {acc['code']: acc['id'] for acc in existing_accounts}
+        # สร้าง dictionary ของบัญชีที่มีอยู่ (รวม company_id ในการเปรียบเทียบ)
+        if company_id:
+            existing_account_dict = {
+                acc['code']: acc['id'] for acc in existing_accounts 
+                if acc.get('company_id') and acc['company_id'][0] == company_id
+            }
+        else:
+            existing_account_dict = {acc['code']: acc['id'] for acc in existing_accounts}
 
         # ประมวลผลแต่ละรายการในไฟล์ Excel
         for index, row in df.iterrows():
@@ -205,8 +294,15 @@ def import_or_update_accounts():
 
 if __name__ == "__main__":
     try:
-        logger.info("เริ่มต้นการนำเข้าและอัพเดทผังบัญชี...")
-        import_or_update_accounts()
+        # รับ company_id จาก command line argument (ถ้ามี)
+        company_arg = sys.argv[1] if len(sys.argv) > 1 else None
+        
+        if company_arg:
+            logger.info(f"เริ่มต้นการนำเข้าและอัพเดทผังบัญชีสำหรับ company: {company_arg}")
+        else:
+            logger.info("เริ่มต้นการนำเข้าและอัพเดทผังบัญชี...")
+        
+        import_or_update_accounts(company_arg)
         logger.info("การนำเข้าและอัพเดทเสร็จสมบูรณ์")
     except Exception as e:
         logger.error(f"เกิดข้อผิดพลาด: {str(e)}")
