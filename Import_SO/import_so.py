@@ -26,7 +26,7 @@ CONFIG = {
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_SO/logs',
-    'data_file': 'Import_SO/Template_SO_RET.xlsx',
+    'data_file': 'Import_SO/Template_SO_update03.xlsx',
     'dry_run': False
 }
 
@@ -663,25 +663,36 @@ def get_pricelist_data(pricelist_name):
 
 
 def get_user_data(user_name):
-    """ค้นหา Salesperson จากชื่อ"""
+    """ค้นหา Salesperson จากชื่อ หรือ login"""
     if pd.isna(user_name):
         return None
     
     try:
         user_name = str(user_name).strip()
+        
+        # Try exact search first on name or login
         user_ids = models.execute_kw(
             CONFIG['database'], uid, CONFIG['password'], 'res.users', 'search',
-            [[['name', 'ilike', user_name]]]
+            [['|', ['name', '=', user_name], ['login', '=', user_name]]]
         )
+        
+        # Then ilike
+        if not user_ids:
+            user_ids = models.execute_kw(
+                CONFIG['database'], uid, CONFIG['password'], 'res.users', 'search',
+                [['|', ['name', 'ilike', user_name], ['login', 'ilike', user_name]]]
+            )
         
         if user_ids:
             user_data = models.execute_kw(
                 CONFIG['database'], uid, CONFIG['password'], 'res.users', 'read',
                 [user_ids[0]], 
-                {'fields': ['id', 'name']}
+                {'fields': ['id', 'name', 'login']}
             )[0]
+            print(f"Found user: {user_name} -> {user_data['name']} (login: {user_data.get('login', '')})")
             return user_data
         
+        print(f"User not found: {user_name}")
         return None
     except Exception as e:
         print(f"Error processing user {user_name}: {e}")
@@ -998,8 +1009,9 @@ def create_sale_order(ref_name, rows):
         
         # Get user data (optional)
         user_data = None
-        if not pd.isna(first_row.get('user_id')):
-            user_data = get_user_data(first_row['user_id'])
+        user_val = first_row.get('user_id') if not pd.isna(first_row.get('user_id')) else first_row.get('user_id ')
+        if not pd.isna(user_val):
+            user_data = get_user_data(user_val)
         
         # Get team data (optional)
         team_data = get_team_data(first_row.get('team_id'))
