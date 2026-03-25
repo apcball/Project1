@@ -1,0 +1,26 @@
+2026-03-19 14:34:42,864 - INFO - Successfully connected to Odoo as user ID: 2
+2026-03-19 14:34:42,928 - INFO - Odoo version: 17.0.1.3
+2026-03-19 14:34:43,067 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-03-19 14:34:43,465 - INFO - Successfully read Excel file with 18 rows
+2026-03-19 14:34:43,465 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-03-19 14:34:43,467 - INFO - Processed sequence column
+2026-03-19 14:34:43,468 - INFO - scheduled_date dtype: datetime64[ns]
+2026-03-19 14:34:43,468 - INFO - scheduled_date sample: 2025-12-01 00:00:00
+2026-03-19 14:34:43,469 - INFO - Converted scheduled_date to string format. Sample: 2025-12-01 00:00:00
+2026-03-19 14:34:43,470 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-03-19 14:34:43,471 - INFO - Using 'default_code' column as 'product_id'
+2026-03-19 14:34:43,472 - INFO - Using 'origin' column to identify transfer groups
+2026-03-19 14:34:43,475 - INFO - Excel file validation and data filling completed successfully
+2026-03-19 14:34:43,562 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:43,625 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:43,696 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:43,761 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:43,829 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:43,894 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:43,955 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:44,022 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:44,099 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:44,239 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:44,328 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:44,390 - ERROR - Picking type not found: คลังสินค้าสำเร็จรูป 1: Delivery Orders
+2026-03-19 14:34:44,391 - INFO - Import completed: 0 success, 0 failed.

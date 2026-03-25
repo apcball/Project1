@@ -1,0 +1,650 @@
+2026-03-19 14:49:12,466 - INFO - Successfully connected to Odoo as user ID: 2
+2026-03-19 14:49:12,531 - INFO - Odoo version: 17.0.1.3
+2026-03-19 14:49:12,705 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-03-19 14:49:13,062 - INFO - Successfully read Excel file with 115 rows
+2026-03-19 14:49:13,063 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-03-19 14:49:13,064 - INFO - Processed sequence column
+2026-03-19 14:49:13,067 - INFO - scheduled_date dtype: datetime64[ns]
+2026-03-19 14:49:13,067 - INFO - scheduled_date sample: 2025-12-01 00:00:00
+2026-03-19 14:49:13,070 - INFO - Converted scheduled_date to string format. Sample: 2025-12-01 00:00:00
+2026-03-19 14:49:13,071 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-03-19 14:49:13,072 - INFO - Using 'default_code' column as 'product_id'
+2026-03-19 14:49:13,073 - INFO - Using 'origin' column to identify transfer groups
+2026-03-19 14:49:13,077 - INFO - Excel file validation and data filling completed successfully
+2026-03-19 14:49:13,253 - INFO - Searching for location: 'Partners/Customers'
+2026-03-19 14:49:13,352 - INFO - Found customer location for 'Partners/Customers'
+2026-03-19 14:49:13,430 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:13,509 - INFO - Created transfer for date 2025-12-01 00:00:00 sequence 0.0 with picking ID 10383
+2026-03-19 14:49:13,510 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00691110', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'MO00691110'}
+2026-03-19 14:49:13,510 - INFO - Searching for product with code: 'MO00691110' and old code: 'MO00691110'
+2026-03-19 14:49:13,571 - INFO - Found product with exact match on default_code: 'MO00691110'
+2026-03-19 14:49:13,637 - INFO - Prepared product MO00691110 with quantity 2.0 for batch creation
+2026-03-19 14:49:13,638 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:13,638 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU00043DEC21511', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'FU00043DEC21511'}
+2026-03-19 14:49:13,639 - INFO - Searching for product with code: 'FU00043DEC21511' and old code: 'FU00043DEC21511'
+2026-03-19 14:49:13,705 - INFO - Found product with exact match on default_code: 'FU00043DEC21511'
+2026-03-19 14:49:13,774 - INFO - Prepared product FU00043DEC21511 with quantity 5.0 for batch creation
+2026-03-19 14:49:13,774 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:13,870 - INFO - Created 2 moves in batch for picking 10383
+2026-03-19 14:49:13,948 - INFO - Re-updated dates before confirming picking 10383: 2025-12-01 00:00:00
+2026-03-19 14:49:14,087 - INFO - Confirmed transfer 10383 with forced date context
+2026-03-19 14:49:14,220 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:14,286 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:14,363 - INFO - Created transfer for date 2025-12-02 00:00:00 sequence 0.0 with picking ID 10384
+2026-03-19 14:49:14,365 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-02 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-02 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00381211', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-02 00:00:00'), 'product_id': 'MO00381211'}
+2026-03-19 14:49:14,366 - INFO - Searching for product with code: 'MO00381211' and old code: 'MO00381211'
+2026-03-19 14:49:14,430 - INFO - Found product with exact match on default_code: 'MO00381211'
+2026-03-19 14:49:14,495 - INFO - Prepared product MO00381211 with quantity 1.0 for batch creation
+2026-03-19 14:49:14,495 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:14,496 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-02 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-02 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00790111', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-02 00:00:00'), 'product_id': 'MO00790111'}
+2026-03-19 14:49:14,496 - INFO - Searching for product with code: 'MO00790111' and old code: 'MO00790111'
+2026-03-19 14:49:14,557 - INFO - Found product with exact match on default_code: 'MO00790111'
+2026-03-19 14:49:14,623 - INFO - Prepared product MO00790111 with quantity 1.0 for batch creation
+2026-03-19 14:49:14,623 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:14,624 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-02 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-02 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0050EX1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-02 00:00:00'), 'product_id': 'MO0050EX1210'}
+2026-03-19 14:49:14,625 - INFO - Searching for product with code: 'MO0050EX1210' and old code: 'MO0050EX1210'
+2026-03-19 14:49:14,685 - INFO - Found product with exact match on default_code: 'MO0050EX1210'
+2026-03-19 14:49:14,750 - INFO - Prepared product MO0050EX1210 with quantity 1.0 for batch creation
+2026-03-19 14:49:14,751 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:14,751 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-02 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-02 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0850NDC10000', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-02 00:00:00'), 'product_id': 'MO0850NDC10000'}
+2026-03-19 14:49:14,752 - INFO - Searching for product with code: 'MO0850NDC10000' and old code: 'MO0850NDC10000'
+2026-03-19 14:49:14,814 - INFO - Found product with exact match on default_code: 'MO0850NDC10000'
+2026-03-19 14:49:14,884 - INFO - Prepared product MO0850NDC10000 with quantity 1.0 for batch creation
+2026-03-19 14:49:14,884 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:14,885 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-02 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-02 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00691110', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-02 00:00:00'), 'product_id': 'MO00691110'}
+2026-03-19 14:49:14,885 - INFO - Using cached product ID for code: 'MO00691110'
+2026-03-19 14:49:14,886 - INFO - Prepared product MO00691110 with quantity 1.0 for batch creation
+2026-03-19 14:49:14,886 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:14,886 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-02 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-02 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO049EX1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-02 00:00:00'), 'product_id': 'MO049EX1210'}
+2026-03-19 14:49:14,887 - INFO - Searching for product with code: 'MO049EX1210' and old code: 'MO049EX1210'
+2026-03-19 14:49:14,949 - INFO - Found product with exact match on default_code: 'MO049EX1210'
+2026-03-19 14:49:15,012 - INFO - Prepared product MO049EX1210 with quantity 1.0 for batch creation
+2026-03-19 14:49:15,012 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:15,013 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-02 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-02 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP00283100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-02 00:00:00'), 'product_id': 'SP00283100'}
+2026-03-19 14:49:15,014 - INFO - Searching for product with code: 'SP00283100' and old code: 'SP00283100'
+2026-03-19 14:49:15,099 - INFO - Found product with exact match on default_code: 'SP00283100'
+2026-03-19 14:49:15,173 - INFO - Prepared product SP00283100 with quantity 1.0 for batch creation
+2026-03-19 14:49:15,174 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:15,356 - INFO - Created 7 moves in batch for picking 10384
+2026-03-19 14:49:15,461 - INFO - Re-updated dates before confirming picking 10384: 2025-12-02 00:00:00
+2026-03-19 14:49:15,686 - INFO - Confirmed transfer 10384 with forced date context
+2026-03-19 14:49:15,877 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:15,961 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:16,070 - INFO - Created transfer for date 2025-12-04 00:00:00 sequence 0.0 with picking ID 10385
+2026-03-19 14:49:16,073 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010204', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': '413010204'}
+2026-03-19 14:49:16,074 - INFO - Searching for product with code: '413010204' and old code: '413010204'
+2026-03-19 14:49:16,149 - INFO - Found product with exact match on default_code: '413010204'
+2026-03-19 14:49:16,249 - INFO - Prepared product 413010204 with quantity 14.0 for batch creation
+2026-03-19 14:49:16,251 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:16,253 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW041N100', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'SPW041N100'}
+2026-03-19 14:49:16,254 - INFO - Searching for product with code: 'SPW041N100' and old code: 'SPW041N100'
+2026-03-19 14:49:16,329 - INFO - Found product with exact match on default_code: 'SPW041N100'
+2026-03-19 14:49:16,416 - INFO - Prepared product SPW041N100 with quantity 14.0 for batch creation
+2026-03-19 14:49:16,417 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:16,417 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0230100', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'SP0230100'}
+2026-03-19 14:49:16,418 - INFO - Searching for product with code: 'SP0230100' and old code: 'SP0230100'
+2026-03-19 14:49:16,489 - INFO - Found product with exact match on default_code: 'SP0230100'
+2026-03-19 14:49:16,560 - INFO - Prepared product SP0230100 with quantity 14.0 for batch creation
+2026-03-19 14:49:16,560 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:16,560 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT44TC101', 'product_uom_qty': 7, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MT44TC101'}
+2026-03-19 14:49:16,561 - INFO - Searching for product with code: 'MT44TC101' and old code: 'MT44TC101'
+2026-03-19 14:49:16,636 - INFO - Found product with exact match on default_code: 'MT44TC101'
+2026-03-19 14:49:16,760 - INFO - Prepared product MT44TC101 with quantity 7.0 for batch creation
+2026-03-19 14:49:16,761 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:16,761 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT4134B101', 'product_uom_qty': 14, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MT4134B101'}
+2026-03-19 14:49:16,762 - INFO - Searching for product with code: 'MT4134B101' and old code: 'MT4134B101'
+2026-03-19 14:49:16,847 - INFO - Found product with exact match on default_code: 'MT4134B101'
+2026-03-19 14:49:16,946 - INFO - Prepared product MT4134B101 with quantity 14.0 for batch creation
+2026-03-19 14:49:16,947 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:16,948 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT4134B101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MT4134B101'}
+2026-03-19 14:49:16,948 - INFO - Using cached product ID for code: 'MT4134B101'
+2026-03-19 14:49:16,949 - INFO - Prepared product MT4134B101 with quantity 2.0 for batch creation
+2026-03-19 14:49:16,949 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:16,950 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'PACK00204', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'PACK00204'}
+2026-03-19 14:49:16,950 - INFO - Searching for product with code: 'PACK00204' and old code: 'PACK00204'
+2026-03-19 14:49:17,042 - INFO - Found product with exact match on default_code: 'PACK00204'
+2026-03-19 14:49:17,123 - INFO - Prepared product PACK00204 with quantity 3.0 for batch creation
+2026-03-19 14:49:17,124 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:17,124 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT034B101', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MT034B101'}
+2026-03-19 14:49:17,125 - INFO - Searching for product with code: 'MT034B101' and old code: 'MT034B101'
+2026-03-19 14:49:17,205 - INFO - Found product with exact match on default_code: 'MT034B101'
+2026-03-19 14:49:17,287 - INFO - Prepared product MT034B101 with quantity 3.0 for batch creation
+2026-03-19 14:49:17,287 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:17,288 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0069S1101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MO0069S1101'}
+2026-03-19 14:49:17,288 - INFO - Searching for product with code: 'MO0069S1101' and old code: 'MO0069S1101'
+2026-03-19 14:49:17,391 - INFO - Found product with exact match on default_code: 'MO0069S1101'
+2026-03-19 14:49:17,462 - INFO - Prepared product MO0069S1101 with quantity 2.0 for batch creation
+2026-03-19 14:49:17,462 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:17,631 - INFO - Created 9 moves in batch for picking 10385
+2026-03-19 14:49:17,712 - INFO - Re-updated dates before confirming picking 10385: 2025-12-04 00:00:00
+2026-03-19 14:49:17,951 - INFO - Confirmed transfer 10385 with forced date context
+2026-03-19 14:49:18,073 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:18,135 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:18,218 - INFO - Created transfer for date 2025-12-06 00:00:00 sequence 0.0 with picking ID 10386
+2026-03-19 14:49:18,220 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO015S101', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MO015S101'}
+2026-03-19 14:49:18,220 - INFO - Searching for product with code: 'MO015S101' and old code: 'MO015S101'
+2026-03-19 14:49:18,281 - INFO - Found product with exact match on default_code: 'MO015S101'
+2026-03-19 14:49:18,353 - INFO - Prepared product MO015S101 with quantity 20.0 for batch creation
+2026-03-19 14:49:18,353 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:18,354 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:18,354 - INFO - Searching for product with code: '413010163' and old code: '413010163'
+2026-03-19 14:49:18,417 - INFO - Found product with exact match on default_code: '413010163'
+2026-03-19 14:49:18,482 - INFO - Prepared product 413010163 with quantity 20.0 for batch creation
+2026-03-19 14:49:18,482 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:18,483 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO15SS101', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MO15SS101'}
+2026-03-19 14:49:18,484 - INFO - Searching for product with code: 'MO15SS101' and old code: 'MO15SS101'
+2026-03-19 14:49:18,547 - INFO - Found product with exact match on default_code: 'MO15SS101'
+2026-03-19 14:49:18,611 - INFO - Prepared product MO15SS101 with quantity 10.0 for batch creation
+2026-03-19 14:49:18,612 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:18,612 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:18,613 - INFO - Using cached product ID for code: '413010163'
+2026-03-19 14:49:18,613 - INFO - Prepared product 413010163 with quantity 10.0 for batch creation
+2026-03-19 14:49:18,614 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:18,614 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0094201', 'product_uom_qty': 50, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MA0094201'}
+2026-03-19 14:49:18,615 - INFO - Searching for product with code: 'MA0094201' and old code: 'MA0094201'
+2026-03-19 14:49:18,678 - INFO - Found product with exact match on default_code: 'MA0094201'
+2026-03-19 14:49:18,742 - INFO - Prepared product MA0094201 with quantity 50.0 for batch creation
+2026-03-19 14:49:18,743 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:18,744 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPO014100', 'product_uom_qty': 50, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'SPO014100'}
+2026-03-19 14:49:18,744 - INFO - Searching for product with code: 'SPO014100' and old code: 'SPO014100'
+2026-03-19 14:49:18,809 - INFO - Found product with exact match on default_code: 'SPO014100'
+2026-03-19 14:49:18,878 - INFO - Prepared product SPO014100 with quantity 50.0 for batch creation
+2026-03-19 14:49:18,878 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:18,879 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010152', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': '413010152'}
+2026-03-19 14:49:18,879 - INFO - Searching for product with code: '413010152' and old code: '413010152'
+2026-03-19 14:49:18,946 - INFO - Found product with exact match on default_code: '413010152'
+2026-03-19 14:49:19,012 - INFO - Prepared product 413010152 with quantity 20.0 for batch creation
+2026-03-19 14:49:19,012 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:19,013 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010152', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': '413010152'}
+2026-03-19 14:49:19,014 - INFO - Using cached product ID for code: '413010152'
+2026-03-19 14:49:19,014 - INFO - Prepared product 413010152 with quantity 20.0 for batch creation
+2026-03-19 14:49:19,014 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:19,015 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:19,016 - INFO - Using cached product ID for code: '413010163'
+2026-03-19 14:49:19,016 - INFO - Prepared product 413010163 with quantity 2.0 for batch creation
+2026-03-19 14:49:19,016 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:19,172 - INFO - Created 9 moves in batch for picking 10386
+2026-03-19 14:49:19,250 - INFO - Re-updated dates before confirming picking 10386: 2025-12-06 00:00:00
+2026-03-19 14:49:19,473 - INFO - Confirmed transfer 10386 with forced date context
+2026-03-19 14:49:19,595 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:19,672 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:19,797 - INFO - Created transfer for date 2025-12-08 00:00:00 sequence 0.0 with picking ID 10387
+2026-03-19 14:49:19,800 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-08 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-08 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010140', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-08 00:00:00'), 'product_id': '413010140'}
+2026-03-19 14:49:19,801 - INFO - Searching for product with code: '413010140' and old code: '413010140'
+2026-03-19 14:49:19,869 - INFO - Found product with exact match on default_code: '413010140'
+2026-03-19 14:49:19,933 - INFO - Prepared product 413010140 with quantity 1.0 for batch creation
+2026-03-19 14:49:19,934 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:19,935 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-08 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-08 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010136', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-08 00:00:00'), 'product_id': '413010136'}
+2026-03-19 14:49:19,935 - INFO - Searching for product with code: '413010136' and old code: '413010136'
+2026-03-19 14:49:20,001 - INFO - Found product with exact match on default_code: '413010136'
+2026-03-19 14:49:20,067 - INFO - Prepared product 413010136 with quantity 1.0 for batch creation
+2026-03-19 14:49:20,067 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:20,068 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-08 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-08 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010140', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-08 00:00:00'), 'product_id': '413010140'}
+2026-03-19 14:49:20,068 - INFO - Using cached product ID for code: '413010140'
+2026-03-19 14:49:20,069 - INFO - Prepared product 413010140 with quantity 1.0 for batch creation
+2026-03-19 14:49:20,069 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:20,070 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-08 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-08 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0094201', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-08 00:00:00'), 'product_id': 'MA0094201'}
+2026-03-19 14:49:20,070 - INFO - Using cached product ID for code: 'MA0094201'
+2026-03-19 14:49:20,070 - INFO - Prepared product MA0094201 with quantity 1.0 for batch creation
+2026-03-19 14:49:20,071 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:20,071 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-08 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-08 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010235', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-08 00:00:00'), 'product_id': '413010235'}
+2026-03-19 14:49:20,071 - INFO - Searching for product with code: '413010235' and old code: '413010235'
+2026-03-19 14:49:20,131 - INFO - Found product with exact match on default_code: '413010235'
+2026-03-19 14:49:20,197 - INFO - Prepared product 413010235 with quantity 1.0 for batch creation
+2026-03-19 14:49:20,198 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:20,198 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-08 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-08 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'PACK000239', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-08 00:00:00'), 'product_id': 'PACK000239'}
+2026-03-19 14:49:20,199 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2026-03-19 14:49:20,262 - INFO - Found product with exact match on default_code: 'PACK000239'
+2026-03-19 14:49:20,328 - INFO - Prepared product PACK000239 with quantity 1.0 for batch creation
+2026-03-19 14:49:20,329 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:20,329 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-08 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-08 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT055B101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-08 00:00:00'), 'product_id': 'MT055B101'}
+2026-03-19 14:49:20,330 - INFO - Searching for product with code: 'MT055B101' and old code: 'MT055B101'
+2026-03-19 14:49:20,391 - INFO - Found product with exact match on default_code: 'MT055B101'
+2026-03-19 14:49:20,459 - INFO - Prepared product MT055B101 with quantity 1.0 for batch creation
+2026-03-19 14:49:20,460 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:20,601 - INFO - Created 7 moves in batch for picking 10387
+2026-03-19 14:49:20,715 - INFO - Re-updated dates before confirming picking 10387: 2025-12-08 00:00:00
+2026-03-19 14:49:20,928 - INFO - Confirmed transfer 10387 with forced date context
+2026-03-19 14:49:21,056 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:21,120 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:21,194 - INFO - Created transfer for date 2025-12-09 00:00:00 sequence 0.0 with picking ID 10388
+2026-03-19 14:49:21,195 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-09 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-09 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPV0005100', 'product_uom_qty': 18, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-09 00:00:00'), 'product_id': 'SPV0005100'}
+2026-03-19 14:49:21,196 - INFO - Searching for product with code: 'SPV0005100' and old code: 'SPV0005100'
+2026-03-19 14:49:21,258 - INFO - Found product with exact match on default_code: 'SPV0005100'
+2026-03-19 14:49:21,327 - INFO - Prepared product SPV0005100 with quantity 18.0 for batch creation
+2026-03-19 14:49:21,327 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:21,328 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-09 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-09 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW005100', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-09 00:00:00'), 'product_id': 'SPW005100'}
+2026-03-19 14:49:21,328 - INFO - Searching for product with code: 'SPW005100' and old code: 'SPW005100'
+2026-03-19 14:49:21,391 - INFO - Found product with exact match on default_code: 'SPW005100'
+2026-03-19 14:49:21,455 - INFO - Prepared product SPW005100 with quantity 10.0 for batch creation
+2026-03-19 14:49:21,455 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:21,545 - INFO - Created 2 moves in batch for picking 10388
+2026-03-19 14:49:21,620 - INFO - Re-updated dates before confirming picking 10388: 2025-12-09 00:00:00
+2026-03-19 14:49:21,751 - INFO - Confirmed transfer 10388 with forced date context
+2026-03-19 14:49:21,876 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:21,940 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:22,015 - INFO - Created transfer for date 2025-12-10 00:00:00 sequence 0.0 with picking ID 10389
+2026-03-19 14:49:22,019 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPWO12110', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'SPWO12110'}
+2026-03-19 14:49:22,020 - INFO - Searching for product with code: 'SPWO12110' and old code: 'SPWO12110'
+2026-03-19 14:49:22,092 - INFO - Found product with exact match on default_code: 'SPWO12110'
+2026-03-19 14:49:22,155 - INFO - Prepared product SPWO12110 with quantity 10.0 for batch creation
+2026-03-19 14:49:22,156 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,157 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010255', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '413010255'}
+2026-03-19 14:49:22,157 - INFO - Searching for product with code: '413010255' and old code: '413010255'
+2026-03-19 14:49:22,218 - INFO - Found product with exact match on default_code: '413010255'
+2026-03-19 14:49:22,288 - INFO - Prepared product 413010255 with quantity 8.0 for batch creation
+2026-03-19 14:49:22,289 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,290 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '414010067', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '414010067'}
+2026-03-19 14:49:22,290 - INFO - Searching for product with code: '414010067' and old code: '414010067'
+2026-03-19 14:49:22,352 - INFO - Found product with exact match on default_code: '414010067'
+2026-03-19 14:49:22,417 - INFO - Prepared product 414010067 with quantity 10.0 for batch creation
+2026-03-19 14:49:22,418 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,418 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW013100', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'SPW013100'}
+2026-03-19 14:49:22,419 - INFO - Searching for product with code: 'SPW013100' and old code: 'SPW013100'
+2026-03-19 14:49:22,483 - INFO - Found product with exact match on default_code: 'SPW013100'
+2026-03-19 14:49:22,547 - INFO - Prepared product SPW013100 with quantity 10.0 for batch creation
+2026-03-19 14:49:22,547 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,549 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010140', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '413010140'}
+2026-03-19 14:49:22,549 - INFO - Using cached product ID for code: '413010140'
+2026-03-19 14:49:22,550 - INFO - Prepared product 413010140 with quantity 1.0 for batch creation
+2026-03-19 14:49:22,551 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,551 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010137', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '413010137'}
+2026-03-19 14:49:22,552 - INFO - Searching for product with code: '413010137' and old code: '413010137'
+2026-03-19 14:49:22,617 - INFO - Found product with exact match on default_code: '413010137'
+2026-03-19 14:49:22,680 - INFO - Prepared product 413010137 with quantity 1.0 for batch creation
+2026-03-19 14:49:22,681 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,682 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MSP023800', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'MSP023800'}
+2026-03-19 14:49:22,683 - INFO - Searching for product with code: 'MSP023800' and old code: 'MSP023800'
+2026-03-19 14:49:22,744 - INFO - Found product with exact match on default_code: 'MSP023800'
+2026-03-19 14:49:22,819 - INFO - Prepared product MSP023800 with quantity 2.0 for batch creation
+2026-03-19 14:49:22,820 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,820 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO050H0C10000', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'MO050H0C10000'}
+2026-03-19 14:49:22,821 - INFO - Searching for product with code: 'MO050H0C10000' and old code: 'MO050H0C10000'
+2026-03-19 14:49:22,884 - INFO - Found product with exact match on default_code: 'MO050H0C10000'
+2026-03-19 14:49:22,947 - INFO - Prepared product MO050H0C10000 with quantity 10.0 for batch creation
+2026-03-19 14:49:22,948 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,948 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:22,949 - INFO - Using cached product ID for code: '413010163'
+2026-03-19 14:49:22,950 - INFO - Prepared product 413010163 with quantity 10.0 for batch creation
+2026-03-19 14:49:22,950 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:22,951 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010164', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '413010164'}
+2026-03-19 14:49:22,951 - INFO - Searching for product with code: '413010164' and old code: '413010164'
+2026-03-19 14:49:23,016 - INFO - Found product with exact match on default_code: '413010164'
+2026-03-19 14:49:23,082 - INFO - Prepared product 413010164 with quantity 10.0 for batch creation
+2026-03-19 14:49:23,082 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:23,082 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW051100', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'SPW051100'}
+2026-03-19 14:49:23,083 - INFO - Searching for product with code: 'SPW051100' and old code: 'SPW051100'
+2026-03-19 14:49:23,143 - INFO - Found product with exact match on default_code: 'SPW051100'
+2026-03-19 14:49:23,206 - INFO - Prepared product SPW051100 with quantity 10.0 for batch creation
+2026-03-19 14:49:23,206 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:23,207 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010164', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '413010164'}
+2026-03-19 14:49:23,208 - INFO - Using cached product ID for code: '413010164'
+2026-03-19 14:49:23,208 - INFO - Prepared product 413010164 with quantity 10.0 for batch creation
+2026-03-19 14:49:23,209 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:23,209 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW012100', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'SPW012100'}
+2026-03-19 14:49:23,210 - INFO - Searching for product with code: 'SPW012100' and old code: 'SPW012100'
+2026-03-19 14:49:23,276 - INFO - Found product with exact match on default_code: 'SPW012100'
+2026-03-19 14:49:23,344 - INFO - Prepared product SPW012100 with quantity 10.0 for batch creation
+2026-03-19 14:49:23,344 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:23,345 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '414010067', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '414010067'}
+2026-03-19 14:49:23,345 - INFO - Using cached product ID for code: '414010067'
+2026-03-19 14:49:23,345 - INFO - Prepared product 414010067 with quantity 10.0 for batch creation
+2026-03-19 14:49:23,346 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:23,346 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW014100', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'SPW014100'}
+2026-03-19 14:49:23,347 - INFO - Searching for product with code: 'SPW014100' and old code: 'SPW014100'
+2026-03-19 14:49:23,409 - INFO - Found product with exact match on default_code: 'SPW014100'
+2026-03-19 14:49:23,478 - INFO - Prepared product SPW014100 with quantity 10.0 for batch creation
+2026-03-19 14:49:23,479 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:23,479 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPWO11100', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'SPWO11100'}
+2026-03-19 14:49:23,480 - INFO - Searching for product with code: 'SPWO11100' and old code: 'SPWO11100'
+2026-03-19 14:49:23,544 - INFO - Found product with exact match on default_code: 'SPWO11100'
+2026-03-19 14:49:23,606 - INFO - Prepared product SPWO11100 with quantity 10.0 for batch creation
+2026-03-19 14:49:23,606 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:23,607 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010164', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '413010164'}
+2026-03-19 14:49:23,608 - INFO - Using cached product ID for code: '413010164'
+2026-03-19 14:49:23,608 - INFO - Prepared product 413010164 with quantity 10.0 for batch creation
+2026-03-19 14:49:23,608 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:23,845 - INFO - Created 17 moves in batch for picking 10389
+2026-03-19 14:49:23,929 - INFO - Re-updated dates before confirming picking 10389: 2025-12-10 00:00:00
+2026-03-19 14:49:24,255 - INFO - Confirmed transfer 10389 with forced date context
+2026-03-19 14:49:24,379 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:24,446 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:24,532 - INFO - Created transfer for date 2025-12-12 00:00:00 sequence 0.0 with picking ID 10390
+2026-03-19 14:49:24,534 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-12 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-12 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0050EX1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-12 00:00:00'), 'product_id': 'MO0050EX1210'}
+2026-03-19 14:49:24,535 - INFO - Using cached product ID for code: 'MO0050EX1210'
+2026-03-19 14:49:24,536 - INFO - Prepared product MO0050EX1210 with quantity 1.0 for batch creation
+2026-03-19 14:49:24,536 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:24,624 - INFO - Created 1 moves in batch for picking 10390
+2026-03-19 14:49:24,699 - INFO - Re-updated dates before confirming picking 10390: 2025-12-12 00:00:00
+2026-03-19 14:49:24,815 - INFO - Confirmed transfer 10390 with forced date context
+2026-03-19 14:49:24,942 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:25,006 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:25,084 - INFO - Created transfer for date 2025-12-13 00:00:00 sequence 0.0 with picking ID 10391
+2026-03-19 14:49:25,085 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'ERS0002110', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': 'ERS0002110'}
+2026-03-19 14:49:25,085 - INFO - Searching for product with code: 'ERS0002110' and old code: 'ERS0002110'
+2026-03-19 14:49:25,146 - INFO - Found product with exact match on default_code: 'ERS0002110'
+2026-03-19 14:49:25,214 - INFO - Prepared product ERS0002110 with quantity 20.0 for batch creation
+2026-03-19 14:49:25,215 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:25,215 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'ERS0029100', 'product_uom_qty': 20, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': 'ERS0029100'}
+2026-03-19 14:49:25,216 - INFO - Searching for product with code: 'ERS0029100' and old code: 'ERS0029100'
+2026-03-19 14:49:25,279 - INFO - Found product with exact match on default_code: 'ERS0029100'
+2026-03-19 14:49:25,343 - INFO - Prepared product ERS0029100 with quantity 20.0 for batch creation
+2026-03-19 14:49:25,343 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:25,344 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW261100', 'product_uom_qty': 7, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': 'SPW261100'}
+2026-03-19 14:49:25,344 - INFO - Searching for product with code: 'SPW261100' and old code: 'SPW261100'
+2026-03-19 14:49:25,407 - INFO - Found product with exact match on default_code: 'SPW261100'
+2026-03-19 14:49:25,471 - INFO - Prepared product SPW261100 with quantity 7.0 for batch creation
+2026-03-19 14:49:25,472 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:25,472 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010164', 'product_uom_qty': 7, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': '413010164'}
+2026-03-19 14:49:25,473 - INFO - Using cached product ID for code: '413010164'
+2026-03-19 14:49:25,474 - INFO - Prepared product 413010164 with quantity 7.0 for batch creation
+2026-03-19 14:49:25,474 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:25,475 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW262100', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': 'SPW262100'}
+2026-03-19 14:49:25,475 - INFO - Searching for product with code: 'SPW262100' and old code: 'SPW262100'
+2026-03-19 14:49:25,539 - INFO - Found product with exact match on default_code: 'SPW262100'
+2026-03-19 14:49:25,614 - INFO - Prepared product SPW262100 with quantity 10.0 for batch creation
+2026-03-19 14:49:25,616 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:25,618 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010164', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': '413010164'}
+2026-03-19 14:49:25,619 - INFO - Using cached product ID for code: '413010164'
+2026-03-19 14:49:25,620 - INFO - Prepared product 413010164 with quantity 10.0 for batch creation
+2026-03-19 14:49:25,621 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:25,623 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010130', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': '413010130'}
+2026-03-19 14:49:25,624 - INFO - Searching for product with code: '413010130' and old code: '413010130'
+2026-03-19 14:49:25,696 - INFO - Found product with exact match on default_code: '413010130'
+2026-03-19 14:49:25,765 - INFO - Prepared product 413010130 with quantity 35.0 for batch creation
+2026-03-19 14:49:25,766 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:25,768 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 409100001, 'product_uom_qty': 70, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': 409100001}
+2026-03-19 14:49:25,770 - INFO - Searching for product with code: '409100001' and old code: '409100001'
+2026-03-19 14:49:25,843 - INFO - Found product with exact match on default_code: '409100001'
+2026-03-19 14:49:25,925 - INFO - Prepared product 409100001 with quantity 70.0 for batch creation
+2026-03-19 14:49:25,926 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:25,927 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '409100002', 'product_uom_qty': 70, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': '409100002'}
+2026-03-19 14:49:25,928 - INFO - Searching for product with code: '409100002' and old code: '409100002'
+2026-03-19 14:49:25,991 - INFO - Found product with exact match on default_code: '409100002'
+2026-03-19 14:49:26,060 - INFO - Prepared product 409100002 with quantity 70.0 for batch creation
+2026-03-19 14:49:26,061 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:26,062 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010130', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': '413010130'}
+2026-03-19 14:49:26,063 - INFO - Using cached product ID for code: '413010130'
+2026-03-19 14:49:26,064 - INFO - Prepared product 413010130 with quantity 35.0 for batch creation
+2026-03-19 14:49:26,064 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:26,065 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 409100001, 'product_uom_qty': 70, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': 409100001}
+2026-03-19 14:49:26,066 - INFO - Using cached product ID for code: '409100001'
+2026-03-19 14:49:26,067 - INFO - Prepared product 409100001 with quantity 70.0 for batch creation
+2026-03-19 14:49:26,067 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:26,068 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '409100002', 'product_uom_qty': 70, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': '409100002'}
+2026-03-19 14:49:26,069 - INFO - Using cached product ID for code: '409100002'
+2026-03-19 14:49:26,069 - INFO - Prepared product 409100002 with quantity 70.0 for batch creation
+2026-03-19 14:49:26,070 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:26,071 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0133101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': 'MA0133101'}
+2026-03-19 14:49:26,071 - INFO - Searching for product with code: 'MA0133101' and old code: 'MA0133101'
+2026-03-19 14:49:26,141 - INFO - Found product with exact match on default_code: 'MA0133101'
+2026-03-19 14:49:26,203 - INFO - Prepared product MA0133101 with quantity 1.0 for batch creation
+2026-03-19 14:49:26,204 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:26,204 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0024100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': 'SP0024100'}
+2026-03-19 14:49:26,205 - INFO - Searching for product with code: 'SP0024100' and old code: 'SP0024100'
+2026-03-19 14:49:26,268 - INFO - Found product with exact match on default_code: 'SP0024100'
+2026-03-19 14:49:26,331 - INFO - Prepared product SP0024100 with quantity 1.0 for batch creation
+2026-03-19 14:49:26,331 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:26,332 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-13 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-13 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010223', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-13 00:00:00'), 'product_id': '413010223'}
+2026-03-19 14:49:26,333 - INFO - Searching for product with code: '413010223' and old code: '413010223'
+2026-03-19 14:49:26,400 - INFO - Found product with exact match on default_code: '413010223'
+2026-03-19 14:49:26,465 - INFO - Prepared product 413010223 with quantity 1.0 for batch creation
+2026-03-19 14:49:26,466 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:26,677 - INFO - Created 15 moves in batch for picking 10391
+2026-03-19 14:49:26,769 - INFO - Re-updated dates before confirming picking 10391: 2025-12-13 00:00:00
+2026-03-19 14:49:27,128 - INFO - Confirmed transfer 10391 with forced date context
+2026-03-19 14:49:27,256 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:27,320 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:27,398 - INFO - Created transfer for date 2025-12-15 00:00:00 sequence 0.0 with picking ID 10392
+2026-03-19 14:49:27,399 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA142B101', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MA142B101'}
+2026-03-19 14:49:27,400 - INFO - Searching for product with code: 'MA142B101' and old code: 'MA142B101'
+2026-03-19 14:49:27,471 - INFO - Found product with exact match on default_code: 'MA142B101'
+2026-03-19 14:49:27,535 - INFO - Prepared product MA142B101 with quantity 35.0 for batch creation
+2026-03-19 14:49:27,535 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:27,536 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA142P101', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MA142P101'}
+2026-03-19 14:49:27,537 - INFO - Searching for product with code: 'MA142P101' and old code: 'MA142P101'
+2026-03-19 14:49:27,599 - INFO - Found product with exact match on default_code: 'MA142P101'
+2026-03-19 14:49:27,666 - INFO - Prepared product MA142P101 with quantity 35.0 for batch creation
+2026-03-19 14:49:27,666 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:27,667 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA142B101', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MA142B101'}
+2026-03-19 14:49:27,667 - INFO - Using cached product ID for code: 'MA142B101'
+2026-03-19 14:49:27,668 - INFO - Prepared product MA142B101 with quantity 35.0 for batch creation
+2026-03-19 14:49:27,668 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:27,668 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA142P101', 'product_uom_qty': 35, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MA142P101'}
+2026-03-19 14:49:27,669 - INFO - Using cached product ID for code: 'MA142P101'
+2026-03-19 14:49:27,669 - INFO - Prepared product MA142P101 with quantity 35.0 for batch creation
+2026-03-19 14:49:27,669 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:27,670 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010158', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': '413010158'}
+2026-03-19 14:49:27,670 - INFO - Searching for product with code: '413010158' and old code: '413010158'
+2026-03-19 14:49:27,731 - INFO - Found product with exact match on default_code: '413010158'
+2026-03-19 14:49:27,797 - INFO - Prepared product 413010158 with quantity 3.0 for batch creation
+2026-03-19 14:49:27,798 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:27,799 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'AC0052101', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'AC0052101'}
+2026-03-19 14:49:27,800 - INFO - Searching for product with code: 'AC0052101' and old code: 'AC0052101'
+2026-03-19 14:49:27,863 - INFO - Found product with exact match on default_code: 'AC0052101'
+2026-03-19 14:49:27,928 - INFO - Prepared product AC0052101 with quantity 3.0 for batch creation
+2026-03-19 14:49:27,929 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:28,066 - INFO - Created 6 moves in batch for picking 10392
+2026-03-19 14:49:28,157 - INFO - Re-updated dates before confirming picking 10392: 2025-12-15 00:00:00
+2026-03-19 14:49:28,345 - INFO - Confirmed transfer 10392 with forced date context
+2026-03-19 14:49:28,476 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:28,545 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:28,624 - INFO - Created transfer for date 2025-12-16 00:00:00 sequence 0.0 with picking ID 10393
+2026-03-19 14:49:28,625 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:28,625 - INFO - Using cached product ID for code: '413010163'
+2026-03-19 14:49:28,626 - INFO - Prepared product 413010163 with quantity 1.0 for batch creation
+2026-03-19 14:49:28,626 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:28,627 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010236', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': '413010236'}
+2026-03-19 14:49:28,627 - INFO - Searching for product with code: '413010236' and old code: '413010236'
+2026-03-19 14:49:28,689 - INFO - Found product with exact match on default_code: '413010236'
+2026-03-19 14:49:28,755 - INFO - Prepared product 413010236 with quantity 1.0 for batch creation
+2026-03-19 14:49:28,756 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:28,757 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010147', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': '413010147'}
+2026-03-19 14:49:28,758 - INFO - Searching for product with code: '413010147' and old code: '413010147'
+2026-03-19 14:49:28,821 - INFO - Found product with exact match on default_code: '413010147'
+2026-03-19 14:49:28,891 - INFO - Prepared product 413010147 with quantity 1.0 for batch creation
+2026-03-19 14:49:28,891 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:28,892 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW19N110', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'SPW19N110'}
+2026-03-19 14:49:28,893 - INFO - Searching for product with code: 'SPW19N110' and old code: 'SPW19N110'
+2026-03-19 14:49:28,968 - INFO - Found product with exact match on default_code: 'SPW19N110'
+2026-03-19 14:49:29,034 - INFO - Prepared product SPW19N110 with quantity 10.0 for batch creation
+2026-03-19 14:49:29,034 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:29,035 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010164', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': '413010164'}
+2026-03-19 14:49:29,035 - INFO - Using cached product ID for code: '413010164'
+2026-03-19 14:49:29,036 - INFO - Prepared product 413010164 with quantity 10.0 for batch creation
+2026-03-19 14:49:29,036 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:29,037 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPU004100', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'SPU004100'}
+2026-03-19 14:49:29,037 - INFO - Searching for product with code: 'SPU004100' and old code: 'SPU004100'
+2026-03-19 14:49:29,103 - INFO - Found product with exact match on default_code: 'SPU004100'
+2026-03-19 14:49:29,172 - INFO - Prepared product SPU004100 with quantity 10.0 for batch creation
+2026-03-19 14:49:29,173 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:29,173 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '414010067', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': '414010067'}
+2026-03-19 14:49:29,174 - INFO - Using cached product ID for code: '414010067'
+2026-03-19 14:49:29,174 - INFO - Prepared product 414010067 with quantity 10.0 for batch creation
+2026-03-19 14:49:29,174 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:29,327 - INFO - Created 7 moves in batch for picking 10393
+2026-03-19 14:49:29,403 - INFO - Re-updated dates before confirming picking 10393: 2025-12-16 00:00:00
+2026-03-19 14:49:29,612 - INFO - Confirmed transfer 10393 with forced date context
+2026-03-19 14:49:29,735 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:29,798 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:29,872 - INFO - Created transfer for date 2025-12-17 00:00:00 sequence 0.0 with picking ID 10394
+2026-03-19 14:49:29,873 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-17 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-17 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'FCA0096SP100', 'product_uom_qty': 100, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-17 00:00:00'), 'product_id': 'FCA0096SP100'}
+2026-03-19 14:49:29,873 - INFO - Searching for product with code: 'FCA0096SP100' and old code: 'FCA0096SP100'
+2026-03-19 14:49:29,935 - INFO - Found product with exact match on default_code: 'FCA0096SP100'
+2026-03-19 14:49:30,006 - INFO - Prepared product FCA0096SP100 with quantity 100.0 for batch creation
+2026-03-19 14:49:30,007 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:30,007 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-17 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-17 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW0403100', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-17 00:00:00'), 'product_id': 'SPW0403100'}
+2026-03-19 14:49:30,008 - INFO - Searching for product with code: 'SPW0403100' and old code: 'SPW0403100'
+2026-03-19 14:49:30,078 - INFO - Found product with exact match on default_code: 'SPW0403100'
+2026-03-19 14:49:30,144 - INFO - Prepared product SPW0403100 with quantity 5.0 for batch creation
+2026-03-19 14:49:30,145 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:30,238 - INFO - Created 2 moves in batch for picking 10394
+2026-03-19 14:49:30,322 - INFO - Re-updated dates before confirming picking 10394: 2025-12-17 00:00:00
+2026-03-19 14:49:30,458 - INFO - Confirmed transfer 10394 with forced date context
+2026-03-19 14:49:30,581 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:30,645 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:30,725 - INFO - Created transfer for date 2025-12-18 00:00:00 sequence 0.0 with picking ID 10395
+2026-03-19 14:49:30,725 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00421210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MO00421210'}
+2026-03-19 14:49:30,726 - INFO - Searching for product with code: 'MO00421210' and old code: 'MO00421210'
+2026-03-19 14:49:30,797 - INFO - Found product with exact match on default_code: 'MO00421210'
+2026-03-19 14:49:30,877 - INFO - Prepared product MO00421210 with quantity 1.0 for batch creation
+2026-03-19 14:49:30,877 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:30,878 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA00001B0010000', 'product_uom_qty': 51, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MA00001B0010000'}
+2026-03-19 14:49:30,878 - INFO - Searching for product with code: 'MA00001B0010000' and old code: 'MA00001B0010000'
+2026-03-19 14:49:30,940 - INFO - Found product with exact match on default_code: 'MA00001B0010000'
+2026-03-19 14:49:31,009 - INFO - Prepared product MA00001B0010000 with quantity 51.0 for batch creation
+2026-03-19 14:49:31,010 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,010 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010019', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010019'}
+2026-03-19 14:49:31,011 - INFO - Searching for product with code: '413010019' and old code: '413010019'
+2026-03-19 14:49:31,077 - INFO - Found product with exact match on default_code: '413010019'
+2026-03-19 14:49:31,175 - INFO - Prepared product 413010019 with quantity 30.0 for batch creation
+2026-03-19 14:49:31,175 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,176 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPV002100', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'SPV002100'}
+2026-03-19 14:49:31,177 - INFO - Searching for product with code: 'SPV002100' and old code: 'SPV002100'
+2026-03-19 14:49:31,251 - INFO - Found product with exact match on default_code: 'SPV002100'
+2026-03-19 14:49:31,333 - INFO - Prepared product SPV002100 with quantity 30.0 for batch creation
+2026-03-19 14:49:31,333 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,334 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0050EX1210', 'product_uom_qty': 30, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MO0050EX1210'}
+2026-03-19 14:49:31,334 - INFO - Using cached product ID for code: 'MO0050EX1210'
+2026-03-19 14:49:31,335 - INFO - Prepared product MO0050EX1210 with quantity 30.0 for batch creation
+2026-03-19 14:49:31,335 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,336 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010136', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010136'}
+2026-03-19 14:49:31,336 - INFO - Using cached product ID for code: '413010136'
+2026-03-19 14:49:31,336 - INFO - Prepared product 413010136 with quantity 1.0 for batch creation
+2026-03-19 14:49:31,337 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,337 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010137', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010137'}
+2026-03-19 14:49:31,337 - INFO - Using cached product ID for code: '413010137'
+2026-03-19 14:49:31,338 - INFO - Prepared product 413010137 with quantity 1.0 for batch creation
+2026-03-19 14:49:31,338 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,339 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MSP023800', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MSP023800'}
+2026-03-19 14:49:31,339 - INFO - Using cached product ID for code: 'MSP023800'
+2026-03-19 14:49:31,339 - INFO - Prepared product MSP023800 with quantity 2.0 for batch creation
+2026-03-19 14:49:31,340 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,340 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010128', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010128'}
+2026-03-19 14:49:31,341 - INFO - Searching for product with code: '413010128' and old code: '413010128'
+2026-03-19 14:49:31,430 - INFO - Found product with exact match on default_code: '413010128'
+2026-03-19 14:49:31,495 - INFO - Prepared product 413010128 with quantity 1.0 for batch creation
+2026-03-19 14:49:31,496 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,497 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP01971100', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'SP01971100'}
+2026-03-19 14:49:31,497 - INFO - Searching for product with code: 'SP01971100' and old code: 'SP01971100'
+2026-03-19 14:49:31,566 - INFO - Found product with exact match on default_code: 'SP01971100'
+2026-03-19 14:49:31,633 - INFO - Prepared product SP01971100 with quantity 2.0 for batch creation
+2026-03-19 14:49:31,634 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,634 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010140', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010140'}
+2026-03-19 14:49:31,635 - INFO - Using cached product ID for code: '413010140'
+2026-03-19 14:49:31,635 - INFO - Prepared product 413010140 with quantity 1.0 for batch creation
+2026-03-19 14:49:31,636 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,636 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010131', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010131'}
+2026-03-19 14:49:31,637 - INFO - Searching for product with code: '413010131' and old code: '413010131'
+2026-03-19 14:49:31,701 - INFO - Found product with exact match on default_code: '413010131'
+2026-03-19 14:49:31,769 - INFO - Prepared product 413010131 with quantity 1.0 for batch creation
+2026-03-19 14:49:31,769 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,770 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010216', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010216'}
+2026-03-19 14:49:31,770 - INFO - Searching for product with code: '413010216' and old code: '413010216'
+2026-03-19 14:49:31,832 - INFO - Found product with exact match on default_code: '413010216'
+2026-03-19 14:49:31,897 - INFO - Prepared product 413010216 with quantity 1.0 for batch creation
+2026-03-19 14:49:31,897 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:31,898 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010199', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010199'}
+2026-03-19 14:49:31,898 - INFO - Searching for product with code: '413010199' and old code: '413010199'
+2026-03-19 14:49:31,960 - INFO - Found product with exact match on default_code: '413010199'
+2026-03-19 14:49:32,042 - INFO - Prepared product 413010199 with quantity 6.0 for batch creation
+2026-03-19 14:49:32,043 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:32,044 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT00068110', 'product_uom_qty': 4, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT00068110'}
+2026-03-19 14:49:32,045 - INFO - Searching for product with code: 'MT00068110' and old code: 'MT00068110'
+2026-03-19 14:49:32,109 - INFO - Found product with exact match on default_code: 'MT00068110'
+2026-03-19 14:49:32,174 - INFO - Prepared product MT00068110 with quantity 4.0 for batch creation
+2026-03-19 14:49:32,175 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:32,177 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP00274110', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'SP00274110'}
+2026-03-19 14:49:32,179 - INFO - Searching for product with code: 'SP00274110' and old code: 'SP00274110'
+2026-03-19 14:49:32,243 - INFO - Found product with exact match on default_code: 'SP00274110'
+2026-03-19 14:49:32,310 - INFO - Prepared product SP00274110 with quantity 6.0 for batch creation
+2026-03-19 14:49:32,311 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:32,311 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SPW068100', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'SPW068100'}
+2026-03-19 14:49:32,312 - INFO - Searching for product with code: 'SPW068100' and old code: 'SPW068100'
+2026-03-19 14:49:32,375 - INFO - Found product with exact match on default_code: 'SPW068100'
+2026-03-19 14:49:32,439 - INFO - Prepared product SPW068100 with quantity 6.0 for batch creation
+2026-03-19 14:49:32,439 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:32,440 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT068B101', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT068B101'}
+2026-03-19 14:49:32,440 - INFO - Searching for product with code: 'MT068B101' and old code: 'MT068B101'
+2026-03-19 14:49:32,501 - INFO - Found product with exact match on default_code: 'MT068B101'
+2026-03-19 14:49:32,565 - INFO - Prepared product MT068B101 with quantity 6.0 for batch creation
+2026-03-19 14:49:32,566 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:32,566 - INFO - Processing Excel row 19: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT68TC101', 'product_uom_qty': 6, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT68TC101'}
+2026-03-19 14:49:32,567 - INFO - Searching for product with code: 'MT68TC101' and old code: 'MT68TC101'
+2026-03-19 14:49:32,658 - INFO - Found product with exact match on default_code: 'MT68TC101'
+2026-03-19 14:49:32,727 - INFO - Prepared product MT68TC101 with quantity 6.0 for batch creation
+2026-03-19 14:49:32,727 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:32,728 - INFO - Processing Excel row 20: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SWH006100', 'product_uom_qty': 98, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'SWH006100'}
+2026-03-19 14:49:32,729 - INFO - Searching for product with code: 'SWH006100' and old code: 'SWH006100'
+2026-03-19 14:49:32,796 - INFO - Found product with exact match on default_code: 'SWH006100'
+2026-03-19 14:49:32,866 - INFO - Prepared product SWH006100 with quantity 98.0 for batch creation
+2026-03-19 14:49:32,866 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:32,867 - INFO - Processing Excel row 21: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP00096I0010000', 'product_uom_qty': 98, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'SP00096I0010000'}
+2026-03-19 14:49:32,867 - INFO - Searching for product with code: 'SP00096I0010000' and old code: 'SP00096I0010000'
+2026-03-19 14:49:32,934 - INFO - Found product with exact match on default_code: 'SP00096I0010000'
+2026-03-19 14:49:32,999 - INFO - Prepared product SP00096I0010000 with quantity 98.0 for batch creation
+2026-03-19 14:49:33,000 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:33,003 - INFO - Processing Excel row 22: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT411S101', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT411S101'}
+2026-03-19 14:49:33,004 - INFO - Searching for product with code: 'MT411S101' and old code: 'MT411S101'
+2026-03-19 14:49:33,069 - INFO - Found product with exact match on default_code: 'MT411S101'
+2026-03-19 14:49:33,140 - INFO - Prepared product MT411S101 with quantity 10.0 for batch creation
+2026-03-19 14:49:33,141 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:33,141 - INFO - Processing Excel row 23: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:33,142 - INFO - Using cached product ID for code: '413010163'
+2026-03-19 14:49:33,142 - INFO - Prepared product 413010163 with quantity 10.0 for batch creation
+2026-03-19 14:49:33,143 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:33,452 - INFO - Created 23 moves in batch for picking 10395
+2026-03-19 14:49:33,532 - INFO - Re-updated dates before confirming picking 10395: 2025-12-18 00:00:00
+2026-03-19 14:49:33,961 - INFO - Confirmed transfer 10395 with forced date context
+2026-03-19 14:49:34,081 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:34,148 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:34,227 - INFO - Created transfer for date 2025-12-22 00:00:00 sequence 0.0 with picking ID 10396
+2026-03-19 14:49:34,229 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-22 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-22 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT055B101', 'product_uom_qty': 4, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-22 00:00:00'), 'product_id': 'MT055B101'}
+2026-03-19 14:49:34,230 - INFO - Using cached product ID for code: 'MT055B101'
+2026-03-19 14:49:34,231 - INFO - Prepared product MT055B101 with quantity 4.0 for batch creation
+2026-03-19 14:49:34,233 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:34,234 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-22 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-22 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'PACK000239', 'product_uom_qty': 4, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-22 00:00:00'), 'product_id': 'PACK000239'}
+2026-03-19 14:49:34,236 - INFO - Using cached product ID for code: 'PACK000239'
+2026-03-19 14:49:34,237 - INFO - Prepared product PACK000239 with quantity 4.0 for batch creation
+2026-03-19 14:49:34,238 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:34,336 - INFO - Created 2 moves in batch for picking 10396
+2026-03-19 14:49:34,413 - INFO - Re-updated dates before confirming picking 10396: 2025-12-22 00:00:00
+2026-03-19 14:49:34,546 - INFO - Confirmed transfer 10396 with forced date context
+2026-03-19 14:49:34,674 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:34,749 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:34,824 - INFO - Created transfer for date 2025-12-23 00:00:00 sequence 0.0 with picking ID 10397
+2026-03-19 14:49:34,825 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-23 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-23 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT20SS101', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-23 00:00:00'), 'product_id': 'MT20SS101'}
+2026-03-19 14:49:34,826 - INFO - Searching for product with code: 'MT20SS101' and old code: 'MT20SS101'
+2026-03-19 14:49:34,889 - INFO - Found product with exact match on default_code: 'MT20SS101'
+2026-03-19 14:49:34,965 - INFO - Prepared product MT20SS101 with quantity 10.0 for batch creation
+2026-03-19 14:49:34,966 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:34,967 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-23 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-23 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-23 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:34,967 - INFO - Using cached product ID for code: '413010163'
+2026-03-19 14:49:34,968 - INFO - Prepared product 413010163 with quantity 10.0 for batch creation
+2026-03-19 14:49:34,968 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:35,072 - INFO - Created 2 moves in batch for picking 10397
+2026-03-19 14:49:35,150 - INFO - Re-updated dates before confirming picking 10397: 2025-12-23 00:00:00
+2026-03-19 14:49:35,288 - INFO - Confirmed transfer 10397 with forced date context
+2026-03-19 14:49:35,460 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:49:35,527 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:49:35,602 - INFO - Created transfer for date 2025-12-24 00:00:00 sequence 0.0 with picking ID 10398
+2026-03-19 14:49:35,604 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-24 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-24 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT411S101', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-24 00:00:00'), 'product_id': 'MT411S101'}
+2026-03-19 14:49:35,604 - INFO - Using cached product ID for code: 'MT411S101'
+2026-03-19 14:49:35,605 - INFO - Prepared product MT411S101 with quantity 10.0 for batch creation
+2026-03-19 14:49:35,605 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:35,606 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-24 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-24 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 10, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-24 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:35,607 - INFO - Using cached product ID for code: '413010163'
+2026-03-19 14:49:35,607 - INFO - Prepared product 413010163 with quantity 10.0 for batch creation
+2026-03-19 14:49:35,608 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:35,608 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-24 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-24 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO050H0C10000', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-24 00:00:00'), 'product_id': 'MO050H0C10000'}
+2026-03-19 14:49:35,609 - INFO - Using cached product ID for code: 'MO050H0C10000'
+2026-03-19 14:49:35,610 - INFO - Prepared product MO050H0C10000 with quantity 5.0 for batch creation
+2026-03-19 14:49:35,610 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:35,611 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-24 00:00:00'), 'picking_type_id': 'RM01-Delivery', 'date_done': Timestamp('2025-12-24 00:00:00'), 'origin': 'MO OUT RM01', 'location_dest_id': 'Partners/Customers', 'default_code': '413010163', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-24 00:00:00'), 'product_id': '413010163'}
+2026-03-19 14:49:35,612 - INFO - Using cached product ID for code: '413010163'
+2026-03-19 14:49:35,612 - INFO - Prepared product 413010163 with quantity 5.0 for batch creation
+2026-03-19 14:49:35,613 - INFO - Move locations - Source: 108, Dest: 5
+2026-03-19 14:49:35,731 - INFO - Created 4 moves in batch for picking 10398
+2026-03-19 14:49:35,818 - INFO - Re-updated dates before confirming picking 10398: 2025-12-24 00:00:00
+2026-03-19 14:49:36,002 - INFO - Confirmed transfer 10398 with forced date context
+2026-03-19 14:49:36,003 - INFO - Import completed: 16 success, 0 failed.

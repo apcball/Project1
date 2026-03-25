@@ -26,7 +26,7 @@ CONFIG = {
     'username': 'apichart@mogen.co.th',
     'password': '471109538',
     'log_dir': 'Import_SO/logs',
-    'data_file': 'Import_SO/Template_SO_update04.xlsx',
+    'data_file': 'Import_SO/Template_SO_update06.xlsx',
     'dry_run': False
 }
 
@@ -978,19 +978,109 @@ def create_sale_order(ref_name, rows):
         # Get partner data using partner_code and old_code_partner only (ignore partner_id)
         print(f"DEBUG: partner_code value: {first_row.get('partner_code')}")
         print(f"DEBUG: old_code_partner value: {first_row.get('old_code_partner')}")
-        
-        # Get partner data using template format - only use partner_code and old_code_partner
-        partner_data = get_partner_by_codes(
-            first_row.get('partner_code'),
-            first_row.get('old_code_partner'),
-            None  # Ignore partner_id field
-        )
-        
-        if not partner_data:
-            log_error(ref_name, rows[0]['index'] + 2, 'Partner Error', 
-                     f"Partner not found: {first_row.get('partner_code')}/{first_row.get('old_code_partner')}", first_row)
-            error_count += 1
-            return False
+        print(f"DEBUG: partner_id value: {first_row.get('partner_id')}")
+
+        # ตรวจสอบว่า partner_code เป็นค่าว่างหรือไม่
+        partner_code_val = first_row.get('partner_code')
+        partner_code_empty = pd.isna(partner_code_val) or str(partner_code_val).strip() == ''
+
+        if partner_code_empty:
+            # partner_code เป็นค่าว่าง → ใช้ข้อมูลจาก partner_id เพื่อสร้าง customer ใหม่ type Individual
+            partner_id_val = first_row.get('partner_id')
+            if pd.isna(partner_id_val) or str(partner_id_val).strip() == '':
+                log_error(ref_name, rows[0]['index'] + 2, 'Partner Error',
+                         "partner_code is empty and partner_id is also empty, cannot create customer", first_row)
+                error_count += 1
+                return False
+
+            new_partner_name = str(partner_id_val).strip()
+            print(f"DEBUG: partner_code is empty, creating new Individual customer from partner_id: '{new_partner_name}'")
+
+            if not CONFIG['dry_run']:
+                new_partner_vals = {
+                    'name': new_partner_name,
+                    'company_type': 'person',
+                    'is_company': False,
+                    'customer_rank': 1,
+                }
+                try:
+                    new_partner_id = models.execute_kw(
+                        CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'create',
+                        [new_partner_vals]
+                    )
+                    partner_data = {
+                        'id': new_partner_id,
+                        'name': new_partner_name,
+                        'partner_code': False,
+                        'old_code_partner': False,
+                    }
+                    print(f"Created new Individual customer: '{new_partner_name}' (ID: {new_partner_id})")
+                except Exception as create_err:
+                    log_error(ref_name, rows[0]['index'] + 2, 'Partner Error',
+                             f"Failed to create customer from partner_id '{new_partner_name}': {create_err}", first_row)
+                    error_count += 1
+                    return False
+            else:
+                # Dry run mode: mock partner data
+                partner_data = {
+                    'id': f'dry_run_partner_{new_partner_name}',
+                    'name': new_partner_name,
+                    'partner_code': False,
+                    'old_code_partner': False,
+                }
+                print(f"DRY RUN: Would create new Individual customer: '{new_partner_name}'")
+        else:
+            # partner_code มีค่า → ค้นหาตามปกติ
+            partner_data = get_partner_by_codes(
+                first_row.get('partner_code'),
+                first_row.get('old_code_partner'),
+                None  # Ignore partner_id field
+            )
+
+            if not partner_data:
+                # ค้นหาไม่เจอ → ลองสร้างจาก partner_id เป็น Individual
+                partner_id_val = first_row.get('partner_id')
+                if not pd.isna(partner_id_val) and str(partner_id_val).strip() != '':
+                    new_partner_name = str(partner_id_val).strip()
+                    print(f"DEBUG: Partner not found by code, creating new Individual customer from partner_id: '{new_partner_name}'")
+
+                    if not CONFIG['dry_run']:
+                        new_partner_vals = {
+                            'name': new_partner_name,
+                            'company_type': 'person',
+                            'is_company': False,
+                            'customer_rank': 1,
+                        }
+                        try:
+                            new_partner_id = models.execute_kw(
+                                CONFIG['database'], uid, CONFIG['password'], 'res.partner', 'create',
+                                [new_partner_vals]
+                            )
+                            partner_data = {
+                                'id': new_partner_id,
+                                'name': new_partner_name,
+                                'partner_code': False,
+                                'old_code_partner': False,
+                            }
+                            print(f"Created new Individual customer: '{new_partner_name}' (ID: {new_partner_id})")
+                        except Exception as create_err:
+                            log_error(ref_name, rows[0]['index'] + 2, 'Partner Error',
+                                     f"Failed to create customer from partner_id '{new_partner_name}': {create_err}", first_row)
+                            error_count += 1
+                            return False
+                    else:
+                        partner_data = {
+                            'id': f'dry_run_partner_{new_partner_name}',
+                            'name': new_partner_name,
+                            'partner_code': False,
+                            'old_code_partner': False,
+                        }
+                        print(f"DRY RUN: Would create new Individual customer: '{new_partner_name}'")
+                else:
+                    log_error(ref_name, rows[0]['index'] + 2, 'Partner Error',
+                             f"Partner not found: {first_row.get('partner_code')}/{first_row.get('old_code_partner')} and partner_id is empty", first_row)
+                    error_count += 1
+                    return False
         
         # Get warehouse data
         warehouse_id_value = first_row.get('warehouse_id')

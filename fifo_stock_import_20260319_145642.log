@@ -1,0 +1,1171 @@
+2026-03-19 14:56:43,114 - INFO - Successfully connected to Odoo as user ID: 2
+2026-03-19 14:56:43,188 - INFO - Odoo version: 17.0.1.3
+2026-03-19 14:56:43,320 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-03-19 14:56:43,675 - INFO - Successfully read Excel file with 241 rows
+2026-03-19 14:56:43,675 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-03-19 14:56:43,677 - INFO - Processed sequence column
+2026-03-19 14:56:43,679 - INFO - scheduled_date dtype: datetime64[ns]
+2026-03-19 14:56:43,679 - INFO - scheduled_date sample: 2025-12-01 00:00:00
+2026-03-19 14:56:43,681 - INFO - Converted scheduled_date to string format. Sample: 2025-12-01 00:00:00
+2026-03-19 14:56:43,682 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-03-19 14:56:43,683 - INFO - Using 'default_code' column as 'product_id'
+2026-03-19 14:56:43,684 - INFO - Using 'origin' column to identify transfer groups
+2026-03-19 14:56:43,688 - INFO - Excel file validation and data filling completed successfully
+2026-03-19 14:56:43,836 - INFO - Searching for location: 'Partners/Customers'
+2026-03-19 14:56:43,893 - INFO - Found customer location for 'Partners/Customers'
+2026-03-19 14:56:43,961 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:56:44,038 - INFO - Created transfer for date 2025-12-01 00:00:00 sequence 0.0 with picking ID 10412
+2026-03-19 14:56:44,040 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'WB0006114', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'WB0006114'}
+2026-03-19 14:56:44,040 - INFO - Searching for product with code: 'WB0006114' and old code: 'WB0006114'
+2026-03-19 14:56:44,103 - INFO - Found product with exact match on default_code: 'WB0006114'
+2026-03-19 14:56:44,172 - INFO - Prepared product WB0006114 with quantity 1.0 for batch creation
+2026-03-19 14:56:44,172 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:44,173 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SWH0002100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'SWH0002100'}
+2026-03-19 14:56:44,173 - INFO - Searching for product with code: 'SWH0002100' and old code: 'SWH0002100'
+2026-03-19 14:56:44,233 - INFO - Found product with exact match on default_code: 'SWH0002100'
+2026-03-19 14:56:44,294 - INFO - Prepared product SWH0002100 with quantity 1.0 for batch creation
+2026-03-19 14:56:44,295 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:44,295 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'ACS03602100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'ACS03602100'}
+2026-03-19 14:56:44,296 - INFO - Searching for product with code: 'ACS03602100' and old code: 'ACS03602100'
+2026-03-19 14:56:44,356 - INFO - Found product with exact match on default_code: 'ACS03602100'
+2026-03-19 14:56:44,418 - INFO - Prepared product ACS03602100 with quantity 1.0 for batch creation
+2026-03-19 14:56:44,418 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:44,418 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0066S2100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'SP0066S2100'}
+2026-03-19 14:56:44,419 - INFO - Searching for product with code: 'SP0066S2100' and old code: 'SP0066S2100'
+2026-03-19 14:56:44,481 - INFO - Found product with exact match on default_code: 'SP0066S2100'
+2026-03-19 14:56:44,549 - INFO - Prepared product SP0066S2100 with quantity 1.0 for batch creation
+2026-03-19 14:56:44,549 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:44,550 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'RS0008101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'RS0008101'}
+2026-03-19 14:56:44,551 - INFO - Searching for product with code: 'RS0008101' and old code: 'RS0008101'
+2026-03-19 14:56:44,612 - INFO - Found product with exact match on default_code: 'RS0008101'
+2026-03-19 14:56:44,675 - INFO - Prepared product RS0008101 with quantity 1.0 for batch creation
+2026-03-19 14:56:44,676 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:44,676 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0127100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'SP0127100'}
+2026-03-19 14:56:44,676 - INFO - Searching for product with code: 'SP0127100' and old code: 'SP0127100'
+2026-03-19 14:56:44,744 - INFO - Found product with exact match on default_code: 'SP0127100'
+2026-03-19 14:56:44,806 - INFO - Prepared product SP0127100 with quantity 1.0 for batch creation
+2026-03-19 14:56:44,806 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:44,807 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FCA0008100', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'FCA0008100'}
+2026-03-19 14:56:44,807 - INFO - Searching for product with code: 'FCA0008100' and old code: 'FCA0008100'
+2026-03-19 14:56:44,870 - INFO - Found product with exact match on default_code: 'FCA0008100'
+2026-03-19 14:56:44,938 - INFO - Prepared product FCA0008100 with quantity 2.0 for batch creation
+2026-03-19 14:56:44,939 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:44,939 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP00205100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'SP00205100'}
+2026-03-19 14:56:44,940 - INFO - Searching for product with code: 'SP00205100' and old code: 'SP00205100'
+2026-03-19 14:56:45,000 - INFO - Found product with exact match on default_code: 'SP00205100'
+2026-03-19 14:56:45,067 - INFO - Prepared product SP00205100 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,068 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,068 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0024100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'SP0024100'}
+2026-03-19 14:56:45,069 - INFO - Searching for product with code: 'SP0024100' and old code: 'SP0024100'
+2026-03-19 14:56:45,142 - INFO - Found product with exact match on default_code: 'SP0024100'
+2026-03-19 14:56:45,215 - INFO - Prepared product SP0024100 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,215 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,216 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0129100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'SP0129100'}
+2026-03-19 14:56:45,216 - INFO - Searching for product with code: 'SP0129100' and old code: 'SP0129100'
+2026-03-19 14:56:45,278 - INFO - Found product with exact match on default_code: 'SP0129100'
+2026-03-19 14:56:45,346 - INFO - Prepared product SP0129100 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,346 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,347 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FCA0001100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'FCA0001100'}
+2026-03-19 14:56:45,347 - INFO - Searching for product with code: 'FCA0001100' and old code: 'FCA0001100'
+2026-03-19 14:56:45,418 - INFO - Found product with exact match on default_code: 'FCA0001100'
+2026-03-19 14:56:45,479 - INFO - Prepared product FCA0001100 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,480 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,480 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FCA0006100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'FCA0006100'}
+2026-03-19 14:56:45,481 - INFO - Searching for product with code: 'FCA0006100' and old code: 'FCA0006100'
+2026-03-19 14:56:45,543 - INFO - Found product with exact match on default_code: 'FCA0006100'
+2026-03-19 14:56:45,604 - INFO - Prepared product FCA0006100 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,604 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,605 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0024100', 'product_uom_qty': 5, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'SP0024100'}
+2026-03-19 14:56:45,606 - INFO - Using cached product ID for code: 'SP0024100'
+2026-03-19 14:56:45,606 - INFO - Prepared product SP0024100 with quantity 5.0 for batch creation
+2026-03-19 14:56:45,607 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,607 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FCA0006100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'FCA0006100'}
+2026-03-19 14:56:45,608 - INFO - Using cached product ID for code: 'FCA0006100'
+2026-03-19 14:56:45,609 - INFO - Prepared product FCA0006100 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,609 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,610 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MM0104001', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'MM0104001'}
+2026-03-19 14:56:45,611 - INFO - Searching for product with code: 'MM0104001' and old code: 'MM0104001'
+2026-03-19 14:56:45,675 - INFO - Found product with exact match on default_code: 'MM0104001'
+2026-03-19 14:56:45,737 - INFO - Prepared product MM0104001 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,738 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,739 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MM097001', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'MM097001'}
+2026-03-19 14:56:45,739 - INFO - Searching for product with code: 'MM097001' and old code: 'MM097001'
+2026-03-19 14:56:45,809 - INFO - Found product with exact match on default_code: 'MM097001'
+2026-03-19 14:56:45,870 - INFO - Prepared product MM097001 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,871 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,871 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MM0017100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'MM0017100'}
+2026-03-19 14:56:45,872 - INFO - Searching for product with code: 'MM0017100' and old code: 'MM0017100'
+2026-03-19 14:56:45,933 - INFO - Found product with exact match on default_code: 'MM0017100'
+2026-03-19 14:56:45,997 - INFO - Prepared product MM0017100 with quantity 1.0 for batch creation
+2026-03-19 14:56:45,997 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:45,998 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-01 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-01 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MM0019103', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-01 00:00:00'), 'product_id': 'MM0019103'}
+2026-03-19 14:56:45,999 - INFO - Searching for product with code: 'MM0019103' and old code: 'MM0019103'
+2026-03-19 14:56:46,059 - INFO - Found product with exact match on default_code: 'MM0019103'
+2026-03-19 14:56:46,125 - INFO - Prepared product MM0019103 with quantity 1.0 for batch creation
+2026-03-19 14:56:46,125 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:46,345 - INFO - Created 18 moves in batch for picking 10412
+2026-03-19 14:56:46,424 - INFO - Re-updated dates before confirming picking 10412: 2025-12-01 00:00:00
+2026-03-19 14:56:46,717 - INFO - Confirmed transfer 10412 with forced date context
+2026-03-19 14:56:46,833 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:56:46,898 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:56:46,985 - INFO - Created transfer for date 2025-12-02 00:00:00 sequence 0.0 with picking ID 10413
+2026-03-19 14:56:46,987 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-02 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-02 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO49ES1710', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-02 00:00:00'), 'product_id': 'MO49ES1710'}
+2026-03-19 14:56:46,988 - INFO - Searching for product with code: 'MO49ES1710' and old code: 'MO49ES1710'
+2026-03-19 14:56:47,052 - INFO - Found product with exact match on default_code: 'MO49ES1710'
+2026-03-19 14:56:47,113 - INFO - Prepared product MO49ES1710 with quantity 1.0 for batch creation
+2026-03-19 14:56:47,114 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:47,196 - INFO - Created 1 moves in batch for picking 10413
+2026-03-19 14:56:47,272 - INFO - Re-updated dates before confirming picking 10413: 2025-12-02 00:00:00
+2026-03-19 14:56:47,375 - INFO - Confirmed transfer 10413 with forced date context
+2026-03-19 14:56:47,510 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:56:47,572 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:56:47,645 - INFO - Created transfer for date 2025-12-03 00:00:00 sequence 0.0 with picking ID 10414
+2026-03-19 14:56:47,647 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:47,647 - INFO - Searching for product with code: 'MA0142101' and old code: 'MA0142101'
+2026-03-19 14:56:47,709 - INFO - Found product with exact match on default_code: 'MA0142101'
+2026-03-19 14:56:47,772 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:47,773 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:47,774 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:47,775 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:47,776 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:47,777 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:47,778 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:47,779 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:47,779 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:47,780 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:47,781 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:47,781 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:47,782 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:47,783 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:47,783 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:47,784 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:47,784 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:47,785 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:47,786 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:47,786 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:47,787 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:47,788 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:47,788 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0172101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MA0172101'}
+2026-03-19 14:56:47,789 - INFO - Searching for product with code: 'MA0172101' and old code: 'MA0172101'
+2026-03-19 14:56:47,851 - INFO - Found product with exact match on default_code: 'MA0172101'
+2026-03-19 14:56:47,911 - INFO - Prepared product MA0172101 with quantity 1.0 for batch creation
+2026-03-19 14:56:47,912 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:47,913 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:47,913 - INFO - Searching for product with code: 'MT0014101' and old code: 'MT0014101'
+2026-03-19 14:56:47,973 - INFO - Found product with exact match on default_code: 'MT0014101'
+2026-03-19 14:56:48,034 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,035 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,035 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:48,036 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:48,036 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,036 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,037 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:48,037 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:48,037 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,038 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,038 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:48,039 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:48,039 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,039 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,040 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:48,040 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:48,041 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,041 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,041 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:48,042 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:48,042 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,042 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,043 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:48,044 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:48,044 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,044 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,046 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:48,046 - INFO - Searching for product with code: 'MT0021101' and old code: 'MT0021101'
+2026-03-19 14:56:48,109 - INFO - Found product with exact match on default_code: 'MT0021101'
+2026-03-19 14:56:48,169 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,170 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,171 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:48,171 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:48,171 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,172 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,172 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:48,173 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:48,173 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,174 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,174 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:48,175 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:48,175 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,176 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,176 - INFO - Processing Excel row 19: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:48,177 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:48,177 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,177 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,178 - INFO - Processing Excel row 20: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:48,178 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:48,179 - INFO - Prepared product MT0021101 with quantity 2.0 for batch creation
+2026-03-19 14:56:48,179 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,180 - INFO - Processing Excel row 21: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:48,181 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:48,182 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,182 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,183 - INFO - Processing Excel row 22: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:48,183 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:48,184 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,184 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,185 - INFO - Processing Excel row 23: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0020101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0020101'}
+2026-03-19 14:56:48,185 - INFO - Searching for product with code: 'MT0020101' and old code: 'MT0020101'
+2026-03-19 14:56:48,244 - INFO - Found product with exact match on default_code: 'MT0020101'
+2026-03-19 14:56:48,313 - INFO - Prepared product MT0020101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,313 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,314 - INFO - Processing Excel row 24: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0022101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0022101'}
+2026-03-19 14:56:48,314 - INFO - Searching for product with code: 'MT0022101' and old code: 'MT0022101'
+2026-03-19 14:56:48,372 - INFO - Found product with exact match on default_code: 'MT0022101'
+2026-03-19 14:56:48,435 - INFO - Prepared product MT0022101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,435 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,436 - INFO - Processing Excel row 25: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MU0002101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MU0002101'}
+2026-03-19 14:56:48,436 - INFO - Searching for product with code: 'MU0002101' and old code: 'MU0002101'
+2026-03-19 14:56:48,496 - INFO - Found product with exact match on default_code: 'MU0002101'
+2026-03-19 14:56:48,559 - INFO - Prepared product MU0002101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,559 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,560 - INFO - Processing Excel row 26: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO12SP101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO12SP101'}
+2026-03-19 14:56:48,561 - INFO - Searching for product with code: 'MO12SP101' and old code: 'MO12SP101'
+2026-03-19 14:56:48,623 - INFO - Found product with exact match on default_code: 'MO12SP101'
+2026-03-19 14:56:48,687 - INFO - Prepared product MO12SP101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,687 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,688 - INFO - Processing Excel row 27: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO12SP101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO12SP101'}
+2026-03-19 14:56:48,688 - INFO - Using cached product ID for code: 'MO12SP101'
+2026-03-19 14:56:48,689 - INFO - Prepared product MO12SP101 with quantity 2.0 for batch creation
+2026-03-19 14:56:48,689 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,689 - INFO - Processing Excel row 28: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO12SP101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO12SP101'}
+2026-03-19 14:56:48,690 - INFO - Using cached product ID for code: 'MO12SP101'
+2026-03-19 14:56:48,690 - INFO - Prepared product MO12SP101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,690 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,691 - INFO - Processing Excel row 29: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:48,691 - INFO - Searching for product with code: 'MO0026101' and old code: 'MO0026101'
+2026-03-19 14:56:48,752 - INFO - Found product with exact match on default_code: 'MO0026101'
+2026-03-19 14:56:48,813 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,813 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,814 - INFO - Processing Excel row 30: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:48,814 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:56:48,815 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,815 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,815 - INFO - Processing Excel row 31: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:48,816 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:56:48,816 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,816 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,817 - INFO - Processing Excel row 32: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:48,817 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:56:48,817 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,817 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,818 - INFO - Processing Excel row 33: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:48,818 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:56:48,818 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,819 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,819 - INFO - Processing Excel row 34: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:48,820 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:56:48,820 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,820 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,821 - INFO - Processing Excel row 35: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:48,821 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:56:48,821 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,822 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,822 - INFO - Processing Excel row 36: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:48,822 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:56:48,823 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,823 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,824 - INFO - Processing Excel row 37: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT19SP101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT19SP101'}
+2026-03-19 14:56:48,824 - INFO - Searching for product with code: 'MT19SP101' and old code: 'MT19SP101'
+2026-03-19 14:56:48,884 - INFO - Found product with exact match on default_code: 'MT19SP101'
+2026-03-19 14:56:48,950 - INFO - Prepared product MT19SP101 with quantity 1.0 for batch creation
+2026-03-19 14:56:48,951 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:48,951 - INFO - Processing Excel row 38: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0032101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0032101'}
+2026-03-19 14:56:48,952 - INFO - Searching for product with code: 'MO0032101' and old code: 'MO0032101'
+2026-03-19 14:56:49,011 - INFO - Found product with exact match on default_code: 'MO0032101'
+2026-03-19 14:56:49,080 - INFO - Prepared product MO0032101 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,081 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,082 - INFO - Processing Excel row 39: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0032101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0032101'}
+2026-03-19 14:56:49,083 - INFO - Using cached product ID for code: 'MO0032101'
+2026-03-19 14:56:49,084 - INFO - Prepared product MO0032101 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,084 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,086 - INFO - Processing Excel row 40: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0032101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0032101'}
+2026-03-19 14:56:49,087 - INFO - Using cached product ID for code: 'MO0032101'
+2026-03-19 14:56:49,088 - INFO - Prepared product MO0032101 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,089 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,090 - INFO - Processing Excel row 41: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0032101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0032101'}
+2026-03-19 14:56:49,091 - INFO - Using cached product ID for code: 'MO0032101'
+2026-03-19 14:56:49,092 - INFO - Prepared product MO0032101 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,093 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,094 - INFO - Processing Excel row 42: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0032101', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0032101'}
+2026-03-19 14:56:49,095 - INFO - Using cached product ID for code: 'MO0032101'
+2026-03-19 14:56:49,096 - INFO - Prepared product MO0032101 with quantity 3.0 for batch creation
+2026-03-19 14:56:49,097 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,099 - INFO - Processing Excel row 43: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0033101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0033101'}
+2026-03-19 14:56:49,100 - INFO - Searching for product with code: 'MT0033101' and old code: 'MT0033101'
+2026-03-19 14:56:49,165 - INFO - Found product with exact match on default_code: 'MT0033101'
+2026-03-19 14:56:49,233 - INFO - Prepared product MT0033101 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,234 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,235 - INFO - Processing Excel row 44: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0092201.', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MA0092201.'}
+2026-03-19 14:56:49,236 - INFO - Searching for product with code: 'MA0092201.' and old code: 'MA0092201.'
+2026-03-19 14:56:49,301 - INFO - Found product with exact match on default_code: 'MA0092201.'
+2026-03-19 14:56:49,365 - INFO - Prepared product MA0092201. with quantity 1.0 for batch creation
+2026-03-19 14:56:49,366 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,368 - INFO - Processing Excel row 45: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0037101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT0037101'}
+2026-03-19 14:56:49,368 - INFO - Searching for product with code: 'MT0037101' and old code: 'MT0037101'
+2026-03-19 14:56:49,444 - INFO - Found product with exact match on default_code: 'MT0037101'
+2026-03-19 14:56:49,511 - INFO - Prepared product MT0037101 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,512 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,514 - INFO - Processing Excel row 46: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT00711210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT00711210'}
+2026-03-19 14:56:49,514 - INFO - Searching for product with code: 'MT00711210' and old code: 'MT00711210'
+2026-03-19 14:56:49,576 - INFO - Found product with exact match on default_code: 'MT00711210'
+2026-03-19 14:56:49,643 - INFO - Prepared product MT00711210 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,644 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,645 - INFO - Processing Excel row 47: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT00711210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT00711210'}
+2026-03-19 14:56:49,646 - INFO - Using cached product ID for code: 'MT00711210'
+2026-03-19 14:56:49,646 - INFO - Prepared product MT00711210 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,647 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,648 - INFO - Processing Excel row 48: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MOS025100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MOS025100'}
+2026-03-19 14:56:49,648 - INFO - Searching for product with code: 'MOS025100' and old code: 'MOS025100'
+2026-03-19 14:56:49,708 - INFO - Found product with exact match on default_code: 'MOS025100'
+2026-03-19 14:56:49,773 - INFO - Prepared product MOS025100 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,774 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,776 - INFO - Processing Excel row 49: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00381211', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO00381211'}
+2026-03-19 14:56:49,777 - INFO - Searching for product with code: 'MO00381211' and old code: 'MO00381211'
+2026-03-19 14:56:49,843 - INFO - Found product with exact match on default_code: 'MO00381211'
+2026-03-19 14:56:49,910 - INFO - Prepared product MO00381211 with quantity 1.0 for batch creation
+2026-03-19 14:56:49,910 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:49,912 - INFO - Processing Excel row 50: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT002112110', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT002112110'}
+2026-03-19 14:56:49,913 - INFO - Searching for product with code: 'MT002112110' and old code: 'MT002112110'
+2026-03-19 14:56:49,984 - INFO - Found product with exact match on default_code: 'MT002112110'
+2026-03-19 14:56:50,057 - INFO - Prepared product MT002112110 with quantity 1.0 for batch creation
+2026-03-19 14:56:50,058 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:50,059 - INFO - Processing Excel row 51: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0050EX1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO0050EX1210'}
+2026-03-19 14:56:50,060 - INFO - Searching for product with code: 'MO0050EX1210' and old code: 'MO0050EX1210'
+2026-03-19 14:56:50,121 - INFO - Found product with exact match on default_code: 'MO0050EX1210'
+2026-03-19 14:56:50,188 - INFO - Prepared product MO0050EX1210 with quantity 1.0 for batch creation
+2026-03-19 14:56:50,188 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:50,189 - INFO - Processing Excel row 52: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT057EXS1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT057EXS1210'}
+2026-03-19 14:56:50,190 - INFO - Searching for product with code: 'MT057EXS1210' and old code: 'MT057EXS1210'
+2026-03-19 14:56:50,254 - INFO - Found product with exact match on default_code: 'MT057EXS1210'
+2026-03-19 14:56:50,314 - INFO - Prepared product MT057EXS1210 with quantity 1.0 for batch creation
+2026-03-19 14:56:50,315 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:50,316 - INFO - Processing Excel row 53: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00501210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO00501210'}
+2026-03-19 14:56:50,316 - INFO - Searching for product with code: 'MO00501210' and old code: 'MO00501210'
+2026-03-19 14:56:50,376 - INFO - Found product with exact match on default_code: 'MO00501210'
+2026-03-19 14:56:50,437 - INFO - Prepared product MO00501210 with quantity 1.0 for batch creation
+2026-03-19 14:56:50,438 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:50,439 - INFO - Processing Excel row 54: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO051E1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO051E1210'}
+2026-03-19 14:56:50,439 - INFO - Searching for product with code: 'MO051E1210' and old code: 'MO051E1210'
+2026-03-19 14:56:50,498 - INFO - Found product with exact match on default_code: 'MO051E1210'
+2026-03-19 14:56:50,562 - INFO - Prepared product MO051E1210 with quantity 1.0 for batch creation
+2026-03-19 14:56:50,564 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:50,565 - INFO - Processing Excel row 55: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00521210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO00521210'}
+2026-03-19 14:56:50,565 - INFO - Searching for product with code: 'MO00521210' and old code: 'MO00521210'
+2026-03-19 14:56:50,627 - INFO - Found product with exact match on default_code: 'MO00521210'
+2026-03-19 14:56:50,691 - INFO - Prepared product MO00521210 with quantity 1.0 for batch creation
+2026-03-19 14:56:50,692 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:50,693 - INFO - Processing Excel row 56: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO026S1710', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO026S1710'}
+2026-03-19 14:56:50,694 - INFO - Searching for product with code: 'MO026S1710' and old code: 'MO026S1710'
+2026-03-19 14:56:50,757 - INFO - Found product with exact match on default_code: 'MO026S1710'
+2026-03-19 14:56:50,821 - INFO - Prepared product MO026S1710 with quantity 1.0 for batch creation
+2026-03-19 14:56:50,821 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:50,822 - INFO - Processing Excel row 57: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00691110', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MO00691110'}
+2026-03-19 14:56:50,822 - INFO - Searching for product with code: 'MO00691110' and old code: 'MO00691110'
+2026-03-19 14:56:50,880 - INFO - Found product with exact match on default_code: 'MO00691110'
+2026-03-19 14:56:50,941 - INFO - Prepared product MO00691110 with quantity 1.0 for batch creation
+2026-03-19 14:56:50,941 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:50,941 - INFO - Processing Excel row 58: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT30TCF100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT30TCF100'}
+2026-03-19 14:56:50,942 - INFO - Searching for product with code: 'MT30TCF100' and old code: 'MT30TCF100'
+2026-03-19 14:56:51,009 - INFO - Found product with exact match on default_code: 'MT30TCF100'
+2026-03-19 14:56:51,075 - INFO - Prepared product MT30TCF100 with quantity 1.0 for batch creation
+2026-03-19 14:56:51,076 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:51,077 - INFO - Processing Excel row 59: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT024NB+101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT024NB+101'}
+2026-03-19 14:56:51,078 - INFO - Searching for product with code: 'MT024NB+101' and old code: 'MT024NB+101'
+2026-03-19 14:56:51,142 - INFO - Found product with exact match on default_code: 'MT024NB+101'
+2026-03-19 14:56:51,207 - INFO - Prepared product MT024NB+101 with quantity 1.0 for batch creation
+2026-03-19 14:56:51,208 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:51,209 - INFO - Processing Excel row 60: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-03 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-03 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT024NB+101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-03 00:00:00'), 'product_id': 'MT024NB+101'}
+2026-03-19 14:56:51,209 - INFO - Using cached product ID for code: 'MT024NB+101'
+2026-03-19 14:56:51,209 - INFO - Prepared product MT024NB+101 with quantity 1.0 for batch creation
+2026-03-19 14:56:51,210 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:51,709 - INFO - Created 60 moves in batch for picking 10414
+2026-03-19 14:56:51,791 - INFO - Re-updated dates before confirming picking 10414: 2025-12-03 00:00:00
+2026-03-19 14:56:52,429 - INFO - Confirmed transfer 10414 with forced date context
+2026-03-19 14:56:52,557 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:56:52,620 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:56:52,695 - INFO - Created transfer for date 2025-12-04 00:00:00 sequence 0.0 with picking ID 10415
+2026-03-19 14:56:52,696 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'F00025SL03B', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'F00025SL03B'}
+2026-03-19 14:56:52,696 - INFO - Searching for product with code: 'F00025SL03B' and old code: 'F00025SL03B'
+2026-03-19 14:56:52,755 - INFO - Found product with exact match on default_code: 'F00025SL03B'
+2026-03-19 14:56:52,821 - INFO - Prepared product F00025SL03B with quantity 1.0 for batch creation
+2026-03-19 14:56:52,821 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:52,822 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MSB0001303.', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MSB0001303.'}
+2026-03-19 14:56:52,823 - INFO - Searching for product with code: 'MSB0001303.' and old code: 'MSB0001303.'
+2026-03-19 14:56:52,883 - INFO - Found product with exact match on default_code: 'MSB0001303.'
+2026-03-19 14:56:52,944 - INFO - Prepared product MSB0001303. with quantity 3.0 for batch creation
+2026-03-19 14:56:52,944 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:52,945 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MSB0001303.', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MSB0001303.'}
+2026-03-19 14:56:52,945 - INFO - Using cached product ID for code: 'MSB0001303.'
+2026-03-19 14:56:52,946 - INFO - Prepared product MSB0001303. with quantity 1.0 for batch creation
+2026-03-19 14:56:52,946 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:52,946 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MA332B1101'}
+2026-03-19 14:56:52,947 - INFO - Searching for product with code: 'MA332B1101' and old code: 'MA332B1101'
+2026-03-19 14:56:53,006 - INFO - Found product with exact match on default_code: 'MA332B1101'
+2026-03-19 14:56:53,073 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,073 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,074 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'LA0213263', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'LA0213263'}
+2026-03-19 14:56:53,074 - INFO - Searching for product with code: 'LA0213263' and old code: 'LA0213263'
+2026-03-19 14:56:53,137 - INFO - Found product with exact match on default_code: 'LA0213263'
+2026-03-19 14:56:53,200 - INFO - Prepared product LA0213263 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,200 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,201 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010062', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': '413010062'}
+2026-03-19 14:56:53,201 - INFO - Searching for product with code: '413010062' and old code: '413010062'
+2026-03-19 14:56:53,262 - INFO - Found product with exact match on default_code: '413010062'
+2026-03-19 14:56:53,335 - INFO - Prepared product 413010062 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,336 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,337 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'LA0213263', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'LA0213263'}
+2026-03-19 14:56:53,338 - INFO - Using cached product ID for code: 'LA0213263'
+2026-03-19 14:56:53,338 - INFO - Prepared product LA0213263 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,339 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,340 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010062', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': '413010062'}
+2026-03-19 14:56:53,340 - INFO - Using cached product ID for code: '413010062'
+2026-03-19 14:56:53,341 - INFO - Prepared product 413010062 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,341 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,342 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FP0500D7L97A', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'FP0500D7L97A'}
+2026-03-19 14:56:53,343 - INFO - Searching for product with code: 'FP0500D7L97A' and old code: 'FP0500D7L97A'
+2026-03-19 14:56:53,406 - INFO - Found product with exact match on default_code: 'FP0500D7L97A'
+2026-03-19 14:56:53,470 - INFO - Prepared product FP0500D7L97A with quantity 1.0 for batch creation
+2026-03-19 14:56:53,470 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,471 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU0033FC1560', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'FU0033FC1560'}
+2026-03-19 14:56:53,472 - INFO - Searching for product with code: 'FU0033FC1560' and old code: 'FU0033FC1560'
+2026-03-19 14:56:53,540 - INFO - Found product with exact match on default_code: 'FU0033FC1560'
+2026-03-19 14:56:53,603 - INFO - Prepared product FU0033FC1560 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,603 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,604 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FM0500D7R99A', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'FM0500D7R99A'}
+2026-03-19 14:56:53,605 - INFO - Searching for product with code: 'FM0500D7R99A' and old code: 'FM0500D7R99A'
+2026-03-19 14:56:53,667 - INFO - Found product with exact match on default_code: 'FM0500D7R99A'
+2026-03-19 14:56:53,729 - INFO - Prepared product FM0500D7R99A with quantity 1.0 for batch creation
+2026-03-19 14:56:53,729 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,730 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FP0500D7R99A', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'FP0500D7R99A'}
+2026-03-19 14:56:53,731 - INFO - Searching for product with code: 'FP0500D7R99A' and old code: 'FP0500D7R99A'
+2026-03-19 14:56:53,793 - INFO - Found product with exact match on default_code: 'FP0500D7R99A'
+2026-03-19 14:56:53,855 - INFO - Prepared product FP0500D7R99A with quantity 1.0 for batch creation
+2026-03-19 14:56:53,856 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,856 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA266B201', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MA266B201'}
+2026-03-19 14:56:53,857 - INFO - Searching for product with code: 'MA266B201' and old code: 'MA266B201'
+2026-03-19 14:56:53,915 - INFO - Found product with exact match on default_code: 'MA266B201'
+2026-03-19 14:56:53,980 - INFO - Prepared product MA266B201 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,980 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,981 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MA332B1101'}
+2026-03-19 14:56:53,981 - INFO - Using cached product ID for code: 'MA332B1101'
+2026-03-19 14:56:53,982 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,982 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,983 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0024100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'SP0024100'}
+2026-03-19 14:56:53,983 - INFO - Using cached product ID for code: 'SP0024100'
+2026-03-19 14:56:53,984 - INFO - Prepared product SP0024100 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,985 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,985 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'SP0024100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'SP0024100'}
+2026-03-19 14:56:53,986 - INFO - Using cached product ID for code: 'SP0024100'
+2026-03-19 14:56:53,987 - INFO - Prepared product SP0024100 with quantity 1.0 for batch creation
+2026-03-19 14:56:53,987 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:53,988 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'WB0007110', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'WB0007110'}
+2026-03-19 14:56:53,989 - INFO - Searching for product with code: 'WB0007110' and old code: 'WB0007110'
+2026-03-19 14:56:54,054 - INFO - Found product with exact match on default_code: 'WB0007110'
+2026-03-19 14:56:54,121 - INFO - Prepared product WB0007110 with quantity 1.0 for batch creation
+2026-03-19 14:56:54,121 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:54,122 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU0018FC03', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'FU0018FC03'}
+2026-03-19 14:56:54,123 - INFO - Searching for product with code: 'FU0018FC03' and old code: 'FU0018FC03'
+2026-03-19 14:56:54,183 - INFO - Found product with exact match on default_code: 'FU0018FC03'
+2026-03-19 14:56:54,249 - INFO - Prepared product FU0018FC03 with quantity 1.0 for batch creation
+2026-03-19 14:56:54,250 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:54,251 - INFO - Processing Excel row 19: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MAC0181C11', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'MAC0181C11'}
+2026-03-19 14:56:54,251 - INFO - Searching for product with code: 'MAC0181C11' and old code: 'MAC0181C11'
+2026-03-19 14:56:54,312 - INFO - Found product with exact match on default_code: 'MAC0181C11'
+2026-03-19 14:56:54,484 - INFO - Prepared product MAC0181C11 with quantity 1.0 for batch creation
+2026-03-19 14:56:54,485 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:54,486 - INFO - Processing Excel row 20: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-04 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-04 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'LA021R163', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-04 00:00:00'), 'product_id': 'LA021R163'}
+2026-03-19 14:56:54,486 - INFO - Searching for product with code: 'LA021R163' and old code: 'LA021R163'
+2026-03-19 14:56:54,547 - INFO - Found product with exact match on default_code: 'LA021R163'
+2026-03-19 14:56:54,613 - INFO - Prepared product LA021R163 with quantity 1.0 for batch creation
+2026-03-19 14:56:54,614 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:54,840 - INFO - Created 20 moves in batch for picking 10415
+2026-03-19 14:56:54,920 - INFO - Re-updated dates before confirming picking 10415: 2025-12-04 00:00:00
+2026-03-19 14:56:55,232 - INFO - Confirmed transfer 10415 with forced date context
+2026-03-19 14:56:55,356 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:56:55,418 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:56:55,497 - INFO - Created transfer for date 2025-12-06 00:00:00 sequence 0.0 with picking ID 10416
+2026-03-19 14:56:55,498 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:55,498 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:55,498 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,499 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,499 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:55,499 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:55,500 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,500 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,500 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:55,501 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:55,501 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,501 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,502 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:55,502 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:55,502 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,502 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,503 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:55,503 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:55,503 - INFO - Prepared product MT0014101 with quantity 2.0 for batch creation
+2026-03-19 14:56:55,504 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,504 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:55,504 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:55,504 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,505 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,505 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:55,505 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:55,506 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,506 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,506 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:55,506 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:55,507 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,507 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,507 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0020101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT0020101'}
+2026-03-19 14:56:55,508 - INFO - Using cached product ID for code: 'MT0020101'
+2026-03-19 14:56:55,508 - INFO - Prepared product MT0020101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,508 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,509 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0022101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT0022101'}
+2026-03-19 14:56:55,509 - INFO - Using cached product ID for code: 'MT0022101'
+2026-03-19 14:56:55,509 - INFO - Prepared product MT0022101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,509 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,510 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO12SP101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MO12SP101'}
+2026-03-19 14:56:55,510 - INFO - Using cached product ID for code: 'MO12SP101'
+2026-03-19 14:56:55,511 - INFO - Prepared product MO12SP101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,511 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,512 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO12SP101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MO12SP101'}
+2026-03-19 14:56:55,512 - INFO - Using cached product ID for code: 'MO12SP101'
+2026-03-19 14:56:55,512 - INFO - Prepared product MO12SP101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,513 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,513 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO12SP101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MO12SP101'}
+2026-03-19 14:56:55,514 - INFO - Using cached product ID for code: 'MO12SP101'
+2026-03-19 14:56:55,514 - INFO - Prepared product MO12SP101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,514 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,514 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:56:55,515 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:56:55,515 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,515 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,516 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0010101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MO0010101'}
+2026-03-19 14:56:55,516 - INFO - Searching for product with code: 'MO0010101' and old code: 'MO0010101'
+2026-03-19 14:56:55,589 - INFO - Found product with exact match on default_code: 'MO0010101'
+2026-03-19 14:56:55,651 - INFO - Prepared product MO0010101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,652 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,652 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MW0002101', 'product_uom_qty': 4, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MW0002101'}
+2026-03-19 14:56:55,653 - INFO - Searching for product with code: 'MW0002101' and old code: 'MW0002101'
+2026-03-19 14:56:55,713 - INFO - Found product with exact match on default_code: 'MW0002101'
+2026-03-19 14:56:55,775 - INFO - Prepared product MW0002101 with quantity 4.0 for batch creation
+2026-03-19 14:56:55,775 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,776 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO031N101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MO031N101'}
+2026-03-19 14:56:55,776 - INFO - Searching for product with code: 'MO031N101' and old code: 'MO031N101'
+2026-03-19 14:56:55,836 - INFO - Found product with exact match on default_code: 'MO031N101'
+2026-03-19 14:56:55,898 - INFO - Prepared product MO031N101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,898 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,899 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT30TCF100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT30TCF100'}
+2026-03-19 14:56:55,899 - INFO - Using cached product ID for code: 'MT30TCF100'
+2026-03-19 14:56:55,899 - INFO - Prepared product MT30TCF100 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,900 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,900 - INFO - Processing Excel row 19: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT024NB+101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT024NB+101'}
+2026-03-19 14:56:55,900 - INFO - Using cached product ID for code: 'MT024NB+101'
+2026-03-19 14:56:55,901 - INFO - Prepared product MT024NB+101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,901 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,901 - INFO - Processing Excel row 20: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT024NB+101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MT024NB+101'}
+2026-03-19 14:56:55,902 - INFO - Using cached product ID for code: 'MT024NB+101'
+2026-03-19 14:56:55,902 - INFO - Prepared product MT024NB+101 with quantity 1.0 for batch creation
+2026-03-19 14:56:55,902 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:55,903 - INFO - Processing Excel row 21: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0351101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MA0351101'}
+2026-03-19 14:56:55,903 - INFO - Searching for product with code: 'MA0351101' and old code: 'MA0351101'
+2026-03-19 14:56:55,964 - INFO - Found product with exact match on default_code: 'MA0351101'
+2026-03-19 14:56:56,025 - INFO - Prepared product MA0351101 with quantity 1.0 for batch creation
+2026-03-19 14:56:56,025 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:56,026 - INFO - Processing Excel row 22: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0572R110', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MA0572R110'}
+2026-03-19 14:56:56,026 - INFO - Searching for product with code: 'MA0572R110' and old code: 'MA0572R110'
+2026-03-19 14:56:56,091 - INFO - Found product with exact match on default_code: 'MA0572R110'
+2026-03-19 14:56:56,154 - INFO - Prepared product MA0572R110 with quantity 1.0 for batch creation
+2026-03-19 14:56:56,155 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:56,156 - INFO - Processing Excel row 23: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA183A101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': 'MA183A101'}
+2026-03-19 14:56:56,156 - INFO - Searching for product with code: 'MA183A101' and old code: 'MA183A101'
+2026-03-19 14:56:56,218 - INFO - Found product with exact match on default_code: 'MA183A101'
+2026-03-19 14:56:56,282 - INFO - Prepared product MA183A101 with quantity 1.0 for batch creation
+2026-03-19 14:56:56,282 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:56,283 - INFO - Processing Excel row 24: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-06 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-06 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010133', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-06 00:00:00'), 'product_id': '413010133'}
+2026-03-19 14:56:56,284 - INFO - Searching for product with code: '413010133' and old code: '413010133'
+2026-03-19 14:56:56,346 - INFO - Found product with exact match on default_code: '413010133'
+2026-03-19 14:56:56,415 - INFO - Prepared product 413010133 with quantity 1.0 for batch creation
+2026-03-19 14:56:56,416 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:56,668 - INFO - Created 24 moves in batch for picking 10416
+2026-03-19 14:56:56,746 - INFO - Re-updated dates before confirming picking 10416: 2025-12-06 00:00:00
+2026-03-19 14:56:57,042 - INFO - Confirmed transfer 10416 with forced date context
+2026-03-19 14:56:57,161 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:56:57,223 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:56:57,294 - INFO - Created transfer for date 2025-12-09 00:00:00 sequence 0.0 with picking ID 10417
+2026-03-19 14:56:57,296 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-09 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-09 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0079S0111', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-09 00:00:00'), 'product_id': 'MO0079S0111'}
+2026-03-19 14:56:57,297 - INFO - Searching for product with code: 'MO0079S0111' and old code: 'MO0079S0111'
+2026-03-19 14:56:57,356 - INFO - Found product with exact match on default_code: 'MO0079S0111'
+2026-03-19 14:56:57,427 - INFO - Prepared product MO0079S0111 with quantity 1.0 for batch creation
+2026-03-19 14:56:57,428 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:57,429 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-09 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-09 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00691117', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-09 00:00:00'), 'product_id': 'MO00691117'}
+2026-03-19 14:56:57,430 - INFO - Searching for product with code: 'MO00691117' and old code: 'MO00691117'
+2026-03-19 14:56:57,488 - INFO - Found product with exact match on default_code: 'MO00691117'
+2026-03-19 14:56:57,552 - INFO - Prepared product MO00691117 with quantity 1.0 for batch creation
+2026-03-19 14:56:57,553 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:57,666 - INFO - Created 2 moves in batch for picking 10417
+2026-03-19 14:56:57,744 - INFO - Re-updated dates before confirming picking 10417: 2025-12-09 00:00:00
+2026-03-19 14:56:57,872 - INFO - Confirmed transfer 10417 with forced date context
+2026-03-19 14:56:57,998 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:56:58,063 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:56:58,139 - INFO - Created transfer for date 2025-12-10 00:00:00 sequence 0.0 with picking ID 10418
+2026-03-19 14:56:58,141 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FM0500D7C18', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'FM0500D7C18'}
+2026-03-19 14:56:58,141 - INFO - Searching for product with code: 'FM0500D7C18' and old code: 'FM0500D7C18'
+2026-03-19 14:56:58,202 - INFO - Found product with exact match on default_code: 'FM0500D7C18'
+2026-03-19 14:56:58,265 - INFO - Prepared product FM0500D7C18 with quantity 1.0 for batch creation
+2026-03-19 14:56:58,265 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:58,266 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU033DFC22024', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'FU033DFC22024'}
+2026-03-19 14:56:58,266 - INFO - Searching for product with code: 'FU033DFC22024' and old code: 'FU033DFC22024'
+2026-03-19 14:56:58,327 - INFO - Found product with exact match on default_code: 'FU033DFC22024'
+2026-03-19 14:56:58,391 - INFO - Prepared product FU033DFC22024 with quantity 1.0 for batch creation
+2026-03-19 14:56:58,392 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:58,392 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'ERS0026110', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'ERS0026110'}
+2026-03-19 14:56:58,393 - INFO - Searching for product with code: 'ERS0026110' and old code: 'ERS0026110'
+2026-03-19 14:56:58,455 - INFO - Found product with exact match on default_code: 'ERS0026110'
+2026-03-19 14:56:58,518 - INFO - Prepared product ERS0026110 with quantity 8.0 for batch creation
+2026-03-19 14:56:58,518 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:58,519 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'LFA200FL58A', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'LFA200FL58A'}
+2026-03-19 14:56:58,520 - INFO - Searching for product with code: 'LFA200FL58A' and old code: 'LFA200FL58A'
+2026-03-19 14:56:58,582 - INFO - Found product with exact match on default_code: 'LFA200FL58A'
+2026-03-19 14:56:58,645 - INFO - Prepared product LFA200FL58A with quantity 1.0 for batch creation
+2026-03-19 14:56:58,646 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:58,646 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010133', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': '413010133'}
+2026-03-19 14:56:58,647 - INFO - Using cached product ID for code: '413010133'
+2026-03-19 14:56:58,647 - INFO - Prepared product 413010133 with quantity 1.0 for batch creation
+2026-03-19 14:56:58,648 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:58,648 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MAM011C118', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'MAM011C118'}
+2026-03-19 14:56:58,649 - INFO - Searching for product with code: 'MAM011C118' and old code: 'MAM011C118'
+2026-03-19 14:56:58,714 - INFO - Found product with exact match on default_code: 'MAM011C118'
+2026-03-19 14:56:58,775 - INFO - Prepared product MAM011C118 with quantity 1.0 for batch creation
+2026-03-19 14:56:58,776 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:58,776 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'MA332B1101'}
+2026-03-19 14:56:58,777 - INFO - Using cached product ID for code: 'MA332B1101'
+2026-03-19 14:56:58,777 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2026-03-19 14:56:58,778 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:58,778 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-10 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-10 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA266P201', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-10 00:00:00'), 'product_id': 'MA266P201'}
+2026-03-19 14:56:58,779 - INFO - Searching for product with code: 'MA266P201' and old code: 'MA266P201'
+2026-03-19 14:56:58,838 - INFO - Found product with exact match on default_code: 'MA266P201'
+2026-03-19 14:56:58,924 - INFO - Prepared product MA266P201 with quantity 1.0 for batch creation
+2026-03-19 14:56:58,924 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,072 - INFO - Created 8 moves in batch for picking 10418
+2026-03-19 14:56:59,152 - INFO - Re-updated dates before confirming picking 10418: 2025-12-10 00:00:00
+2026-03-19 14:56:59,367 - INFO - Confirmed transfer 10418 with forced date context
+2026-03-19 14:56:59,493 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:56:59,553 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:56:59,626 - INFO - Created transfer for date 2025-12-15 00:00:00 sequence 0.0 with picking ID 10419
+2026-03-19 14:56:59,627 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:59,627 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:59,628 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,628 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,629 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:56:59,629 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:56:59,629 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,630 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,630 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0025101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO0025101'}
+2026-03-19 14:56:59,630 - INFO - Searching for product with code: 'MO0025101' and old code: 'MO0025101'
+2026-03-19 14:56:59,692 - INFO - Found product with exact match on default_code: 'MO0025101'
+2026-03-19 14:56:59,758 - INFO - Prepared product MO0025101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,759 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,759 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:59,760 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:59,761 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,761 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,762 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:59,762 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:59,763 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,764 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,765 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:59,765 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:59,766 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,766 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,767 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:56:59,768 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:56:59,768 - INFO - Prepared product MT0014101 with quantity 2.0 for batch creation
+2026-03-19 14:56:59,769 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,770 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:59,771 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:59,772 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,772 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,773 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:59,774 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:59,775 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,776 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,776 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:59,777 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:59,778 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,778 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,779 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:59,780 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:59,780 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,781 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,782 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:56:59,782 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:56:59,783 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,783 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,784 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0020101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0020101'}
+2026-03-19 14:56:59,784 - INFO - Using cached product ID for code: 'MT0020101'
+2026-03-19 14:56:59,784 - INFO - Prepared product MT0020101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,785 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,786 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0022101', 'product_uom_qty': 8, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT0022101'}
+2026-03-19 14:56:59,786 - INFO - Using cached product ID for code: 'MT0022101'
+2026-03-19 14:56:59,786 - INFO - Prepared product MT0022101 with quantity 8.0 for batch creation
+2026-03-19 14:56:59,787 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,787 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MW0001101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MW0001101'}
+2026-03-19 14:56:59,788 - INFO - Searching for product with code: 'MW0001101' and old code: 'MW0001101'
+2026-03-19 14:56:59,847 - INFO - Found product with exact match on default_code: 'MW0001101'
+2026-03-19 14:56:59,914 - INFO - Prepared product MW0001101 with quantity 1.0 for batch creation
+2026-03-19 14:56:59,914 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,914 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MW0002101', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MW0002101'}
+2026-03-19 14:56:59,915 - INFO - Using cached product ID for code: 'MW0002101'
+2026-03-19 14:56:59,915 - INFO - Prepared product MW0002101 with quantity 3.0 for batch creation
+2026-03-19 14:56:59,915 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:56:59,916 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT014E101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT014E101'}
+2026-03-19 14:56:59,916 - INFO - Searching for product with code: 'MT014E101' and old code: 'MT014E101'
+2026-03-19 14:56:59,983 - INFO - Found product with exact match on default_code: 'MT014E101'
+2026-03-19 14:57:00,045 - INFO - Prepared product MT014E101 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,046 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,046 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO031N101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO031N101'}
+2026-03-19 14:57:00,046 - INFO - Using cached product ID for code: 'MO031N101'
+2026-03-19 14:57:00,047 - INFO - Prepared product MO031N101 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,047 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,047 - INFO - Processing Excel row 19: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO005N101.', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO005N101.'}
+2026-03-19 14:57:00,048 - INFO - Searching for product with code: 'MO005N101.' and old code: 'MO005N101.'
+2026-03-19 14:57:00,108 - INFO - Found product with exact match on default_code: 'MO005N101.'
+2026-03-19 14:57:00,171 - INFO - Prepared product MO005N101. with quantity 1.0 for batch creation
+2026-03-19 14:57:00,172 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,172 - INFO - Processing Excel row 20: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO005N101.', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO005N101.'}
+2026-03-19 14:57:00,172 - INFO - Using cached product ID for code: 'MO005N101.'
+2026-03-19 14:57:00,173 - INFO - Prepared product MO005N101. with quantity 1.0 for batch creation
+2026-03-19 14:57:00,173 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,173 - INFO - Processing Excel row 21: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MAM011C116', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MAM011C116'}
+2026-03-19 14:57:00,174 - INFO - Searching for product with code: 'MAM011C116' and old code: 'MAM011C116'
+2026-03-19 14:57:00,251 - INFO - Found product with exact match on default_code: 'MAM011C116'
+2026-03-19 14:57:00,325 - INFO - Prepared product MAM011C116 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,325 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,326 - INFO - Processing Excel row 22: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MOS025101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MOS025101'}
+2026-03-19 14:57:00,327 - INFO - Searching for product with code: 'MOS025101' and old code: 'MOS025101'
+2026-03-19 14:57:00,393 - INFO - Found product with exact match on default_code: 'MOS025101'
+2026-03-19 14:57:00,458 - INFO - Prepared product MOS025101 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,458 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,459 - INFO - Processing Excel row 23: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO049EXS1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO049EXS1210'}
+2026-03-19 14:57:00,460 - INFO - Searching for product with code: 'MO049EXS1210' and old code: 'MO049EXS1210'
+2026-03-19 14:57:00,526 - INFO - Found product with exact match on default_code: 'MO049EXS1210'
+2026-03-19 14:57:00,595 - INFO - Prepared product MO049EXS1210 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,595 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,596 - INFO - Processing Excel row 24: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO051E1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO051E1210'}
+2026-03-19 14:57:00,596 - INFO - Using cached product ID for code: 'MO051E1210'
+2026-03-19 14:57:00,596 - INFO - Prepared product MO051E1210 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,597 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,597 - INFO - Processing Excel row 25: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT055E1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT055E1210'}
+2026-03-19 14:57:00,597 - INFO - Searching for product with code: 'MT055E1210' and old code: 'MT055E1210'
+2026-03-19 14:57:00,660 - INFO - Found product with exact match on default_code: 'MT055E1210'
+2026-03-19 14:57:00,723 - INFO - Prepared product MT055E1210 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,724 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,725 - INFO - Processing Excel row 26: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT00681217', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT00681217'}
+2026-03-19 14:57:00,726 - INFO - Searching for product with code: 'MT00681217' and old code: 'MT00681217'
+2026-03-19 14:57:00,787 - INFO - Found product with exact match on default_code: 'MT00681217'
+2026-03-19 14:57:00,855 - INFO - Prepared product MT00681217 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,855 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,856 - INFO - Processing Excel row 27: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO026S1710', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO026S1710'}
+2026-03-19 14:57:00,857 - INFO - Using cached product ID for code: 'MO026S1710'
+2026-03-19 14:57:00,858 - INFO - Prepared product MO026S1710 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,858 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,859 - INFO - Processing Excel row 28: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO050S1710', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO050S1710'}
+2026-03-19 14:57:00,859 - INFO - Searching for product with code: 'MO050S1710' and old code: 'MO050S1710'
+2026-03-19 14:57:00,922 - INFO - Found product with exact match on default_code: 'MO050S1710'
+2026-03-19 14:57:00,985 - INFO - Prepared product MO050S1710 with quantity 1.0 for batch creation
+2026-03-19 14:57:00,985 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:00,986 - INFO - Processing Excel row 29: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT043S1710', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT043S1710'}
+2026-03-19 14:57:00,987 - INFO - Searching for product with code: 'MT043S1710' and old code: 'MT043S1710'
+2026-03-19 14:57:01,061 - INFO - Found product with exact match on default_code: 'MT043S1710'
+2026-03-19 14:57:01,123 - INFO - Prepared product MT043S1710 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,124 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,124 - INFO - Processing Excel row 30: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT22TCF100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT22TCF100'}
+2026-03-19 14:57:01,125 - INFO - Searching for product with code: 'MT22TCF100' and old code: 'MT22TCF100'
+2026-03-19 14:57:01,189 - INFO - Found product with exact match on default_code: 'MT22TCF100'
+2026-03-19 14:57:01,253 - INFO - Prepared product MT22TCF100 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,253 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,254 - INFO - Processing Excel row 31: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT024NB+101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT024NB+101'}
+2026-03-19 14:57:01,255 - INFO - Using cached product ID for code: 'MT024NB+101'
+2026-03-19 14:57:01,255 - INFO - Prepared product MT024NB+101 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,256 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,257 - INFO - Processing Excel row 32: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT024NB+101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT024NB+101'}
+2026-03-19 14:57:01,257 - INFO - Using cached product ID for code: 'MT024NB+101'
+2026-03-19 14:57:01,258 - INFO - Prepared product MT024NB+101 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,258 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,259 - INFO - Processing Excel row 33: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT057ES1210', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MT057ES1210'}
+2026-03-19 14:57:01,260 - INFO - Searching for product with code: 'MT057ES1210' and old code: 'MT057ES1210'
+2026-03-19 14:57:01,322 - INFO - Found product with exact match on default_code: 'MT057ES1210'
+2026-03-19 14:57:01,384 - INFO - Prepared product MT057ES1210 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,385 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,385 - INFO - Processing Excel row 34: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO042S101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MO042S101'}
+2026-03-19 14:57:01,385 - INFO - Searching for product with code: 'MO042S101' and old code: 'MO042S101'
+2026-03-19 14:57:01,448 - INFO - Found product with exact match on default_code: 'MO042S101'
+2026-03-19 14:57:01,513 - INFO - Prepared product MO042S101 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,513 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,514 - INFO - Processing Excel row 35: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'ERS0031130', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'ERS0031130'}
+2026-03-19 14:57:01,514 - INFO - Searching for product with code: 'ERS0031130' and old code: 'ERS0031130'
+2026-03-19 14:57:01,575 - INFO - Found product with exact match on default_code: 'ERS0031130'
+2026-03-19 14:57:01,640 - INFO - Prepared product ERS0031130 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,640 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,641 - INFO - Processing Excel row 36: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'ML0088100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'ML0088100'}
+2026-03-19 14:57:01,641 - INFO - Searching for product with code: 'ML0088100' and old code: 'ML0088100'
+2026-03-19 14:57:01,702 - INFO - Found product with exact match on default_code: 'ML0088100'
+2026-03-19 14:57:01,767 - INFO - Prepared product ML0088100 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,768 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,768 - INFO - Processing Excel row 37: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MSP023200', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MSP023200'}
+2026-03-19 14:57:01,769 - INFO - Searching for product with code: 'MSP023200' and old code: 'MSP023200'
+2026-03-19 14:57:01,831 - INFO - Found product with exact match on default_code: 'MSP023200'
+2026-03-19 14:57:01,897 - INFO - Prepared product MSP023200 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,897 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,898 - INFO - Processing Excel row 38: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'ACS03602100', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'ACS03602100'}
+2026-03-19 14:57:01,898 - INFO - Using cached product ID for code: 'ACS03602100'
+2026-03-19 14:57:01,898 - INFO - Prepared product ACS03602100 with quantity 1.0 for batch creation
+2026-03-19 14:57:01,899 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:01,899 - INFO - Processing Excel row 39: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU000F113535', 'product_uom_qty': 4, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'FU000F113535'}
+2026-03-19 14:57:01,900 - INFO - Searching for product with code: 'FU000F113535' and old code: 'FU000F113535'
+2026-03-19 14:57:01,962 - INFO - Found product with exact match on default_code: 'FU000F113535'
+2026-03-19 14:57:02,037 - INFO - Prepared product FU000F113535 with quantity 4.0 for batch creation
+2026-03-19 14:57:02,037 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,038 - INFO - Processing Excel row 40: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010117', 'product_uom_qty': 4, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': '413010117'}
+2026-03-19 14:57:02,039 - INFO - Searching for product with code: '413010117' and old code: '413010117'
+2026-03-19 14:57:02,103 - INFO - Found product with exact match on default_code: '413010117'
+2026-03-19 14:57:02,168 - INFO - Prepared product 413010117 with quantity 4.0 for batch creation
+2026-03-19 14:57:02,169 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,169 - INFO - Processing Excel row 41: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU000F113535', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'FU000F113535'}
+2026-03-19 14:57:02,170 - INFO - Using cached product ID for code: 'FU000F113535'
+2026-03-19 14:57:02,171 - INFO - Prepared product FU000F113535 with quantity 2.0 for batch creation
+2026-03-19 14:57:02,171 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,172 - INFO - Processing Excel row 42: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010117', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': '413010117'}
+2026-03-19 14:57:02,172 - INFO - Using cached product ID for code: '413010117'
+2026-03-19 14:57:02,173 - INFO - Prepared product 413010117 with quantity 2.0 for batch creation
+2026-03-19 14:57:02,174 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,175 - INFO - Processing Excel row 43: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU000F11105', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'FU000F11105'}
+2026-03-19 14:57:02,176 - INFO - Searching for product with code: 'FU000F11105' and old code: 'FU000F11105'
+2026-03-19 14:57:02,237 - INFO - Found product with exact match on default_code: 'FU000F11105'
+2026-03-19 14:57:02,300 - INFO - Prepared product FU000F11105 with quantity 2.0 for batch creation
+2026-03-19 14:57:02,301 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,301 - INFO - Processing Excel row 44: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010117', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': '413010117'}
+2026-03-19 14:57:02,302 - INFO - Using cached product ID for code: '413010117'
+2026-03-19 14:57:02,303 - INFO - Prepared product 413010117 with quantity 2.0 for batch creation
+2026-03-19 14:57:02,303 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,304 - INFO - Processing Excel row 45: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU000F11105', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'FU000F11105'}
+2026-03-19 14:57:02,304 - INFO - Using cached product ID for code: 'FU000F11105'
+2026-03-19 14:57:02,305 - INFO - Prepared product FU000F11105 with quantity 2.0 for batch creation
+2026-03-19 14:57:02,305 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,306 - INFO - Processing Excel row 46: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010117', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': '413010117'}
+2026-03-19 14:57:02,307 - INFO - Using cached product ID for code: '413010117'
+2026-03-19 14:57:02,307 - INFO - Prepared product 413010117 with quantity 2.0 for batch creation
+2026-03-19 14:57:02,308 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,309 - INFO - Processing Excel row 47: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0362101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MA0362101'}
+2026-03-19 14:57:02,310 - INFO - Searching for product with code: 'MA0362101' and old code: 'MA0362101'
+2026-03-19 14:57:02,372 - INFO - Found product with exact match on default_code: 'MA0362101'
+2026-03-19 14:57:02,434 - INFO - Prepared product MA0362101 with quantity 1.0 for batch creation
+2026-03-19 14:57:02,435 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,436 - INFO - Processing Excel row 48: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0523C110', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MA0523C110'}
+2026-03-19 14:57:02,436 - INFO - Searching for product with code: 'MA0523C110' and old code: 'MA0523C110'
+2026-03-19 14:57:02,499 - INFO - Found product with exact match on default_code: 'MA0523C110'
+2026-03-19 14:57:02,562 - INFO - Prepared product MA0523C110 with quantity 1.0 for batch creation
+2026-03-19 14:57:02,562 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,563 - INFO - Processing Excel row 49: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010133', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': '413010133'}
+2026-03-19 14:57:02,563 - INFO - Using cached product ID for code: '413010133'
+2026-03-19 14:57:02,563 - INFO - Prepared product 413010133 with quantity 3.0 for batch creation
+2026-03-19 14:57:02,564 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,564 - INFO - Processing Excel row 50: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MAM011C116', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MAM011C116'}
+2026-03-19 14:57:02,564 - INFO - Using cached product ID for code: 'MAM011C116'
+2026-03-19 14:57:02,565 - INFO - Prepared product MAM011C116 with quantity 3.0 for batch creation
+2026-03-19 14:57:02,565 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,566 - INFO - Processing Excel row 51: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010133', 'product_uom_qty': 4, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': '413010133'}
+2026-03-19 14:57:02,566 - INFO - Using cached product ID for code: '413010133'
+2026-03-19 14:57:02,566 - INFO - Prepared product 413010133 with quantity 4.0 for batch creation
+2026-03-19 14:57:02,566 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,567 - INFO - Processing Excel row 52: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MAM011C115', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MAM011C115'}
+2026-03-19 14:57:02,567 - INFO - Searching for product with code: 'MAM011C115' and old code: 'MAM011C115'
+2026-03-19 14:57:02,629 - INFO - Found product with exact match on default_code: 'MAM011C115'
+2026-03-19 14:57:02,694 - INFO - Prepared product MAM011C115 with quantity 3.0 for batch creation
+2026-03-19 14:57:02,694 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,695 - INFO - Processing Excel row 53: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MAM011C116', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'MAM011C116'}
+2026-03-19 14:57:02,695 - INFO - Using cached product ID for code: 'MAM011C116'
+2026-03-19 14:57:02,696 - INFO - Prepared product MAM011C116 with quantity 1.0 for batch creation
+2026-03-19 14:57:02,696 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,696 - INFO - Processing Excel row 54: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FO0019LC770', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'FO0019LC770'}
+2026-03-19 14:57:02,697 - INFO - Searching for product with code: 'FO0019LC770' and old code: 'FO0019LC770'
+2026-03-19 14:57:02,759 - INFO - Found product with exact match on default_code: 'FO0019LC770'
+2026-03-19 14:57:02,827 - INFO - Prepared product FO0019LC770 with quantity 1.0 for batch creation
+2026-03-19 14:57:02,828 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,829 - INFO - Processing Excel row 55: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU0043E8C161', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'FU0043E8C161'}
+2026-03-19 14:57:02,830 - INFO - Searching for product with code: 'FU0043E8C161' and old code: 'FU0043E8C161'
+2026-03-19 14:57:02,892 - INFO - Found product with exact match on default_code: 'FU0043E8C161'
+2026-03-19 14:57:02,961 - INFO - Prepared product FU0043E8C161 with quantity 1.0 for batch creation
+2026-03-19 14:57:02,962 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,963 - INFO - Processing Excel row 56: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU0033FC1560', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'FU0033FC1560'}
+2026-03-19 14:57:02,964 - INFO - Using cached product ID for code: 'FU0033FC1560'
+2026-03-19 14:57:02,965 - INFO - Prepared product FU0033FC1560 with quantity 1.0 for batch creation
+2026-03-19 14:57:02,965 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:02,966 - INFO - Processing Excel row 57: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-15 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-15 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'F00018FC12', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-15 00:00:00'), 'product_id': 'F00018FC12'}
+2026-03-19 14:57:02,967 - INFO - Searching for product with code: 'F00018FC12' and old code: 'F00018FC12'
+2026-03-19 14:57:03,030 - INFO - Found product with exact match on default_code: 'F00018FC12'
+2026-03-19 14:57:03,093 - INFO - Prepared product F00018FC12 with quantity 1.0 for batch creation
+2026-03-19 14:57:03,093 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:03,614 - INFO - Created 57 moves in batch for picking 10419
+2026-03-19 14:57:03,694 - INFO - Re-updated dates before confirming picking 10419: 2025-12-15 00:00:00
+2026-03-19 14:57:04,313 - INFO - Confirmed transfer 10419 with forced date context
+2026-03-19 14:57:04,458 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:57:04,531 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:57:04,612 - INFO - Created transfer for date 2025-12-16 00:00:00 sequence 0.0 with picking ID 10420
+2026-03-19 14:57:04,615 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:57:04,617 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:57:04,618 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,619 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,621 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:57:04,623 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:57:04,624 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,625 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,627 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:57:04,628 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:57:04,629 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,630 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,632 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:57:04,633 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:57:04,633 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,634 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,634 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:57:04,635 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:57:04,636 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,636 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,637 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:57:04,637 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:57:04,638 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,638 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,639 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:57:04,640 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:57:04,640 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,641 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,641 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:04,642 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:04,643 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,643 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,644 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:04,644 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:04,645 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,645 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,646 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:04,646 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:04,647 - INFO - Prepared product MT0021101 with quantity 2.0 for batch creation
+2026-03-19 14:57:04,647 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,648 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:04,648 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:04,649 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,649 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,650 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:04,650 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:04,650 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,651 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,651 - INFO - Processing Excel row 13: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:04,652 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:04,652 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,652 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,653 - INFO - Processing Excel row 14: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:04,653 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:04,653 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,654 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,654 - INFO - Processing Excel row 15: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0020101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT0020101'}
+2026-03-19 14:57:04,654 - INFO - Using cached product ID for code: 'MT0020101'
+2026-03-19 14:57:04,655 - INFO - Prepared product MT0020101 with quantity 2.0 for batch creation
+2026-03-19 14:57:04,655 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,656 - INFO - Processing Excel row 16: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0026101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MO0026101'}
+2026-03-19 14:57:04,656 - INFO - Using cached product ID for code: 'MO0026101'
+2026-03-19 14:57:04,656 - INFO - Prepared product MO0026101 with quantity 1.0 for batch creation
+2026-03-19 14:57:04,656 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:04,657 - INFO - Processing Excel row 17: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT24SP101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT24SP101'}
+2026-03-19 14:57:04,657 - INFO - Searching for product with code: 'MT24SP101' and old code: 'MT24SP101'
+2026-03-19 14:57:04,846 - INFO - Found product with exact match on default_code: 'MT24SP101'
+2026-03-19 14:57:05,048 - INFO - Prepared product MT24SP101 with quantity 1.0 for batch creation
+2026-03-19 14:57:05,049 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:05,050 - INFO - Processing Excel row 18: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0310101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MO0310101'}
+2026-03-19 14:57:05,050 - INFO - Searching for product with code: 'MO0310101' and old code: 'MO0310101'
+2026-03-19 14:57:05,204 - INFO - Found product with exact match on default_code: 'MO0310101'
+2026-03-19 14:57:05,345 - INFO - Prepared product MO0310101 with quantity 1.0 for batch creation
+2026-03-19 14:57:05,346 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:05,348 - INFO - Processing Excel row 19: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0032101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MO0032101'}
+2026-03-19 14:57:05,349 - INFO - Using cached product ID for code: 'MO0032101'
+2026-03-19 14:57:05,350 - INFO - Prepared product MO0032101 with quantity 1.0 for batch creation
+2026-03-19 14:57:05,350 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:05,352 - INFO - Processing Excel row 20: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO00381211', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MO00381211'}
+2026-03-19 14:57:05,353 - INFO - Using cached product ID for code: 'MO00381211'
+2026-03-19 14:57:05,354 - INFO - Prepared product MO00381211 with quantity 3.0 for batch creation
+2026-03-19 14:57:05,355 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:05,356 - INFO - Processing Excel row 21: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO006901110', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MO006901110'}
+2026-03-19 14:57:05,357 - INFO - Searching for product with code: 'MO006901110' and old code: 'MO006901110'
+2026-03-19 14:57:05,664 - INFO - Found product with exact match on default_code: 'MO006901110'
+2026-03-19 14:57:05,819 - INFO - Prepared product MO006901110 with quantity 1.0 for batch creation
+2026-03-19 14:57:05,820 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:05,820 - INFO - Processing Excel row 22: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT22TCF100', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT22TCF100'}
+2026-03-19 14:57:05,821 - INFO - Using cached product ID for code: 'MT22TCF100'
+2026-03-19 14:57:05,821 - INFO - Prepared product MT22TCF100 with quantity 3.0 for batch creation
+2026-03-19 14:57:05,822 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:05,822 - INFO - Processing Excel row 23: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT024NB+101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT024NB+101'}
+2026-03-19 14:57:05,822 - INFO - Using cached product ID for code: 'MT024NB+101'
+2026-03-19 14:57:05,823 - INFO - Prepared product MT024NB+101 with quantity 1.0 for batch creation
+2026-03-19 14:57:05,823 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:05,824 - INFO - Processing Excel row 24: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT38FV101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MT38FV101'}
+2026-03-19 14:57:05,824 - INFO - Searching for product with code: 'MT38FV101' and old code: 'MT38FV101'
+2026-03-19 14:57:05,938 - INFO - Found product with exact match on default_code: 'MT38FV101'
+2026-03-19 14:57:06,283 - INFO - Prepared product MT38FV101 with quantity 1.0 for batch creation
+2026-03-19 14:57:06,283 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:06,284 - INFO - Processing Excel row 25: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA266P201', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA266P201'}
+2026-03-19 14:57:06,285 - INFO - Using cached product ID for code: 'MA266P201'
+2026-03-19 14:57:06,285 - INFO - Prepared product MA266P201 with quantity 1.0 for batch creation
+2026-03-19 14:57:06,286 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:06,286 - INFO - Processing Excel row 26: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA266B201', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA266B201'}
+2026-03-19 14:57:06,287 - INFO - Using cached product ID for code: 'MA266B201'
+2026-03-19 14:57:06,288 - INFO - Prepared product MA266B201 with quantity 1.0 for batch creation
+2026-03-19 14:57:06,288 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:06,289 - INFO - Processing Excel row 27: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA092B101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA092B101'}
+2026-03-19 14:57:06,289 - INFO - Searching for product with code: 'MA092B101' and old code: 'MA092B101'
+2026-03-19 14:57:06,543 - INFO - Found product with exact match on default_code: 'MA092B101'
+2026-03-19 14:57:06,754 - INFO - Prepared product MA092B101 with quantity 1.0 for batch creation
+2026-03-19 14:57:06,755 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:06,757 - INFO - Processing Excel row 28: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA332B1101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA332B1101'}
+2026-03-19 14:57:06,758 - INFO - Using cached product ID for code: 'MA332B1101'
+2026-03-19 14:57:06,759 - INFO - Prepared product MA332B1101 with quantity 1.0 for batch creation
+2026-03-19 14:57:06,760 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:06,762 - INFO - Processing Excel row 29: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0154101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA0154101'}
+2026-03-19 14:57:06,764 - INFO - Searching for product with code: 'MA0154101' and old code: 'MA0154101'
+2026-03-19 14:57:06,853 - INFO - Found product with exact match on default_code: 'MA0154101'
+2026-03-19 14:57:07,140 - INFO - Prepared product MA0154101 with quantity 1.0 for batch creation
+2026-03-19 14:57:07,140 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:07,141 - INFO - Processing Excel row 30: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA183A101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA183A101'}
+2026-03-19 14:57:07,142 - INFO - Using cached product ID for code: 'MA183A101'
+2026-03-19 14:57:07,142 - INFO - Prepared product MA183A101 with quantity 1.0 for batch creation
+2026-03-19 14:57:07,142 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:07,143 - INFO - Processing Excel row 31: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010133', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': '413010133'}
+2026-03-19 14:57:07,143 - INFO - Using cached product ID for code: '413010133'
+2026-03-19 14:57:07,144 - INFO - Prepared product 413010133 with quantity 1.0 for batch creation
+2026-03-19 14:57:07,144 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:07,145 - INFO - Processing Excel row 32: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0054101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MA0054101'}
+2026-03-19 14:57:07,146 - INFO - Searching for product with code: 'MA0054101' and old code: 'MA0054101'
+2026-03-19 14:57:07,368 - INFO - Found product with exact match on default_code: 'MA0054101'
+2026-03-19 14:57:07,480 - INFO - Prepared product MA0054101 with quantity 1.0 for batch creation
+2026-03-19 14:57:07,481 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:07,481 - INFO - Processing Excel row 33: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MAE002101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MAE002101'}
+2026-03-19 14:57:07,482 - INFO - Searching for product with code: 'MAE002101' and old code: 'MAE002101'
+2026-03-19 14:57:07,689 - INFO - Found product with exact match on default_code: 'MAE002101'
+2026-03-19 14:57:08,469 - INFO - Prepared product MAE002101 with quantity 1.0 for batch creation
+2026-03-19 14:57:08,470 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:08,470 - INFO - Processing Excel row 34: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU043BQL160', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'FU043BQL160'}
+2026-03-19 14:57:08,471 - INFO - Searching for product with code: 'FU043BQL160' and old code: 'FU043BQL160'
+2026-03-19 14:57:08,741 - INFO - Found product with exact match on default_code: 'FU043BQL160'
+2026-03-19 14:57:08,894 - INFO - Prepared product FU043BQL160 with quantity 1.0 for batch creation
+2026-03-19 14:57:08,895 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:08,897 - INFO - Processing Excel row 35: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-16 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-16 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MF015R1Q4', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-16 00:00:00'), 'product_id': 'MF015R1Q4'}
+2026-03-19 14:57:08,899 - INFO - Searching for product with code: 'MF015R1Q4' and old code: 'MF015R1Q4'
+2026-03-19 14:57:09,694 - INFO - Found product with exact match on default_code: 'MF015R1Q4'
+2026-03-19 14:57:09,903 - INFO - Prepared product MF015R1Q4 with quantity 1.0 for batch creation
+2026-03-19 14:57:09,904 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:10,751 - INFO - Created 35 moves in batch for picking 10420
+2026-03-19 14:57:11,040 - INFO - Re-updated dates before confirming picking 10420: 2025-12-16 00:00:00
+2026-03-19 14:57:11,777 - INFO - Confirmed transfer 10420 with forced date context
+2026-03-19 14:57:12,694 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:57:12,956 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:57:13,384 - INFO - Created transfer for date 2025-12-17 00:00:00 sequence 0.0 with picking ID 10421
+2026-03-19 14:57:13,384 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-17 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-17 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010097', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-17 00:00:00'), 'product_id': '413010097'}
+2026-03-19 14:57:13,385 - INFO - Searching for product with code: '413010097' and old code: '413010097'
+2026-03-19 14:57:13,995 - INFO - Found product with exact match on default_code: '413010097'
+2026-03-19 14:57:14,256 - INFO - Prepared product 413010097 with quantity 1.0 for batch creation
+2026-03-19 14:57:14,257 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:14,258 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-17 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-17 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU0025HC19', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-17 00:00:00'), 'product_id': 'FU0025HC19'}
+2026-03-19 14:57:14,259 - INFO - Searching for product with code: 'FU0025HC19' and old code: 'FU0025HC19'
+2026-03-19 14:57:14,507 - INFO - Found product with exact match on default_code: 'FU0025HC19'
+2026-03-19 14:57:14,733 - INFO - Prepared product FU0025HC19 with quantity 1.0 for batch creation
+2026-03-19 14:57:14,734 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:14,887 - INFO - Created 2 moves in batch for picking 10421
+2026-03-19 14:57:15,113 - INFO - Re-updated dates before confirming picking 10421: 2025-12-17 00:00:00
+2026-03-19 14:57:15,345 - INFO - Confirmed transfer 10421 with forced date context
+2026-03-19 14:57:15,521 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:57:15,743 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:57:15,832 - INFO - Created transfer for date 2025-12-18 00:00:00 sequence 0.0 with picking ID 10422
+2026-03-19 14:57:15,833 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:57:15,834 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:57:15,835 - INFO - Prepared product MA0142101 with quantity 1.0 for batch creation
+2026-03-19 14:57:15,835 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,836 - INFO - Processing Excel row 2: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MA0142101', 'product_uom_qty': 2, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MA0142101'}
+2026-03-19 14:57:15,837 - INFO - Using cached product ID for code: 'MA0142101'
+2026-03-19 14:57:15,837 - INFO - Prepared product MA0142101 with quantity 2.0 for batch creation
+2026-03-19 14:57:15,838 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,839 - INFO - Processing Excel row 3: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0025101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MO0025101'}
+2026-03-19 14:57:15,840 - INFO - Using cached product ID for code: 'MO0025101'
+2026-03-19 14:57:15,841 - INFO - Prepared product MO0025101 with quantity 1.0 for batch creation
+2026-03-19 14:57:15,841 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,842 - INFO - Processing Excel row 4: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:57:15,843 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:57:15,843 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:57:15,844 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,845 - INFO - Processing Excel row 5: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0014101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT0014101'}
+2026-03-19 14:57:15,846 - INFO - Using cached product ID for code: 'MT0014101'
+2026-03-19 14:57:15,846 - INFO - Prepared product MT0014101 with quantity 1.0 for batch creation
+2026-03-19 14:57:15,847 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,848 - INFO - Processing Excel row 6: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 3, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:15,848 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:15,849 - INFO - Prepared product MT0021101 with quantity 3.0 for batch creation
+2026-03-19 14:57:15,850 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,851 - INFO - Processing Excel row 7: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT0021101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT0021101'}
+2026-03-19 14:57:15,852 - INFO - Using cached product ID for code: 'MT0021101'
+2026-03-19 14:57:15,852 - INFO - Prepared product MT0021101 with quantity 1.0 for batch creation
+2026-03-19 14:57:15,853 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,854 - INFO - Processing Excel row 8: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0010101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MO0010101'}
+2026-03-19 14:57:15,854 - INFO - Using cached product ID for code: 'MO0010101'
+2026-03-19 14:57:15,855 - INFO - Prepared product MO0010101 with quantity 1.0 for batch creation
+2026-03-19 14:57:15,856 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,857 - INFO - Processing Excel row 9: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO005N101.', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MO005N101.'}
+2026-03-19 14:57:15,857 - INFO - Using cached product ID for code: 'MO005N101.'
+2026-03-19 14:57:15,858 - INFO - Prepared product MO005N101. with quantity 1.0 for batch creation
+2026-03-19 14:57:15,858 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,859 - INFO - Processing Excel row 10: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT024NB+101', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'MT024NB+101'}
+2026-03-19 14:57:15,860 - INFO - Using cached product ID for code: 'MT024NB+101'
+2026-03-19 14:57:15,860 - INFO - Prepared product MT024NB+101 with quantity 1.0 for batch creation
+2026-03-19 14:57:15,861 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:15,862 - INFO - Processing Excel row 11: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': '413010177', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': '413010177'}
+2026-03-19 14:57:15,863 - INFO - Searching for product with code: '413010177' and old code: '413010177'
+2026-03-19 14:57:16,012 - INFO - Found product with exact match on default_code: '413010177'
+2026-03-19 14:57:16,112 - INFO - Prepared product 413010177 with quantity 1.0 for batch creation
+2026-03-19 14:57:16,113 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:16,115 - INFO - Processing Excel row 12: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-18 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-18 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'FU00043DEC21511', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-18 00:00:00'), 'product_id': 'FU00043DEC21511'}
+2026-03-19 14:57:16,116 - INFO - Searching for product with code: 'FU00043DEC21511' and old code: 'FU00043DEC21511'
+2026-03-19 14:57:16,264 - INFO - Found product with exact match on default_code: 'FU00043DEC21511'
+2026-03-19 14:57:16,390 - INFO - Prepared product FU00043DEC21511 with quantity 1.0 for batch creation
+2026-03-19 14:57:16,391 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:16,589 - INFO - Created 12 moves in batch for picking 10422
+2026-03-19 14:57:16,694 - INFO - Re-updated dates before confirming picking 10422: 2025-12-18 00:00:00
+2026-03-19 14:57:16,908 - INFO - Confirmed transfer 10422 with forced date context
+2026-03-19 14:57:17,186 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:57:17,348 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:57:17,496 - INFO - Created transfer for date 2025-12-20 00:00:00 sequence 0.0 with picking ID 10423
+2026-03-19 14:57:17,497 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-20 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-20 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MO0830SADC10000', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-20 00:00:00'), 'product_id': 'MO0830SADC10000'}
+2026-03-19 14:57:17,498 - INFO - Searching for product with code: 'MO0830SADC10000' and old code: 'MO0830SADC10000'
+2026-03-19 14:57:17,584 - INFO - Found product with exact match on default_code: 'MO0830SADC10000'
+2026-03-19 14:57:17,674 - INFO - Prepared product MO0830SADC10000 with quantity 1.0 for batch creation
+2026-03-19 14:57:17,675 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:17,902 - INFO - Created 1 moves in batch for picking 10423
+2026-03-19 14:57:18,114 - INFO - Re-updated dates before confirming picking 10423: 2025-12-20 00:00:00
+2026-03-19 14:57:18,405 - INFO - Confirmed transfer 10423 with forced date context
+2026-03-19 14:57:18,610 - INFO - Using cached location ID for: 'Partners/Customers'
+2026-03-19 14:57:18,783 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-19 14:57:18,890 - INFO - Created transfer for date 2025-12-24 00:00:00 sequence 0.0 with picking ID 10424
+2026-03-19 14:57:18,891 - INFO - Processing Excel row 1: {'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-24 00:00:00'), 'picking_type_id': 'FG40-Deli', 'date_done': Timestamp('2025-12-24 00:00:00'), 'origin': 'MO OUT FG40', 'location_dest_id': 'Partners/Customers', 'default_code': 'MT043S1710', 'product_uom_qty': 1, 'price_unit': nan, 'sequence': 0.0, 'date': nan, 'scheduled_date_orig': Timestamp('2025-12-24 00:00:00'), 'product_id': 'MT043S1710'}
+2026-03-19 14:57:18,892 - INFO - Using cached product ID for code: 'MT043S1710'
+2026-03-19 14:57:18,892 - INFO - Prepared product MT043S1710 with quantity 1.0 for batch creation
+2026-03-19 14:57:18,893 - INFO - Move locations - Source: 76, Dest: 5
+2026-03-19 14:57:19,029 - INFO - Created 1 moves in batch for picking 10424
+2026-03-19 14:57:19,132 - INFO - Re-updated dates before confirming picking 10424: 2025-12-24 00:00:00
+2026-03-19 14:57:19,328 - INFO - Confirmed transfer 10424 with forced date context
+2026-03-19 14:57:19,330 - INFO - Import completed: 13 success, 0 failed.
