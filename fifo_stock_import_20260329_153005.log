@@ -1,0 +1,625 @@
+2026-03-29 15:30:06,295 - INFO - Successfully connected to Odoo as user ID: 2
+2026-03-29 15:30:06,406 - INFO - Odoo version: 17.0.1.3
+2026-03-29 15:30:06,670 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-03-29 15:30:06,802 - INFO - Successfully read Excel file with 67 rows
+2026-03-29 15:30:06,802 - INFO - Excel columns: ['name', 'partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit']
+2026-03-29 15:30:06,804 - INFO - Forward filled 'name' column
+2026-03-29 15:30:06,806 - INFO - scheduled_date dtype: datetime64[ns]
+2026-03-29 15:30:06,806 - INFO - scheduled_date sample: 2026-01-05 00:00:00
+2026-03-29 15:30:06,807 - INFO - Converted scheduled_date to string format. Sample: 2026-01-05 00:00:00
+2026-03-29 15:30:06,807 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-03-29 15:30:06,807 - INFO - Using 'default_code' column as 'product_id'
+2026-03-29 15:30:06,807 - INFO - Using 'origin' column to identify transfer groups
+2026-03-29 15:30:06,809 - INFO - Excel file validation and data filling completed successfully
+2026-03-29 15:30:06,952 - INFO - Searching for location: 'RM02/Stock'
+2026-03-29 15:30:07,186 - INFO - Found location with complete_name match: 'RM02/Stock' for 'RM02/Stock'
+2026-03-29 15:30:07,271 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:07,428 - INFO - Created transfer for date 2026-01-05 00:00:00 sequence  with picking ID 13418
+2026-03-29 15:30:07,430 - INFO - Processing Excel row 1: {'name': 'BOJ0003110', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-05 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-05 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '303060005', 'product_uom_qty': 7, 'price_unit': 3309.97964285714, 'scheduled_date_orig': Timestamp('2026-01-05 00:00:00'), 'product_id': '303060005'}
+2026-03-29 15:30:07,430 - INFO - Searching for product with code: '303060005' and old code: '303060005'
+2026-03-29 15:30:07,519 - INFO - Found product with exact match on default_code: '303060005'
+2026-03-29 15:30:07,607 - INFO - Prepared product 303060005 with quantity 7.0 for batch creation
+2026-03-29 15:30:07,608 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:07,738 - INFO - Created 1 moves in batch for picking 13418
+2026-03-29 15:30:07,860 - INFO - Re-updated dates before confirming picking 13418: 2026-01-05 00:00:00
+2026-03-29 15:30:07,994 - INFO - Confirmed transfer 13418 with forced date context
+2026-03-29 15:30:08,166 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:08,273 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:08,445 - INFO - Created transfer for date 2026-01-05 00:00:00 sequence  with picking ID 13419
+2026-03-29 15:30:08,447 - INFO - Processing Excel row 1: {'name': 'BOJ0003111', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-05 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-05 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '303060043', 'product_uom_qty': 30, 'price_unit': 1182.41566666667, 'scheduled_date_orig': Timestamp('2026-01-05 00:00:00'), 'product_id': '303060043'}
+2026-03-29 15:30:08,448 - INFO - Searching for product with code: '303060043' and old code: '303060043'
+2026-03-29 15:30:08,528 - INFO - Found product with exact match on default_code: '303060043'
+2026-03-29 15:30:08,610 - INFO - Prepared product 303060043 with quantity 30.0 for batch creation
+2026-03-29 15:30:08,610 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:08,710 - INFO - Created 1 moves in batch for picking 13419
+2026-03-29 15:30:08,808 - INFO - Re-updated dates before confirming picking 13419: 2026-01-05 00:00:00
+2026-03-29 15:30:08,951 - INFO - Confirmed transfer 13419 with forced date context
+2026-03-29 15:30:09,117 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:09,205 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:09,390 - INFO - Created transfer for date 2026-01-05 00:00:00 sequence  with picking ID 13420
+2026-03-29 15:30:09,392 - INFO - Processing Excel row 1: {'name': 'BOJ0003112', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-05 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-05 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '303060033', 'product_uom_qty': 5, 'price_unit': 1696.4942, 'scheduled_date_orig': Timestamp('2026-01-05 00:00:00'), 'product_id': '303060033'}
+2026-03-29 15:30:09,392 - INFO - Searching for product with code: '303060033' and old code: '303060033'
+2026-03-29 15:30:09,470 - INFO - Found product with exact match on default_code: '303060033'
+2026-03-29 15:30:09,564 - INFO - Prepared product 303060033 with quantity 5.0 for batch creation
+2026-03-29 15:30:09,564 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:09,665 - INFO - Created 1 moves in batch for picking 13420
+2026-03-29 15:30:09,769 - INFO - Re-updated dates before confirming picking 13420: 2026-01-05 00:00:00
+2026-03-29 15:30:09,911 - INFO - Confirmed transfer 13420 with forced date context
+2026-03-29 15:30:10,083 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:10,166 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:10,352 - INFO - Created transfer for date 2026-01-07 00:00:00 sequence  with picking ID 13421
+2026-03-29 15:30:10,352 - INFO - Processing Excel row 1: {'name': 'BOJ0003117', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-07 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-07 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201090455', 'product_uom_qty': 4, 'price_unit': 778.8304, 'scheduled_date_orig': Timestamp('2026-01-07 00:00:00'), 'product_id': '201090455'}
+2026-03-29 15:30:10,352 - INFO - Searching for product with code: '201090455' and old code: '201090455'
+2026-03-29 15:30:10,442 - INFO - Found product with exact match on default_code: '201090455'
+2026-03-29 15:30:10,518 - INFO - Prepared product 201090455 with quantity 4.0 for batch creation
+2026-03-29 15:30:10,519 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:10,520 - INFO - Processing Excel row 2: {'name': 'BOJ0003117', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-07 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-07 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201090456', 'product_uom_qty': 4, 'price_unit': 1168.2454, 'scheduled_date_orig': Timestamp('2026-01-07 00:00:00'), 'product_id': '201090456'}
+2026-03-29 15:30:10,520 - INFO - Searching for product with code: '201090456' and old code: '201090456'
+2026-03-29 15:30:10,597 - INFO - Found product with exact match on default_code: '201090456'
+2026-03-29 15:30:10,682 - INFO - Prepared product 201090456 with quantity 4.0 for batch creation
+2026-03-29 15:30:10,683 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:10,683 - INFO - Processing Excel row 3: {'name': 'BOJ0003117', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-07 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-07 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201090457', 'product_uom_qty': 4, 'price_unit': 1168.2454, 'scheduled_date_orig': Timestamp('2026-01-07 00:00:00'), 'product_id': '201090457'}
+2026-03-29 15:30:10,683 - INFO - Searching for product with code: '201090457' and old code: '201090457'
+2026-03-29 15:30:10,762 - INFO - Found product with exact match on default_code: '201090457'
+2026-03-29 15:30:10,842 - INFO - Prepared product 201090457 with quantity 4.0 for batch creation
+2026-03-29 15:30:10,843 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:10,843 - INFO - Processing Excel row 4: {'name': 'BOJ0003117', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-07 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-07 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201090458', 'product_uom_qty': 4, 'price_unit': 778.8304, 'scheduled_date_orig': Timestamp('2026-01-07 00:00:00'), 'product_id': '201090458'}
+2026-03-29 15:30:10,844 - INFO - Searching for product with code: '201090458' and old code: '201090458'
+2026-03-29 15:30:10,916 - INFO - Found product with exact match on default_code: '201090458'
+2026-03-29 15:30:10,997 - INFO - Prepared product 201090458 with quantity 4.0 for batch creation
+2026-03-29 15:30:10,997 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:11,349 - INFO - Created 4 moves in batch for picking 13421
+2026-03-29 15:30:11,448 - INFO - Re-updated dates before confirming picking 13421: 2026-01-07 00:00:00
+2026-03-29 15:30:11,610 - INFO - Confirmed transfer 13421 with forced date context
+2026-03-29 15:30:11,769 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:11,844 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:11,925 - WARNING - Transfer reference 'BOJ0003118' already exists. Trying with suffix -1
+2026-03-29 15:30:12,001 - INFO - Using new transfer reference: 'BOJ0003118-1'
+2026-03-29 15:30:12,101 - INFO - Created transfer for date 2026-01-07 00:00:00 sequence  with picking ID 13422
+2026-03-29 15:30:12,103 - INFO - Processing Excel row 1: {'name': 'BOJ0003118', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-07 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-07 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '406010099', 'product_uom_qty': 200, 'price_unit': 5.8, 'scheduled_date_orig': Timestamp('2026-01-07 00:00:00'), 'product_id': '406010099'}
+2026-03-29 15:30:12,104 - INFO - Searching for product with code: '406010099' and old code: '406010099'
+2026-03-29 15:30:12,184 - INFO - Found product with exact match on default_code: '406010099'
+2026-03-29 15:30:12,270 - INFO - Prepared product 406010099 with quantity 200.0 for batch creation
+2026-03-29 15:30:12,271 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:12,379 - INFO - Created 1 moves in batch for picking 13422
+2026-03-29 15:30:12,467 - INFO - Re-updated dates before confirming picking 13422: 2026-01-07 00:00:00
+2026-03-29 15:30:12,603 - INFO - Confirmed transfer 13422 with forced date context
+2026-03-29 15:30:12,769 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:12,855 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:13,050 - INFO - Created transfer for date 2026-01-07 00:00:00 sequence  with picking ID 13423
+2026-03-29 15:30:13,052 - INFO - Processing Excel row 1: {'name': 'BOJ0003121', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-07 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-07 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010092', 'product_uom_qty': 15, 'price_unit': 736.9577, 'scheduled_date_orig': Timestamp('2026-01-07 00:00:00'), 'product_id': '301010092'}
+2026-03-29 15:30:13,052 - INFO - Searching for product with code: '301010092' and old code: '301010092'
+2026-03-29 15:30:13,140 - INFO - Found product with exact match on default_code: '301010092'
+2026-03-29 15:30:13,218 - INFO - Prepared product 301010092 with quantity 15.0 for batch creation
+2026-03-29 15:30:13,218 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:13,332 - INFO - Created 1 moves in batch for picking 13423
+2026-03-29 15:30:13,427 - INFO - Re-updated dates before confirming picking 13423: 2026-01-07 00:00:00
+2026-03-29 15:30:13,567 - INFO - Confirmed transfer 13423 with forced date context
+2026-03-29 15:30:13,731 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:13,824 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:14,021 - INFO - Created transfer for date 2026-01-07 00:00:00 sequence  with picking ID 13424
+2026-03-29 15:30:14,022 - INFO - Processing Excel row 1: {'name': 'BOJ0003122', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-07 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-07 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010026', 'product_uom_qty': 1, 'price_unit': 19093.9046, 'scheduled_date_orig': Timestamp('2026-01-07 00:00:00'), 'product_id': '304010026'}
+2026-03-29 15:30:14,023 - INFO - Searching for product with code: '304010026' and old code: '304010026'
+2026-03-29 15:30:14,095 - INFO - Found product with exact match on default_code: '304010026'
+2026-03-29 15:30:14,182 - INFO - Prepared product 304010026 with quantity 1.0 for batch creation
+2026-03-29 15:30:14,183 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:14,294 - INFO - Created 1 moves in batch for picking 13424
+2026-03-29 15:30:14,448 - INFO - Re-updated dates before confirming picking 13424: 2026-01-07 00:00:00
+2026-03-29 15:30:14,620 - INFO - Confirmed transfer 13424 with forced date context
+2026-03-29 15:30:14,779 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:14,861 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:15,046 - INFO - Created transfer for date 2026-01-08 00:00:00 sequence  with picking ID 13425
+2026-03-29 15:30:15,048 - INFO - Processing Excel row 1: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050107', 'product_uom_qty': 1, 'price_unit': 1001.8249, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050107'}
+2026-03-29 15:30:15,049 - INFO - Searching for product with code: '201050107' and old code: '201050107'
+2026-03-29 15:30:15,133 - INFO - Found product with exact match on default_code: '201050107'
+2026-03-29 15:30:15,225 - INFO - Prepared product 201050107 with quantity 1.0 for batch creation
+2026-03-29 15:30:15,226 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:15,227 - INFO - Processing Excel row 2: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050125', 'product_uom_qty': 3, 'price_unit': 148.346933333333, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050125'}
+2026-03-29 15:30:15,227 - INFO - Searching for product with code: '201050125' and old code: '201050125'
+2026-03-29 15:30:15,316 - INFO - Found product with exact match on default_code: '201050125'
+2026-03-29 15:30:15,396 - INFO - Prepared product 201050125 with quantity 3.0 for batch creation
+2026-03-29 15:30:15,397 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:15,398 - INFO - Processing Excel row 3: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050264', 'product_uom_qty': 9, 'price_unit': 131.523144444444, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050264'}
+2026-03-29 15:30:15,398 - INFO - Searching for product with code: '201050264' and old code: '201050264'
+2026-03-29 15:30:15,474 - INFO - Found product with exact match on default_code: '201050264'
+2026-03-29 15:30:15,569 - INFO - Prepared product 201050264 with quantity 9.0 for batch creation
+2026-03-29 15:30:15,569 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:15,570 - INFO - Processing Excel row 4: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050122', 'product_uom_qty': 2, 'price_unit': 144.9719, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050122'}
+2026-03-29 15:30:15,570 - INFO - Searching for product with code: '201050122' and old code: '201050122'
+2026-03-29 15:30:15,654 - INFO - Found product with exact match on default_code: '201050122'
+2026-03-29 15:30:15,756 - INFO - Prepared product 201050122 with quantity 2.0 for batch creation
+2026-03-29 15:30:15,756 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:15,757 - INFO - Processing Excel row 5: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050123', 'product_uom_qty': 10, 'price_unit': 145.20265, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050123'}
+2026-03-29 15:30:15,757 - INFO - Searching for product with code: '201050123' and old code: '201050123'
+2026-03-29 15:30:15,845 - INFO - Found product with exact match on default_code: '201050123'
+2026-03-29 15:30:15,956 - INFO - Prepared product 201050123 with quantity 10.0 for batch creation
+2026-03-29 15:30:15,956 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:15,956 - INFO - Processing Excel row 6: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050124', 'product_uom_qty': 2, 'price_unit': 216.50655, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050124'}
+2026-03-29 15:30:15,956 - INFO - Searching for product with code: '201050124' and old code: '201050124'
+2026-03-29 15:30:16,047 - INFO - Found product with exact match on default_code: '201050124'
+2026-03-29 15:30:16,131 - INFO - Prepared product 201050124 with quantity 2.0 for batch creation
+2026-03-29 15:30:16,131 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:16,132 - INFO - Processing Excel row 7: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050261', 'product_uom_qty': 1, 'price_unit': 244.4285, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050261'}
+2026-03-29 15:30:16,132 - INFO - Searching for product with code: '201050261' and old code: '201050261'
+2026-03-29 15:30:16,206 - INFO - Found product with exact match on default_code: '201050261'
+2026-03-29 15:30:16,291 - INFO - Prepared product 201050261 with quantity 1.0 for batch creation
+2026-03-29 15:30:16,291 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:16,292 - INFO - Processing Excel row 8: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050019', 'product_uom_qty': 1, 'price_unit': 404.4763, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050019'}
+2026-03-29 15:30:16,292 - INFO - Searching for product with code: '201050019' and old code: '201050019'
+2026-03-29 15:30:16,364 - INFO - Found product with exact match on default_code: '201050019'
+2026-03-29 15:30:16,452 - INFO - Prepared product 201050019 with quantity 1.0 for batch creation
+2026-03-29 15:30:16,452 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:16,453 - INFO - Processing Excel row 9: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050109', 'product_uom_qty': 2, 'price_unit': 1345.72095, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050109'}
+2026-03-29 15:30:16,453 - INFO - Searching for product with code: '201050109' and old code: '201050109'
+2026-03-29 15:30:16,534 - INFO - Found product with exact match on default_code: '201050109'
+2026-03-29 15:30:16,627 - INFO - Prepared product 201050109 with quantity 2.0 for batch creation
+2026-03-29 15:30:16,627 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:16,628 - INFO - Processing Excel row 10: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050091', 'product_uom_qty': 1, 'price_unit': 793.1317, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050091'}
+2026-03-29 15:30:16,628 - INFO - Searching for product with code: '201050091' and old code: '201050091'
+2026-03-29 15:30:16,720 - INFO - Found product with exact match on default_code: '201050091'
+2026-03-29 15:30:16,804 - INFO - Prepared product 201050091 with quantity 1.0 for batch creation
+2026-03-29 15:30:16,805 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:16,806 - INFO - Processing Excel row 11: {'name': 'BOJ0003123', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-08 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-08 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '201050011', 'product_uom_qty': 1, 'price_unit': 175.4669, 'scheduled_date_orig': Timestamp('2026-01-08 00:00:00'), 'product_id': '201050011'}
+2026-03-29 15:30:16,806 - INFO - Searching for product with code: '201050011' and old code: '201050011'
+2026-03-29 15:30:16,894 - INFO - Found product with exact match on default_code: '201050011'
+2026-03-29 15:30:16,987 - INFO - Prepared product 201050011 with quantity 1.0 for batch creation
+2026-03-29 15:30:16,987 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:17,177 - INFO - Created 11 moves in batch for picking 13425
+2026-03-29 15:30:17,275 - INFO - Re-updated dates before confirming picking 13425: 2026-01-08 00:00:00
+2026-03-29 15:30:17,460 - INFO - Confirmed transfer 13425 with forced date context
+2026-03-29 15:30:17,630 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:17,716 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:17,799 - WARNING - Transfer reference 'BOJ0003124' already exists. Trying with suffix -1
+2026-03-29 15:30:17,878 - INFO - Using new transfer reference: 'BOJ0003124-1'
+2026-03-29 15:30:17,963 - INFO - Created transfer for date 2026-01-16 00:00:00 sequence  with picking ID 13426
+2026-03-29 15:30:17,965 - INFO - Processing Excel row 1: {'name': 'BOJ0003124', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '406010039', 'product_uom_qty': 100, 'price_unit': 4.2, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '406010039'}
+2026-03-29 15:30:17,966 - INFO - Searching for product with code: '406010039' and old code: '406010039'
+2026-03-29 15:30:18,048 - INFO - Found product with exact match on default_code: '406010039'
+2026-03-29 15:30:18,157 - INFO - Prepared product 406010039 with quantity 100.0 for batch creation
+2026-03-29 15:30:18,158 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:18,274 - INFO - Created 1 moves in batch for picking 13426
+2026-03-29 15:30:18,368 - INFO - Re-updated dates before confirming picking 13426: 2026-01-16 00:00:00
+2026-03-29 15:30:18,492 - INFO - Confirmed transfer 13426 with forced date context
+2026-03-29 15:30:18,644 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:18,738 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:18,813 - WARNING - Transfer reference 'BOJ0003125' already exists. Trying with suffix -1
+2026-03-29 15:30:18,882 - INFO - Using new transfer reference: 'BOJ0003125-1'
+2026-03-29 15:30:18,975 - INFO - Created transfer for date 2026-01-16 00:00:00 sequence  with picking ID 13427
+2026-03-29 15:30:18,977 - INFO - Processing Excel row 1: {'name': 'BOJ0003125', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '406010039', 'product_uom_qty': 100, 'price_unit': 4.2, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '406010039'}
+2026-03-29 15:30:18,977 - INFO - Using cached product ID for code: '406010039'
+2026-03-29 15:30:18,978 - INFO - Prepared product 406010039 with quantity 100.0 for batch creation
+2026-03-29 15:30:18,978 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:19,076 - INFO - Created 1 moves in batch for picking 13427
+2026-03-29 15:30:19,166 - INFO - Re-updated dates before confirming picking 13427: 2026-01-16 00:00:00
+2026-03-29 15:30:19,285 - INFO - Confirmed transfer 13427 with forced date context
+2026-03-29 15:30:19,450 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:19,522 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:19,596 - WARNING - Transfer reference 'BOJ0003127' already exists. Trying with suffix -1
+2026-03-29 15:30:19,664 - INFO - Using new transfer reference: 'BOJ0003127-1'
+2026-03-29 15:30:19,760 - INFO - Created transfer for date 2026-01-16 00:00:00 sequence  with picking ID 13428
+2026-03-29 15:30:19,760 - INFO - Processing Excel row 1: {'name': 'BOJ0003127', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '406010069', 'product_uom_qty': 100, 'price_unit': 5.8, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '406010069'}
+2026-03-29 15:30:19,761 - INFO - Searching for product with code: '406010069' and old code: '406010069'
+2026-03-29 15:30:19,849 - INFO - Found product with exact match on default_code: '406010069'
+2026-03-29 15:30:19,939 - INFO - Prepared product 406010069 with quantity 100.0 for batch creation
+2026-03-29 15:30:19,939 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:20,038 - INFO - Created 1 moves in batch for picking 13428
+2026-03-29 15:30:20,128 - INFO - Re-updated dates before confirming picking 13428: 2026-01-16 00:00:00
+2026-03-29 15:30:20,262 - INFO - Confirmed transfer 13428 with forced date context
+2026-03-29 15:30:20,434 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:20,515 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:20,586 - WARNING - Transfer reference 'BOJ0003128' already exists. Trying with suffix -1
+2026-03-29 15:30:20,657 - INFO - Using new transfer reference: 'BOJ0003128-1'
+2026-03-29 15:30:20,733 - INFO - Created transfer for date 2026-01-16 00:00:00 sequence  with picking ID 13429
+2026-03-29 15:30:20,735 - INFO - Processing Excel row 1: {'name': 'BOJ0003128', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '406010069', 'product_uom_qty': 100, 'price_unit': 5.0, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '406010069'}
+2026-03-29 15:30:20,735 - INFO - Using cached product ID for code: '406010069'
+2026-03-29 15:30:20,735 - INFO - Prepared product 406010069 with quantity 100.0 for batch creation
+2026-03-29 15:30:20,736 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:20,842 - INFO - Created 1 moves in batch for picking 13429
+2026-03-29 15:30:20,931 - INFO - Re-updated dates before confirming picking 13429: 2026-01-16 00:00:00
+2026-03-29 15:30:21,058 - INFO - Confirmed transfer 13429 with forced date context
+2026-03-29 15:30:21,217 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:21,299 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:21,453 - INFO - Created transfer for date 2026-01-16 00:00:00 sequence  with picking ID 13430
+2026-03-29 15:30:21,454 - INFO - Processing Excel row 1: {'name': 'BOJ0003133', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '302010072', 'product_uom_qty': 2, 'price_unit': 1185.20595, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '302010072'}
+2026-03-29 15:30:21,454 - INFO - Searching for product with code: '302010072' and old code: '302010072'
+2026-03-29 15:30:21,532 - INFO - Found product with exact match on default_code: '302010072'
+2026-03-29 15:30:21,612 - INFO - Prepared product 302010072 with quantity 2.0 for batch creation
+2026-03-29 15:30:21,612 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:21,613 - INFO - Processing Excel row 2: {'name': 'BOJ0003133', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '302010073', 'product_uom_qty': 4, 'price_unit': 1185.205925, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '302010073'}
+2026-03-29 15:30:21,613 - INFO - Searching for product with code: '302010073' and old code: '302010073'
+2026-03-29 15:30:21,685 - INFO - Found product with exact match on default_code: '302010073'
+2026-03-29 15:30:21,756 - INFO - Prepared product 302010073 with quantity 4.0 for batch creation
+2026-03-29 15:30:21,756 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:21,757 - INFO - Processing Excel row 3: {'name': 'BOJ0003133', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '302010074', 'product_uom_qty': 2, 'price_unit': 1185.20595, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '302010074'}
+2026-03-29 15:30:21,757 - INFO - Searching for product with code: '302010074' and old code: '302010074'
+2026-03-29 15:30:21,838 - INFO - Found product with exact match on default_code: '302010074'
+2026-03-29 15:30:21,935 - INFO - Prepared product 302010074 with quantity 2.0 for batch creation
+2026-03-29 15:30:21,935 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:21,936 - INFO - Processing Excel row 4: {'name': 'BOJ0003133', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '302010075', 'product_uom_qty': 4, 'price_unit': 1185.205925, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '302010075'}
+2026-03-29 15:30:21,936 - INFO - Searching for product with code: '302010075' and old code: '302010075'
+2026-03-29 15:30:22,001 - INFO - Found product with exact match on default_code: '302010075'
+2026-03-29 15:30:22,078 - INFO - Prepared product 302010075 with quantity 4.0 for batch creation
+2026-03-29 15:30:22,078 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:22,217 - INFO - Created 4 moves in batch for picking 13430
+2026-03-29 15:30:22,312 - INFO - Re-updated dates before confirming picking 13430: 2026-01-16 00:00:00
+2026-03-29 15:30:22,476 - INFO - Confirmed transfer 13430 with forced date context
+2026-03-29 15:30:22,630 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:22,731 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:22,912 - INFO - Created transfer for date 2026-01-16 00:00:00 sequence  with picking ID 13431
+2026-03-29 15:30:22,912 - INFO - Processing Excel row 1: {'name': 'BOJ0003136', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '401020004', 'product_uom_qty': 44, 'price_unit': 170.510709090909, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '401020004'}
+2026-03-29 15:30:22,912 - INFO - Searching for product with code: '401020004' and old code: '401020004'
+2026-03-29 15:30:22,989 - INFO - Found product with exact match on default_code: '401020004'
+2026-03-29 15:30:23,066 - INFO - Prepared product 401020004 with quantity 44.0 for batch creation
+2026-03-29 15:30:23,066 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:23,187 - INFO - Created 1 moves in batch for picking 13431
+2026-03-29 15:30:23,289 - INFO - Re-updated dates before confirming picking 13431: 2026-01-16 00:00:00
+2026-03-29 15:30:23,428 - INFO - Confirmed transfer 13431 with forced date context
+2026-03-29 15:30:23,587 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:23,664 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:23,744 - WARNING - Transfer reference 'BOJ0003137' already exists. Trying with suffix -1
+2026-03-29 15:30:23,825 - INFO - Using new transfer reference: 'BOJ0003137-1'
+2026-03-29 15:30:23,915 - INFO - Created transfer for date 2026-01-16 00:00:00 sequence  with picking ID 13432
+2026-03-29 15:30:23,917 - INFO - Processing Excel row 1: {'name': 'BOJ0003137', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-16 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-16 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '406010055', 'product_uom_qty': 200, 'price_unit': 5.0, 'scheduled_date_orig': Timestamp('2026-01-16 00:00:00'), 'product_id': '406010055'}
+2026-03-29 15:30:23,917 - INFO - Searching for product with code: '406010055' and old code: '406010055'
+2026-03-29 15:30:23,995 - INFO - Found product with exact match on default_code: '406010055'
+2026-03-29 15:30:24,073 - INFO - Prepared product 406010055 with quantity 200.0 for batch creation
+2026-03-29 15:30:24,074 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:24,166 - INFO - Created 1 moves in batch for picking 13432
+2026-03-29 15:30:24,255 - INFO - Re-updated dates before confirming picking 13432: 2026-01-16 00:00:00
+2026-03-29 15:30:24,382 - INFO - Confirmed transfer 13432 with forced date context
+2026-03-29 15:30:24,526 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:24,604 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:24,757 - INFO - Created transfer for date 2026-01-19 00:00:00 sequence  with picking ID 13433
+2026-03-29 15:30:24,759 - INFO - Processing Excel row 1: {'name': 'BOJ0003141', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '412030001', 'product_uom_qty': 2, 'price_unit': 75.0, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '412030001'}
+2026-03-29 15:30:24,760 - INFO - Searching for product with code: '412030001' and old code: '412030001'
+2026-03-29 15:30:24,836 - INFO - Found product with exact match on default_code: '412030001'
+2026-03-29 15:30:24,918 - INFO - Prepared product 412030001 with quantity 2.0 for batch creation
+2026-03-29 15:30:24,918 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:24,919 - INFO - Processing Excel row 2: {'name': 'BOJ0003141', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '402070008', 'product_uom_qty': 15, 'price_unit': 1298.1308, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '402070008'}
+2026-03-29 15:30:24,919 - INFO - Searching for product with code: '402070008' and old code: '402070008'
+2026-03-29 15:30:24,997 - INFO - Found product with exact match on default_code: '402070008'
+2026-03-29 15:30:25,077 - INFO - Prepared product 402070008 with quantity 15.0 for batch creation
+2026-03-29 15:30:25,077 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:25,078 - INFO - Processing Excel row 3: {'name': 'BOJ0003141', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '402070005', 'product_uom_qty': 30, 'price_unit': 409.345056666667, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '402070005'}
+2026-03-29 15:30:25,078 - INFO - Searching for product with code: '402070005' and old code: '402070005'
+2026-03-29 15:30:25,156 - INFO - Found product with exact match on default_code: '402070005'
+2026-03-29 15:30:25,236 - INFO - Prepared product 402070005 with quantity 30.0 for batch creation
+2026-03-29 15:30:25,237 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:25,237 - INFO - Processing Excel row 4: {'name': 'BOJ0003141', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '402070006', 'product_uom_qty': 1, 'price_unit': 817.756, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '402070006'}
+2026-03-29 15:30:25,237 - INFO - Searching for product with code: '402070006' and old code: '402070006'
+2026-03-29 15:30:25,312 - INFO - Found product with exact match on default_code: '402070006'
+2026-03-29 15:30:25,394 - INFO - Prepared product 402070006 with quantity 1.0 for batch creation
+2026-03-29 15:30:25,395 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:25,520 - INFO - Created 4 moves in batch for picking 13433
+2026-03-29 15:30:25,617 - INFO - Re-updated dates before confirming picking 13433: 2026-01-19 00:00:00
+2026-03-29 15:30:25,772 - INFO - Confirmed transfer 13433 with forced date context
+2026-03-29 15:30:25,937 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:26,009 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:26,174 - INFO - Created transfer for date 2026-01-19 00:00:00 sequence  with picking ID 13434
+2026-03-29 15:30:26,178 - INFO - Processing Excel row 1: {'name': 'BOJ0003142', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010049', 'product_uom_qty': 10, 'price_unit': 2810.65227, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '304010049'}
+2026-03-29 15:30:26,179 - INFO - Searching for product with code: '304010049' and old code: '304010049'
+2026-03-29 15:30:26,248 - INFO - Found product with exact match on default_code: '304010049'
+2026-03-29 15:30:26,326 - INFO - Prepared product 304010049 with quantity 10.0 for batch creation
+2026-03-29 15:30:26,326 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:26,434 - INFO - Created 1 moves in batch for picking 13434
+2026-03-29 15:30:26,533 - INFO - Re-updated dates before confirming picking 13434: 2026-01-19 00:00:00
+2026-03-29 15:30:26,661 - INFO - Confirmed transfer 13434 with forced date context
+2026-03-29 15:30:26,818 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:26,900 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:27,063 - INFO - Created transfer for date 2026-01-19 00:00:00 sequence  with picking ID 13435
+2026-03-29 15:30:27,065 - INFO - Processing Excel row 1: {'name': 'BOJ0003143', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010048', 'product_uom_qty': 3, 'price_unit': 2589.4519, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '304010048'}
+2026-03-29 15:30:27,065 - INFO - Searching for product with code: '304010048' and old code: '304010048'
+2026-03-29 15:30:27,143 - INFO - Found product with exact match on default_code: '304010048'
+2026-03-29 15:30:27,231 - INFO - Prepared product 304010048 with quantity 3.0 for batch creation
+2026-03-29 15:30:27,232 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:27,340 - INFO - Created 1 moves in batch for picking 13435
+2026-03-29 15:30:27,442 - INFO - Re-updated dates before confirming picking 13435: 2026-01-19 00:00:00
+2026-03-29 15:30:27,594 - INFO - Confirmed transfer 13435 with forced date context
+2026-03-29 15:30:27,744 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:27,833 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:28,009 - INFO - Created transfer for date 2026-01-19 00:00:00 sequence  with picking ID 13436
+2026-03-29 15:30:28,010 - INFO - Processing Excel row 1: {'name': 'BOJ0003144', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010011', 'product_uom_qty': 13, 'price_unit': 4078.06579230769, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '304010011'}
+2026-03-29 15:30:28,010 - INFO - Searching for product with code: '304010011' and old code: '304010011'
+2026-03-29 15:30:28,092 - INFO - Found product with exact match on default_code: '304010011'
+2026-03-29 15:30:28,172 - INFO - Prepared product 304010011 with quantity 13.0 for batch creation
+2026-03-29 15:30:28,173 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:28,272 - INFO - Created 1 moves in batch for picking 13436
+2026-03-29 15:30:28,366 - INFO - Re-updated dates before confirming picking 13436: 2026-01-19 00:00:00
+2026-03-29 15:30:28,499 - INFO - Confirmed transfer 13436 with forced date context
+2026-03-29 15:30:28,652 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:28,734 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:28,807 - WARNING - Transfer reference 'BOJ0003149' already exists. Trying with suffix -1
+2026-03-29 15:30:28,872 - INFO - Using new transfer reference: 'BOJ0003149-1'
+2026-03-29 15:30:28,969 - INFO - Created transfer for date 2026-01-19 00:00:00 sequence  with picking ID 13437
+2026-03-29 15:30:28,971 - INFO - Processing Excel row 1: {'name': 'BOJ0003149', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '406010103', 'product_uom_qty': 100, 'price_unit': 4.2, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '406010103'}
+2026-03-29 15:30:28,971 - INFO - Searching for product with code: '406010103' and old code: '406010103'
+2026-03-29 15:30:29,046 - INFO - Found product with exact match on default_code: '406010103'
+2026-03-29 15:30:29,124 - INFO - Prepared product 406010103 with quantity 100.0 for batch creation
+2026-03-29 15:30:29,125 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:29,222 - INFO - Created 1 moves in batch for picking 13437
+2026-03-29 15:30:29,309 - INFO - Re-updated dates before confirming picking 13437: 2026-01-19 00:00:00
+2026-03-29 15:30:29,461 - INFO - Confirmed transfer 13437 with forced date context
+2026-03-29 15:30:29,725 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:29,811 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:29,904 - WARNING - Transfer reference 'BOJ0003150' already exists. Trying with suffix -1
+2026-03-29 15:30:29,986 - INFO - Using new transfer reference: 'BOJ0003150-1'
+2026-03-29 15:30:30,080 - INFO - Created transfer for date 2026-01-19 00:00:00 sequence  with picking ID 13438
+2026-03-29 15:30:30,082 - INFO - Processing Excel row 1: {'name': 'BOJ0003150', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-19 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-19 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '406010103', 'product_uom_qty': 100, 'price_unit': 4.2, 'scheduled_date_orig': Timestamp('2026-01-19 00:00:00'), 'product_id': '406010103'}
+2026-03-29 15:30:30,082 - INFO - Using cached product ID for code: '406010103'
+2026-03-29 15:30:30,083 - INFO - Prepared product 406010103 with quantity 100.0 for batch creation
+2026-03-29 15:30:30,083 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:30,190 - INFO - Created 1 moves in batch for picking 13438
+2026-03-29 15:30:30,299 - INFO - Re-updated dates before confirming picking 13438: 2026-01-19 00:00:00
+2026-03-29 15:30:30,442 - INFO - Confirmed transfer 13438 with forced date context
+2026-03-29 15:30:30,646 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:30,736 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:30,916 - INFO - Created transfer for date 2026-01-20 00:00:00 sequence  with picking ID 13439
+2026-03-29 15:30:30,916 - INFO - Processing Excel row 1: {'name': 'BOJ0003156', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-20 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-20 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '303020002', 'product_uom_qty': 5, 'price_unit': 1242.3642, 'scheduled_date_orig': Timestamp('2026-01-20 00:00:00'), 'product_id': '303020002'}
+2026-03-29 15:30:30,917 - INFO - Searching for product with code: '303020002' and old code: '303020002'
+2026-03-29 15:30:30,997 - INFO - Found product with exact match on default_code: '303020002'
+2026-03-29 15:30:31,080 - INFO - Prepared product 303020002 with quantity 5.0 for batch creation
+2026-03-29 15:30:31,080 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:31,186 - INFO - Created 1 moves in batch for picking 13439
+2026-03-29 15:30:31,279 - INFO - Re-updated dates before confirming picking 13439: 2026-01-20 00:00:00
+2026-03-29 15:30:31,417 - INFO - Confirmed transfer 13439 with forced date context
+2026-03-29 15:30:31,574 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:31,653 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:31,850 - INFO - Created transfer for date 2026-01-20 00:00:00 sequence  with picking ID 13440
+2026-03-29 15:30:31,852 - INFO - Processing Excel row 1: {'name': 'BOJ0003157', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-20 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-20 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '303060044', 'product_uom_qty': 3, 'price_unit': 2534.9904, 'scheduled_date_orig': Timestamp('2026-01-20 00:00:00'), 'product_id': '303060044'}
+2026-03-29 15:30:31,852 - INFO - Searching for product with code: '303060044' and old code: '303060044'
+2026-03-29 15:30:31,927 - INFO - Found product with exact match on default_code: '303060044'
+2026-03-29 15:30:32,019 - INFO - Prepared product 303060044 with quantity 3.0 for batch creation
+2026-03-29 15:30:32,019 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:32,130 - INFO - Created 1 moves in batch for picking 13440
+2026-03-29 15:30:32,263 - INFO - Re-updated dates before confirming picking 13440: 2026-01-20 00:00:00
+2026-03-29 15:30:32,399 - INFO - Confirmed transfer 13440 with forced date context
+2026-03-29 15:30:32,553 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:32,635 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:32,806 - INFO - Created transfer for date 2026-01-20 00:00:00 sequence  with picking ID 13441
+2026-03-29 15:30:32,808 - INFO - Processing Excel row 1: {'name': 'BOJ0003158', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-20 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-20 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '303060043', 'product_uom_qty': 25, 'price_unit': 1182.6988, 'scheduled_date_orig': Timestamp('2026-01-20 00:00:00'), 'product_id': '303060043'}
+2026-03-29 15:30:32,808 - INFO - Using cached product ID for code: '303060043'
+2026-03-29 15:30:32,808 - INFO - Prepared product 303060043 with quantity 25.0 for batch creation
+2026-03-29 15:30:32,808 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:32,904 - INFO - Created 1 moves in batch for picking 13441
+2026-03-29 15:30:32,994 - INFO - Re-updated dates before confirming picking 13441: 2026-01-20 00:00:00
+2026-03-29 15:30:33,117 - INFO - Confirmed transfer 13441 with forced date context
+2026-03-29 15:30:33,278 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:33,363 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:33,514 - INFO - Created transfer for date 2026-01-21 00:00:00 sequence  with picking ID 13442
+2026-03-29 15:30:33,515 - INFO - Processing Excel row 1: {'name': 'BOJ0003165', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-21 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-21 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '303060033', 'product_uom_qty': 5, 'price_unit': 1630.9884, 'scheduled_date_orig': Timestamp('2026-01-21 00:00:00'), 'product_id': '303060033'}
+2026-03-29 15:30:33,515 - INFO - Using cached product ID for code: '303060033'
+2026-03-29 15:30:33,516 - INFO - Prepared product 303060033 with quantity 5.0 for batch creation
+2026-03-29 15:30:33,516 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:33,622 - INFO - Created 1 moves in batch for picking 13442
+2026-03-29 15:30:33,707 - INFO - Re-updated dates before confirming picking 13442: 2026-01-21 00:00:00
+2026-03-29 15:30:33,837 - INFO - Confirmed transfer 13442 with forced date context
+2026-03-29 15:30:34,019 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:34,096 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:34,273 - INFO - Created transfer for date 2026-01-27 00:00:00 sequence  with picking ID 13443
+2026-03-29 15:30:34,279 - INFO - Processing Excel row 1: {'name': 'BOJ0003180', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-27 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-27 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010012', 'product_uom_qty': 58, 'price_unit': 108.314527586207, 'scheduled_date_orig': Timestamp('2026-01-27 00:00:00'), 'product_id': '301010012'}
+2026-03-29 15:30:34,280 - INFO - Searching for product with code: '301010012' and old code: '301010012'
+2026-03-29 15:30:34,362 - INFO - Found product with exact match on default_code: '301010012'
+2026-03-29 15:30:34,456 - INFO - Prepared product 301010012 with quantity 58.0 for batch creation
+2026-03-29 15:30:34,456 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:34,561 - INFO - Created 1 moves in batch for picking 13443
+2026-03-29 15:30:34,660 - INFO - Re-updated dates before confirming picking 13443: 2026-01-27 00:00:00
+2026-03-29 15:30:34,779 - INFO - Confirmed transfer 13443 with forced date context
+2026-03-29 15:30:34,954 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:35,054 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:35,231 - INFO - Created transfer for date 2026-01-27 00:00:00 sequence  with picking ID 13444
+2026-03-29 15:30:35,232 - INFO - Processing Excel row 1: {'name': 'BOJ0003181', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-27 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-27 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010038', 'product_uom_qty': 6, 'price_unit': 863.7068, 'scheduled_date_orig': Timestamp('2026-01-27 00:00:00'), 'product_id': '301010038'}
+2026-03-29 15:30:35,232 - INFO - Searching for product with code: '301010038' and old code: '301010038'
+2026-03-29 15:30:35,332 - INFO - Found product with exact match on default_code: '301010038'
+2026-03-29 15:30:35,397 - INFO - Prepared product 301010038 with quantity 6.0 for batch creation
+2026-03-29 15:30:35,397 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:35,512 - INFO - Created 1 moves in batch for picking 13444
+2026-03-29 15:30:35,613 - INFO - Re-updated dates before confirming picking 13444: 2026-01-27 00:00:00
+2026-03-29 15:30:35,775 - INFO - Confirmed transfer 13444 with forced date context
+2026-03-29 15:30:35,963 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:36,049 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:36,254 - INFO - Created transfer for date 2026-01-28 00:00:00 sequence  with picking ID 13445
+2026-03-29 15:30:36,259 - INFO - Processing Excel row 1: {'name': 'BOJ0003184', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-28 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-28 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010087', 'product_uom_qty': 10, 'price_unit': 273.2356, 'scheduled_date_orig': Timestamp('2026-01-28 00:00:00'), 'product_id': '301010087'}
+2026-03-29 15:30:36,259 - INFO - Searching for product with code: '301010087' and old code: '301010087'
+2026-03-29 15:30:36,366 - INFO - Found product with exact match on default_code: '301010087'
+2026-03-29 15:30:36,484 - INFO - Prepared product 301010087 with quantity 10.0 for batch creation
+2026-03-29 15:30:36,485 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:36,485 - INFO - Processing Excel row 2: {'name': 'BOJ0003184', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-28 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-28 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010086', 'product_uom_qty': 10, 'price_unit': 273.2356, 'scheduled_date_orig': Timestamp('2026-01-28 00:00:00'), 'product_id': '301010086'}
+2026-03-29 15:30:36,486 - INFO - Searching for product with code: '301010086' and old code: '301010086'
+2026-03-29 15:30:36,584 - INFO - Found product with exact match on default_code: '301010086'
+2026-03-29 15:30:36,681 - INFO - Prepared product 301010086 with quantity 10.0 for batch creation
+2026-03-29 15:30:36,682 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:36,806 - INFO - Created 2 moves in batch for picking 13445
+2026-03-29 15:30:36,904 - INFO - Re-updated dates before confirming picking 13445: 2026-01-28 00:00:00
+2026-03-29 15:30:37,030 - INFO - Confirmed transfer 13445 with forced date context
+2026-03-29 15:30:37,220 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:37,296 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:37,485 - INFO - Created transfer for date 2026-01-28 00:00:00 sequence  with picking ID 13446
+2026-03-29 15:30:37,486 - INFO - Processing Excel row 1: {'name': 'BOJ0003185', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-28 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-28 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010083', 'product_uom_qty': 1, 'price_unit': 5244.7118, 'scheduled_date_orig': Timestamp('2026-01-28 00:00:00'), 'product_id': '301010083'}
+2026-03-29 15:30:37,486 - INFO - Searching for product with code: '301010083' and old code: '301010083'
+2026-03-29 15:30:37,579 - INFO - Found product with exact match on default_code: '301010083'
+2026-03-29 15:30:37,657 - INFO - Prepared product 301010083 with quantity 1.0 for batch creation
+2026-03-29 15:30:37,657 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:37,761 - INFO - Created 1 moves in batch for picking 13446
+2026-03-29 15:30:37,862 - INFO - Re-updated dates before confirming picking 13446: 2026-01-28 00:00:00
+2026-03-29 15:30:38,012 - INFO - Confirmed transfer 13446 with forced date context
+2026-03-29 15:30:38,352 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:38,420 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:38,585 - INFO - Created transfer for date 2026-01-28 00:00:00 sequence  with picking ID 13447
+2026-03-29 15:30:38,591 - INFO - Processing Excel row 1: {'name': 'BOJ0003186', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-28 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-28 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010084', 'product_uom_qty': 1, 'price_unit': 5244.7118, 'scheduled_date_orig': Timestamp('2026-01-28 00:00:00'), 'product_id': '301010084'}
+2026-03-29 15:30:38,591 - INFO - Searching for product with code: '301010084' and old code: '301010084'
+2026-03-29 15:30:38,672 - INFO - Found product with exact match on default_code: '301010084'
+2026-03-29 15:30:38,750 - INFO - Prepared product 301010084 with quantity 1.0 for batch creation
+2026-03-29 15:30:38,750 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:38,863 - INFO - Created 1 moves in batch for picking 13447
+2026-03-29 15:30:38,981 - INFO - Re-updated dates before confirming picking 13447: 2026-01-28 00:00:00
+2026-03-29 15:30:39,118 - INFO - Confirmed transfer 13447 with forced date context
+2026-03-29 15:30:39,292 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:39,368 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:39,524 - INFO - Created transfer for date 2026-01-29 00:00:00 sequence  with picking ID 13448
+2026-03-29 15:30:39,525 - INFO - Processing Excel row 1: {'name': 'BOJ0003191', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010053', 'product_uom_qty': 5, 'price_unit': 1193.4366, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': '301010053'}
+2026-03-29 15:30:39,525 - INFO - Searching for product with code: '301010053' and old code: '301010053'
+2026-03-29 15:30:39,618 - INFO - Found product with exact match on default_code: '301010053'
+2026-03-29 15:30:39,693 - INFO - Prepared product 301010053 with quantity 5.0 for batch creation
+2026-03-29 15:30:39,694 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:39,796 - INFO - Created 1 moves in batch for picking 13448
+2026-03-29 15:30:39,882 - INFO - Re-updated dates before confirming picking 13448: 2026-01-29 00:00:00
+2026-03-29 15:30:40,006 - INFO - Confirmed transfer 13448 with forced date context
+2026-03-29 15:30:40,215 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:40,299 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:40,485 - INFO - Created transfer for date 2026-01-29 00:00:00 sequence  with picking ID 13449
+2026-03-29 15:30:40,487 - INFO - Processing Excel row 1: {'name': 'BOJ0003192', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010029', 'product_uom_qty': 1, 'price_unit': 5710.183, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': '301010029'}
+2026-03-29 15:30:40,487 - INFO - Searching for product with code: '301010029' and old code: '301010029'
+2026-03-29 15:30:40,562 - INFO - Found product with exact match on default_code: '301010029'
+2026-03-29 15:30:40,648 - INFO - Prepared product 301010029 with quantity 1.0 for batch creation
+2026-03-29 15:30:40,649 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:40,749 - INFO - Created 1 moves in batch for picking 13449
+2026-03-29 15:30:40,842 - INFO - Re-updated dates before confirming picking 13449: 2026-01-29 00:00:00
+2026-03-29 15:30:40,965 - INFO - Confirmed transfer 13449 with forced date context
+2026-03-29 15:30:41,118 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:41,193 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:41,380 - INFO - Created transfer for date 2026-01-29 00:00:00 sequence  with picking ID 13450
+2026-03-29 15:30:41,381 - INFO - Processing Excel row 1: {'name': 'BOJ0003193', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': 'VFU010F207', 'product_uom_qty': 12, 'price_unit': 2541.77976666667, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': 'VFU010F207'}
+2026-03-29 15:30:41,381 - INFO - Searching for product with code: 'VFU010F207' and old code: 'VFU010F207'
+2026-03-29 15:30:41,641 - INFO - Found product '3VFU1060(AL-207) ชั้นวางของ Alu Com' with code '3VFU010F207' using ilike search for 'VFU010F207'
+2026-03-29 15:30:41,723 - INFO - Prepared product VFU010F207 with quantity 12.0 for batch creation
+2026-03-29 15:30:41,723 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:41,820 - INFO - Created 1 moves in batch for picking 13450
+2026-03-29 15:30:41,910 - INFO - Re-updated dates before confirming picking 13450: 2026-01-29 00:00:00
+2026-03-29 15:30:42,044 - INFO - Confirmed transfer 13450 with forced date context
+2026-03-29 15:30:42,206 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:42,317 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:42,492 - INFO - Created transfer for date 2026-01-29 00:00:00 sequence  with picking ID 13451
+2026-03-29 15:30:42,494 - INFO - Processing Excel row 1: {'name': 'BOJ0003194', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010031', 'product_uom_qty': 1, 'price_unit': 649.1379, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': '301010031'}
+2026-03-29 15:30:42,494 - INFO - Searching for product with code: '301010031' and old code: '301010031'
+2026-03-29 15:30:42,613 - INFO - Found product with exact match on default_code: '301010031'
+2026-03-29 15:30:42,698 - INFO - Prepared product 301010031 with quantity 1.0 for batch creation
+2026-03-29 15:30:42,698 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:42,699 - INFO - Processing Excel row 2: {'name': 'BOJ0003194', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010032', 'product_uom_qty': 2, 'price_unit': 649.13785, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': '301010032'}
+2026-03-29 15:30:42,699 - INFO - Searching for product with code: '301010032' and old code: '301010032'
+2026-03-29 15:30:42,798 - INFO - Found product with exact match on default_code: '301010032'
+2026-03-29 15:30:42,878 - INFO - Prepared product 301010032 with quantity 2.0 for batch creation
+2026-03-29 15:30:42,878 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:42,997 - INFO - Created 2 moves in batch for picking 13451
+2026-03-29 15:30:43,093 - INFO - Re-updated dates before confirming picking 13451: 2026-01-29 00:00:00
+2026-03-29 15:30:43,247 - INFO - Confirmed transfer 13451 with forced date context
+2026-03-29 15:30:43,447 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:43,529 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:43,608 - WARNING - Transfer reference 'BOJ0003195' already exists. Trying with suffix -1
+2026-03-29 15:30:43,680 - INFO - Using new transfer reference: 'BOJ0003195-1'
+2026-03-29 15:30:43,774 - INFO - Created transfer for date 2026-01-29 00:00:00 sequence  with picking ID 13452
+2026-03-29 15:30:43,775 - INFO - Processing Excel row 1: {'name': 'BOJ0003195', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '303020017', 'product_uom_qty': 1, 'price_unit': 880.0, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': '303020017'}
+2026-03-29 15:30:43,775 - INFO - Searching for product with code: '303020017' and old code: '303020017'
+2026-03-29 15:30:43,850 - INFO - Found product with exact match on default_code: '303020017'
+2026-03-29 15:30:43,936 - INFO - Prepared product 303020017 with quantity 1.0 for batch creation
+2026-03-29 15:30:43,936 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:44,056 - INFO - Created 1 moves in batch for picking 13452
+2026-03-29 15:30:44,163 - INFO - Re-updated dates before confirming picking 13452: 2026-01-29 00:00:00
+2026-03-29 15:30:44,281 - INFO - Confirmed transfer 13452 with forced date context
+2026-03-29 15:30:44,450 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:44,532 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:44,765 - INFO - Created transfer for date 2026-01-29 00:00:00 sequence  with picking ID 13453
+2026-03-29 15:30:44,766 - INFO - Processing Excel row 1: {'name': 'BOJ0003201', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '202020022', 'product_uom_qty': 1, 'price_unit': 15750.3424, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': '202020022'}
+2026-03-29 15:30:44,766 - INFO - Searching for product with code: '202020022' and old code: '202020022'
+2026-03-29 15:30:44,913 - INFO - Found product with exact match on default_code: '202020022'
+2026-03-29 15:30:45,046 - INFO - Prepared product 202020022 with quantity 1.0 for batch creation
+2026-03-29 15:30:45,047 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:45,047 - INFO - Processing Excel row 2: {'name': 'BOJ0003201', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-29 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-29 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '202020021', 'product_uom_qty': 1, 'price_unit': 15750.3424, 'scheduled_date_orig': Timestamp('2026-01-29 00:00:00'), 'product_id': '202020021'}
+2026-03-29 15:30:45,047 - INFO - Searching for product with code: '202020021' and old code: '202020021'
+2026-03-29 15:30:45,130 - INFO - Found product with exact match on default_code: '202020021'
+2026-03-29 15:30:45,207 - INFO - Prepared product 202020021 with quantity 1.0 for batch creation
+2026-03-29 15:30:45,208 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:45,327 - INFO - Created 2 moves in batch for picking 13453
+2026-03-29 15:30:45,437 - INFO - Re-updated dates before confirming picking 13453: 2026-01-29 00:00:00
+2026-03-29 15:30:45,574 - INFO - Confirmed transfer 13453 with forced date context
+2026-03-29 15:30:45,771 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:45,853 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:46,017 - INFO - Created transfer for date 2026-01-30 00:00:00 sequence  with picking ID 13454
+2026-03-29 15:30:46,018 - INFO - Processing Excel row 1: {'name': 'BOJ0003202', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '407030007', 'product_uom_qty': 5, 'price_unit': 454.25952, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '407030007'}
+2026-03-29 15:30:46,018 - INFO - Searching for product with code: '407030007' and old code: '407030007'
+2026-03-29 15:30:46,089 - INFO - Found product with exact match on default_code: '407030007'
+2026-03-29 15:30:46,172 - INFO - Prepared product 407030007 with quantity 5.0 for batch creation
+2026-03-29 15:30:46,173 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:46,174 - INFO - Processing Excel row 2: {'name': 'BOJ0003202', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '407030004', 'product_uom_qty': 5, 'price_unit': 275.72888, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '407030004'}
+2026-03-29 15:30:46,174 - INFO - Searching for product with code: '407030004' and old code: '407030004'
+2026-03-29 15:30:46,268 - INFO - Found product with exact match on default_code: '407030004'
+2026-03-29 15:30:46,360 - INFO - Prepared product 407030004 with quantity 5.0 for batch creation
+2026-03-29 15:30:46,360 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:46,477 - INFO - Created 2 moves in batch for picking 13454
+2026-03-29 15:30:46,587 - INFO - Re-updated dates before confirming picking 13454: 2026-01-30 00:00:00
+2026-03-29 15:30:46,740 - INFO - Confirmed transfer 13454 with forced date context
+2026-03-29 15:30:46,927 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:47,011 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:47,208 - INFO - Created transfer for date 2026-01-30 00:00:00 sequence  with picking ID 13455
+2026-03-29 15:30:47,210 - INFO - Processing Excel row 1: {'name': 'BOJ0003207', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '301010041', 'product_uom_qty': 1, 'price_unit': 9491.5549, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '301010041'}
+2026-03-29 15:30:47,210 - INFO - Searching for product with code: '301010041' and old code: '301010041'
+2026-03-29 15:30:47,294 - INFO - Found product with exact match on default_code: '301010041'
+2026-03-29 15:30:47,376 - INFO - Prepared product 301010041 with quantity 1.0 for batch creation
+2026-03-29 15:30:47,377 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:47,497 - INFO - Created 1 moves in batch for picking 13455
+2026-03-29 15:30:47,599 - INFO - Re-updated dates before confirming picking 13455: 2026-01-30 00:00:00
+2026-03-29 15:30:47,733 - INFO - Confirmed transfer 13455 with forced date context
+2026-03-29 15:30:47,899 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:47,985 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:48,150 - INFO - Created transfer for date 2026-01-30 00:00:00 sequence  with picking ID 13456
+2026-03-29 15:30:48,152 - INFO - Processing Excel row 1: {'name': 'BOJ0003208', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010053', 'product_uom_qty': 3, 'price_unit': 2062.07626666667, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '304010053'}
+2026-03-29 15:30:48,152 - INFO - Searching for product with code: '304010053' and old code: '304010053'
+2026-03-29 15:30:48,235 - INFO - Found product with exact match on default_code: '304010053'
+2026-03-29 15:30:48,330 - INFO - Prepared product 304010053 with quantity 3.0 for batch creation
+2026-03-29 15:30:48,330 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:48,439 - INFO - Created 1 moves in batch for picking 13456
+2026-03-29 15:30:48,539 - INFO - Re-updated dates before confirming picking 13456: 2026-01-30 00:00:00
+2026-03-29 15:30:48,665 - INFO - Confirmed transfer 13456 with forced date context
+2026-03-29 15:30:48,836 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:48,921 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:49,083 - INFO - Created transfer for date 2026-01-30 00:00:00 sequence  with picking ID 13457
+2026-03-29 15:30:49,085 - INFO - Processing Excel row 1: {'name': 'BOJ0003209', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010025', 'product_uom_qty': 25, 'price_unit': 1805.71084, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '304010025'}
+2026-03-29 15:30:49,085 - INFO - Searching for product with code: '304010025' and old code: '304010025'
+2026-03-29 15:30:49,182 - INFO - Found product with exact match on default_code: '304010025'
+2026-03-29 15:30:49,269 - INFO - Prepared product 304010025 with quantity 25.0 for batch creation
+2026-03-29 15:30:49,269 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:49,374 - INFO - Created 1 moves in batch for picking 13457
+2026-03-29 15:30:49,462 - INFO - Re-updated dates before confirming picking 13457: 2026-01-30 00:00:00
+2026-03-29 15:30:49,591 - INFO - Confirmed transfer 13457 with forced date context
+2026-03-29 15:30:49,743 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:49,847 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:50,021 - INFO - Created transfer for date 2026-01-30 00:00:00 sequence  with picking ID 13458
+2026-03-29 15:30:50,022 - INFO - Processing Excel row 1: {'name': 'BOJ0003210', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010026', 'product_uom_qty': 12, 'price_unit': 1643.77173333333, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '304010026'}
+2026-03-29 15:30:50,022 - INFO - Using cached product ID for code: '304010026'
+2026-03-29 15:30:50,023 - INFO - Prepared product 304010026 with quantity 12.0 for batch creation
+2026-03-29 15:30:50,023 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:50,133 - INFO - Created 1 moves in batch for picking 13458
+2026-03-29 15:30:50,224 - INFO - Re-updated dates before confirming picking 13458: 2026-01-30 00:00:00
+2026-03-29 15:30:50,363 - INFO - Confirmed transfer 13458 with forced date context
+2026-03-29 15:30:50,526 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:50,613 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:50,777 - INFO - Created transfer for date 2026-01-30 00:00:00 sequence  with picking ID 13459
+2026-03-29 15:30:50,778 - INFO - Processing Excel row 1: {'name': 'BOJ0003211', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010011', 'product_uom_qty': 3, 'price_unit': 3677.07626666667, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '304010011'}
+2026-03-29 15:30:50,778 - INFO - Using cached product ID for code: '304010011'
+2026-03-29 15:30:50,778 - INFO - Prepared product 304010011 with quantity 3.0 for batch creation
+2026-03-29 15:30:50,778 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:50,882 - INFO - Created 1 moves in batch for picking 13459
+2026-03-29 15:30:50,989 - INFO - Re-updated dates before confirming picking 13459: 2026-01-30 00:00:00
+2026-03-29 15:30:51,114 - INFO - Confirmed transfer 13459 with forced date context
+2026-03-29 15:30:51,280 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:51,382 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:51,539 - INFO - Created transfer for date 2026-01-30 00:00:00 sequence  with picking ID 13460
+2026-03-29 15:30:51,540 - INFO - Processing Excel row 1: {'name': 'BOJ0003212', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010050', 'product_uom_qty': 10, 'price_unit': 1469.10307, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '304010050'}
+2026-03-29 15:30:51,541 - INFO - Searching for product with code: '304010050' and old code: '304010050'
+2026-03-29 15:30:51,627 - INFO - Found product with exact match on default_code: '304010050'
+2026-03-29 15:30:51,706 - INFO - Prepared product 304010050 with quantity 10.0 for batch creation
+2026-03-29 15:30:51,707 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:51,810 - INFO - Created 1 moves in batch for picking 13460
+2026-03-29 15:30:51,901 - INFO - Re-updated dates before confirming picking 13460: 2026-01-30 00:00:00
+2026-03-29 15:30:52,028 - INFO - Confirmed transfer 13460 with forced date context
+2026-03-29 15:30:52,199 - INFO - Using cached location ID for: 'RM02/Stock'
+2026-03-29 15:30:52,276 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-29 15:30:52,438 - INFO - Created transfer for date 2026-01-30 00:00:00 sequence  with picking ID 13461
+2026-03-29 15:30:52,439 - INFO - Processing Excel row 1: {'name': 'BOJ0003213', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2026-01-30 00:00:00'), 'picking_type_id': 'RM02-Receipts', 'date_done': Timestamp('2026-01-30 00:00:00'), 'origin': 'รับเข้าjobRM02เดือน1', 'location_dest_id': 'RM02/Stock', 'default_code': '304010031', 'product_uom_qty': 3, 'price_unit': 2817.07626666667, 'scheduled_date_orig': Timestamp('2026-01-30 00:00:00'), 'product_id': '304010031'}
+2026-03-29 15:30:52,439 - INFO - Searching for product with code: '304010031' and old code: '304010031'
+2026-03-29 15:30:52,522 - INFO - Found product with exact match on default_code: '304010031'
+2026-03-29 15:30:52,599 - INFO - Prepared product 304010031 with quantity 3.0 for batch creation
+2026-03-29 15:30:52,600 - INFO - Move locations - Source: 5, Dest: 116
+2026-03-29 15:30:52,710 - INFO - Created 1 moves in batch for picking 13461
+2026-03-29 15:30:52,806 - INFO - Re-updated dates before confirming picking 13461: 2026-01-30 00:00:00
+2026-03-29 15:30:52,923 - INFO - Confirmed transfer 13461 with forced date context
+2026-03-29 15:30:52,925 - INFO - Import completed: 44 success, 0 failed.

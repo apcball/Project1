@@ -31,7 +31,7 @@ CHECKPOINT_FILE = 'Data_file/verification_checkpoint.json'
 OUTPUT_FILE = 'Varify_Product/not_found_products.xlsx'
 # Use an absolute path for the input file so it's unambiguous
 from pathlib import Path
-INPUT_FILE = Path(r"C:\Users\Ball\Documents\Git_apcball\Project1\Varify_Product\Product_find.xlsx")
+INPUT_FILE = Path(r"/Users/ball/Git_apcball/Project1/Varify_Product/Product_find.xlsx")
 TEMP_RESULTS_FILE = 'Varify_Product/temp_results.xlsx'
 
 class OdooConnection:

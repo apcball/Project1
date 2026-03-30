@@ -12,7 +12,7 @@ USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Import_Inventory/รับหน้าไซต์เดือน12.xlsx'
+EXCEL_FILE = 'Import_Inventory/รับเข้า_job_RM02_เดือน1.xlsx'
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -514,9 +514,22 @@ def create_internal_transfers(uid, models, df):
             picking_type_data = models.execute_kw(DB, uid, PASSWORD,
                 'stock.picking.type', 'read',
                 [picking_type_id],
-                {'fields': ['default_location_src_id']}
+                {'fields': ['default_location_src_id', 'code']}
             )
             source_location_id = picking_type_data[0]['default_location_src_id'][0] if picking_type_data[0]['default_location_src_id'] else False
+            
+            if not source_location_id:
+                p_code = picking_type_data[0].get('code', '')
+                if p_code == 'incoming':
+                    source_location_id = get_location_id(models, uid, 'Vendors')
+                    logger.info(f"Using fallback source location 'Vendors' for incoming picking type: {picking_type_name}")
+                elif p_code == 'outgoing':
+                    source_location_id = get_location_id(models, uid, 'Stock')
+                    logger.info(f"Using fallback source location 'Stock' for outgoing picking type: {picking_type_name}")
+                else:
+                    source_location_id = get_location_id(models, uid, 'Stock')
+                    logger.info(f"Using fallback source location 'Stock' for picking type: {picking_type_name}")
+
             if not source_location_id:
                 logger.error(f"Source location not found for picking type: {picking_type_name}")
                 continue
@@ -551,7 +564,25 @@ def create_internal_transfers(uid, models, df):
             
             # เพิ่มการระบุชื่อเอกสาร (name) ถ้ามี column 'name' ใน Excel
             if has_name_col and pd.notna(first_row.get('name')):
-                picking_vals['name'] = str(first_row['name']).strip()
+                original_picking_name = str(first_row['name']).strip()
+                picking_name = original_picking_name
+                
+                # Check if a transfer with this reference already exists
+                # If so, append -1, -2, etc. until a unique name is found
+                counter = 1
+                while True:
+                    existing_picking = models.execute_kw(DB, uid, PASSWORD, 'stock.picking', 'search', [[['name', '=', picking_name]]])
+                    if not existing_picking:
+                        break
+                    
+                    # Name exists, try appending a sequence number
+                    logger.warning(f"Transfer reference '{picking_name}' already exists. Trying with suffix -{counter}")
+                    picking_name = f"{original_picking_name}-{counter}"
+                    counter += 1
+                
+                picking_vals['name'] = picking_name
+                if counter > 1:
+                    logger.info(f"Using new transfer reference: '{picking_name}'")
 
             if partner_id:
                 picking_vals['partner_id'] = partner_id
@@ -567,12 +598,17 @@ def create_internal_transfers(uid, models, df):
                 'no_recompute': True
             }
 
-            picking_id = models.execute_kw(DB, uid, PASSWORD,
-                'stock.picking', 'create',
-                [picking_vals],
-                {'context': context}
-            )
-            logger.info(f"Created transfer for date {date_str} sequence {sequence} with picking ID {picking_id}")
+            try:
+                picking_id = models.execute_kw(DB, uid, PASSWORD,
+                    'stock.picking', 'create',
+                    [picking_vals],
+                    {'context': context}
+                )
+                logger.info(f"Created transfer for date {date_str} sequence {sequence} with picking ID {picking_id}")
+            except Exception as e:
+                logger.error(f"Failed to create picking for group '{group_key}': {str(e)}")
+                failed_transfers += 1
+                continue
 
             # Prepare all moves for batch creation
             moves_to_create = []
@@ -634,15 +670,28 @@ def create_internal_transfers(uid, models, df):
                         move_vals['location_dest_id'] = row_dest_location_id
                     else:
                         # หา default destination location จาก picking type
-                        picking_type_data = models.execute_kw(DB, uid, PASSWORD,
+                        picking_type_data_dest = models.execute_kw(DB, uid, PASSWORD,
                             'stock.picking.type', 'read',
                             [picking_type_id],
-                            {'fields': ['default_location_dest_id']}
+                            {'fields': ['default_location_dest_id', 'code']}
                         )
-                        default_dest_id = picking_type_data[0]['default_location_dest_id'][0] if picking_type_data[0]['default_location_dest_id'] else False
+                        default_dest_id = picking_type_data_dest[0]['default_location_dest_id'][0] if picking_type_data_dest[0]['default_location_dest_id'] else False
+                        
+                        if not default_dest_id:
+                            p_code = picking_type_data_dest[0].get('code', '')
+                            if p_code == 'incoming':
+                                default_dest_id = get_location_id(models, uid, 'Stock')
+                                logger.info(f"Using fallback destination location 'Stock' for incoming picking type")
+                            elif p_code == 'outgoing':
+                                default_dest_id = get_location_id(models, uid, 'Customers')
+                                logger.info(f"Using fallback destination location 'Customers' for outgoing picking type")
+                            else:
+                                default_dest_id = get_location_id(models, uid, 'Stock')
+                                logger.info(f"Using fallback destination location 'Stock' for picking type")
+                        
                         if default_dest_id:
                             move_vals['location_dest_id'] = default_dest_id
-                            logger.warning(f"Using default destination location for product {product_code}")
+                            logger.warning(f"Using default/fallback destination location for product {product_code}")
                         else:
                             logger.error(f"No destination location found for product {product_code} - move may fail")
                             continue
@@ -721,7 +770,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Import_Inventory/รับหน้าไซต์เดือน12.xlsx'
+        EXCEL_FILE = 'Import_Inventory/รับเข้า_job_RM02_เดือน1.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move
