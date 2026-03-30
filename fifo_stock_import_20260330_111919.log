@@ -1,0 +1,173 @@
+2026-03-30 11:19:20,404 - INFO - Successfully connected to Odoo as user ID: 2
+2026-03-30 11:19:20,509 - INFO - Odoo version: 17.0.1.3
+2026-03-30 11:19:20,768 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-03-30 11:19:21,314 - INFO - Successfully read Excel file with 33 rows
+2026-03-30 11:19:21,314 - INFO - Excel columns: ['name', 'partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit']
+2026-03-30 11:19:21,316 - INFO - Forward filled 'name' column
+2026-03-30 11:19:21,317 - INFO - scheduled_date dtype: datetime64[ns]
+2026-03-30 11:19:21,317 - INFO - scheduled_date sample: 2025-12-31 00:00:00
+2026-03-30 11:19:21,319 - INFO - Converted scheduled_date to string format. Sample: 2025-12-31 00:00:00
+2026-03-30 11:19:21,319 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-03-30 11:19:21,320 - INFO - Using 'default_code' column as 'product_id'
+2026-03-30 11:19:21,321 - INFO - Using 'origin' column to identify transfer groups
+2026-03-30 11:19:21,324 - INFO - Excel file validation and data filling completed successfully
+2026-03-30 11:19:21,464 - INFO - Searching for location: 'RM02/Stock'
+2026-03-30 11:19:21,643 - INFO - Found location with complete_name match: 'RM02/Stock' for 'RM02/Stock'
+2026-03-30 11:19:21,726 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-30 11:19:21,853 - INFO - Created transfer for date 2025-12-31 00:00:00 sequence  with picking ID 13951
+2026-03-30 11:19:21,854 - INFO - Processing Excel row 1: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409170001, 'product_uom_qty': 84, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409170001}
+2026-03-30 11:19:21,855 - INFO - Searching for product with code: '409170001' and old code: '409170001'
+2026-03-30 11:19:21,916 - INFO - Found product with exact match on default_code: '409170001'
+2026-03-30 11:19:21,978 - INFO - Prepared product 409170001 with quantity 84.0 for batch creation
+2026-03-30 11:19:21,979 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:21,979 - INFO - Processing Excel row 2: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409170006, 'product_uom_qty': 24, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409170006}
+2026-03-30 11:19:21,980 - INFO - Searching for product with code: '409170006' and old code: '409170006'
+2026-03-30 11:19:22,037 - INFO - Found product with exact match on default_code: '409170006'
+2026-03-30 11:19:22,098 - INFO - Prepared product 409170006 with quantity 24.0 for batch creation
+2026-03-30 11:19:22,098 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,099 - INFO - Processing Excel row 3: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409230008, 'product_uom_qty': 24, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409230008}
+2026-03-30 11:19:22,099 - INFO - Searching for product with code: '409230008' and old code: '409230008'
+2026-03-30 11:19:22,159 - INFO - Found product with exact match on default_code: '409230008'
+2026-03-30 11:19:22,222 - INFO - Prepared product 409230008 with quantity 24.0 for batch creation
+2026-03-30 11:19:22,223 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,224 - INFO - Processing Excel row 4: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409070002, 'product_uom_qty': 12, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409070002}
+2026-03-30 11:19:22,224 - INFO - Searching for product with code: '409070002' and old code: '409070002'
+2026-03-30 11:19:22,299 - INFO - Found product with exact match on default_code: '409070002'
+2026-03-30 11:19:22,361 - INFO - Prepared product 409070002 with quantity 12.0 for batch creation
+2026-03-30 11:19:22,361 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,362 - INFO - Processing Excel row 5: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409080006, 'product_uom_qty': 72, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409080006}
+2026-03-30 11:19:22,363 - INFO - Searching for product with code: '409080006' and old code: '409080006'
+2026-03-30 11:19:22,432 - INFO - Found product with exact match on default_code: '409080006'
+2026-03-30 11:19:22,493 - INFO - Prepared product 409080006 with quantity 72.0 for batch creation
+2026-03-30 11:19:22,493 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,494 - INFO - Processing Excel row 6: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409230003, 'product_uom_qty': 60, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409230003}
+2026-03-30 11:19:22,494 - INFO - Searching for product with code: '409230003' and old code: '409230003'
+2026-03-30 11:19:22,554 - INFO - Found product with exact match on default_code: '409230003'
+2026-03-30 11:19:22,621 - INFO - Prepared product 409230003 with quantity 60.0 for batch creation
+2026-03-30 11:19:22,621 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,622 - INFO - Processing Excel row 7: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409230010, 'product_uom_qty': 76, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409230010}
+2026-03-30 11:19:22,623 - INFO - Searching for product with code: '409230010' and old code: '409230010'
+2026-03-30 11:19:22,700 - INFO - Found product with exact match on default_code: '409230010'
+2026-03-30 11:19:22,761 - INFO - Prepared product 409230010 with quantity 76.0 for batch creation
+2026-03-30 11:19:22,762 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,763 - INFO - Processing Excel row 8: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409250005, 'product_uom_qty': 76, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409250005}
+2026-03-30 11:19:22,763 - INFO - Searching for product with code: '409250005' and old code: '409250005'
+2026-03-30 11:19:22,826 - INFO - Found product with exact match on default_code: '409250005'
+2026-03-30 11:19:22,903 - INFO - Prepared product 409250005 with quantity 76.0 for batch creation
+2026-03-30 11:19:22,904 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,905 - INFO - Processing Excel row 9: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409250005, 'product_uom_qty': 60, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409250005}
+2026-03-30 11:19:22,905 - INFO - Using cached product ID for code: '409250005'
+2026-03-30 11:19:22,906 - INFO - Prepared product 409250005 with quantity 60.0 for batch creation
+2026-03-30 11:19:22,906 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,907 - INFO - Processing Excel row 10: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409230010, 'product_uom_qty': 60, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409230010}
+2026-03-30 11:19:22,907 - INFO - Using cached product ID for code: '409230010'
+2026-03-30 11:19:22,908 - INFO - Prepared product 409230010 with quantity 60.0 for batch creation
+2026-03-30 11:19:22,908 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,909 - INFO - Processing Excel row 11: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409230003, 'product_uom_qty': 60, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409230003}
+2026-03-30 11:19:22,910 - INFO - Using cached product ID for code: '409230003'
+2026-03-30 11:19:22,911 - INFO - Prepared product 409230003 with quantity 60.0 for batch creation
+2026-03-30 11:19:22,911 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:22,912 - INFO - Processing Excel row 12: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 412030001, 'product_uom_qty': 11, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 412030001}
+2026-03-30 11:19:22,913 - INFO - Searching for product with code: '412030001' and old code: '412030001'
+2026-03-30 11:19:22,975 - INFO - Found product with exact match on default_code: '412030001'
+2026-03-30 11:19:23,046 - INFO - Prepared product 412030001 with quantity 11.0 for batch creation
+2026-03-30 11:19:23,047 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,048 - INFO - Processing Excel row 13: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 402070005, 'product_uom_qty': 30, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 402070005}
+2026-03-30 11:19:23,048 - INFO - Searching for product with code: '402070005' and old code: '402070005'
+2026-03-30 11:19:23,106 - INFO - Found product with exact match on default_code: '402070005'
+2026-03-30 11:19:23,166 - INFO - Prepared product 402070005 with quantity 30.0 for batch creation
+2026-03-30 11:19:23,167 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,168 - INFO - Processing Excel row 14: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 402070006, 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 402070006}
+2026-03-30 11:19:23,169 - INFO - Searching for product with code: '402070006' and old code: '402070006'
+2026-03-30 11:19:23,228 - INFO - Found product with exact match on default_code: '402070006'
+2026-03-30 11:19:23,292 - INFO - Prepared product 402070006 with quantity 1.0 for batch creation
+2026-03-30 11:19:23,293 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,293 - INFO - Processing Excel row 15: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 402070008, 'product_uom_qty': 15, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 402070008}
+2026-03-30 11:19:23,293 - INFO - Searching for product with code: '402070008' and old code: '402070008'
+2026-03-30 11:19:23,360 - INFO - Found product with exact match on default_code: '402070008'
+2026-03-30 11:19:23,423 - INFO - Prepared product 402070008 with quantity 15.0 for batch creation
+2026-03-30 11:19:23,423 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,424 - INFO - Processing Excel row 16: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 402070008, 'product_uom_qty': 15, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 402070008}
+2026-03-30 11:19:23,424 - INFO - Using cached product ID for code: '402070008'
+2026-03-30 11:19:23,424 - INFO - Prepared product 402070008 with quantity 15.0 for batch creation
+2026-03-30 11:19:23,425 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,425 - INFO - Processing Excel row 17: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 402070005, 'product_uom_qty': 30, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 402070005}
+2026-03-30 11:19:23,426 - INFO - Using cached product ID for code: '402070005'
+2026-03-30 11:19:23,426 - INFO - Prepared product 402070005 with quantity 30.0 for batch creation
+2026-03-30 11:19:23,427 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,427 - INFO - Processing Excel row 18: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 402070006, 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 402070006}
+2026-03-30 11:19:23,428 - INFO - Using cached product ID for code: '402070006'
+2026-03-30 11:19:23,428 - INFO - Prepared product 402070006 with quantity 1.0 for batch creation
+2026-03-30 11:19:23,428 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,429 - INFO - Processing Excel row 19: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 412030001, 'product_uom_qty': 2, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 412030001}
+2026-03-30 11:19:23,430 - INFO - Using cached product ID for code: '412030001'
+2026-03-30 11:19:23,430 - INFO - Prepared product 412030001 with quantity 2.0 for batch creation
+2026-03-30 11:19:23,431 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,431 - INFO - Processing Excel row 20: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409230003, 'product_uom_qty': 160, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409230003}
+2026-03-30 11:19:23,431 - INFO - Using cached product ID for code: '409230003'
+2026-03-30 11:19:23,432 - INFO - Prepared product 409230003 with quantity 160.0 for batch creation
+2026-03-30 11:19:23,432 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,433 - INFO - Processing Excel row 21: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409230003, 'product_uom_qty': 160, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409230003}
+2026-03-30 11:19:23,433 - INFO - Using cached product ID for code: '409230003'
+2026-03-30 11:19:23,433 - INFO - Prepared product 409230003 with quantity 160.0 for batch creation
+2026-03-30 11:19:23,434 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,434 - INFO - Processing Excel row 22: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409230003, 'product_uom_qty': 160, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409230003}
+2026-03-30 11:19:23,435 - INFO - Using cached product ID for code: '409230003'
+2026-03-30 11:19:23,435 - INFO - Prepared product 409230003 with quantity 160.0 for batch creation
+2026-03-30 11:19:23,435 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,436 - INFO - Processing Excel row 23: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 412100001, 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 412100001}
+2026-03-30 11:19:23,436 - INFO - Searching for product with code: '412100001' and old code: '412100001'
+2026-03-30 11:19:23,495 - INFO - Found product with exact match on default_code: '412100001'
+2026-03-30 11:19:23,569 - INFO - Prepared product 412100001 with quantity 1.0 for batch creation
+2026-03-30 11:19:23,569 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,570 - INFO - Processing Excel row 24: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 412130002, 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 412130002}
+2026-03-30 11:19:23,570 - INFO - Searching for product with code: '412130002' and old code: '412130002'
+2026-03-30 11:19:23,627 - INFO - Found product with exact match on default_code: '412130002'
+2026-03-30 11:19:23,690 - INFO - Prepared product 412130002 with quantity 1.0 for batch creation
+2026-03-30 11:19:23,691 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,692 - INFO - Processing Excel row 25: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409170001, 'product_uom_qty': 22, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409170001}
+2026-03-30 11:19:23,692 - INFO - Using cached product ID for code: '409170001'
+2026-03-30 11:19:23,693 - INFO - Prepared product 409170001 with quantity 22.0 for batch creation
+2026-03-30 11:19:23,693 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,694 - INFO - Processing Excel row 26: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 412150001, 'product_uom_qty': 2, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 412150001}
+2026-03-30 11:19:23,695 - INFO - Searching for product with code: '412150001' and old code: '412150001'
+2026-03-30 11:19:23,753 - INFO - Found product with exact match on default_code: '412150001'
+2026-03-30 11:19:23,816 - INFO - Prepared product 412150001 with quantity 2.0 for batch creation
+2026-03-30 11:19:23,816 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,817 - INFO - Processing Excel row 27: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 409010003, 'product_uom_qty': 58, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 409010003}
+2026-03-30 11:19:23,817 - INFO - Searching for product with code: '409010003' and old code: '409010003'
+2026-03-30 11:19:23,875 - INFO - Found product with exact match on default_code: '409010003'
+2026-03-30 11:19:23,936 - INFO - Prepared product 409010003 with quantity 58.0 for batch creation
+2026-03-30 11:19:23,937 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:23,938 - INFO - Processing Excel row 28: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 412140004, 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 412140004}
+2026-03-30 11:19:23,938 - INFO - Searching for product with code: '412140004' and old code: '412140004'
+2026-03-30 11:19:23,996 - INFO - Found product with exact match on default_code: '412140004'
+2026-03-30 11:19:24,055 - INFO - Prepared product 412140004 with quantity 1.0 for batch creation
+2026-03-30 11:19:24,056 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:24,056 - INFO - Processing Excel row 29: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 412130001, 'product_uom_qty': 8, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 412130001}
+2026-03-30 11:19:24,057 - INFO - Searching for product with code: '412130001' and old code: '412130001'
+2026-03-30 11:19:24,120 - INFO - Found product with exact match on default_code: '412130001'
+2026-03-30 11:19:24,190 - INFO - Prepared product 412130001 with quantity 8.0 for batch creation
+2026-03-30 11:19:24,190 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:24,191 - INFO - Processing Excel row 30: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 412140007, 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 412140007}
+2026-03-30 11:19:24,191 - INFO - Searching for product with code: '412140007' and old code: '412140007'
+2026-03-30 11:19:24,256 - INFO - Found product with exact match on default_code: '412140007'
+2026-03-30 11:19:24,342 - INFO - Prepared product 412140007 with quantity 4.0 for batch creation
+2026-03-30 11:19:24,342 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:24,344 - INFO - Processing Excel row 31: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 403010019, 'product_uom_qty': 2, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 403010019}
+2026-03-30 11:19:24,344 - INFO - Searching for product with code: '403010019' and old code: '403010019'
+2026-03-30 11:19:24,427 - INFO - Found product with exact match on default_code: '403010019'
+2026-03-30 11:19:24,507 - INFO - Prepared product 403010019 with quantity 2.0 for batch creation
+2026-03-30 11:19:24,507 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:24,508 - INFO - Processing Excel row 32: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 403010019, 'product_uom_qty': 2, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 403010019}
+2026-03-30 11:19:24,509 - INFO - Using cached product ID for code: '403010019'
+2026-03-30 11:19:24,509 - INFO - Prepared product 403010019 with quantity 2.0 for batch creation
+2026-03-30 11:19:24,510 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:24,511 - INFO - Processing Excel row 33: {'name': 'RM02/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'RM02-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายของหน้าไซต์RM02', 'location_dest_id': 'RM02/Stock', 'default_code': 403010019, 'product_uom_qty': 2, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': 403010019}
+2026-03-30 11:19:24,511 - INFO - Using cached product ID for code: '403010019'
+2026-03-30 11:19:24,512 - INFO - Prepared product 403010019 with quantity 2.0 for batch creation
+2026-03-30 11:19:24,512 - INFO - Move locations - Source: 116, Dest: 116
+2026-03-30 11:19:24,894 - INFO - Created 33 moves in batch for picking 13951
+2026-03-30 11:19:24,970 - INFO - Re-updated dates before confirming picking 13951: 2025-12-31 00:00:00
+2026-03-30 11:19:25,576 - INFO - Confirmed transfer 13951 with forced date context
+2026-03-30 11:19:25,577 - INFO - Import completed: 1 success, 0 failed.

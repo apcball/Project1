@@ -1,0 +1,16 @@
+2026-03-30 10:11:38,810 - INFO - Successfully connected to Odoo as user ID: 2
+2026-03-30 10:11:38,889 - INFO - Odoo version: 17.0.1.3
+2026-03-30 10:11:39,291 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-03-30 10:11:39,816 - INFO - Successfully read Excel file with 1 rows
+2026-03-30 10:11:39,816 - INFO - Excel columns: ['name', 'partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit']
+2026-03-30 10:11:39,818 - INFO - Forward filled 'name' column
+2026-03-30 10:11:39,819 - INFO - scheduled_date dtype: datetime64[ns]
+2026-03-30 10:11:39,820 - INFO - scheduled_date sample: 2026-02-24 00:00:00
+2026-03-30 10:11:39,822 - INFO - Converted scheduled_date to string format. Sample: 2026-02-24 00:00:00
+2026-03-30 10:11:39,823 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-03-30 10:11:39,824 - INFO - Using 'default_code' column as 'product_id'
+2026-03-30 10:11:39,825 - INFO - Using 'origin' column to identify transfer groups
+2026-03-30 10:11:39,828 - INFO - Filling missing picking_type_id with 'OB FIFO' for 1 rows in group RM02 TO FG20
+2026-03-30 10:11:39,830 - INFO - Excel file validation and data filling completed successfully
+2026-03-30 10:11:39,929 - ERROR - Picking type not found: OB FIFO
+2026-03-30 10:11:39,929 - INFO - Import completed: 0 success, 0 failed.

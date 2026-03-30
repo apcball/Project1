@@ -1,0 +1,560 @@
+2026-03-30 11:12:35,292 - INFO - Successfully connected to Odoo as user ID: 2
+2026-03-30 11:12:35,356 - INFO - Odoo version: 17.0.1.3
+2026-03-30 11:12:35,481 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-03-30 11:12:36,180 - INFO - Successfully read Excel file with 120 rows
+2026-03-30 11:12:36,180 - INFO - Excel columns: ['name', 'partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit']
+2026-03-30 11:12:36,181 - INFO - Forward filled 'name' column
+2026-03-30 11:12:36,183 - INFO - scheduled_date dtype: datetime64[ns]
+2026-03-30 11:12:36,183 - INFO - scheduled_date sample: 2025-12-31 00:00:00
+2026-03-30 11:12:36,185 - INFO - Converted scheduled_date to string format. Sample: 2025-12-31 00:00:00
+2026-03-30 11:12:36,186 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-03-30 11:12:36,186 - INFO - Using 'default_code' column as 'product_id'
+2026-03-30 11:12:36,187 - INFO - Using 'origin' column to identify transfer groups
+2026-03-30 11:12:36,190 - INFO - Excel file validation and data filling completed successfully
+2026-03-30 11:12:36,321 - INFO - Searching for location: 'FG20/Stock'
+2026-03-30 11:12:36,517 - INFO - Found location with complete_name match: 'FG20/Stock' for 'FG20/Stock'
+2026-03-30 11:12:36,580 - INFO - Found partner ID 9259 for 'MOG-OB'
+2026-03-30 11:12:36,711 - INFO - Created transfer for date 2025-12-31 00:00:00 sequence  with picking ID 13950
+2026-03-30 11:12:36,712 - INFO - Processing Excel row 1: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '203030005', 'product_uom_qty': 6, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '203030005'}
+2026-03-30 11:12:36,712 - INFO - Searching for product with code: '203030005' and old code: '203030005'
+2026-03-30 11:12:36,775 - INFO - Found product with exact match on default_code: '203030005'
+2026-03-30 11:12:36,839 - INFO - Prepared product 203030005 with quantity 6.0 for batch creation
+2026-03-30 11:12:36,840 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:36,840 - INFO - Processing Excel row 2: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '203030004', 'product_uom_qty': 6, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '203030004'}
+2026-03-30 11:12:36,840 - INFO - Searching for product with code: '203030004' and old code: '203030004'
+2026-03-30 11:12:36,915 - INFO - Found product with exact match on default_code: '203030004'
+2026-03-30 11:12:37,019 - INFO - Prepared product 203030004 with quantity 6.0 for batch creation
+2026-03-30 11:12:37,020 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:37,020 - INFO - Processing Excel row 3: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201060055', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201060055'}
+2026-03-30 11:12:37,021 - INFO - Searching for product with code: '201060055' and old code: '201060055'
+2026-03-30 11:12:37,173 - INFO - Found product with exact match on default_code: '201060055'
+2026-03-30 11:12:37,279 - INFO - Prepared product 201060055 with quantity 3.0 for batch creation
+2026-03-30 11:12:37,280 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:37,282 - INFO - Processing Excel row 4: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201060044', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201060044'}
+2026-03-30 11:12:37,286 - INFO - Searching for product with code: '201060044' and old code: '201060044'
+2026-03-30 11:12:37,381 - INFO - Found product with exact match on default_code: '201060044'
+2026-03-30 11:12:37,466 - INFO - Prepared product 201060044 with quantity 3.0 for batch creation
+2026-03-30 11:12:37,466 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:37,467 - INFO - Processing Excel row 5: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201060002', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201060002'}
+2026-03-30 11:12:37,467 - INFO - Searching for product with code: '201060002' and old code: '201060002'
+2026-03-30 11:12:37,554 - INFO - Found product with exact match on default_code: '201060002'
+2026-03-30 11:12:37,635 - INFO - Prepared product 201060002 with quantity 3.0 for batch creation
+2026-03-30 11:12:37,636 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:37,636 - INFO - Processing Excel row 6: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201060018', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201060018'}
+2026-03-30 11:12:37,637 - INFO - Searching for product with code: '201060018' and old code: '201060018'
+2026-03-30 11:12:37,701 - INFO - Found product with exact match on default_code: '201060018'
+2026-03-30 11:12:37,767 - INFO - Prepared product 201060018 with quantity 3.0 for batch creation
+2026-03-30 11:12:37,767 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:37,768 - INFO - Processing Excel row 7: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201060034', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201060034'}
+2026-03-30 11:12:37,768 - INFO - Searching for product with code: '201060034' and old code: '201060034'
+2026-03-30 11:12:37,841 - INFO - Found product with exact match on default_code: '201060034'
+2026-03-30 11:12:37,923 - INFO - Prepared product 201060034 with quantity 3.0 for batch creation
+2026-03-30 11:12:37,924 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:37,924 - INFO - Processing Excel row 8: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201080089', 'product_uom_qty': 7, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201080089'}
+2026-03-30 11:12:37,925 - INFO - Searching for product with code: '201080089' and old code: '201080089'
+2026-03-30 11:12:37,988 - INFO - Found product with exact match on default_code: '201080089'
+2026-03-30 11:12:38,074 - INFO - Prepared product 201080089 with quantity 7.0 for batch creation
+2026-03-30 11:12:38,074 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,075 - INFO - Processing Excel row 9: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201080088', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201080088'}
+2026-03-30 11:12:38,075 - INFO - Searching for product with code: '201080088' and old code: '201080088'
+2026-03-30 11:12:38,199 - INFO - Found product with exact match on default_code: '201080088'
+2026-03-30 11:12:38,268 - INFO - Prepared product 201080088 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,269 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,269 - INFO - Processing Excel row 10: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070009', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070009'}
+2026-03-30 11:12:38,270 - INFO - Searching for product with code: '201070009' and old code: '201070009'
+2026-03-30 11:12:38,328 - INFO - Found product with exact match on default_code: '201070009'
+2026-03-30 11:12:38,396 - INFO - Prepared product 201070009 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,397 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,399 - INFO - Processing Excel row 11: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070009', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070009'}
+2026-03-30 11:12:38,400 - INFO - Using cached product ID for code: '201070009'
+2026-03-30 11:12:38,401 - INFO - Prepared product 201070009 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,401 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,402 - INFO - Processing Excel row 12: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070012', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070012'}
+2026-03-30 11:12:38,403 - INFO - Searching for product with code: '201070012' and old code: '201070012'
+2026-03-30 11:12:38,466 - INFO - Found product with exact match on default_code: '201070012'
+2026-03-30 11:12:38,531 - INFO - Prepared product 201070012 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,531 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,532 - INFO - Processing Excel row 13: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070012', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070012'}
+2026-03-30 11:12:38,532 - INFO - Using cached product ID for code: '201070012'
+2026-03-30 11:12:38,532 - INFO - Prepared product 201070012 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,533 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,533 - INFO - Processing Excel row 14: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070020', 'product_uom_qty': 27, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070020'}
+2026-03-30 11:12:38,534 - INFO - Searching for product with code: '201070020' and old code: '201070020'
+2026-03-30 11:12:38,596 - INFO - Found product with exact match on default_code: '201070020'
+2026-03-30 11:12:38,671 - INFO - Prepared product 201070020 with quantity 27.0 for batch creation
+2026-03-30 11:12:38,671 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,672 - INFO - Processing Excel row 15: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070020', 'product_uom_qty': 27, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070020'}
+2026-03-30 11:12:38,672 - INFO - Using cached product ID for code: '201070020'
+2026-03-30 11:12:38,673 - INFO - Prepared product 201070020 with quantity 27.0 for batch creation
+2026-03-30 11:12:38,673 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,673 - INFO - Processing Excel row 16: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070002', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070002'}
+2026-03-30 11:12:38,674 - INFO - Searching for product with code: '201070002' and old code: '201070002'
+2026-03-30 11:12:38,731 - INFO - Found product with exact match on default_code: '201070002'
+2026-03-30 11:12:38,793 - INFO - Prepared product 201070002 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,793 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,794 - INFO - Processing Excel row 17: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070002', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070002'}
+2026-03-30 11:12:38,794 - INFO - Using cached product ID for code: '201070002'
+2026-03-30 11:12:38,795 - INFO - Prepared product 201070002 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,795 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,796 - INFO - Processing Excel row 18: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070004', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070004'}
+2026-03-30 11:12:38,796 - INFO - Searching for product with code: '201070004' and old code: '201070004'
+2026-03-30 11:12:38,858 - INFO - Found product with exact match on default_code: '201070004'
+2026-03-30 11:12:38,928 - INFO - Prepared product 201070004 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,928 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,929 - INFO - Processing Excel row 19: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070004', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070004'}
+2026-03-30 11:12:38,930 - INFO - Using cached product ID for code: '201070004'
+2026-03-30 11:12:38,930 - INFO - Prepared product 201070004 with quantity 1.0 for batch creation
+2026-03-30 11:12:38,930 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:38,931 - INFO - Processing Excel row 20: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070006', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070006'}
+2026-03-30 11:12:38,931 - INFO - Searching for product with code: '201070006' and old code: '201070006'
+2026-03-30 11:12:38,998 - INFO - Found product with exact match on default_code: '201070006'
+2026-03-30 11:12:39,062 - INFO - Prepared product 201070006 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,062 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,063 - INFO - Processing Excel row 21: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070006', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070006'}
+2026-03-30 11:12:39,063 - INFO - Using cached product ID for code: '201070006'
+2026-03-30 11:12:39,064 - INFO - Prepared product 201070006 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,064 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,064 - INFO - Processing Excel row 22: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070028', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070028'}
+2026-03-30 11:12:39,065 - INFO - Searching for product with code: '201070028' and old code: '201070028'
+2026-03-30 11:12:39,131 - INFO - Found product with exact match on default_code: '201070028'
+2026-03-30 11:12:39,195 - INFO - Prepared product 201070028 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,195 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,196 - INFO - Processing Excel row 23: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070028', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070028'}
+2026-03-30 11:12:39,196 - INFO - Using cached product ID for code: '201070028'
+2026-03-30 11:12:39,197 - INFO - Prepared product 201070028 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,197 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,198 - INFO - Processing Excel row 24: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070028', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070028'}
+2026-03-30 11:12:39,198 - INFO - Using cached product ID for code: '201070028'
+2026-03-30 11:12:39,199 - INFO - Prepared product 201070028 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,199 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,199 - INFO - Processing Excel row 25: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070029', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070029'}
+2026-03-30 11:12:39,200 - INFO - Searching for product with code: '201070029' and old code: '201070029'
+2026-03-30 11:12:39,263 - INFO - Found product with exact match on default_code: '201070029'
+2026-03-30 11:12:39,346 - INFO - Prepared product 201070029 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,347 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,347 - INFO - Processing Excel row 26: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070029', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070029'}
+2026-03-30 11:12:39,348 - INFO - Using cached product ID for code: '201070029'
+2026-03-30 11:12:39,348 - INFO - Prepared product 201070029 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,349 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,349 - INFO - Processing Excel row 27: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070029', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070029'}
+2026-03-30 11:12:39,350 - INFO - Using cached product ID for code: '201070029'
+2026-03-30 11:12:39,351 - INFO - Prepared product 201070029 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,351 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,352 - INFO - Processing Excel row 28: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070030', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070030'}
+2026-03-30 11:12:39,352 - INFO - Searching for product with code: '201070030' and old code: '201070030'
+2026-03-30 11:12:39,413 - INFO - Found product with exact match on default_code: '201070030'
+2026-03-30 11:12:39,478 - INFO - Prepared product 201070030 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,478 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,479 - INFO - Processing Excel row 29: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070030', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070030'}
+2026-03-30 11:12:39,479 - INFO - Using cached product ID for code: '201070030'
+2026-03-30 11:12:39,479 - INFO - Prepared product 201070030 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,480 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,481 - INFO - Processing Excel row 30: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070030', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070030'}
+2026-03-30 11:12:39,481 - INFO - Using cached product ID for code: '201070030'
+2026-03-30 11:12:39,481 - INFO - Prepared product 201070030 with quantity 1.0 for batch creation
+2026-03-30 11:12:39,482 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,482 - INFO - Processing Excel row 31: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070049', 'product_uom_qty': 10, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070049'}
+2026-03-30 11:12:39,482 - INFO - Searching for product with code: '201070049' and old code: '201070049'
+2026-03-30 11:12:39,554 - INFO - Found product with exact match on default_code: '201070049'
+2026-03-30 11:12:39,622 - INFO - Prepared product 201070049 with quantity 10.0 for batch creation
+2026-03-30 11:12:39,622 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,623 - INFO - Processing Excel row 32: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070049', 'product_uom_qty': 10, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070049'}
+2026-03-30 11:12:39,623 - INFO - Using cached product ID for code: '201070049'
+2026-03-30 11:12:39,623 - INFO - Prepared product 201070049 with quantity 10.0 for batch creation
+2026-03-30 11:12:39,624 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,624 - INFO - Processing Excel row 33: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070049', 'product_uom_qty': 10, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070049'}
+2026-03-30 11:12:39,624 - INFO - Using cached product ID for code: '201070049'
+2026-03-30 11:12:39,625 - INFO - Prepared product 201070049 with quantity 10.0 for batch creation
+2026-03-30 11:12:39,625 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,626 - INFO - Processing Excel row 34: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070033', 'product_uom_qty': 27, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070033'}
+2026-03-30 11:12:39,626 - INFO - Searching for product with code: '201070033' and old code: '201070033'
+2026-03-30 11:12:39,698 - INFO - Found product with exact match on default_code: '201070033'
+2026-03-30 11:12:39,763 - INFO - Prepared product 201070033 with quantity 27.0 for batch creation
+2026-03-30 11:12:39,763 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,764 - INFO - Processing Excel row 35: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070033', 'product_uom_qty': 27, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070033'}
+2026-03-30 11:12:39,764 - INFO - Using cached product ID for code: '201070033'
+2026-03-30 11:12:39,765 - INFO - Prepared product 201070033 with quantity 27.0 for batch creation
+2026-03-30 11:12:39,765 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,765 - INFO - Processing Excel row 36: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201070033', 'product_uom_qty': 27, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201070033'}
+2026-03-30 11:12:39,766 - INFO - Using cached product ID for code: '201070033'
+2026-03-30 11:12:39,766 - INFO - Prepared product 201070033 with quantity 27.0 for batch creation
+2026-03-30 11:12:39,766 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,767 - INFO - Processing Excel row 37: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '203040008', 'product_uom_qty': 11, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '203040008'}
+2026-03-30 11:12:39,767 - INFO - Searching for product with code: '203040008' and old code: '203040008'
+2026-03-30 11:12:39,834 - INFO - Found product with exact match on default_code: '203040008'
+2026-03-30 11:12:39,909 - INFO - Prepared product 203040008 with quantity 11.0 for batch creation
+2026-03-30 11:12:39,910 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:39,910 - INFO - Processing Excel row 38: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201090383', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201090383'}
+2026-03-30 11:12:39,910 - INFO - Searching for product with code: '201090383' and old code: '201090383'
+2026-03-30 11:12:39,974 - INFO - Found product with exact match on default_code: '201090383'
+2026-03-30 11:12:40,061 - INFO - Prepared product 201090383 with quantity 1.0 for batch creation
+2026-03-30 11:12:40,062 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:40,063 - INFO - Processing Excel row 39: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201090402', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201090402'}
+2026-03-30 11:12:40,063 - INFO - Searching for product with code: '201090402' and old code: '201090402'
+2026-03-30 11:12:40,129 - INFO - Found product with exact match on default_code: '201090402'
+2026-03-30 11:12:40,205 - INFO - Prepared product 201090402 with quantity 1.0 for batch creation
+2026-03-30 11:12:40,205 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:40,206 - INFO - Processing Excel row 40: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201090389', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201090389'}
+2026-03-30 11:12:40,206 - INFO - Searching for product with code: '201090389' and old code: '201090389'
+2026-03-30 11:12:40,269 - INFO - Found product with exact match on default_code: '201090389'
+2026-03-30 11:12:40,335 - INFO - Prepared product 201090389 with quantity 1.0 for batch creation
+2026-03-30 11:12:40,335 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:40,336 - INFO - Processing Excel row 41: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201090395', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201090395'}
+2026-03-30 11:12:40,337 - INFO - Searching for product with code: '201090395' and old code: '201090395'
+2026-03-30 11:12:40,401 - INFO - Found product with exact match on default_code: '201090395'
+2026-03-30 11:12:40,486 - INFO - Prepared product 201090395 with quantity 1.0 for batch creation
+2026-03-30 11:12:40,487 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:40,488 - INFO - Processing Excel row 42: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050242', 'product_uom_qty': 17, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050242'}
+2026-03-30 11:12:40,488 - INFO - Searching for product with code: '201050242' and old code: '201050242'
+2026-03-30 11:12:40,651 - INFO - Found product with exact match on default_code: '201050242'
+2026-03-30 11:12:40,719 - INFO - Prepared product 201050242 with quantity 17.0 for batch creation
+2026-03-30 11:12:40,720 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:40,720 - INFO - Processing Excel row 43: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050253', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050253'}
+2026-03-30 11:12:40,721 - INFO - Searching for product with code: '201050253' and old code: '201050253'
+2026-03-30 11:12:40,787 - INFO - Found product with exact match on default_code: '201050253'
+2026-03-30 11:12:40,850 - INFO - Prepared product 201050253 with quantity 1.0 for batch creation
+2026-03-30 11:12:40,850 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:40,851 - INFO - Processing Excel row 44: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050353', 'product_uom_qty': 15, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050353'}
+2026-03-30 11:12:40,851 - INFO - Searching for product with code: '201050353' and old code: '201050353'
+2026-03-30 11:12:40,916 - INFO - Found product with exact match on default_code: '201050353'
+2026-03-30 11:12:40,985 - INFO - Prepared product 201050353 with quantity 15.0 for batch creation
+2026-03-30 11:12:40,986 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:40,987 - INFO - Processing Excel row 45: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050050', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050050'}
+2026-03-30 11:12:40,988 - INFO - Searching for product with code: '201050050' and old code: '201050050'
+2026-03-30 11:12:41,057 - INFO - Found product with exact match on default_code: '201050050'
+2026-03-30 11:12:41,131 - INFO - Prepared product 201050050 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,131 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,132 - INFO - Processing Excel row 46: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050060', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050060'}
+2026-03-30 11:12:41,132 - INFO - Searching for product with code: '201050060' and old code: '201050060'
+2026-03-30 11:12:41,194 - INFO - Found product with exact match on default_code: '201050060'
+2026-03-30 11:12:41,256 - INFO - Prepared product 201050060 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,257 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,258 - INFO - Processing Excel row 47: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH0064-496FE1.', 'product_uom_qty': 2, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '3FG-LH0064-496FE1.'}
+2026-03-30 11:12:41,258 - INFO - Searching for product with code: '3FG-LH0064-496FE1.' and old code: '3FG-LH0064-496FE1.'
+2026-03-30 11:12:41,324 - INFO - Found product with exact match on default_code: '3FG-LH0064-496FE1.'
+2026-03-30 11:12:41,393 - INFO - Prepared product 3FG-LH0064-496FE1. with quantity 2.0 for batch creation
+2026-03-30 11:12:41,394 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,395 - INFO - Processing Excel row 48: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050427', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050427'}
+2026-03-30 11:12:41,396 - INFO - Searching for product with code: '201050427' and old code: '201050427'
+2026-03-30 11:12:41,465 - INFO - Found product with exact match on default_code: '201050427'
+2026-03-30 11:12:41,538 - INFO - Prepared product 201050427 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,538 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,539 - INFO - Processing Excel row 49: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050427', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050427'}
+2026-03-30 11:12:41,540 - INFO - Using cached product ID for code: '201050427'
+2026-03-30 11:12:41,541 - INFO - Prepared product 201050427 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,541 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,542 - INFO - Processing Excel row 50: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050427', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050427'}
+2026-03-30 11:12:41,543 - INFO - Using cached product ID for code: '201050427'
+2026-03-30 11:12:41,543 - INFO - Prepared product 201050427 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,544 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,545 - INFO - Processing Excel row 51: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050028', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050028'}
+2026-03-30 11:12:41,545 - INFO - Searching for product with code: '201050028' and old code: '201050028'
+2026-03-30 11:12:41,609 - INFO - Found product with exact match on default_code: '201050028'
+2026-03-30 11:12:41,679 - INFO - Prepared product 201050028 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,679 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,679 - INFO - Processing Excel row 52: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050028', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050028'}
+2026-03-30 11:12:41,680 - INFO - Using cached product ID for code: '201050028'
+2026-03-30 11:12:41,680 - INFO - Prepared product 201050028 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,680 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,681 - INFO - Processing Excel row 53: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050036', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050036'}
+2026-03-30 11:12:41,681 - INFO - Searching for product with code: '201050036' and old code: '201050036'
+2026-03-30 11:12:41,744 - INFO - Found product with exact match on default_code: '201050036'
+2026-03-30 11:12:41,810 - INFO - Prepared product 201050036 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,811 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,811 - INFO - Processing Excel row 54: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050036', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050036'}
+2026-03-30 11:12:41,812 - INFO - Using cached product ID for code: '201050036'
+2026-03-30 11:12:41,812 - INFO - Prepared product 201050036 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,812 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,813 - INFO - Processing Excel row 55: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050448', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050448'}
+2026-03-30 11:12:41,813 - INFO - Searching for product with code: '201050448' and old code: '201050448'
+2026-03-30 11:12:41,872 - INFO - Found product with exact match on default_code: '201050448'
+2026-03-30 11:12:41,944 - INFO - Prepared product 201050448 with quantity 1.0 for batch creation
+2026-03-30 11:12:41,944 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:41,945 - INFO - Processing Excel row 56: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050449', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050449'}
+2026-03-30 11:12:41,945 - INFO - Searching for product with code: '201050449' and old code: '201050449'
+2026-03-30 11:12:42,008 - INFO - Found product with exact match on default_code: '201050449'
+2026-03-30 11:12:42,070 - INFO - Prepared product 201050449 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,071 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,072 - INFO - Processing Excel row 57: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050449', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050449'}
+2026-03-30 11:12:42,072 - INFO - Using cached product ID for code: '201050449'
+2026-03-30 11:12:42,073 - INFO - Prepared product 201050449 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,073 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,074 - INFO - Processing Excel row 58: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050510', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050510'}
+2026-03-30 11:12:42,075 - INFO - Searching for product with code: '201050510' and old code: '201050510'
+2026-03-30 11:12:42,140 - INFO - Found product with exact match on default_code: '201050510'
+2026-03-30 11:12:42,205 - INFO - Prepared product 201050510 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,206 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,206 - INFO - Processing Excel row 59: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050511', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050511'}
+2026-03-30 11:12:42,207 - INFO - Searching for product with code: '201050511' and old code: '201050511'
+2026-03-30 11:12:42,268 - INFO - Found product with exact match on default_code: '201050511'
+2026-03-30 11:12:42,332 - INFO - Prepared product 201050511 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,332 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,333 - INFO - Processing Excel row 60: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050511', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050511'}
+2026-03-30 11:12:42,333 - INFO - Using cached product ID for code: '201050511'
+2026-03-30 11:12:42,334 - INFO - Prepared product 201050511 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,334 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,335 - INFO - Processing Excel row 61: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050424', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050424'}
+2026-03-30 11:12:42,335 - INFO - Searching for product with code: '201050424' and old code: '201050424'
+2026-03-30 11:12:42,404 - INFO - Found product with exact match on default_code: '201050424'
+2026-03-30 11:12:42,467 - INFO - Prepared product 201050424 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,468 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,468 - INFO - Processing Excel row 62: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050424', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050424'}
+2026-03-30 11:12:42,469 - INFO - Using cached product ID for code: '201050424'
+2026-03-30 11:12:42,469 - INFO - Prepared product 201050424 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,469 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,470 - INFO - Processing Excel row 63: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050424', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050424'}
+2026-03-30 11:12:42,470 - INFO - Using cached product ID for code: '201050424'
+2026-03-30 11:12:42,471 - INFO - Prepared product 201050424 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,471 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,472 - INFO - Processing Excel row 64: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050425', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050425'}
+2026-03-30 11:12:42,472 - INFO - Searching for product with code: '201050425' and old code: '201050425'
+2026-03-30 11:12:42,532 - INFO - Found product with exact match on default_code: '201050425'
+2026-03-30 11:12:42,600 - INFO - Prepared product 201050425 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,600 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,601 - INFO - Processing Excel row 65: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050425', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050425'}
+2026-03-30 11:12:42,601 - INFO - Using cached product ID for code: '201050425'
+2026-03-30 11:12:42,601 - INFO - Prepared product 201050425 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,602 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,602 - INFO - Processing Excel row 66: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050425', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050425'}
+2026-03-30 11:12:42,603 - INFO - Using cached product ID for code: '201050425'
+2026-03-30 11:12:42,603 - INFO - Prepared product 201050425 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,603 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,604 - INFO - Processing Excel row 67: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050023', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050023'}
+2026-03-30 11:12:42,604 - INFO - Searching for product with code: '201050023' and old code: '201050023'
+2026-03-30 11:12:42,673 - INFO - Found product with exact match on default_code: '201050023'
+2026-03-30 11:12:42,747 - INFO - Prepared product 201050023 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,748 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,748 - INFO - Processing Excel row 68: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050023', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050023'}
+2026-03-30 11:12:42,749 - INFO - Using cached product ID for code: '201050023'
+2026-03-30 11:12:42,749 - INFO - Prepared product 201050023 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,750 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,750 - INFO - Processing Excel row 69: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050023', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050023'}
+2026-03-30 11:12:42,751 - INFO - Using cached product ID for code: '201050023'
+2026-03-30 11:12:42,751 - INFO - Prepared product 201050023 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,752 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,752 - INFO - Processing Excel row 70: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050023', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050023'}
+2026-03-30 11:12:42,753 - INFO - Using cached product ID for code: '201050023'
+2026-03-30 11:12:42,753 - INFO - Prepared product 201050023 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,754 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,754 - INFO - Processing Excel row 71: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050023', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050023'}
+2026-03-30 11:12:42,755 - INFO - Using cached product ID for code: '201050023'
+2026-03-30 11:12:42,755 - INFO - Prepared product 201050023 with quantity 1.0 for batch creation
+2026-03-30 11:12:42,756 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,756 - INFO - Processing Excel row 72: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050426', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050426'}
+2026-03-30 11:12:42,757 - INFO - Searching for product with code: '201050426' and old code: '201050426'
+2026-03-30 11:12:42,819 - INFO - Found product with exact match on default_code: '201050426'
+2026-03-30 11:12:42,885 - INFO - Prepared product 201050426 with quantity 4.0 for batch creation
+2026-03-30 11:12:42,885 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,886 - INFO - Processing Excel row 73: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050426', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050426'}
+2026-03-30 11:12:42,886 - INFO - Using cached product ID for code: '201050426'
+2026-03-30 11:12:42,886 - INFO - Prepared product 201050426 with quantity 4.0 for batch creation
+2026-03-30 11:12:42,887 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,887 - INFO - Processing Excel row 74: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050426', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050426'}
+2026-03-30 11:12:42,887 - INFO - Using cached product ID for code: '201050426'
+2026-03-30 11:12:42,888 - INFO - Prepared product 201050426 with quantity 4.0 for batch creation
+2026-03-30 11:12:42,888 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:42,888 - INFO - Processing Excel row 75: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050452', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050452'}
+2026-03-30 11:12:42,889 - INFO - Searching for product with code: '201050452' and old code: '201050452'
+2026-03-30 11:12:42,950 - INFO - Found product with exact match on default_code: '201050452'
+2026-03-30 11:12:43,044 - INFO - Prepared product 201050452 with quantity 3.0 for batch creation
+2026-03-30 11:12:43,045 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,045 - INFO - Processing Excel row 76: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050452', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050452'}
+2026-03-30 11:12:43,046 - INFO - Using cached product ID for code: '201050452'
+2026-03-30 11:12:43,046 - INFO - Prepared product 201050452 with quantity 3.0 for batch creation
+2026-03-30 11:12:43,047 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,047 - INFO - Processing Excel row 77: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050452', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050452'}
+2026-03-30 11:12:43,048 - INFO - Using cached product ID for code: '201050452'
+2026-03-30 11:12:43,048 - INFO - Prepared product 201050452 with quantity 3.0 for batch creation
+2026-03-30 11:12:43,049 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,050 - INFO - Processing Excel row 78: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050137', 'product_uom_qty': 16, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050137'}
+2026-03-30 11:12:43,051 - INFO - Searching for product with code: '201050137' and old code: '201050137'
+2026-03-30 11:12:43,115 - INFO - Found product with exact match on default_code: '201050137'
+2026-03-30 11:12:43,180 - INFO - Prepared product 201050137 with quantity 16.0 for batch creation
+2026-03-30 11:12:43,180 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,181 - INFO - Processing Excel row 79: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050137', 'product_uom_qty': 16, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050137'}
+2026-03-30 11:12:43,182 - INFO - Using cached product ID for code: '201050137'
+2026-03-30 11:12:43,182 - INFO - Prepared product 201050137 with quantity 16.0 for batch creation
+2026-03-30 11:12:43,183 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,183 - INFO - Processing Excel row 80: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050138', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050138'}
+2026-03-30 11:12:43,184 - INFO - Searching for product with code: '201050138' and old code: '201050138'
+2026-03-30 11:12:43,245 - INFO - Found product with exact match on default_code: '201050138'
+2026-03-30 11:12:43,308 - INFO - Prepared product 201050138 with quantity 1.0 for batch creation
+2026-03-30 11:12:43,309 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,309 - INFO - Processing Excel row 81: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050138', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050138'}
+2026-03-30 11:12:43,310 - INFO - Using cached product ID for code: '201050138'
+2026-03-30 11:12:43,310 - INFO - Prepared product 201050138 with quantity 1.0 for batch creation
+2026-03-30 11:12:43,311 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,312 - INFO - Processing Excel row 82: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050453', 'product_uom_qty': 5, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050453'}
+2026-03-30 11:12:43,312 - INFO - Searching for product with code: '201050453' and old code: '201050453'
+2026-03-30 11:12:43,375 - INFO - Found product with exact match on default_code: '201050453'
+2026-03-30 11:12:43,442 - INFO - Prepared product 201050453 with quantity 5.0 for batch creation
+2026-03-30 11:12:43,444 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,447 - INFO - Processing Excel row 83: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050453', 'product_uom_qty': 5, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050453'}
+2026-03-30 11:12:43,449 - INFO - Using cached product ID for code: '201050453'
+2026-03-30 11:12:43,450 - INFO - Prepared product 201050453 with quantity 5.0 for batch creation
+2026-03-30 11:12:43,451 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,455 - INFO - Processing Excel row 84: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050453', 'product_uom_qty': 5, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050453'}
+2026-03-30 11:12:43,456 - INFO - Using cached product ID for code: '201050453'
+2026-03-30 11:12:43,458 - INFO - Prepared product 201050453 with quantity 5.0 for batch creation
+2026-03-30 11:12:43,459 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,462 - INFO - Processing Excel row 85: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050454', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050454'}
+2026-03-30 11:12:43,464 - INFO - Searching for product with code: '201050454' and old code: '201050454'
+2026-03-30 11:12:43,528 - INFO - Found product with exact match on default_code: '201050454'
+2026-03-30 11:12:43,594 - INFO - Prepared product 201050454 with quantity 4.0 for batch creation
+2026-03-30 11:12:43,595 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,598 - INFO - Processing Excel row 86: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050454', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050454'}
+2026-03-30 11:12:43,599 - INFO - Using cached product ID for code: '201050454'
+2026-03-30 11:12:43,602 - INFO - Prepared product 201050454 with quantity 4.0 for batch creation
+2026-03-30 11:12:43,603 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,605 - INFO - Processing Excel row 87: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050454', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050454'}
+2026-03-30 11:12:43,607 - INFO - Using cached product ID for code: '201050454'
+2026-03-30 11:12:43,608 - INFO - Prepared product 201050454 with quantity 4.0 for batch creation
+2026-03-30 11:12:43,609 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,612 - INFO - Processing Excel row 88: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050460', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050460'}
+2026-03-30 11:12:43,614 - INFO - Searching for product with code: '201050460' and old code: '201050460'
+2026-03-30 11:12:43,682 - INFO - Found product with exact match on default_code: '201050460'
+2026-03-30 11:12:43,750 - INFO - Prepared product 201050460 with quantity 4.0 for batch creation
+2026-03-30 11:12:43,751 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,752 - INFO - Processing Excel row 89: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050460', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050460'}
+2026-03-30 11:12:43,753 - INFO - Using cached product ID for code: '201050460'
+2026-03-30 11:12:43,754 - INFO - Prepared product 201050460 with quantity 4.0 for batch creation
+2026-03-30 11:12:43,755 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,756 - INFO - Processing Excel row 90: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050460', 'product_uom_qty': 4, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050460'}
+2026-03-30 11:12:43,757 - INFO - Using cached product ID for code: '201050460'
+2026-03-30 11:12:43,758 - INFO - Prepared product 201050460 with quantity 4.0 for batch creation
+2026-03-30 11:12:43,759 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,761 - INFO - Processing Excel row 91: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050461', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050461'}
+2026-03-30 11:12:43,762 - INFO - Searching for product with code: '201050461' and old code: '201050461'
+2026-03-30 11:12:43,825 - INFO - Found product with exact match on default_code: '201050461'
+2026-03-30 11:12:43,891 - INFO - Prepared product 201050461 with quantity 1.0 for batch creation
+2026-03-30 11:12:43,891 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,892 - INFO - Processing Excel row 92: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050461', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050461'}
+2026-03-30 11:12:43,892 - INFO - Using cached product ID for code: '201050461'
+2026-03-30 11:12:43,892 - INFO - Prepared product 201050461 with quantity 1.0 for batch creation
+2026-03-30 11:12:43,893 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,893 - INFO - Processing Excel row 93: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050461', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050461'}
+2026-03-30 11:12:43,894 - INFO - Using cached product ID for code: '201050461'
+2026-03-30 11:12:43,895 - INFO - Prepared product 201050461 with quantity 1.0 for batch creation
+2026-03-30 11:12:43,896 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:43,896 - INFO - Processing Excel row 94: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050464', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050464'}
+2026-03-30 11:12:43,897 - INFO - Searching for product with code: '201050464' and old code: '201050464'
+2026-03-30 11:12:43,964 - INFO - Found product with exact match on default_code: '201050464'
+2026-03-30 11:12:44,028 - INFO - Prepared product 201050464 with quantity 1.0 for batch creation
+2026-03-30 11:12:44,028 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,028 - INFO - Processing Excel row 95: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050464', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050464'}
+2026-03-30 11:12:44,029 - INFO - Using cached product ID for code: '201050464'
+2026-03-30 11:12:44,029 - INFO - Prepared product 201050464 with quantity 1.0 for batch creation
+2026-03-30 11:12:44,029 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,030 - INFO - Processing Excel row 96: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050464', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050464'}
+2026-03-30 11:12:44,030 - INFO - Using cached product ID for code: '201050464'
+2026-03-30 11:12:44,030 - INFO - Prepared product 201050464 with quantity 1.0 for batch creation
+2026-03-30 11:12:44,031 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,031 - INFO - Processing Excel row 97: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050189', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050189'}
+2026-03-30 11:12:44,031 - INFO - Searching for product with code: '201050189' and old code: '201050189'
+2026-03-30 11:12:44,102 - INFO - Found product with exact match on default_code: '201050189'
+2026-03-30 11:12:44,206 - INFO - Prepared product 201050189 with quantity 1.0 for batch creation
+2026-03-30 11:12:44,207 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,208 - INFO - Processing Excel row 98: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050189', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050189'}
+2026-03-30 11:12:44,209 - INFO - Using cached product ID for code: '201050189'
+2026-03-30 11:12:44,211 - INFO - Prepared product 201050189 with quantity 1.0 for batch creation
+2026-03-30 11:12:44,211 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,214 - INFO - Processing Excel row 99: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050480', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050480'}
+2026-03-30 11:12:44,216 - INFO - Searching for product with code: '201050480' and old code: '201050480'
+2026-03-30 11:12:44,282 - INFO - Found product with exact match on default_code: '201050480'
+2026-03-30 11:12:44,356 - INFO - Prepared product 201050480 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,356 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,357 - INFO - Processing Excel row 100: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050480', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050480'}
+2026-03-30 11:12:44,358 - INFO - Using cached product ID for code: '201050480'
+2026-03-30 11:12:44,358 - INFO - Prepared product 201050480 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,359 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,359 - INFO - Processing Excel row 101: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050480', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050480'}
+2026-03-30 11:12:44,360 - INFO - Using cached product ID for code: '201050480'
+2026-03-30 11:12:44,360 - INFO - Prepared product 201050480 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,361 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,361 - INFO - Processing Excel row 102: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050287', 'product_uom_qty': 6, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050287'}
+2026-03-30 11:12:44,362 - INFO - Searching for product with code: '201050287' and old code: '201050287'
+2026-03-30 11:12:44,428 - INFO - Found product with exact match on default_code: '201050287'
+2026-03-30 11:12:44,514 - INFO - Prepared product 201050287 with quantity 6.0 for batch creation
+2026-03-30 11:12:44,515 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,517 - INFO - Processing Excel row 103: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050287', 'product_uom_qty': 6, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050287'}
+2026-03-30 11:12:44,518 - INFO - Using cached product ID for code: '201050287'
+2026-03-30 11:12:44,519 - INFO - Prepared product 201050287 with quantity 6.0 for batch creation
+2026-03-30 11:12:44,520 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,522 - INFO - Processing Excel row 104: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050288', 'product_uom_qty': 8, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050288'}
+2026-03-30 11:12:44,523 - INFO - Searching for product with code: '201050288' and old code: '201050288'
+2026-03-30 11:12:44,585 - INFO - Found product with exact match on default_code: '201050288'
+2026-03-30 11:12:44,650 - INFO - Prepared product 201050288 with quantity 8.0 for batch creation
+2026-03-30 11:12:44,650 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,651 - INFO - Processing Excel row 105: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050288', 'product_uom_qty': 8, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050288'}
+2026-03-30 11:12:44,652 - INFO - Using cached product ID for code: '201050288'
+2026-03-30 11:12:44,652 - INFO - Prepared product 201050288 with quantity 8.0 for batch creation
+2026-03-30 11:12:44,652 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,653 - INFO - Processing Excel row 106: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050300', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050300'}
+2026-03-30 11:12:44,653 - INFO - Searching for product with code: '201050300' and old code: '201050300'
+2026-03-30 11:12:44,724 - INFO - Found product with exact match on default_code: '201050300'
+2026-03-30 11:12:44,786 - INFO - Prepared product 201050300 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,787 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,788 - INFO - Processing Excel row 107: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050300', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050300'}
+2026-03-30 11:12:44,788 - INFO - Using cached product ID for code: '201050300'
+2026-03-30 11:12:44,789 - INFO - Prepared product 201050300 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,789 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,790 - INFO - Processing Excel row 108: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050300', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050300'}
+2026-03-30 11:12:44,790 - INFO - Using cached product ID for code: '201050300'
+2026-03-30 11:12:44,791 - INFO - Prepared product 201050300 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,791 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,792 - INFO - Processing Excel row 109: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050300', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050300'}
+2026-03-30 11:12:44,792 - INFO - Using cached product ID for code: '201050300'
+2026-03-30 11:12:44,793 - INFO - Prepared product 201050300 with quantity 1.0 for batch creation
+2026-03-30 11:12:44,793 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,794 - INFO - Processing Excel row 110: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050300', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050300'}
+2026-03-30 11:12:44,795 - INFO - Using cached product ID for code: '201050300'
+2026-03-30 11:12:44,795 - INFO - Prepared product 201050300 with quantity 1.0 for batch creation
+2026-03-30 11:12:44,795 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,796 - INFO - Processing Excel row 111: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050301', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050301'}
+2026-03-30 11:12:44,797 - INFO - Searching for product with code: '201050301' and old code: '201050301'
+2026-03-30 11:12:44,868 - INFO - Found product with exact match on default_code: '201050301'
+2026-03-30 11:12:44,933 - INFO - Prepared product 201050301 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,933 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,934 - INFO - Processing Excel row 112: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050301', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050301'}
+2026-03-30 11:12:44,934 - INFO - Using cached product ID for code: '201050301'
+2026-03-30 11:12:44,934 - INFO - Prepared product 201050301 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,935 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,935 - INFO - Processing Excel row 113: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050301', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050301'}
+2026-03-30 11:12:44,936 - INFO - Using cached product ID for code: '201050301'
+2026-03-30 11:12:44,936 - INFO - Prepared product 201050301 with quantity 3.0 for batch creation
+2026-03-30 11:12:44,936 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:44,937 - INFO - Processing Excel row 114: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050481', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050481'}
+2026-03-30 11:12:44,937 - INFO - Searching for product with code: '201050481' and old code: '201050481'
+2026-03-30 11:12:45,003 - INFO - Found product with exact match on default_code: '201050481'
+2026-03-30 11:12:45,067 - INFO - Prepared product 201050481 with quantity 3.0 for batch creation
+2026-03-30 11:12:45,067 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:45,068 - INFO - Processing Excel row 115: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050481', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050481'}
+2026-03-30 11:12:45,068 - INFO - Using cached product ID for code: '201050481'
+2026-03-30 11:12:45,068 - INFO - Prepared product 201050481 with quantity 3.0 for batch creation
+2026-03-30 11:12:45,068 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:45,069 - INFO - Processing Excel row 116: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050481', 'product_uom_qty': 3, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050481'}
+2026-03-30 11:12:45,069 - INFO - Using cached product ID for code: '201050481'
+2026-03-30 11:12:45,069 - INFO - Prepared product 201050481 with quantity 3.0 for batch creation
+2026-03-30 11:12:45,070 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:45,070 - INFO - Processing Excel row 117: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050497', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050497'}
+2026-03-30 11:12:45,070 - INFO - Searching for product with code: '201050497' and old code: '201050497'
+2026-03-30 11:12:45,133 - INFO - Found product with exact match on default_code: '201050497'
+2026-03-30 11:12:45,197 - INFO - Prepared product 201050497 with quantity 1.0 for batch creation
+2026-03-30 11:12:45,197 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:45,198 - INFO - Processing Excel row 118: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050497', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050497'}
+2026-03-30 11:12:45,198 - INFO - Using cached product ID for code: '201050497'
+2026-03-30 11:12:45,199 - INFO - Prepared product 201050497 with quantity 1.0 for batch creation
+2026-03-30 11:12:45,199 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:45,200 - INFO - Processing Excel row 119: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '201050497', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '201050497'}
+2026-03-30 11:12:45,200 - INFO - Using cached product ID for code: '201050497'
+2026-03-30 11:12:45,200 - INFO - Prepared product 201050497 with quantity 1.0 for batch creation
+2026-03-30 11:12:45,201 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:45,201 - INFO - Processing Excel row 120: {'name': 'FG20/PJOUT/31122025', 'partner_id': 'MOG-OB', 'scheduled_date': Timestamp('2025-12-31 00:00:00'), 'picking_type_id': 'FG20-Deli', 'date_done': Timestamp('2025-12-31 00:00:00'), 'origin': 'เดือน12จ่ายหน้าไซต์FG20', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH0045-289FE1-2', 'product_uom_qty': 1, 'price_unit': nan, 'scheduled_date_orig': Timestamp('2025-12-31 00:00:00'), 'product_id': '3FG-LH0045-289FE1-2'}
+2026-03-30 11:12:45,202 - INFO - Searching for product with code: '3FG-LH0045-289FE1-2' and old code: '3FG-LH0045-289FE1-2'
+2026-03-30 11:12:45,260 - INFO - Found product with exact match on default_code: '3FG-LH0045-289FE1-2'
+2026-03-30 11:12:45,324 - INFO - Prepared product 3FG-LH0045-289FE1-2 with quantity 1.0 for batch creation
+2026-03-30 11:12:45,324 - INFO - Move locations - Source: 60, Dest: 60
+2026-03-30 11:12:46,477 - INFO - Created 120 moves in batch for picking 13950
+2026-03-30 11:12:46,567 - INFO - Re-updated dates before confirming picking 13950: 2025-12-31 00:00:00
+2026-03-30 11:12:48,551 - INFO - Confirmed transfer 13950 with forced date context
+2026-03-30 11:12:48,552 - INFO - Import completed: 1 success, 0 failed.
