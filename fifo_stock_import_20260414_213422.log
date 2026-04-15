@@ -1,0 +1,386 @@
+2026-04-14 21:34:23,259 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-14 21:34:23,348 - INFO - Odoo version: 17.0.1.3
+2026-04-14 21:34:23,631 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-14 21:34:23,771 - INFO - Successfully read Excel file with 78 rows
+2026-04-14 21:34:23,771 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-14 21:34:23,773 - INFO - Processed sequence column
+2026-04-14 21:34:23,775 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-14 21:34:23,775 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-14 21:34:23,776 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-14 21:34:23,777 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-14 21:34:23,777 - INFO - Using 'default_code' column as 'product_id'
+2026-04-14 21:34:23,777 - INFO - Using 'origin' column to identify transfer groups
+2026-04-14 21:34:23,779 - INFO - Excel file validation and data filling completed successfully
+2026-04-14 21:34:23,991 - INFO - Searching for location: 'ST01/Stock'
+2026-04-14 21:34:24,275 - INFO - Found location with complete_name match: 'ST01/Stock' for 'ST01/Stock'
+2026-04-14 21:34:24,378 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-14 21:34:24,504 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15028
+2026-04-14 21:34:24,506 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00286', 'product_uom_qty': 200, 'price_unit': 14.760327, 'sequence': 1, 'date': Timestamp('2023-12-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00286'}
+2026-04-14 21:34:24,507 - INFO - Searching for product with code: 'SSP00286' and old code: 'SSP00286'
+2026-04-14 21:34:24,788 - INFO - Found product with exact match on old_product_code: 'SSP00286'
+2026-04-14 21:34:24,884 - INFO - Prepared product SSP00286 with quantity 200.0 for batch creation
+2026-04-14 21:34:24,884 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:24,885 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00287', 'product_uom_qty': 200, 'price_unit': 24.8273315, 'sequence': 2, 'date': Timestamp('2023-12-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00287'}
+2026-04-14 21:34:24,885 - INFO - Searching for product with code: 'SSP00287' and old code: 'SSP00287'
+2026-04-14 21:34:25,156 - INFO - Found product with exact match on old_product_code: 'SSP00287'
+2026-04-14 21:34:25,241 - INFO - Prepared product SSP00287 with quantity 200.0 for batch creation
+2026-04-14 21:34:25,241 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:25,241 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00288', 'product_uom_qty': 379, 'price_unit': 4.84518970976253, 'sequence': 3, 'date': Timestamp('2020-09-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00288'}
+2026-04-14 21:34:25,242 - INFO - Searching for product with code: 'SSP00288' and old code: 'SSP00288'
+2026-04-14 21:34:25,523 - INFO - Found product with exact match on old_product_code: 'SSP00288'
+2026-04-14 21:34:25,613 - INFO - Prepared product SSP00288 with quantity 379.0 for batch creation
+2026-04-14 21:34:25,614 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:25,614 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00288', 'product_uom_qty': 28, 'price_unit': 94.5335535714286, 'sequence': 4, 'date': Timestamp('2022-08-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00288'}
+2026-04-14 21:34:25,615 - INFO - Using cached product ID for code: 'SSP00288'
+2026-04-14 21:34:25,615 - INFO - Prepared product SSP00288 with quantity 28.0 for batch creation
+2026-04-14 21:34:25,615 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:25,615 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00291', 'product_uom_qty': 15, 'price_unit': 7.25, 'sequence': 5, 'date': Timestamp('2020-11-25 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00291'}
+2026-04-14 21:34:25,615 - INFO - Searching for product with code: 'SSP00291' and old code: 'SSP00291'
+2026-04-14 21:34:25,890 - INFO - Found product with exact match on old_product_code: 'SSP00291'
+2026-04-14 21:34:25,999 - INFO - Prepared product SSP00291 with quantity 15.0 for batch creation
+2026-04-14 21:34:25,999 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:26,000 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00292', 'product_uom_qty': 79, 'price_unit': 46.9080088607595, 'sequence': 6, 'date': Timestamp('2020-12-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00292'}
+2026-04-14 21:34:26,000 - INFO - Searching for product with code: 'SSP00292' and old code: 'SSP00292'
+2026-04-14 21:34:26,266 - INFO - Found product with exact match on old_product_code: 'SSP00292'
+2026-04-14 21:34:26,366 - INFO - Prepared product SSP00292 with quantity 79.0 for batch creation
+2026-04-14 21:34:26,367 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:26,367 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00310', 'product_uom_qty': 10, 'price_unit': 60.1, 'sequence': 7, 'date': Timestamp('2026-03-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00310'}
+2026-04-14 21:34:26,368 - INFO - Searching for product with code: 'SSP00310' and old code: 'SSP00310'
+2026-04-14 21:34:26,653 - INFO - Found product with exact match on old_product_code: 'SSP00310'
+2026-04-14 21:34:26,753 - INFO - Prepared product SSP00310 with quantity 10.0 for batch creation
+2026-04-14 21:34:26,753 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:26,753 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00311', 'product_uom_qty': 24, 'price_unit': 35.0, 'sequence': 8, 'date': Timestamp('2022-01-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00311'}
+2026-04-14 21:34:26,753 - INFO - Searching for product with code: 'SSP00311' and old code: 'SSP00311'
+2026-04-14 21:34:27,046 - INFO - Found product with exact match on old_product_code: 'SSP00311'
+2026-04-14 21:34:27,144 - INFO - Prepared product SSP00311 with quantity 24.0 for batch creation
+2026-04-14 21:34:27,144 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:27,145 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00316', 'product_uom_qty': 4, 'price_unit': 37.0, 'sequence': 9, 'date': Timestamp('2024-01-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00316'}
+2026-04-14 21:34:27,145 - INFO - Searching for product with code: 'SSP00316' and old code: 'SSP00316'
+2026-04-14 21:34:27,405 - INFO - Found product with exact match on old_product_code: 'SSP00316'
+2026-04-14 21:34:27,496 - INFO - Prepared product SSP00316 with quantity 4.0 for batch creation
+2026-04-14 21:34:27,496 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:27,497 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00318', 'product_uom_qty': 180, 'price_unit': 6.5, 'sequence': 10, 'date': Timestamp('2026-01-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00318'}
+2026-04-14 21:34:27,497 - INFO - Searching for product with code: 'SSP00318' and old code: 'SSP00318'
+2026-04-14 21:34:27,774 - INFO - Found product with exact match on old_product_code: 'SSP00318'
+2026-04-14 21:34:27,871 - INFO - Prepared product SSP00318 with quantity 180.0 for batch creation
+2026-04-14 21:34:27,871 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:27,872 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00322', 'product_uom_qty': 429, 'price_unit': 6.0, 'sequence': 11, 'date': Timestamp('2022-03-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00322'}
+2026-04-14 21:34:27,872 - INFO - Searching for product with code: 'SSP00322' and old code: 'SSP00322'
+2026-04-14 21:34:28,156 - INFO - Found product with exact match on old_product_code: 'SSP00322'
+2026-04-14 21:34:28,254 - INFO - Prepared product SSP00322 with quantity 429.0 for batch creation
+2026-04-14 21:34:28,254 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:28,254 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00323', 'product_uom_qty': 10, 'price_unit': 53.271, 'sequence': 12, 'date': Timestamp('2026-03-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00323'}
+2026-04-14 21:34:28,255 - INFO - Searching for product with code: 'SSP00323' and old code: 'SSP00323'
+2026-04-14 21:34:28,541 - INFO - Found product with exact match on old_product_code: 'SSP00323'
+2026-04-14 21:34:28,639 - INFO - Prepared product SSP00323 with quantity 10.0 for batch creation
+2026-04-14 21:34:28,639 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:28,640 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00325', 'product_uom_qty': 16, 'price_unit': 26.17, 'sequence': 13, 'date': Timestamp('2022-08-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00325'}
+2026-04-14 21:34:28,640 - INFO - Searching for product with code: 'SSP00325' and old code: 'SSP00325'
+2026-04-14 21:34:28,918 - INFO - Found product with exact match on old_product_code: 'SSP00325'
+2026-04-14 21:34:29,005 - INFO - Prepared product SSP00325 with quantity 16.0 for batch creation
+2026-04-14 21:34:29,005 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:29,006 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00325', 'product_uom_qty': 20, 'price_unit': 26.17, 'sequence': 14, 'date': Timestamp('2022-09-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00325'}
+2026-04-14 21:34:29,006 - INFO - Using cached product ID for code: 'SSP00325'
+2026-04-14 21:34:29,006 - INFO - Prepared product SSP00325 with quantity 20.0 for batch creation
+2026-04-14 21:34:29,006 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:29,006 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00328', 'product_uom_qty': 354, 'price_unit': 14.0, 'sequence': 15, 'date': Timestamp('2022-06-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00328'}
+2026-04-14 21:34:29,006 - INFO - Searching for product with code: 'SSP00328' and old code: 'SSP00328'
+2026-04-14 21:34:29,487 - ERROR - Product not found with code or name: 'SSP00328' or old code: 'SSP00328'
+2026-04-14 21:34:29,488 - WARNING - Product not found in Odoo: SSP00328
+2026-04-14 21:34:29,488 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00329', 'product_uom_qty': 6, 'price_unit': 38.0, 'sequence': 16, 'date': Timestamp('2025-04-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00329'}
+2026-04-14 21:34:29,489 - INFO - Searching for product with code: 'SSP00329' and old code: 'SSP00329'
+2026-04-14 21:34:29,792 - INFO - Found product with exact match on old_product_code: 'SSP00329'
+2026-04-14 21:34:29,895 - INFO - Prepared product SSP00329 with quantity 6.0 for batch creation
+2026-04-14 21:34:29,895 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:29,896 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00332', 'product_uom_qty': 5, 'price_unit': 67.4, 'sequence': 17, 'date': Timestamp('2025-01-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00332'}
+2026-04-14 21:34:29,896 - INFO - Searching for product with code: 'SSP00332' and old code: 'SSP00332'
+2026-04-14 21:34:30,216 - INFO - Found product with exact match on old_product_code: 'SSP00332'
+2026-04-14 21:34:30,319 - INFO - Prepared product SSP00332 with quantity 5.0 for batch creation
+2026-04-14 21:34:30,319 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:30,320 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00334', 'product_uom_qty': 25, 'price_unit': 3.0, 'sequence': 18, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00334'}
+2026-04-14 21:34:30,320 - INFO - Searching for product with code: 'SSP00334' and old code: 'SSP00334'
+2026-04-14 21:34:30,602 - INFO - Found product with exact match on old_product_code: 'SSP00334'
+2026-04-14 21:34:30,722 - INFO - Prepared product SSP00334 with quantity 25.0 for batch creation
+2026-04-14 21:34:30,722 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:30,723 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00335', 'product_uom_qty': 10, 'price_unit': 2.0, 'sequence': 19, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00335'}
+2026-04-14 21:34:30,723 - INFO - Searching for product with code: 'SSP00335' and old code: 'SSP00335'
+2026-04-14 21:34:31,012 - INFO - Found product with exact match on old_product_code: 'SSP00335'
+2026-04-14 21:34:31,114 - INFO - Prepared product SSP00335 with quantity 10.0 for batch creation
+2026-04-14 21:34:31,114 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:31,115 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00336', 'product_uom_qty': 10, 'price_unit': 61.5, 'sequence': 20, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00336'}
+2026-04-14 21:34:31,115 - INFO - Searching for product with code: 'SSP00336' and old code: 'SSP00336'
+2026-04-14 21:34:31,385 - INFO - Found product with exact match on old_product_code: 'SSP00336'
+2026-04-14 21:34:31,485 - INFO - Prepared product SSP00336 with quantity 10.0 for batch creation
+2026-04-14 21:34:31,485 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:31,486 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00337', 'product_uom_qty': 2, 'price_unit': 4.38, 'sequence': 21, 'date': Timestamp('2022-11-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00337'}
+2026-04-14 21:34:31,486 - INFO - Searching for product with code: 'SSP00337' and old code: 'SSP00337'
+2026-04-14 21:34:31,794 - INFO - Found product with exact match on old_product_code: 'SSP00337'
+2026-04-14 21:34:31,880 - INFO - Prepared product SSP00337 with quantity 2.0 for batch creation
+2026-04-14 21:34:31,880 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:31,881 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00340', 'product_uom_qty': 52, 'price_unit': 1.9393, 'sequence': 22, 'date': Timestamp('2025-07-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00340'}
+2026-04-14 21:34:31,881 - INFO - Searching for product with code: 'SSP00340' and old code: 'SSP00340'
+2026-04-14 21:34:32,190 - INFO - Found product with exact match on old_product_code: 'SSP00340'
+2026-04-14 21:34:32,296 - INFO - Prepared product SSP00340 with quantity 52.0 for batch creation
+2026-04-14 21:34:32,297 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:32,297 - INFO - Processing Excel row 23: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00340', 'product_uom_qty': 12, 'price_unit': 1.9393, 'sequence': 23, 'date': Timestamp('2026-03-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00340'}
+2026-04-14 21:34:32,298 - INFO - Using cached product ID for code: 'SSP00340'
+2026-04-14 21:34:32,298 - INFO - Prepared product SSP00340 with quantity 12.0 for batch creation
+2026-04-14 21:34:32,298 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:32,298 - INFO - Processing Excel row 24: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00340', 'product_uom_qty': 12, 'price_unit': 1.9393, 'sequence': 24, 'date': Timestamp('2026-03-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00340'}
+2026-04-14 21:34:32,298 - INFO - Using cached product ID for code: 'SSP00340'
+2026-04-14 21:34:32,298 - INFO - Prepared product SSP00340 with quantity 12.0 for batch creation
+2026-04-14 21:34:32,298 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:32,299 - INFO - Processing Excel row 25: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00341', 'product_uom_qty': 304, 'price_unit': 1.5, 'sequence': 25, 'date': Timestamp('2026-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00341'}
+2026-04-14 21:34:32,299 - INFO - Searching for product with code: 'SSP00341' and old code: 'SSP00341'
+2026-04-14 21:34:32,583 - INFO - Found product with exact match on old_product_code: 'SSP00341'
+2026-04-14 21:34:32,684 - INFO - Prepared product SSP00341 with quantity 304.0 for batch creation
+2026-04-14 21:34:32,684 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:32,685 - INFO - Processing Excel row 26: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00341', 'product_uom_qty': 12, 'price_unit': 1.5, 'sequence': 26, 'date': Timestamp('2026-03-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00341'}
+2026-04-14 21:34:32,685 - INFO - Using cached product ID for code: 'SSP00341'
+2026-04-14 21:34:32,685 - INFO - Prepared product SSP00341 with quantity 12.0 for batch creation
+2026-04-14 21:34:32,685 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:32,685 - INFO - Processing Excel row 27: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00341', 'product_uom_qty': 12, 'price_unit': 1.5, 'sequence': 27, 'date': Timestamp('2026-03-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00341'}
+2026-04-14 21:34:32,685 - INFO - Using cached product ID for code: 'SSP00341'
+2026-04-14 21:34:32,685 - INFO - Prepared product SSP00341 with quantity 12.0 for batch creation
+2026-04-14 21:34:32,685 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:32,686 - INFO - Processing Excel row 28: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00342', 'product_uom_qty': 85, 'price_unit': 0.66, 'sequence': 28, 'date': Timestamp('2025-08-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00342'}
+2026-04-14 21:34:32,686 - INFO - Searching for product with code: 'SSP00342' and old code: 'SSP00342'
+2026-04-14 21:34:32,984 - INFO - Found product with exact match on old_product_code: 'SSP00342'
+2026-04-14 21:34:33,081 - INFO - Prepared product SSP00342 with quantity 85.0 for batch creation
+2026-04-14 21:34:33,081 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:33,082 - INFO - Processing Excel row 29: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00342', 'product_uom_qty': 12, 'price_unit': 0.66, 'sequence': 29, 'date': Timestamp('2026-03-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00342'}
+2026-04-14 21:34:33,082 - INFO - Using cached product ID for code: 'SSP00342'
+2026-04-14 21:34:33,082 - INFO - Prepared product SSP00342 with quantity 12.0 for batch creation
+2026-04-14 21:34:33,082 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:33,083 - INFO - Processing Excel row 30: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00342', 'product_uom_qty': 12, 'price_unit': 0.66, 'sequence': 30, 'date': Timestamp('2026-03-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00342'}
+2026-04-14 21:34:33,083 - INFO - Using cached product ID for code: 'SSP00342'
+2026-04-14 21:34:33,083 - INFO - Prepared product SSP00342 with quantity 12.0 for batch creation
+2026-04-14 21:34:33,083 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:33,083 - INFO - Processing Excel row 31: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00343', 'product_uom_qty': 10, 'price_unit': 300.0, 'sequence': 31, 'date': Timestamp('2026-03-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00343'}
+2026-04-14 21:34:33,083 - INFO - Searching for product with code: 'SSP00343' and old code: 'SSP00343'
+2026-04-14 21:34:33,373 - INFO - Found product with exact match on old_product_code: 'SSP00343'
+2026-04-14 21:34:33,474 - INFO - Prepared product SSP00343 with quantity 10.0 for batch creation
+2026-04-14 21:34:33,474 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:33,475 - INFO - Processing Excel row 32: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00347', 'product_uom_qty': 5, 'price_unit': 2.01, 'sequence': 32, 'date': Timestamp('2023-08-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00347'}
+2026-04-14 21:34:33,475 - INFO - Searching for product with code: 'SSP00347' and old code: 'SSP00347'
+2026-04-14 21:34:33,763 - INFO - Found product with exact match on old_product_code: 'SSP00347'
+2026-04-14 21:34:33,856 - INFO - Prepared product SSP00347 with quantity 5.0 for batch creation
+2026-04-14 21:34:33,857 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:33,857 - INFO - Processing Excel row 33: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00347', 'product_uom_qty': 200, 'price_unit': 1.9159, 'sequence': 33, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00347'}
+2026-04-14 21:34:33,858 - INFO - Using cached product ID for code: 'SSP00347'
+2026-04-14 21:34:33,858 - INFO - Prepared product SSP00347 with quantity 200.0 for batch creation
+2026-04-14 21:34:33,858 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:33,858 - INFO - Processing Excel row 34: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00352', 'product_uom_qty': 152, 'price_unit': 3.9, 'sequence': 34, 'date': Timestamp('2026-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00352'}
+2026-04-14 21:34:33,858 - INFO - Searching for product with code: 'SSP00352' and old code: 'SSP00352'
+2026-04-14 21:34:34,134 - INFO - Found product with exact match on old_product_code: 'SSP00352'
+2026-04-14 21:34:34,238 - INFO - Prepared product SSP00352 with quantity 152.0 for batch creation
+2026-04-14 21:34:34,239 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:34,239 - INFO - Processing Excel row 35: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00353', 'product_uom_qty': 151, 'price_unit': 2.0, 'sequence': 35, 'date': Timestamp('2026-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00353'}
+2026-04-14 21:34:34,239 - INFO - Searching for product with code: 'SSP00353' and old code: 'SSP00353'
+2026-04-14 21:34:34,512 - INFO - Found product with exact match on old_product_code: 'SSP00353'
+2026-04-14 21:34:34,599 - INFO - Prepared product SSP00353 with quantity 151.0 for batch creation
+2026-04-14 21:34:34,600 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:34,600 - INFO - Processing Excel row 36: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00354', 'product_uom_qty': 152, 'price_unit': 1.305, 'sequence': 36, 'date': Timestamp('2026-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00354'}
+2026-04-14 21:34:34,601 - INFO - Searching for product with code: 'SSP00354' and old code: 'SSP00354'
+2026-04-14 21:34:34,912 - INFO - Found product with exact match on old_product_code: 'SSP00354'
+2026-04-14 21:34:35,012 - INFO - Prepared product SSP00354 with quantity 152.0 for batch creation
+2026-04-14 21:34:35,012 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:35,013 - INFO - Processing Excel row 37: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00356', 'product_uom_qty': 1500, 'price_unit': 0.45, 'sequence': 37, 'date': Timestamp('2026-02-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00356'}
+2026-04-14 21:34:35,013 - INFO - Searching for product with code: 'SSP00356' and old code: 'SSP00356'
+2026-04-14 21:34:35,310 - INFO - Found product with exact match on old_product_code: 'SSP00356'
+2026-04-14 21:34:35,406 - INFO - Prepared product SSP00356 with quantity 1500.0 for batch creation
+2026-04-14 21:34:35,407 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:35,407 - INFO - Processing Excel row 38: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00357', 'product_uom_qty': 42, 'price_unit': 10.9825, 'sequence': 38, 'date': Timestamp('2023-02-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00357'}
+2026-04-14 21:34:35,407 - INFO - Searching for product with code: 'SSP00357' and old code: 'SSP00357'
+2026-04-14 21:34:35,728 - INFO - Found product with exact match on old_product_code: 'SSP00357'
+2026-04-14 21:34:35,847 - INFO - Prepared product SSP00357 with quantity 42.0 for batch creation
+2026-04-14 21:34:35,848 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:35,848 - INFO - Processing Excel row 39: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00358', 'product_uom_qty': 23, 'price_unit': 18.6916, 'sequence': 39, 'date': Timestamp('2022-12-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00358'}
+2026-04-14 21:34:35,848 - INFO - Searching for product with code: 'SSP00358' and old code: 'SSP00358'
+2026-04-14 21:34:36,138 - INFO - Found product with exact match on old_product_code: 'SSP00358'
+2026-04-14 21:34:36,238 - INFO - Prepared product SSP00358 with quantity 23.0 for batch creation
+2026-04-14 21:34:36,238 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:36,238 - INFO - Processing Excel row 40: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00359', 'product_uom_qty': 23, 'price_unit': 65.0, 'sequence': 40, 'date': Timestamp('2022-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00359'}
+2026-04-14 21:34:36,238 - INFO - Searching for product with code: 'SSP00359' and old code: 'SSP00359'
+2026-04-14 21:34:36,548 - INFO - Found product with exact match on old_product_code: 'SSP00359'
+2026-04-14 21:34:36,635 - INFO - Prepared product SSP00359 with quantity 23.0 for batch creation
+2026-04-14 21:34:36,635 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:36,635 - INFO - Processing Excel row 41: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00364', 'product_uom_qty': 69, 'price_unit': 20.0, 'sequence': 41, 'date': Timestamp('2023-08-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00364'}
+2026-04-14 21:34:36,635 - INFO - Searching for product with code: 'SSP00364' and old code: 'SSP00364'
+2026-04-14 21:34:36,951 - INFO - Found product with exact match on old_product_code: 'SSP00364'
+2026-04-14 21:34:37,045 - INFO - Prepared product SSP00364 with quantity 69.0 for batch creation
+2026-04-14 21:34:37,046 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:37,046 - INFO - Processing Excel row 42: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00372', 'product_uom_qty': 56, 'price_unit': 1.62857142857143, 'sequence': 42, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00372'}
+2026-04-14 21:34:37,046 - INFO - Searching for product with code: 'SSP00372' and old code: 'SSP00372'
+2026-04-14 21:34:37,345 - INFO - Found product with exact match on old_product_code: 'SSP00372'
+2026-04-14 21:34:37,442 - INFO - Prepared product SSP00372 with quantity 56.0 for batch creation
+2026-04-14 21:34:37,443 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:37,443 - INFO - Processing Excel row 43: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00372', 'product_uom_qty': 14, 'price_unit': 0.714, 'sequence': 43, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00372'}
+2026-04-14 21:34:37,443 - INFO - Using cached product ID for code: 'SSP00372'
+2026-04-14 21:34:37,444 - INFO - Prepared product SSP00372 with quantity 14.0 for batch creation
+2026-04-14 21:34:37,444 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:37,444 - INFO - Processing Excel row 44: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00373', 'product_uom_qty': 56, 'price_unit': 1.575, 'sequence': 44, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00373'}
+2026-04-14 21:34:37,444 - INFO - Searching for product with code: 'SSP00373' and old code: 'SSP00373'
+2026-04-14 21:34:37,732 - INFO - Found product with exact match on old_product_code: 'SSP00373'
+2026-04-14 21:34:37,828 - INFO - Prepared product SSP00373 with quantity 56.0 for batch creation
+2026-04-14 21:34:37,828 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:37,828 - INFO - Processing Excel row 45: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00373', 'product_uom_qty': 4, 'price_unit': 1.02, 'sequence': 45, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00373'}
+2026-04-14 21:34:37,828 - INFO - Using cached product ID for code: 'SSP00373'
+2026-04-14 21:34:37,828 - INFO - Prepared product SSP00373 with quantity 4.0 for batch creation
+2026-04-14 21:34:37,828 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:37,828 - INFO - Processing Excel row 46: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00374', 'product_uom_qty': 84, 'price_unit': 1.71666666666667, 'sequence': 46, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00374'}
+2026-04-14 21:34:37,828 - INFO - Searching for product with code: 'SSP00374' and old code: 'SSP00374'
+2026-04-14 21:34:38,116 - INFO - Found product with exact match on old_product_code: 'SSP00374'
+2026-04-14 21:34:38,206 - INFO - Prepared product SSP00374 with quantity 84.0 for batch creation
+2026-04-14 21:34:38,206 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:38,207 - INFO - Processing Excel row 47: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00374', 'product_uom_qty': 6, 'price_unit': 1.12, 'sequence': 47, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00374'}
+2026-04-14 21:34:38,207 - INFO - Using cached product ID for code: 'SSP00374'
+2026-04-14 21:34:38,207 - INFO - Prepared product SSP00374 with quantity 6.0 for batch creation
+2026-04-14 21:34:38,208 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:38,208 - INFO - Processing Excel row 48: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00375', 'product_uom_qty': 56, 'price_unit': 3.775, 'sequence': 48, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00375'}
+2026-04-14 21:34:38,208 - INFO - Searching for product with code: 'SSP00375' and old code: 'SSP00375'
+2026-04-14 21:34:38,490 - INFO - Found product with exact match on old_product_code: 'SSP00375'
+2026-04-14 21:34:38,593 - INFO - Prepared product SSP00375 with quantity 56.0 for batch creation
+2026-04-14 21:34:38,593 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:38,594 - INFO - Processing Excel row 49: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00375', 'product_uom_qty': 4, 'price_unit': 3.4, 'sequence': 49, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00375'}
+2026-04-14 21:34:38,594 - INFO - Using cached product ID for code: 'SSP00375'
+2026-04-14 21:34:38,594 - INFO - Prepared product SSP00375 with quantity 4.0 for batch creation
+2026-04-14 21:34:38,594 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:38,594 - INFO - Processing Excel row 50: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00376', 'product_uom_qty': 40, 'price_unit': 0.2, 'sequence': 50, 'date': Timestamp('2026-02-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00376'}
+2026-04-14 21:34:38,594 - INFO - Searching for product with code: 'SSP00376' and old code: 'SSP00376'
+2026-04-14 21:34:38,893 - INFO - Found product with exact match on old_product_code: 'SSP00376'
+2026-04-14 21:34:38,994 - INFO - Prepared product SSP00376 with quantity 40.0 for batch creation
+2026-04-14 21:34:38,994 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:38,994 - INFO - Processing Excel row 51: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00377', 'product_uom_qty': 96, 'price_unit': 1.23888958333333, 'sequence': 51, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00377'}
+2026-04-14 21:34:38,995 - INFO - Searching for product with code: 'SSP00377' and old code: 'SSP00377'
+2026-04-14 21:34:39,294 - INFO - Found product with exact match on old_product_code: 'SSP00377'
+2026-04-14 21:34:39,395 - INFO - Prepared product SSP00377 with quantity 96.0 for batch creation
+2026-04-14 21:34:39,395 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:39,396 - INFO - Processing Excel row 52: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00377', 'product_uom_qty': 14, 'price_unit': 1.15658571428571, 'sequence': 52, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00377'}
+2026-04-14 21:34:39,396 - INFO - Using cached product ID for code: 'SSP00377'
+2026-04-14 21:34:39,396 - INFO - Prepared product SSP00377 with quantity 14.0 for batch creation
+2026-04-14 21:34:39,396 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:39,396 - INFO - Processing Excel row 53: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00378', 'product_uom_qty': 56, 'price_unit': 1.8, 'sequence': 53, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00378'}
+2026-04-14 21:34:39,396 - INFO - Searching for product with code: 'SSP00378' and old code: 'SSP00378'
+2026-04-14 21:34:39,651 - INFO - Found product with exact match on old_product_code: 'SSP00378'
+2026-04-14 21:34:39,746 - INFO - Prepared product SSP00378 with quantity 56.0 for batch creation
+2026-04-14 21:34:39,746 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:39,746 - INFO - Processing Excel row 54: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00378', 'product_uom_qty': 4, 'price_unit': 1.837025, 'sequence': 54, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00378'}
+2026-04-14 21:34:39,746 - INFO - Using cached product ID for code: 'SSP00378'
+2026-04-14 21:34:39,747 - INFO - Prepared product SSP00378 with quantity 4.0 for batch creation
+2026-04-14 21:34:39,747 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:39,747 - INFO - Processing Excel row 55: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00379', 'product_uom_qty': 68, 'price_unit': 4.75, 'sequence': 55, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00379'}
+2026-04-14 21:34:39,747 - INFO - Searching for product with code: 'SSP00379' and old code: 'SSP00379'
+2026-04-14 21:34:40,032 - INFO - Found product with exact match on old_product_code: 'SSP00379'
+2026-04-14 21:34:40,125 - INFO - Prepared product SSP00379 with quantity 68.0 for batch creation
+2026-04-14 21:34:40,125 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:40,126 - INFO - Processing Excel row 56: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00379', 'product_uom_qty': 2, 'price_unit': 4.063, 'sequence': 56, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00379'}
+2026-04-14 21:34:40,126 - INFO - Using cached product ID for code: 'SSP00379'
+2026-04-14 21:34:40,126 - INFO - Prepared product SSP00379 with quantity 2.0 for batch creation
+2026-04-14 21:34:40,126 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:40,126 - INFO - Processing Excel row 57: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00380', 'product_uom_qty': 88, 'price_unit': 2.27777727272727, 'sequence': 57, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00380'}
+2026-04-14 21:34:40,126 - INFO - Searching for product with code: 'SSP00380' and old code: 'SSP00380'
+2026-04-14 21:34:40,408 - INFO - Found product with exact match on old_product_code: 'SSP00380'
+2026-04-14 21:34:40,512 - INFO - Prepared product SSP00380 with quantity 88.0 for batch creation
+2026-04-14 21:34:40,512 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:40,512 - INFO - Processing Excel row 58: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00380', 'product_uom_qty': 2, 'price_unit': 3.0, 'sequence': 58, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00380'}
+2026-04-14 21:34:40,512 - INFO - Using cached product ID for code: 'SSP00380'
+2026-04-14 21:34:40,512 - INFO - Prepared product SSP00380 with quantity 2.0 for batch creation
+2026-04-14 21:34:40,513 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:40,513 - INFO - Processing Excel row 59: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00382', 'product_uom_qty': 14, 'price_unit': 35.5, 'sequence': 59, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00382'}
+2026-04-14 21:34:40,513 - INFO - Searching for product with code: 'SSP00382' and old code: 'SSP00382'
+2026-04-14 21:34:40,811 - INFO - Found product with exact match on old_product_code: 'SSP00382'
+2026-04-14 21:34:40,919 - INFO - Prepared product SSP00382 with quantity 14.0 for batch creation
+2026-04-14 21:34:40,919 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:40,919 - INFO - Processing Excel row 60: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00382', 'product_uom_qty': 1, 'price_unit': 35.588, 'sequence': 60, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00382'}
+2026-04-14 21:34:40,919 - INFO - Using cached product ID for code: 'SSP00382'
+2026-04-14 21:34:40,920 - INFO - Prepared product SSP00382 with quantity 1.0 for batch creation
+2026-04-14 21:34:40,920 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:40,920 - INFO - Processing Excel row 61: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00383', 'product_uom_qty': 1, 'price_unit': 190.0, 'sequence': 61, 'date': Timestamp('2026-03-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00383'}
+2026-04-14 21:34:40,920 - INFO - Searching for product with code: 'SSP00383' and old code: 'SSP00383'
+2026-04-14 21:34:41,201 - INFO - Found product with exact match on old_product_code: 'SSP00383'
+2026-04-14 21:34:41,298 - INFO - Prepared product SSP00383 with quantity 1.0 for batch creation
+2026-04-14 21:34:41,298 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:41,298 - INFO - Processing Excel row 62: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00394', 'product_uom_qty': 14, 'price_unit': 5.5, 'sequence': 62, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00394'}
+2026-04-14 21:34:41,299 - INFO - Searching for product with code: 'SSP00394' and old code: 'SSP00394'
+2026-04-14 21:34:41,589 - INFO - Found product with exact match on old_product_code: 'SSP00394'
+2026-04-14 21:34:41,687 - INFO - Prepared product SSP00394 with quantity 14.0 for batch creation
+2026-04-14 21:34:41,688 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:41,688 - INFO - Processing Excel row 63: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00394', 'product_uom_qty': 1, 'price_unit': 6.8134, 'sequence': 63, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00394'}
+2026-04-14 21:34:41,689 - INFO - Using cached product ID for code: 'SSP00394'
+2026-04-14 21:34:41,689 - INFO - Prepared product SSP00394 with quantity 1.0 for batch creation
+2026-04-14 21:34:41,689 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:41,689 - INFO - Processing Excel row 64: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00395', 'product_uom_qty': 16, 'price_unit': 0.48, 'sequence': 64, 'date': Timestamp('2023-11-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00395'}
+2026-04-14 21:34:41,689 - INFO - Searching for product with code: 'SSP00395' and old code: 'SSP00395'
+2026-04-14 21:34:41,954 - INFO - Found product with exact match on old_product_code: 'SSP00395'
+2026-04-14 21:34:42,048 - INFO - Prepared product SSP00395 with quantity 16.0 for batch creation
+2026-04-14 21:34:42,049 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:42,049 - INFO - Processing Excel row 65: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00395', 'product_uom_qty': 4, 'price_unit': 0.48, 'sequence': 65, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00395'}
+2026-04-14 21:34:42,049 - INFO - Using cached product ID for code: 'SSP00395'
+2026-04-14 21:34:42,050 - INFO - Prepared product SSP00395 with quantity 4.0 for batch creation
+2026-04-14 21:34:42,050 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:42,050 - INFO - Processing Excel row 66: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00396', 'product_uom_qty': 8, 'price_unit': 4.08, 'sequence': 66, 'date': Timestamp('2023-11-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00396'}
+2026-04-14 21:34:42,050 - INFO - Searching for product with code: 'SSP00396' and old code: 'SSP00396'
+2026-04-14 21:34:42,319 - INFO - Found product with exact match on old_product_code: 'SSP00396'
+2026-04-14 21:34:42,414 - INFO - Prepared product SSP00396 with quantity 8.0 for batch creation
+2026-04-14 21:34:42,415 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:42,415 - INFO - Processing Excel row 67: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00396', 'product_uom_qty': 2, 'price_unit': 4.08, 'sequence': 67, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00396'}
+2026-04-14 21:34:42,415 - INFO - Using cached product ID for code: 'SSP00396'
+2026-04-14 21:34:42,415 - INFO - Prepared product SSP00396 with quantity 2.0 for batch creation
+2026-04-14 21:34:42,416 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:42,416 - INFO - Processing Excel row 68: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00402', 'product_uom_qty': 3, 'price_unit': 9.0, 'sequence': 68, 'date': Timestamp('2023-11-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00402'}
+2026-04-14 21:34:42,416 - INFO - Searching for product with code: 'SSP00402' and old code: 'SSP00402'
+2026-04-14 21:34:42,708 - INFO - Found product with exact match on old_product_code: 'SSP00402'
+2026-04-14 21:34:42,803 - INFO - Prepared product SSP00402 with quantity 3.0 for batch creation
+2026-04-14 21:34:42,803 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:42,803 - INFO - Processing Excel row 69: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00402', 'product_uom_qty': 80, 'price_unit': 9.0, 'sequence': 69, 'date': Timestamp('2025-08-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00402'}
+2026-04-14 21:34:42,804 - INFO - Using cached product ID for code: 'SSP00402'
+2026-04-14 21:34:42,804 - INFO - Prepared product SSP00402 with quantity 80.0 for batch creation
+2026-04-14 21:34:42,804 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:42,804 - INFO - Processing Excel row 70: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00402', 'product_uom_qty': 2, 'price_unit': 9.0, 'sequence': 70, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00402'}
+2026-04-14 21:34:42,804 - INFO - Using cached product ID for code: 'SSP00402'
+2026-04-14 21:34:42,804 - INFO - Prepared product SSP00402 with quantity 2.0 for batch creation
+2026-04-14 21:34:42,804 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:42,805 - INFO - Processing Excel row 71: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00403', 'product_uom_qty': 15, 'price_unit': 15.0, 'sequence': 71, 'date': Timestamp('2023-10-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00403'}
+2026-04-14 21:34:42,805 - INFO - Searching for product with code: 'SSP00403' and old code: 'SSP00403'
+2026-04-14 21:34:43,086 - INFO - Found product with exact match on old_product_code: 'SSP00403'
+2026-04-14 21:34:43,177 - INFO - Prepared product SSP00403 with quantity 15.0 for batch creation
+2026-04-14 21:34:43,178 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:43,178 - INFO - Processing Excel row 72: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00406', 'product_uom_qty': 7, 'price_unit': 149.735485714286, 'sequence': 72, 'date': Timestamp('2025-01-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00406'}
+2026-04-14 21:34:43,178 - INFO - Searching for product with code: 'SSP00406' and old code: 'SSP00406'
+2026-04-14 21:34:43,462 - INFO - Found product with exact match on old_product_code: 'SSP00406'
+2026-04-14 21:34:43,565 - INFO - Prepared product SSP00406 with quantity 7.0 for batch creation
+2026-04-14 21:34:43,566 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:43,566 - INFO - Processing Excel row 73: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00432', 'product_uom_qty': 9, 'price_unit': 37.39, 'sequence': 73, 'date': Timestamp('2025-08-28 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00432'}
+2026-04-14 21:34:43,566 - INFO - Searching for product with code: 'SSP00432' and old code: 'SSP00432'
+2026-04-14 21:34:43,864 - INFO - Found product with exact match on old_product_code: 'SSP00432'
+2026-04-14 21:34:43,974 - INFO - Prepared product SSP00432 with quantity 9.0 for batch creation
+2026-04-14 21:34:43,974 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:43,974 - INFO - Processing Excel row 74: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00434', 'product_uom_qty': 130, 'price_unit': 40.0, 'sequence': 74, 'date': Timestamp('2025-09-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00434'}
+2026-04-14 21:34:43,974 - INFO - Searching for product with code: 'SSP00434' and old code: 'SSP00434'
+2026-04-14 21:34:44,275 - INFO - Found product with exact match on old_product_code: 'SSP00434'
+2026-04-14 21:34:44,374 - INFO - Prepared product SSP00434 with quantity 130.0 for batch creation
+2026-04-14 21:34:44,375 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:44,375 - INFO - Processing Excel row 75: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00435', 'product_uom_qty': 60, 'price_unit': 9.5, 'sequence': 75, 'date': Timestamp('2025-09-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00435'}
+2026-04-14 21:34:44,375 - INFO - Searching for product with code: 'SSP00435' and old code: 'SSP00435'
+2026-04-14 21:34:44,659 - INFO - Found product with exact match on old_product_code: 'SSP00435'
+2026-04-14 21:34:44,760 - INFO - Prepared product SSP00435 with quantity 60.0 for batch creation
+2026-04-14 21:34:44,760 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:44,761 - INFO - Processing Excel row 76: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00451', 'product_uom_qty': 1008, 'price_unit': 11.5, 'sequence': 76, 'date': Timestamp('2026-03-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00451'}
+2026-04-14 21:34:44,761 - INFO - Searching for product with code: 'SSP00451' and old code: 'SSP00451'
+2026-04-14 21:34:45,063 - INFO - Found product with exact match on old_product_code: 'SSP00451'
+2026-04-14 21:34:45,174 - INFO - Prepared product SSP00451 with quantity 1008.0 for batch creation
+2026-04-14 21:34:45,175 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:45,175 - INFO - Processing Excel row 77: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00455', 'product_uom_qty': 3, 'price_unit': 270.094, 'sequence': 77, 'date': Timestamp('2026-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00455'}
+2026-04-14 21:34:45,175 - INFO - Searching for product with code: 'SSP00455' and old code: 'SSP00455'
+2026-04-14 21:34:45,453 - INFO - Found product with exact match on old_product_code: 'SSP00455'
+2026-04-14 21:34:45,557 - INFO - Prepared product SSP00455 with quantity 3.0 for batch creation
+2026-04-14 21:34:45,558 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-14 21:34:45,558 - INFO - Processing Excel row 78: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP00456', 'product_uom_qty': 48, 'price_unit': 21.5, 'sequence': 78, 'date': Timestamp('2026-02-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP00456'}
+2026-04-14 21:34:45,558 - INFO - Searching for product with code: 'SSP00456' and old code: 'SSP00456'
+2026-04-14 21:34:46,151 - ERROR - Product not found with code or name: 'SSP00456' or old code: 'SSP00456'
+2026-04-14 21:34:46,152 - WARNING - Product not found in Odoo: SSP00456
+2026-04-14 21:34:46,944 - INFO - Created 76 moves in batch for picking 15028
+2026-04-14 21:34:47,063 - INFO - Re-updated dates before confirming picking 15028: 2026-03-31 08:00:00
+2026-04-14 21:34:47,583 - INFO - Confirmed transfer 15028 with forced date context
+2026-04-14 21:34:47,584 - INFO - Import completed: 1 success, 0 failed.

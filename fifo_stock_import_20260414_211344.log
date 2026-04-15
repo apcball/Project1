@@ -1,0 +1,126 @@
+2026-04-14 21:13:45,252 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-14 21:13:45,369 - INFO - Odoo version: 17.0.1.3
+2026-04-14 21:13:45,577 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-14 21:13:45,712 - INFO - Successfully read Excel file with 22 rows
+2026-04-14 21:13:45,712 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-14 21:13:45,713 - INFO - Processed sequence column
+2026-04-14 21:13:45,713 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-14 21:13:45,714 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-14 21:13:45,714 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-14 21:13:45,715 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-14 21:13:45,715 - INFO - Using 'default_code' column as 'product_id'
+2026-04-14 21:13:45,715 - INFO - Using 'origin' column to identify transfer groups
+2026-04-14 21:13:45,718 - INFO - Excel file validation and data filling completed successfully
+2026-04-14 21:13:45,884 - INFO - Searching for location: 'RM03/TCI'
+2026-04-14 21:13:46,126 - INFO - Found location with complete_name match: 'RM03/TCI' for 'RM03/TCI'
+2026-04-14 21:13:46,209 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-14 21:13:46,303 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15025
+2026-04-14 21:13:46,304 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BAC051', 'product_uom_qty': 651, 'price_unit': 6.0, 'sequence': 1, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BAC051'}
+2026-04-14 21:13:46,304 - INFO - Searching for product with code: 'BAC051' and old code: 'BAC051'
+2026-04-14 21:13:46,557 - INFO - Found product with exact match on old_product_code: 'BAC051'
+2026-04-14 21:13:46,641 - INFO - Prepared product BAC051 with quantity 651.0 for batch creation
+2026-04-14 21:13:46,641 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:46,642 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BAC052', 'product_uom_qty': 646, 'price_unit': 5.5, 'sequence': 2, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BAC052'}
+2026-04-14 21:13:46,642 - INFO - Searching for product with code: 'BAC052' and old code: 'BAC052'
+2026-04-14 21:13:46,899 - INFO - Found product with exact match on old_product_code: 'BAC052'
+2026-04-14 21:13:46,981 - INFO - Prepared product BAC052 with quantity 646.0 for batch creation
+2026-04-14 21:13:46,981 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:46,982 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BAC11', 'product_uom_qty': 89, 'price_unit': 9.0, 'sequence': 3, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BAC11'}
+2026-04-14 21:13:46,982 - INFO - Searching for product with code: 'BAC11' and old code: 'BAC11'
+2026-04-14 21:13:47,249 - INFO - Found product with exact match on old_product_code: 'BAC11'
+2026-04-14 21:13:47,336 - INFO - Prepared product BAC11 with quantity 89.0 for batch creation
+2026-04-14 21:13:47,336 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:47,337 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BAC11', 'product_uom_qty': 18, 'price_unit': 9.0, 'sequence': 4, 'date': Timestamp('2019-07-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BAC11'}
+2026-04-14 21:13:47,337 - INFO - Using cached product ID for code: 'BAC11'
+2026-04-14 21:13:47,337 - INFO - Prepared product BAC11 with quantity 18.0 for batch creation
+2026-04-14 21:13:47,337 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:47,338 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BAC13', 'product_uom_qty': 93, 'price_unit': 7.0, 'sequence': 5, 'date': Timestamp('2024-10-28 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BAC13'}
+2026-04-14 21:13:47,338 - INFO - Searching for product with code: 'BAC13' and old code: 'BAC13'
+2026-04-14 21:13:47,592 - INFO - Found product with exact match on old_product_code: 'BAC13'
+2026-04-14 21:13:47,678 - INFO - Prepared product BAC13 with quantity 93.0 for batch creation
+2026-04-14 21:13:47,678 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:47,679 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BAC23335363', 'product_uom_qty': 741, 'price_unit': 9.0, 'sequence': 6, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BAC23335363'}
+2026-04-14 21:13:47,679 - INFO - Searching for product with code: 'BAC23335363' and old code: 'BAC23335363'
+2026-04-14 21:13:47,940 - INFO - Found product with exact match on old_product_code: 'BAC23335363'
+2026-04-14 21:13:48,025 - INFO - Prepared product BAC23335363 with quantity 741.0 for batch creation
+2026-04-14 21:13:48,025 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:48,026 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMA014', 'product_uom_qty': 75, 'price_unit': 78.5, 'sequence': 7, 'date': Timestamp('2023-04-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMA014'}
+2026-04-14 21:13:48,026 - INFO - Searching for product with code: 'BMA014' and old code: 'BMA014'
+2026-04-14 21:13:48,274 - INFO - Found product with exact match on old_product_code: 'BMA014'
+2026-04-14 21:13:48,360 - INFO - Prepared product BMA014 with quantity 75.0 for batch creation
+2026-04-14 21:13:48,360 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:48,361 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMA014', 'product_uom_qty': 10, 'price_unit': 78.5, 'sequence': 8, 'date': Timestamp('2023-11-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMA014'}
+2026-04-14 21:13:48,361 - INFO - Using cached product ID for code: 'BMA014'
+2026-04-14 21:13:48,361 - INFO - Prepared product BMA014 with quantity 10.0 for batch creation
+2026-04-14 21:13:48,361 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:48,362 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMA174', 'product_uom_qty': 272, 'price_unit': 31.85, 'sequence': 9, 'date': Timestamp('2026-01-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMA174'}
+2026-04-14 21:13:48,362 - INFO - Searching for product with code: 'BMA174' and old code: 'BMA174'
+2026-04-14 21:13:48,618 - INFO - Found product with exact match on old_product_code: 'BMA174'
+2026-04-14 21:13:48,705 - INFO - Prepared product BMA174 with quantity 272.0 for batch creation
+2026-04-14 21:13:48,705 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:48,706 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMA183A', 'product_uom_qty': 15, 'price_unit': 53.0, 'sequence': 10, 'date': Timestamp('2025-06-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMA183A'}
+2026-04-14 21:13:48,706 - INFO - Searching for product with code: 'BMA183A' and old code: 'BMA183A'
+2026-04-14 21:13:48,972 - INFO - Found product with exact match on old_product_code: 'BMA183A'
+2026-04-14 21:13:49,061 - INFO - Prepared product BMA183A with quantity 15.0 for batch creation
+2026-04-14 21:13:49,061 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:49,062 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMA183A', 'product_uom_qty': 2, 'price_unit': 53.0, 'sequence': 11, 'date': Timestamp('2026-03-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMA183A'}
+2026-04-14 21:13:49,062 - INFO - Using cached product ID for code: 'BMA183A'
+2026-04-14 21:13:49,062 - INFO - Prepared product BMA183A with quantity 2.0 for batch creation
+2026-04-14 21:13:49,062 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:49,063 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMA302BA', 'product_uom_qty': 232, 'price_unit': 40.5, 'sequence': 12, 'date': Timestamp('2026-03-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMA302BA'}
+2026-04-14 21:13:49,063 - INFO - Searching for product with code: 'BMA302BA' and old code: 'BMA302BA'
+2026-04-14 21:13:49,322 - INFO - Found product with exact match on old_product_code: 'BMA302BA'
+2026-04-14 21:13:49,416 - INFO - Prepared product BMA302BA with quantity 232.0 for batch creation
+2026-04-14 21:13:49,416 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:49,417 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMT056ECO', 'product_uom_qty': 57, 'price_unit': 145.07, 'sequence': 13, 'date': Timestamp('2024-12-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMT056ECO'}
+2026-04-14 21:13:49,417 - INFO - Searching for product with code: 'BMT056ECO' and old code: 'BMT056ECO'
+2026-04-14 21:13:49,684 - INFO - Found product with exact match on old_product_code: 'BMT056ECO'
+2026-04-14 21:13:49,776 - INFO - Prepared product BMT056ECO with quantity 57.0 for batch creation
+2026-04-14 21:13:49,776 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:49,777 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMT414344TCI', 'product_uom_qty': 129, 'price_unit': 99.0, 'sequence': 14, 'date': Timestamp('2026-03-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMT414344TCI'}
+2026-04-14 21:13:49,777 - INFO - Searching for product with code: 'BMT414344TCI' and old code: 'BMT414344TCI'
+2026-04-14 21:13:50,034 - INFO - Found product with exact match on old_product_code: 'BMT414344TCI'
+2026-04-14 21:13:50,122 - INFO - Prepared product BMT414344TCI with quantity 129.0 for batch creation
+2026-04-14 21:13:50,122 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:50,123 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMT414344TCI', 'product_uom_qty': 350, 'price_unit': 99.0, 'sequence': 15, 'date': Timestamp('2026-03-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMT414344TCI'}
+2026-04-14 21:13:50,123 - INFO - Using cached product ID for code: 'BMT414344TCI'
+2026-04-14 21:13:50,123 - INFO - Prepared product BMT414344TCI with quantity 350.0 for batch creation
+2026-04-14 21:13:50,123 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:50,124 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'BMT414344TCI', 'product_uom_qty': 40, 'price_unit': 99.0, 'sequence': 16, 'date': Timestamp('2026-03-25 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'BMT414344TCI'}
+2026-04-14 21:13:50,124 - INFO - Using cached product ID for code: 'BMT414344TCI'
+2026-04-14 21:13:50,124 - INFO - Prepared product BMT414344TCI with quantity 40.0 for batch creation
+2026-04-14 21:13:50,124 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:50,124 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'PACK000239', 'product_uom_qty': 101, 'price_unit': 64.14, 'sequence': 17, 'date': Timestamp('2026-01-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'PACK000239'}
+2026-04-14 21:13:50,124 - INFO - Searching for product with code: 'PACK000239' and old code: 'PACK000239'
+2026-04-14 21:13:50,207 - INFO - Found product with exact match on default_code: 'PACK000239'
+2026-04-14 21:13:50,290 - INFO - Prepared product PACK000239 with quantity 101.0 for batch creation
+2026-04-14 21:13:50,290 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:50,291 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'SAMPLE585', 'product_uom_qty': 1, 'price_unit': 2262.78, 'sequence': 18, 'date': Timestamp('2025-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SAMPLE585'}
+2026-04-14 21:13:50,291 - INFO - Searching for product with code: 'SAMPLE585' and old code: 'SAMPLE585'
+2026-04-14 21:13:50,375 - INFO - Found product with exact match on default_code: 'SAMPLE585'
+2026-04-14 21:13:50,464 - INFO - Prepared product SAMPLE585 with quantity 1.0 for batch creation
+2026-04-14 21:13:50,464 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:50,465 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'SAMPLE588', 'product_uom_qty': 1, 'price_unit': 2204.0, 'sequence': 19, 'date': Timestamp('2025-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SAMPLE588'}
+2026-04-14 21:13:50,465 - INFO - Searching for product with code: 'SAMPLE588' and old code: 'SAMPLE588'
+2026-04-14 21:13:50,556 - INFO - Found product with exact match on default_code: 'SAMPLE588'
+2026-04-14 21:13:50,648 - INFO - Prepared product SAMPLE588 with quantity 1.0 for batch creation
+2026-04-14 21:13:50,648 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:50,649 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'SP0017100', 'product_uom_qty': 2, 'price_unit': 71.94, 'sequence': 20, 'date': Timestamp('2024-01-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0017100'}
+2026-04-14 21:13:50,649 - INFO - Searching for product with code: 'SP0017100' and old code: 'SP0017100'
+2026-04-14 21:13:50,734 - INFO - Found product with exact match on default_code: 'SP0017100'
+2026-04-14 21:13:50,821 - INFO - Prepared product SP0017100 with quantity 2.0 for batch creation
+2026-04-14 21:13:50,821 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:50,822 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'SP0032100', 'product_uom_qty': 104, 'price_unit': 6.5, 'sequence': 21, 'date': Timestamp('2026-03-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0032100'}
+2026-04-14 21:13:50,822 - INFO - Searching for product with code: 'SP0032100' and old code: 'SP0032100'
+2026-04-14 21:13:50,911 - INFO - Found product with exact match on default_code: 'SP0032100'
+2026-04-14 21:13:50,994 - INFO - Prepared product SP0032100 with quantity 104.0 for batch creation
+2026-04-14 21:13:50,994 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:50,994 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier TCI', 'location_dest_id': 'RM03/TCI', 'default_code': 'SPW0054110', 'product_uom_qty': 47, 'price_unit': 265.32, 'sequence': 22, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW0054110'}
+2026-04-14 21:13:50,994 - INFO - Searching for product with code: 'SPW0054110' and old code: 'SPW0054110'
+2026-04-14 21:13:51,079 - INFO - Found product with exact match on default_code: 'SPW0054110'
+2026-04-14 21:13:51,161 - INFO - Prepared product SPW0054110 with quantity 47.0 for batch creation
+2026-04-14 21:13:51,161 - INFO - Move locations - Source: 4, Dest: 1188
+2026-04-14 21:13:51,476 - INFO - Created 22 moves in batch for picking 15025
+2026-04-14 21:13:51,572 - INFO - Re-updated dates before confirming picking 15025: 2026-03-31 08:00:00
+2026-04-14 21:13:51,838 - INFO - Confirmed transfer 15025 with forced date context
+2026-04-14 21:13:51,838 - INFO - Import completed: 1 success, 0 failed.

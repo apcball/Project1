@@ -1,0 +1,1017 @@
+2026-04-13 14:02:24,292 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-13 14:02:24,387 - INFO - Odoo version: 17.0.1.3
+2026-04-13 14:02:24,657 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-13 14:02:24,792 - INFO - Successfully read Excel file with 240 rows
+2026-04-13 14:02:24,792 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-13 14:02:24,794 - INFO - Processed sequence column
+2026-04-13 14:02:24,796 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-13 14:02:24,796 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-13 14:02:24,797 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-13 14:02:24,797 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-13 14:02:24,797 - INFO - Using 'default_code' column as 'product_id'
+2026-04-13 14:02:24,798 - INFO - Using 'origin' column to identify transfer groups
+2026-04-13 14:02:24,800 - INFO - Excel file validation and data filling completed successfully
+2026-04-13 14:02:25,032 - INFO - Searching for location: 'FG10/Stock'
+2026-04-13 14:02:25,305 - INFO - Found location with complete_name match: 'FG10/Stock' for 'FG10/Stock'
+2026-04-13 14:02:25,393 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-13 14:02:25,490 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15078
+2026-04-13 14:02:25,493 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0101', 'product_uom_qty': 1, 'price_unit': 9371.62, 'sequence': 1, 'date': Timestamp('2023-06-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0101'}
+2026-04-13 14:02:25,493 - INFO - Searching for product with code: 'VTMAC0101' and old code: 'VTMAC0101'
+2026-04-13 14:02:25,579 - INFO - Found product with exact match on default_code: 'VTMAC0101'
+2026-04-13 14:02:25,689 - INFO - Prepared product VTMAC0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,689 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,690 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0101', 'product_uom_qty': 1, 'price_unit': 9413.45, 'sequence': 2, 'date': Timestamp('2025-11-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0101'}
+2026-04-13 14:02:25,690 - INFO - Using cached product ID for code: 'VTMAC0101'
+2026-04-13 14:02:25,690 - INFO - Prepared product VTMAC0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,690 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,690 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0101', 'product_uom_qty': 1, 'price_unit': 9380.88, 'sequence': 3, 'date': Timestamp('2025-06-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0101'}
+2026-04-13 14:02:25,690 - INFO - Using cached product ID for code: 'VTMAC0101'
+2026-04-13 14:02:25,691 - INFO - Prepared product VTMAC0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,691 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,691 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0101', 'product_uom_qty': 1, 'price_unit': 9599.37, 'sequence': 4, 'date': Timestamp('2024-12-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0101'}
+2026-04-13 14:02:25,691 - INFO - Using cached product ID for code: 'VTMAC0101'
+2026-04-13 14:02:25,691 - INFO - Prepared product VTMAC0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,691 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,691 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0201', 'product_uom_qty': 1, 'price_unit': 9762.39, 'sequence': 5, 'date': Timestamp('2023-01-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0201'}
+2026-04-13 14:02:25,691 - INFO - Searching for product with code: 'VTMAC0201' and old code: 'VTMAC0201'
+2026-04-13 14:02:25,781 - INFO - Found product with exact match on default_code: 'VTMAC0201'
+2026-04-13 14:02:25,876 - INFO - Prepared product VTMAC0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,876 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,876 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0201', 'product_uom_qty': 1, 'price_unit': 9915.58, 'sequence': 6, 'date': Timestamp('2023-04-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0201'}
+2026-04-13 14:02:25,877 - INFO - Using cached product ID for code: 'VTMAC0201'
+2026-04-13 14:02:25,877 - INFO - Prepared product VTMAC0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,877 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,877 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0201', 'product_uom_qty': 1, 'price_unit': 10016.22, 'sequence': 7, 'date': Timestamp('2024-05-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0201'}
+2026-04-13 14:02:25,877 - INFO - Using cached product ID for code: 'VTMAC0201'
+2026-04-13 14:02:25,877 - INFO - Prepared product VTMAC0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,877 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,877 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0201', 'product_uom_qty': 1, 'price_unit': 9594.25, 'sequence': 8, 'date': Timestamp('2024-10-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0201'}
+2026-04-13 14:02:25,878 - INFO - Using cached product ID for code: 'VTMAC0201'
+2026-04-13 14:02:25,878 - INFO - Prepared product VTMAC0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,878 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,878 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAC0201', 'product_uom_qty': 1, 'price_unit': 2129.05, 'sequence': 9, 'date': Timestamp('2024-12-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAC0201'}
+2026-04-13 14:02:25,878 - INFO - Using cached product ID for code: 'VTMAC0201'
+2026-04-13 14:02:25,878 - INFO - Prepared product VTMAC0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:25,878 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:25,878 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1726.33, 'sequence': 10, 'date': Timestamp('2019-07-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:25,879 - INFO - Searching for product with code: 'VTMAE0101' and old code: 'VTMAE0101'
+2026-04-13 14:02:25,965 - INFO - Found product with exact match on default_code: 'VTMAE0101'
+2026-04-13 14:02:26,055 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,055 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,056 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 2495.41, 'sequence': 11, 'date': Timestamp('2019-09-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,056 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,056 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,056 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,057 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1123.59, 'sequence': 12, 'date': Timestamp('2019-12-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,057 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,057 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,057 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,057 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1731.04, 'sequence': 13, 'date': Timestamp('2020-02-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,057 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,057 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,057 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,058 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1731.04, 'sequence': 14, 'date': Timestamp('2020-02-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,058 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,058 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,058 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,058 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1731.04, 'sequence': 15, 'date': Timestamp('2020-02-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,058 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,058 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,058 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,058 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 2358.36, 'sequence': 16, 'date': Timestamp('2020-04-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,059 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,059 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,059 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,059 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1722.92, 'sequence': 17, 'date': Timestamp('2020-09-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,059 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,059 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,059 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,059 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 2483.02, 'sequence': 18, 'date': Timestamp('2021-02-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,059 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,060 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,060 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,060 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 2333.89, 'sequence': 19, 'date': Timestamp('2021-07-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,060 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,060 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,060 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,060 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1795.95, 'sequence': 20, 'date': Timestamp('2022-02-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,060 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,060 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,061 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,061 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1781.16, 'sequence': 21, 'date': Timestamp('2022-02-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,061 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,061 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,061 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,061 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 2158.21, 'sequence': 22, 'date': Timestamp('2022-06-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,062 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,062 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,062 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,062 - INFO - Processing Excel row 23: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1797.15, 'sequence': 23, 'date': Timestamp('2022-07-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,062 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,062 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,062 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,063 - INFO - Processing Excel row 24: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1947.98, 'sequence': 24, 'date': Timestamp('2022-08-28 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,063 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,063 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,063 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,063 - INFO - Processing Excel row 25: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1861.65, 'sequence': 25, 'date': Timestamp('2022-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,063 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,063 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,063 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,064 - INFO - Processing Excel row 26: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1980.38, 'sequence': 26, 'date': Timestamp('2023-06-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,064 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,064 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,064 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,064 - INFO - Processing Excel row 27: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1777.48, 'sequence': 27, 'date': Timestamp('2023-06-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,064 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,064 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,064 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,065 - INFO - Processing Excel row 28: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1851.74, 'sequence': 28, 'date': Timestamp('2023-10-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,065 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,065 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,065 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,065 - INFO - Processing Excel row 29: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1816.92, 'sequence': 29, 'date': Timestamp('2025-02-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,065 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,065 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,065 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,065 - INFO - Processing Excel row 30: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1902.27, 'sequence': 30, 'date': Timestamp('2025-11-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,065 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,065 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,065 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,065 - INFO - Processing Excel row 31: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1902.27, 'sequence': 31, 'date': Timestamp('2025-11-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,065 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,065 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,065 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,065 - INFO - Processing Excel row 32: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1902.27, 'sequence': 32, 'date': Timestamp('2026-02-28 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,065 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,065 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,065 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,065 - INFO - Processing Excel row 33: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1603.36, 'sequence': 33, 'date': Timestamp('2024-04-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,065 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,065 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,065 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,065 - INFO - Processing Excel row 34: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 2, 'price_unit': 2615.12, 'sequence': 34, 'date': Timestamp('2024-10-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,065 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,066 - INFO - Prepared product VTMAE0101 with quantity 2.0 for batch creation
+2026-04-13 14:02:26,066 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,066 - INFO - Processing Excel row 35: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 1534.9, 'sequence': 35, 'date': Timestamp('2025-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,066 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,066 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,066 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,066 - INFO - Processing Excel row 36: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 2226.07, 'sequence': 36, 'date': Timestamp('2025-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,066 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,066 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,066 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,066 - INFO - Processing Excel row 37: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 2037.08, 'sequence': 37, 'date': Timestamp('2025-07-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,066 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,066 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,066 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,066 - INFO - Processing Excel row 38: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 972.81, 'sequence': 38, 'date': Timestamp('2025-07-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,066 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,066 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,066 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,066 - INFO - Processing Excel row 39: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0101', 'product_uom_qty': 1, 'price_unit': 2118.06, 'sequence': 39, 'date': Timestamp('2025-08-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0101'}
+2026-04-13 14:02:26,066 - INFO - Using cached product ID for code: 'VTMAE0101'
+2026-04-13 14:02:26,066 - INFO - Prepared product VTMAE0101 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,066 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,066 - INFO - Processing Excel row 40: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE01L1', 'product_uom_qty': 5, 'price_unit': 1989.11, 'sequence': 40, 'date': Timestamp('2019-03-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE01L1'}
+2026-04-13 14:02:26,066 - INFO - Searching for product with code: 'VTMAE01L1' and old code: 'VTMAE01L1'
+2026-04-13 14:02:26,151 - INFO - Found product with exact match on default_code: 'VTMAE01L1'
+2026-04-13 14:02:26,240 - INFO - Prepared product VTMAE01L1 with quantity 5.0 for batch creation
+2026-04-13 14:02:26,240 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,241 - INFO - Processing Excel row 41: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE01L1', 'product_uom_qty': 5, 'price_unit': 1964.31, 'sequence': 41, 'date': Timestamp('2019-03-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE01L1'}
+2026-04-13 14:02:26,241 - INFO - Using cached product ID for code: 'VTMAE01L1'
+2026-04-13 14:02:26,241 - INFO - Prepared product VTMAE01L1 with quantity 5.0 for batch creation
+2026-04-13 14:02:26,241 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,241 - INFO - Processing Excel row 42: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE01L1', 'product_uom_qty': 1, 'price_unit': 2060.32, 'sequence': 42, 'date': Timestamp('2019-10-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE01L1'}
+2026-04-13 14:02:26,242 - INFO - Using cached product ID for code: 'VTMAE01L1'
+2026-04-13 14:02:26,242 - INFO - Prepared product VTMAE01L1 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,242 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,242 - INFO - Processing Excel row 43: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 8, 'price_unit': 2119.39, 'sequence': 43, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,242 - INFO - Searching for product with code: 'VTMAE0201' and old code: 'VTMAE0201'
+2026-04-13 14:02:26,333 - INFO - Found product with exact match on default_code: 'VTMAE0201'
+2026-04-13 14:02:26,417 - INFO - Prepared product VTMAE0201 with quantity 8.0 for batch creation
+2026-04-13 14:02:26,417 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,418 - INFO - Processing Excel row 44: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 5, 'price_unit': 2151.42, 'sequence': 44, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,418 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,418 - INFO - Prepared product VTMAE0201 with quantity 5.0 for batch creation
+2026-04-13 14:02:26,418 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,419 - INFO - Processing Excel row 45: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 2, 'price_unit': 1610.83, 'sequence': 45, 'date': Timestamp('2019-01-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,419 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,419 - INFO - Prepared product VTMAE0201 with quantity 2.0 for batch creation
+2026-04-13 14:02:26,419 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,419 - INFO - Processing Excel row 46: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1704.75, 'sequence': 46, 'date': Timestamp('2019-03-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,419 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,419 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,419 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,420 - INFO - Processing Excel row 47: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 2208.27, 'sequence': 47, 'date': Timestamp('2019-05-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,420 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,420 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,420 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,420 - INFO - Processing Excel row 48: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1777.61, 'sequence': 48, 'date': Timestamp('2019-05-25 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,420 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,420 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,420 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,421 - INFO - Processing Excel row 49: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 2208.27, 'sequence': 49, 'date': Timestamp('2019-05-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,421 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,421 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,421 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,421 - INFO - Processing Excel row 50: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1406.95, 'sequence': 50, 'date': Timestamp('2019-07-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,421 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,421 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,421 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,422 - INFO - Processing Excel row 51: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1941.89, 'sequence': 51, 'date': Timestamp('2019-10-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,422 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,422 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,422 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,422 - INFO - Processing Excel row 52: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1636.53, 'sequence': 52, 'date': Timestamp('2022-02-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,422 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,422 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,422 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,423 - INFO - Processing Excel row 53: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1712.69, 'sequence': 53, 'date': Timestamp('2022-08-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,423 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,423 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,423 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,423 - INFO - Processing Excel row 54: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 666.93, 'sequence': 54, 'date': Timestamp('2022-12-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,423 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,423 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,423 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,423 - INFO - Processing Excel row 55: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 666.93, 'sequence': 55, 'date': Timestamp('2022-12-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,423 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,423 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,423 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,423 - INFO - Processing Excel row 56: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1270.07, 'sequence': 56, 'date': Timestamp('2023-04-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,423 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,423 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,423 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,423 - INFO - Processing Excel row 57: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1729.23, 'sequence': 57, 'date': Timestamp('2023-06-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,423 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,423 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,424 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,424 - INFO - Processing Excel row 58: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 666.93, 'sequence': 58, 'date': Timestamp('2023-06-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,424 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,424 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,424 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,424 - INFO - Processing Excel row 59: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 666.93, 'sequence': 59, 'date': Timestamp('2023-11-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,424 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,424 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,424 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,424 - INFO - Processing Excel row 60: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1688.0, 'sequence': 60, 'date': Timestamp('2023-11-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,424 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,424 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,424 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,424 - INFO - Processing Excel row 61: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 2119.39, 'sequence': 61, 'date': Timestamp('2024-06-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,424 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,424 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,424 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,424 - INFO - Processing Excel row 62: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 2119.39, 'sequence': 62, 'date': Timestamp('2024-06-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,424 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,425 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,425 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,425 - INFO - Processing Excel row 63: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 666.93, 'sequence': 63, 'date': Timestamp('2024-03-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,425 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,425 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,425 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,425 - INFO - Processing Excel row 64: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 2119.39, 'sequence': 64, 'date': Timestamp('2025-06-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,425 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,425 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,425 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,425 - INFO - Processing Excel row 65: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1361.01, 'sequence': 65, 'date': Timestamp('2024-03-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,425 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,425 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,425 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,425 - INFO - Processing Excel row 66: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0201', 'product_uom_qty': 1, 'price_unit': 1718.69, 'sequence': 66, 'date': Timestamp('2025-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0201'}
+2026-04-13 14:02:26,425 - INFO - Using cached product ID for code: 'VTMAE0201'
+2026-04-13 14:02:26,425 - INFO - Prepared product VTMAE0201 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,425 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,425 - INFO - Processing Excel row 67: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 578.78, 'sequence': 67, 'date': Timestamp('2019-01-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,425 - INFO - Searching for product with code: 'VTMAE0301' and old code: 'VTMAE0301'
+2026-04-13 14:02:26,523 - INFO - Found product with exact match on default_code: 'VTMAE0301'
+2026-04-13 14:02:26,612 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,612 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,613 - INFO - Processing Excel row 68: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 5, 'price_unit': 1641.24, 'sequence': 68, 'date': Timestamp('2019-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,613 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,613 - INFO - Prepared product VTMAE0301 with quantity 5.0 for batch creation
+2026-04-13 14:02:26,613 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,613 - INFO - Processing Excel row 69: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 8, 'price_unit': 1746.24, 'sequence': 69, 'date': Timestamp('2019-02-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,614 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,614 - INFO - Prepared product VTMAE0301 with quantity 8.0 for batch creation
+2026-04-13 14:02:26,614 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,614 - INFO - Processing Excel row 70: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 5, 'price_unit': 1847.22, 'sequence': 70, 'date': Timestamp('2019-02-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,614 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,614 - INFO - Prepared product VTMAE0301 with quantity 5.0 for batch creation
+2026-04-13 14:02:26,614 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,614 - INFO - Processing Excel row 71: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 8, 'price_unit': 1848.29, 'sequence': 71, 'date': Timestamp('2019-03-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,614 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,615 - INFO - Prepared product VTMAE0301 with quantity 8.0 for batch creation
+2026-04-13 14:02:26,615 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,615 - INFO - Processing Excel row 72: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 76070.19, 'sequence': 72, 'date': Timestamp('2019-04-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,615 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,615 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,615 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,615 - INFO - Processing Excel row 73: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2807.48, 'sequence': 73, 'date': Timestamp('2019-05-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,615 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,615 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,616 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,616 - INFO - Processing Excel row 74: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 3003.06, 'sequence': 74, 'date': Timestamp('2019-06-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,616 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,616 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,616 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,616 - INFO - Processing Excel row 75: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2093.84, 'sequence': 75, 'date': Timestamp('2019-08-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,616 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,616 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,616 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,617 - INFO - Processing Excel row 76: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2935.6, 'sequence': 76, 'date': Timestamp('2019-10-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,617 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,617 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,617 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,617 - INFO - Processing Excel row 77: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 2, 'price_unit': 3295.26, 'sequence': 77, 'date': Timestamp('2019-10-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,617 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,617 - INFO - Prepared product VTMAE0301 with quantity 2.0 for batch creation
+2026-04-13 14:02:26,617 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,618 - INFO - Processing Excel row 78: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2380.42, 'sequence': 78, 'date': Timestamp('2020-02-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,618 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,618 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,618 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,618 - INFO - Processing Excel row 79: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2709.41, 'sequence': 79, 'date': Timestamp('2020-02-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,618 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,618 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,618 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,619 - INFO - Processing Excel row 80: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 1603.94, 'sequence': 80, 'date': Timestamp('2020-09-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,619 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,619 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,619 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,619 - INFO - Processing Excel row 81: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2703.76, 'sequence': 81, 'date': Timestamp('2020-12-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,619 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,619 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,619 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,619 - INFO - Processing Excel row 82: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2668.3, 'sequence': 82, 'date': Timestamp('2021-02-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,619 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,619 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,619 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,620 - INFO - Processing Excel row 83: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 14, 'price_unit': 2391.34, 'sequence': 83, 'date': Timestamp('2021-05-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,620 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,620 - INFO - Prepared product VTMAE0301 with quantity 14.0 for batch creation
+2026-04-13 14:02:26,620 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,620 - INFO - Processing Excel row 84: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2620.04, 'sequence': 84, 'date': Timestamp('2022-02-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,620 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,620 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,620 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,620 - INFO - Processing Excel row 85: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2689.29, 'sequence': 85, 'date': Timestamp('2022-08-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,620 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,620 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,620 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,620 - INFO - Processing Excel row 86: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 3171.43, 'sequence': 86, 'date': Timestamp('2022-10-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,620 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,620 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,620 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,620 - INFO - Processing Excel row 87: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2684.34, 'sequence': 87, 'date': Timestamp('2023-02-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,620 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,620 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,620 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,620 - INFO - Processing Excel row 88: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 2684.34, 'sequence': 88, 'date': Timestamp('2023-02-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,620 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,621 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,621 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,621 - INFO - Processing Excel row 89: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 3205.49, 'sequence': 89, 'date': Timestamp('2023-06-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,621 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,621 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,621 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,621 - INFO - Processing Excel row 90: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 3068.78, 'sequence': 90, 'date': Timestamp('2023-06-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,621 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,621 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,621 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,621 - INFO - Processing Excel row 91: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 1699.57, 'sequence': 91, 'date': Timestamp('2023-11-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,621 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,621 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,621 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,621 - INFO - Processing Excel row 92: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 1699.57, 'sequence': 92, 'date': Timestamp('2024-06-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,621 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,621 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,621 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,621 - INFO - Processing Excel row 93: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 1699.57, 'sequence': 93, 'date': Timestamp('2026-03-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,621 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,622 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,622 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,622 - INFO - Processing Excel row 94: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 1699.57, 'sequence': 94, 'date': Timestamp('2025-06-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,622 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,622 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,622 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,622 - INFO - Processing Excel row 95: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 3749.37, 'sequence': 95, 'date': Timestamp('2024-10-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,622 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,622 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,622 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,622 - INFO - Processing Excel row 96: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 3238.6, 'sequence': 96, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,622 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,622 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,622 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,622 - INFO - Processing Excel row 97: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0301', 'product_uom_qty': 1, 'price_unit': 3702.6, 'sequence': 97, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0301'}
+2026-04-13 14:02:26,622 - INFO - Using cached product ID for code: 'VTMAE0301'
+2026-04-13 14:02:26,622 - INFO - Prepared product VTMAE0301 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,622 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,622 - INFO - Processing Excel row 98: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 3, 'price_unit': 2187.83, 'sequence': 98, 'date': Timestamp('2022-06-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,622 - INFO - Searching for product with code: 'VTMAE0401' and old code: 'VTMAE0401'
+2026-04-13 14:02:26,703 - INFO - Found product with exact match on default_code: 'VTMAE0401'
+2026-04-13 14:02:26,800 - INFO - Prepared product VTMAE0401 with quantity 3.0 for batch creation
+2026-04-13 14:02:26,801 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,801 - INFO - Processing Excel row 99: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 3, 'price_unit': 2165.9, 'sequence': 99, 'date': Timestamp('2022-08-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,801 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,802 - INFO - Prepared product VTMAE0401 with quantity 3.0 for batch creation
+2026-04-13 14:02:26,802 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,802 - INFO - Processing Excel row 100: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1617.98, 'sequence': 100, 'date': Timestamp('2022-09-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,802 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,802 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,802 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,802 - INFO - Processing Excel row 101: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1647.11, 'sequence': 101, 'date': Timestamp('2022-09-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,802 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,803 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,803 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,803 - INFO - Processing Excel row 102: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 2, 'price_unit': 2267.93, 'sequence': 102, 'date': Timestamp('2022-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,803 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,803 - INFO - Prepared product VTMAE0401 with quantity 2.0 for batch creation
+2026-04-13 14:02:26,803 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,803 - INFO - Processing Excel row 103: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2272.21, 'sequence': 103, 'date': Timestamp('2022-10-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,803 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,804 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,804 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,804 - INFO - Processing Excel row 104: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2272.21, 'sequence': 104, 'date': Timestamp('2022-10-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,804 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,804 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,804 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,804 - INFO - Processing Excel row 105: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 2, 'price_unit': 2734.38, 'sequence': 105, 'date': Timestamp('2022-11-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,804 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,804 - INFO - Prepared product VTMAE0401 with quantity 2.0 for batch creation
+2026-04-13 14:02:26,804 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,805 - INFO - Processing Excel row 106: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2634.66, 'sequence': 106, 'date': Timestamp('2022-11-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,805 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,805 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,805 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,805 - INFO - Processing Excel row 107: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2634.66, 'sequence': 107, 'date': Timestamp('2022-11-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,805 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,805 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,805 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,806 - INFO - Processing Excel row 108: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2604.24, 'sequence': 108, 'date': Timestamp('2022-12-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,806 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,806 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,806 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,806 - INFO - Processing Excel row 109: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1647.11, 'sequence': 109, 'date': Timestamp('2022-12-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,806 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,807 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,807 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,807 - INFO - Processing Excel row 110: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1791.98, 'sequence': 110, 'date': Timestamp('2023-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,807 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,807 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,807 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,808 - INFO - Processing Excel row 111: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 2, 'price_unit': 1916.36, 'sequence': 111, 'date': Timestamp('2023-06-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,808 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,808 - INFO - Prepared product VTMAE0401 with quantity 2.0 for batch creation
+2026-04-13 14:02:26,808 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,808 - INFO - Processing Excel row 112: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1862.3, 'sequence': 112, 'date': Timestamp('2023-07-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,808 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,808 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,808 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,808 - INFO - Processing Excel row 113: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1938.17, 'sequence': 113, 'date': Timestamp('2023-08-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,808 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,808 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,808 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,808 - INFO - Processing Excel row 114: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1916.11, 'sequence': 114, 'date': Timestamp('2023-10-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,809 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,809 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,809 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,809 - INFO - Processing Excel row 115: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1989.8, 'sequence': 115, 'date': Timestamp('2025-02-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,809 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,809 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,809 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,809 - INFO - Processing Excel row 116: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1948.38, 'sequence': 116, 'date': Timestamp('2025-12-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,809 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,809 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,809 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,809 - INFO - Processing Excel row 117: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1948.38, 'sequence': 117, 'date': Timestamp('2026-01-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,809 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,809 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,809 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,809 - INFO - Processing Excel row 118: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 3, 'price_unit': 1955.75, 'sequence': 118, 'date': Timestamp('2024-09-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,809 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,809 - INFO - Prepared product VTMAE0401 with quantity 3.0 for batch creation
+2026-04-13 14:02:26,810 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,810 - INFO - Processing Excel row 119: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2070.83, 'sequence': 119, 'date': Timestamp('2024-10-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,810 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,810 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,810 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,810 - INFO - Processing Excel row 120: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 2, 'price_unit': 2036.23, 'sequence': 120, 'date': Timestamp('2024-10-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,810 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,810 - INFO - Prepared product VTMAE0401 with quantity 2.0 for batch creation
+2026-04-13 14:02:26,810 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,810 - INFO - Processing Excel row 121: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 3, 'price_unit': 2036.23, 'sequence': 121, 'date': Timestamp('2024-10-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,810 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,810 - INFO - Prepared product VTMAE0401 with quantity 3.0 for batch creation
+2026-04-13 14:02:26,810 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,810 - INFO - Processing Excel row 122: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 2, 'price_unit': 2134.62, 'sequence': 122, 'date': Timestamp('2024-11-28 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,810 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,810 - INFO - Prepared product VTMAE0401 with quantity 2.0 for batch creation
+2026-04-13 14:02:26,810 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,810 - INFO - Processing Excel row 123: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 3, 'price_unit': 2101.34, 'sequence': 123, 'date': Timestamp('2024-11-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,810 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,810 - INFO - Prepared product VTMAE0401 with quantity 3.0 for batch creation
+2026-04-13 14:02:26,810 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,811 - INFO - Processing Excel row 124: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1971.44, 'sequence': 124, 'date': Timestamp('2025-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,811 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,811 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,811 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,811 - INFO - Processing Excel row 125: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2084.73, 'sequence': 125, 'date': Timestamp('2025-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,811 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,811 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,811 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,811 - INFO - Processing Excel row 126: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2236.06, 'sequence': 126, 'date': Timestamp('2025-07-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,811 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,811 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,811 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,811 - INFO - Processing Excel row 127: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 2200.16, 'sequence': 127, 'date': Timestamp('2025-08-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,811 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,811 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,811 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,811 - INFO - Processing Excel row 128: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE0401', 'product_uom_qty': 1, 'price_unit': 1920.8, 'sequence': 128, 'date': Timestamp('2026-03-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE0401'}
+2026-04-13 14:02:26,811 - INFO - Using cached product ID for code: 'VTMAE0401'
+2026-04-13 14:02:26,811 - INFO - Prepared product VTMAE0401 with quantity 1.0 for batch creation
+2026-04-13 14:02:26,811 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:26,811 - INFO - Processing Excel row 129: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05L1', 'product_uom_qty': 3, 'price_unit': 1542.73, 'sequence': 129, 'date': Timestamp('2021-05-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05L1'}
+2026-04-13 14:02:26,811 - INFO - Searching for product with code: 'VTMAE05L1' and old code: 'VTMAE05L1'
+2026-04-13 14:02:26,907 - INFO - Found product with exact match on default_code: 'VTMAE05L1'
+2026-04-13 14:02:27,000 - INFO - Prepared product VTMAE05L1 with quantity 3.0 for batch creation
+2026-04-13 14:02:27,001 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,001 - INFO - Processing Excel row 130: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05L1', 'product_uom_qty': 2, 'price_unit': 1816.42, 'sequence': 130, 'date': Timestamp('2022-03-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05L1'}
+2026-04-13 14:02:27,001 - INFO - Using cached product ID for code: 'VTMAE05L1'
+2026-04-13 14:02:27,002 - INFO - Prepared product VTMAE05L1 with quantity 2.0 for batch creation
+2026-04-13 14:02:27,002 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,002 - INFO - Processing Excel row 131: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05L1', 'product_uom_qty': 1, 'price_unit': 1873.9, 'sequence': 131, 'date': Timestamp('2022-10-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05L1'}
+2026-04-13 14:02:27,002 - INFO - Using cached product ID for code: 'VTMAE05L1'
+2026-04-13 14:02:27,002 - INFO - Prepared product VTMAE05L1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,002 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,002 - INFO - Processing Excel row 132: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05L1', 'product_uom_qty': 1, 'price_unit': 1806.8, 'sequence': 132, 'date': Timestamp('2024-04-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05L1'}
+2026-04-13 14:02:27,002 - INFO - Using cached product ID for code: 'VTMAE05L1'
+2026-04-13 14:02:27,003 - INFO - Prepared product VTMAE05L1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,003 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,003 - INFO - Processing Excel row 133: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05L1', 'product_uom_qty': 8, 'price_unit': 2759.01, 'sequence': 133, 'date': Timestamp('2025-02-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05L1'}
+2026-04-13 14:02:27,003 - INFO - Using cached product ID for code: 'VTMAE05L1'
+2026-04-13 14:02:27,003 - INFO - Prepared product VTMAE05L1 with quantity 8.0 for batch creation
+2026-04-13 14:02:27,003 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,003 - INFO - Processing Excel row 134: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05L1', 'product_uom_qty': 1, 'price_unit': 2561.78, 'sequence': 134, 'date': Timestamp('2025-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05L1'}
+2026-04-13 14:02:27,003 - INFO - Using cached product ID for code: 'VTMAE05L1'
+2026-04-13 14:02:27,003 - INFO - Prepared product VTMAE05L1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,004 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,004 - INFO - Processing Excel row 135: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 8, 'price_unit': 1991.74, 'sequence': 135, 'date': Timestamp('2022-03-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,004 - INFO - Searching for product with code: 'VTMAE05R1' and old code: 'VTMAE05R1'
+2026-04-13 14:02:27,093 - INFO - Found product with exact match on default_code: 'VTMAE05R1'
+2026-04-13 14:02:27,188 - INFO - Prepared product VTMAE05R1 with quantity 8.0 for batch creation
+2026-04-13 14:02:27,188 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,189 - INFO - Processing Excel row 136: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1783.89, 'sequence': 136, 'date': Timestamp('2022-08-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,189 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,189 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,189 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,189 - INFO - Processing Excel row 137: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1783.89, 'sequence': 137, 'date': Timestamp('2022-09-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,189 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,189 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,189 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,189 - INFO - Processing Excel row 138: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1631.64, 'sequence': 138, 'date': Timestamp('2023-01-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,190 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,190 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,190 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,190 - INFO - Processing Excel row 139: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1991.74, 'sequence': 139, 'date': Timestamp('2023-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,190 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,190 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,190 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,190 - INFO - Processing Excel row 140: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1574.43, 'sequence': 140, 'date': Timestamp('2023-03-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,191 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,191 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,191 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,191 - INFO - Processing Excel row 141: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1991.74, 'sequence': 141, 'date': Timestamp('2024-06-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,191 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,191 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,191 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,191 - INFO - Processing Excel row 142: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1991.74, 'sequence': 142, 'date': Timestamp('2025-11-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,191 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,192 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,192 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,192 - INFO - Processing Excel row 143: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1991.74, 'sequence': 143, 'date': Timestamp('2025-12-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,192 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,192 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,192 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,192 - INFO - Processing Excel row 144: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1991.74, 'sequence': 144, 'date': Timestamp('2025-05-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,192 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,192 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,193 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,193 - INFO - Processing Excel row 145: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 1991.74, 'sequence': 145, 'date': Timestamp('2025-06-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,193 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,193 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,193 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,194 - INFO - Processing Excel row 146: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 2529.74, 'sequence': 146, 'date': Timestamp('2025-08-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,194 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,194 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,194 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,194 - INFO - Processing Excel row 147: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 2062.61, 'sequence': 147, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,195 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,195 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,195 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,195 - INFO - Processing Excel row 148: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE05R1', 'product_uom_qty': 1, 'price_unit': 2563.19, 'sequence': 148, 'date': Timestamp('2024-10-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE05R1'}
+2026-04-13 14:02:27,195 - INFO - Using cached product ID for code: 'VTMAE05R1'
+2026-04-13 14:02:27,195 - INFO - Prepared product VTMAE05R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,195 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,195 - INFO - Processing Excel row 149: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE06R1', 'product_uom_qty': 2, 'price_unit': 1944.92, 'sequence': 149, 'date': Timestamp('2021-05-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE06R1'}
+2026-04-13 14:02:27,195 - INFO - Searching for product with code: 'VTMAE06R1' and old code: 'VTMAE06R1'
+2026-04-13 14:02:27,281 - INFO - Found product with exact match on default_code: 'VTMAE06R1'
+2026-04-13 14:02:27,369 - INFO - Prepared product VTMAE06R1 with quantity 2.0 for batch creation
+2026-04-13 14:02:27,369 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,370 - INFO - Processing Excel row 150: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE06R1', 'product_uom_qty': 1, 'price_unit': 2009.0, 'sequence': 150, 'date': Timestamp('2025-11-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE06R1'}
+2026-04-13 14:02:27,370 - INFO - Using cached product ID for code: 'VTMAE06R1'
+2026-04-13 14:02:27,370 - INFO - Prepared product VTMAE06R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,370 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,371 - INFO - Processing Excel row 151: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE06R1', 'product_uom_qty': 1, 'price_unit': 2009.0, 'sequence': 151, 'date': Timestamp('2025-11-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE06R1'}
+2026-04-13 14:02:27,371 - INFO - Using cached product ID for code: 'VTMAE06R1'
+2026-04-13 14:02:27,371 - INFO - Prepared product VTMAE06R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,371 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,371 - INFO - Processing Excel row 152: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE06R1', 'product_uom_qty': 1, 'price_unit': 2558.01, 'sequence': 152, 'date': Timestamp('2025-12-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE06R1'}
+2026-04-13 14:02:27,371 - INFO - Using cached product ID for code: 'VTMAE06R1'
+2026-04-13 14:02:27,371 - INFO - Prepared product VTMAE06R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,371 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,372 - INFO - Processing Excel row 153: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE06R1', 'product_uom_qty': 1, 'price_unit': 1781.69, 'sequence': 153, 'date': Timestamp('2025-12-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE06R1'}
+2026-04-13 14:02:27,372 - INFO - Using cached product ID for code: 'VTMAE06R1'
+2026-04-13 14:02:27,372 - INFO - Prepared product VTMAE06R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,372 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,372 - INFO - Processing Excel row 154: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE06R1', 'product_uom_qty': 1, 'price_unit': 1771.8, 'sequence': 154, 'date': Timestamp('2026-02-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE06R1'}
+2026-04-13 14:02:27,372 - INFO - Using cached product ID for code: 'VTMAE06R1'
+2026-04-13 14:02:27,372 - INFO - Prepared product VTMAE06R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,372 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,372 - INFO - Processing Excel row 155: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE06R1', 'product_uom_qty': 1, 'price_unit': 2235.71, 'sequence': 155, 'date': Timestamp('2024-10-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE06R1'}
+2026-04-13 14:02:27,373 - INFO - Using cached product ID for code: 'VTMAE06R1'
+2026-04-13 14:02:27,373 - INFO - Prepared product VTMAE06R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,373 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,373 - INFO - Processing Excel row 156: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07L1', 'product_uom_qty': 1, 'price_unit': 4235.53, 'sequence': 156, 'date': Timestamp('2019-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07L1'}
+2026-04-13 14:02:27,373 - INFO - Searching for product with code: 'VTMAE07L1' and old code: 'VTMAE07L1'
+2026-04-13 14:02:27,576 - INFO - Found product with exact match on default_code: 'VTMAE07L1'
+2026-04-13 14:02:27,665 - INFO - Prepared product VTMAE07L1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,666 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,666 - INFO - Processing Excel row 157: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 2, 'price_unit': 3193.71, 'sequence': 157, 'date': Timestamp('2019-01-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,666 - INFO - Searching for product with code: 'VTMAE07R1' and old code: 'VTMAE07R1'
+2026-04-13 14:02:27,771 - INFO - Found product with exact match on default_code: 'VTMAE07R1'
+2026-04-13 14:02:27,866 - INFO - Prepared product VTMAE07R1 with quantity 2.0 for batch creation
+2026-04-13 14:02:27,867 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,867 - INFO - Processing Excel row 158: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 2538.62, 'sequence': 158, 'date': Timestamp('2019-03-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,867 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,867 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,867 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,867 - INFO - Processing Excel row 159: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 3261.73, 'sequence': 159, 'date': Timestamp('2019-03-28 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,867 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,867 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,867 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,867 - INFO - Processing Excel row 160: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 3206.01, 'sequence': 160, 'date': Timestamp('2019-04-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,867 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,867 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,867 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,867 - INFO - Processing Excel row 161: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 2949.86, 'sequence': 161, 'date': Timestamp('2019-05-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,867 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,867 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,867 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,867 - INFO - Processing Excel row 162: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 2408.28, 'sequence': 162, 'date': Timestamp('2019-05-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,867 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,867 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,868 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,868 - INFO - Processing Excel row 163: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 2741.94, 'sequence': 163, 'date': Timestamp('2019-07-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,868 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,868 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,868 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,868 - INFO - Processing Excel row 164: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 3056.85, 'sequence': 164, 'date': Timestamp('2019-11-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,868 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,868 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,868 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,868 - INFO - Processing Excel row 165: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 3190.93, 'sequence': 165, 'date': Timestamp('2019-12-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,868 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,868 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,868 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,868 - INFO - Processing Excel row 166: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 3319.13, 'sequence': 166, 'date': Timestamp('2019-12-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,868 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,868 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,868 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,868 - INFO - Processing Excel row 167: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 3179.43, 'sequence': 167, 'date': Timestamp('2020-04-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,868 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,868 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,868 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,868 - INFO - Processing Excel row 168: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 2555.39, 'sequence': 168, 'date': Timestamp('2020-12-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,868 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,868 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,869 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,869 - INFO - Processing Excel row 169: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 3105.95, 'sequence': 169, 'date': Timestamp('2020-12-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,869 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,869 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,869 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,869 - INFO - Processing Excel row 170: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 4091.03, 'sequence': 170, 'date': Timestamp('2022-10-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,869 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,869 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,869 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,869 - INFO - Processing Excel row 171: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 4322.39, 'sequence': 171, 'date': Timestamp('2023-06-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,869 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,869 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,869 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,869 - INFO - Processing Excel row 172: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 4322.39, 'sequence': 172, 'date': Timestamp('2024-05-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,869 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,869 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,869 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,869 - INFO - Processing Excel row 173: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 2579.86, 'sequence': 173, 'date': Timestamp('2024-03-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,869 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,869 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,869 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,869 - INFO - Processing Excel row 174: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 2602.31, 'sequence': 174, 'date': Timestamp('2025-03-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,869 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,869 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,869 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,869 - INFO - Processing Excel row 175: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE07R1', 'product_uom_qty': 1, 'price_unit': 2318.98, 'sequence': 175, 'date': Timestamp('2025-07-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE07R1'}
+2026-04-13 14:02:27,869 - INFO - Using cached product ID for code: 'VTMAE07R1'
+2026-04-13 14:02:27,869 - INFO - Prepared product VTMAE07R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:27,869 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:27,869 - INFO - Processing Excel row 176: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 4, 'price_unit': 3967.04, 'sequence': 176, 'date': Timestamp('2019-01-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:27,870 - INFO - Searching for product with code: 'VTMAE08R1' and old code: 'VTMAE08R1'
+2026-04-13 14:02:27,956 - INFO - Found product with exact match on default_code: 'VTMAE08R1'
+2026-04-13 14:02:28,041 - INFO - Prepared product VTMAE08R1 with quantity 4.0 for batch creation
+2026-04-13 14:02:28,041 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,041 - INFO - Processing Excel row 177: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 1, 'price_unit': 2712.81, 'sequence': 177, 'date': Timestamp('2019-04-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:28,041 - INFO - Using cached product ID for code: 'VTMAE08R1'
+2026-04-13 14:02:28,041 - INFO - Prepared product VTMAE08R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,041 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,041 - INFO - Processing Excel row 178: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 1, 'price_unit': 2214.04, 'sequence': 178, 'date': Timestamp('2019-05-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:28,041 - INFO - Using cached product ID for code: 'VTMAE08R1'
+2026-04-13 14:02:28,041 - INFO - Prepared product VTMAE08R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,041 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,041 - INFO - Processing Excel row 179: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 1, 'price_unit': 2605.16, 'sequence': 179, 'date': Timestamp('2019-06-29 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:28,041 - INFO - Using cached product ID for code: 'VTMAE08R1'
+2026-04-13 14:02:28,041 - INFO - Prepared product VTMAE08R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,041 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,041 - INFO - Processing Excel row 180: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 1, 'price_unit': 4020.5, 'sequence': 180, 'date': Timestamp('2019-09-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:28,041 - INFO - Using cached product ID for code: 'VTMAE08R1'
+2026-04-13 14:02:28,041 - INFO - Prepared product VTMAE08R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,041 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,041 - INFO - Processing Excel row 181: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 1, 'price_unit': 2809.54, 'sequence': 181, 'date': Timestamp('2020-08-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:28,042 - INFO - Using cached product ID for code: 'VTMAE08R1'
+2026-04-13 14:02:28,042 - INFO - Prepared product VTMAE08R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,042 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,042 - INFO - Processing Excel row 182: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 1, 'price_unit': 2580.31, 'sequence': 182, 'date': Timestamp('2020-09-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:28,042 - INFO - Using cached product ID for code: 'VTMAE08R1'
+2026-04-13 14:02:28,042 - INFO - Prepared product VTMAE08R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,042 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,042 - INFO - Processing Excel row 183: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 1, 'price_unit': 3487.55, 'sequence': 183, 'date': Timestamp('2020-12-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:28,042 - INFO - Using cached product ID for code: 'VTMAE08R1'
+2026-04-13 14:02:28,042 - INFO - Prepared product VTMAE08R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,042 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,042 - INFO - Processing Excel row 184: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTMAE08R1', 'product_uom_qty': 1, 'price_unit': 3981.32, 'sequence': 184, 'date': Timestamp('2022-12-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTMAE08R1'}
+2026-04-13 14:02:28,042 - INFO - Using cached product ID for code: 'VTMAE08R1'
+2026-04-13 14:02:28,042 - INFO - Prepared product VTMAE08R1 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,042 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,042 - INFO - Processing Excel row 185: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTW00201', 'product_uom_qty': 1, 'price_unit': 2255.89, 'sequence': 185, 'date': Timestamp('2025-06-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTW00201'}
+2026-04-13 14:02:28,042 - INFO - Searching for product with code: 'VTW00201' and old code: 'VTW00201'
+2026-04-13 14:02:28,132 - INFO - Found product with exact match on default_code: 'VTW00201'
+2026-04-13 14:02:28,226 - INFO - Prepared product VTW00201 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,226 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,226 - INFO - Processing Excel row 186: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'VTWHW201', 'product_uom_qty': 7, 'price_unit': 2151.96, 'sequence': 186, 'date': Timestamp('2025-11-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VTWHW201'}
+2026-04-13 14:02:28,226 - INFO - Searching for product with code: 'VTWHW201' and old code: 'VTWHW201'
+2026-04-13 14:02:28,311 - INFO - Found product with exact match on default_code: 'VTWHW201'
+2026-04-13 14:02:28,399 - INFO - Prepared product VTWHW201 with quantity 7.0 for batch creation
+2026-04-13 14:02:28,399 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,400 - INFO - Processing Excel row 187: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB00000H0010000', 'product_uom_qty': 18, 'price_unit': 133.62, 'sequence': 187, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB00000H0010000'}
+2026-04-13 14:02:28,400 - INFO - Searching for product with code: 'WB00000H0010000' and old code: 'WB00000H0010000'
+2026-04-13 14:02:28,482 - INFO - Found product with exact match on default_code: 'WB00000H0010000'
+2026-04-13 14:02:28,569 - INFO - Prepared product WB00000H0010000 with quantity 18.0 for batch creation
+2026-04-13 14:02:28,570 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,570 - INFO - Processing Excel row 188: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB00001H0010000', 'product_uom_qty': 18, 'price_unit': 133.62, 'sequence': 188, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB00001H0010000'}
+2026-04-13 14:02:28,570 - INFO - Searching for product with code: 'WB00001H0010000' and old code: 'WB00001H0010000'
+2026-04-13 14:02:28,650 - INFO - Found product with exact match on default_code: 'WB00001H0010000'
+2026-04-13 14:02:28,741 - INFO - Prepared product WB00001H0010000 with quantity 18.0 for batch creation
+2026-04-13 14:02:28,741 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,742 - INFO - Processing Excel row 189: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB00001H0010000', 'product_uom_qty': 1, 'price_unit': 133.63, 'sequence': 189, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB00001H0010000'}
+2026-04-13 14:02:28,742 - INFO - Using cached product ID for code: 'WB00001H0010000'
+2026-04-13 14:02:28,742 - INFO - Prepared product WB00001H0010000 with quantity 1.0 for batch creation
+2026-04-13 14:02:28,742 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,743 - INFO - Processing Excel row 190: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB00002H0010000', 'product_uom_qty': 195, 'price_unit': 117.33, 'sequence': 190, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB00002H0010000'}
+2026-04-13 14:02:28,743 - INFO - Searching for product with code: 'WB00002H0010000' and old code: 'WB00002H0010000'
+2026-04-13 14:02:28,829 - INFO - Found product with exact match on default_code: 'WB00002H0010000'
+2026-04-13 14:02:28,913 - INFO - Prepared product WB00002H0010000 with quantity 195.0 for batch creation
+2026-04-13 14:02:28,913 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:28,914 - INFO - Processing Excel row 191: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0001A100', 'product_uom_qty': 536, 'price_unit': 110.32, 'sequence': 191, 'date': Timestamp('2026-02-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0001A100'}
+2026-04-13 14:02:28,914 - INFO - Searching for product with code: 'WB0001A100' and old code: 'WB0001A100'
+2026-04-13 14:02:29,000 - INFO - Found product with exact match on default_code: 'WB0001A100'
+2026-04-13 14:02:29,087 - INFO - Prepared product WB0001A100 with quantity 536.0 for batch creation
+2026-04-13 14:02:29,088 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,088 - INFO - Processing Excel row 192: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0001A100', 'product_uom_qty': 1, 'price_unit': 109.32, 'sequence': 192, 'date': Timestamp('2026-02-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0001A100'}
+2026-04-13 14:02:29,088 - INFO - Using cached product ID for code: 'WB0001A100'
+2026-04-13 14:02:29,089 - INFO - Prepared product WB0001A100 with quantity 1.0 for batch creation
+2026-04-13 14:02:29,089 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,089 - INFO - Processing Excel row 193: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0001A100', 'product_uom_qty': 2, 'price_unit': 96.31, 'sequence': 193, 'date': Timestamp('2026-02-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0001A100'}
+2026-04-13 14:02:29,089 - INFO - Using cached product ID for code: 'WB0001A100'
+2026-04-13 14:02:29,089 - INFO - Prepared product WB0001A100 with quantity 2.0 for batch creation
+2026-04-13 14:02:29,089 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,089 - INFO - Processing Excel row 194: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0001A100', 'product_uom_qty': 7, 'price_unit': 105.35, 'sequence': 194, 'date': Timestamp('2026-03-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0001A100'}
+2026-04-13 14:02:29,089 - INFO - Using cached product ID for code: 'WB0001A100'
+2026-04-13 14:02:29,090 - INFO - Prepared product WB0001A100 with quantity 7.0 for batch creation
+2026-04-13 14:02:29,090 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,090 - INFO - Processing Excel row 195: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0001A100', 'product_uom_qty': 21, 'price_unit': 110.32, 'sequence': 195, 'date': Timestamp('2026-03-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0001A100'}
+2026-04-13 14:02:29,090 - INFO - Using cached product ID for code: 'WB0001A100'
+2026-04-13 14:02:29,090 - INFO - Prepared product WB0001A100 with quantity 21.0 for batch creation
+2026-04-13 14:02:29,090 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,090 - INFO - Processing Excel row 196: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0003C100', 'product_uom_qty': 684, 'price_unit': 97.96, 'sequence': 196, 'date': Timestamp('2026-02-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0003C100'}
+2026-04-13 14:02:29,090 - INFO - Searching for product with code: 'WB0003C100' and old code: 'WB0003C100'
+2026-04-13 14:02:29,173 - INFO - Found product with exact match on default_code: 'WB0003C100'
+2026-04-13 14:02:29,260 - INFO - Prepared product WB0003C100 with quantity 684.0 for batch creation
+2026-04-13 14:02:29,260 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,261 - INFO - Processing Excel row 197: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0003C100', 'product_uom_qty': 6, 'price_unit': 97.25, 'sequence': 197, 'date': Timestamp('2026-03-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0003C100'}
+2026-04-13 14:02:29,261 - INFO - Using cached product ID for code: 'WB0003C100'
+2026-04-13 14:02:29,261 - INFO - Prepared product WB0003C100 with quantity 6.0 for batch creation
+2026-04-13 14:02:29,261 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,261 - INFO - Processing Excel row 198: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0004A100', 'product_uom_qty': 97, 'price_unit': 96.97, 'sequence': 198, 'date': Timestamp('2026-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0004A100'}
+2026-04-13 14:02:29,261 - INFO - Searching for product with code: 'WB0004A100' and old code: 'WB0004A100'
+2026-04-13 14:02:29,346 - INFO - Found product with exact match on default_code: 'WB0004A100'
+2026-04-13 14:02:29,427 - INFO - Prepared product WB0004A100 with quantity 97.0 for batch creation
+2026-04-13 14:02:29,427 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,428 - INFO - Processing Excel row 199: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0004A100', 'product_uom_qty': 1, 'price_unit': 96.0, 'sequence': 199, 'date': Timestamp('2026-03-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0004A100'}
+2026-04-13 14:02:29,428 - INFO - Using cached product ID for code: 'WB0004A100'
+2026-04-13 14:02:29,428 - INFO - Prepared product WB0004A100 with quantity 1.0 for batch creation
+2026-04-13 14:02:29,428 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,428 - INFO - Processing Excel row 200: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0004A100', 'product_uom_qty': 2, 'price_unit': 98.19, 'sequence': 200, 'date': Timestamp('2026-03-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0004A100'}
+2026-04-13 14:02:29,428 - INFO - Using cached product ID for code: 'WB0004A100'
+2026-04-13 14:02:29,428 - INFO - Prepared product WB0004A100 with quantity 2.0 for batch creation
+2026-04-13 14:02:29,428 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,428 - INFO - Processing Excel row 201: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0004A100', 'product_uom_qty': 5, 'price_unit': 97.7, 'sequence': 201, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0004A100'}
+2026-04-13 14:02:29,428 - INFO - Using cached product ID for code: 'WB0004A100'
+2026-04-13 14:02:29,428 - INFO - Prepared product WB0004A100 with quantity 5.0 for batch creation
+2026-04-13 14:02:29,428 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,428 - INFO - Processing Excel row 202: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0004A100', 'product_uom_qty': 3, 'price_unit': 119.99, 'sequence': 202, 'date': Timestamp('2026-03-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0004A100'}
+2026-04-13 14:02:29,428 - INFO - Using cached product ID for code: 'WB0004A100'
+2026-04-13 14:02:29,428 - INFO - Prepared product WB0004A100 with quantity 3.0 for batch creation
+2026-04-13 14:02:29,428 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,428 - INFO - Processing Excel row 203: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 196, 'price_unit': 129.4, 'sequence': 203, 'date': Timestamp('2026-02-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-13 14:02:29,428 - INFO - Searching for product with code: 'WB0005A100' and old code: 'WB0005A100'
+2026-04-13 14:02:29,508 - INFO - Found product with exact match on default_code: 'WB0005A100'
+2026-04-13 14:02:29,595 - INFO - Prepared product WB0005A100 with quantity 196.0 for batch creation
+2026-04-13 14:02:29,595 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,596 - INFO - Processing Excel row 204: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 2, 'price_unit': 135.91, 'sequence': 204, 'date': Timestamp('2026-02-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-13 14:02:29,596 - INFO - Using cached product ID for code: 'WB0005A100'
+2026-04-13 14:02:29,596 - INFO - Prepared product WB0005A100 with quantity 2.0 for batch creation
+2026-04-13 14:02:29,596 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,596 - INFO - Processing Excel row 205: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 1, 'price_unit': 135.91, 'sequence': 205, 'date': Timestamp('2026-02-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-13 14:02:29,596 - INFO - Using cached product ID for code: 'WB0005A100'
+2026-04-13 14:02:29,597 - INFO - Prepared product WB0005A100 with quantity 1.0 for batch creation
+2026-04-13 14:02:29,597 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,597 - INFO - Processing Excel row 206: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 5, 'price_unit': 135.91, 'sequence': 206, 'date': Timestamp('2026-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-13 14:02:29,597 - INFO - Using cached product ID for code: 'WB0005A100'
+2026-04-13 14:02:29,597 - INFO - Prepared product WB0005A100 with quantity 5.0 for batch creation
+2026-04-13 14:02:29,597 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,597 - INFO - Processing Excel row 207: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 1, 'price_unit': 128.14, 'sequence': 207, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-13 14:02:29,597 - INFO - Using cached product ID for code: 'WB0005A100'
+2026-04-13 14:02:29,597 - INFO - Prepared product WB0005A100 with quantity 1.0 for batch creation
+2026-04-13 14:02:29,598 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,598 - INFO - Processing Excel row 208: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 7, 'price_unit': 130.67, 'sequence': 208, 'date': Timestamp('2026-03-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-13 14:02:29,598 - INFO - Using cached product ID for code: 'WB0005A100'
+2026-04-13 14:02:29,598 - INFO - Prepared product WB0005A100 with quantity 7.0 for batch creation
+2026-04-13 14:02:29,598 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,598 - INFO - Processing Excel row 209: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0006114', 'product_uom_qty': 64, 'price_unit': 133.11, 'sequence': 209, 'date': Timestamp('2026-01-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0006114'}
+2026-04-13 14:02:29,598 - INFO - Searching for product with code: 'WB0006114' and old code: 'WB0006114'
+2026-04-13 14:02:29,682 - INFO - Found product with exact match on default_code: 'WB0006114'
+2026-04-13 14:02:29,779 - INFO - Prepared product WB0006114 with quantity 64.0 for batch creation
+2026-04-13 14:02:29,779 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,780 - INFO - Processing Excel row 210: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0007110', 'product_uom_qty': 5, 'price_unit': 134.76, 'sequence': 210, 'date': Timestamp('2026-02-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0007110'}
+2026-04-13 14:02:29,780 - INFO - Searching for product with code: 'WB0007110' and old code: 'WB0007110'
+2026-04-13 14:02:29,874 - INFO - Found product with exact match on default_code: 'WB0007110'
+2026-04-13 14:02:29,969 - INFO - Prepared product WB0007110 with quantity 5.0 for batch creation
+2026-04-13 14:02:29,970 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,970 - INFO - Processing Excel row 211: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0007110', 'product_uom_qty': 64, 'price_unit': 132.53, 'sequence': 211, 'date': Timestamp('2025-12-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0007110'}
+2026-04-13 14:02:29,970 - INFO - Using cached product ID for code: 'WB0007110'
+2026-04-13 14:02:29,970 - INFO - Prepared product WB0007110 with quantity 64.0 for batch creation
+2026-04-13 14:02:29,970 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:29,971 - INFO - Processing Excel row 212: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0008110', 'product_uom_qty': 1, 'price_unit': 189.56, 'sequence': 212, 'date': Timestamp('2024-09-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0008110'}
+2026-04-13 14:02:29,971 - INFO - Searching for product with code: 'WB0008110' and old code: 'WB0008110'
+2026-04-13 14:02:30,057 - INFO - Found product with exact match on default_code: 'WB0008110'
+2026-04-13 14:02:30,145 - INFO - Prepared product WB0008110 with quantity 1.0 for batch creation
+2026-04-13 14:02:30,146 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,146 - INFO - Processing Excel row 213: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0008110', 'product_uom_qty': 1, 'price_unit': 181.12, 'sequence': 213, 'date': Timestamp('2024-09-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0008110'}
+2026-04-13 14:02:30,147 - INFO - Using cached product ID for code: 'WB0008110'
+2026-04-13 14:02:30,147 - INFO - Prepared product WB0008110 with quantity 1.0 for batch creation
+2026-04-13 14:02:30,147 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,147 - INFO - Processing Excel row 214: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0008110', 'product_uom_qty': 1, 'price_unit': 181.12, 'sequence': 214, 'date': Timestamp('2025-01-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0008110'}
+2026-04-13 14:02:30,147 - INFO - Using cached product ID for code: 'WB0008110'
+2026-04-13 14:02:30,147 - INFO - Prepared product WB0008110 with quantity 1.0 for batch creation
+2026-04-13 14:02:30,147 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,148 - INFO - Processing Excel row 215: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0008110', 'product_uom_qty': 16, 'price_unit': 181.12, 'sequence': 215, 'date': Timestamp('2024-01-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0008110'}
+2026-04-13 14:02:30,148 - INFO - Using cached product ID for code: 'WB0008110'
+2026-04-13 14:02:30,148 - INFO - Prepared product WB0008110 with quantity 16.0 for batch creation
+2026-04-13 14:02:30,148 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,148 - INFO - Processing Excel row 216: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0048100', 'product_uom_qty': 2, 'price_unit': 146.85, 'sequence': 216, 'date': Timestamp('2025-09-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0048100'}
+2026-04-13 14:02:30,148 - INFO - Searching for product with code: 'WB0048100' and old code: 'WB0048100'
+2026-04-13 14:02:30,227 - INFO - Found product with exact match on default_code: 'WB0048100'
+2026-04-13 14:02:30,319 - INFO - Prepared product WB0048100 with quantity 2.0 for batch creation
+2026-04-13 14:02:30,320 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,320 - INFO - Processing Excel row 217: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0048100', 'product_uom_qty': 4, 'price_unit': 156.06, 'sequence': 217, 'date': Timestamp('2025-09-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0048100'}
+2026-04-13 14:02:30,320 - INFO - Using cached product ID for code: 'WB0048100'
+2026-04-13 14:02:30,320 - INFO - Prepared product WB0048100 with quantity 4.0 for batch creation
+2026-04-13 14:02:30,320 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,321 - INFO - Processing Excel row 218: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WB0048100', 'product_uom_qty': 17, 'price_unit': 138.4, 'sequence': 218, 'date': Timestamp('2025-07-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0048100'}
+2026-04-13 14:02:30,321 - INFO - Using cached product ID for code: 'WB0048100'
+2026-04-13 14:02:30,321 - INFO - Prepared product WB0048100 with quantity 17.0 for batch creation
+2026-04-13 14:02:30,321 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,321 - INFO - Processing Excel row 219: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD00000H0010000', 'product_uom_qty': 76, 'price_unit': 233.64, 'sequence': 219, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD00000H0010000'}
+2026-04-13 14:02:30,321 - INFO - Searching for product with code: 'WD00000H0010000' and old code: 'WD00000H0010000'
+2026-04-13 14:02:30,407 - INFO - Found product with exact match on default_code: 'WD00000H0010000'
+2026-04-13 14:02:30,494 - INFO - Prepared product WD00000H0010000 with quantity 76.0 for batch creation
+2026-04-13 14:02:30,495 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,495 - INFO - Processing Excel row 220: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0001A100', 'product_uom_qty': 358, 'price_unit': 222.61, 'sequence': 220, 'date': Timestamp('2026-02-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0001A100'}
+2026-04-13 14:02:30,495 - INFO - Searching for product with code: 'WD0001A100' and old code: 'WD0001A100'
+2026-04-13 14:02:30,576 - INFO - Found product with exact match on default_code: 'WD0001A100'
+2026-04-13 14:02:30,670 - INFO - Prepared product WD0001A100 with quantity 358.0 for batch creation
+2026-04-13 14:02:30,671 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,671 - INFO - Processing Excel row 221: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0001A100', 'product_uom_qty': 5, 'price_unit': 192.13, 'sequence': 221, 'date': Timestamp('2026-02-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0001A100'}
+2026-04-13 14:02:30,671 - INFO - Using cached product ID for code: 'WD0001A100'
+2026-04-13 14:02:30,672 - INFO - Prepared product WD0001A100 with quantity 5.0 for batch creation
+2026-04-13 14:02:30,672 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,672 - INFO - Processing Excel row 222: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0001A100', 'product_uom_qty': 5, 'price_unit': 172.17, 'sequence': 222, 'date': Timestamp('2026-03-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0001A100'}
+2026-04-13 14:02:30,672 - INFO - Using cached product ID for code: 'WD0001A100'
+2026-04-13 14:02:30,672 - INFO - Prepared product WD0001A100 with quantity 5.0 for batch creation
+2026-04-13 14:02:30,672 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,673 - INFO - Processing Excel row 223: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0001N100', 'product_uom_qty': 1, 'price_unit': 163.53, 'sequence': 223, 'date': Timestamp('2024-03-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0001N100'}
+2026-04-13 14:02:30,673 - INFO - Searching for product with code: 'WD0001N100' and old code: 'WD0001N100'
+2026-04-13 14:02:30,755 - INFO - Found product with exact match on default_code: 'WD0001N100'
+2026-04-13 14:02:30,847 - INFO - Prepared product WD0001N100 with quantity 1.0 for batch creation
+2026-04-13 14:02:30,848 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:30,848 - INFO - Processing Excel row 224: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0001SP100', 'product_uom_qty': 99, 'price_unit': 249.19, 'sequence': 224, 'date': Timestamp('2026-02-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0001SP100'}
+2026-04-13 14:02:30,848 - INFO - Searching for product with code: 'WD0001SP100' and old code: 'WD0001SP100'
+2026-04-13 14:02:30,941 - INFO - Found product with exact match on default_code: 'WD0001SP100'
+2026-04-13 14:02:31,029 - INFO - Prepared product WD0001SP100 with quantity 99.0 for batch creation
+2026-04-13 14:02:31,030 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,030 - INFO - Processing Excel row 225: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0001SP100', 'product_uom_qty': 10, 'price_unit': 244.15, 'sequence': 225, 'date': Timestamp('2026-02-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0001SP100'}
+2026-04-13 14:02:31,030 - INFO - Using cached product ID for code: 'WD0001SP100'
+2026-04-13 14:02:31,030 - INFO - Prepared product WD0001SP100 with quantity 10.0 for batch creation
+2026-04-13 14:02:31,030 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,031 - INFO - Processing Excel row 226: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0001SP100', 'product_uom_qty': 10, 'price_unit': 249.19, 'sequence': 226, 'date': Timestamp('2026-03-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0001SP100'}
+2026-04-13 14:02:31,031 - INFO - Using cached product ID for code: 'WD0001SP100'
+2026-04-13 14:02:31,031 - INFO - Prepared product WD0001SP100 with quantity 10.0 for batch creation
+2026-04-13 14:02:31,031 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,031 - INFO - Processing Excel row 227: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0002A100', 'product_uom_qty': 46, 'price_unit': 447.04, 'sequence': 227, 'date': Timestamp('2025-11-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0002A100'}
+2026-04-13 14:02:31,031 - INFO - Searching for product with code: 'WD0002A100' and old code: 'WD0002A100'
+2026-04-13 14:02:31,115 - INFO - Found product with exact match on default_code: 'WD0002A100'
+2026-04-13 14:02:31,207 - INFO - Prepared product WD0002A100 with quantity 46.0 for batch creation
+2026-04-13 14:02:31,207 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,208 - INFO - Processing Excel row 228: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 11, 'price_unit': 156.38, 'sequence': 228, 'date': Timestamp('2022-09-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,208 - INFO - Searching for product with code: 'WD0003100' and old code: 'WD0003100'
+2026-04-13 14:02:31,295 - INFO - Found product with exact match on default_code: 'WD0003100'
+2026-04-13 14:02:31,385 - INFO - Prepared product WD0003100 with quantity 11.0 for batch creation
+2026-04-13 14:02:31,385 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,386 - INFO - Processing Excel row 229: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.38, 'sequence': 229, 'date': Timestamp('2022-12-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,386 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-13 14:02:31,386 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-13 14:02:31,386 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,386 - INFO - Processing Excel row 230: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.38, 'sequence': 230, 'date': Timestamp('2023-08-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,386 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-13 14:02:31,387 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-13 14:02:31,387 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,387 - INFO - Processing Excel row 231: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.38, 'sequence': 231, 'date': Timestamp('2023-10-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,387 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-13 14:02:31,387 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-13 14:02:31,387 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,387 - INFO - Processing Excel row 232: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.38, 'sequence': 232, 'date': Timestamp('2024-09-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,387 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-13 14:02:31,387 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-13 14:02:31,388 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,388 - INFO - Processing Excel row 233: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.38, 'sequence': 233, 'date': Timestamp('2024-06-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,388 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-13 14:02:31,388 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-13 14:02:31,388 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,388 - INFO - Processing Excel row 234: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.38, 'sequence': 234, 'date': Timestamp('2024-11-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,388 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-13 14:02:31,388 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-13 14:02:31,388 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,389 - INFO - Processing Excel row 235: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.38, 'sequence': 235, 'date': Timestamp('2026-02-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,389 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-13 14:02:31,389 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-13 14:02:31,389 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,389 - INFO - Processing Excel row 236: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 99, 'price_unit': 262.84, 'sequence': 236, 'date': Timestamp('2026-03-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-13 14:02:31,389 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-13 14:02:31,389 - INFO - Prepared product WD0003100 with quantity 99.0 for batch creation
+2026-04-13 14:02:31,389 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,389 - INFO - Processing Excel row 237: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD00481101', 'product_uom_qty': 66, 'price_unit': 297.16, 'sequence': 237, 'date': Timestamp('2025-12-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD00481101'}
+2026-04-13 14:02:31,390 - INFO - Searching for product with code: 'WD00481101' and old code: 'WD00481101'
+2026-04-13 14:02:31,475 - INFO - Found product with exact match on default_code: 'WD00481101'
+2026-04-13 14:02:31,572 - INFO - Prepared product WD00481101 with quantity 66.0 for batch creation
+2026-04-13 14:02:31,572 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,573 - INFO - Processing Excel row 238: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD00482100', 'product_uom_qty': 84, 'price_unit': 478.21, 'sequence': 238, 'date': Timestamp('2025-08-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD00482100'}
+2026-04-13 14:02:31,573 - INFO - Searching for product with code: 'WD00482100' and old code: 'WD00482100'
+2026-04-13 14:02:31,656 - INFO - Found product with exact match on default_code: 'WD00482100'
+2026-04-13 14:02:31,747 - INFO - Prepared product WD00482100 with quantity 84.0 for batch creation
+2026-04-13 14:02:31,748 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,748 - INFO - Processing Excel row 239: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WD00485101', 'product_uom_qty': 12, 'price_unit': 546.58, 'sequence': 239, 'date': Timestamp('2026-03-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD00485101'}
+2026-04-13 14:02:31,748 - INFO - Searching for product with code: 'WD00485101' and old code: 'WD00485101'
+2026-04-13 14:02:31,833 - INFO - Found product with exact match on default_code: 'WD00485101'
+2026-04-13 14:02:31,922 - INFO - Prepared product WD00485101 with quantity 12.0 for batch creation
+2026-04-13 14:02:31,923 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:31,923 - INFO - Processing Excel row 240: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG10 - Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 1 1-7', 'location_dest_id': 'FG10/Stock', 'default_code': 'WM03011R', 'product_uom_qty': 1, 'price_unit': 6876.24, 'sequence': 240, 'date': Timestamp('2024-05-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WM03011R'}
+2026-04-13 14:02:31,923 - INFO - Searching for product with code: 'WM03011R' and old code: 'WM03011R'
+2026-04-13 14:02:32,030 - INFO - Found product with exact match on default_code: 'WM03011R'
+2026-04-13 14:02:32,133 - INFO - Prepared product WM03011R with quantity 1.0 for batch creation
+2026-04-13 14:02:32,133 - INFO - Move locations - Source: 4, Dest: 8
+2026-04-13 14:02:34,152 - INFO - Created 240 moves in batch for picking 15078
+2026-04-13 14:02:34,280 - INFO - Re-updated dates before confirming picking 15078: 2026-03-31 08:00:00
+2026-04-13 14:02:35,967 - INFO - Confirmed transfer 15078 with forced date context
+2026-04-13 14:02:35,967 - INFO - Import completed: 1 success, 0 failed.

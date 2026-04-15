@@ -1,0 +1,71 @@
+2026-04-12 12:14:19,352 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-12 12:14:19,438 - INFO - Odoo version: 17.0.1.3
+2026-04-12 12:14:19,690 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-12 12:14:19,825 - INFO - Successfully read Excel file with 10 rows
+2026-04-12 12:14:19,825 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-12 12:14:19,827 - INFO - Processed sequence column
+2026-04-12 12:14:19,828 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-12 12:14:19,828 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-12 12:14:19,829 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-12 12:14:19,829 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-12 12:14:19,829 - INFO - Using 'default_code' column as 'product_id'
+2026-04-12 12:14:19,829 - INFO - Using 'origin' column to identify transfer groups
+2026-04-12 12:14:19,832 - INFO - Excel file validation and data filling completed successfully
+2026-04-12 12:14:20,028 - INFO - Searching for location: 'PD01/Stock'
+2026-04-12 12:14:20,287 - INFO - Found location with complete_name match: 'PD01/Stock' for 'PD01/Stock'
+2026-04-12 12:14:20,381 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-12 12:14:20,479 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15013
+2026-04-12 12:14:20,480 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'B100000HI010000', 'product_uom_qty': 2, 'price_unit': 1435.51, 'sequence': 1, 'date': '6/1/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'B100000HI010000'}
+2026-04-12 12:14:20,480 - INFO - Searching for product with code: 'B100000HI010000' and old code: 'B100000HI010000'
+2026-04-12 12:14:20,560 - INFO - Found product with exact match on default_code: 'B100000HI010000'
+2026-04-12 12:14:20,647 - INFO - Prepared product B100000HI010000 with quantity 2.0 for batch creation
+2026-04-12 12:14:20,647 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:20,647 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'B100001HI010000', 'product_uom_qty': 3, 'price_unit': 1152.24, 'sequence': 2, 'date': '6/1/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'B100001HI010000'}
+2026-04-12 12:14:20,647 - INFO - Searching for product with code: 'B100001HI010000' and old code: 'B100001HI010000'
+2026-04-12 12:14:20,731 - INFO - Found product with exact match on default_code: 'B100001HI010000'
+2026-04-12 12:14:20,815 - INFO - Prepared product B100001HI010000 with quantity 3.0 for batch creation
+2026-04-12 12:14:20,816 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:20,816 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'C200000HI010000', 'product_uom_qty': 1, 'price_unit': 835.78, 'sequence': 3, 'date': '6/1/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'C200000HI010000'}
+2026-04-12 12:14:20,816 - INFO - Searching for product with code: 'C200000HI010000' and old code: 'C200000HI010000'
+2026-04-12 12:14:20,907 - INFO - Found product with exact match on default_code: 'C200000HI010000'
+2026-04-12 12:14:21,009 - INFO - Prepared product C200000HI010000 with quantity 1.0 for batch creation
+2026-04-12 12:14:21,009 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:21,009 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'FM0500D7R97A', 'product_uom_qty': 5, 'price_unit': 925.45, 'sequence': 4, 'date': '23/3/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'FM0500D7R97A'}
+2026-04-12 12:14:21,010 - INFO - Searching for product with code: 'FM0500D7R97A' and old code: 'FM0500D7R97A'
+2026-04-12 12:14:21,117 - INFO - Found product with exact match on default_code: 'FM0500D7R97A'
+2026-04-12 12:14:21,222 - INFO - Prepared product FM0500D7R97A with quantity 5.0 for batch creation
+2026-04-12 12:14:21,223 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:21,223 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'FU00043DEC20304', 'product_uom_qty': 2, 'price_unit': 1422.65, 'sequence': 5, 'date': '30/3/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'FU00043DEC20304'}
+2026-04-12 12:14:21,223 - INFO - Searching for product with code: 'FU00043DEC20304' and old code: 'FU00043DEC20304'
+2026-04-12 12:14:21,314 - INFO - Found product with exact match on default_code: 'FU00043DEC20304'
+2026-04-12 12:14:21,406 - INFO - Prepared product FU00043DEC20304 with quantity 2.0 for batch creation
+2026-04-12 12:14:21,407 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:21,407 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'FU0050C8R179', 'product_uom_qty': 24, 'price_unit': 248.08, 'sequence': 6, 'date': '30/3/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'FU0050C8R179'}
+2026-04-12 12:14:21,407 - INFO - Searching for product with code: 'FU0050C8R179' and old code: 'FU0050C8R179'
+2026-04-12 12:14:21,490 - INFO - Found product with exact match on default_code: 'FU0050C8R179'
+2026-04-12 12:14:21,578 - INFO - Prepared product FU0050C8R179 with quantity 24.0 for batch creation
+2026-04-12 12:14:21,578 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:21,578 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'LAM0016DPL12115', 'product_uom_qty': 2, 'price_unit': 3770.3, 'sequence': 7, 'date': '24/2/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'LAM0016DPL12115'}
+2026-04-12 12:14:21,578 - INFO - Searching for product with code: 'LAM0016DPL12115' and old code: 'LAM0016DPL12115'
+2026-04-12 12:14:21,672 - INFO - Found product with exact match on default_code: 'LAM0016DPL12115'
+2026-04-12 12:14:21,761 - INFO - Prepared product LAM0016DPL12115 with quantity 2.0 for batch creation
+2026-04-12 12:14:21,761 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:21,762 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'LAM0038DPL12115', 'product_uom_qty': 4, 'price_unit': 5035.23, 'sequence': 8, 'date': '9/2/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'LAM0038DPL12115'}
+2026-04-12 12:14:21,762 - INFO - Searching for product with code: 'LAM0038DPL12115' and old code: 'LAM0038DPL12115'
+2026-04-12 12:14:21,865 - INFO - Found product with exact match on default_code: 'LAM0038DPL12115'
+2026-04-12 12:14:21,961 - INFO - Prepared product LAM0038DPL12115 with quantity 4.0 for batch creation
+2026-04-12 12:14:21,961 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:21,962 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'LAU020FC03', 'product_uom_qty': 7, 'price_unit': 3445.64, 'sequence': 9, 'date': '23/3/2026', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'LAU020FC03'}
+2026-04-12 12:14:21,962 - INFO - Searching for product with code: 'LAU020FC03' and old code: 'LAU020FC03'
+2026-04-12 12:14:22,048 - INFO - Found product with exact match on default_code: 'LAU020FC03'
+2026-04-12 12:14:22,141 - INFO - Prepared product LAU020FC03 with quantity 7.0 for batch creation
+2026-04-12 12:14:22,141 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:22,141 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'PD01-Re', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังผลิต', 'location_dest_id': 'PD01/Stock', 'default_code': 'NFG06-JIG-002', 'product_uom_qty': 1, 'price_unit': 71781.23, 'sequence': 10, 'date': '28/10/2025', 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NFG06-JIG-002'}
+2026-04-12 12:14:22,142 - INFO - Searching for product with code: 'NFG06-JIG-002' and old code: 'NFG06-JIG-002'
+2026-04-12 12:14:22,422 - INFO - Found product with exact match on old_product_code: 'NFG06-JIG-002'
+2026-04-12 12:14:22,515 - INFO - Prepared product NFG06-JIG-002 with quantity 1.0 for batch creation
+2026-04-12 12:14:22,516 - INFO - Move locations - Source: 4, Dest: 92
+2026-04-12 12:14:22,716 - INFO - Created 10 moves in batch for picking 15013
+2026-04-12 12:14:22,830 - INFO - Re-updated dates before confirming picking 15013: 2026-03-31 08:00:00
+2026-04-12 12:14:23,032 - INFO - Confirmed transfer 15013 with forced date context
+2026-04-12 12:14:23,032 - INFO - Import completed: 1 success, 0 failed.

@@ -1,0 +1,26 @@
+2026-04-14 20:19:40,951 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-14 20:19:41,810 - INFO - Odoo version: 17.0.1.3
+2026-04-14 20:19:42,623 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-14 20:19:42,759 - INFO - Successfully read Excel file with 1 rows
+2026-04-14 20:19:42,759 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-14 20:19:42,760 - INFO - Processed sequence column
+2026-04-14 20:19:42,761 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-14 20:19:42,761 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-14 20:19:42,762 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-14 20:19:42,762 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-14 20:19:42,762 - INFO - Using 'default_code' column as 'product_id'
+2026-04-14 20:19:42,762 - INFO - Using 'origin' column to identify transfer groups
+2026-04-14 20:19:42,766 - INFO - Excel file validation and data filling completed successfully
+2026-04-14 20:19:42,957 - INFO - Searching for location: 'FG12/Stock'
+2026-04-14 20:19:43,809 - INFO - Found location with complete_name match: 'FG12/Stock' for 'FG12/Stock'
+2026-04-14 20:19:43,907 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-14 20:19:44,080 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15013
+2026-04-14 20:19:44,082 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': '2026-03-31 08:00:00', 'picking_type_id': 'Dynasty RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังDynasty', 'location_dest_id': 'FG12/Stock', 'default_code': 'VT00332101', 'product_uom_qty': 1, 'price_unit': 1042.92, 'sequence': 1, 'date': Timestamp('2026-03-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'VT00332101'}
+2026-04-14 20:19:44,082 - INFO - Searching for product with code: 'VT00332101' and old code: 'VT00332101'
+2026-04-14 20:19:44,180 - INFO - Found product with exact match on default_code: 'VT00332101'
+2026-04-14 20:19:44,810 - INFO - Prepared product VT00332101 with quantity 1.0 for batch creation
+2026-04-14 20:19:44,810 - INFO - Move locations - Source: 4, Dest: 44
+2026-04-14 20:19:44,948 - INFO - Created 1 moves in batch for picking 15013
+2026-04-14 20:19:45,061 - INFO - Re-updated dates before confirming picking 15013: 2026-03-31 08:00:00
+2026-04-14 20:19:45,244 - INFO - Confirmed transfer 15013 with forced date context
+2026-04-14 20:19:45,245 - INFO - Import completed: 1 success, 0 failed.

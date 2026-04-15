@@ -1,0 +1,388 @@
+2026-04-12 16:01:29,431 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-12 16:01:30,043 - INFO - Odoo version: 17.0.1.3
+2026-04-12 16:01:30,303 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-12 16:01:30,435 - INFO - Successfully read Excel file with 78 rows
+2026-04-12 16:01:30,435 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-12 16:01:30,437 - INFO - Processed sequence column
+2026-04-12 16:01:30,440 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-12 16:01:30,441 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-12 16:01:30,442 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-12 16:01:30,442 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-12 16:01:30,442 - INFO - Using 'default_code' column as 'product_id'
+2026-04-12 16:01:30,443 - INFO - Using 'origin' column to identify transfer groups
+2026-04-12 16:01:30,446 - INFO - Excel file validation and data filling completed successfully
+2026-04-12 16:01:31,494 - INFO - Searching for location: 'ST01/Stock'
+2026-04-12 16:01:32,192 - INFO - Found location with complete_name match: 'ST01/Stock' for 'ST01/Stock'
+2026-04-12 16:01:32,299 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-12 16:01:32,425 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15022
+2026-04-12 16:01:32,427 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 'SSP\xa0286', 'product_uom_qty': 200, 'price_unit': 14.76, 'sequence': 1, 'date': Timestamp('2023-12-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SSP\xa0286'}
+2026-04-12 16:01:32,427 - INFO - Searching for product with code: 'SSP 286' and old code: 'SSP 286'
+2026-04-12 16:01:33,114 - INFO - Found product with exact match on default_code: 'SSP 286'
+2026-04-12 16:01:33,232 - INFO - Prepared product SSP 286 with quantity 200.0 for batch creation
+2026-04-12 16:01:33,232 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:33,233 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 287, 'product_uom_qty': 200, 'price_unit': 24.83, 'sequence': 2, 'date': Timestamp('2023-12-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 287}
+2026-04-12 16:01:33,233 - INFO - Searching for product with code: '287' and old code: '287'
+2026-04-12 16:01:33,499 - INFO - Found product 'ไม้ยางพารา FJ ปิดเพลท 80x80x20 AC50 เกรด AB' with code '201030287' using ilike search for '287'
+2026-04-12 16:01:33,585 - INFO - Prepared product 287 with quantity 200.0 for batch creation
+2026-04-12 16:01:33,585 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:33,586 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 288, 'product_uom_qty': 379, 'price_unit': 4.85, 'sequence': 3, 'date': Timestamp('2020-09-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 288}
+2026-04-12 16:01:33,586 - INFO - Searching for product with code: '288' and old code: '288'
+2026-04-12 16:01:33,851 - INFO - Found product 'ไม้ยางพารา FJ ปิดเพลท 80x80x20 สีดำ เกรด AB' with code '201030288' using ilike search for '288'
+2026-04-12 16:01:33,935 - INFO - Prepared product 288 with quantity 379.0 for batch creation
+2026-04-12 16:01:33,936 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:33,936 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 288, 'product_uom_qty': 28, 'price_unit': 94.53, 'sequence': 4, 'date': Timestamp('2022-08-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 288}
+2026-04-12 16:01:33,936 - INFO - Using cached product ID for code: '288'
+2026-04-12 16:01:33,936 - INFO - Prepared product 288 with quantity 28.0 for batch creation
+2026-04-12 16:01:33,936 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:33,937 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 291, 'product_uom_qty': 15, 'price_unit': 7.25, 'sequence': 5, 'date': Timestamp('2020-11-25 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 291}
+2026-04-12 16:01:33,937 - INFO - Searching for product with code: '291' and old code: '291'
+2026-04-12 16:01:34,186 - INFO - Found product 'ไม้ยางพารา FJ ปิดเพลท 95x93x25 สีขาว เกรด BC (ร่อง 12x53)' with code '201030291' using ilike search for '291'
+2026-04-12 16:01:34,277 - INFO - Prepared product 291 with quantity 15.0 for batch creation
+2026-04-12 16:01:34,277 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:34,278 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 292, 'product_uom_qty': 79, 'price_unit': 46.91, 'sequence': 6, 'date': Timestamp('2020-12-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 292}
+2026-04-12 16:01:34,278 - INFO - Searching for product with code: '292' and old code: '292'
+2026-04-12 16:01:34,911 - INFO - Found product 'ไม้ยางพารา FJ ปิดเพลท 100x115x15 AC09 เกรด AB' with code '201030292' using ilike search for '292'
+2026-04-12 16:01:34,996 - INFO - Prepared product 292 with quantity 79.0 for batch creation
+2026-04-12 16:01:34,996 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:34,997 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 310, 'product_uom_qty': 10, 'price_unit': 60.1, 'sequence': 7, 'date': Timestamp('2026-03-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 310}
+2026-04-12 16:01:34,997 - INFO - Searching for product with code: '310' and old code: '310'
+2026-04-12 16:01:35,285 - INFO - Found product 'ไม้ยางพารา FJ ปิดเพลท 60x60x20 AC47 เกรด BC' with code '201030310' using ilike search for '310'
+2026-04-12 16:01:35,372 - INFO - Prepared product 310 with quantity 10.0 for batch creation
+2026-04-12 16:01:35,373 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:35,373 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 311, 'product_uom_qty': 24, 'price_unit': 35.0, 'sequence': 8, 'date': Timestamp('2022-01-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 311}
+2026-04-12 16:01:35,373 - INFO - Searching for product with code: '311' and old code: '311'
+2026-04-12 16:01:35,648 - INFO - Found product 'ไม้ยางพารา FJ ปิดเพลท 60x60x20 AC29 เกรด AB' with code '201030311' using ilike search for '311'
+2026-04-12 16:01:36,126 - INFO - Prepared product 311 with quantity 24.0 for batch creation
+2026-04-12 16:01:36,126 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:36,127 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 316, 'product_uom_qty': 4, 'price_unit': 37.0, 'sequence': 9, 'date': Timestamp('2024-01-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 316}
+2026-04-12 16:01:36,127 - INFO - Searching for product with code: '316' and old code: '316'
+2026-04-12 16:01:36,422 - INFO - Found product 'ไม้ยางพารา FJ ปิดหัวเสา 2 ชั้น 102x102x20 AC29 เกรด AB' with code '201030316' using ilike search for '316'
+2026-04-12 16:01:36,504 - INFO - Prepared product 316 with quantity 4.0 for batch creation
+2026-04-12 16:01:36,505 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:36,505 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 318, 'product_uom_qty': 180, 'price_unit': 6.5, 'sequence': 10, 'date': Timestamp('2026-01-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 318}
+2026-04-12 16:01:36,505 - INFO - Searching for product with code: '318' and old code: '318'
+2026-04-12 16:01:36,767 - INFO - Found product 'ไม้ยางพารา FJ แปะเสา 64x1200x8 AC29 เกรด AB' with code '201030318' using ilike search for '318'
+2026-04-12 16:01:36,856 - INFO - Prepared product 318 with quantity 180.0 for batch creation
+2026-04-12 16:01:36,857 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:36,857 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 322, 'product_uom_qty': 429, 'price_unit': 6.0, 'sequence': 11, 'date': Timestamp('2022-03-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 322}
+2026-04-12 16:01:36,857 - INFO - Searching for product with code: '322' and old code: '322'
+2026-04-12 16:01:37,142 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 514x562x1097x122x1080x25 AC25 เกรด BC L' with code '201030322' using ilike search for '322'
+2026-04-12 16:01:37,232 - INFO - Prepared product 322 with quantity 429.0 for batch creation
+2026-04-12 16:01:37,232 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:37,233 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 323, 'product_uom_qty': 10, 'price_unit': 53.27, 'sequence': 12, 'date': Timestamp('2026-03-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 323}
+2026-04-12 16:01:37,233 - INFO - Searching for product with code: '323' and old code: '323'
+2026-04-12 16:01:37,502 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 514x562x1097x122x1080x25 AC25 เกรด BC R' with code '201030323' using ilike search for '323'
+2026-04-12 16:01:37,601 - INFO - Prepared product 323 with quantity 10.0 for batch creation
+2026-04-12 16:01:37,601 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:37,602 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 325, 'product_uom_qty': 16, 'price_unit': 26.17, 'sequence': 13, 'date': Timestamp('2022-08-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 325}
+2026-04-12 16:01:37,602 - INFO - Searching for product with code: '325' and old code: '325'
+2026-04-12 16:01:37,895 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 514x562x1097x122x1080x25 AC51 เกรด BC L' with code '201030325' using ilike search for '325'
+2026-04-12 16:01:37,983 - INFO - Prepared product 325 with quantity 16.0 for batch creation
+2026-04-12 16:01:37,983 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:37,984 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 325, 'product_uom_qty': 20, 'price_unit': 26.17, 'sequence': 14, 'date': Timestamp('2022-09-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 325}
+2026-04-12 16:01:37,984 - INFO - Using cached product ID for code: '325'
+2026-04-12 16:01:37,984 - INFO - Prepared product 325 with quantity 20.0 for batch creation
+2026-04-12 16:01:37,984 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:37,985 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 328, 'product_uom_qty': 354, 'price_unit': 14.0, 'sequence': 15, 'date': Timestamp('2022-06-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 328}
+2026-04-12 16:01:37,985 - INFO - Searching for product with code: '328' and old code: '328'
+2026-04-12 16:01:38,266 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 950x1050x111x1313.7x39.1x25 AC20 เกรด BC R' with code '201030328' using ilike search for '328'
+2026-04-12 16:01:38,360 - INFO - Prepared product 328 with quantity 354.0 for batch creation
+2026-04-12 16:01:38,360 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:38,361 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 329, 'product_uom_qty': 6, 'price_unit': 38.0, 'sequence': 16, 'date': Timestamp('2025-04-03 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 329}
+2026-04-12 16:01:38,361 - INFO - Searching for product with code: '329' and old code: '329'
+2026-04-12 16:01:38,638 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1000x1050x109.3x1348.3x37.8x25 AC13 เกรด BC R' with code '201030329' using ilike search for '329'
+2026-04-12 16:01:38,740 - INFO - Prepared product 329 with quantity 6.0 for batch creation
+2026-04-12 16:01:38,741 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:38,741 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 332, 'product_uom_qty': 5, 'price_unit': 67.4, 'sequence': 17, 'date': Timestamp('2025-01-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 332}
+2026-04-12 16:01:38,741 - INFO - Searching for product with code: '332' and old code: '332'
+2026-04-12 16:01:39,016 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1001x846x192x1135x50x25 AC63 เกรด AB R' with code '201030332' using ilike search for '332'
+2026-04-12 16:01:39,124 - INFO - Prepared product 332 with quantity 5.0 for batch creation
+2026-04-12 16:01:39,124 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:39,125 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 334, 'product_uom_qty': 25, 'price_unit': 3.0, 'sequence': 18, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 334}
+2026-04-12 16:01:39,125 - INFO - Searching for product with code: '334' and old code: '334'
+2026-04-12 16:01:39,427 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x1010x208.2x1285.7x38.2x25 AC07 เกรด BC R' with code '201030334' using ilike search for '334'
+2026-04-12 16:01:39,518 - INFO - Prepared product 334 with quantity 25.0 for batch creation
+2026-04-12 16:01:39,519 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:39,519 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 335, 'product_uom_qty': 10, 'price_unit': 2.0, 'sequence': 19, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 335}
+2026-04-12 16:01:39,519 - INFO - Searching for product with code: '335' and old code: '335'
+2026-04-12 16:01:39,830 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x1050x130.8x1273.9x168x25 AC07 เกรด BC L' with code '201030335' using ilike search for '335'
+2026-04-12 16:01:39,933 - INFO - Prepared product 335 with quantity 10.0 for batch creation
+2026-04-12 16:01:39,933 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:39,933 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 336, 'product_uom_qty': 10, 'price_unit': 61.5, 'sequence': 20, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 336}
+2026-04-12 16:01:39,933 - INFO - Searching for product with code: '336' and old code: '336'
+2026-04-12 16:01:40,233 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x1050x139x1362x37x30 AC30 เกรด AB L' with code '201030336' using ilike search for '336'
+2026-04-12 16:01:40,327 - INFO - Prepared product 336 with quantity 10.0 for batch creation
+2026-04-12 16:01:40,327 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:40,327 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 337, 'product_uom_qty': 2, 'price_unit': 4.38, 'sequence': 21, 'date': Timestamp('2022-11-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 337}
+2026-04-12 16:01:40,328 - INFO - Searching for product with code: '337' and old code: '337'
+2026-04-12 16:01:40,580 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x1050x472.6x1154.7x49.9x25 AC35 เกรด BC R' with code '201030337' using ilike search for '337'
+2026-04-12 16:01:40,663 - INFO - Prepared product 337 with quantity 2.0 for batch creation
+2026-04-12 16:01:40,663 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:40,664 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 340, 'product_uom_qty': 52, 'price_unit': 1.94, 'sequence': 22, 'date': Timestamp('2025-07-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 340}
+2026-04-12 16:01:40,664 - INFO - Searching for product with code: '340' and old code: '340'
+2026-04-12 16:01:40,940 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x1280x1621x45x25 AC09 เกรด AB L' with code '201030340' using ilike search for '340'
+2026-04-12 16:01:41,035 - INFO - Prepared product 340 with quantity 52.0 for batch creation
+2026-04-12 16:01:41,035 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,036 - INFO - Processing Excel row 23: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 340, 'product_uom_qty': 12, 'price_unit': 1.94, 'sequence': 23, 'date': Timestamp('2026-03-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 340}
+2026-04-12 16:01:41,036 - INFO - Using cached product ID for code: '340'
+2026-04-12 16:01:41,036 - INFO - Prepared product 340 with quantity 12.0 for batch creation
+2026-04-12 16:01:41,036 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,037 - INFO - Processing Excel row 24: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 340, 'product_uom_qty': 12, 'price_unit': 1.94, 'sequence': 24, 'date': Timestamp('2026-03-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 340}
+2026-04-12 16:01:41,037 - INFO - Using cached product ID for code: '340'
+2026-04-12 16:01:41,037 - INFO - Prepared product 340 with quantity 12.0 for batch creation
+2026-04-12 16:01:41,037 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,037 - INFO - Processing Excel row 25: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 341, 'product_uom_qty': 304, 'price_unit': 1.5, 'sequence': 25, 'date': Timestamp('2026-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 341}
+2026-04-12 16:01:41,037 - INFO - Searching for product with code: '341' and old code: '341'
+2026-04-12 16:01:41,312 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x685x1212.4x78.8x25 AC35 เกรด BC R' with code '201030341' using ilike search for '341'
+2026-04-12 16:01:41,408 - INFO - Prepared product 341 with quantity 304.0 for batch creation
+2026-04-12 16:01:41,409 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,409 - INFO - Processing Excel row 26: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 341, 'product_uom_qty': 12, 'price_unit': 1.5, 'sequence': 26, 'date': Timestamp('2026-03-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 341}
+2026-04-12 16:01:41,409 - INFO - Using cached product ID for code: '341'
+2026-04-12 16:01:41,410 - INFO - Prepared product 341 with quantity 12.0 for batch creation
+2026-04-12 16:01:41,410 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,410 - INFO - Processing Excel row 27: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 341, 'product_uom_qty': 12, 'price_unit': 1.5, 'sequence': 27, 'date': Timestamp('2026-03-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 341}
+2026-04-12 16:01:41,410 - INFO - Using cached product ID for code: '341'
+2026-04-12 16:01:41,410 - INFO - Prepared product 341 with quantity 12.0 for batch creation
+2026-04-12 16:01:41,410 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,411 - INFO - Processing Excel row 28: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 342, 'product_uom_qty': 85, 'price_unit': 0.66, 'sequence': 28, 'date': Timestamp('2025-08-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 342}
+2026-04-12 16:01:41,411 - INFO - Searching for product with code: '342' and old code: '342'
+2026-04-12 16:01:41,698 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x880x220x1132x110x25 AC63 เกรด AB L' with code '201030342' using ilike search for '342'
+2026-04-12 16:01:41,790 - INFO - Prepared product 342 with quantity 85.0 for batch creation
+2026-04-12 16:01:41,791 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,791 - INFO - Processing Excel row 29: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 342, 'product_uom_qty': 12, 'price_unit': 0.66, 'sequence': 29, 'date': Timestamp('2026-03-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 342}
+2026-04-12 16:01:41,791 - INFO - Using cached product ID for code: '342'
+2026-04-12 16:01:41,791 - INFO - Prepared product 342 with quantity 12.0 for batch creation
+2026-04-12 16:01:41,792 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,792 - INFO - Processing Excel row 30: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 342, 'product_uom_qty': 12, 'price_unit': 0.66, 'sequence': 30, 'date': Timestamp('2026-03-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 342}
+2026-04-12 16:01:41,792 - INFO - Using cached product ID for code: '342'
+2026-04-12 16:01:41,792 - INFO - Prepared product 342 with quantity 12.0 for batch creation
+2026-04-12 16:01:41,792 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:41,792 - INFO - Processing Excel row 31: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 343, 'product_uom_qty': 10, 'price_unit': 300.0, 'sequence': 31, 'date': Timestamp('2026-03-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 343}
+2026-04-12 16:01:41,792 - INFO - Searching for product with code: '343' and old code: '343'
+2026-04-12 16:01:42,126 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x880x220x1132x110x25 AC63 เกรด AB R' with code '201030343' using ilike search for '343'
+2026-04-12 16:01:42,207 - INFO - Prepared product 343 with quantity 10.0 for batch creation
+2026-04-12 16:01:42,207 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:42,208 - INFO - Processing Excel row 32: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 347, 'product_uom_qty': 5, 'price_unit': 2.01, 'sequence': 32, 'date': Timestamp('2023-08-07 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 347}
+2026-04-12 16:01:42,208 - INFO - Searching for product with code: '347' and old code: '347'
+2026-04-12 16:01:42,491 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1065x1000x168.2x1255.8x121x25 AC29 เกรด AB R' with code '201030347' using ilike search for '347'
+2026-04-12 16:01:42,586 - INFO - Prepared product 347 with quantity 5.0 for batch creation
+2026-04-12 16:01:42,586 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:42,587 - INFO - Processing Excel row 33: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 347, 'product_uom_qty': 200, 'price_unit': 1.92, 'sequence': 33, 'date': Timestamp('2026-02-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 347}
+2026-04-12 16:01:42,587 - INFO - Using cached product ID for code: '347'
+2026-04-12 16:01:42,587 - INFO - Prepared product 347 with quantity 200.0 for batch creation
+2026-04-12 16:01:42,587 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:42,587 - INFO - Processing Excel row 34: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 352, 'product_uom_qty': 152, 'price_unit': 3.9, 'sequence': 34, 'date': Timestamp('2026-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 352}
+2026-04-12 16:01:42,587 - INFO - Searching for product with code: '352' and old code: '352'
+2026-04-12 16:01:42,884 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1090x1040x106x1406x35.7x25 AC35 เกรด BC L' with code '201030352' using ilike search for '352'
+2026-04-12 16:01:42,980 - INFO - Prepared product 352 with quantity 152.0 for batch creation
+2026-04-12 16:01:42,980 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:42,981 - INFO - Processing Excel row 35: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 353, 'product_uom_qty': 151, 'price_unit': 2.0, 'sequence': 35, 'date': Timestamp('2026-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 353}
+2026-04-12 16:01:42,981 - INFO - Searching for product with code: '353' and old code: '353'
+2026-04-12 16:01:43,275 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1090x1040x106x1406x35.7x25 AC35 เกรด BC R' with code '201030353' using ilike search for '353'
+2026-04-12 16:01:43,365 - INFO - Prepared product 353 with quantity 151.0 for batch creation
+2026-04-12 16:01:43,366 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:43,366 - INFO - Processing Excel row 36: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 354, 'product_uom_qty': 152, 'price_unit': 1.31, 'sequence': 36, 'date': Timestamp('2026-02-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 354}
+2026-04-12 16:01:43,366 - INFO - Searching for product with code: '354' and old code: '354'
+2026-04-12 16:01:43,654 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1100x1150x130x1400x140x25 AC29 เกรด AB L' with code '201030354' using ilike search for '354'
+2026-04-12 16:01:43,750 - INFO - Prepared product 354 with quantity 152.0 for batch creation
+2026-04-12 16:01:43,750 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:43,751 - INFO - Processing Excel row 37: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 356, 'product_uom_qty': 1500, 'price_unit': 0.45, 'sequence': 37, 'date': Timestamp('2026-02-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 356}
+2026-04-12 16:01:43,751 - INFO - Searching for product with code: '356' and old code: '356'
+2026-04-12 16:01:44,021 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1130x1150x290x170x1188x140x25 AC29 เกรด AB R' with code '201030356' using ilike search for '356'
+2026-04-12 16:01:44,128 - INFO - Prepared product 356 with quantity 1500.0 for batch creation
+2026-04-12 16:01:44,128 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:44,129 - INFO - Processing Excel row 38: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 357, 'product_uom_qty': 42, 'price_unit': 10.98, 'sequence': 38, 'date': Timestamp('2023-02-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 357}
+2026-04-12 16:01:44,129 - INFO - Searching for product with code: '357' and old code: '357'
+2026-04-12 16:01:44,400 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1140x800x155x1175x160x25 AC30 เกรด BC L' with code '201030357' using ilike search for '357'
+2026-04-12 16:01:44,500 - INFO - Prepared product 357 with quantity 42.0 for batch creation
+2026-04-12 16:01:44,500 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:44,501 - INFO - Processing Excel row 39: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 358, 'product_uom_qty': 23, 'price_unit': 18.69, 'sequence': 39, 'date': Timestamp('2022-12-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 358}
+2026-04-12 16:01:44,501 - INFO - Searching for product with code: '358' and old code: '358'
+2026-04-12 16:01:44,784 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1140x800x155x1175x160x25 AC30 เกรด BC R' with code '201030358' using ilike search for '358'
+2026-04-12 16:01:44,880 - INFO - Prepared product 358 with quantity 23.0 for batch creation
+2026-04-12 16:01:44,880 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:44,881 - INFO - Processing Excel row 40: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 359, 'product_uom_qty': 23, 'price_unit': 65.0, 'sequence': 40, 'date': Timestamp('2022-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 359}
+2026-04-12 16:01:44,881 - INFO - Searching for product with code: '359' and old code: '359'
+2026-04-12 16:01:45,178 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1175x1090x346.7x1171.3x261.8x25 AC09 เกรด AB L' with code '201030359' using ilike search for '359'
+2026-04-12 16:01:45,271 - INFO - Prepared product 359 with quantity 23.0 for batch creation
+2026-04-12 16:01:45,272 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:45,272 - INFO - Processing Excel row 41: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 364, 'product_uom_qty': 69, 'price_unit': 20.0, 'sequence': 41, 'date': Timestamp('2023-08-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 364}
+2026-04-12 16:01:45,272 - INFO - Searching for product with code: '364' and old code: '364'
+2026-04-12 16:01:45,539 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 659x1296x1117x20 AC25 เกรด BC L' with code '201030364' using ilike search for '364'
+2026-04-12 16:01:45,632 - INFO - Prepared product 364 with quantity 69.0 for batch creation
+2026-04-12 16:01:45,632 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:45,633 - INFO - Processing Excel row 42: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 372, 'product_uom_qty': 56, 'price_unit': 1.63, 'sequence': 42, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 372}
+2026-04-12 16:01:45,633 - INFO - Searching for product with code: '372' and old code: '372'
+2026-04-12 16:01:45,917 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 906x676x1095x61x25 AC63 เกรด AB R' with code '201030372' using ilike search for '372'
+2026-04-12 16:01:46,024 - INFO - Prepared product 372 with quantity 56.0 for batch creation
+2026-04-12 16:01:46,025 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:46,025 - INFO - Processing Excel row 43: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 372, 'product_uom_qty': 14, 'price_unit': 0.71, 'sequence': 43, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 372}
+2026-04-12 16:01:46,025 - INFO - Using cached product ID for code: '372'
+2026-04-12 16:01:46,025 - INFO - Prepared product 372 with quantity 14.0 for batch creation
+2026-04-12 16:01:46,026 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:46,026 - INFO - Processing Excel row 44: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 373, 'product_uom_qty': 56, 'price_unit': 1.58, 'sequence': 44, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 373}
+2026-04-12 16:01:46,026 - INFO - Searching for product with code: '373' and old code: '373'
+2026-04-12 16:01:46,309 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 910.2x1150x55.7x1317.6x25 AC09 เกรด AB L' with code '201030373' using ilike search for '373'
+2026-04-12 16:01:46,401 - INFO - Prepared product 373 with quantity 56.0 for batch creation
+2026-04-12 16:01:46,402 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:46,402 - INFO - Processing Excel row 45: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 373, 'product_uom_qty': 4, 'price_unit': 1.02, 'sequence': 45, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 373}
+2026-04-12 16:01:46,402 - INFO - Using cached product ID for code: '373'
+2026-04-12 16:01:46,402 - INFO - Prepared product 373 with quantity 4.0 for batch creation
+2026-04-12 16:01:46,402 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:46,403 - INFO - Processing Excel row 46: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 374, 'product_uom_qty': 84, 'price_unit': 1.72, 'sequence': 46, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 374}
+2026-04-12 16:01:46,403 - INFO - Searching for product with code: '374' and old code: '374'
+2026-04-12 16:01:46,679 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 910.2x1150x55.7x1317.6x25 AC09 เกรด AB R' with code '201030374' using ilike search for '374'
+2026-04-12 16:01:46,769 - INFO - Prepared product 374 with quantity 84.0 for batch creation
+2026-04-12 16:01:46,769 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:46,770 - INFO - Processing Excel row 47: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 374, 'product_uom_qty': 6, 'price_unit': 1.12, 'sequence': 47, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 374}
+2026-04-12 16:01:46,770 - INFO - Using cached product ID for code: '374'
+2026-04-12 16:01:46,770 - INFO - Prepared product 374 with quantity 6.0 for batch creation
+2026-04-12 16:01:46,770 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:46,770 - INFO - Processing Excel row 48: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 375, 'product_uom_qty': 56, 'price_unit': 3.78, 'sequence': 48, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 375}
+2026-04-12 16:01:46,771 - INFO - Searching for product with code: '375' and old code: '375'
+2026-04-12 16:01:47,041 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า B 935x1080x95x1231.1x180x25 AC09 เกรด AB L' with code '201030375' using ilike search for '375'
+2026-04-12 16:01:47,139 - INFO - Prepared product 375 with quantity 56.0 for batch creation
+2026-04-12 16:01:47,139 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:47,140 - INFO - Processing Excel row 49: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 375, 'product_uom_qty': 4, 'price_unit': 3.4, 'sequence': 49, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 375}
+2026-04-12 16:01:47,140 - INFO - Using cached product ID for code: '375'
+2026-04-12 16:01:47,140 - INFO - Prepared product 375 with quantity 4.0 for batch creation
+2026-04-12 16:01:47,140 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:47,140 - INFO - Processing Excel row 50: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 376, 'product_uom_qty': 40, 'price_unit': 0.2, 'sequence': 50, 'date': Timestamp('2026-02-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 376}
+2026-04-12 16:01:47,140 - INFO - Searching for product with code: '376' and old code: '376'
+2026-04-12 16:01:47,410 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 935x1080x95x1231.1x180x25 AC09 เกรด AB R' with code '201030376' using ilike search for '376'
+2026-04-12 16:01:47,514 - INFO - Prepared product 376 with quantity 40.0 for batch creation
+2026-04-12 16:01:47,514 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:47,515 - INFO - Processing Excel row 51: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 377, 'product_uom_qty': 96, 'price_unit': 1.24, 'sequence': 51, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 377}
+2026-04-12 16:01:47,515 - INFO - Searching for product with code: '377' and old code: '377'
+2026-04-12 16:01:47,802 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า D 935x1080x95x1231.1x180x25 AC09 เกรด AB L' with code '201030377' using ilike search for '377'
+2026-04-12 16:01:47,900 - INFO - Prepared product 377 with quantity 96.0 for batch creation
+2026-04-12 16:01:47,900 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:47,901 - INFO - Processing Excel row 52: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 377, 'product_uom_qty': 14, 'price_unit': 1.16, 'sequence': 52, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 377}
+2026-04-12 16:01:47,901 - INFO - Using cached product ID for code: '377'
+2026-04-12 16:01:47,902 - INFO - Prepared product 377 with quantity 14.0 for batch creation
+2026-04-12 16:01:47,902 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:47,902 - INFO - Processing Excel row 53: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 378, 'product_uom_qty': 56, 'price_unit': 1.8, 'sequence': 53, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 378}
+2026-04-12 16:01:47,902 - INFO - Searching for product with code: '378' and old code: '378'
+2026-04-12 16:01:48,168 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 935x1080x95x1231x180x25 AC20 เกรด AB L' with code '201030378' using ilike search for '378'
+2026-04-12 16:01:48,261 - INFO - Prepared product 378 with quantity 56.0 for batch creation
+2026-04-12 16:01:48,261 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:48,262 - INFO - Processing Excel row 54: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 378, 'product_uom_qty': 4, 'price_unit': 1.84, 'sequence': 54, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 378}
+2026-04-12 16:01:48,262 - INFO - Using cached product ID for code: '378'
+2026-04-12 16:01:48,262 - INFO - Prepared product 378 with quantity 4.0 for batch creation
+2026-04-12 16:01:48,262 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:48,263 - INFO - Processing Excel row 55: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 379, 'product_uom_qty': 68, 'price_unit': 4.75, 'sequence': 55, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 379}
+2026-04-12 16:01:48,263 - INFO - Searching for product with code: '379' and old code: '379'
+2026-04-12 16:01:48,559 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 935x1080x95x1231x180x25 AC29 เกรด AB L' with code '201030379' using ilike search for '379'
+2026-04-12 16:01:48,642 - INFO - Prepared product 379 with quantity 68.0 for batch creation
+2026-04-12 16:01:48,642 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:48,643 - INFO - Processing Excel row 56: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 379, 'product_uom_qty': 2, 'price_unit': 4.06, 'sequence': 56, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 379}
+2026-04-12 16:01:48,643 - INFO - Using cached product ID for code: '379'
+2026-04-12 16:01:48,643 - INFO - Prepared product 379 with quantity 2.0 for batch creation
+2026-04-12 16:01:48,643 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:48,644 - INFO - Processing Excel row 57: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 380, 'product_uom_qty': 88, 'price_unit': 2.28, 'sequence': 57, 'date': Timestamp('2025-09-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 380}
+2026-04-12 16:01:48,644 - INFO - Searching for product with code: '380' and old code: '380'
+2026-04-12 16:01:48,945 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 935x1080x95x1231x180x25 AC29 เกรด AB R' with code '201030380' using ilike search for '380'
+2026-04-12 16:01:49,034 - INFO - Prepared product 380 with quantity 88.0 for batch creation
+2026-04-12 16:01:49,034 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:49,035 - INFO - Processing Excel row 58: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 380, 'product_uom_qty': 2, 'price_unit': 3.0, 'sequence': 58, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 380}
+2026-04-12 16:01:49,035 - INFO - Using cached product ID for code: '380'
+2026-04-12 16:01:49,035 - INFO - Prepared product 380 with quantity 2.0 for batch creation
+2026-04-12 16:01:49,035 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:49,035 - INFO - Processing Excel row 59: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 382, 'product_uom_qty': 14, 'price_unit': 35.5, 'sequence': 59, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 382}
+2026-04-12 16:01:49,036 - INFO - Searching for product with code: '382' and old code: '382'
+2026-04-12 16:01:49,316 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 940x1100x158x1207.5x180x25 AC09 เกรด AB R' with code '201030382' using ilike search for '382'
+2026-04-12 16:01:49,407 - INFO - Prepared product 382 with quantity 14.0 for batch creation
+2026-04-12 16:01:49,408 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:49,408 - INFO - Processing Excel row 60: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 382, 'product_uom_qty': 1, 'price_unit': 35.59, 'sequence': 60, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 382}
+2026-04-12 16:01:49,408 - INFO - Using cached product ID for code: '382'
+2026-04-12 16:01:49,409 - INFO - Prepared product 382 with quantity 1.0 for batch creation
+2026-04-12 16:01:49,409 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:49,409 - INFO - Processing Excel row 61: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 383, 'product_uom_qty': 1, 'price_unit': 190.0, 'sequence': 61, 'date': Timestamp('2026-03-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 383}
+2026-04-12 16:01:49,409 - INFO - Searching for product with code: '383' and old code: '383'
+2026-04-12 16:01:49,690 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 940x1100x158x1207.5x180x25 AC29 เกรด AB L' with code '201030383' using ilike search for '383'
+2026-04-12 16:01:49,786 - INFO - Prepared product 383 with quantity 1.0 for batch creation
+2026-04-12 16:01:49,786 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:49,786 - INFO - Processing Excel row 62: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 394, 'product_uom_qty': 14, 'price_unit': 5.5, 'sequence': 62, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 394}
+2026-04-12 16:01:49,787 - INFO - Searching for product with code: '394' and old code: '394'
+2026-04-12 16:01:50,102 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 995x960x38x1283x106x25 AC35 เกรด BC L' with code '201030394' using ilike search for '394'
+2026-04-12 16:01:50,186 - INFO - Prepared product 394 with quantity 14.0 for batch creation
+2026-04-12 16:01:50,186 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:50,187 - INFO - Processing Excel row 63: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 394, 'product_uom_qty': 1, 'price_unit': 6.81, 'sequence': 63, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 394}
+2026-04-12 16:01:50,187 - INFO - Using cached product ID for code: '394'
+2026-04-12 16:01:50,187 - INFO - Prepared product 394 with quantity 1.0 for batch creation
+2026-04-12 16:01:50,187 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:50,188 - INFO - Processing Excel row 64: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 395, 'product_uom_qty': 16, 'price_unit': 0.48, 'sequence': 64, 'date': Timestamp('2023-11-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 395}
+2026-04-12 16:01:50,188 - INFO - Searching for product with code: '395' and old code: '395'
+2026-04-12 16:01:50,473 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 995x960x38x1283x106x25 AC35 เกรด BC R' with code '201030395' using ilike search for '395'
+2026-04-12 16:01:50,570 - INFO - Prepared product 395 with quantity 16.0 for batch creation
+2026-04-12 16:01:50,570 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:50,570 - INFO - Processing Excel row 65: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 395, 'product_uom_qty': 4, 'price_unit': 0.48, 'sequence': 65, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 395}
+2026-04-12 16:01:50,571 - INFO - Using cached product ID for code: '395'
+2026-04-12 16:01:50,571 - INFO - Prepared product 395 with quantity 4.0 for batch creation
+2026-04-12 16:01:50,571 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:50,571 - INFO - Processing Excel row 66: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 396, 'product_uom_qty': 8, 'price_unit': 4.08, 'sequence': 66, 'date': Timestamp('2023-11-14 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 396}
+2026-04-12 16:01:50,571 - INFO - Searching for product with code: '396' and old code: '396'
+2026-04-12 16:01:50,852 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 925x925x106x1208x37x25 AC51 เกรด BC L' with code '201030396' using ilike search for '396'
+2026-04-12 16:01:50,934 - INFO - Prepared product 396 with quantity 8.0 for batch creation
+2026-04-12 16:01:50,934 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:50,935 - INFO - Processing Excel row 67: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 396, 'product_uom_qty': 2, 'price_unit': 4.08, 'sequence': 67, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 396}
+2026-04-12 16:01:50,935 - INFO - Using cached product ID for code: '396'
+2026-04-12 16:01:50,935 - INFO - Prepared product 396 with quantity 2.0 for batch creation
+2026-04-12 16:01:50,935 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:50,935 - INFO - Processing Excel row 68: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 402, 'product_uom_qty': 3, 'price_unit': 9.0, 'sequence': 68, 'date': Timestamp('2023-11-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 402}
+2026-04-12 16:01:50,935 - INFO - Searching for product with code: '402' and old code: '402'
+2026-04-12 16:01:51,222 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x950x150x1283x36x25 AC25 เกรด BC R' with code '201030402' using ilike search for '402'
+2026-04-12 16:01:51,317 - INFO - Prepared product 402 with quantity 3.0 for batch creation
+2026-04-12 16:01:51,317 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:51,318 - INFO - Processing Excel row 69: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 402, 'product_uom_qty': 80, 'price_unit': 9.0, 'sequence': 69, 'date': Timestamp('2025-08-30 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 402}
+2026-04-12 16:01:51,318 - INFO - Using cached product ID for code: '402'
+2026-04-12 16:01:51,318 - INFO - Prepared product 402 with quantity 80.0 for batch creation
+2026-04-12 16:01:51,318 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:51,319 - INFO - Processing Excel row 70: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 402, 'product_uom_qty': 2, 'price_unit': 9.0, 'sequence': 70, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 402}
+2026-04-12 16:01:51,319 - INFO - Using cached product ID for code: '402'
+2026-04-12 16:01:51,319 - INFO - Prepared product 402 with quantity 2.0 for batch creation
+2026-04-12 16:01:51,319 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:51,319 - INFO - Processing Excel row 71: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 403, 'product_uom_qty': 15, 'price_unit': 15.0, 'sequence': 71, 'date': Timestamp('2023-10-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 403}
+2026-04-12 16:01:51,319 - INFO - Searching for product with code: '403' and old code: '403'
+2026-04-12 16:01:51,589 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x950x150x1283x36x25 AC44 เกรด BC L' with code '201030403' using ilike search for '403'
+2026-04-12 16:01:51,673 - INFO - Prepared product 403 with quantity 15.0 for batch creation
+2026-04-12 16:01:51,673 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:51,674 - INFO - Processing Excel row 72: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 406, 'product_uom_qty': 7, 'price_unit': 149.74, 'sequence': 72, 'date': Timestamp('2025-01-06 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 406}
+2026-04-12 16:01:51,674 - INFO - Searching for product with code: '406' and old code: '406'
+2026-04-12 16:01:51,928 - INFO - Found product 'ไม้ยางพารา FJ พับผ้า 1050x950x150x1283x36x25 AC59 เกรด BC R' with code '201030406' using ilike search for '406'
+2026-04-12 16:01:52,016 - INFO - Prepared product 406 with quantity 7.0 for batch creation
+2026-04-12 16:01:52,017 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:52,017 - INFO - Processing Excel row 73: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 432, 'product_uom_qty': 9, 'price_unit': 37.39, 'sequence': 73, 'date': Timestamp('2025-08-28 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 432}
+2026-04-12 16:01:52,017 - INFO - Searching for product with code: '432' and old code: '432'
+2026-04-12 16:01:52,268 - INFO - Found product 'ไม้ยางพารา FJ ลูกตั้ง 176x1100x15 สีขาว เกรด BC' with code '201030432' using ilike search for '432'
+2026-04-12 16:01:52,366 - INFO - Prepared product 432 with quantity 9.0 for batch creation
+2026-04-12 16:01:52,366 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:52,367 - INFO - Processing Excel row 74: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 434, 'product_uom_qty': 130, 'price_unit': 40.0, 'sequence': 74, 'date': Timestamp('2025-09-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 434}
+2026-04-12 16:01:52,367 - INFO - Searching for product with code: '434' and old code: '434'
+2026-04-12 16:01:52,629 - INFO - Found product 'ไม้ยางพารา FJ ลูกตั้ง 178x1000x15 AC63 เกรด AB' with code '201030434' using ilike search for '434'
+2026-04-12 16:01:52,714 - INFO - Prepared product 434 with quantity 130.0 for batch creation
+2026-04-12 16:01:52,715 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:52,715 - INFO - Processing Excel row 75: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 435, 'product_uom_qty': 60, 'price_unit': 9.5, 'sequence': 75, 'date': Timestamp('2025-09-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 435}
+2026-04-12 16:01:52,715 - INFO - Searching for product with code: '435' and old code: '435'
+2026-04-12 16:01:52,965 - INFO - Found product 'ไม้ยางพารา FJ ลูกตั้ง 178x1050x15 AC63 เกรด AB' with code '201030435' using ilike search for '435'
+2026-04-12 16:01:53,050 - INFO - Prepared product 435 with quantity 60.0 for batch creation
+2026-04-12 16:01:53,050 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:53,050 - INFO - Processing Excel row 76: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 451, 'product_uom_qty': 1008, 'price_unit': 11.5, 'sequence': 76, 'date': Timestamp('2026-03-26 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 451}
+2026-04-12 16:01:53,051 - INFO - Searching for product with code: '451' and old code: '451'
+2026-04-12 16:01:53,303 - INFO - Found product 'ไม้ยางพารา FJ ลูกตั้ง 185x1100x15 AC09 เกรด AB' with code '201030451' using ilike search for '451'
+2026-04-12 16:01:53,396 - INFO - Prepared product 451 with quantity 1008.0 for batch creation
+2026-04-12 16:01:53,396 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:53,397 - INFO - Processing Excel row 77: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 455, 'product_uom_qty': 3, 'price_unit': 270.09, 'sequence': 77, 'date': Timestamp('2026-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 455}
+2026-04-12 16:01:53,397 - INFO - Searching for product with code: '455' and old code: '455'
+2026-04-12 16:01:53,666 - INFO - Found product 'ไม้ยางพารา FJ ลูกตั้ง 185x1145x15 AC09 เกรด AB' with code '201030455' using ilike search for '455'
+2026-04-12 16:01:53,749 - INFO - Prepared product 455 with quantity 3.0 for batch creation
+2026-04-12 16:01:53,750 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:53,751 - INFO - Processing Excel row 78: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'ST01 -Receipts', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสิ้นเปลืองโรงงาน 1-2', 'location_dest_id': 'ST01/Stock', 'default_code': 456, 'product_uom_qty': 48, 'price_unit': 21.5, 'sequence': 78, 'date': Timestamp('2026-02-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 456}
+2026-04-12 16:01:53,751 - INFO - Searching for product with code: '456' and old code: '456'
+2026-04-12 16:01:54,013 - INFO - Found product 'ไม้ยางพารา FJ ลูกตั้ง 185x1200x15 AC09 เกรด AB' with code '201030456' using ilike search for '456'
+2026-04-12 16:01:54,092 - INFO - Prepared product 456 with quantity 48.0 for batch creation
+2026-04-12 16:01:54,093 - INFO - Move locations - Source: 4, Dest: 156
+2026-04-12 16:01:54,931 - INFO - Created 78 moves in batch for picking 15022
+2026-04-12 16:01:55,064 - INFO - Re-updated dates before confirming picking 15022: 2026-03-31 08:00:00
+2026-04-12 16:01:55,848 - INFO - Confirmed transfer 15022 with forced date context
+2026-04-12 16:01:55,848 - INFO - Import completed: 1 success, 0 failed.

@@ -1,0 +1,45 @@
+2026-04-14 20:29:45,527 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-14 20:29:45,638 - INFO - Odoo version: 17.0.1.3
+2026-04-14 20:29:45,889 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-14 20:29:46,023 - INFO - Successfully read Excel file with 5 rows
+2026-04-14 20:29:46,023 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-14 20:29:46,024 - INFO - Processed sequence column
+2026-04-14 20:29:46,025 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-14 20:29:46,026 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-14 20:29:46,026 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-14 20:29:46,026 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-14 20:29:46,027 - INFO - Using 'default_code' column as 'product_id'
+2026-04-14 20:29:46,027 - INFO - Using 'origin' column to identify transfer groups
+2026-04-14 20:29:46,030 - INFO - Excel file validation and data filling completed successfully
+2026-04-14 20:29:46,214 - INFO - Searching for location: 'FG20/Stock'
+2026-04-14 20:29:46,472 - INFO - Found location with complete_name match: 'FG20/Stock' for 'FG20/Stock'
+2026-04-14 20:29:46,560 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-14 20:29:46,674 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15015
+2026-04-14 20:29:46,676 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG20-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-553CD1-2-ราวตั้งพื้น', 'product_uom_qty': 0.02, 'price_unit': 5621.61500000012, 'sequence': 1, 'date': Timestamp('2025-07-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': '3FG-553CD1-2-ราวตั้งพื้น'}
+2026-04-14 20:29:46,676 - INFO - Searching for product with code: '3FG-553CD1-2-ราวตั้งพื้น' and old code: '3FG-553CD1-2-ราวตั้งพื้น'
+2026-04-14 20:29:46,766 - INFO - Found product with exact match on default_code: '3FG-553CD1-2-ราวตั้งพื้น'
+2026-04-14 20:29:46,863 - INFO - Prepared product 3FG-553CD1-2-ราวตั้งพื้น with quantity 0.02 for batch creation
+2026-04-14 20:29:46,863 - INFO - Move locations - Source: 4, Dest: 60
+2026-04-14 20:29:46,864 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG20-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH-135MC1', 'product_uom_qty': 1.0, 'price_unit': 5051.2931, 'sequence': 2, 'date': Timestamp('2026-01-16 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': '3FG-LH-135MC1'}
+2026-04-14 20:29:46,864 - INFO - Searching for product with code: '3FG-LH-135MC1' and old code: '3FG-LH-135MC1'
+2026-04-14 20:29:46,958 - INFO - Found product with exact match on default_code: '3FG-LH-135MC1'
+2026-04-14 20:29:47,064 - INFO - Prepared product 3FG-LH-135MC1 with quantity 1.0 for batch creation
+2026-04-14 20:29:47,065 - INFO - Move locations - Source: 4, Dest: 60
+2026-04-14 20:29:47,065 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG20-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH-135MC1', 'product_uom_qty': 1.0, 'price_unit': 2241.5211, 'sequence': 3, 'date': Timestamp('2026-03-25 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': '3FG-LH-135MC1'}
+2026-04-14 20:29:47,065 - INFO - Using cached product ID for code: '3FG-LH-135MC1'
+2026-04-14 20:29:47,066 - INFO - Prepared product 3FG-LH-135MC1 with quantity 1.0 for batch creation
+2026-04-14 20:29:47,066 - INFO - Move locations - Source: 4, Dest: 60
+2026-04-14 20:29:47,066 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG20-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': '3FG-LH-152MC1', 'product_uom_qty': 1.0, 'price_unit': 4668.1187, 'sequence': 4, 'date': Timestamp('2025-11-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': '3FG-LH-152MC1'}
+2026-04-14 20:29:47,066 - INFO - Searching for product with code: '3FG-LH-152MC1' and old code: '3FG-LH-152MC1'
+2026-04-14 20:29:47,165 - INFO - Found product with exact match on default_code: '3FG-LH-152MC1'
+2026-04-14 20:29:47,249 - INFO - Prepared product 3FG-LH-152MC1 with quantity 1.0 for batch creation
+2026-04-14 20:29:47,250 - INFO - Move locations - Source: 4, Dest: 60
+2026-04-14 20:29:47,250 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG20-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังสินค้าสำเร็จรูป 2', 'location_dest_id': 'FG20/Stock', 'default_code': 'NMS02-258-60x30x10x2.3', 'product_uom_qty': 10.0, 'price_unit': 350.0, 'sequence': 5, 'date': Timestamp('2026-03-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMS02-258-60x30x10x2.3'}
+2026-04-14 20:29:47,250 - INFO - Searching for product with code: 'NMS02-258-60x30x10x2.3' and old code: 'NMS02-258-60x30x10x2.3'
+2026-04-14 20:29:47,533 - INFO - Found product with exact match on old_product_code: 'NMS02-258-60x30x10x2.3'
+2026-04-14 20:29:47,623 - INFO - Prepared product NMS02-258-60x30x10x2.3 with quantity 10.0 for batch creation
+2026-04-14 20:29:47,624 - INFO - Move locations - Source: 4, Dest: 60
+2026-04-14 20:29:48,017 - INFO - Created 5 moves in batch for picking 15015
+2026-04-14 20:29:48,140 - INFO - Re-updated dates before confirming picking 15015: 2026-03-31 08:00:00
+2026-04-14 20:29:48,332 - INFO - Confirmed transfer 15015 with forced date context
+2026-04-14 20:29:48,332 - INFO - Import completed: 1 success, 0 failed.

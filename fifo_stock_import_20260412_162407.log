@@ -1,0 +1,5 @@
+2026-04-12 16:24:08,188 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-12 16:24:08,273 - INFO - Odoo version: 17.0.1.3
+2026-04-12 16:24:08,509 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-12 16:24:08,510 - ERROR - Failed to read Excel file: Excel file not found: Import_Inventory/ST01_OB_31032026.xlsx
+2026-04-12 16:24:08,510 - ERROR - Fatal error: Excel file not found: Import_Inventory/ST01_OB_31032026.xlsx

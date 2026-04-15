@@ -1,0 +1,467 @@
+2026-04-15 15:32:25,581 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-15 15:32:25,652 - INFO - Odoo version: 17.0.1.3
+2026-04-15 15:32:25,871 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-15 15:32:26,005 - INFO - Successfully read Excel file with 106 rows
+2026-04-15 15:32:26,005 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-15 15:32:26,007 - INFO - Processed sequence column
+2026-04-15 15:32:26,009 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-15 15:32:26,010 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-15 15:32:26,010 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-15 15:32:26,011 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-15 15:32:26,011 - INFO - Using 'default_code' column as 'product_id'
+2026-04-15 15:32:26,011 - INFO - Using 'origin' column to identify transfer groups
+2026-04-15 15:32:26,014 - INFO - Excel file validation and data filling completed successfully
+2026-04-15 15:32:26,165 - INFO - Searching for location: 'FG13/Stock'
+2026-04-15 15:32:26,367 - INFO - Found location with complete_name match: 'FG13/Stock' for 'FG13/Stock'
+2026-04-15 15:32:26,442 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-15 15:32:26,542 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15082
+2026-04-15 15:32:26,543 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP00010101', 'product_uom_qty': 3, 'price_unit': 162.0, 'sequence': 1, 'date': Timestamp('2020-09-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP00010101'}
+2026-04-15 15:32:26,544 - INFO - Searching for product with code: 'SP00010101' and old code: 'SP00010101'
+2026-04-15 15:32:26,615 - INFO - Found product with exact match on default_code: 'SP00010101'
+2026-04-15 15:32:26,702 - INFO - Prepared product SP00010101 with quantity 3.0 for batch creation
+2026-04-15 15:32:26,702 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:26,703 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP00273100', 'product_uom_qty': 22, 'price_unit': 36.06, 'sequence': 2, 'date': Timestamp('2019-04-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP00273100'}
+2026-04-15 15:32:26,703 - INFO - Searching for product with code: 'SP00273100' and old code: 'SP00273100'
+2026-04-15 15:32:26,777 - INFO - Found product with exact match on default_code: 'SP00273100'
+2026-04-15 15:32:26,857 - INFO - Prepared product SP00273100 with quantity 22.0 for batch creation
+2026-04-15 15:32:26,857 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:26,858 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPF0001200', 'product_uom_qty': 65, 'price_unit': 14.99, 'sequence': 3, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPF0001200'}
+2026-04-15 15:32:26,858 - INFO - Searching for product with code: 'SPF0001200' and old code: 'SPF0001200'
+2026-04-15 15:32:26,942 - INFO - Found product with exact match on default_code: 'SPF0001200'
+2026-04-15 15:32:27,042 - INFO - Prepared product SPF0001200 with quantity 65.0 for batch creation
+2026-04-15 15:32:27,042 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,043 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPF0003200', 'product_uom_qty': 80, 'price_unit': 14.74, 'sequence': 4, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPF0003200'}
+2026-04-15 15:32:27,043 - INFO - Searching for product with code: 'SPF0003200' and old code: 'SPF0003200'
+2026-04-15 15:32:27,116 - INFO - Found product with exact match on default_code: 'SPF0003200'
+2026-04-15 15:32:27,182 - INFO - Prepared product SPF0003200 with quantity 80.0 for batch creation
+2026-04-15 15:32:27,182 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,183 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPF0004200', 'product_uom_qty': 19, 'price_unit': 17.39, 'sequence': 5, 'date': Timestamp('2022-01-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPF0004200'}
+2026-04-15 15:32:27,183 - INFO - Searching for product with code: 'SPF0004200' and old code: 'SPF0004200'
+2026-04-15 15:32:27,256 - INFO - Found product with exact match on default_code: 'SPF0004200'
+2026-04-15 15:32:27,327 - INFO - Prepared product SPF0004200 with quantity 19.0 for batch creation
+2026-04-15 15:32:27,327 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,328 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'FCA0006100', 'product_uom_qty': 4, 'price_unit': 352.9183, 'sequence': 79, 'date': Timestamp('2026-03-13 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'FCA0006100'}
+2026-04-15 15:32:27,328 - INFO - Searching for product with code: 'FCA0006100' and old code: 'FCA0006100'
+2026-04-15 15:32:27,404 - INFO - Found product with exact match on default_code: 'FCA0006100'
+2026-04-15 15:32:27,477 - INFO - Prepared product FCA0006100 with quantity 4.0 for batch creation
+2026-04-15 15:32:27,477 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,478 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0001100', 'product_uom_qty': 20, 'price_unit': 50.2767, 'sequence': 80, 'date': Timestamp('2025-07-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0001100'}
+2026-04-15 15:32:27,478 - INFO - Searching for product with code: 'SP0001100' and old code: 'SP0001100'
+2026-04-15 15:32:27,557 - INFO - Found product with exact match on default_code: 'SP0001100'
+2026-04-15 15:32:27,637 - INFO - Prepared product SP0001100 with quantity 20.0 for batch creation
+2026-04-15 15:32:27,637 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,638 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0001100', 'product_uom_qty': 1, 'price_unit': 44.6581, 'sequence': 81, 'date': Timestamp('2025-08-02 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0001100'}
+2026-04-15 15:32:27,638 - INFO - Using cached product ID for code: 'SP0001100'
+2026-04-15 15:32:27,638 - INFO - Prepared product SP0001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,639 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,639 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0001100', 'product_uom_qty': 1, 'price_unit': 50.9766, 'sequence': 82, 'date': Timestamp('2025-08-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0001100'}
+2026-04-15 15:32:27,639 - INFO - Using cached product ID for code: 'SP0001100'
+2026-04-15 15:32:27,639 - INFO - Prepared product SP0001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,639 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,640 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0001100', 'product_uom_qty': 1, 'price_unit': 37.4721, 'sequence': 83, 'date': Timestamp('2025-08-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0001100'}
+2026-04-15 15:32:27,640 - INFO - Using cached product ID for code: 'SP0001100'
+2026-04-15 15:32:27,640 - INFO - Prepared product SP0001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,640 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,640 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0001100', 'product_uom_qty': 1, 'price_unit': 39.8817, 'sequence': 84, 'date': Timestamp('2025-09-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0001100'}
+2026-04-15 15:32:27,640 - INFO - Using cached product ID for code: 'SP0001100'
+2026-04-15 15:32:27,640 - INFO - Prepared product SP0001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,640 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,641 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0001100', 'product_uom_qty': 1, 'price_unit': 39.8817, 'sequence': 85, 'date': Timestamp('2025-11-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0001100'}
+2026-04-15 15:32:27,641 - INFO - Using cached product ID for code: 'SP0001100'
+2026-04-15 15:32:27,641 - INFO - Prepared product SP0001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,641 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,641 - INFO - Processing Excel row 13: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 52.0599, 'sequence': 86, 'date': Timestamp('2025-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,641 - INFO - Searching for product with code: 'SP0003100' and old code: 'SP0003100'
+2026-04-15 15:32:27,723 - INFO - Found product with exact match on default_code: 'SP0003100'
+2026-04-15 15:32:27,804 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,804 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,805 - INFO - Processing Excel row 14: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 5, 'price_unit': 51.82978, 'sequence': 87, 'date': Timestamp('2026-02-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,805 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,805 - INFO - Prepared product SP0003100 with quantity 5.0 for batch creation
+2026-04-15 15:32:27,805 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,805 - INFO - Processing Excel row 15: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 52.0599, 'sequence': 88, 'date': Timestamp('2025-12-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,806 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,806 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,806 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,806 - INFO - Processing Excel row 16: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 49.8821, 'sequence': 89, 'date': Timestamp('2025-12-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,806 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,806 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,806 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,806 - INFO - Processing Excel row 17: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 49.0567, 'sequence': 90, 'date': Timestamp('2025-10-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,807 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,807 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,807 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,807 - INFO - Processing Excel row 18: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 51.8298, 'sequence': 91, 'date': Timestamp('2026-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,807 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,807 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,807 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,807 - INFO - Processing Excel row 19: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 63.7746, 'sequence': 92, 'date': Timestamp('2025-10-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,808 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,808 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,808 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,808 - INFO - Processing Excel row 20: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 53.584, 'sequence': 93, 'date': Timestamp('2025-11-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,808 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,808 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,808 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,808 - INFO - Processing Excel row 21: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 53.584, 'sequence': 94, 'date': Timestamp('2025-11-15 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,808 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,809 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,809 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,809 - INFO - Processing Excel row 22: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 53.584, 'sequence': 95, 'date': Timestamp('2025-12-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,809 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,809 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,809 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,810 - INFO - Processing Excel row 23: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0003100', 'product_uom_qty': 1, 'price_unit': 53.584, 'sequence': 96, 'date': Timestamp('2026-03-25 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0003100'}
+2026-04-15 15:32:27,810 - INFO - Using cached product ID for code: 'SP0003100'
+2026-04-15 15:32:27,810 - INFO - Prepared product SP0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,810 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,810 - INFO - Processing Excel row 24: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.859, 'sequence': 97, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,810 - INFO - Searching for product with code: 'SP0008100' and old code: 'SP0008100'
+2026-04-15 15:32:27,891 - INFO - Found product with exact match on default_code: 'SP0008100'
+2026-04-15 15:32:27,962 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,962 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,963 - INFO - Processing Excel row 25: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.8589, 'sequence': 98, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,963 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,963 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,963 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,963 - INFO - Processing Excel row 26: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.8589, 'sequence': 99, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,964 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,964 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,964 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,964 - INFO - Processing Excel row 27: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.859, 'sequence': 100, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,964 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,964 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,964 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,964 - INFO - Processing Excel row 28: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.8589, 'sequence': 101, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,965 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,965 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,965 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,965 - INFO - Processing Excel row 29: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 2, 'price_unit': 18.85895, 'sequence': 102, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,965 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,965 - INFO - Prepared product SP0008100 with quantity 2.0 for batch creation
+2026-04-15 15:32:27,965 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,965 - INFO - Processing Excel row 30: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.859, 'sequence': 103, 'date': Timestamp('2026-03-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,965 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,966 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,966 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,966 - INFO - Processing Excel row 31: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 41.5853, 'sequence': 104, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,966 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,966 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,966 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,966 - INFO - Processing Excel row 32: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 41.5853, 'sequence': 105, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,966 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,966 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,967 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,967 - INFO - Processing Excel row 33: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.8589, 'sequence': 106, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,967 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,967 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,967 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,967 - INFO - Processing Excel row 34: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.859, 'sequence': 107, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,967 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,967 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,967 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,968 - INFO - Processing Excel row 35: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.859, 'sequence': 108, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,968 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,968 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,968 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,968 - INFO - Processing Excel row 36: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.859, 'sequence': 109, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,968 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,969 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,969 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,969 - INFO - Processing Excel row 37: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0008100', 'product_uom_qty': 1, 'price_unit': 18.859, 'sequence': 110, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0008100'}
+2026-04-15 15:32:27,969 - INFO - Using cached product ID for code: 'SP0008100'
+2026-04-15 15:32:27,969 - INFO - Prepared product SP0008100 with quantity 1.0 for batch creation
+2026-04-15 15:32:27,969 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:27,970 - INFO - Processing Excel row 38: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2137, 'sequence': 111, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:27,970 - INFO - Searching for product with code: 'SP0033100' and old code: 'SP0033100'
+2026-04-15 15:32:28,042 - INFO - Found product with exact match on default_code: 'SP0033100'
+2026-04-15 15:32:28,122 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,122 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,123 - INFO - Processing Excel row 39: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2137, 'sequence': 112, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,123 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,123 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,123 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,123 - INFO - Processing Excel row 40: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2136, 'sequence': 113, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,123 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,123 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,123 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,124 - INFO - Processing Excel row 41: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2136, 'sequence': 114, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,124 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,124 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,124 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,124 - INFO - Processing Excel row 42: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2136, 'sequence': 115, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,124 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,124 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,124 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,125 - INFO - Processing Excel row 43: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 2, 'price_unit': 26.2136, 'sequence': 116, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,125 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,125 - INFO - Prepared product SP0033100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,125 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,125 - INFO - Processing Excel row 44: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2136, 'sequence': 117, 'date': Timestamp('2026-03-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,125 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,125 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,125 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,125 - INFO - Processing Excel row 45: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2136, 'sequence': 118, 'date': Timestamp('2026-03-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,126 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,126 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,126 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,126 - INFO - Processing Excel row 46: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2137, 'sequence': 119, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,126 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,126 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,126 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,126 - INFO - Processing Excel row 47: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2137, 'sequence': 120, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,126 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,127 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,127 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,127 - INFO - Processing Excel row 48: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 45.4868, 'sequence': 121, 'date': Timestamp('2026-03-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,127 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,127 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,127 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,127 - INFO - Processing Excel row 49: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2136, 'sequence': 122, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,127 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,127 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,128 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,128 - INFO - Processing Excel row 50: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2136, 'sequence': 123, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,128 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,128 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,128 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,129 - INFO - Processing Excel row 51: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0033100', 'product_uom_qty': 1, 'price_unit': 26.2136, 'sequence': 124, 'date': Timestamp('2026-03-31 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0033100'}
+2026-04-15 15:32:28,129 - INFO - Using cached product ID for code: 'SP0033100'
+2026-04-15 15:32:28,129 - INFO - Prepared product SP0033100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,129 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,129 - INFO - Processing Excel row 52: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0039100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 125, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0039100'}
+2026-04-15 15:32:28,129 - INFO - Searching for product with code: 'SP0039100' and old code: 'SP0039100'
+2026-04-15 15:32:28,206 - INFO - Found product with exact match on default_code: 'SP0039100'
+2026-04-15 15:32:28,287 - INFO - Prepared product SP0039100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,287 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,288 - INFO - Processing Excel row 53: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0039100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 126, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0039100'}
+2026-04-15 15:32:28,288 - INFO - Using cached product ID for code: 'SP0039100'
+2026-04-15 15:32:28,288 - INFO - Prepared product SP0039100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,288 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,288 - INFO - Processing Excel row 54: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0039100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 127, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0039100'}
+2026-04-15 15:32:28,288 - INFO - Using cached product ID for code: 'SP0039100'
+2026-04-15 15:32:28,288 - INFO - Prepared product SP0039100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,289 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,289 - INFO - Processing Excel row 55: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0039100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 128, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0039100'}
+2026-04-15 15:32:28,289 - INFO - Using cached product ID for code: 'SP0039100'
+2026-04-15 15:32:28,289 - INFO - Prepared product SP0039100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,289 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,289 - INFO - Processing Excel row 56: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0039100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 129, 'date': Timestamp('2025-07-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0039100'}
+2026-04-15 15:32:28,289 - INFO - Using cached product ID for code: 'SP0039100'
+2026-04-15 15:32:28,289 - INFO - Prepared product SP0039100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,289 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,290 - INFO - Processing Excel row 57: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0040100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 130, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0040100'}
+2026-04-15 15:32:28,290 - INFO - Searching for product with code: 'SP0040100' and old code: 'SP0040100'
+2026-04-15 15:32:28,401 - INFO - Found product with exact match on default_code: 'SP0040100'
+2026-04-15 15:32:28,473 - INFO - Prepared product SP0040100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,473 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,474 - INFO - Processing Excel row 58: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0040100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 131, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0040100'}
+2026-04-15 15:32:28,474 - INFO - Using cached product ID for code: 'SP0040100'
+2026-04-15 15:32:28,474 - INFO - Prepared product SP0040100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,474 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,474 - INFO - Processing Excel row 59: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0040100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 132, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0040100'}
+2026-04-15 15:32:28,474 - INFO - Using cached product ID for code: 'SP0040100'
+2026-04-15 15:32:28,475 - INFO - Prepared product SP0040100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,475 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,475 - INFO - Processing Excel row 60: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0040100', 'product_uom_qty': 2, 'price_unit': 20.0, 'sequence': 133, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0040100'}
+2026-04-15 15:32:28,475 - INFO - Using cached product ID for code: 'SP0040100'
+2026-04-15 15:32:28,475 - INFO - Prepared product SP0040100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,475 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,475 - INFO - Processing Excel row 61: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0040100', 'product_uom_qty': 2, 'price_unit': 17.47285, 'sequence': 134, 'date': Timestamp('2025-07-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0040100'}
+2026-04-15 15:32:28,475 - INFO - Using cached product ID for code: 'SP0040100'
+2026-04-15 15:32:28,475 - INFO - Prepared product SP0040100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,476 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,476 - INFO - Processing Excel row 62: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0103100', 'product_uom_qty': 7, 'price_unit': 146.892042857143, 'sequence': 135, 'date': Timestamp('2026-01-21 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0103100'}
+2026-04-15 15:32:28,476 - INFO - Searching for product with code: 'SP0103100' and old code: 'SP0103100'
+2026-04-15 15:32:28,546 - INFO - Found product with exact match on default_code: 'SP0103100'
+2026-04-15 15:32:28,617 - INFO - Prepared product SP0103100 with quantity 7.0 for batch creation
+2026-04-15 15:32:28,617 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,618 - INFO - Processing Excel row 63: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SP0103100', 'product_uom_qty': 3, 'price_unit': 147.454225, 'sequence': 136, 'date': Timestamp('2026-03-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SP0103100'}
+2026-04-15 15:32:28,618 - INFO - Using cached product ID for code: 'SP0103100'
+2026-04-15 15:32:28,618 - INFO - Prepared product SP0103100 with quantity 3.0 for batch creation
+2026-04-15 15:32:28,618 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,618 - INFO - Processing Excel row 64: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 2, 'price_unit': 38.85175, 'sequence': 137, 'date': Timestamp('2025-11-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,618 - INFO - Searching for product with code: 'SPO001100' and old code: 'SPO001100'
+2026-04-15 15:32:28,703 - INFO - Found product with exact match on default_code: 'SPO001100'
+2026-04-15 15:32:28,794 - INFO - Prepared product SPO001100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,794 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,794 - INFO - Processing Excel row 65: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 138, 'date': Timestamp('2025-11-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,795 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,795 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,795 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,795 - INFO - Processing Excel row 66: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 139, 'date': Timestamp('2025-11-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,795 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,795 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,796 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,796 - INFO - Processing Excel row 67: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 2, 'price_unit': 38.85175, 'sequence': 140, 'date': Timestamp('2025-11-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,796 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,796 - INFO - Prepared product SPO001100 with quantity 2.0 for batch creation
+2026-04-15 15:32:28,796 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,796 - INFO - Processing Excel row 68: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 141, 'date': Timestamp('2025-11-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,796 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,797 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,797 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,797 - INFO - Processing Excel row 69: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 142, 'date': Timestamp('2025-11-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,797 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,797 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,797 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,797 - INFO - Processing Excel row 70: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 143, 'date': Timestamp('2025-12-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,797 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,798 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,798 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,798 - INFO - Processing Excel row 71: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 144, 'date': Timestamp('2025-12-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,798 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,798 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,798 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,798 - INFO - Processing Excel row 72: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 145, 'date': Timestamp('2025-12-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,798 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,799 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,799 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,799 - INFO - Processing Excel row 73: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 146, 'date': Timestamp('2025-12-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,799 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,800 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,800 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,800 - INFO - Processing Excel row 74: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 147, 'date': Timestamp('2025-12-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,800 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,800 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,800 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,801 - INFO - Processing Excel row 75: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.8517, 'sequence': 148, 'date': Timestamp('2025-12-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,801 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,801 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,801 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,801 - INFO - Processing Excel row 76: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPO001100', 'product_uom_qty': 1, 'price_unit': 38.85175, 'sequence': 149, 'date': Timestamp('2025-12-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPO001100'}
+2026-04-15 15:32:28,801 - INFO - Using cached product ID for code: 'SPO001100'
+2026-04-15 15:32:28,801 - INFO - Prepared product SPO001100 with quantity 1.0 for batch creation
+2026-04-15 15:32:28,801 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,801 - INFO - Processing Excel row 77: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPV002100', 'product_uom_qty': 10, 'price_unit': 67.2632545454545, 'sequence': 150, 'date': Timestamp('2026-03-25 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPV002100'}
+2026-04-15 15:32:28,801 - INFO - Searching for product with code: 'SPV002100' and old code: 'SPV002100'
+2026-04-15 15:32:28,871 - INFO - Found product with exact match on default_code: 'SPV002100'
+2026-04-15 15:32:28,951 - INFO - Prepared product SPV002100 with quantity 10.0 for batch creation
+2026-04-15 15:32:28,951 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:28,952 - INFO - Processing Excel row 78: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPV003100', 'product_uom_qty': 3, 'price_unit': 101.135833333333, 'sequence': 151, 'date': Timestamp('2025-12-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPV003100'}
+2026-04-15 15:32:28,952 - INFO - Searching for product with code: 'SPV003100' and old code: 'SPV003100'
+2026-04-15 15:32:29,031 - INFO - Found product with exact match on default_code: 'SPV003100'
+2026-04-15 15:32:29,134 - INFO - Prepared product SPV003100 with quantity 3.0 for batch creation
+2026-04-15 15:32:29,135 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,135 - INFO - Processing Excel row 79: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPV003100', 'product_uom_qty': 1, 'price_unit': 81.5605, 'sequence': 152, 'date': Timestamp('2026-02-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPV003100'}
+2026-04-15 15:32:29,135 - INFO - Using cached product ID for code: 'SPV003100'
+2026-04-15 15:32:29,136 - INFO - Prepared product SPV003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,136 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,136 - INFO - Processing Excel row 80: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPV003100', 'product_uom_qty': 5, 'price_unit': 81.56052, 'sequence': 153, 'date': Timestamp('2026-02-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPV003100'}
+2026-04-15 15:32:29,136 - INFO - Using cached product ID for code: 'SPV003100'
+2026-04-15 15:32:29,136 - INFO - Prepared product SPV003100 with quantity 5.0 for batch creation
+2026-04-15 15:32:29,136 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,136 - INFO - Processing Excel row 81: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPV003100', 'product_uom_qty': 1, 'price_unit': 95.5154, 'sequence': 154, 'date': Timestamp('2026-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPV003100'}
+2026-04-15 15:32:29,136 - INFO - Using cached product ID for code: 'SPV003100'
+2026-04-15 15:32:29,136 - INFO - Prepared product SPV003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,137 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,137 - INFO - Processing Excel row 82: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW005N110', 'product_uom_qty': 1, 'price_unit': 482.3563, 'sequence': 155, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW005N110'}
+2026-04-15 15:32:29,137 - INFO - Searching for product with code: 'SPW005N110' and old code: 'SPW005N110'
+2026-04-15 15:32:29,225 - INFO - Found product with exact match on default_code: 'SPW005N110'
+2026-04-15 15:32:29,307 - INFO - Prepared product SPW005N110 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,307 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,308 - INFO - Processing Excel row 83: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW005N110', 'product_uom_qty': 1, 'price_unit': 482.3563, 'sequence': 156, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW005N110'}
+2026-04-15 15:32:29,308 - INFO - Using cached product ID for code: 'SPW005N110'
+2026-04-15 15:32:29,308 - INFO - Prepared product SPW005N110 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,308 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,308 - INFO - Processing Excel row 84: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW005N110', 'product_uom_qty': 1, 'price_unit': 492.3187, 'sequence': 157, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW005N110'}
+2026-04-15 15:32:29,308 - INFO - Using cached product ID for code: 'SPW005N110'
+2026-04-15 15:32:29,308 - INFO - Prepared product SPW005N110 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,308 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,309 - INFO - Processing Excel row 85: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW005N110', 'product_uom_qty': 1, 'price_unit': 492.3187, 'sequence': 158, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW005N110'}
+2026-04-15 15:32:29,309 - INFO - Using cached product ID for code: 'SPW005N110'
+2026-04-15 15:32:29,309 - INFO - Prepared product SPW005N110 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,309 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,309 - INFO - Processing Excel row 86: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW005N110', 'product_uom_qty': 1, 'price_unit': 492.3188, 'sequence': 159, 'date': Timestamp('2025-07-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW005N110'}
+2026-04-15 15:32:29,309 - INFO - Using cached product ID for code: 'SPW005N110'
+2026-04-15 15:32:29,309 - INFO - Prepared product SPW005N110 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,309 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,310 - INFO - Processing Excel row 87: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW012100', 'product_uom_qty': 2, 'price_unit': 120.72795, 'sequence': 160, 'date': Timestamp('2025-12-01 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW012100'}
+2026-04-15 15:32:29,310 - INFO - Searching for product with code: 'SPW012100' and old code: 'SPW012100'
+2026-04-15 15:32:29,382 - INFO - Found product with exact match on default_code: 'SPW012100'
+2026-04-15 15:32:29,459 - INFO - Prepared product SPW012100 with quantity 2.0 for batch creation
+2026-04-15 15:32:29,459 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,460 - INFO - Processing Excel row 88: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW012100', 'product_uom_qty': 1, 'price_unit': 120.7279, 'sequence': 161, 'date': Timestamp('2025-12-04 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW012100'}
+2026-04-15 15:32:29,460 - INFO - Using cached product ID for code: 'SPW012100'
+2026-04-15 15:32:29,460 - INFO - Prepared product SPW012100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,460 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,460 - INFO - Processing Excel row 89: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW012100', 'product_uom_qty': 1, 'price_unit': 205.0917, 'sequence': 162, 'date': Timestamp('2025-12-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW012100'}
+2026-04-15 15:32:29,460 - INFO - Using cached product ID for code: 'SPW012100'
+2026-04-15 15:32:29,460 - INFO - Prepared product SPW012100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,461 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,461 - INFO - Processing Excel row 90: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW012100', 'product_uom_qty': 1, 'price_unit': 205.0917, 'sequence': 163, 'date': Timestamp('2026-02-17 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW012100'}
+2026-04-15 15:32:29,461 - INFO - Using cached product ID for code: 'SPW012100'
+2026-04-15 15:32:29,461 - INFO - Prepared product SPW012100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,461 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,461 - INFO - Processing Excel row 91: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW026100', 'product_uom_qty': 1, 'price_unit': 183.4195, 'sequence': 164, 'date': Timestamp('2025-07-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW026100'}
+2026-04-15 15:32:29,461 - INFO - Searching for product with code: 'SPW026100' and old code: 'SPW026100'
+2026-04-15 15:32:29,526 - INFO - Found product with exact match on default_code: 'SPW026100'
+2026-04-15 15:32:29,602 - INFO - Prepared product SPW026100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,602 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,602 - INFO - Processing Excel row 92: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW026100', 'product_uom_qty': 1, 'price_unit': 16.2065, 'sequence': 165, 'date': Timestamp('2025-07-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW026100'}
+2026-04-15 15:32:29,602 - INFO - Using cached product ID for code: 'SPW026100'
+2026-04-15 15:32:29,602 - INFO - Prepared product SPW026100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,602 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,602 - INFO - Processing Excel row 93: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW026100', 'product_uom_qty': 1, 'price_unit': 167.145, 'sequence': 166, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW026100'}
+2026-04-15 15:32:29,602 - INFO - Using cached product ID for code: 'SPW026100'
+2026-04-15 15:32:29,602 - INFO - Prepared product SPW026100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,602 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,602 - INFO - Processing Excel row 94: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW026100', 'product_uom_qty': 1, 'price_unit': 167.145, 'sequence': 167, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW026100'}
+2026-04-15 15:32:29,602 - INFO - Using cached product ID for code: 'SPW026100'
+2026-04-15 15:32:29,602 - INFO - Prepared product SPW026100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,602 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,603 - INFO - Processing Excel row 95: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW026100', 'product_uom_qty': 1, 'price_unit': 159.74, 'sequence': 168, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW026100'}
+2026-04-15 15:32:29,603 - INFO - Using cached product ID for code: 'SPW026100'
+2026-04-15 15:32:29,603 - INFO - Prepared product SPW026100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,603 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,603 - INFO - Processing Excel row 96: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW19N100', 'product_uom_qty': 1, 'price_unit': 167.8626, 'sequence': 169, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW19N100'}
+2026-04-15 15:32:29,603 - INFO - Searching for product with code: 'SPW19N100' and old code: 'SPW19N100'
+2026-04-15 15:32:29,673 - INFO - Found product with exact match on default_code: 'SPW19N100'
+2026-04-15 15:32:29,746 - INFO - Prepared product SPW19N100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,746 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,746 - INFO - Processing Excel row 97: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW19N100', 'product_uom_qty': 1, 'price_unit': 167.8627, 'sequence': 170, 'date': Timestamp('2025-07-11 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW19N100'}
+2026-04-15 15:32:29,746 - INFO - Using cached product ID for code: 'SPW19N100'
+2026-04-15 15:32:29,746 - INFO - Prepared product SPW19N100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,746 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,746 - INFO - Processing Excel row 98: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW19N100', 'product_uom_qty': 1, 'price_unit': 167.8627, 'sequence': 171, 'date': Timestamp('2025-07-12 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW19N100'}
+2026-04-15 15:32:29,746 - INFO - Using cached product ID for code: 'SPW19N100'
+2026-04-15 15:32:29,746 - INFO - Prepared product SPW19N100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,746 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,746 - INFO - Processing Excel row 99: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW19N100', 'product_uom_qty': 1, 'price_unit': 225.7575, 'sequence': 172, 'date': Timestamp('2025-08-25 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW19N100'}
+2026-04-15 15:32:29,746 - INFO - Using cached product ID for code: 'SPW19N100'
+2026-04-15 15:32:29,746 - INFO - Prepared product SPW19N100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,746 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,746 - INFO - Processing Excel row 100: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'SPW19N100', 'product_uom_qty': 1, 'price_unit': 224.2237, 'sequence': 173, 'date': Timestamp('2025-09-08 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'SPW19N100'}
+2026-04-15 15:32:29,746 - INFO - Using cached product ID for code: 'SPW19N100'
+2026-04-15 15:32:29,747 - INFO - Prepared product SPW19N100 with quantity 1.0 for batch creation
+2026-04-15 15:32:29,747 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,747 - INFO - Processing Excel row 101: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 3, 'price_unit': 128.143, 'sequence': 174, 'date': Timestamp('2026-02-24 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-15 15:32:29,747 - INFO - Searching for product with code: 'WB0005A100' and old code: 'WB0005A100'
+2026-04-15 15:32:29,822 - INFO - Found product with exact match on default_code: 'WB0005A100'
+2026-04-15 15:32:29,896 - INFO - Prepared product WB0005A100 with quantity 3.0 for batch creation
+2026-04-15 15:32:29,896 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,896 - INFO - Processing Excel row 102: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 5, 'price_unit': 128.9463, 'sequence': 175, 'date': Timestamp('2026-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-15 15:32:29,896 - INFO - Using cached product ID for code: 'WB0005A100'
+2026-04-15 15:32:29,896 - INFO - Prepared product WB0005A100 with quantity 5.0 for batch creation
+2026-04-15 15:32:29,897 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,897 - INFO - Processing Excel row 103: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'WB0005A100', 'product_uom_qty': 2, 'price_unit': 135.97505, 'sequence': 176, 'date': Timestamp('2026-03-10 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WB0005A100'}
+2026-04-15 15:32:29,897 - INFO - Using cached product ID for code: 'WB0005A100'
+2026-04-15 15:32:29,897 - INFO - Prepared product WB0005A100 with quantity 2.0 for batch creation
+2026-04-15 15:32:29,897 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:29,897 - INFO - Processing Excel row 104: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.3771, 'sequence': 177, 'date': Timestamp('2026-02-05 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-15 15:32:29,898 - INFO - Searching for product with code: 'WD0003100' and old code: 'WD0003100'
+2026-04-15 15:32:29,971 - INFO - Found product with exact match on default_code: 'WD0003100'
+2026-04-15 15:32:30,046 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:30,047 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:30,047 - INFO - Processing Excel row 105: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 3, 'price_unit': 156.377166666667, 'sequence': 178, 'date': Timestamp('2025-10-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-15 15:32:30,047 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-15 15:32:30,047 - INFO - Prepared product WD0003100 with quantity 3.0 for batch creation
+2026-04-15 15:32:30,047 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:30,048 - INFO - Processing Excel row 106: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'FG13 Receipt', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังบริการหลังการขาย', 'location_dest_id': 'FG13/Stock', 'default_code': 'WD0003100', 'product_uom_qty': 1, 'price_unit': 156.3771, 'sequence': 179, 'date': Timestamp('2025-10-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'WD0003100'}
+2026-04-15 15:32:30,048 - INFO - Using cached product ID for code: 'WD0003100'
+2026-04-15 15:32:30,048 - INFO - Prepared product WD0003100 with quantity 1.0 for batch creation
+2026-04-15 15:32:30,048 - INFO - Move locations - Source: 4, Dest: 52
+2026-04-15 15:32:30,887 - INFO - Created 106 moves in batch for picking 15082
+2026-04-15 15:32:30,986 - INFO - Re-updated dates before confirming picking 15082: 2026-03-31 08:00:00
+2026-04-15 15:32:31,574 - INFO - Confirmed transfer 15082 with forced date context
+2026-04-15 15:32:31,574 - INFO - Import completed: 1 success, 0 failed.

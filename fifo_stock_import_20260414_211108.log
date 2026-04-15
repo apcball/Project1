@@ -1,0 +1,79 @@
+2026-04-14 21:11:09,082 - INFO - Successfully connected to Odoo as user ID: 2
+2026-04-14 21:11:09,182 - INFO - Odoo version: 17.0.1.3
+2026-04-14 21:11:09,416 - INFO - Available date fields in stock.picking: ['activity_date_deadline', 'my_activity_date_deadline', 'scheduled_date', 'date_deadline', 'date', 'date_done', 'delay_alert_date', 'create_date', 'write_date', 'date_notice', 'date_confirmed', 'date_start', 'operation_date']
+2026-04-14 21:11:09,548 - INFO - Successfully read Excel file with 12 rows
+2026-04-14 21:11:09,548 - INFO - Excel columns: ['partner_id', 'scheduled_date', 'picking_type_id', 'date_done', 'origin', 'location_dest_id', 'default_code', 'product_uom_qty', 'price_unit', 'sequence', 'date']
+2026-04-14 21:11:09,550 - INFO - Processed sequence column
+2026-04-14 21:11:09,550 - INFO - scheduled_date dtype: datetime64[ns]
+2026-04-14 21:11:09,551 - INFO - scheduled_date sample: 2026-03-31 08:00:00
+2026-04-14 21:11:09,552 - INFO - Converted scheduled_date to string format. Sample: 2026-03-31 08:00:00
+2026-04-14 21:11:09,552 - INFO - Fixed picking type name from 'My Company: OB FIFO' and 'คลังวัตถุดิบ 2: OB FIFO' to 'OB FIFO'
+2026-04-14 21:11:09,552 - INFO - Using 'default_code' column as 'product_id'
+2026-04-14 21:11:09,552 - INFO - Using 'origin' column to identify transfer groups
+2026-04-14 21:11:09,555 - INFO - Excel file validation and data filling completed successfully
+2026-04-14 21:11:09,719 - INFO - Searching for location: 'RM03/QTL'
+2026-04-14 21:11:09,965 - INFO - Found location with complete_name match: 'RM03/QTL' for 'RM03/QTL'
+2026-04-14 21:11:10,069 - INFO - Found partner ID 4937 for 'MOGEN_OB'
+2026-04-14 21:11:10,173 - INFO - Created transfer for date 2026-03-31 08:00:00 sequence 1 with picking ID 15024
+2026-04-14 21:11:10,174 - INFO - Processing Excel row 1: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'MA01-168A12202440A', 'product_uom_qty': 1, 'price_unit': 840.0, 'sequence': 1, 'date': Timestamp('2026-01-20 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'MA01-168A12202440A'}
+2026-04-14 21:11:10,174 - INFO - Searching for product with code: 'MA01-168A12202440A' and old code: 'MA01-168A12202440A'
+2026-04-14 21:11:10,434 - INFO - Found product with exact match on old_product_code: 'MA01-168A12202440A'
+2026-04-14 21:11:10,525 - INFO - Prepared product MA01-168A12202440A with quantity 1.0 for batch creation
+2026-04-14 21:11:10,525 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:10,526 - INFO - Processing Excel row 2: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'MA02-White-Gloss', 'product_uom_qty': 70, 'price_unit': 130.0, 'sequence': 2, 'date': Timestamp('2025-02-27 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'MA02-White-Gloss'}
+2026-04-14 21:11:10,526 - INFO - Searching for product with code: 'MA02-White-Gloss' and old code: 'MA02-White-Gloss'
+2026-04-14 21:11:10,799 - INFO - Found product with exact match on old_product_code: 'MA02-White-Gloss'
+2026-04-14 21:11:10,902 - INFO - Prepared product MA02-White-Gloss with quantity 70.0 for batch creation
+2026-04-14 21:11:10,902 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:10,903 - INFO - Processing Excel row 3: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA01-120-HMR-2440-15', 'product_uom_qty': 24, 'price_unit': 401.87, 'sequence': 3, 'date': Timestamp('2024-12-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA01-120-HMR-2440-15'}
+2026-04-14 21:11:10,903 - INFO - Searching for product with code: 'NMA01-120-HMR-2440-15' and old code: 'NMA01-120-HMR-2440-15'
+2026-04-14 21:11:11,161 - INFO - Found product with exact match on old_product_code: 'NMA01-120-HMR-2440-15'
+2026-04-14 21:11:11,246 - INFO - Prepared product NMA01-120-HMR-2440-15 with quantity 24.0 for batch creation
+2026-04-14 21:11:11,246 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:11,247 - INFO - Processing Excel row 4: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA01-120-PB-HMR-2440-16', 'product_uom_qty': 3, 'price_unit': 340.0, 'sequence': 4, 'date': Timestamp('2025-10-22 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA01-120-PB-HMR-2440-16'}
+2026-04-14 21:11:11,247 - INFO - Searching for product with code: 'NMA01-120-PB-HMR-2440-16' and old code: 'NMA01-120-PB-HMR-2440-16'
+2026-04-14 21:11:11,530 - INFO - Found product with exact match on old_product_code: 'NMA01-120-PB-HMR-2440-16'
+2026-04-14 21:11:11,630 - INFO - Prepared product NMA01-120-PB-HMR-2440-16 with quantity 3.0 for batch creation
+2026-04-14 21:11:11,631 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:11,631 - INFO - Processing Excel row 5: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA01-H4-LMN1249-0.8', 'product_uom_qty': 4, 'price_unit': 1007.5, 'sequence': 5, 'date': Timestamp('2025-05-23 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA01-H4-LMN1249-0.8'}
+2026-04-14 21:11:11,631 - INFO - Searching for product with code: 'NMA01-H4-LMN1249-0.8' and old code: 'NMA01-H4-LMN1249-0.8'
+2026-04-14 21:11:11,936 - INFO - Found product with exact match on old_product_code: 'NMA01-H4-LMN1249-0.8'
+2026-04-14 21:11:12,015 - INFO - Prepared product NMA01-H4-LMN1249-0.8 with quantity 4.0 for batch creation
+2026-04-14 21:11:12,015 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:12,016 - INFO - Processing Excel row 6: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA02-00000PP19-1250', 'product_uom_qty': 72, 'price_unit': 84.4, 'sequence': 6, 'date': Timestamp('2024-12-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA02-00000PP19-1250'}
+2026-04-14 21:11:12,016 - INFO - Searching for product with code: 'NMA02-00000PP19-1250' and old code: 'NMA02-00000PP19-1250'
+2026-04-14 21:11:12,290 - INFO - Found product with exact match on old_product_code: 'NMA02-00000PP19-1250'
+2026-04-14 21:11:12,376 - INFO - Prepared product NMA02-00000PP19-1250 with quantity 72.0 for batch creation
+2026-04-14 21:11:12,376 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:12,377 - INFO - Processing Excel row 7: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA02-00000PP36-1250-0.3', 'product_uom_qty': 30, 'price_unit': 122.2, 'sequence': 7, 'date': Timestamp('2025-09-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA02-00000PP36-1250-0.3'}
+2026-04-14 21:11:12,377 - INFO - Searching for product with code: 'NMA02-00000PP36-1250-0.3' and old code: 'NMA02-00000PP36-1250-0.3'
+2026-04-14 21:11:12,642 - INFO - Found product with exact match on old_product_code: 'NMA02-00000PP36-1250-0.3'
+2026-04-14 21:11:12,731 - INFO - Prepared product NMA02-00000PP36-1250-0.3 with quantity 30.0 for batch creation
+2026-04-14 21:11:12,731 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:12,731 - INFO - Processing Excel row 8: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA02-00000PP36-1250-0.3', 'product_uom_qty': 300, 'price_unit': 122.2, 'sequence': 8, 'date': Timestamp('2025-12-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA02-00000PP36-1250-0.3'}
+2026-04-14 21:11:12,731 - INFO - Using cached product ID for code: 'NMA02-00000PP36-1250-0.3'
+2026-04-14 21:11:12,731 - INFO - Prepared product NMA02-00000PP36-1250-0.3 with quantity 300.0 for batch creation
+2026-04-14 21:11:12,731 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:12,732 - INFO - Processing Excel row 9: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA02-00000PP36-1250-0.3', 'product_uom_qty': 40, 'price_unit': 122.2, 'sequence': 9, 'date': Timestamp('2026-01-19 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA02-00000PP36-1250-0.3'}
+2026-04-14 21:11:12,732 - INFO - Using cached product ID for code: 'NMA02-00000PP36-1250-0.3'
+2026-04-14 21:11:12,732 - INFO - Prepared product NMA02-00000PP36-1250-0.3 with quantity 40.0 for batch creation
+2026-04-14 21:11:12,732 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:12,732 - INFO - Processing Excel row 10: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA02-131000x0.12-308', 'product_uom_qty': 47, 'price_unit': 46.0, 'sequence': 10, 'date': Timestamp('2025-12-09 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA02-131000x0.12-308'}
+2026-04-14 21:11:12,732 - INFO - Searching for product with code: 'NMA02-131000x0.12-308' and old code: 'NMA02-131000x0.12-308'
+2026-04-14 21:11:13,016 - INFO - Found product with exact match on old_product_code: 'NMA02-131000x0.12-308'
+2026-04-14 21:11:13,108 - INFO - Prepared product NMA02-131000x0.12-308 with quantity 47.0 for batch creation
+2026-04-14 21:11:13,108 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:13,108 - INFO - Processing Excel row 11: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA02-131000x0.2-031', 'product_uom_qty': 250, 'price_unit': 46.0, 'sequence': 11, 'date': Timestamp('2024-12-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA02-131000x0.2-031'}
+2026-04-14 21:11:13,108 - INFO - Searching for product with code: 'NMA02-131000x0.2-031' and old code: 'NMA02-131000x0.2-031'
+2026-04-14 21:11:13,377 - INFO - Found product with exact match on old_product_code: 'NMA02-131000x0.2-031'
+2026-04-14 21:11:13,466 - INFO - Prepared product NMA02-131000x0.2-031 with quantity 250.0 for batch creation
+2026-04-14 21:11:13,466 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:13,467 - INFO - Processing Excel row 12: {'partner_id': 'MOGEN_OB', 'scheduled_date': Timestamp('2026-03-31 08:00:00'), 'picking_type_id': 'RM03-RE', 'date_done': Timestamp('2026-03-31 08:00:00'), 'origin': 'คลังวัตถุดิบ Supplier', 'location_dest_id': 'RM03/QTL', 'default_code': 'NMA02-205-CB/2', 'product_uom_qty': 60, 'price_unit': 77.0, 'sequence': 12, 'date': Timestamp('2024-12-18 00:00:00'), 'scheduled_date_orig': Timestamp('2026-03-31 08:00:00'), 'product_id': 'NMA02-205-CB/2'}
+2026-04-14 21:11:13,467 - INFO - Searching for product with code: 'NMA02-205-CB/2' and old code: 'NMA02-205-CB/2'
+2026-04-14 21:11:13,745 - INFO - Found product with exact match on old_product_code: 'NMA02-205-CB/2'
+2026-04-14 21:11:13,834 - INFO - Prepared product NMA02-205-CB/2 with quantity 60.0 for batch creation
+2026-04-14 21:11:13,834 - INFO - Move locations - Source: 4, Dest: 1187
+2026-04-14 21:11:14,037 - INFO - Created 12 moves in batch for picking 15024
+2026-04-14 21:11:14,135 - INFO - Re-updated dates before confirming picking 15024: 2026-03-31 08:00:00
+2026-04-14 21:11:14,354 - INFO - Confirmed transfer 15024 with forced date context
+2026-04-14 21:11:14,354 - INFO - Import completed: 1 success, 0 failed.

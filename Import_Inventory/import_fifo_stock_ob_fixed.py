@@ -7,12 +7,12 @@ import os
 
 # Odoo connection parameters
 HOST = 'http://160.187.249.148:8069'
-DB = 'MOG_LIVE'
+DB = 'MOG_IMPORT'
 USERNAME = 'apichart@mogen.co.th'
 PASSWORD = '471109538'
 
 # Excel file path
-EXCEL_FILE = 'Import_Inventory/RM01-Receive.xlsx'
+EXCEL_FILE = 'Import_Inventory/RM11-SP_OB_31032026.xlsx'
 
 # Configure logging
 log_filename = f'fifo_stock_import_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
@@ -688,7 +688,7 @@ def create_internal_transfers(uid, models, df):
 
 if __name__ == "__main__":
     try:
-        EXCEL_FILE = 'Import_Inventory/RM01-Receive.xlsx'
+        EXCEL_FILE = 'Import_Inventory/RM11-SP_OB_31032026.xlsx'
         uid, models = connect_to_odoo()
         df = read_excel_file()
         # ก่อนวนลูปสร้าง picking/move
